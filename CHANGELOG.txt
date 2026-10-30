@@ -1,0 +1,20 @@
+ALFA | History of Islam - CHANGELOG
+Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
+
+v0.4.0
+- index.html: video YouTube bisa diputar langsung di halaman (Shorts dan Video panjang)
+
+v0.3.0
+- admin.html: notifikasi toast dan dialog konfirmasi hapus, pesan error ramah
+- schema.sql: reload cache skema API di akhir
+- index.html, detail.html, admin.html: ikon website (favicon) terpasang
+- config.js tidak ikut dikirim lagi (pakai config.example.js sebagai contoh)
+
+v0.2.0
+- Halaman detail karakter dan place (detail.html)
+- Kartu place dengan carousel foto, klik untuk detail
+- Admin: tab Place, crop cover karakter, slide, gambar samping, kotak Detail
+- schema.sql: kolom baru + tabel places
+
+v0.1.0
+- Rilis pertama versi Supabase: index.html, admin.html, schema.sql, config.js, defaults.json
