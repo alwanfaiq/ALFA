@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v0.4.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v0.5.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -240,8 +240,15 @@ function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitl
 DEF.places=PL;RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));
 rCH(DEF.characters);rSH(DEF.shorts);rVD([]);
 $("#yr").textContent="© "+new Date().getFullYear()+" ALFA | History of Islam, @alwan-faiq";
-const CFG=window.ALFA_CFG||{};
+const CFG=window.ALFA_CFG||{},DR={};
 (async()=>{if(!CFG.url||CFG.url.includes("YOUR-"))return;
-for(const k of Object.keys(RN)){try{const r=await fetch(CFG.url+"/rest/v1/"+k+"?select=*",{headers:{apikey:CFG.key}});if(!r.ok)continue;const l=SRT[k](await r.json());RN[k](l.length?l:DEF[k])}catch(e){}}})();
+for(const k of Object.keys(RN)){try{const r=await fetch(CFG.url+"/rest/v1/"+k+"?select=*",{headers:{apikey:CFG.key}});if(!r.ok)continue;const j=await r.json();if(DR[k])continue;const l=SRT[k](j);RN[k](l.length?l:DEF[k])}catch(e){}}})();
 document.querySelectorAll(".rail").forEach(r=>{const sc=r.querySelector(".sc");r.querySelector(".l").onclick=()=>sc.scrollBy({left:-sc.clientWidth*.7,behavior:"smooth"});r.querySelector(".r").onclick=()=>sc.scrollBy({left:sc.clientWidth*.7,behavior:"smooth"})});
+
+// pratinjau langsung dari admin (hanya same-origin dan ?preview=1)
+let LT="";
+addEventListener("message",e=>{if(e.origin!==location.origin||!/[?&]preview=1/.test(location.search))return;const m=e.data;if(!m||m.type!="alfa-list"||!RN[m.tab]||!Array.isArray(m.rows))return;
+DR[m.tab]=1;const l=SRT[m.tab](m.rows.slice());RN[m.tab](l.length?l:DEF[m.tab]);
+if(m.tab!=LT){LT=m.tab;const s=document.getElementById(m.tab=="places"?"places":m.tab);if(s)s.scrollIntoView({block:"start"})}
+if(m.tab=="places"&&m.focus)openPlace(m.focus)});
 </script></body></html>
