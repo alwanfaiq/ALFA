@@ -1,6 +1,12 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v0.5.0
+- admin.html: tampilan dua kolom (form di kiri, pratinjau langsung di kanan), mode desktop. Pratinjau Beranda dan Halaman detail, berubah saat form diisi tanpa perlu simpan
+- index.html: bisa menerima data pratinjau dari admin (hanya lewat ?preview=1, tidak mengubah tampilan publik)
+- detail.html: bisa menerima data pratinjau dari admin
+- schema.sql tidak berubah (tetap v0.3.0)
+
 v0.4.0
 - index.html: video YouTube bisa diputar langsung di halaman (Shorts dan Video panjang)
 
