@@ -1,6 +1,13 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v0.6.0
+- Card karakter: cover bersih (tanpa tulisan di gambar) + gradasi gelap di bawah dengan nama otomatis dari HTML, kartu selang-seling naik turun
+- index.html: gaya label nama di cover, nilai bawaan karakter
+- admin.html: field "Gelar singkat" (baris kecil di atas nama), centang gradasi nama aktif otomatis untuk karakter baru, panduan gradasi di alat crop
+- File gambar: assets/c1.webp sampai c6.webp (cover bersih) dan defaults.json ada di alfa-upload-sekali.zip
+- detail.html dan schema.sql tidak berubah
+
 v0.5.0
 - admin.html: tampilan dua kolom (form di kiri, pratinjau langsung di kanan), mode desktop. Pratinjau Beranda dan Halaman detail, berubah saat form diisi tanpa perlu simpan
 - index.html: bisa menerima data pratinjau dari admin (hanya lewat ?preview=1, tidak mengubah tampilan publik)
