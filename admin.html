@@ -5,17 +5,26 @@
 :root{--bg:#181818;--p:#212121;--g:#c4a35a;--g2:#6e5c36;--ink:#f3ead8;--mut:#b4a88f;color-scheme:dark}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Bitter,Georgia,serif;padding:24px clamp(16px,3vw,56px) 60px;max-width:900px;margin:auto}
 h1,h3{font-family:Cinzel,serif;font-weight:800}h1{font-size:2rem}h3{color:var(--g);font-size:1.15rem}
-button,.go{font:inherit;color:inherit;background:none;border:1px solid var(--g);color:var(--g);padding:6px 16px;cursor:pointer;font-weight:700;text-decoration:none}
+button,.go{font:inherit;background:none;border:1px solid var(--g);color:var(--g);padding:6px 14px;cursor:pointer;font-weight:700;text-decoration:none}
 button:hover,.go:hover{background:var(--g);color:var(--bg)}button:disabled{opacity:.5}
 :focus-visible{outline:2px solid var(--g);outline-offset:3px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}.top div{display:flex;gap:8px}
 .tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.tabs .on{background:var(--g);color:var(--bg)}
-.fm{display:grid;gap:12px;max-width:640px;background:var(--p);border:1px solid var(--g2);padding:20px;margin:16px 0}
-label{display:grid;gap:4px;font-size:.88rem;color:var(--mut)}
-input,textarea{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 10px;font:inherit}
+.fm{display:grid;gap:14px;max-width:700px;background:var(--p);border:1px solid var(--g2);padding:20px;margin:16px 0}
+label{display:grid;gap:4px;font-size:.88rem;color:var(--mut)}label.ck{display:flex;gap:8px;align-items:center}
+input,textarea{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 10px;font:inherit;width:100%}input[type=checkbox]{width:auto}
+textarea.big{min-height:260px}
+.hlp{font-size:.8rem;color:var(--mut);white-space:pre-line}
 .pv{width:56px;height:72px;object-fit:cover;border:1px solid var(--g2)}.pv[hidden]{display:none}
-.ls{display:grid;gap:8px;max-width:640px}.row{display:flex;align-items:center;gap:12px;background:var(--p);padding:8px 12px;border:1px solid #2c2c2c}.row span{flex:1}
+.pvc{width:80px;height:220px}
+.ls{display:grid;gap:8px;max-width:700px}.row,.it{display:flex;align-items:center;gap:10px;background:var(--p);padding:8px 12px;border:1px solid #2c2c2c}.row span{flex:1}.it{background:var(--bg)}.it input{flex:1}.it .pv{width:72px;height:48px}
+.sm{padding:2px 9px}
+.mp{position:relative;max-width:520px;cursor:crosshair;border:1px solid var(--g2)}.mp img{display:block;width:100%}.mp i{position:absolute;width:18px;height:18px;background:var(--g);border:2px solid #181818;transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 0 2px var(--g)}
 .m{color:var(--mut);max-width:56ch;margin:12px 0}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:50;display:grid;place-items:center;padding:16px;overflow:auto}
+.cb{background:var(--p);border:1px solid var(--g);padding:20px;display:grid;gap:12px;justify-items:center;max-width:100%}
+.fr{position:relative;overflow:hidden;border:2px solid var(--g);background:#000;touch-action:none;cursor:grab}.fr img{position:absolute;max-width:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
+.bt{display:flex;gap:8px}
 </style></head><body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
@@ -24,32 +33,70 @@ input,textarea{background:var(--bg);color:var(--ink);border:1px solid var(--g2);
 const C=window.ALFA_CFG||{},app=document.getElementById("app");
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,er=e=>alert("Gagal: "+(e.message||e));
-const SC={characters:{l:"Karakter",f:[["name","Nama"],["role","Peran"],["bio","Bio","t"],["img","Gambar","i"]],ti:d=>d.name},
+const HELP="Format isi halaman:\n# Judul bagian  (judul tebal, boleh pakai emoji)\n- Sub judul  (diberi tanda ■)\nBaris biasa = paragraf. Tiap baris jadi satu paragraf.";
+const SC={
+characters:{l:"Karakter",f:[["name","Nama"],["role","Peran singkat (di bawah nama)"],["img","Cover karakter (di slider halaman utama)","c"],["show_label","Tampilkan nama & peran di atas cover (centang kalau gambarnya belum ada teksnya)","b"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman","t","h"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
+places:{l:"Place",f:[["name","Nama tempat"],["subtitle","Subjudul"],["description","Deskripsi singkat (di kartu peta)","t"],["pos","Posisi di peta (klik gambar peta)","m"],["slides","Foto kartu peta & halaman detail","s"],["meta","Keterangan di bawah judul halaman detail","t"],["body","Isi halaman detail (kosong = pakai deskripsi singkat)","t","h"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (Label : isi)","t"]],ti:d=>d.name},
 shorts:{l:"Shorts",f:[["ep","Nomor episode","n"],["title","Judul"],["summary","Ringkasan","t"],["url","Link YouTube (opsional)"],["img","Gambar cover","i"]],ti:d=>"EPS."+d.ep+" "+d.title},
 videos:{l:"Video panjang",f:[["title","Judul"],["description","Deskripsi","t"],["url","Link YouTube"],["img","Thumbnail (opsional)","i"]],ti:d=>d.title}};
 let inP=false,sb,tab="characters",ed=null,rows=[];
-if(!C.url||C.url.includes("YOUR-")||!window.supabase){app.append(el("h1","","Admin"),el("p","m","Isi dulu config.js dengan URL dan anon key Supabase kamu."))}
+if(!C.url||C.url.includes("YOUR-")||!window.supabase){app.append(el("h1","","Admin"),el("p","m","Isi dulu config.js dengan URL dan publishable key Supabase kamu."))}
 else{sb=supabase.createClient(C.url,C.key);sb.auth.onAuthStateChange((ev,s)=>{if(ev=="SIGNED_OUT")login();else if(s&&!inP)panel()});sb.auth.getSession().then(({data})=>{if(!data.session&&!inP)login()})}
 function login(){inP=false;app.replaceChildren(el("h1","","Admin"));const f=el("form","fm"),em=el("input"),pw=el("input"),b=el("button","","Masuk");
 em.type="email";em.placeholder="Email";em.required=true;em.autocomplete="username";pw.type="password";pw.placeholder="Password";pw.required=true;pw.autocomplete="current-password";b.type="submit";
 f.onsubmit=async e=>{e.preventDefault();b.disabled=true;const{error}=await sb.auth.signInWithPassword({email:em.value,password:pw.value});if(error){er(error);b.disabled=false}};
 f.append(el("h3","","Masuk"),em,pw,b);app.append(f)}
-async function load(){const q=sb.from(tab).select("*");const{data,error}=await (tab=="shorts"?q.order("ep",{ascending:false}):q.order("t",{ascending:tab=="characters"}));if(error)er(error);rows=data||[]}
-async function up(f){const n=Date.now()+"-"+f.name.replace(/[^\w.-]/g,"_");const{error}=await sb.storage.from("media").upload(n,f,{contentType:f.type});if(error)throw error;return sb.storage.from("media").getPublicUrl(n).data.publicUrl}
+async function load(){const q=sb.from(tab).select("*");const{data,error}=await (tab=="shorts"?q.order("ep",{ascending:false}):q.order("t",{ascending:tab!="videos"}));if(error)er(error);rows=data||[]}
+async function up(f){const n=Date.now()+"-"+Math.random().toString(36).slice(2,6)+"-"+f.name.replace(/[^\w.-]/g,"_");const{error}=await sb.storage.from("media").upload(n,f,{contentType:f.type});if(error)throw error;return sb.storage.from("media").getPublicUrl(n).data.publicUrl}
+// ---- cropper
+function crop(file,rw,rh,ow){return new Promise((res,rej)=>{const url=URL.createObjectURL(file),im=new Image();
+im.onerror=()=>rej(new Error("Gambar tidak bisa dibaca"));
+im.onload=()=>{const FW=Math.round(Math.max(120,Math.min(220,(innerHeight-250)*rw/rh,innerWidth-70))),FH=Math.round(FW*rh/rw),nw=im.naturalWidth,nh=im.naturalHeight,s0=Math.max(FW/nw,FH/nh);
+let s=s0,ox=(FW-nw*s)/2,oy=(FH-nh*s)/2,dr=null;
+const ov=el("div","ov"),bx=el("div","cb"),fr=el("div","fr"),pi=new Image(),z=document.createElement("input"),ok=el("button","","Terapkan"),no=el("button","","Batal"),bt=el("div","bt");
+fr.style.width=FW+"px";fr.style.height=FH+"px";pi.src=url;pi.alt="";fr.append(pi);z.type="range";z.min=1;z.max=5;z.step=.01;z.value=1;
+const ap=()=>{ox=Math.min(0,Math.max(FW-nw*s,ox));oy=Math.min(0,Math.max(FH-nh*s,oy));pi.style.width=nw*s+"px";pi.style.height=nh*s+"px";pi.style.left=ox+"px";pi.style.top=oy+"px"};
+const zm=(ns,cx,cy)=>{ns=Math.max(s0,Math.min(s0*5,ns));const k=ns/s;ox=cx-(cx-ox)*k;oy=cy-(cy-oy)*k;s=ns;z.value=s/s0;ap()};
+z.oninput=()=>zm(s0*z.value,FW/2,FH/2);
+fr.onpointerdown=e=>{dr=[e.clientX,e.clientY];fr.setPointerCapture(e.pointerId)};
+fr.onpointermove=e=>{if(!dr)return;ox+=e.clientX-dr[0];oy+=e.clientY-dr[1];dr=[e.clientX,e.clientY];ap()};
+fr.onpointerup=fr.onpointercancel=()=>dr=null;
+fr.addEventListener("wheel",e=>{e.preventDefault();const r=fr.getBoundingClientRect();zm(s*(e.deltaY<0?1.1:1/1.1),e.clientX-r.left,e.clientY-r.top)},{passive:false});
+ok.onclick=()=>{const c=document.createElement("canvas");c.width=ow;c.height=Math.round(ow*rh/rw);c.getContext("2d").drawImage(im,-ox/s,-oy/s,FW/s,FH/s,0,0,c.width,c.height);c.toBlob(b=>{ov.remove();URL.revokeObjectURL(url);b?res(b):rej(new Error("Gagal memotong gambar"))},"image/webp",.9)};
+no.onclick=()=>{ov.remove();URL.revokeObjectURL(url);res(null)};
+bt.append(ok,no);bx.append(el("p","m","Geser gambar untuk mengatur posisi. Scroll atau slider untuk zoom. Bingkai ini persis seperti tampilan cover."),fr,z,bt);ov.append(bx);document.body.append(ov);ap()};im.src=url})}
+// ---- default import
+const isA=u=>typeof u=="string"&&u.startsWith("assets/");
+async function mu(u){if(!isA(u))return u;const bl=await (await fetch(u)).blob();return up(new File([bl],u.split("/").pop(),{type:bl.type}))}
+async function mig(d){const o={...d};if(o.img)o.img=await mu(o.img);if(o.slides)o.slides=await Promise.all(o.slides.map(mu));if(o.gallery)o.gallery=await Promise.all(o.gallery.map(async g=>({...g,url:await mu(g.url)})));return o}
+const tn=(f,h)=>{const b=el("button","sm",h);b.type="button";b.onclick=f;return b};
 async function panel(){inP=true;await load();app.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();r.append(v,o);top.append(r);app.append(top);
 const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});app.append(tb);
 const S=SC[tab];
-if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+tab+")");b.onclick=async()=>{b.disabled=true;b.textContent="Mengunggah...";try{const D=await (await fetch("defaults.json")).json();let i=0;for(const d of D[tab]){const bl=await (await fetch(d.img)).blob();d.img=await up(new File([bl],d.img.split("/").pop(),{type:bl.type}));d.t=Date.now()+i++;const{error}=await sb.from(tab).insert(d);if(error)throw error}}catch(e){er(e)}panel()};app.append(b)}
+if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+S.l+")");b.onclick=async()=>{b.disabled=true;b.textContent="Mengunggah, tunggu sebentar...";try{const D=await (await fetch("defaults.json")).json();let i=0;for(const d of D[tab]){const o=await mig(d);o.t=Date.now()+i++;const{error}=await sb.from(tab).insert(o);if(error)throw error}}catch(e){er(e)}panel()};app.append(b)}
 const fm=el("div","fm"),val={...(ed&&rows.find(d=>d.id==ed)||{})};fm.append(el("h3","",ed?"Edit":"Tambah baru"));
-S.f.forEach(([k,lb,ty])=>{const l=el("label","",lb);let i;
-if(ty=="i"){i=el("input");i.type="file";i.accept="image/*";const pv=el("img","pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];i.onchange=async()=>{const f=i.files[0];if(!f)return;try{val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}};l.append(i,pv);fm.append(l);return}
-if(ty=="t"){i=el("textarea");i.rows=4}else{i=el("input");if(ty=="n")i.type="number"}
+S.f.forEach(([k,lb,ty,hp])=>{const l=el("label","",lb);let i;
+if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fm.append(l);return}
+if(ty=="i"||ty=="c"){i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
+i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"){f=await crop(f,287,787,574);if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
+l.append(i,pv);fm.append(l);return}
+if(ty=="s"||ty=="g"){const arr=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","ls"),g=ty=="g",pick=document.createElement("input");pick.type="file";pick.accept="image/*";pick.multiple=true;
+const draw=()=>{box.replaceChildren();arr.forEach((x,n)=>{const it=el("div","it"),im=el("img","pv");im.alt="";im.src=g?x.url:x;it.append(im);
+if(g){const c=document.createElement("input");c.placeholder="Keterangan gambar";c.value=x.caption||"";c.oninput=()=>x.caption=c.value;it.append(c)}else it.append(el("span","",""));
+it.append(tn(()=>{if(n){[arr[n-1],arr[n]]=[arr[n],arr[n-1]];draw()}},"↑"),tn(()=>{if(n<arr.length-1){[arr[n+1],arr[n]]=[arr[n],arr[n+1]];draw()}},"↓"),tn(()=>{arr.splice(n,1);draw()},"Hapus"));box.append(it)})};
+pick.onchange=async()=>{try{for(const f of pick.files)arr.push(g?{url:await up(f),caption:""}:await up(f))}catch(e){er(e)}pick.value="";draw()};
+draw();l.append(box,pick);fm.append(l);return}
+if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src="assets/map.webp";im.alt="Peta";w.append(im,dot);const sh=()=>{dot.hidden=val.x==null;dot.style.left=val.x+"%";dot.style.top=val.y+"%"};
+w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fm.append(l);return}
+if(ty=="t"){i=document.createElement("textarea");i.rows=4;if(hp){i.className="big";l.append(el("span","hlp",HELP))}}else{i=document.createElement("input");if(ty=="n")i.type="number"}
 i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
-const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o={};S.f.forEach(([k,,ty])=>o[k]=val[k]??(ty=="n"?0:""));
+const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o={};
+S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});
 if(!o[S.f[0][0]])return alert("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return alert("Isi link YouTube");if(o.url&&!GOOD.test(o.url))return alert("Link harus https dari youtube.com atau youtu.be");
+if(tab=="places"&&val.x==null)return alert("Klik peta untuk menentukan posisi tempat");
 sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;panel()};
 fm.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;panel()};fm.append(c)}
-const ls=el("div","ls");rows.forEach(d=>{const w=el("div","row"),im=el("img","pv");im.alt="";if(d.img)im.src=d.img;else im.hidden=true;w.append(im,el("span","",S.ti(d)));
+const ls=el("div","ls");rows.forEach(d=>{const w=el("div","row"),im=el("img","pv");im.alt="";const th=d.img||(Array.isArray(d.slides)&&d.slides[0]);if(th)im.src=th;else im.hidden=true;w.append(im,el("span","",S.ti(d)));
 const e=el("button","","Edit");e.onclick=()=>{ed=d.id;panel();scrollTo(0,0)};
 const x=el("button","","Hapus");x.onclick=async()=>{if(!confirm("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);panel()};w.append(e,x);ls.append(w)});
 app.append(fm,ls)}

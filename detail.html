@@ -1,0 +1,67 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#181818;--brown:#201602;--gold:#c4a35a;--gold2:#e8bf75;--cream:#fff8ec;--ink:#f3ead8;color-scheme:dark}
+body{background:var(--brown);color:var(--ink);font:400 17px/1.65 Bitter,Georgia,serif}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+header{background:var(--bg);display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px clamp(16px,3vw,56px)}
+.logo{display:flex;align-items:center;gap:12px;font:800 1.8rem/1 Cinzel,serif;color:#fff;text-decoration:none}
+.logo small{font:400 .8rem/1.15 Bitter,serif;border-left:1px solid #b4a88f;padding-left:10px}
+.back{font:700 .95rem Arvo,serif;color:var(--gold);text-decoration:none;border:1px solid var(--gold);padding:7px 18px}
+.back:hover{background:var(--gold);color:var(--bg)}
+#hero{background:var(--cream);padding:clamp(12px,3vw,40px) 0}
+.sl{position:relative;max-width:1500px;margin:auto;padding:0 clamp(40px,6vw,90px)}
+.sl img{display:block;width:100%;height:auto;max-height:78vh;object-fit:contain}
+.ar{position:absolute;top:50%;width:44px;height:64px;margin-top:-32px;background:none;border:0;cursor:pointer;display:grid;place-items:center}
+.ar::before{content:"";width:22px;height:22px;border:solid #b5694a;border-width:0 0 3px 3px;transform:rotate(45deg)}
+.ar.l{left:0}.ar.r{right:0}.ar.r::before{transform:rotate(-135deg)}.ar[hidden]{display:none}
+.dots{display:flex;justify-content:center;gap:7px;margin-top:10px}.dots i{width:9px;height:9px;background:#d9c9a8;cursor:pointer}.dots i.on{background:#b5694a}
+main{max-width:1400px;margin:auto;padding:clamp(32px,5vw,70px) clamp(16px,5vw,70px) 90px}
+h1{font:700 clamp(2rem,5vw,3.4rem)/1.1 Arvo,serif;text-transform:uppercase;color:#fff}
+.meta{white-space:pre-line;margin-top:24px}
+.cols{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);margin-top:36px;align-items:start}
+.bd h4{font:700 1.05rem Arvo,serif;text-transform:uppercase;margin:26px 0 12px}.bd h4:first-child{margin-top:0}
+.bd h5{font:400 1.05rem Bitter,serif;margin:20px 0 10px}.bd h5::before{content:"■";font-size:.8em;margin-right:.7em}
+.bd p{margin:0 0 1em;padding-left:1.1rem}
+.box{border:3px solid var(--gold2);padding:clamp(18px,3vw,36px);margin-top:40px;white-space:pre-line}
+.box b{display:block;font:700 1.05rem Arvo,serif;margin-bottom:14px}
+figure{margin:0 0 36px}figure img{display:block;width:100%;border:1px solid var(--gold)}
+figcaption{margin-top:10px;font-size:.95rem}
+.msg{padding:80px 20px;text-align:center}
+@media(max-width:800px){.cols{grid-template-columns:1fr}.logo small{display:none}}
+</style></head><body>
+<header><a class="logo" href="index.html">ALFA<small>History<br>of Islam</small></a><a class="back" id="back" href="index.html">← Kembali</a></header>
+<div id="app"><p class="msg">Memuat...</p></div>
+<script src="config.js"></script>
+<script>
+const C=window.ALFA_CFG||{},Q=new URLSearchParams(location.search),T=Q.get("t")=="places"?"places":"characters",ID=Q.get("id")||"",app=document.getElementById("app");
+const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const OK=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
+document.getElementById("back").href="index.html#"+(T=="places"?"places":"characters");
+async function get(){
+ if(/^[0-9a-f]{8}-[0-9a-f]{4}-/i.test(ID)&&C.url&&!C.url.includes("YOUR-")){const r=await fetch(C.url+"/rest/v1/"+T+"?id=eq."+ID+"&select=*",{headers:{apikey:C.key}});if(r.ok)return (await r.json())[0]}
+ const D=await (await fetch("defaults.json")).json();
+ return T=="places"?D.places.find(p=>p.slug==ID):D.characters[+ID.replace(/\D/g,"")]}
+function body(t){const b=el("div","bd");(t||"").split("\n").forEach(l=>{if(!l.trim())return;if(l.startsWith("# "))b.append(el("h4","",l.slice(2)));else if(l.startsWith("- "))b.append(el("h5","",l.slice(2)));else b.append(el("p","",l.trim()))});return b}
+function fail(m){app.replaceChildren(el("p","msg",m))}
+get().then(d=>{
+ if(!d)return fail("Halaman tidak ditemukan.");
+ document.title=d.name+" | ALFA";app.replaceChildren();
+ const sl=(Array.isArray(d.slides)?d.slides:[]).map(OK).filter(Boolean);
+ if(sl.length){const h=el("div"),w=el("div","sl"),im=new Image(),l=el("button","ar l"),r=el("button","ar r"),dt=el("div","dots");h.id="hero";im.alt=d.name;l.setAttribute("aria-label","Sebelumnya");r.setAttribute("aria-label","Berikutnya");
+  let i=0;const go=n=>{i=(n+sl.length)%sl.length;im.src=sl[i];dt.childNodes.forEach((x,k)=>x.classList.toggle("on",k==i))};
+  sl.forEach((_,k)=>{const x=el("i");x.onclick=()=>go(k);dt.append(x)});l.onclick=()=>go(i-1);r.onclick=()=>go(i+1);
+  if(sl.length<2){l.hidden=r.hidden=true;dt.hidden=true}
+  addEventListener("keydown",e=>{if(e.key=="ArrowLeft")go(i-1);if(e.key=="ArrowRight")go(i+1)});
+  w.append(im,l,r);h.append(w,dt);app.append(h);go(0)}
+ const m=el("main");m.append(el("h1","",d.name));
+ if(d.meta||d.subtitle)m.append(el("p","meta",d.meta||d.subtitle));
+ const cols=el("div","cols"),left=el("div"),right=el("div");
+ left.append(body(d.body||d.description||d.bio));
+ const fl=(d.facts||"").split("\n").filter(l=>l.trim()&&(!l.includes(":")||l.slice(l.indexOf(":")+1).trim()));
+ if(fl.length){const bx=el("div","box");bx.append(el("b","","Detail"));bx.append(document.createTextNode(fl.join("\n")));left.append(bx)}
+ (Array.isArray(d.gallery)?d.gallery:[]).forEach(g=>{if(!OK(g.url))return;const f=el("figure"),im=new Image();im.src=g.url;im.alt=g.caption||"";f.append(im);if(g.caption)f.append(el("figcaption","",g.caption));right.append(f)});
+ cols.append(left);if(right.children.length)cols.append(right);else cols.style.gridTemplateColumns="minmax(0,820px)";
+ m.append(cols);app.append(m)}).catch(()=>fail("Gagal memuat data."));
+</script></body></html>

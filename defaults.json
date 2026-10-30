@@ -12,7 +12,27 @@
    "name": "Sayyidina Ali bin Abi Thalib",
    "role": "Sepupu dan sahabat Nabi",
    "bio": "Putra Abu Thalib yang tumbuh dalam asuhan Nabi ﷺ. Ia termasuk yang paling awal beriman, dan kelak menjadi khalifah keempat.",
-   "t": 1
+   "t": 1,
+   "slides": [
+    "assets/ali-sheet.webp"
+   ],
+   "meta": "Gelar: Asadullah (Singa Allah), Babu Madinatil 'Ilm (Pintu Kota Ilmu), Amirul Mukminin, Abu Turab\nEra/Latar: Jazirah Arab Abad ke-7 Masehi (Makkah & Madinah)",
+   "body": "# 📜 RINGKASAN BIOGRAFI & LORE\nSayyidina Ali bin Abi Thalib radhiyallahu 'anhu adalah sepupu sekaligus menantu Nabi Muhammad SAW, serta pemuda pertama yang memeluk agama Islam. Beliau tumbuh di bawah asuhan langsung Rasulullah SAW, membawanya menjadi sosok ulung yang memadukan dua keunggulan utama: keberanian luar biasa di medan perang dan kecerdasan intelektual/spiritual yang sangat mendalam.\n# 🌟 KARAKTERISTIK KUNCI & PERAN HISTORIS\n- Keteguhan & Keberanian Sejak Muda\nMalam Hijrah (Makkah): Saat rumah Rasulullah SAW dikepung pemuda Quraisy, Ali dengan penuh keberanian menawarkan diri tidur di pembaringan Nabi SAW menggunakan mantel hijau beliau untuk mengelabui para pengepung.\nPahlawan Medan Perang: Terkenal sebagai ksatria tak tertandingi dalam Perang Badr, Uhud, dan khususnya Perang Khaibar, di mana beliau memimpin penaklukan benteng dan merobohkan pintu gerbang Khaibar yang amat berat.\n- Gerbang Ilmu & Keadilan Hikmah\nRasulullah SAW bersabda: “Aku adalah kotanya ilmu dan Ali adalah pintunya.” Ali dikenal sebagai rujukan utama para sahabat dalam urusan hukum, peradilan, keilmuan bahasa Arab, dan hikmah spiritual.\n- Kepemimpinan Kekhalifahan (Khulafaur Rasyidin ke-4)\nMenjadi Khalifah ke-4 menggantikan Sayyidina Utsman bin Affan radhiyallahu 'anhu di tengah dinamika politik Islam era pertengahan. Beliau memimpin dengan kesederhanaan, keadilan tegas, dan kepedulian tinggi terhadap rakyat jelata.",
+   "gallery": [
+    {
+     "url": "assets/ali-g1.webp",
+     "caption": "Perang Badar"
+    },
+    {
+     "url": "assets/ali-g2.webp",
+     "caption": "Duel antara Ali dengan jawara yahudi"
+    },
+    {
+     "url": "assets/ali-g3.webp",
+     "caption": "Pedang dzulfikar"
+    }
+   ],
+   "facts": "Umur : \nMemeluk islam pada : \nJabatan : Khalifah ke empat setelah Sy. Utsman bin Affan\nMasa Jabatan : \ndan lain-lain : "
   },
   {
    "img": "assets/c3.webp",
@@ -71,6 +91,88 @@
    "title": "Masa Kecil Nabi: Berkah Dusun Gersang & Dada yang Disucikan! ✨🕌",
    "summary": "Di pedalaman Bani Sa’d, Halimah merasakan keberkahan sejak mengasuh bayi Muhammad. Riwayat Muslim juga mengisahkan peristiwa pembelahan dada beliau semasa kecil.",
    "url": ""
+  }
+ ],
+ "places": [
+  {
+   "slug": "makkah",
+   "name": "Makkah",
+   "subtitle": "Kota kelahiran Nabi ﷺ",
+   "x": 34.9,
+   "y": 53.8,
+   "description": "Pusat perdagangan dan keagamaan Jazirah Arab. Di sinilah Ka’bah berdiri, dijaga suku Quraisy, dan di sini Nabi Muhammad ﷺ lahir, tumbuh, dan kelak menerima risalah.",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "yatsrib",
+   "name": "Yatsrib (Madinah)",
+   "subtitle": "Oasis di utara Makkah",
+   "x": 40.6,
+   "y": 36.4,
+   "description": "Oasis subur yang dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi. Nabi ﷺ singgah di sini semasa kecil bersama ibunya; sekitar 622 M kota ini menjadi tujuan hijrah dan dikenal sebagai Madinah.",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "syam",
+   "name": "Syam (Levant)",
+   "subtitle": "Tujuan kafilah dagang Quraisy",
+   "x": 21.9,
+   "y": 5.5,
+   "description": "Kafilah Quraisy berdagang ke Syam pada musim panas. Dalam salah satu perjalanan bersama Abu Thalib, Muhammad muda bertemu rahib Bahira di Bushra.",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "palestina",
+   "name": "Palestina",
+   "subtitle": "Tanah Baitul Maqdis",
+   "x": 12.2,
+   "y": 11,
+   "description": "Wilayah Baitul Maqdis, tempat Masjidil Aqsa, kiblat pertama kaum Muslimin sebelum dialihkan ke Ka’bah.",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "iraq",
+   "name": "Iraq (Kuno)",
+   "subtitle": "Dalam pengaruh Persia Sasaniyah",
+   "x": 81.2,
+   "y": 15.5,
+   "description": "Wilayah yang berada di bawah pengaruh Kekaisaran Persia Sasaniyah. Api yang disembah penganut Zoroaster menjadi latar kisah malam kelahiran Nabi ﷺ.",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "yaman",
+   "name": "Yaman",
+   "subtitle": "Wilayah kekuasaan Abrahah",
+   "x": 55.2,
+   "y": 82,
+   "description": "Pada masa itu Yaman dikuasai Abrahah, wakil Kerajaan Habasyah (Aksum). Dari sinilah ia berangkat ke Makkah membawa pasukan bergajah.",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "gajah",
+   "name": "Jalur Pasukan Gajah",
+   "subtitle": "Yaman menuju Makkah, ±570 M",
+   "x": 46.7,
+   "y": 71,
+   "description": "Rute Abrahah menuju Makkah untuk menghancurkan Ka’bah. Pasukannya binasa sebelum mencapai kota, peristiwa yang diabadikan dalam Surah Al-Fil.",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "hira",
+   "name": "Gua Hira",
+   "subtitle": "Jabal Nur, dekat Makkah",
+   "x": 43.4,
+   "y": 52.3,
+   "description": "Gua tempat Nabi ﷺ berkhalwat. Di sinilah wahyu pertama turun pada 610 M.",
+   "slides": [],
+   "gallery": []
   }
  ]
 }

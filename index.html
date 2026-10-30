@@ -1,5 +1,5 @@
 <!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}
 :root{--bg:#181818;--p:#212121;--g:#c4a35a;--g2:#6e5c36;--ink:#f3ead8;--mut:#b4a88f;color-scheme:dark;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -98,6 +98,18 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 .dg a{display:inline-block;margin-top:14px;background:#c00;color:#fff;padding:6px 16px;text-decoration:none;font-weight:700}
 @media(max-width:640px){.dg{grid-template-columns:1fr}.dg img{max-height:44svh}.logo small{display:none}.sc{padding-inline:36px}#map{aspect-ratio:4/5}.hint{display:none}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+#pc{padding:0;background:#222;border:3px solid #e8bf75;width:min(380px,calc(100% - 32px));max-height:calc(100% - 32px);overflow:auto;cursor:pointer}
+#pc .x{right:8px;top:8px;width:32px;height:32px;background:rgba(24,24,24,.75);font-size:1.4rem;line-height:1;color:#fff;z-index:2}
+.pcs{position:relative;aspect-ratio:16/9;background:#111;border-bottom:3px solid #e8bf75}.pcs[hidden]{display:none}
+.pcs img{width:100%;height:100%;object-fit:cover;display:block}
+.pa{position:absolute;top:0;bottom:0;width:44px;background:none;border:0;cursor:pointer;display:grid;place-items:center;padding:0}.pa.l{left:0}.pa.r{right:0}.pa[hidden]{display:none}
+.pa::before{content:"";width:16px;height:16px;border:solid #fff;border-width:0 0 3px 3px;transform:rotate(45deg);filter:drop-shadow(0 0 3px #000)}.pa.r::before{transform:rotate(-135deg)}
+.dt{position:absolute;left:0;right:0;bottom:8px;display:flex;justify-content:center;gap:5px;pointer-events:none}.dt i{width:7px;height:7px;background:rgba(255,255,255,.55)}.dt i.on{background:#fff}
+.pcb{padding:16px 20px 18px}
+#pc h3{font:700 1.5rem/1.2 Arvo,Bitter,serif;color:#c79a62}
+#pc p{font-size:1.02rem;line-height:1.55}
+.mo{display:inline-block;margin-top:10px;color:#e8bf75;font-weight:700;text-decoration:none}
+.lb{position:absolute;inset:auto 0 0;padding:50px 8px 18px;background:linear-gradient(transparent,rgba(24,24,24,.92));display:grid;text-align:center;font-size:.85rem}.lb b{font-size:1rem}
 </style></head><body>
 <header><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
 <nav><a class="f" href="#chronology">Chronology</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
@@ -106,7 +118,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <div id="stage"><img src="assets/map.webp" alt="Peta Jazirah Arab menjelang kenabian"></div>
 <div class="ctl"><button id="zi" aria-label="Perbesar">+</button><button id="zo" aria-label="Perkecil">−</button><button id="zr" aria-label="Reset peta" style="font-size:16px">⟲</button></div>
 <div class="hint">Ctrl + scroll atau cubit untuk zoom, seret untuk geser, klik ◆ untuk detail</div>
-<aside id="pc" hidden><button class="x" aria-label="Tutup">×</button><h3></h3><small></small><p></p></aside>
+<aside id="pc" hidden><button class="x" aria-label="Tutup">×</button><div class="pcs"><img alt=""><button class="pa l" aria-label="Foto sebelumnya"></button><button class="pa r" aria-label="Foto berikutnya"></button><div class="dt"></div></div><div class="pcb"><h3></h3><small></small><p></p><a class="mo" href="#">Lihat detail ›</a></div></aside>
 </div></div>
 <section id="chronology"><h2>Chronology</h2><div id="tl"><ol></ol></div><div id="td" aria-live="polite"></div></section>
 <section id="characters"><h2>Characters</h2><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="cr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
@@ -120,7 +132,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <script>
 const YT="https://www.youtube.com/@alwan-faiq",R=1920/1081,$=q=>document.querySelector(q);
 $("#yt").href=YT;
-const PL=[
+let PL=[
 {id:"makkah",n:"Makkah",s:"Kota kelahiran Nabi ﷺ",x:34.9,y:53.8,t:"Pusat perdagangan dan keagamaan Jazirah Arab. Di sinilah Ka’bah berdiri, dijaga suku Quraisy, dan di sini Nabi Muhammad ﷺ lahir, tumbuh, dan kelak menerima risalah."},
 {id:"yatsrib",n:"Yatsrib (Madinah)",s:"Oasis di utara Makkah",x:40.6,y:36.4,t:"Oasis subur yang dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi. Nabi ﷺ singgah di sini semasa kecil bersama ibunya; sekitar 622 M kota ini menjadi tujuan hijrah dan dikenal sebagai Madinah."},
 {id:"syam",n:"Syam (Levant)",s:"Tujuan kafilah dagang Quraisy",x:21.9,y:5.5,t:"Kafilah Quraisy berdagang ke Syam pada musim panas. Dalam salah satu perjalanan bersama Abu Thalib, Muhammad muda bertemu rahib Bahira di Bushra."},
@@ -174,12 +186,21 @@ F.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefaul
 const pc=$("#pc");
 function close(){pc.hidden=true;document.querySelectorAll(".hs.on").forEach(b=>b.classList.remove("on"))}
 function openPlace(id,scroll){const p=PL.find(q=>q.id==id);if(!p)return;close();
-document.querySelector(`.hs[data-id=${id}]`).classList.add("on");
-pc.querySelector("h3").textContent=p.n;pc.querySelector("small").textContent=p.s;pc.querySelector("p").textContent=p.t;pc.hidden=false;
+document.querySelector(`.hs[data-id="${id}"]`).classList.add("on");
+fillPC(p);pc.hidden=false;
 const ns=2.6,cx=F.clientWidth>800?F.clientWidth*.36:F.clientWidth/2;
 if(scroll)$("#places").scrollIntoView();
 fly(ns,cx-p.x/100*bw*ns,F.clientHeight*(F.clientWidth>800?.5:.35)-p.y/100*bh*ns)}
-PL.forEach(p=>{const b=document.createElement("button");b.className="hs";b.dataset.id=p.id;b.style.left=p.x+"%";b.style.top=p.y+"%";b.innerHTML=`<i></i><b>${p.n}</b>`;b.setAttribute("aria-label",p.n);b.onclick=()=>openPlace(p.id);S.append(b)});
+function buildHS(){S.querySelectorAll(".hs").forEach(b=>b.remove());PL.forEach(p=>{const b=document.createElement("button"),n=document.createElement("b");b.className="hs";b.dataset.id=p.id;b.style.left=p.x+"%";b.style.top=p.y+"%";n.textContent=p.n;b.append(document.createElement("i"),n);b.setAttribute("aria-label",p.n);b.onclick=()=>openPlace(p.id);S.append(b)})}buildHS();
+let si=0;
+function fillPC(p){pc.querySelector("h3").textContent=p.n;pc.querySelector("small").textContent=p.s||"";pc.querySelector("p").textContent=p.t||"";
+const href="detail.html?t=places&id="+encodeURIComponent(p.uid||p.id);pc.dataset.href=href;pc.querySelector(".mo").href=href;
+const box=pc.querySelector(".pcs"),im=box.querySelector("img"),sl=(p.sl||[]).filter(u=>/^(assets\/|https:\/\/)/.test(u||""));si=0;box.hidden=!sl.length;
+const sh=()=>{im.src=sl[si];box.querySelectorAll(".dt i").forEach((d,k)=>d.classList.toggle("on",k==si))};
+box.querySelector(".dt").replaceChildren(...sl.map(()=>document.createElement("i")));
+box.querySelectorAll(".pa").forEach(b=>b.hidden=sl.length<2);
+pc._n=d=>{si=(si+d+sl.length)%sl.length;sh()};if(sl.length)sh()}
+pc.addEventListener("click",e=>{if(e.target.closest(".x"))return;const a=e.target.closest(".pa");if(a){pc._n(a.classList.contains("l")?-1:1);return}location.href=pc.dataset.href});
 pc.querySelector(".x").onclick=close;addEventListener("keydown",e=>{if(e.key=="Escape")close()});
 // timeline
 const ol=$("#tl ol"),td=$("#td");
@@ -196,16 +217,18 @@ dlg.querySelector(".x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>
 
 const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const DEF={characters:CH.map((c,i)=>({img:c[0],name:c[1],role:c[2],bio:c[3],t:i})),shorts:SH.map(c=>({img:c[0],ep:+c[1].slice(4),title:c[2],summary:c[3],url:""})),videos:[]};
+const DEF={characters:CH.map((c,i)=>({id:"d"+i,img:c[0],name:c[1],role:c[2],bio:c[3],t:i})),shorts:SH.map(c=>({img:c[0],ep:+c[1].slice(4),title:c[2],summary:c[3],url:""})),videos:[]};
 let DATA={characters:[],shorts:[],videos:[]},DB=null,CAN=false;
-function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();im.src=GIMG(d.img);im.alt=d.name||"";b.append(im);b.setAttribute("aria-label",d.name||"");b.onclick=()=>show(GIMG(d.img),d.name,d.role,d.bio);c.append(b)})}
+function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();im.src=GIMG(d.img);im.alt=d.name||"";b.append(im);b.setAttribute("aria-label",d.name||"");if(d.show_label){const lb=el("span","lb");lb.append(el("small","",d.role||""),el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
 function rSH(l){const c=$("#sr");c.replaceChildren();l.forEach(d=>{const b=el("button","sh"),im=new Image(),e=el("span","e","EPS."+String(d.ep).padStart(2,"0")),k=el("span","t",d.title);im.src=GIMG(d.img);im.alt="";b.append(im,e,k);b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1);c.append(b)})}
 function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||""))a.href=d.url;if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
 const RN={characters:rCH,shorts:rSH,videos:rVD},SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0))};
+function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[]});close();buildHS()}
+DEF.places=PL;RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));
 rCH(DEF.characters);rSH(DEF.shorts);rVD([]);
 $("#yr").textContent="© "+new Date().getFullYear()+" ALFA | History of Islam, @alwan-faiq";
 const CFG=window.ALFA_CFG||{};
 (async()=>{if(!CFG.url||CFG.url.includes("YOUR-"))return;
-for(const k of Object.keys(RN)){try{const r=await fetch(CFG.url+"/rest/v1/"+k+"?select=*",{headers:{apikey:CFG.key,Authorization:"Bearer "+CFG.key}});if(!r.ok)continue;const l=SRT[k](await r.json());RN[k](l.length?l:DEF[k])}catch(e){}}})();
+for(const k of Object.keys(RN)){try{const r=await fetch(CFG.url+"/rest/v1/"+k+"?select=*",{headers:{apikey:CFG.key}});if(!r.ok)continue;const l=SRT[k](await r.json());RN[k](l.length?l:DEF[k])}catch(e){}}})();
 document.querySelectorAll(".rail").forEach(r=>{const sc=r.querySelector(".sc");r.querySelector(".l").onclick=()=>sc.scrollBy({left:-sc.clientWidth*.7,behavior:"smooth"});r.querySelector(".r").onclick=()=>sc.scrollBy({left:sc.clientWidth*.7,behavior:"smooth"})});
 </script></body></html>
