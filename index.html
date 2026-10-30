@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v0.5.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v0.6.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -62,7 +62,7 @@ li.on button{color:var(--g);font-weight:700}
 .ar.l{left:0}.ar.r{right:0}.ar.r::before{transform:rotate(-135deg)}
 .cc,.sh{flex:none;scroll-snap-align:start;border:0;padding:0;background:none;cursor:pointer;position:relative;transition:transform .2s}
 .cc{width:clamp(180px,15vw,287px);aspect-ratio:287/787}
-.cc:nth-child(odd){margin-top:44px}
+.cc:nth-child(odd){margin-top:clamp(30px,3.9vw,74px)}
 .sh{width:clamp(220px,21vw,406px);aspect-ratio:406/721;overflow:hidden;text-align:left}
 .cc:hover,.sh:hover{transform:translateY(-8px)}
 .cc img,.sh img{width:100%;height:100%;object-fit:cover;display:block}
@@ -112,7 +112,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 #pc h3{font:700 1.5rem/1.2 Arvo,Bitter,serif;color:#c79a62}
 #pc p{font-size:1.02rem;line-height:1.55}
 .mo{display:inline-block;margin-top:10px;color:#e8bf75;font-weight:700;text-decoration:none}
-.lb{position:absolute;inset:auto 0 0;padding:50px 8px 18px;background:linear-gradient(transparent,rgba(24,24,24,.92));display:grid;text-align:center;font-size:.85rem}.lb b{font-size:1rem}
+.lb{position:absolute;inset:auto 0 0;padding:110px 8px 16px;background:linear-gradient(to bottom,rgba(24,24,24,0),rgba(24,24,24,.6) 45%,rgba(24,24,24,.96));display:grid;gap:2px;text-align:center;pointer-events:none}.lb small{font-size:.85rem;color:#e9dfc9}.lb b{font:700 1.02rem/1.25 Arvo,Bitter,serif;color:#fff;text-wrap:balance}
 #pl{width:min(920px,calc(100vw - 24px))}
 .pf{aspect-ratio:16/9;background:#000}.pf.v{aspect-ratio:9/16;max-height:80svh;width:min(100%,calc(80svh*9/16));margin:0 auto}.pf iframe{width:100%;height:100%;border:0;display:block}
 #pl .x{position:absolute;right:8px;top:6px;background:rgba(24,24,24,.7);border:0;font-size:1.6rem;line-height:1;color:#fff;cursor:pointer;z-index:2;width:36px;height:36px}
@@ -159,12 +159,12 @@ const EV=[
 {n:"Peletakan Hajar Aswad",y:"35 tahun",p:"makkah",t:"Saat Ka’bah direnovasi, kabilah-kabilah Quraisy berselisih siapa yang berhak meletakkan Hajar Aswad. Muhammad ﷺ menghamparkan kain, menaruh batu di atasnya, dan meminta wakil tiap kabilah memegang ujungnya."},
 {n:"Wahyu pertama",y:"40 tahun, 610 M",p:"hira",t:"Di Gua Hira, Jibril menyampaikan wahyu pertama: “Iqra’”. Dari sinilah dakwah Islam bermula."}];
 const CH=[
-["assets/c1.webp","Abi Thalib","Paman Nabi dan pemimpin Bani Hasyim","Mengasuh Muhammad kecil setelah Abdul Muthalib wafat, menemaninya berdagang ke Syam, dan melindunginya dari tekanan Quraisy hingga akhir hayatnya."],
-["assets/c2.webp","Sayyidina Ali bin Abi Thalib","Sepupu dan sahabat Nabi","Putra Abu Thalib yang tumbuh dalam asuhan Nabi ﷺ. Ia termasuk yang paling awal beriman, dan kelak menjadi khalifah keempat."],
-["assets/c3.webp","Pendeta Bahira","Rahib di Bushra, Syam","Mengenali tanda kenabian pada Muhammad muda, lalu memperingatkan Abu Thalib agar menjaga keponakannya dari orang-orang yang memusuhinya."],
-["assets/c4.webp","Sayyidina Abu Bakar Asshiddiq","Sahabat karib Nabi","Sahabat sejak sebelum kenabian yang segera membenarkan risalah Nabi ﷺ, digelari Ash-Shiddiq, dan kelak menjadi khalifah pertama."],
-["assets/c5.webp","Sayyidah Khadijah","Istri Nabi, saudagari Quraisy","Pengusaha terhormat yang menikahi Muhammad ﷺ. Ia orang pertama yang beriman dan menenangkan Nabi sepulang dari Gua Hira."],
-["assets/c6.webp","Sayyidina Abu Jahal","Tokoh Quraisy penentang dakwah","Bernama asli Amr bin Hisyam. Ia menjadi salah satu penentang paling keras dakwah Nabi ﷺ dan tewas dalam Perang Badar."]];
+["assets/c1.webp","Abi Thalib","","Mengasuh Muhammad kecil setelah Abdul Muthalib wafat, menemaninya berdagang ke Syam, dan melindunginya dari tekanan Quraisy hingga akhir hayatnya."],
+["assets/c2.webp","Ali bin Abi Thalib","Sayyidina","Putra Abu Thalib yang tumbuh dalam asuhan Nabi ﷺ. Ia termasuk yang paling awal beriman, dan kelak menjadi khalifah keempat."],
+["assets/c3.webp","Bahira","Pendeta","Mengenali tanda kenabian pada Muhammad muda, lalu memperingatkan Abu Thalib agar menjaga keponakannya dari orang-orang yang memusuhinya."],
+["assets/c4.webp","Abu Bakar Asshiddiq","Sayyidina","Sahabat sejak sebelum kenabian yang segera membenarkan risalah Nabi ﷺ, digelari Ash-Shiddiq, dan kelak menjadi khalifah pertama."],
+["assets/c5.webp","Khadijah","Sayyidah","Pengusaha terhormat yang menikahi Muhammad ﷺ. Ia orang pertama yang beriman dan menenangkan Nabi sepulang dari Gua Hira."],
+["assets/c6.webp","Abu Jahal","Sayyidina","Bernama asli Amr bin Hisyam. Ia menjadi salah satu penentang paling keras dakwah Nabi ﷺ dan tewas dalam Perang Badar."]];
 const SH=[
 ["assets/s6.webp","EPS.06","Hampir Pecah Perang! Solusi Cerdas Sang Al-Amin 🕋✨","Kabilah-kabilah Quraisy hampir berperang karena berebut kehormatan meletakkan Hajar Aswad. Muhammad muda, yang dijuluki Al-Amin, menemukan jalan damai dengan selembar kain."],
 ["assets/s5.webp","EPS.05","Misteri Awan Menaungi: Tanda Kenabian di Mata Pendeta Bahira ✨🐪","Dalam perjalanan ke Syam, rahib Bahira memperhatikan rombongan yang seolah dinaungi awan, lalu mengenali tanda kenabian pada Muhammad muda."],
@@ -225,14 +225,14 @@ dlg.querySelector(".x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>
 
 const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const DEF={characters:CH.map((c,i)=>({id:"d"+i,img:c[0],name:c[1],role:c[2],bio:c[3],t:i})),shorts:SH.map(c=>({img:c[0],ep:+c[1].slice(4),title:c[2],summary:c[3],url:""})),videos:[]};
+const DEF={characters:CH.map((c,i)=>({id:"d"+i,img:c[0],name:c[1],role:c[2],bio:c[3],t:i,show_label:true})),shorts:SH.map(c=>({img:c[0],ep:+c[1].slice(4),title:c[2],summary:c[3],url:""})),videos:[]};
 let DATA={characters:[],shorts:[],videos:[]},DB=null,CAN=false;
 const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
 const PLD=document.getElementById("pl");
 function play(id,sv,href){const f=document.createElement("iframe");f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";f.title="Pemutar video YouTube";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";
 const pf=PLD.querySelector(".pf");pf.className="pf"+(sv?" v":"");pf.replaceChildren(f);PLD.querySelector(".yl").href=href;PLD.showModal()}
 PLD.addEventListener("close",()=>PLD.querySelector(".pf").replaceChildren());PLD.querySelector(".x").onclick=()=>PLD.close();PLD.addEventListener("click",e=>{if(e.target==PLD)PLD.close()});
-function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();im.src=GIMG(d.img);im.alt=d.name||"";b.append(im);b.setAttribute("aria-label",d.name||"");if(d.show_label){const lb=el("span","lb");lb.append(el("small","",d.role||""),el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
+function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();im.src=GIMG(d.img);im.alt=d.name||"";b.append(im);b.setAttribute("aria-label",d.name||"");if(d.show_label){const lb=el("span","lb");if(d.role)lb.append(el("small","",d.role));lb.append(el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
 function rSH(l){const c=$("#sr");c.replaceChildren();l.forEach(d=>{const b=el("button","sh"),im=new Image(),e=el("span","e","EPS."+String(d.ep).padStart(2,"0")),k=el("span","t",d.title);im.src=GIMG(d.img);im.alt="";b.append(im,e,k);b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1);c.append(b)})}
 function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||"")){a.href=d.url;const v=YID(d.url);if(v)a.onclick=e=>{e.preventDefault();play(v,0,d.url)}}if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
 const RN={characters:rCH,shorts:rSH,videos:rVD},SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0))};
