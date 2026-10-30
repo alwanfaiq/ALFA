@@ -1,0 +1,56 @@
+<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#181818;--p:#212121;--g:#c4a35a;--g2:#6e5c36;--ink:#f3ead8;--mut:#b4a88f;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Bitter,Georgia,serif;padding:24px clamp(16px,3vw,56px) 60px;max-width:900px;margin:auto}
+h1,h3{font-family:Cinzel,serif;font-weight:800}h1{font-size:2rem}h3{color:var(--g);font-size:1.15rem}
+button,.go{font:inherit;color:inherit;background:none;border:1px solid var(--g);color:var(--g);padding:6px 16px;cursor:pointer;font-weight:700;text-decoration:none}
+button:hover,.go:hover{background:var(--g);color:var(--bg)}button:disabled{opacity:.5}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}.top div{display:flex;gap:8px}
+.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.tabs .on{background:var(--g);color:var(--bg)}
+.fm{display:grid;gap:12px;max-width:640px;background:var(--p);border:1px solid var(--g2);padding:20px;margin:16px 0}
+label{display:grid;gap:4px;font-size:.88rem;color:var(--mut)}
+input,textarea{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 10px;font:inherit}
+.pv{width:56px;height:72px;object-fit:cover;border:1px solid var(--g2)}.pv[hidden]{display:none}
+.ls{display:grid;gap:8px;max-width:640px}.row{display:flex;align-items:center;gap:12px;background:var(--p);padding:8px 12px;border:1px solid #2c2c2c}.row span{flex:1}
+.m{color:var(--mut);max-width:56ch;margin:12px 0}
+</style></head><body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<div id="app"></div>
+<script>
+const C=window.ALFA_CFG||{},app=document.getElementById("app");
+const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,er=e=>alert("Gagal: "+(e.message||e));
+const SC={characters:{l:"Karakter",f:[["name","Nama"],["role","Peran"],["bio","Bio","t"],["img","Gambar","i"]],ti:d=>d.name},
+shorts:{l:"Shorts",f:[["ep","Nomor episode","n"],["title","Judul"],["summary","Ringkasan","t"],["url","Link YouTube (opsional)"],["img","Gambar cover","i"]],ti:d=>"EPS."+d.ep+" "+d.title},
+videos:{l:"Video panjang",f:[["title","Judul"],["description","Deskripsi","t"],["url","Link YouTube"],["img","Thumbnail (opsional)","i"]],ti:d=>d.title}};
+let inP=false,sb,tab="characters",ed=null,rows=[];
+if(!C.url||C.url.includes("YOUR-")||!window.supabase){app.append(el("h1","","Admin"),el("p","m","Isi dulu config.js dengan URL dan anon key Supabase kamu."))}
+else{sb=supabase.createClient(C.url,C.key);sb.auth.onAuthStateChange((ev,s)=>{if(ev=="SIGNED_OUT")login();else if(s&&!inP)panel()});sb.auth.getSession().then(({data})=>{if(!data.session&&!inP)login()})}
+function login(){inP=false;app.replaceChildren(el("h1","","Admin"));const f=el("form","fm"),em=el("input"),pw=el("input"),b=el("button","","Masuk");
+em.type="email";em.placeholder="Email";em.required=true;em.autocomplete="username";pw.type="password";pw.placeholder="Password";pw.required=true;pw.autocomplete="current-password";b.type="submit";
+f.onsubmit=async e=>{e.preventDefault();b.disabled=true;const{error}=await sb.auth.signInWithPassword({email:em.value,password:pw.value});if(error){er(error);b.disabled=false}};
+f.append(el("h3","","Masuk"),em,pw,b);app.append(f)}
+async function load(){const q=sb.from(tab).select("*");const{data,error}=await (tab=="shorts"?q.order("ep",{ascending:false}):q.order("t",{ascending:tab=="characters"}));if(error)er(error);rows=data||[]}
+async function up(f){const n=Date.now()+"-"+f.name.replace(/[^\w.-]/g,"_");const{error}=await sb.storage.from("media").upload(n,f,{contentType:f.type});if(error)throw error;return sb.storage.from("media").getPublicUrl(n).data.publicUrl}
+async function panel(){inP=true;await load();app.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();r.append(v,o);top.append(r);app.append(top);
+const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});app.append(tb);
+const S=SC[tab];
+if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+tab+")");b.onclick=async()=>{b.disabled=true;b.textContent="Mengunggah...";try{const D=await (await fetch("defaults.json")).json();let i=0;for(const d of D[tab]){const bl=await (await fetch(d.img)).blob();d.img=await up(new File([bl],d.img.split("/").pop(),{type:bl.type}));d.t=Date.now()+i++;const{error}=await sb.from(tab).insert(d);if(error)throw error}}catch(e){er(e)}panel()};app.append(b)}
+const fm=el("div","fm"),val={...(ed&&rows.find(d=>d.id==ed)||{})};fm.append(el("h3","",ed?"Edit":"Tambah baru"));
+S.f.forEach(([k,lb,ty])=>{const l=el("label","",lb);let i;
+if(ty=="i"){i=el("input");i.type="file";i.accept="image/*";const pv=el("img","pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];i.onchange=async()=>{const f=i.files[0];if(!f)return;try{val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}};l.append(i,pv);fm.append(l);return}
+if(ty=="t"){i=el("textarea");i.rows=4}else{i=el("input");if(ty=="n")i.type="number"}
+i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
+const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o={};S.f.forEach(([k,,ty])=>o[k]=val[k]??(ty=="n"?0:""));
+if(!o[S.f[0][0]])return alert("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return alert("Isi link YouTube");if(o.url&&!GOOD.test(o.url))return alert("Link harus https dari youtube.com atau youtu.be");
+sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;panel()};
+fm.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;panel()};fm.append(c)}
+const ls=el("div","ls");rows.forEach(d=>{const w=el("div","row"),im=el("img","pv");im.alt="";if(d.img)im.src=d.img;else im.hidden=true;w.append(im,el("span","",S.ti(d)));
+const e=el("button","","Edit");e.onclick=()=>{ed=d.id;panel();scrollTo(0,0)};
+const x=el("button","","Hapus");x.onclick=async()=>{if(!confirm("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);panel()};w.append(e,x);ls.append(w)});
+app.append(fm,ls)}
+</script></body></html>

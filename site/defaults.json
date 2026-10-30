@@ -1,0 +1,76 @@
+{
+ "characters": [
+  {
+   "img": "assets/c1.webp",
+   "name": "Abi Thalib",
+   "role": "Paman Nabi dan pemimpin Bani Hasyim",
+   "bio": "Mengasuh Muhammad kecil setelah Abdul Muthalib wafat, menemaninya berdagang ke Syam, dan melindunginya dari tekanan Quraisy hingga akhir hayatnya.",
+   "t": 0
+  },
+  {
+   "img": "assets/c2.webp",
+   "name": "Sayyidina Ali bin Abi Thalib",
+   "role": "Sepupu dan sahabat Nabi",
+   "bio": "Putra Abu Thalib yang tumbuh dalam asuhan Nabi ﷺ. Ia termasuk yang paling awal beriman, dan kelak menjadi khalifah keempat.",
+   "t": 1
+  },
+  {
+   "img": "assets/c3.webp",
+   "name": "Pendeta Bahira",
+   "role": "Rahib di Bushra, Syam",
+   "bio": "Mengenali tanda kenabian pada Muhammad muda, lalu memperingatkan Abu Thalib agar menjaga keponakannya dari orang-orang yang memusuhinya.",
+   "t": 2
+  },
+  {
+   "img": "assets/c4.webp",
+   "name": "Sayyidina Abu Bakar Asshiddiq",
+   "role": "Sahabat karib Nabi",
+   "bio": "Sahabat sejak sebelum kenabian yang segera membenarkan risalah Nabi ﷺ, digelari Ash-Shiddiq, dan kelak menjadi khalifah pertama.",
+   "t": 3
+  },
+  {
+   "img": "assets/c5.webp",
+   "name": "Sayyidah Khadijah",
+   "role": "Istri Nabi, saudagari Quraisy",
+   "bio": "Pengusaha terhormat yang menikahi Muhammad ﷺ. Ia orang pertama yang beriman dan menenangkan Nabi sepulang dari Gua Hira.",
+   "t": 4
+  },
+  {
+   "img": "assets/c6.webp",
+   "name": "Sayyidina Abu Jahal",
+   "role": "Tokoh Quraisy penentang dakwah",
+   "bio": "Bernama asli Amr bin Hisyam. Ia menjadi salah satu penentang paling keras dakwah Nabi ﷺ dan tewas dalam Perang Badar.",
+   "t": 5
+  }
+ ],
+ "shorts": [
+  {
+   "img": "assets/s6.webp",
+   "ep": 6,
+   "title": "Hampir Pecah Perang! Solusi Cerdas Sang Al-Amin 🕋✨",
+   "summary": "Kabilah-kabilah Quraisy hampir berperang karena berebut kehormatan meletakkan Hajar Aswad. Muhammad muda, yang dijuluki Al-Amin, menemukan jalan damai dengan selembar kain.",
+   "url": ""
+  },
+  {
+   "img": "assets/s5.webp",
+   "ep": 5,
+   "title": "Misteri Awan Menaungi: Tanda Kenabian di Mata Pendeta Bahira ✨🐪",
+   "summary": "Dalam perjalanan ke Syam, rahib Bahira memperhatikan rombongan yang seolah dinaungi awan, lalu mengenali tanda kenabian pada Muhammad muda.",
+   "url": ""
+  },
+  {
+   "img": "assets/s2.webp",
+   "ep": 2,
+   "title": "Malam Kelahiran Nabi: Api Abadi 1.000 Tahun Padam Seketika! 🕯⚡",
+   "summary": "Menurut riwayat yang masyhur, pada malam kelahiran Nabi ﷺ api sesembahan di Persia padam. Kisah ini dikenal luas, meski para ulama berbeda dalam menilai sanadnya.",
+   "url": ""
+  },
+  {
+   "img": "assets/s3.webp",
+   "ep": 3,
+   "title": "Masa Kecil Nabi: Berkah Dusun Gersang & Dada yang Disucikan! ✨🕌",
+   "summary": "Di pedalaman Bani Sa’d, Halimah merasakan keberkahan sejak mengasuh bayi Muhammad. Riwayat Muslim juga mengisahkan peristiwa pembelahan dada beliau semasa kecil.",
+   "url": ""
+  }
+ ]
+}
