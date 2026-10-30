@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: detail.html v0.3.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: detail.html v0.5.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -47,7 +47,7 @@ async function get(){
  return T=="places"?D.places.find(p=>p.slug==ID):D.characters[+ID.replace(/\D/g,"")]}
 function body(t){const b=el("div","bd");(t||"").split("\n").forEach(l=>{if(!l.trim())return;if(l.startsWith("# "))b.append(el("h4","",l.slice(2)));else if(l.startsWith("- "))b.append(el("h5","",l.slice(2)));else b.append(el("p","",l.trim()))});return b}
 function fail(m){app.replaceChildren(el("p","msg",m))}
-get().then(d=>{
+function render(d){
  if(!d)return fail("Halaman tidak ditemukan.");
  document.title=d.name+" | ALFA";app.replaceChildren();
  const sl=(Array.isArray(d.slides)?d.slides:[]).map(OK).filter(Boolean);
@@ -55,7 +55,7 @@ get().then(d=>{
   let i=0;const go=n=>{i=(n+sl.length)%sl.length;im.src=sl[i];dt.childNodes.forEach((x,k)=>x.classList.toggle("on",k==i))};
   sl.forEach((_,k)=>{const x=el("i");x.onclick=()=>go(k);dt.append(x)});l.onclick=()=>go(i-1);r.onclick=()=>go(i+1);
   if(sl.length<2){l.hidden=r.hidden=true;dt.hidden=true}
-  addEventListener("keydown",e=>{if(e.key=="ArrowLeft")go(i-1);if(e.key=="ArrowRight")go(i+1)});
+  document.onkeydown=e=>{if(e.key=="ArrowLeft")go(i-1);if(e.key=="ArrowRight")go(i+1)};
   w.append(im,l,r);h.append(w,dt);app.append(h);go(0)}
  const m=el("main");m.append(el("h1","",d.name));
  if(d.meta||d.subtitle)m.append(el("p","meta",d.meta||d.subtitle));
@@ -65,5 +65,8 @@ get().then(d=>{
  if(fl.length){const bx=el("div","box");bx.append(el("b","","Detail"));bx.append(document.createTextNode(fl.join("\n")));left.append(bx)}
  (Array.isArray(d.gallery)?d.gallery:[]).forEach(g=>{if(!OK(g.url))return;const f=el("figure"),im=new Image();im.src=g.url;im.alt=g.caption||"";f.append(im);if(g.caption)f.append(el("figcaption","",g.caption));right.append(f)});
  cols.append(left);if(right.children.length)cols.append(right);else cols.style.gridTemplateColumns="minmax(0,820px)";
- m.append(cols);app.append(m)}).catch(()=>fail("Gagal memuat data."));
+ m.append(cols);app.append(m)}
+if(/[?&]preview=1/.test(location.search)){app.replaceChildren(el("p","msg","Pratinjau: isi formulir di admin, halaman ini akan ikut berubah."));
+addEventListener("message",e=>{if(e.origin===location.origin&&e.data&&e.data.type=="alfa-draft"&&e.data.data)render(e.data.data)})}
+else get().then(render).catch(()=>fail("Gagal memuat data."));
 </script></body></html>
