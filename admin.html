@@ -1,4 +1,5 @@
 <!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}
@@ -25,6 +26,9 @@ textarea.big{min-height:260px}
 .cb{background:var(--p);border:1px solid var(--g);padding:20px;display:grid;gap:12px;justify-items:center;max-width:100%}
 .fr{position:relative;overflow:hidden;border:2px solid var(--g);background:#000;touch-action:none;cursor:grab}.fr img{position:absolute;max-width:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
 .bt{display:flex;gap:8px}
+#tw{position:fixed;right:16px;bottom:16px;z-index:60;display:grid;gap:8px;width:min(380px,calc(100vw - 32px))}
+.toast{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 14px;background:#232323;border:1px solid var(--g2);border-left:5px solid var(--g);box-shadow:0 8px 24px rgba(0,0,0,.5);font-size:.93rem;line-height:1.45}
+.toast.err{border-left-color:#d9534f}.toast.warn{border-left-color:#e0a030}.toast button{border:0;padding:0 4px;font-size:1.2rem;line-height:1;color:var(--mut)}.toast button:hover{background:none;color:var(--ink)}
 </style></head><body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
@@ -32,7 +36,10 @@ textarea.big{min-height:260px}
 <script>
 const C=window.ALFA_CFG||{},app=document.getElementById("app");
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,er=e=>alert("Gagal: "+(e.message||e));
+const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,FR=m=>/schema cache|column .* does not exist/i.test(m)?"Database belum diperbarui. Jalankan ulang schema.sql di Supabase (SQL Editor), lalu coba lagi.":/row-level security|not authorized|permission denied/i.test(m)?"Akses ditolak. Pastikan kamu sudah login, lalu jalankan schema.sql di Supabase.":/invalid login|invalid_credentials/i.test(m)?"Email atau password salah.":/failed to fetch|networkerror/i.test(m)?"Koneksi bermasalah. Cek internet lalu coba lagi.":/bucket not found/i.test(m)?"Tempat penyimpanan gambar belum ada. Jalankan ulang schema.sql.":/too large|maximum allowed/i.test(m)?"Ukuran file terlalu besar.":m;
+function toast(m,k="ok"){let w=document.getElementById("tw");if(!w){w=el("div");w.id="tw";w.setAttribute("aria-live","polite");document.body.append(w)}const t=el("div","toast "+k),x=el("button","","×");t.append(el("span","",({ok:"✓ ",err:"✕ ",warn:"! "})[k]+m),x);const rm=()=>t.remove();x.onclick=rm;x.setAttribute("aria-label","Tutup");w.append(t);setTimeout(rm,k=="err"?9000:4500)}
+const er=e=>toast(FR(String(e.message||e)),"err"),warn=m=>toast(m,"warn");
+function ask(m){return new Promise(r=>{const ov=el("div","ov"),bx=el("div","cb"),bt=el("div","bt"),y=el("button","","Ya, hapus"),n=el("button","","Batal"),d=v=>{ov.remove();r(v)};y.onclick=()=>d(true);n.onclick=()=>d(false);ov.onclick=e=>{if(e.target==ov)d(false)};bt.append(y,n);bx.append(el("p","",m),bt);ov.append(bx);document.body.append(ov);n.focus()})}
 const HELP="Format isi halaman:\n# Judul bagian  (judul tebal, boleh pakai emoji)\n- Sub judul  (diberi tanda ■)\nBaris biasa = paragraf. Tiap baris jadi satu paragraf.";
 const SC={
 characters:{l:"Karakter",f:[["name","Nama"],["role","Peran singkat (di bawah nama)"],["img","Cover karakter (di slider halaman utama)","c"],["show_label","Tampilkan nama & peran di atas cover (centang kalau gambarnya belum ada teksnya)","b"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman","t","h"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
@@ -73,7 +80,7 @@ const tn=(f,h)=>{const b=el("button","sm",h);b.type="button";b.onclick=f;return 
 async function panel(){inP=true;await load();app.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();r.append(v,o);top.append(r);app.append(top);
 const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});app.append(tb);
 const S=SC[tab];
-if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+S.l+")");b.onclick=async()=>{b.disabled=true;b.textContent="Mengunggah, tunggu sebentar...";try{const D=await (await fetch("defaults.json")).json();let i=0;for(const d of D[tab]){const o=await mig(d);o.t=Date.now()+i++;const{error}=await sb.from(tab).insert(o);if(error)throw error}}catch(e){er(e)}panel()};app.append(b)}
+if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+S.l+")");b.onclick=async()=>{b.disabled=true;b.textContent="Mengunggah, tunggu sebentar...";try{const D=await (await fetch("defaults.json")).json();let i=0;for(const d of D[tab]){const o=await mig(d);o.t=Date.now()+i++;const{error}=await sb.from(tab).insert(o);if(error)throw error}toast("Konten bawaan berhasil dimuat")}catch(e){er(e)}panel()};app.append(b)}
 const fm=el("div","fm"),val={...(ed&&rows.find(d=>d.id==ed)||{})};fm.append(el("h3","",ed?"Edit":"Tambah baru"));
 S.f.forEach(([k,lb,ty,hp])=>{const l=el("label","",lb);let i;
 if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fm.append(l);return}
@@ -92,12 +99,12 @@ if(ty=="t"){i=document.createElement("textarea");i.rows=4;if(hp){i.className="bi
 i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
 const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o={};
 S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});
-if(!o[S.f[0][0]])return alert("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return alert("Isi link YouTube");if(o.url&&!GOOD.test(o.url))return alert("Link harus https dari youtube.com atau youtu.be");
-if(tab=="places"&&val.x==null)return alert("Klik peta untuk menentukan posisi tempat");
-sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;panel()};
+if(!o[S.f[0][0]])return warn("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return warn("Isi link YouTube");if(o.url&&!GOOD.test(o.url))return warn("Link harus https dari youtube.com atau youtu.be");
+if(tab=="places"&&val.x==null)return warn("Klik peta untuk menentukan posisi tempat");
+sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;toast("Berhasil disimpan");panel()};
 fm.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;panel()};fm.append(c)}
 const ls=el("div","ls");rows.forEach(d=>{const w=el("div","row"),im=el("img","pv");im.alt="";const th=d.img||(Array.isArray(d.slides)&&d.slides[0]);if(th)im.src=th;else im.hidden=true;w.append(im,el("span","",S.ti(d)));
 const e=el("button","","Edit");e.onclick=()=>{ed=d.id;panel();scrollTo(0,0)};
-const x=el("button","","Hapus");x.onclick=async()=>{if(!confirm("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);panel()};w.append(e,x);ls.append(w)});
+const x=el("button","","Hapus");x.onclick=async()=>{if(!await ask("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);else toast("Berhasil dihapus");panel()};w.append(e,x);ls.append(w)});
 app.append(fm,ls)}
 </script></body></html>

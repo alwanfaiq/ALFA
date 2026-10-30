@@ -32,3 +32,6 @@ drop policy if exists "media admin insert" on storage.objects;
 create policy "media admin insert" on storage.objects for insert to authenticated with check (bucket_id='media');
 drop policy if exists "media admin delete" on storage.objects;
 create policy "media admin delete" on storage.objects for delete to authenticated using (bucket_id='media');
+
+-- Muat ulang cache skema API supaya kolom baru langsung dikenali
+notify pgrst, 'reload schema';
