@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: admin.html v0.3.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
+<!-- ALFA | History of Islam: admin.html v0.5.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -30,6 +30,14 @@ textarea.big{min-height:260px}
 #tw{position:fixed;right:16px;bottom:16px;z-index:60;display:grid;gap:8px;width:min(380px,calc(100vw - 32px))}
 .toast{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 14px;background:#232323;border:1px solid var(--g2);border-left:5px solid var(--g);box-shadow:0 8px 24px rgba(0,0,0,.5);font-size:.93rem;line-height:1.45}
 .toast.err{border-left-color:#d9534f}.toast.warn{border-left-color:#e0a030}.toast button{border:0;padding:0 4px;font-size:1.2rem;line-height:1;color:var(--mut)}.toast button:hover{background:none;color:var(--ink)}
+body{max-width:1700px;padding:20px 24px 40px}
+.wrap{display:grid;grid-template-columns:minmax(380px,480px) minmax(0,1fr);gap:24px;align-items:start}
+.pane{position:sticky;top:16px}
+.pvh{display:flex;gap:8px;align-items:center;margin-bottom:8px}.pvh b{flex:1;font-family:Cinzel,serif;color:var(--g)}.pvh .on{background:var(--g);color:var(--bg)}
+.pvbox{position:relative;overflow:hidden;border:1px solid var(--g2);background:#000;height:calc(100vh - 80px)}
+.pvbox iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#181818}
+.fm,.ls{max-width:none}.mp{max-width:100%}
+@media(max-width:1100px){.wrap{grid-template-columns:1fr}.pane{display:none}}
 </style></head><body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
@@ -78,19 +86,33 @@ const isA=u=>typeof u=="string"&&u.startsWith("assets/");
 async function mu(u){if(!isA(u))return u;const bl=await (await fetch(u)).blob();return up(new File([bl],u.split("/").pop(),{type:bl.type}))}
 async function mig(d){const o={...d};if(o.img)o.img=await mu(o.img);if(o.slides)o.slides=await Promise.all(o.slides.map(mu));if(o.gallery)o.gallery=await Promise.all(o.gallery.map(async g=>({...g,url:await mu(g.url)})));return o}
 const tn=(f,h)=>{const b=el("button","sm",h);b.type="button";b.onclick=f;return b};
-async function panel(){inP=true;await load();app.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();r.append(v,o);top.append(r);app.append(top);
-const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});app.append(tb);
-const S=SC[tab];
-if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+S.l+")");b.onclick=async()=>{b.disabled=true;b.textContent="Mengunggah, tunggu sebentar...";try{const D=await (await fetch("defaults.json")).json();let i=0;for(const d of D[tab]){const o=await mig(d);o.t=Date.now()+i++;const{error}=await sb.from(tab).insert(o);if(error)throw error}toast("Konten bawaan berhasil dimuat")}catch(e){er(e)}panel()};app.append(b)}
-const fm=el("div","fm"),val={...(ed&&rows.find(d=>d.id==ed)||{})};fm.append(el("h3","",ed?"Edit":"Tambah baru"));
+// ---- pratinjau langsung
+let CUR=null,PVF=null,PVM="home",tm;
+const chg=()=>{clearTimeout(tm);tm=setTimeout(pvSend,150)};
+function fitPV(){const bx=document.getElementById("pvbox");if(!bx||!PVF)return;const s=bx.clientWidth/1440;PVF.style.width="1440px";PVF.style.height=bx.clientHeight/s+"px";PVF.style.transform="scale("+s+")"}
+function pvSend(){if(!PVF||!CUR)return;const w=PVM=="home"?"index.html?preview=1":"detail.html?preview=1&t="+CUR.tab;if(PVF.dataset.src!=w){PVF.dataset.src=w;PVF.src=w;return}
+const cw=PVF.contentWindow;if(!cw)return;const d=CUR.build();
+if(PVM=="detail"){cw.postMessage({type:"alfa-draft",data:d},location.origin);return}
+const has=d[CUR.S.f[0][0]],old=CUR.ed&&rows.find(r=>r.id==CUR.ed),list=CUR.ed?rows.map(r=>r.id==CUR.ed?{...r,...d}:r):(has?[...rows,{...d,id:"draft",t:Date.now()+1e10}]:rows);
+cw.postMessage({type:"alfa-list",tab:CUR.tab,rows:list,focus:CUR.ed?(old&&(old.slug||old.id)):(has?"draft":null)},location.origin)}
+function setPV(m){if(m=="detail"&&CUR&&CUR.tab!="characters"&&CUR.tab!="places"){toast("Pratinjau halaman detail hanya untuk Karakter dan Place","warn");return}PVM=m;document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));chg()}
+function shell(){let l=document.getElementById("left");if(l)return l;app.replaceChildren();
+const w=el("div","wrap"),p=el("div","pane"),h=el("div","pvh"),bx=el("div","pvbox"),f=document.createElement("iframe");l=el("div");l.id="left";bx.id="pvbox";h.append(el("b","","Pratinjau langsung"));
+[["home","Beranda"],["detail","Halaman detail"]].forEach(([m,t])=>{const b=el("button",m==PVM?"on":"",t);b.dataset.m=m;b.onclick=()=>setPV(m);h.append(b)});
+f.title="Pratinjau situs";f.onload=pvSend;bx.append(f);p.append(h,bx);w.append(l,p);app.append(w);PVF=f;new ResizeObserver(fitPV).observe(bx);return l}
+async function panel(){inP=true;await load();const L=shell();L.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();r.append(v,o);top.append(r);L.append(top);
+const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});L.append(tb);
+const S=SC[tab];if(PVM=="detail"&&tab!="characters"&&tab!="places"){PVM="home";document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
+if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+S.l+")");b.onclick=async()=>{b.disabled=true;b.textContent="Mengunggah, tunggu sebentar...";try{const D=await (await fetch("defaults.json")).json();let i=0;for(const d of D[tab]){const o=await mig(d);o.t=Date.now()+i++;const{error}=await sb.from(tab).insert(o);if(error)throw error}toast("Konten bawaan berhasil dimuat")}catch(e){er(e)}panel()};L.append(b)}
+const fm=el("div","fm"),val=new Proxy({...(ed&&rows.find(d=>d.id==ed)||{})},{set(o,k,v){o[k]=v;chg();return true}});fm.append(el("h3","",ed?"Edit":"Tambah baru"));
 S.f.forEach(([k,lb,ty,hp])=>{const l=el("label","",lb);let i;
 if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fm.append(l);return}
 if(ty=="i"||ty=="c"){i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
 i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"){f=await crop(f,287,787,574);if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
 l.append(i,pv);fm.append(l);return}
 if(ty=="s"||ty=="g"){const arr=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","ls"),g=ty=="g",pick=document.createElement("input");pick.type="file";pick.accept="image/*";pick.multiple=true;
-const draw=()=>{box.replaceChildren();arr.forEach((x,n)=>{const it=el("div","it"),im=el("img","pv");im.alt="";im.src=g?x.url:x;it.append(im);
-if(g){const c=document.createElement("input");c.placeholder="Keterangan gambar";c.value=x.caption||"";c.oninput=()=>x.caption=c.value;it.append(c)}else it.append(el("span","",""));
+const draw=()=>{chg();box.replaceChildren();arr.forEach((x,n)=>{const it=el("div","it"),im=el("img","pv");im.alt="";im.src=g?x.url:x;it.append(im);
+if(g){const c=document.createElement("input");c.placeholder="Keterangan gambar";c.value=x.caption||"";c.oninput=()=>{x.caption=c.value;chg()};it.append(c)}else it.append(el("span","",""));
 it.append(tn(()=>{if(n){[arr[n-1],arr[n]]=[arr[n],arr[n-1]];draw()}},"↑"),tn(()=>{if(n<arr.length-1){[arr[n+1],arr[n]]=[arr[n],arr[n+1]];draw()}},"↓"),tn(()=>{arr.splice(n,1);draw()},"Hapus"));box.append(it)})};
 pick.onchange=async()=>{try{for(const f of pick.files)arr.push(g?{url:await up(f),caption:""}:await up(f))}catch(e){er(e)}pick.value="";draw()};
 draw();l.append(box,pick);fm.append(l);return}
@@ -98,8 +120,9 @@ if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src="assets/map
 w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fm.append(l);return}
 if(ty=="t"){i=document.createElement("textarea");i.rows=4;if(hp){i.className="big";l.append(el("span","hlp",HELP))}}else{i=document.createElement("input");if(ty=="n")i.type="number"}
 i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
-const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o={};
-S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});
+const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
+CUR={tab,ed,build,S};chg();
+const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o=build();
 if(!o[S.f[0][0]])return warn("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return warn("Isi link YouTube");if(o.url&&!GOOD.test(o.url))return warn("Link harus https dari youtube.com atau youtu.be");
 if(tab=="places"&&val.x==null)return warn("Klik peta untuk menentukan posisi tempat");
 sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;toast("Berhasil disimpan");panel()};
@@ -107,5 +130,5 @@ fm.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;pane
 const ls=el("div","ls");rows.forEach(d=>{const w=el("div","row"),im=el("img","pv");im.alt="";const th=d.img||(Array.isArray(d.slides)&&d.slides[0]);if(th)im.src=th;else im.hidden=true;w.append(im,el("span","",S.ti(d)));
 const e=el("button","","Edit");e.onclick=()=>{ed=d.id;panel();scrollTo(0,0)};
 const x=el("button","","Hapus");x.onclick=async()=>{if(!await ask("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);else toast("Berhasil dihapus");panel()};w.append(e,x);ls.append(w)});
-app.append(fm,ls)}
+L.append(fm,ls)}
 </script></body></html>
