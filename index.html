@@ -1,4 +1,5 @@
-<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!doctype html>
+<!-- ALFA | History of Islam: index.html v0.4.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -112,6 +113,10 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 #pc p{font-size:1.02rem;line-height:1.55}
 .mo{display:inline-block;margin-top:10px;color:#e8bf75;font-weight:700;text-decoration:none}
 .lb{position:absolute;inset:auto 0 0;padding:50px 8px 18px;background:linear-gradient(transparent,rgba(24,24,24,.92));display:grid;text-align:center;font-size:.85rem}.lb b{font-size:1rem}
+#pl{width:min(920px,calc(100vw - 24px))}
+.pf{aspect-ratio:16/9;background:#000}.pf.v{aspect-ratio:9/16;max-height:80svh;width:min(100%,calc(80svh*9/16));margin:0 auto}.pf iframe{width:100%;height:100%;border:0;display:block}
+#pl .x{position:absolute;right:8px;top:6px;background:rgba(24,24,24,.7);border:0;font-size:1.6rem;line-height:1;color:#fff;cursor:pointer;z-index:2;width:36px;height:36px}
+.yl{display:block;text-align:center;padding:10px;color:var(--g);text-decoration:none;font-weight:700}.pb{margin-right:10px}
 </style></head><body>
 <header><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
 <nav><a class="f" href="#chronology">Chronology</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
@@ -129,6 +134,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 </main>
 <footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#chronology">Chronology</a><a href="#characters">Characters</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
 
+<dialog id="pl"><button class="x" aria-label="Tutup">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Buka di YouTube</a></dialog>
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Tutup">×</button><h3></h3><small></small><p></p></div></div></dialog>
 <script src="config.js"></script>
 <script>
@@ -212,8 +218,8 @@ if(v.p){const g=document.createElement("button");g.className="go";g.textContent=
 EV.forEach((v,i)=>{const l=document.createElement("li");l.innerHTML=`<button><span class="dm"></span><span></span></button>`;l.querySelector("span+span").textContent=v.n;l.querySelector("button").onclick=()=>pick(i);ol.append(l)});pick(0);
 // dialog
 const dlg=$("#dlg");
-function show(img,h,sm,t,link){dlg.querySelector("img").src=img;dlg.querySelector("h3").textContent=h;dlg.querySelector("small").textContent=sm;dlg.querySelector("p").textContent=t;dlg.querySelector("a")?.remove();
-if(link){const a=document.createElement("a");a.href=typeof link=="string"?link:YT+"/shorts";a.target="_blank";a.rel="noopener";a.textContent=typeof link=="string"?"Tonton di YouTube":"Buka Shorts di YouTube";dlg.querySelector("div div").append(a)}dlg.showModal()}
+function show(img,h,sm,t,link){dlg.querySelector("img").src=img;dlg.querySelector("h3").textContent=h;dlg.querySelector("small").textContent=sm;dlg.querySelector("p").textContent=t;dlg.querySelectorAll("a,.pb").forEach(n=>n.remove());
+if(link){const bx=dlg.querySelector("div div");if(YID(link)){const pb=el("button","go pb","▶ Putar di sini");pb.onclick=()=>{dlg.close();play(YID(link),1,link)};bx.append(pb)}const a=document.createElement("a");a.href=typeof link=="string"?link:YT+"/shorts";a.target="_blank";a.rel="noopener";a.textContent=typeof link=="string"?"Tonton di YouTube":"Buka Shorts di YouTube";dlg.querySelector("div div").append(a)}dlg.showModal()}
 dlg.querySelector(".x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>{if(e.target==dlg)dlg.close()});
 /*CH*/
 
@@ -221,9 +227,14 @@ const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>/^(assets
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const DEF={characters:CH.map((c,i)=>({id:"d"+i,img:c[0],name:c[1],role:c[2],bio:c[3],t:i})),shorts:SH.map(c=>({img:c[0],ep:+c[1].slice(4),title:c[2],summary:c[3],url:""})),videos:[]};
 let DATA={characters:[],shorts:[],videos:[]},DB=null,CAN=false;
+const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
+const PLD=document.getElementById("pl");
+function play(id,sv,href){const f=document.createElement("iframe");f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";f.title="Pemutar video YouTube";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";
+const pf=PLD.querySelector(".pf");pf.className="pf"+(sv?" v":"");pf.replaceChildren(f);PLD.querySelector(".yl").href=href;PLD.showModal()}
+PLD.addEventListener("close",()=>PLD.querySelector(".pf").replaceChildren());PLD.querySelector(".x").onclick=()=>PLD.close();PLD.addEventListener("click",e=>{if(e.target==PLD)PLD.close()});
 function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();im.src=GIMG(d.img);im.alt=d.name||"";b.append(im);b.setAttribute("aria-label",d.name||"");if(d.show_label){const lb=el("span","lb");lb.append(el("small","",d.role||""),el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
 function rSH(l){const c=$("#sr");c.replaceChildren();l.forEach(d=>{const b=el("button","sh"),im=new Image(),e=el("span","e","EPS."+String(d.ep).padStart(2,"0")),k=el("span","t",d.title);im.src=GIMG(d.img);im.alt="";b.append(im,e,k);b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1);c.append(b)})}
-function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||""))a.href=d.url;if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
+function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||"")){a.href=d.url;const v=YID(d.url);if(v)a.onclick=e=>{e.preventDefault();play(v,0,d.url)}}if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
 const RN={characters:rCH,shorts:rSH,videos:rVD},SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0))};
 function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[]});close();buildHS()}
 DEF.places=PL;RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));
