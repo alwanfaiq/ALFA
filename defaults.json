@@ -3,14 +3,15 @@
   {
    "img": "assets/c1.webp",
    "name": "Abi Thalib",
-   "role": "Paman Nabi dan pemimpin Bani Hasyim",
+   "role": "",
    "bio": "Mengasuh Muhammad kecil setelah Abdul Muthalib wafat, menemaninya berdagang ke Syam, dan melindunginya dari tekanan Quraisy hingga akhir hayatnya.",
-   "t": 0
+   "t": 0,
+   "show_label": true
   },
   {
    "img": "assets/c2.webp",
-   "name": "Sayyidina Ali bin Abi Thalib",
-   "role": "Sepupu dan sahabat Nabi",
+   "name": "Ali bin Abi Thalib",
+   "role": "Sayyidina",
    "bio": "Putra Abu Thalib yang tumbuh dalam asuhan Nabi ﷺ. Ia termasuk yang paling awal beriman, dan kelak menjadi khalifah keempat.",
    "t": 1,
    "slides": [
@@ -32,35 +33,40 @@
      "caption": "Pedang dzulfikar"
     }
    ],
-   "facts": "Umur : \nMemeluk islam pada : \nJabatan : Khalifah ke empat setelah Sy. Utsman bin Affan\nMasa Jabatan : \ndan lain-lain : "
+   "facts": "Umur : \nMemeluk islam pada : \nJabatan : Khalifah ke empat setelah Sy. Utsman bin Affan\nMasa Jabatan : \ndan lain-lain : ",
+   "show_label": true
   },
   {
    "img": "assets/c3.webp",
-   "name": "Pendeta Bahira",
-   "role": "Rahib di Bushra, Syam",
+   "name": "Bahira",
+   "role": "Pendeta",
    "bio": "Mengenali tanda kenabian pada Muhammad muda, lalu memperingatkan Abu Thalib agar menjaga keponakannya dari orang-orang yang memusuhinya.",
-   "t": 2
+   "t": 2,
+   "show_label": true
   },
   {
    "img": "assets/c4.webp",
-   "name": "Sayyidina Abu Bakar Asshiddiq",
-   "role": "Sahabat karib Nabi",
+   "name": "Abu Bakar Asshiddiq",
+   "role": "Sayyidina",
    "bio": "Sahabat sejak sebelum kenabian yang segera membenarkan risalah Nabi ﷺ, digelari Ash-Shiddiq, dan kelak menjadi khalifah pertama.",
-   "t": 3
+   "t": 3,
+   "show_label": true
   },
   {
    "img": "assets/c5.webp",
-   "name": "Sayyidah Khadijah",
-   "role": "Istri Nabi, saudagari Quraisy",
+   "name": "Khadijah",
+   "role": "Sayyidah",
    "bio": "Pengusaha terhormat yang menikahi Muhammad ﷺ. Ia orang pertama yang beriman dan menenangkan Nabi sepulang dari Gua Hira.",
-   "t": 4
+   "t": 4,
+   "show_label": true
   },
   {
    "img": "assets/c6.webp",
-   "name": "Sayyidina Abu Jahal",
-   "role": "Tokoh Quraisy penentang dakwah",
+   "name": "Abu Jahal",
+   "role": "Sayyidina",
    "bio": "Bernama asli Amr bin Hisyam. Ia menjadi salah satu penentang paling keras dakwah Nabi ﷺ dan tewas dalam Perang Badar.",
-   "t": 5
+   "t": 5,
+   "show_label": true
   }
  ],
  "shorts": [
