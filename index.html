@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v0.8.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v0.8.1 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -128,6 +128,11 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 .cc.ph{background:linear-gradient(160deg,#2a2418,#3b3120);border:1px solid var(--g2)}
 .cc.ph::before{content:"◆";position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-size:3rem;color:var(--g2)}
 @media(max-width:640px){.mt{left:64px;transform:none;flex-wrap:wrap;max-width:calc(100% - 80px)}}
+.cc{transition:transform .25s,filter .3s,box-shadow .3s}
+@media(hover:hover){
+#cr:has(.cc:hover) .cc:not(:hover),#cr:has(.cc:focus-visible) .cc:not(:focus-visible){filter:brightness(.36) saturate(.6)}
+.cc:hover,.cc:focus-visible{filter:brightness(1.06);box-shadow:0 0 0 2px var(--g),0 14px 44px rgba(196,163,90,.4);z-index:1}
+}
 </style></head><body>
 <header><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
 <nav><a class="f" href="#chronology">Chronology</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
