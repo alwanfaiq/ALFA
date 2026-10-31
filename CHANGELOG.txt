@@ -1,6 +1,11 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v0.7.0
+- index.html: nama dan gradasi gelap selalu tampil di semua card karakter (tidak lagi tergantung centang), video pertama tampil selebar halaman, video lain grid di bawahnya
+- admin.html: centang "Tampilkan nama" dihapus, thumbnail video di-crop 16:9 otomatis (resolusi 1600px)
+- detail.html dan schema.sql tidak berubah
+
 v0.6.0
 - Card karakter: cover bersih (tanpa tulisan di gambar) + gradasi gelap di bawah dengan nama otomatis dari HTML, kartu selang-seling naik turun
 - index.html: gaya label nama di cover, nilai bawaan karakter
