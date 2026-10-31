@@ -1,4 +1,4 @@
--- ALFA | History of Islam: schema.sql v0.3.0
+-- ALFA | History of Islam: schema.sql v0.4.0
 -- Jalankan di Supabase: SQL Editor > New query > Run. Aman dijalankan berulang kali.
 create table if not exists public.characters(id uuid primary key default gen_random_uuid(),name text not null,role text,bio text,img text,t bigint not null default (extract(epoch from now())*1000)::bigint);
 alter table public.characters add column if not exists meta text,add column if not exists body text,add column if not exists facts text,add column if not exists slides jsonb not null default '[]',add column if not exists gallery jsonb not null default '[]',add column if not exists show_label boolean not null default false;
@@ -35,4 +35,5 @@ drop policy if exists "media admin delete" on storage.objects;
 create policy "media admin delete" on storage.objects for delete to authenticated using (bucket_id='media');
 
 -- Muat ulang cache skema API supaya kolom baru langsung dikenali
+alter table public.places add column if not exists map text not null default 'arab';
 notify pgrst, 'reload schema';
