@@ -1,6 +1,16 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v0.8.0
+- Konten besar: 20 karakter dengan biografi, 29 peristiwa timeline sampai masa Khulafaur Rasyidin, detail untuk 28 tempat di dua peta
+- Peta kedua "Dunia Islam Awal" (tab peta muncul otomatis setelah assets/map2.webp diupload), tombol "Lihat di peta" otomatis pindah peta
+- Semua konten bawaan sekarang dibaca dari defaults.json (index.html jauh lebih ringan)
+- Card karakter tanpa gambar tampil sebagai kartu placeholder dengan nama
+- admin.html: tombol "Sinkronkan konten bawaan" (tambah yang baru, perbarui yang lama tanpa menimpa gambar), pilihan peta untuk tiap tempat
+- schema.sql v0.4.0: kolom peta untuk tabel places (WAJIB dijalankan ulang)
+- Tulisan "Sudah tayang 7 episode" dihapus
+- File: defaults.json di alfa-upload-v0.8.0.zip. detail.html tidak berubah (v0.5.0)
+
 v0.7.0
 - index.html: nama dan gradasi gelap selalu tampil di semua card karakter (tidak lagi tergantung centang), video pertama tampil selebar halaman, video lain grid di bawahnya
 - admin.html: centang "Tampilkan nama" dihapus, thumbnail video di-crop 16:9 otomatis (resolusi 1600px)
