@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v0.7.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v0.8.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -123,6 +123,11 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 .vg .vd:first-child h3{font:700 clamp(1.2rem,2.2vw,1.8rem)/1.3 Arvo,Bitter,serif;margin-top:16px}
 .vg .vd:first-child p{font-size:1rem;max-width:80ch}
 .vg .vd:first-child .th::before{border-width:22px;border-left-width:38px;margin:-22px 0 0 -15px}
+.mt{position:absolute;top:16px;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:6px}.mt[hidden]{display:none}
+.mt button{background:var(--bg);border:1px solid var(--g);color:var(--g);padding:7px 14px;font:700 .85rem Arvo,serif;cursor:pointer}.mt .on{background:var(--g);color:var(--bg)}
+.cc.ph{background:linear-gradient(160deg,#2a2418,#3b3120);border:1px solid var(--g2)}
+.cc.ph::before{content:"◆";position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);font-size:3rem;color:var(--g2)}
+@media(max-width:640px){.mt{left:64px;transform:none;flex-wrap:wrap;max-width:calc(100% - 80px)}}
 </style></head><body>
 <header><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
 <nav><a class="f" href="#chronology">Chronology</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
@@ -130,12 +135,13 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <div id="places"><div id="map" aria-label="Peta Jazirah Arab, bisa di-zoom dan digeser">
 <div id="stage"><img src="assets/map.webp" alt="Peta Jazirah Arab menjelang kenabian"></div>
 <div class="ctl"><button id="zi" aria-label="Perbesar">+</button><button id="zo" aria-label="Perkecil">−</button><button id="zr" aria-label="Reset peta" style="font-size:16px">⟲</button></div>
+<div id="mt" class="mt" hidden></div>
 <div class="hint">Ctrl + scroll atau cubit untuk zoom, seret untuk geser, klik ◆ untuk detail</div>
 <aside id="pc" hidden><button class="x" aria-label="Tutup">×</button><div class="pcs"><img alt=""><button class="pa l" aria-label="Foto sebelumnya"></button><button class="pa r" aria-label="Foto berikutnya"></button><div class="dt"></div></div><div class="pcb"><h3></h3><small></small><p></p><a class="mo" href="#">Lihat detail ›</a></div></aside>
 </div></div>
 <section id="chronology"><h2>Chronology</h2><div id="tl"><ol></ol></div><div id="td" aria-live="polite"></div></section>
 <section id="characters"><h2>Characters</h2><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="cr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
-<section id="shorts"><div class="hd"><h2>Shorts</h2><a href="https://www.youtube.com/@alwan-faiq/shorts" target="_blank" rel="noopener">Sudah tayang 7 episode, lihat semua</a></div><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="sr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
+<section id="shorts"><div class="hd"><h2>Shorts</h2><a href="https://www.youtube.com/@alwan-faiq/shorts" target="_blank" rel="noopener">Lihat semua Shorts</a></div><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="sr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 <section id="videos" hidden><div class="hd"><h2>Videos</h2><a href="https://www.youtube.com/@alwan-faiq/videos" target="_blank" rel="noopener">Lihat semua</a></div><div class="vg" id="vr"></div></section>
 </main>
 <footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#chronology">Chronology</a><a href="#characters">Characters</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
@@ -144,38 +150,9 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Tutup">×</button><h3></h3><small></small><p></p></div></div></dialog>
 <script src="config.js"></script>
 <script>
-const YT="https://www.youtube.com/@alwan-faiq",R=1920/1081,$=q=>document.querySelector(q);
+let R=1920/1081;const YT="https://www.youtube.com/@alwan-faiq",$=q=>document.querySelector(q);
 $("#yt").href=YT;
-let PL=[
-{id:"makkah",n:"Makkah",s:"Kota kelahiran Nabi ﷺ",x:34.9,y:53.8,t:"Pusat perdagangan dan keagamaan Jazirah Arab. Di sinilah Ka’bah berdiri, dijaga suku Quraisy, dan di sini Nabi Muhammad ﷺ lahir, tumbuh, dan kelak menerima risalah."},
-{id:"yatsrib",n:"Yatsrib (Madinah)",s:"Oasis di utara Makkah",x:40.6,y:36.4,t:"Oasis subur yang dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi. Nabi ﷺ singgah di sini semasa kecil bersama ibunya; sekitar 622 M kota ini menjadi tujuan hijrah dan dikenal sebagai Madinah."},
-{id:"syam",n:"Syam (Levant)",s:"Tujuan kafilah dagang Quraisy",x:21.9,y:5.5,t:"Kafilah Quraisy berdagang ke Syam pada musim panas. Dalam salah satu perjalanan bersama Abu Thalib, Muhammad muda bertemu rahib Bahira di Bushra."},
-{id:"palestina",n:"Palestina",s:"Tanah Baitul Maqdis",x:12.2,y:11,t:"Wilayah Baitul Maqdis, tempat Masjidil Aqsa, kiblat pertama kaum Muslimin sebelum dialihkan ke Ka’bah."},
-{id:"iraq",n:"Iraq (Kuno)",s:"Dalam pengaruh Persia Sasaniyah",x:81.2,y:15.5,t:"Wilayah yang berada di bawah pengaruh Kekaisaran Persia Sasaniyah. Api yang disembah penganut Zoroaster menjadi latar kisah malam kelahiran Nabi ﷺ."},
-{id:"yaman",n:"Yaman",s:"Wilayah kekuasaan Abrahah",x:55.2,y:82,t:"Pada masa itu Yaman dikuasai Abrahah, wakil Kerajaan Habasyah (Aksum). Dari sinilah ia berangkat ke Makkah membawa pasukan bergajah."},
-{id:"gajah",n:"Jalur Pasukan Gajah",s:"Yaman menuju Makkah, ±570 M",x:46.7,y:71,t:"Rute Abrahah menuju Makkah untuk menghancurkan Ka’bah. Pasukannya binasa sebelum mencapai kota, peristiwa yang diabadikan dalam Surah Al-Fil."},
-{id:"hira",n:"Gua Hira",s:"Jabal Nur, dekat Makkah",x:43.4,y:52.3,t:"Gua tempat Nabi ﷺ berkhalwat. Di sinilah wahyu pertama turun pada 610 M."}];
-const EV=[
-{n:"Tahun Gajah",y:"±570 M",p:"gajah",t:"Abrahah dari Yaman datang dengan pasukan bergajah untuk menghancurkan Ka’bah. Pasukan itu binasa sebelum memasuki Makkah (QS. Al-Fil). Tahun ini dikenal sebagai Tahun Gajah."},
-{n:"Kelahiran Nabi",y:"12 Rabiul Awal, ±570 M",p:"makkah",t:"Muhammad ﷺ lahir di Makkah dari Aminah binti Wahb. Ayahnya, Abdullah, wafat sebelum beliau lahir, sehingga kakeknya Abdul Muthalib ikut mengasuhnya."},
-{n:"Disusui Siti Halimah",y:"Masa bayi",t:"Sesuai kebiasaan bangsawan Arab, bayi Muhammad dititipkan kepada Halimah as-Sa’diyah di perkampungan Bani Sa’d agar tumbuh di udara pedalaman yang sehat."},
-{n:"Yatim piatu",y:"6 dan 8 tahun",p:"yatsrib",t:"Aminah wafat dalam perjalanan pulang dari Yatsrib. Dua tahun kemudian Abdul Muthalib wafat, dan Abu Thalib mengambil alih pengasuhan."},
-{n:"Bertemu Bahira",y:"±12 tahun",p:"syam",t:"Dalam safar dagang ke Syam bersama Abu Thalib, rahib Bahira di Bushra mengenali tanda-tanda kenabian pada Muhammad muda dan berpesan agar Abu Thalib menjaganya."},
-{n:"Menikah dengan Khadijah",y:"25 tahun",p:"makkah",t:"Setelah berdagang untuk Khadijah dan dikenal sebagai Al-Amin, Muhammad ﷺ menikah dengannya."},
-{n:"Peletakan Hajar Aswad",y:"35 tahun",p:"makkah",t:"Saat Ka’bah direnovasi, kabilah-kabilah Quraisy berselisih siapa yang berhak meletakkan Hajar Aswad. Muhammad ﷺ menghamparkan kain, menaruh batu di atasnya, dan meminta wakil tiap kabilah memegang ujungnya."},
-{n:"Wahyu pertama",y:"40 tahun, 610 M",p:"hira",t:"Di Gua Hira, Jibril menyampaikan wahyu pertama: “Iqra’”. Dari sinilah dakwah Islam bermula."}];
-const CH=[
-["assets/c1.webp","Abi Thalib","","Mengasuh Muhammad kecil setelah Abdul Muthalib wafat, menemaninya berdagang ke Syam, dan melindunginya dari tekanan Quraisy hingga akhir hayatnya."],
-["assets/c2.webp","Ali bin Abi Thalib","Sayyidina","Putra Abu Thalib yang tumbuh dalam asuhan Nabi ﷺ. Ia termasuk yang paling awal beriman, dan kelak menjadi khalifah keempat."],
-["assets/c3.webp","Bahira","Pendeta","Mengenali tanda kenabian pada Muhammad muda, lalu memperingatkan Abu Thalib agar menjaga keponakannya dari orang-orang yang memusuhinya."],
-["assets/c4.webp","Abu Bakar Asshiddiq","Sayyidina","Sahabat sejak sebelum kenabian yang segera membenarkan risalah Nabi ﷺ, digelari Ash-Shiddiq, dan kelak menjadi khalifah pertama."],
-["assets/c5.webp","Khadijah","Sayyidah","Pengusaha terhormat yang menikahi Muhammad ﷺ. Ia orang pertama yang beriman dan menenangkan Nabi sepulang dari Gua Hira."],
-["assets/c6.webp","Abu Jahal","Sayyidina","Bernama asli Amr bin Hisyam. Ia menjadi salah satu penentang paling keras dakwah Nabi ﷺ dan tewas dalam Perang Badar."]];
-const SH=[
-["assets/s6.webp","EPS.06","Hampir Pecah Perang! Solusi Cerdas Sang Al-Amin 🕋✨","Kabilah-kabilah Quraisy hampir berperang karena berebut kehormatan meletakkan Hajar Aswad. Muhammad muda, yang dijuluki Al-Amin, menemukan jalan damai dengan selembar kain."],
-["assets/s5.webp","EPS.05","Misteri Awan Menaungi: Tanda Kenabian di Mata Pendeta Bahira ✨🐪","Dalam perjalanan ke Syam, rahib Bahira memperhatikan rombongan yang seolah dinaungi awan, lalu mengenali tanda kenabian pada Muhammad muda."],
-["assets/s2.webp","EPS.02","Malam Kelahiran Nabi: Api Abadi 1.000 Tahun Padam Seketika! 🕯⚡","Menurut riwayat yang masyhur, pada malam kelahiran Nabi ﷺ api sesembahan di Persia padam. Kisah ini dikenal luas, meski para ulama berbeda dalam menilai sanadnya."],
-["assets/s3.webp","EPS.03","Masa Kecil Nabi: Berkah Dusun Gersang & Dada yang Disucikan! ✨🕌","Di pedalaman Bani Sa’d, Halimah merasakan keberkahan sejak mengasuh bayi Muhammad. Riwayat Muslim juga mengisahkan peristiwa pembelahan dada beliau semasa kecil."]];
+let PL=[],EV=[],MAPS=[{id:"arab",name:"Jazirah Arab",img:"assets/map.webp"}],CM="arab",DEFS=null;
 // map
 const F=$("#map"),S=$("#stage");let s=1,x=0,y=0,bw,bh,moved=0;
 function put(ns,nx,ny){s=Math.min(5,Math.max(1,ns));x=Math.min(0,Math.max(F.clientWidth-bw*s,nx));y=Math.min(0,Math.max(F.clientHeight-bh*s,ny));S.style.transform=`translate(${x}px,${y}px) scale(${s})`;S.style.setProperty("--s",s)}
@@ -199,13 +176,16 @@ F.addEventListener("click",e=>{if(moved>4){e.stopPropagation();e.preventDefault(
 F.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();const[a,b]=pt(e);zoomAt(e.deltaY<0?1.15:1/1.15,a,b)},{passive:false});
 const pc=$("#pc");
 function close(){pc.hidden=true;document.querySelectorAll(".hs.on").forEach(b=>b.classList.remove("on"))}
-function openPlace(id,scroll){const p=PL.find(q=>q.id==id);if(!p)return;close();
+function useMap(id){return new Promise(r=>{const m=MAPS.find(x=>x.id==id);if(!m){r(false);return}if(CM==m.id){r(true);return}CM=m.id;close();const im=S.querySelector("img");im.onload=()=>{R=im.naturalWidth/im.naturalHeight;fit();put(1,-(bw-F.clientWidth)/2,0);buildHS();document.querySelectorAll("#mt button").forEach(b=>b.classList.toggle("on",b.dataset.id==CM));r(true)};im.alt=m.name;im.src=m.img})}
+function buildMT(){const mt=$("#mt");mt.replaceChildren();mt.hidden=MAPS.length<2;MAPS.forEach(m=>{const b=document.createElement("button");b.textContent=m.name;b.dataset.id=m.id;b.className=m.id==CM?"on":"";b.onclick=()=>useMap(m.id);mt.append(b)})}
+async function loadMaps(list){const ok=[];for(const m of list){if(await new Promise(r=>{const i=new Image();i.onload=()=>r(1);i.onerror=()=>r(0);i.src=m.img}))ok.push(m)}if(ok.length){MAPS=ok;if(!MAPS.some(m=>m.id==CM))CM=MAPS[0].id}buildMT()}
+function openPlace(id,scroll){const p=PL.find(q=>q.id==id);if(!p)return;if((p.map||"arab")!=CM){useMap(p.map||"arab").then(ok=>ok&&openPlace(id,scroll));return}close();
 document.querySelector(`.hs[data-id="${id}"]`).classList.add("on");
 fillPC(p);pc.hidden=false;
 const ns=2.6,cx=F.clientWidth>800?F.clientWidth*.36:F.clientWidth/2;
 if(scroll)$("#places").scrollIntoView();
 fly(ns,cx-p.x/100*bw*ns,F.clientHeight*(F.clientWidth>800?.5:.35)-p.y/100*bh*ns)}
-function buildHS(){S.querySelectorAll(".hs").forEach(b=>b.remove());PL.forEach(p=>{const b=document.createElement("button"),n=document.createElement("b");b.className="hs";b.dataset.id=p.id;b.style.left=p.x+"%";b.style.top=p.y+"%";n.textContent=p.n;b.append(document.createElement("i"),n);b.setAttribute("aria-label",p.n);b.onclick=()=>openPlace(p.id);S.append(b)})}buildHS();
+function buildHS(){S.querySelectorAll(".hs").forEach(b=>b.remove());PL.filter(p=>(p.map||"arab")==CM).forEach(p=>{const b=document.createElement("button"),n=document.createElement("b");b.className="hs";b.dataset.id=p.id;b.style.left=p.x+"%";b.style.top=p.y+"%";n.textContent=p.n;b.append(document.createElement("i"),n);b.setAttribute("aria-label",p.n);b.onclick=()=>openPlace(p.id);S.append(b)})}buildHS();
 let si=0;
 function fillPC(p){pc.querySelector("h3").textContent=p.n;pc.querySelector("small").textContent=p.s||"";pc.querySelector("p").textContent=p.t||"";
 const href="detail.html?t=places&id="+encodeURIComponent(p.uid||p.id);pc.dataset.href=href;pc.querySelector(".mo").href=href;
@@ -221,7 +201,7 @@ const ol=$("#tl ol"),td=$("#td");
 function pick(i){ol.querySelectorAll("li").forEach((l,k)=>l.classList.toggle("on",k==i));const v=EV[i];
 td.innerHTML=`<h3></h3><small></small><p></p>`;td.querySelector("h3").textContent=v.n;td.querySelector("small").textContent=v.y;td.querySelector("p").textContent=v.t;
 if(v.p){const g=document.createElement("button");g.className="go";g.textContent="Lihat di peta";g.onclick=()=>openPlace(v.p,true);td.append(g)}}
-EV.forEach((v,i)=>{const l=document.createElement("li");l.innerHTML=`<button><span class="dm"></span><span></span></button>`;l.querySelector("span+span").textContent=v.n;l.querySelector("button").onclick=()=>pick(i);ol.append(l)});pick(0);
+function buildTL(){ol.replaceChildren();EV.forEach((v,i)=>{const l=document.createElement("li");l.innerHTML=`<button><span class="dm"></span><span></span></button>`;l.querySelector("span+span").textContent=v.n;l.querySelector("button").onclick=()=>pick(i);ol.append(l)});if(EV.length)pick(0)}
 // dialog
 const dlg=$("#dlg");
 function show(img,h,sm,t,link){dlg.querySelector("img").src=img;dlg.querySelector("h3").textContent=h;dlg.querySelector("small").textContent=sm;dlg.querySelector("p").textContent=t;dlg.querySelectorAll("a,.pb").forEach(n=>n.remove());
@@ -231,23 +211,28 @@ dlg.querySelector(".x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>
 
 const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const DEF={characters:CH.map((c,i)=>({id:"d"+i,img:c[0],name:c[1],role:c[2],bio:c[3],t:i,show_label:true})),shorts:SH.map(c=>({img:c[0],ep:+c[1].slice(4),title:c[2],summary:c[3],url:""})),videos:[]};
+const DEF={characters:[],places:[],shorts:[],videos:[]};
 let DATA={characters:[],shorts:[],videos:[]},DB=null,CAN=false;
 const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
 const PLD=document.getElementById("pl");
 function play(id,sv,href){const f=document.createElement("iframe");f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";f.title="Pemutar video YouTube";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";
 const pf=PLD.querySelector(".pf");pf.className="pf"+(sv?" v":"");pf.replaceChildren(f);PLD.querySelector(".yl").href=href;PLD.showModal()}
 PLD.addEventListener("close",()=>PLD.querySelector(".pf").replaceChildren());PLD.querySelector(".x").onclick=()=>PLD.close();PLD.addEventListener("click",e=>{if(e.target==PLD)PLD.close()});
-function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();im.src=GIMG(d.img);im.alt=d.name||"";b.append(im);b.setAttribute("aria-label",d.name||"");{const lb=el("span","lb");if(d.role)lb.append(el("small","",d.role));lb.append(el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
+function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();if(GIMG(d.img)){im.src=GIMG(d.img);im.alt=d.name||"";b.append(im)}else b.classList.add("ph");b.setAttribute("aria-label",d.name||"");{const lb=el("span","lb");if(d.role)lb.append(el("small","",d.role));lb.append(el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
 function rSH(l){const c=$("#sr");c.replaceChildren();l.forEach(d=>{const b=el("button","sh"),im=new Image(),e=el("span","e","EPS."+String(d.ep).padStart(2,"0")),k=el("span","t",d.title);im.src=GIMG(d.img);im.alt="";b.append(im,e,k);b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1);c.append(b)})}
 function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||"")){a.href=d.url;const v=YID(d.url);if(v)a.onclick=e=>{e.preventDefault();play(v,0,d.url)}}if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
 const RN={characters:rCH,shorts:rSH,videos:rVD},SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0))};
-function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[]});close();buildHS()}
-DEF.places=PL;RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));
+function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[],map:d.map||"arab"});close();buildHS()}
+RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));
 rCH(DEF.characters);rSH(DEF.shorts);rVD([]);
 $("#yr").textContent="© "+new Date().getFullYear()+" ALFA | History of Islam, @alwan-faiq";
 const CFG=window.ALFA_CFG||{},DR={};
-(async()=>{if(!CFG.url||CFG.url.includes("YOUR-"))return;
+(async()=>{try{DEFS=await (await fetch("defaults.json")).json()}catch(e){DEFS={}}
+EV=DEFS.events||[];buildTL();
+DEF.characters=(DEFS.characters||[]).map((c,i)=>({...c,id:"d"+i,t:i}));DEF.places=DEFS.places||[];DEF.shorts=DEFS.shorts||[];
+await loadMaps(DEFS.maps||MAPS);
+for(const k of ["characters","places","shorts"])if(!DR[k])RN[k](DEF[k]);
+if(!CFG.url||CFG.url.includes("YOUR-"))return;
 for(const k of Object.keys(RN)){try{const r=await fetch(CFG.url+"/rest/v1/"+k+"?select=*",{headers:{apikey:CFG.key}});if(!r.ok)continue;const j=await r.json();if(DR[k])continue;const l=SRT[k](j);RN[k](l.length?l:DEF[k])}catch(e){}}})();
 document.querySelectorAll(".rail").forEach(r=>{const sc=r.querySelector(".sc");r.querySelector(".l").onclick=()=>sc.scrollBy({left:-sc.clientWidth*.7,behavior:"smooth"});r.querySelector(".r").onclick=()=>sc.scrollBy({left:sc.clientWidth*.7,behavior:"smooth"})});
 
