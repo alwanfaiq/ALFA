@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: admin.html v0.6.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
+<!-- ALFA | History of Islam: admin.html v0.7.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -52,10 +52,10 @@ const er=e=>toast(FR(String(e.message||e)),"err"),warn=m=>toast(m,"warn");
 function ask(m){return new Promise(r=>{const ov=el("div","ov"),bx=el("div","cb"),bt=el("div","bt"),y=el("button","","Ya, hapus"),n=el("button","","Batal"),d=v=>{ov.remove();r(v)};y.onclick=()=>d(true);n.onclick=()=>d(false);ov.onclick=e=>{if(e.target==ov)d(false)};bt.append(y,n);bx.append(el("p","",m),bt);ov.append(bx);document.body.append(ov);n.focus()})}
 const HELP="Format isi halaman:\n# Judul bagian  (judul tebal, boleh pakai emoji)\n- Sub judul  (diberi tanda ■)\nBaris biasa = paragraf. Tiap baris jadi satu paragraf.";
 const SC={
-characters:{l:"Karakter",f:[["name","Nama"],["role","Gelar singkat (baris kecil di atas nama, contoh: Sayyidina)"],["img","Cover karakter (di slider halaman utama)","c"],["show_label","Tampilkan nama di cover dengan latar gradasi gelap (matikan kalau gambar sudah ada tulisannya)","b"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman","t","h"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
+characters:{l:"Karakter",f:[["name","Nama"],["role","Gelar singkat (baris kecil di atas nama, contoh: Sayyidina)"],["img","Cover karakter (di slider halaman utama)","c"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman","t","h"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
 places:{l:"Place",f:[["name","Nama tempat"],["subtitle","Subjudul"],["description","Deskripsi singkat (di kartu peta)","t"],["pos","Posisi di peta (klik gambar peta)","m"],["slides","Foto kartu peta & halaman detail","s"],["meta","Keterangan di bawah judul halaman detail","t"],["body","Isi halaman detail (kosong = pakai deskripsi singkat)","t","h"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (Label : isi)","t"]],ti:d=>d.name},
 shorts:{l:"Shorts",f:[["ep","Nomor episode","n"],["title","Judul"],["summary","Ringkasan","t"],["url","Link YouTube (opsional)"],["img","Gambar cover","i"]],ti:d=>"EPS."+d.ep+" "+d.title},
-videos:{l:"Video panjang",f:[["title","Judul"],["description","Deskripsi","t"],["url","Link YouTube"],["img","Thumbnail (opsional)","i"]],ti:d=>d.title}};
+videos:{l:"Video panjang",f:[["title","Judul"],["description","Deskripsi","t"],["url","Link YouTube"],["img","Thumbnail 16:9 (di-crop otomatis)","w"]],ti:d=>d.title}};
 let inP=false,sb,tab="characters",ed=null,rows=[];
 if(!C.url||C.url.includes("YOUR-")||!window.supabase){app.append(el("h1","","Admin"),el("p","m","Isi dulu config.js dengan URL dan publishable key Supabase kamu."))}
 else{sb=supabase.createClient(C.url,C.key);sb.auth.onAuthStateChange((ev,s)=>{if(ev=="SIGNED_OUT")login();else if(s&&!inP)panel()});sb.auth.getSession().then(({data})=>{if(!data.session&&!inP)login()})}
@@ -68,9 +68,9 @@ async function up(f){const n=Date.now()+"-"+Math.random().toString(36).slice(2,6
 // ---- cropper
 function crop(file,rw,rh,ow){return new Promise((res,rej)=>{const url=URL.createObjectURL(file),im=new Image();
 im.onerror=()=>rej(new Error("Gambar tidak bisa dibaca"));
-im.onload=()=>{const FW=Math.round(Math.max(120,Math.min(220,(innerHeight-250)*rw/rh,innerWidth-70))),FH=Math.round(FW*rh/rw),nw=im.naturalWidth,nh=im.naturalHeight,s0=Math.max(FW/nw,FH/nh);
+im.onload=()=>{const FW=Math.round(Math.max(120,Math.min(rw>rh?560:220,(innerHeight-250)*rw/rh,innerWidth-70))),FH=Math.round(FW*rh/rw),nw=im.naturalWidth,nh=im.naturalHeight,s0=Math.max(FW/nw,FH/nh);
 let s=s0,ox=(FW-nw*s)/2,oy=(FH-nh*s)/2,dr=null;
-const ov=el("div","ov"),bx=el("div","cb"),fr=el("div","fr lbl"),pi=new Image(),z=document.createElement("input"),ok=el("button","","Terapkan"),no=el("button","","Batal"),bt=el("div","bt");
+const ov=el("div","ov"),bx=el("div","cb"),fr=el("div","fr"+(rh>rw?" lbl":"")),pi=new Image(),z=document.createElement("input"),ok=el("button","","Terapkan"),no=el("button","","Batal"),bt=el("div","bt");
 fr.style.width=FW+"px";fr.style.height=FH+"px";pi.src=url;pi.alt="";fr.append(pi);z.type="range";z.min=1;z.max=5;z.step=.01;z.value=1;
 const ap=()=>{ox=Math.min(0,Math.max(FW-nw*s,ox));oy=Math.min(0,Math.max(FH-nh*s,oy));pi.style.width=nw*s+"px";pi.style.height=nh*s+"px";pi.style.left=ox+"px";pi.style.top=oy+"px"};
 const zm=(ns,cx,cy)=>{ns=Math.max(s0,Math.min(s0*5,ns));const k=ns/s;ox=cx-(cx-ox)*k;oy=cy-(cy-oy)*k;s=ns;z.value=s/s0;ap()};
@@ -108,8 +108,8 @@ if(!rows.length&&tab!="videos"){const b=el("button","","Muat konten bawaan ("+S.
 const fm=el("div","fm"),val=new Proxy({...(ed&&rows.find(d=>d.id==ed)||{show_label:true})},{set(o,k,v){o[k]=v;chg();return true}});fm.append(el("h3","",ed?"Edit":"Tambah baru"));
 S.f.forEach(([k,lb,ty,hp])=>{const l=el("label","",lb);let i;
 if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fm.append(l);return}
-if(ty=="i"||ty=="c"){i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
-i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"){f=await crop(f,287,787,574);if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
+if(ty=="i"||ty=="c"||ty=="w"){i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
+i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"||ty=="w"){f=await(ty=="c"?crop(f,287,787,574):crop(f,16,9,1600));if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
 l.append(i,pv);fm.append(l);return}
 if(ty=="s"||ty=="g"){const arr=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","ls"),g=ty=="g",pick=document.createElement("input");pick.type="file";pick.accept="image/*";pick.multiple=true;
 const draw=()=>{chg();box.replaceChildren();arr.forEach((x,n)=>{const it=el("div","it"),im=el("img","pv");im.alt="";im.src=g?x.url:x;it.append(im);
