@@ -1,6 +1,22 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v1.0.0
+- Statistik kunjungan: track.js mencatat halaman, negara (kode 2 huruf), perangkat, dan sumber kunjungan ke tabel visits. IP tidak disimpan. Kunjungan dari browser yang sedang login admin, dari pratinjau, dan dari browser yang diberi centang "Jangan hitung" tidak dihitung
+- dashboard.html (baru): total tayangan, pengunjung unik, grafik harian, peta dunia berwarna per negara (assets/world.svg, bisa di-zoom dan digeser), tabel negara, halaman terpopuler, sumber kunjungan, perangkat
+- admin.html v1.0.0: editor artikel ala Word untuk isi halaman karakter dan tempat (judul, tebal/miring, daftar, kutipan, tautan, tautan wiki ke karakter atau tempat lain, gambar dengan keterangan dan posisi, tabel). Konten lama otomatis dikonversi saat dibuka. Ada tombol menuju Dashboard
+- detail.html v0.6.0: menampilkan artikel dari editor (disanitasi), daftar isi otomatis, tautan wiki, gambar dengan keterangan, tabel. Memanggil track.js
+- index.html v0.9.0: memanggil track.js
+- schema.sql v0.5.0: tabel visits, fungsi alfa_stats (WAJIB dijalankan ulang)
+
+v0.9.0
+- admin.html: tombol "Editor peta" di tab Place. Semua titik terlihat sekaligus di peta, klik tempat di daftar lalu klik peta untuk memindahkan (atau seret titiknya), grid koordinat untuk peta luas, tombol reset ke posisi perkiraan, dan simpan semua posisi sekaligus
+- Prompt Flow (flow-2 dan flow-4) kini diawali nama karakter atau tempat supaya mudah dikenali
+- File lain tidak berubah
+
+v0.8.1
+- index.html: efek spotlight pada card karakter (card yang di-hover menyala, yang lain menggelap)
+
 v0.8.0
 - Konten besar: 20 karakter dengan biografi, 29 peristiwa timeline sampai masa Khulafaur Rasyidin, detail untuk 28 tempat di dua peta
 - Peta kedua "Dunia Islam Awal" (tab peta muncul otomatis setelah assets/map2.webp diupload), tombol "Lihat di peta" otomatis pindah peta
