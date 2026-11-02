@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: detail.html v0.5.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: detail.html v0.6.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -32,10 +32,24 @@ figure{margin:0 0 36px}figure img{display:block;width:100%;border:1px solid var(
 figcaption{margin-top:10px;font-size:.95rem}
 .msg{padding:80px 20px;text-align:center}
 @media(max-width:800px){.cols{grid-template-columns:1fr}.logo small{display:none}}
+.bd::after{content:"";display:block;clear:both}
+.rich h2{font:700 1.35rem/1.3 Arvo,serif;margin:30px 0 12px;padding-bottom:6px;border-bottom:1px solid var(--gold)}.rich h2:first-child{margin-top:0}
+.rich h3{font:700 1.1rem/1.35 Arvo,serif;margin:22px 0 8px;color:var(--gold2)}.rich h4{font:700 1rem Arvo,serif;margin:18px 0 6px}
+.rich p{padding-left:0;margin:0 0 1em}.rich ul,.rich ol{margin:0 0 1em;padding-left:1.6rem}.rich li{margin:.2em 0}
+.rich a{color:var(--gold2)}.rich blockquote{margin:1em 0;padding:.6em 1.1em;border-left:4px solid var(--gold);background:rgba(255,255,255,.04);font-style:italic}
+.rich hr{border:0;border-top:1px solid var(--gold);margin:1.6em 0}
+.rich img{display:block;width:100%;height:auto;border:1px solid var(--gold)}
+.rich figure{margin:1.2em 0}.rich figure.fr{float:right;width:min(42%,340px);margin:.3em 0 .8em 1.4em}.rich figure.fl{float:left;width:min(42%,340px);margin:.3em 1.4em .8em 0}.rich figure.fc{max-width:760px;margin:1.4em auto}
+.rich figcaption{margin-top:6px;font-size:.88rem;color:#d9cdb2}
+.rich table{border-collapse:collapse;width:100%;margin:1em 0}.rich th,.rich td{border:1px solid var(--gold);padding:6px 10px;text-align:left;vertical-align:top}.rich th{background:rgba(196,163,90,.15)}
+.toc{float:none;display:grid;gap:3px;border:1px solid var(--gold);background:rgba(255,255,255,.04);padding:14px 20px;margin:0 0 26px;max-width:340px}
+.toc b{font:700 1rem Arvo,serif;margin-bottom:4px}.toc a{color:var(--gold2);text-decoration:none;font-size:.95rem}.toc a.s{padding-left:1rem;font-size:.9rem}.toc a:hover{text-decoration:underline}
+@media(max-width:600px){.rich figure.fr,.rich figure.fl{float:none;width:100%;margin:1em 0}}
 </style></head><body>
 <header><a class="logo" href="index.html">ALFA<small>History<br>of Islam</small></a><a class="back" id="back" href="index.html">← Kembali</a></header>
 <div id="app"><p class="msg">Memuat...</p></div>
 <script src="config.js"></script>
+<script src="track.js"></script>
 <script>
 const C=window.ALFA_CFG||{},Q=new URLSearchParams(location.search),T=Q.get("t")=="places"?"places":"characters",ID=Q.get("id")||"",app=document.getElementById("app");
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
@@ -46,10 +60,24 @@ async function get(){
  const D=await (await fetch("defaults.json")).json();
  return T=="places"?D.places.find(p=>p.slug==ID):D.characters[+ID.replace(/\D/g,"")]}
 function body(t){const b=el("div","bd");(t||"").split("\n").forEach(l=>{if(!l.trim())return;if(l.startsWith("# "))b.append(el("h4","",l.slice(2)));else if(l.startsWith("- "))b.append(el("h5","",l.slice(2)));else b.append(el("p","",l.trim()))});return b}
+const OKT={P:1,BR:1,H2:1,H3:1,H4:1,STRONG:1,B:1,EM:1,I:1,U:1,S:1,UL:1,OL:1,LI:1,BLOCKQUOTE:1,A:1,IMG:1,FIGURE:1,FIGCAPTION:1,HR:1,TABLE:1,THEAD:1,TBODY:1,TR:1,TH:1,TD:1};
+function san(h){const d=new DOMParser().parseFromString("<body>"+h,"text/html").body,out=document.createElement("div");
+(function walk(src,dst){src.childNodes.forEach(n=>{if(n.nodeType==3){dst.append(document.createTextNode(n.textContent));return}if(n.nodeType!=1)return;let t=n.tagName;
+if(/^(SCRIPT|STYLE|IFRAME|OBJECT|EMBED|LINK|META|FORM|INPUT|BUTTON|TEXTAREA|SELECT|SVG|MATH|NOSCRIPT|TEMPLATE)$/.test(t))return;
+if(t=="DIV")t="P";if(t=="STRIKE"||t=="DEL")t="S";if(!OKT[t]){walk(n,dst);return}
+const e=document.createElement(t.toLowerCase());
+if(t=="A"){const h=n.getAttribute("href")||"";if(/^(https:\/\/|detail\.html\?|index\.html|#)/.test(h)){e.setAttribute("href",h);if(/^https:\/\//.test(h)){e.target="_blank";e.rel="noopener"}}}
+if(t=="IMG"){const s=n.getAttribute("src")||"";if(!/^(https:\/\/|assets\/)/.test(s))return;e.setAttribute("src",s);e.alt=(n.getAttribute("alt")||"").slice(0,200)}
+if(t=="FIGURE"){const c=(n.getAttribute("class")||"").split(/\s+/).filter(x=>x=="fr"||x=="fl"||x=="fc");if(c.length)e.className=c[0]}
+if(t=="TD"||t=="TH"){const cs=+n.getAttribute("colspan");if(cs>1&&cs<10)e.setAttribute("colspan",cs)}
+walk(n,e);dst.append(e)})})(d,out);return out}
+const isH=s=>/^\s*<[a-z]/i.test(s||"");
+function article(t){if(!isH(t)){return body(t)}const b=el("div","bd rich");b.append(...san(t).childNodes);return b}
+function toc(b){const hs=[...b.querySelectorAll("h2,h3,h4")];if(hs.length<3)return;const n=el("nav","toc");n.append(el("b","","Daftar isi"));hs.forEach((h,i)=>{h.id="b"+i;const a=el("a",h.tagName=="H3"?"s":"",h.textContent);a.href="#b"+i;n.append(a)});b.prepend(n)}
 function fail(m){app.replaceChildren(el("p","msg",m))}
 function render(d){
  if(!d)return fail("Halaman tidak ditemukan.");
- document.title=d.name+" | ALFA";app.replaceChildren();
+ document.title=d.name+" | ALFA";if(!render.t){render.t=1;alfaTrack({page:T,pid:ID,title:d.name})}app.replaceChildren();
  const sl=(Array.isArray(d.slides)?d.slides:[]).map(OK).filter(Boolean);
  if(sl.length){const h=el("div"),w=el("div","sl"),im=new Image(),l=el("button","ar l"),r=el("button","ar r"),dt=el("div","dots");h.id="hero";im.alt=d.name;l.setAttribute("aria-label","Sebelumnya");r.setAttribute("aria-label","Berikutnya");
   let i=0;const go=n=>{i=(n+sl.length)%sl.length;im.src=sl[i];dt.childNodes.forEach((x,k)=>x.classList.toggle("on",k==i))};
@@ -60,7 +88,7 @@ function render(d){
  const m=el("main");m.append(el("h1","",d.name));
  if(d.meta||d.subtitle)m.append(el("p","meta",d.meta||d.subtitle));
  const cols=el("div","cols"),left=el("div"),right=el("div");
- left.append(body(d.body||d.description||d.bio));
+ const art=article(d.body||d.description||d.bio);toc(art);left.append(art);
  const fl=(d.facts||"").split("\n").filter(l=>l.trim()&&(!l.includes(":")||l.slice(l.indexOf(":")+1).trim()));
  if(fl.length){const bx=el("div","box");bx.append(el("b","","Detail"));bx.append(document.createTextNode(fl.join("\n")));left.append(bx)}
  (Array.isArray(d.gallery)?d.gallery:[]).forEach(g=>{if(!OK(g.url))return;const f=el("figure"),im=new Image();im.src=g.url;im.alt=g.caption||"";f.append(im);if(g.caption)f.append(el("figcaption","",g.caption));right.append(f)});

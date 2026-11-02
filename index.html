@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v0.8.1 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v0.9.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -154,6 +154,7 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <dialog id="pl"><button class="x" aria-label="Tutup">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Buka di YouTube</a></dialog>
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Tutup">×</button><h3></h3><small></small><p></p></div></div></dialog>
 <script src="config.js"></script>
+<script src="track.js"></script>
 <script>
 let R=1920/1081;const YT="https://www.youtube.com/@alwan-faiq",$=q=>document.querySelector(q);
 $("#yt").href=YT;
@@ -247,4 +248,5 @@ addEventListener("message",e=>{if(e.origin!==location.origin||!/[?&]preview=1/.t
 DR[m.tab]=1;const l=SRT[m.tab](m.rows.slice());RN[m.tab](l.length?l:DEF[m.tab]);
 if(m.tab!=LT){LT=m.tab;const s=document.getElementById(m.tab=="places"?"places":m.tab);if(s)s.scrollIntoView({block:"start"})}
 if(m.tab=="places"&&m.focus)openPlace(m.focus)});
+if(!/[?&]preview=1/.test(location.search))alfaTrack({page:"home"});
 </script></body></html>
