@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v0.9.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v1.1.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -133,6 +133,21 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 #cr:has(.cc:hover) .cc:not(:hover),#cr:has(.cc:focus-visible) .cc:not(:focus-visible){filter:brightness(.36) saturate(.6)}
 .cc:hover,.cc:focus-visible{filter:brightness(1.06);box-shadow:0 0 0 2px var(--g),0 14px 44px rgba(196,163,90,.4);z-index:1}
 }
+#pl{width:min(1100px,calc(100vw - 24px),calc((100svh - 90px)*16/9))}#pl.v{width:min(calc(80svh*9/16),calc(100vw - 24px))}
+.pf.v{width:100%;max-height:none;aspect-ratio:9/16}
+.vs{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:8px 0;--vw:min(1000px,84vw)}.vs::-webkit-scrollbar{display:none}
+.vs::before,.vs::after{content:"";flex:none;width:max(0px,calc(50% - var(--vw)/2 - 24px))}
+.vs .vd{flex:none;width:var(--vw);scroll-snap-align:center;opacity:.4;transform:scale(.94);transition:opacity .3s,transform .3s}.vs .vd.act{opacity:1;transform:none}
+.vs .vd h3{font:700 clamp(1.1rem,2vw,1.6rem)/1.3 Arvo,Bitter,serif;margin-top:14px}.vs .vd p{font-size:1rem;max-width:80ch}
+.vs .vd .th::before{border-width:20px;border-left-width:34px;margin:-20px 0 0 -13px}
+.vrail .ar{z-index:4}
+.ct{display:grid;gap:12px;margin-top:22px}.sw{position:relative;max-width:640px}
+.sw input{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--g);padding:11px 14px;font:inherit;font-size:1rem}.sw input:focus{outline:2px solid var(--g);outline-offset:2px}
+.sg{position:absolute;left:0;right:0;top:calc(100% + 4px);z-index:20;background:#222;border:1px solid var(--g);max-height:340px;overflow:auto}.sg[hidden]{display:none}
+.sg button{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid #2c2c2c;padding:8px 14px;color:var(--ink);cursor:pointer;font:inherit}.sg button small{flex:none;width:76px;color:var(--g);font-size:.75rem;text-transform:uppercase}.sg button:hover,.sg button.on{background:rgba(196,163,90,.18)}
+.chips2{display:flex;flex-wrap:wrap;gap:8px}.chip{background:none;border:1px solid var(--g2);color:var(--ink);padding:5px 14px;cursor:pointer;font:inherit;font-size:.88rem}.chip:hover{border-color:var(--g)}.chip.on{background:var(--g);color:var(--bg);border-color:var(--g)}
+.fr2{display:flex;flex-wrap:wrap;gap:8px}.fr2 select,.fr2 button{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:7px 12px;font:inherit;font-size:.9rem;cursor:pointer}.fr2 button{color:var(--g);border-color:var(--g)}
+.cn{margin-top:6px;color:var(--mut);font-size:.88rem}
 </style></head><body>
 <header><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
 <nav><a class="f" href="#chronology">Chronology</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
@@ -145,11 +160,11 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <aside id="pc" hidden><button class="x" aria-label="Tutup">×</button><div class="pcs"><img alt=""><button class="pa l" aria-label="Foto sebelumnya"></button><button class="pa r" aria-label="Foto berikutnya"></button><div class="dt"></div></div><div class="pcb"><h3></h3><small></small><p></p><a class="mo" href="#">Lihat detail ›</a></div></aside>
 </div></div>
 <section id="chronology"><h2>Chronology</h2><div id="tl"><ol></ol></div><div id="td" aria-live="polite"></div></section>
-<section id="characters"><h2>Characters</h2><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="cr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
+<section id="characters"><h2>Tokoh</h2><div class="ct" id="ct"></div><p class="cn" id="cn"></p><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="cr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 <section id="shorts"><div class="hd"><h2>Shorts</h2><a href="https://www.youtube.com/@alwan-faiq/shorts" target="_blank" rel="noopener">Lihat semua Shorts</a></div><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="sr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
-<section id="videos" hidden><div class="hd"><h2>Videos</h2><a href="https://www.youtube.com/@alwan-faiq/videos" target="_blank" rel="noopener">Lihat semua</a></div><div class="vg" id="vr"></div></section>
+<section id="videos" hidden><div class="hd"><h2>Videos</h2><a href="https://www.youtube.com/@alwan-faiq/videos" target="_blank" rel="noopener">Lihat semua</a></div><div class="rail vrail"><button class="ar l" aria-label="Sebelumnya"></button><div class="vs" id="vr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 </main>
-<footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#chronology">Chronology</a><a href="#characters">Characters</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
+<footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#chronology">Chronology</a><a href="#characters">Tokoh</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
 
 <dialog id="pl"><button class="x" aria-label="Tutup">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Buka di YouTube</a></dialog>
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Tutup">×</button><h3></h3><small></small><p></p></div></div></dialog>
@@ -221,12 +236,47 @@ const DEF={characters:[],places:[],shorts:[],videos:[]};
 let DATA={characters:[],shorts:[],videos:[]},DB=null,CAN=false;
 const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
 const PLD=document.getElementById("pl");
-function play(id,sv,href){const f=document.createElement("iframe");f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";f.title="Pemutar video YouTube";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";
+function play(id,sv,href){PLD.classList.toggle("v",!!sv);const f=document.createElement("iframe");f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";f.title="Pemutar video YouTube";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";
 const pf=PLD.querySelector(".pf");pf.className="pf"+(sv?" v":"");pf.replaceChildren(f);PLD.querySelector(".yl").href=href;PLD.showModal()}
 PLD.addEventListener("close",()=>PLD.querySelector(".pf").replaceChildren());PLD.querySelector(".x").onclick=()=>PLD.close();PLD.addEventListener("click",e=>{if(e.target==PLD)PLD.close()});
-function rCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();if(GIMG(d.img)){im.src=GIMG(d.img);im.alt=d.name||"";b.append(im)}else b.classList.add("ph");b.setAttribute("aria-label",d.name||"");{const lb=el("span","lb");if(d.role)lb.append(el("small","",d.role));lb.append(el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
+function drawCH(l){const c=$("#cr");c.replaceChildren();l.forEach(d=>{const b=el("button","cc"),im=new Image();if(GIMG(d.img)){im.src=GIMG(d.img);im.alt=d.name||"";b.append(im)}else b.classList.add("ph");b.setAttribute("aria-label",d.name||"");{const lb=el("span","lb");if(d.role)lb.append(el("small","",d.role));lb.append(el("b","",d.name||""));b.append(lb)}b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};c.append(b)})}
+// ---- Tokoh: cari, filter, urutkan
+const ERAS=["Pra-Kenabian","Periode Makkah","Periode Madinah","Khulafaur Rasyidin"],GROUPS=["Khulafaur Rasyidin","Ummahat al-Mu’minin","Sepuluh Sahabat Dijanjikan Surga","Assabiqunal Awwalun","Keluarga Nabi","Panglima & Penakluk","Sahabat","Ulama Ahli Kitab","Penguasa","Penentang Dakwah"];
+let CHALL=[],CF={q:"",era:"",faith:"",gender:"",group:"",sort:""},CTkey="";
+const nz=s=>(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[’'`]/g,"").replace(/[^a-z0-9 ]+/g," ").replace(/\s+/g," ").trim();
+const htmlText=h=>/^\s*<[a-z]/i.test(h||"")?new DOMParser().parseFromString(h,"text/html").body.textContent:(h||"");
+const arr=x=>Array.isArray(x)?x:[];
+const hay=d=>d._h||(d._h=nz([d.name,d.role,d.meta,d.facts,arr(d.groups).join(" "),arr(d.eras).join(" "),d.faith,d.gender,htmlText(d.body)].join(" ")));
+const rank=d=>{const r=arr(d.groups).map(g=>GROUPS.indexOf(g)).filter(i=>i>=0);return r.length?Math.min(...r):99};
+const eraI=d=>{const r=arr(d.eras).map(g=>ERAS.indexOf(g)).filter(i=>i>=0);return r.length?Math.min(...r):99};
+function applyCH(){const tk=nz(CF.q).split(" ").filter(Boolean);
+let l=CHALL.map((d,i)=>[d,i]).filter(([d])=>(!tk.length||tk.every(w=>hay(d).includes(w)))&&(!CF.era||arr(d.eras).includes(CF.era))&&(!CF.faith||d.faith==CF.faith)&&(!CF.gender||d.gender==CF.gender)&&(!CF.group||arr(d.groups).includes(CF.group)));
+const so={era:(a,b)=>eraI(a[0])-eraI(b[0]),nama:(a,b)=>(a[0].name||"").localeCompare(b[0].name||"","id"),rank:(a,b)=>rank(a[0])-rank(b[0])}[CF.sort];if(so)l.sort((a,b)=>so(a,b)||a[1]-b[1]);
+l=l.map(x=>x[0]);drawCH(l);const c=$("#cr");c.scrollLeft=0;if(!l.length)c.append(el("p","m","Tidak ada tokoh yang cocok. Coba kata kunci atau filter lain."));
+$("#cn").textContent=l.length==CHALL.length?CHALL.length+" tokoh":"Menampilkan "+l.length+" dari "+CHALL.length+" tokoh"}
+function rCH(l){CHALL=l;buildCT();applyCH()}
+function suggest(q){const n=nz(q);if(!n)return[];const m=s=>{const z=nz(s),i=z.indexOf(n);return i<0?-1:(i==0||z[i-1]==" "?0:1)};
+const out=[],add=(t,label,k,f)=>{const s=m(label);if(s>=0)out.push({t,label,k,f,s})};
+CHALL.forEach(d=>add("Tokoh",d.name,"c",d));GROUPS.forEach(g=>add("Kelompok",g,"g",g));EV.forEach(e=>add("Peristiwa",e.n,"q",e.n));[...new Set(PL.map(p=>p.n))].forEach(p=>add("Tempat",p,"q",p));
+const cap={c:4,g:2,q:3};const cnt={};return out.sort((a,b)=>a.s-b.s).filter(x=>{const key=x.t=="Tempat"?"p":x.k;cnt[key]=(cnt[key]||0)+1;return cnt[key]<=(key=="p"?2:cap[x.k])}).slice(0,9)}
+function buildCT(){const ct=$("#ct"),key=JSON.stringify([CHALL.length,CHALL.map(d=>[d.groups,d.eras,d.faith,d.gender])]);if(key==CTkey&&ct.firstChild)return;CTkey=key;
+const gs=[...GROUPS.filter(g=>CHALL.some(d=>arr(d.groups).includes(g))),...new Set(CHALL.flatMap(d=>arr(d.groups)).filter(g=>!GROUPS.includes(g)))];
+const es=[...ERAS.filter(e=>CHALL.some(d=>arr(d.eras).includes(e))),...new Set(CHALL.flatMap(d=>arr(d.eras)).filter(e=>!ERAS.includes(e)))];
+const fs=[...new Set(CHALL.map(d=>d.faith).filter(Boolean))],gn=[...new Set(CHALL.map(d=>d.gender).filter(Boolean))];
+ct.replaceChildren();
+const sw=el("div","sw"),qi=document.createElement("input"),sg=el("div","sg");qi.type="search";qi.placeholder="Cari tokoh, gelar, atau peristiwa (mis. Badar, Khulafaur Rasyidin)";qi.value=CF.q;qi.autocomplete="off";qi.setAttribute("aria-label","Cari tokoh");sg.hidden=true;let hi=-1,cur=[];
+const pickS=x=>{sg.hidden=true;if(x.k=="c"){location.href="detail.html?t=characters&id="+encodeURIComponent(x.f.id)}else if(x.k=="g"){CF.group=x.f;CF.q="";qi.value="";buildCT();applyCH()}else{CF.q=x.f;qi.value=x.f;applyCH()}};
+const showS=()=>{cur=suggest(qi.value);hi=-1;sg.replaceChildren();cur.forEach((x,i)=>{const b=document.createElement("button");b.type="button";b.dataset.i=i;b.append(el("small","",x.t),document.createTextNode(x.label));b.onmousedown=e=>{e.preventDefault();pickS(x)};sg.append(b)});sg.hidden=!cur.length};
+qi.oninput=()=>{CF.q=qi.value;applyCH();showS()};qi.onfocus=showS;qi.onblur=()=>setTimeout(()=>sg.hidden=true,120);
+qi.onkeydown=e=>{const bs=[...sg.children];if(e.key=="ArrowDown"||e.key=="ArrowUp"){if(!bs.length)return;e.preventDefault();hi=(hi+(e.key=="ArrowDown"?1:-1)+bs.length)%bs.length;bs.forEach((b,i)=>b.classList.toggle("on",i==hi))}else if(e.key=="Enter"&&hi>=0){e.preventDefault();pickS(cur[hi])}else if(e.key=="Escape")sg.hidden=true};
+sw.append(qi,sg);ct.append(sw);
+const chips=el("div","chips2");[["","Semua"],...gs.map(g=>[g,g])].forEach(([v,t])=>{const b=el("button","chip"+(CF.group==v?" on":""),t);b.type="button";b.onclick=()=>{CF.group=v;chips.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x==b));applyCH()};chips.append(b)});ct.append(chips);
+const row=el("div","fr2"),mkS=(lb,k,opts)=>{const s=document.createElement("select");s.setAttribute("aria-label",lb);const o0=el("option","",lb+": semua");o0.value="";s.append(o0);opts.forEach(([v,t])=>{const o=el("option","",t);o.value=v;s.append(o)});s.value=CF[k];s.onchange=()=>{CF[k]=s.value;applyCH()};row.append(s)};
+mkS("Era","era",es.map(x=>[x,x]));mkS("Agama","faith",fs.map(x=>[x,x]));mkS("Jenis kelamin","gender",gn.map(x=>[x,x]));
+const so=document.createElement("select");so.setAttribute("aria-label","Urutkan");[["","Urutan bawaan"],["era","Urut: era"],["nama","Urut: nama A-Z"],["rank","Urut: kedudukan"]].forEach(([v,t])=>{const o=el("option","",t);o.value=v;so.append(o)});so.value=CF.sort;so.onchange=()=>{CF.sort=so.value;applyCH()};row.append(so);
+const rs=el("button","","Reset");rs.type="button";rs.onclick=()=>{CF={q:"",era:"",faith:"",gender:"",group:"",sort:""};CTkey="";buildCT();applyCH()};row.append(rs);ct.append(row)}
 function rSH(l){const c=$("#sr");c.replaceChildren();l.forEach(d=>{const b=el("button","sh"),im=new Image(),e=el("span","e","EPS."+String(d.ep).padStart(2,"0")),k=el("span","t",d.title);im.src=GIMG(d.img);im.alt="";b.append(im,e,k);b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1);c.append(b)})}
-function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||"")){a.href=d.url;const v=YID(d.url);if(v)a.onclick=e=>{e.preventDefault();play(v,0,d.url)}}if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
+function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||""))a.href=d.url;const v=YID(d.url);a.onclick=e=>{if(!a.classList.contains("act")){e.preventDefault();a.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"});return}if(v){e.preventDefault();play(v,0,d.url)}};if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
 const RN={characters:rCH,shorts:rSH,videos:rVD},SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0))};
 function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[],map:d.map||"arab"});close();buildHS()}
 RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));
@@ -248,5 +298,10 @@ addEventListener("message",e=>{if(e.origin!==location.origin||!/[?&]preview=1/.t
 DR[m.tab]=1;const l=SRT[m.tab](m.rows.slice());RN[m.tab](l.length?l:DEF[m.tab]);
 if(m.tab!=LT){LT=m.tab;const s=document.getElementById(m.tab=="places"?"places":m.tab);if(s)s.scrollIntoView({block:"start"})}
 if(m.tab=="places"&&m.focus)openPlace(m.focus)});
+(()=>{const r=$(".vrail"),tr=$("#vr"),items=()=>[...tr.querySelectorAll(".vd")];
+const act=()=>{const c=tr.getBoundingClientRect(),m=c.left+c.width/2;let best=null,bd=1e9;items().forEach(x=>{const b=x.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-m);if(d<bd){bd=d;best=x}});items().forEach(x=>x.classList.toggle("act",x==best))};
+let tm;tr.addEventListener("scroll",()=>{clearTimeout(tm);tm=setTimeout(act,40)});addEventListener("resize",act);new MutationObserver(()=>setTimeout(act,50)).observe(tr,{childList:true});
+const go=d=>{const a=items(),i=a.findIndex(x=>x.classList.contains("act")),n=a[Math.max(0,Math.min(a.length-1,(i<0?0:i)+d))];if(n)n.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"})};
+r.querySelector(".l").onclick=()=>go(-1);r.querySelector(".r").onclick=()=>go(1)})();
 if(!/[?&]preview=1/.test(location.search))alfaTrack({page:"home"});
 </script></body></html>

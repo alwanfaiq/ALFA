@@ -1,24 +1,355 @@
 {
- "characters": [
+ "maps": [
   {
-   "img": "assets/c1.webp",
-   "name": "Abi Thalib",
-   "role": "",
-   "bio": "Mengasuh Muhammad kecil setelah Abdul Muthalib wafat, menemaninya berdagang ke Syam, dan melindunginya dari tekanan Quraisy hingga akhir hayatnya.",
-   "t": 0,
-   "show_label": true
+   "id": "arab",
+   "name": "Jazirah Arab",
+   "img": "assets/map.webp"
   },
   {
-   "img": "assets/c2.webp",
+   "id": "khilafah",
+   "name": "Dunia Islam Awal",
+   "img": "assets/map2.webp"
+  }
+ ],
+ "events": [
+  {
+   "n": "Tahun Gajah",
+   "y": "±570 M",
+   "p": "gajah",
+   "t": "Abrahah dari Yaman datang dengan pasukan bergajah untuk menghancurkan Ka’bah. Pasukan itu binasa sebelum memasuki Makkah (QS. Al-Fil). Tahun ini dikenal sebagai Tahun Gajah."
+  },
+  {
+   "n": "Kelahiran Nabi",
+   "y": "12 Rabiul Awal, ±570 M",
+   "p": "makkah",
+   "t": "Muhammad ﷺ lahir di Makkah dari Aminah binti Wahb. Ayahnya, Abdullah, wafat sebelum beliau lahir, sehingga kakeknya Abdul Muthalib ikut mengasuhnya."
+  },
+  {
+   "n": "Disusui Siti Halimah",
+   "y": "Masa bayi",
+   "t": "Sesuai kebiasaan bangsawan Arab, bayi Muhammad dititipkan kepada Halimah as-Sa’diyah di perkampungan Bani Sa’d agar tumbuh di udara pedalaman yang sehat."
+  },
+  {
+   "n": "Yatim piatu",
+   "y": "6 dan 8 tahun",
+   "p": "yatsrib",
+   "t": "Aminah wafat dalam perjalanan pulang dari Yatsrib. Dua tahun kemudian Abdul Muthalib wafat, dan Abu Thalib mengambil alih pengasuhan."
+  },
+  {
+   "n": "Bertemu Bahira",
+   "y": "±12 tahun",
+   "p": "syam",
+   "t": "Dalam safar dagang ke Syam bersama Abu Thalib, rahib Bahira di Bushra mengenali tanda-tanda kenabian pada Muhammad muda dan berpesan agar Abu Thalib menjaganya."
+  },
+  {
+   "n": "Menikah dengan Khadijah",
+   "y": "25 tahun",
+   "p": "makkah",
+   "t": "Setelah berdagang untuk Khadijah dan dikenal sebagai Al-Amin, Muhammad ﷺ menikah dengannya."
+  },
+  {
+   "n": "Peletakan Hajar Aswad",
+   "y": "35 tahun",
+   "p": "makkah",
+   "t": "Saat Ka’bah direnovasi, kabilah-kabilah Quraisy berselisih siapa yang berhak meletakkan Hajar Aswad. Muhammad ﷺ menghamparkan kain, menaruh batu di atasnya, dan meminta wakil tiap kabilah memegang ujungnya."
+  },
+  {
+   "n": "Wahyu pertama",
+   "y": "40 tahun, 610 M",
+   "p": "hira",
+   "t": "Di Gua Hira, Jibril menyampaikan wahyu pertama: “Iqra’”. Dari sinilah dakwah Islam bermula."
+  },
+  {
+   "n": "Dakwah terang-terangan",
+   "y": "±613 M",
+   "p": "makkah-k",
+   "t": "Setelah sekitar tiga tahun berdakwah secara sembunyi-sembunyi, Nabi ﷺ diperintahkan berdakwah terbuka. Penentangan Quraisy semakin keras."
+  },
+  {
+   "n": "Hijrah ke Habasyah",
+   "y": "±615 M",
+   "p": "habasyah",
+   "t": "Sekelompok kaum Muslimin berhijrah ke Habasyah menghindari siksaan Quraisy. Raja Najasyi melindungi mereka."
+  },
+  {
+   "n": "Pemboikotan dan Tahun Duka Cita",
+   "y": "±616–619 M",
+   "p": "makkah-k",
+   "t": "Quraisy memboikot Bani Hasyim dan Bani Muthalib selama sekitar tiga tahun. Tidak lama setelahnya, Abu Thalib dan Khadijah wafat, sehingga disebut Tahun Duka Cita."
+  },
+  {
+   "n": "Isra’ dan Mi’raj",
+   "y": "±621 M",
+   "p": "palestina",
+   "t": "Nabi ﷺ diperjalankan dari Masjidil Haram ke Masjidil Aqsa, lalu dinaikkan ke langit. Peristiwa ini menjadi sumber kewajiban shalat lima waktu."
+  },
+  {
+   "n": "Hijrah ke Madinah",
+   "y": "1 H, 622 M",
+   "p": "madinah-k",
+   "t": "Setelah Baiat Aqabah, Nabi ﷺ berhijrah bersama Abu Bakar ke Yatsrib, yang kemudian dikenal sebagai Madinah. Tahun ini menjadi awal penanggalan Hijriyah."
+  },
+  {
+   "n": "Perang Badar",
+   "y": "17 Ramadhan 2 H, 624 M",
+   "p": "badar",
+   "t": "Pertempuran besar pertama antara kaum Muslimin yang berjumlah sedikit dan pasukan Quraisy yang jauh lebih besar. Kaum Muslimin menang, dan Abu Jahal tewas di sini."
+  },
+  {
+   "n": "Perang Uhud",
+   "y": "Syawal 3 H, 625 M",
+   "p": "madinah-k",
+   "t": "Pertempuran di kaki Gunung Uhud. Pasukan pemanah meninggalkan posisi, sehingga pasukan Khalid bin Walid menyerang dari belakang. Hamzah bin Abdul Muthalib gugur."
+  },
+  {
+   "n": "Perang Khandaq",
+   "y": "5 H, 627 M",
+   "p": "madinah-k",
+   "t": "Pasukan sekutu mengepung Madinah. Atas usul Salman al-Farisi, kaum Muslimin menggali parit di sisi utara kota dan berhasil mempertahankannya."
+  },
+  {
+   "n": "Perjanjian Hudaibiyah",
+   "y": "6 H, 628 M",
+   "p": "makkah-k",
+   "t": "Nabi ﷺ dan kaum Muslimin menuju Makkah untuk umrah, tetapi dihadang Quraisy. Disepakati perjanjian gencatan senjata yang membuka jalan dakwah damai."
+  },
+  {
+   "n": "Fathu Makkah",
+   "y": "Ramadhan 8 H, 630 M",
+   "p": "makkah-k",
+   "t": "Nabi ﷺ memasuki Makkah bersama pasukan besar nyaris tanpa pertempuran dan memberi pengampunan umum. Berhala-berhala di Ka’bah dihancurkan."
+  },
+  {
+   "n": "Haji Wada’ dan wafatnya Nabi",
+   "y": "10–11 H, 632 M",
+   "p": "madinah-k",
+   "t": "Nabi ﷺ menunaikan haji terakhirnya dan berkhutbah di Arafah. Tidak lama kemudian beliau wafat di Madinah pada 12 Rabiul Awal 11 H."
+  },
+  {
+   "n": "Abu Bakar menjadi khalifah",
+   "y": "11–13 H, 632–634 M",
+   "p": "yamamah",
+   "t": "Abu Bakar dibaiat sebagai khalifah. Ia memerangi gerakan kemurtadan dan nabi palsu dalam Perang Riddah, termasuk melawan Musailamah di Yamamah."
+  },
+  {
+   "n": "Penaklukan Syam dan Yarmuk",
+   "y": "13–15 H, 634–636 M",
+   "p": "yarmuk",
+   "t": "Pasukan Muslim merebut Damaskus dan mengalahkan Bizantium dalam Perang Yarmuk, pertempuran penentu yang membuka seluruh Syam."
+  },
+  {
+   "n": "Qadisiyyah dan Mada’in",
+   "y": "15–16 H, 636–637 M",
+   "p": "kufah",
+   "t": "Pasukan Sa’ad bin Abi Waqqash mengalahkan Persia di Qadisiyyah, lalu merebut ibu kota Mada’in. Kota Kufah dan Bashrah kemudian didirikan sebagai pangkalan."
+  },
+  {
+   "n": "Penyerahan Baitul Maqdis",
+   "y": "±16 H, 637 M",
+   "p": "baitulmaqdis",
+   "t": "Penduduk Baitul Maqdis menyerahkan kota kepada Umar bin Khattab melalui perjanjian yang menjamin keamanan jiwa, harta, dan tempat ibadah mereka."
+  },
+  {
+   "n": "Penaklukan Mesir",
+   "y": "18–21 H, 639–642 M",
+   "p": "iskandariyah",
+   "t": "Amr bin Ash memasuki Mesir, mengalahkan Bizantium di Babilonia dan Iskandariyah, lalu mendirikan kota Fustat."
+  },
+  {
+   "n": "Wafatnya Umar, Utsman menjadi khalifah",
+   "y": "23 H, 644 M",
+   "p": "madinah-k",
+   "t": "Umar ditikam saat shalat Subuh dan wafat. Utsman bin Affan dipilih lewat musyawarah enam sahabat sebagai khalifah ketiga."
+  },
+  {
+   "n": "Mushaf Utsmani",
+   "y": "±25–30 H, 646–651 M",
+   "p": "madinah-k",
+   "t": "Utsman memerintahkan penyalinan Al-Qur’an dalam satu mushaf baku, lalu mengirimkannya ke kota-kota besar. Pada masanya wilayah Islam meluas hingga Armenia, Afrika Utara, dan Persia timur."
+  },
+  {
+   "n": "Wafatnya Utsman, Ali menjadi khalifah",
+   "y": "35 H, 656 M",
+   "p": "madinah-k",
+   "t": "Setelah gejolak politik, Utsman dikepung di rumahnya dan wafat. Ali bin Abi Thalib dibaiat sebagai khalifah keempat dan kemudian memindahkan pusat pemerintahan ke Kufah."
+  },
+  {
+   "n": "Perang Jamal dan Shiffin",
+   "y": "36–37 H, 656–657 M",
+   "p": "basrah",
+   "t": "Perselisihan atas penanganan pembunuhan Utsman memicu Perang Jamal di dekat Bashrah dan Perang Shiffin melawan Mu’awiyah di Syam."
+  },
+  {
+   "n": "Wafatnya Ali",
+   "y": "Ramadhan 40 H, 661 M",
+   "p": "kufah",
+   "t": "Ali bin Abi Thalib ditikam Abdurrahman bin Muljam di Kufah dan wafat beberapa hari kemudian, menutup masa Khulafaur Rasyidin."
+  }
+ ],
+ "characters": [
+  {
+   "name": "Abdul Muthalib",
+   "role": "Kakek Nabi SAW",
+   "img": "",
+   "meta": "Nama asli: Syaibah al-Hamd\nEra/Latar: Makkah, akhir abad ke-6 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAbdul Muthalib bin Hasyim adalah pemimpin suku Quraisy yang disegani dan penjaga urusan Ka’bah, termasuk pelayanan air dan makanan bagi para peziarah. Ia kakek Nabi Muhammad SAW dari pihak ayah dan mengasuh beliau setelah ibunda beliau, Aminah, wafat.\n# 🌟 KISAH PENTING\n- Menggali kembali sumur Zamzam\nIa menemukan kembali sumur Zamzam yang telah lama tertimbun dan mengelolanya untuk melayani para jamaah.\n- Nazar dan tebusan seratus unta\nMenurut riwayat sirah, ia bernazar mengorbankan salah satu putranya. Undian jatuh pada Abdullah, lalu ia ditebus dengan seratus unta.\n- Menghadapi Abrahah\nSaat pasukan Abrahah datang, ia menemui sang panglima untuk meminta untanya dikembalikan dan menegaskan bahwa Ka’bah ada Pemiliknya yang akan menjaganya. Ia lalu mengajak penduduk berlindung ke perbukitan.\n- Mengasuh cucunya\nSepeninggal Aminah, ia menyayangi dan mengasuh Muhammad kecil hingga wafat saat beliau berusia sekitar delapan tahun, sebelum Abu Thalib mengambil alih.",
+   "facts": "Wafat : sekitar 578 M\nHubungan dengan Nabi : Kakek (ayah dari Abdullah)\nJulukan : Syaibah al-Hamd",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Pra-Kenabian"
+   ],
+   "faith": "Jahiliyah (Quraisy)",
+   "gender": "Pria",
+   "groups": [
+    "Keluarga Nabi"
+   ]
+  },
+  {
+   "name": "Abrahah",
+   "role": "Penguasa Yaman",
+   "img": "",
+   "meta": "Gubernur Yaman atas nama Kerajaan Aksum (Habasyah)\nEra/Latar: Yaman dan Makkah, ±570 M",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAbrahah adalah penguasa Yaman yang memerintah atas nama Kerajaan Aksum (Habasyah) yang beragama Nasrani. Ia dikenal karena upayanya menghancurkan Ka’bah pada tahun kelahiran Nabi Muhammad SAW.\n# 🌟 KISAH PENTING\n- Gereja megah di Shan’a\nMenurut riwayat sirah, ia membangun gereja besar (al-Qullais) di Shan’a dengan harapan mengalihkan ibadah haji bangsa Arab ke sana.\n- Pasukan bergajah menuju Makkah\nIa memimpin pasukan bergajah untuk meruntuhkan Ka’bah. Tahun peristiwa itu dikenal sebagai Tahun Gajah.\n- Kebinasaan pasukannya\nAllah menurunkan burung-burung yang melempari mereka dengan batu dari tanah yang dibakar (QS. Al-Fil), sehingga pasukan itu hancur sebelum mencapai Ka’bah.",
+   "facts": "Wilayah : Yaman\nPeristiwa : Tahun Gajah, ±570 M\nSurah terkait : Al-Fil",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Pra-Kenabian"
+   ],
+   "faith": "Nasrani",
+   "gender": "Pria",
+   "groups": [
+    "Penguasa"
+   ]
+  },
+  {
+   "name": "Halimah as-Sa’diyah",
+   "role": "Ibu Susu Nabi SAW",
+   "img": "",
+   "meta": "Suku: Bani Sa’d bin Bakr\nEra/Latar: Pedalaman dekat Makkah, ±570–575 M",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nHalimah binti Abi Dzu’aib dari Bani Sa’d adalah wanita yang menyusui dan mengasuh Muhammad kecil. Bangsawan Makkah biasa menitipkan bayi kepada wanita badui agar anak mereka tumbuh sehat dan fasih berbahasa Arab.\n# 🌟 KISAH PENTING\n- Mengambil bayi yatim\nMenurut riwayat sirah, banyak wanita menolak bayi yatim itu karena berharap upah, sampai Halimah akhirnya membawanya pulang.\n- Keberkahan di rumahnya\nIa dan keluarganya merasakan keberkahan sejak mengasuh Muhammad, mulai dari susu yang melimpah hingga ternak yang gemuk, padahal tahun itu musim paceklik.\n- Peristiwa pembelahan dada\nDalam riwayat Muslim, dua malaikat membelah dada Muhammad kecil dan menyucikan hatinya. Setelah kejadian itu Halimah mengembalikannya kepada ibunya.",
+   "facts": "Suku : Bani Sa’d bin Bakr\nHubungan dengan Nabi : Ibu susu",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Pra-Kenabian"
+   ],
+   "faith": "Islam",
+   "gender": "Wanita",
+   "groups": [
+    "Keluarga Nabi"
+   ]
+  },
+  {
+   "name": "Bahira",
+   "role": "Pendeta",
+   "img": "assets/c3.webp",
+   "meta": "Rahib Nasrani di Bushra, Syam\nEra/Latar: Bushra (Syam), ±582 M",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nBahira adalah rahib Nasrani yang tinggal di biara dekat Bushra, Syam, dan dikenal menguasai ilmu kitab terdahulu. Ia menjadi saksi awal tanda-tanda kenabian pada Muhammad muda.\n# 🌟 KISAH PENTING\n- Menjamu rombongan Quraisy\nSaat kafilah Abu Thalib melintas, Bahira mengundang mereka makan, padahal biasanya ia tidak menghiraukan kafilah yang lewat.\n- Mengenali tanda kenabian\nMenurut riwayat sirah, ia memperhatikan tanda-tanda pada Muhammad muda dan bertanya tentang beliau, lalu menyampaikan bahwa anak itu akan menjadi orang besar.\n- Memperingatkan Abu Thalib\nIa meminta Abu Thalib membawa pulang keponakannya agar tidak diganggu orang-orang yang memusuhinya.",
+   "facts": "Lokasi : Bushra, Syam\nPeristiwa : Safar dagang ke Syam, Nabi berusia ±12 tahun",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Pra-Kenabian"
+   ],
+   "faith": "Nasrani",
+   "gender": "Pria",
+   "groups": [
+    "Ulama Ahli Kitab"
+   ]
+  },
+  {
+   "name": "Abi Thalib",
+   "role": "",
+   "img": "assets/c1.webp",
+   "meta": "Gelar: Pemimpin Bani Hasyim\nEra/Latar: Makkah, akhir abad ke-6 hingga 619 M",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAbu Thalib bin Abdul Muthalib adalah paman Nabi Muhammad SAW dan ayah Ali bin Abi Thalib. Setelah Abdul Muthalib wafat, ia mengasuh Muhammad sepenuh hati meski hidup dalam kesederhanaan.\n# 🌟 PERAN HISTORIS\n- Pengasuh dan pelindung\nIa membawa Muhammad muda berdagang ke Syam, dan kelak melindunginya dari tekanan Quraisy dengan wibawa sebagai pemimpin Bani Hasyim.\n- Pemboikotan Bani Hasyim\nSaat Quraisy memboikot Bani Hasyim dan Bani Muthalib selama sekitar tiga tahun, ia ikut bertahan bersama Nabi SAW di lembah (Syi’b) yang dikenal dengan namanya.\n- Tahun Duka Cita\nIa wafat sekitar tahun 619 M, tidak lama sebelum Khadijah wafat, sehingga tahun itu dikenal sebagai Tahun Duka Cita. Menurut riwayat yang masyhur ia wafat tanpa mengucapkan syahadat, sementara sebagian ulama berpandangan lain.",
+   "facts": "Wafat : sekitar 619 M (Tahun Duka Cita)\nHubungan dengan Nabi : Paman\nAnak : Thalib, Aqil, Ja’far, Ali",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Pra-Kenabian",
+    "Periode Makkah"
+   ],
+   "faith": "Jahiliyah (Quraisy)",
+   "gender": "Pria",
+   "groups": [
+    "Keluarga Nabi"
+   ]
+  },
+  {
+   "name": "Khadijah",
+   "role": "Sayyidah",
+   "img": "assets/c5.webp",
+   "meta": "Gelar: Ummul Mukminin, At-Thahirah\nEra/Latar: Makkah, abad ke-6–7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nKhadijah binti Khuwailid adalah saudagari terpandang Quraisy yang menjadi istri pertama Nabi Muhammad SAW. Ia dikenal cerdas, dermawan, dan menjaga kehormatan diri.\n# 🌟 PERAN HISTORIS\n- Pengusaha yang mengenali amanah\nIa mempercayakan dagangannya ke Syam kepada Muhammad muda dan terkesan oleh kejujuran beliau yang diceritakan pembantunya, Maisarah.\n- Pendamping di awal wahyu\nSaat wahyu pertama turun dan Nabi SAW gemetar, ia menenangkan beliau dan menjadi orang pertama yang beriman.\n- Menopang dakwah dengan harta\nIa mendukung dakwah dengan hartanya, termasuk saat pemboikotan, dan wafat sekitar tiga tahun sebelum hijrah.",
+   "facts": "Wafat : sekitar 619 M (tahun ke-10 kenabian)\nPernikahan : Dengan Nabi SAW saat beliau berusia 25 tahun\nAnak : Qasim, Abdullah, Zainab, Ruqayyah, Ummu Kultsum, Fatimah",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Pra-Kenabian",
+    "Periode Makkah"
+   ],
+   "faith": "Islam",
+   "gender": "Wanita",
+   "groups": [
+    "Ummahat al-Mu’minin",
+    "Assabiqunal Awwalun",
+    "Keluarga Nabi"
+   ]
+  },
+  {
+   "name": "Waraqah bin Naufal",
+   "role": "Cendekiawan Nasrani",
+   "img": "",
+   "meta": "Sepupu Khadijah\nEra/Latar: Makkah, awal abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nWaraqah bin Naufal adalah sepupu Khadijah yang meninggalkan penyembahan berhala dan memeluk Nasrani. Ia menguasai kitab-kitab terdahulu dan menulis Injil dalam bahasa Ibrani, menurut riwayat Bukhari.\n# 🌟 PERAN HISTORIS\n- Saksi wahyu pertama\nKhadijah membawa Nabi SAW menemuinya setelah wahyu turun di Gua Hira. Waraqah mengenali malaikat yang datang itu sebagai Namus yang pernah diutus kepada Nabi Musa AS.\n- Janji dukungan\nIa berkata jika masih hidup saat kaumnya mengusir beliau, ia akan membelanya sekuat tenaga.\n- Wafat tak lama setelahnya\nIa wafat tidak lama kemudian, saat wahyu sempat terhenti.",
+   "facts": "Hubungan : Sepupu Khadijah\nPeristiwa : Menemui Nabi SAW setelah wahyu pertama, 610 M",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah"
+   ],
+   "faith": "Nasrani",
+   "gender": "Pria",
+   "groups": [
+    "Ulama Ahli Kitab"
+   ]
+  },
+  {
+   "name": "Abu Bakar Asshiddiq",
+   "role": "Sayyidina",
+   "img": "assets/c4.webp",
+   "meta": "Nama asli: Abdullah bin Abi Quhafah\nGelar: Ash-Shiddiq, Al-Atiq\nEra/Latar: Makkah dan Madinah, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAbu Bakar adalah sahabat karib Nabi Muhammad SAW sejak sebelum kenabian dan khalifah pertama umat Islam. Ia seorang pedagang kain yang jujur dan dihormati di Makkah.\n# 🌟 KARAKTERISTIK KUNCI & PERAN HISTORIS\n- Pembenar pertama\nIa segera membenarkan risalah Nabi SAW dan digelari Ash-Shiddiq. Ia juga memerdekakan sejumlah budak yang disiksa karena Islam, salah satunya Bilal bin Rabah.\n- Sahabat dalam hijrah\nIa menemani Nabi SAW berhijrah dan bersembunyi di Gua Tsur sebelum melanjutkan perjalanan ke Madinah.\n- Khalifah pertama\nSetelah Nabi SAW wafat, ia dibaiat sebagai khalifah. Ia memberangkatkan pasukan Usamah, memerangi gerakan kemurtadan dan nabi palsu dalam Perang Riddah, dan memerintahkan pengumpulan Al-Qur’an setelah Perang Yamamah.",
+   "facts": "Jabatan : Khalifah pertama (Khulafaur Rasyidin)\nMasa Jabatan : 11–13 H (632–634 M)\nWafat : Jumadil Akhir 13 H (634 M)\nPenerus : Umar bin Khattab",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Khulafaur Rasyidin",
+    "Sepuluh Sahabat Dijanjikan Surga",
+    "Assabiqunal Awwalun",
+    "Sahabat"
+   ]
+  },
+  {
    "name": "Ali bin Abi Thalib",
    "role": "Sayyidina",
-   "bio": "Putra Abu Thalib yang tumbuh dalam asuhan Nabi ﷺ. Ia termasuk yang paling awal beriman, dan kelak menjadi khalifah keempat.",
-   "t": 1,
+   "img": "assets/c2.webp",
+   "meta": "Gelar: Asadullah (Singa Allah), Babu Madinatil 'Ilm (Pintu Kota Ilmu), Amirul Mukminin, Abu Turab\nEra/Latar: Jazirah Arab Abad ke-7 Masehi (Makkah & Madinah)",
+   "body": "# 📜 RINGKASAN BIOGRAFI & LORE\nSayyidina Ali bin Abi Thalib radhiyallahu 'anhu adalah sepupu sekaligus menantu Nabi Muhammad SAW, serta pemuda pertama yang memeluk agama Islam. Beliau tumbuh di bawah asuhan langsung Rasulullah SAW, membawanya menjadi sosok ulung yang memadukan dua keunggulan utama: keberanian luar biasa di medan perang dan kecerdasan intelektual/spiritual yang sangat mendalam.\n# 🌟 KARAKTERISTIK KUNCI & PERAN HISTORIS\n- Keteguhan & Keberanian Sejak Muda\nMalam Hijrah (Makkah): Saat rumah Rasulullah SAW dikepung pemuda Quraisy, Ali dengan penuh keberanian menawarkan diri tidur di pembaringan Nabi SAW menggunakan mantel hijau beliau untuk mengelabui para pengepung.\nPahlawan Medan Perang: Terkenal sebagai ksatria tak tertandingi dalam Perang Badr, Uhud, dan khususnya Perang Khaibar, di mana beliau memimpin penaklukan benteng dan merobohkan pintu gerbang Khaibar yang amat berat.\n- Gerbang Ilmu & Keadilan Hikmah\nRasulullah SAW bersabda: “Aku adalah kotanya ilmu dan Ali adalah pintunya.” Ali dikenal sebagai rujukan utama para sahabat dalam urusan hukum, peradilan, keilmuan bahasa Arab, dan hikmah spiritual.\n- Kepemimpinan Kekhalifahan (Khulafaur Rasyidin ke-4)\nMenjadi Khalifah ke-4 menggantikan Sayyidina Utsman bin Affan radhiyallahu 'anhu di tengah dinamika politik Islam era pertengahan. Beliau memimpin dengan kesederhanaan, keadilan tegas, dan kepedulian tinggi terhadap rakyat jelata.",
+   "facts": "Umur : sekitar 63 tahun\nMemeluk Islam pada : Masa awal kenabian, saat masih remaja\nJabatan : Khalifah keempat setelah Sy. Utsman bin Affan\nMasa Jabatan : 35–40 H (656–661 M)\nWafat : Ramadhan 40 H, ditikam Abdurrahman bin Muljam di Kufah",
    "slides": [
     "assets/ali-sheet.webp"
    ],
-   "meta": "Gelar: Asadullah (Singa Allah), Babu Madinatil 'Ilm (Pintu Kota Ilmu), Amirul Mukminin, Abu Turab\nEra/Latar: Jazirah Arab Abad ke-7 Masehi (Makkah & Madinah)",
-   "body": "# 📜 RINGKASAN BIOGRAFI & LORE\nSayyidina Ali bin Abi Thalib radhiyallahu 'anhu adalah sepupu sekaligus menantu Nabi Muhammad SAW, serta pemuda pertama yang memeluk agama Islam. Beliau tumbuh di bawah asuhan langsung Rasulullah SAW, membawanya menjadi sosok ulung yang memadukan dua keunggulan utama: keberanian luar biasa di medan perang dan kecerdasan intelektual/spiritual yang sangat mendalam.\n# 🌟 KARAKTERISTIK KUNCI & PERAN HISTORIS\n- Keteguhan & Keberanian Sejak Muda\nMalam Hijrah (Makkah): Saat rumah Rasulullah SAW dikepung pemuda Quraisy, Ali dengan penuh keberanian menawarkan diri tidur di pembaringan Nabi SAW menggunakan mantel hijau beliau untuk mengelabui para pengepung.\nPahlawan Medan Perang: Terkenal sebagai ksatria tak tertandingi dalam Perang Badr, Uhud, dan khususnya Perang Khaibar, di mana beliau memimpin penaklukan benteng dan merobohkan pintu gerbang Khaibar yang amat berat.\n- Gerbang Ilmu & Keadilan Hikmah\nRasulullah SAW bersabda: “Aku adalah kotanya ilmu dan Ali adalah pintunya.” Ali dikenal sebagai rujukan utama para sahabat dalam urusan hukum, peradilan, keilmuan bahasa Arab, dan hikmah spiritual.\n- Kepemimpinan Kekhalifahan (Khulafaur Rasyidin ke-4)\nMenjadi Khalifah ke-4 menggantikan Sayyidina Utsman bin Affan radhiyallahu 'anhu di tengah dinamika politik Islam era pertengahan. Beliau memimpin dengan kesederhanaan, keadilan tegas, dan kepedulian tinggi terhadap rakyat jelata.",
    "gallery": [
     {
      "url": "assets/ali-g1.webp",
@@ -33,40 +364,647 @@
      "caption": "Pedang dzulfikar"
     }
    ],
-   "facts": "Umur : \nMemeluk islam pada : \nJabatan : Khalifah ke empat setelah Sy. Utsman bin Affan\nMasa Jabatan : \ndan lain-lain : ",
-   "show_label": true
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Khulafaur Rasyidin",
+    "Sepuluh Sahabat Dijanjikan Surga",
+    "Assabiqunal Awwalun",
+    "Keluarga Nabi",
+    "Sahabat"
+   ]
   },
   {
-   "img": "assets/c3.webp",
-   "name": "Bahira",
-   "role": "Pendeta",
-   "bio": "Mengenali tanda kenabian pada Muhammad muda, lalu memperingatkan Abu Thalib agar menjaga keponakannya dari orang-orang yang memusuhinya.",
-   "t": 2,
-   "show_label": true
+   "name": "Hamzah bin Abdul Muthalib",
+   "role": "Paman Nabi SAW",
+   "img": "",
+   "meta": "Gelar: Asadullah (Singa Allah), Sayyidusy Syuhada\nEra/Latar: Makkah dan Madinah, abad ke-6–7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nHamzah adalah paman sekaligus saudara sepersusuan Nabi Muhammad SAW, terkenal sebagai pemburu dan petarung yang gagah berani. Keislamannya menguatkan kaum Muslimin yang saat itu masih tertindas.\n# 🌟 PERAN HISTORIS\n- Masuk Islam membela Nabi\nMenurut riwayat sirah, ia masuk Islam setelah mengetahui Abu Jahal menghina Nabi SAW. Ia mendatangi Abu Jahal dan menegaskan keislamannya.\n- Pahlawan Badar\nIa ikut Perang Badar dan dikenal dengan bulu burung unta di dadanya sebagai tanda pengenal.\n- Syahid di Uhud\nIa gugur di Perang Uhud (3 H) setelah ditombak Wahsyi bin Harb. Nabi SAW sangat berduka dan beliau dijuluki Sayyidusy Syuhada.",
+   "facts": "Wafat : Syawal 3 H (625 M), Perang Uhud\nHubungan dengan Nabi : Paman dan saudara sepersusuan\nDimakamkan : Uhud",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Assabiqunal Awwalun",
+    "Keluarga Nabi",
+    "Sahabat"
+   ]
   },
   {
-   "img": "assets/c4.webp",
-   "name": "Abu Bakar Asshiddiq",
-   "role": "Sayyidina",
-   "bio": "Sahabat sejak sebelum kenabian yang segera membenarkan risalah Nabi ﷺ, digelari Ash-Shiddiq, dan kelak menjadi khalifah pertama.",
-   "t": 3,
-   "show_label": true
+   "name": "Bilal bin Rabah",
+   "role": "Muadzin Pertama",
+   "img": "",
+   "meta": "Gelar: Muadzin Rasulullah SAW\nEra/Latar: Makkah, Madinah, Syam, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nBilal bin Rabah adalah sahabat asal Habasyah yang dahulu seorang budak di Makkah. Ia dikenal berhati teguh dan bersuara merdu, dan menjadi muadzin pertama dalam sejarah Islam.\n# 🌟 KISAH PENTING\n- Disiksa karena imannya\nMajikannya, Umayyah bin Khalaf, menyiksanya di bawah terik matahari dengan batu besar di dada agar meninggalkan Islam, tetapi ia terus mengucapkan “Ahad, Ahad”.\n- Dimerdekakan Abu Bakar\nAbu Bakar membeli dan memerdekakannya.\n- Adzan pertama dan Fathu Makkah\nSetelah hijrah, ia ditunjuk mengumandangkan adzan. Saat Fathu Makkah, ia mengumandangkan adzan di atas Ka’bah.",
+   "facts": "Asal : Habasyah (Ethiopia)\nJabatan : Muadzin Nabi SAW\nWafat : sekitar 20 H (±641 M), di Syam",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Assabiqunal Awwalun",
+    "Sahabat"
+   ]
   },
   {
-   "img": "assets/c5.webp",
-   "name": "Khadijah",
-   "role": "Sayyidah",
-   "bio": "Pengusaha terhormat yang menikahi Muhammad ﷺ. Ia orang pertama yang beriman dan menenangkan Nabi sepulang dari Gua Hira.",
-   "t": 4,
-   "show_label": true
-  },
-  {
-   "img": "assets/c6.webp",
    "name": "Abu Jahal",
+   "role": "Tokoh Quraisy",
+   "img": "assets/c6.webp",
+   "meta": "Nama asli: Amr bin Hisyam (digelari Abul Hakam)\nEra/Latar: Makkah, hingga 624 M",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAmr bin Hisyam dari Bani Makhzum adalah tokoh Quraisy yang sangat dihormati kaumnya, digelari Abul Hakam. Karena kesombongan dan permusuhannya pada dakwah Nabi SAW, kaum Muslimin menyebutnya Abu Jahal.\n# 🌟 PERAN HISTORIS\n- Penentang keras dakwah\nIa menghalangi, mengejek, dan menyiksa kaum Muslimin yang lemah, serta berusaha mencegah orang mendengarkan Al-Qur’an.\n- Pemicu keislaman Hamzah\nPenghinaannya terhadap Nabi SAW menjadi sebab Hamzah masuk Islam.\n- Tewas di Badar\nIa memimpin Quraisy menuju Badar dan terbunuh di sana pada 2 H. Dua pemuda Anshar, Mu’adz dan Mu’awwidz, menyerangnya, lalu Abdullah bin Mas’ud menuntaskannya.",
+   "facts": "Wafat : 17 Ramadhan 2 H (624 M), Perang Badar\nSuku : Bani Makhzum, Quraisy",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah"
+   ],
+   "faith": "Jahiliyah (Quraisy)",
+   "gender": "Pria",
+   "groups": [
+    "Penentang Dakwah"
+   ]
+  },
+  {
+   "name": "Abu Lahab",
+   "role": "Penentang Dakwah",
+   "img": "",
+   "meta": "Nama asli: Abdul Uzza bin Abdul Muthalib\nEra/Latar: Makkah, hingga 2 H (624 M)",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAbu Lahab adalah paman Nabi SAW yang kaya, namun menjadi salah satu penentang dakwah yang paling sengit. Ia dijuluki Abu Lahab (bapak nyala api) karena wajahnya yang kemerahan.\n# 🌟 PERAN HISTORIS\n- Menghina di Bukit Shafa\nKetika Nabi SAW menyeru kaumnya di Bukit Shafa, ia mengucapkan kata-kata celaan. Turunlah Surah Al-Lahab sebagai teguran atasnya.\n- Bersama istrinya menyakiti Nabi\nIstrinya, Ummu Jamil, juga dikenal gigih memusuhi dan menyakiti Nabi SAW.\n- Wafat setelah Badar\nIa tidak ikut ke Badar dan menyuruh orang lain menggantikannya. Beberapa hari setelah kabar kekalahan Quraisy, ia wafat karena penyakit.",
+   "facts": "Wafat : sekitar 2 H (624 M)\nSurah terkait : Al-Lahab\nHubungan dengan Nabi : Paman",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah"
+   ],
+   "faith": "Jahiliyah (Quraisy)",
+   "gender": "Pria",
+   "groups": [
+    "Penentang Dakwah"
+   ]
+  },
+  {
+   "name": "Umar bin Khattab",
    "role": "Sayyidina",
-   "bio": "Bernama asli Amr bin Hisyam. Ia menjadi salah satu penentang paling keras dakwah Nabi ﷺ dan tewas dalam Perang Badar.",
-   "t": 5,
-   "show_label": true
+   "img": "",
+   "meta": "Gelar: Al-Faruq (pembeda yang hak dan batil), Amirul Mukminin\nEra/Latar: Makkah dan Madinah, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nUmar bin Khattab adalah khalifah kedua. Dahulu ia dikenal keras dan menentang Islam, hingga Allah membukakan hatinya sekitar tahun ke-6 kenabian dan ia menjadi salah satu pembela Islam yang paling tangguh.\n# 🌟 PERAN HISTORIS\n- Keislaman yang menguatkan\nSetelah ia masuk Islam, kaum Muslimin lebih berani beribadah secara terbuka di sekitar Ka’bah.\n- Khalifah kedua\nIa dipilih Abu Bakar sebagai penggantinya. Di masanya wilayah Islam meluas ke Syam, Irak, Persia, dan Mesir.\n- Penataan negara\nIa membentuk diwan (daftar gaji prajurit) dan baitul mal, mendirikan kota garnisun seperti Kufah, Bashrah, dan Fustat, serta menetapkan penanggalan Hijriyah.\n- Adil dan sederhana\nIa dikenal memantau keadaan rakyatnya sendiri, hidup sederhana, dan tegas pada para pejabat.\n- Wafat sebagai syahid\nIa ditikam Abu Lu’lu’ah saat memimpin shalat Subuh dan wafat pada Dzulhijjah 23 H.",
+   "facts": "Jabatan : Khalifah kedua (Khulafaur Rasyidin)\nMasa Jabatan : 13–23 H (634–644 M)\nWafat : Dzulhijjah 23 H (644 M), Madinah\nPenerus : Utsman bin Affan",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Khulafaur Rasyidin",
+    "Sepuluh Sahabat Dijanjikan Surga",
+    "Assabiqunal Awwalun",
+    "Sahabat"
+   ]
+  },
+  {
+   "name": "Utsman bin Affan",
+   "role": "Sayyidina",
+   "img": "",
+   "meta": "Gelar: Dzun Nurain (pemilik dua cahaya)\nEra/Latar: Makkah, Habasyah, Madinah, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nUtsman bin Affan adalah saudagar kaya dan pemalu dari Bani Umayyah yang masuk Islam sejak awal. Ia menikahi dua putri Nabi SAW, Ruqayyah lalu Ummu Kultsum, sehingga dijuluki Dzun Nurain.\n# 🌟 PERAN HISTORIS\n- Dermawan untuk Islam\nIa membeli sumur Raumah di Madinah untuk diwakafkan dan membiayai sebagian besar Pasukan Usrah dalam Perang Tabuk.\n- Hijrah ke Habasyah\nIa termasuk kaum Muslimin yang berhijrah ke Habasyah bersama istrinya, Ruqayyah.\n- Khalifah ketiga\nDipilih lewat musyawarah enam sahabat, ia memperluas wilayah Islam dan membangun armada laut.\n- Mushaf Utsmani\nIa memerintahkan penyalinan Al-Qur’an dalam mushaf baku oleh tim yang dipimpin Zaid bin Tsabit, lalu mengirimkannya ke berbagai kota.\n- Wafat dikepung\nDi akhir masa jabatannya muncul gejolak politik. Ia dikepung di rumahnya dan wafat sebagai syahid pada 35 H.",
+   "facts": "Jabatan : Khalifah ketiga\nMasa Jabatan : 23–35 H (644–656 M)\nWafat : Dzulhijjah 35 H (656 M), Madinah\nPenerus : Ali bin Abi Thalib",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Khulafaur Rasyidin",
+    "Sepuluh Sahabat Dijanjikan Surga",
+    "Assabiqunal Awwalun",
+    "Keluarga Nabi",
+    "Sahabat"
+   ]
+  },
+  {
+   "name": "Aisyah binti Abu Bakar",
+   "role": "Sayyidah",
+   "img": "",
+   "meta": "Gelar: Ummul Mukminin, Ash-Shiddiqah binti Ash-Shiddiq\nEra/Latar: Makkah dan Madinah, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAisyah adalah putri Abu Bakar dan istri Nabi Muhammad SAW. Ia termasuk ulama perempuan terkemuka yang menjadi rujukan para sahabat dalam fikih dan hadits.\n# 🌟 PERAN HISTORIS\n- Perawi hadits\nIa meriwayatkan ribuan hadits tentang kehidupan Nabi SAW, terutama urusan rumah tangga dan ibadah beliau.\n- Peristiwa Ifk\nIa pernah difitnah, lalu Allah membersihkan namanya melalui wahyu dalam Surah An-Nur.\n- Nabi wafat di rumahnya\nNabi SAW wafat di rumahnya dan dimakamkan di sana.\n- Setelah wafatnya Utsman\nIa ikut dalam peristiwa Perang Jamal (36 H) dengan maksud menuntut ditegakkannya hukum atas para pembunuh Utsman, lalu kembali ke Madinah dan mengajar hingga wafat.",
+   "facts": "Wafat : 17 Ramadhan 58 H (678 M), Madinah\nDimakamkan : Baqi’\nAyah : Abu Bakar Ash-Shiddiq",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Wanita",
+   "groups": [
+    "Ummahat al-Mu’minin",
+    "Keluarga Nabi"
+   ]
+  },
+  {
+   "name": "Khalid bin Walid",
+   "role": "Pedang Allah",
+   "img": "",
+   "meta": "Gelar: Saifullah al-Maslul (Pedang Allah yang terhunus)\nEra/Latar: Makkah, Madinah, Syam, Irak, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nKhalid bin Walid dari Bani Makhzum adalah ahli strategi perang yang dijuluki panglima nyaris tak terkalahkan. Ia memeluk Islam sekitar tahun 8 H.\n# 🌟 PERAN HISTORIS\n- Dari lawan menjadi pembela\nDi pihak Quraisy, taktiknya membalikkan jalannya Perang Uhud. Setelah masuk Islam, ia menjadi salah satu panglima terbaik.\n- Mu’tah dan gelar Saifullah\nPada Perang Mu’tah ia mengambil alih pasukan setelah tiga panglima gugur, dan Nabi SAW menjulukinya Pedang Allah.\n- Penumpas Riddah, penakluk Irak dan Syam\nDi masa Abu Bakar ia menumpas kemurtadan, mengalahkan Musailamah di Yamamah, lalu memimpin penaklukan Irak dan Syam, termasuk Perang Yarmuk.\n- Dicopot dari jabatan\nUmar kemudian mengganti panglima tertinggi dengan Abu Ubaidah, dan Khalid tetap berjuang sebagai prajurit.\n- Wafat di ranjangnya\nIa wafat di Hims sekitar 21 H dan dikenang menyesal tidak gugur di medan perang.",
+   "facts": "Wafat : sekitar 21 H (642 M), Hims\nGelar dari Nabi SAW : Saifullah\nMemeluk Islam : sekitar 8 H",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Panglima & Penakluk",
+    "Sahabat"
+   ]
+  },
+  {
+   "name": "Abu Ubaidah bin al-Jarrah",
+   "role": "Kepercayaan Umat",
+   "img": "",
+   "meta": "Nama asli: Amir bin Abdullah bin al-Jarrah\nGelar: Amin hadzihil Ummah (kepercayaan umat ini)\nEra/Latar: Makkah, Madinah, Syam, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAbu Ubaidah adalah sahabat awal yang masuk Islam lewat dakwah Abu Bakar dan termasuk sepuluh sahabat yang dijanjikan surga. Nabi SAW menjulukinya kepercayaan umat ini.\n# 🌟 PERAN HISTORIS\n- Pelindung Nabi di Uhud\nIa membantu mencabut mata rantai topi baja yang menancap di wajah Nabi SAW pada Perang Uhud hingga dua gigi serinya tanggal.\n- Panglima penakluk Syam\nDi masa Umar ia menjadi panglima tertinggi pasukan Syam dan memimpin penaklukan wilayah itu, termasuk kemenangan di Yarmuk.\n- Wafat dalam wabah\nIa wafat dalam wabah Amwas (18 H) dan memilih tetap bersama pasukannya.",
+   "facts": "Wafat : 18 H (639 M), wabah Amwas\nUsia : sekitar 58 tahun\nStatus : Salah satu sepuluh sahabat yang dijanjikan surga",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Sepuluh Sahabat Dijanjikan Surga",
+    "Assabiqunal Awwalun",
+    "Panglima & Penakluk",
+    "Sahabat"
+   ]
+  },
+  {
+   "name": "Sa’ad bin Abi Waqqash",
+   "role": "Penakluk Persia",
+   "img": "",
+   "meta": "Gelar: Mustajabud Da’wah (doanya mustajab)\nEra/Latar: Makkah, Madinah, Irak, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nSa’ad bin Abi Waqqash dari Bani Zuhrah adalah paman Nabi SAW dari pihak ibu dan salah satu dari sepuluh sahabat yang dijanjikan surga. Ia masuk Islam saat masih remaja dan dikenal sebagai pemanah ulung yang doanya mustajab.\n# 🌟 PERAN HISTORIS\n- Pemanah pertama di jalan Allah\nMenurut riwayat, ia orang pertama yang melepaskan anak panah di jalan Allah, dan di Uhud ia menjaga Nabi SAW dengan panahnya.\n- Panglima Qadisiyyah\nUmar mengangkatnya memimpin pasukan menghadapi Persia di Qadisiyyah (15 H), pertempuran yang membuka jalan ke ibu kota Persia, Mada’in.\n- Pendiri kota Kufah\nIa memimpin penaklukan Mada’in dan mendirikan kota Kufah sebagai pangkalan pasukan, lalu menjadi gubernurnya.",
+   "facts": "Wafat : sekitar 55 H (±675 M), Madinah\nPeristiwa besar : Perang Qadisiyyah, 15 H (636 M)\nStatus : Salah satu sepuluh sahabat yang dijanjikan surga",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Makkah",
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Sepuluh Sahabat Dijanjikan Surga",
+    "Assabiqunal Awwalun",
+    "Panglima & Penakluk",
+    "Sahabat"
+   ]
+  },
+  {
+   "name": "Amr bin Ash",
+   "role": "Penakluk Mesir",
+   "img": "",
+   "meta": "Gelar: Fatih Misr (Penakluk Mesir)\nEra/Latar: Makkah, Madinah, Mesir, abad ke-7 Masehi",
+   "body": "# 📜 RINGKASAN BIOGRAFI\nAmr bin Ash dari Bani Sahm adalah diplomat dan ahli siasat yang cerdik. Ia sempat menjadi utusan Quraisy kepada Najasyi di Habasyah sebelum masuk Islam sekitar tahun 8 H.\n# 🌟 PERAN HISTORIS\n- Memimpin penaklukan Mesir\nAtas izin Umar, ia membawa pasukan kecil memasuki Mesir (sekitar 18 H) dan mengalahkan pasukan Bizantium di Babilonia dan Iskandariyah (21 H).\n- Pendiri Fustat\nIa mendirikan kota Fustat beserta masjid Amr bin Ash sebagai pusat pemerintahan baru.\n- Gubernur Mesir\nIa memerintah Mesir dengan perjanjian yang menjamin keamanan jiwa, harta, dan tempat ibadah penduduk setempat.",
+   "facts": "Wafat : 43 H (664 M), Mesir\nPeristiwa besar : Penaklukan Mesir, 18–21 H (639–642 M)",
+   "slides": [],
+   "gallery": [],
+   "eras": [
+    "Periode Madinah",
+    "Khulafaur Rasyidin"
+   ],
+   "faith": "Islam",
+   "gender": "Pria",
+   "groups": [
+    "Panglima & Penakluk",
+    "Sahabat"
+   ]
+  }
+ ],
+ "places": [
+  {
+   "slug": "makkah",
+   "name": "Makkah",
+   "subtitle": "Kota kelahiran Nabi ﷺ",
+   "map": "arab",
+   "x": 34.9,
+   "y": 53.8,
+   "description": "Pusat perdagangan dan keagamaan Jazirah Arab. Di sinilah Ka’bah berdiri, dijaga suku Quraisy, dan di sini Nabi Muhammad ﷺ lahir, tumbuh, dan kelak menerima risalah.",
+   "meta": "Hijaz, Arab bagian barat",
+   "body": "# 📍 TENTANG MAKKAH\nMakkah berada di lembah gersang di antara perbukitan Hijaz, tetapi menjadi pusat perdagangan dan keagamaan karena Ka’bah dan sumur Zamzam. Quraisy menguasai kota ini dan menjaga pelayanan bagi para peziarah.\n# 🕋 PERAN DALAM SEJARAH\n- Pusat peziarahan\nBerbagai kabilah Arab datang setiap tahun, sehingga Makkah tumbuh sebagai kota dagang dan tempat berlangsungnya pasar-pasar tahunan.\n- Tempat kelahiran dan dakwah\nDi sinilah Nabi Muhammad SAW lahir, tumbuh, dan berdakwah selama sekitar 13 tahun sebelum hijrah.",
+   "facts": "Wilayah : Hijaz, Arab bagian barat\nKeistimewaan : Ka’bah dan sumur Zamzam\nPenguasa : Suku Quraisy",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "yatsrib",
+   "name": "Yatsrib (Madinah)",
+   "subtitle": "Oasis di utara Makkah",
+   "map": "arab",
+   "x": 40.6,
+   "y": 36.4,
+   "description": "Oasis subur yang dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi. Nabi ﷺ singgah di sini semasa kecil bersama ibunya; sekitar 622 M kota ini menjadi tujuan hijrah dan dikenal sebagai Madinah.",
+   "meta": "Hijaz utara",
+   "body": "# 📍 TENTANG YATSRIB\nYatsrib adalah oasis subur dengan kebun kurma dan sumber air, dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi seperti Bani Nadhir, Qainuqa’, dan Quraizhah. Kedua suku Arab itu sering berselisih.\n# 🌟 PERAN DALAM SEJARAH\n- Hubungan dengan Nabi\nAminah membawa Muhammad kecil mengunjungi keluarga Bani Najjar di sini. Ia wafat dalam perjalanan pulang di Abwa’.\n- Tujuan hijrah\nSetelah Baiat Aqabah, kaum Anshar mengundang Nabi SAW. Pada 622 M beliau berhijrah ke sini, dan kota ini dikenal sebagai Madinah.",
+   "facts": "Wilayah : Hijaz utara\nPenduduk : Aus, Khazraj, dan beberapa kelompok Yahudi\nNama baru : Madinah (Madinatun Nabi)",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "syam",
+   "name": "Syam (Levant)",
+   "subtitle": "Tujuan kafilah dagang Quraisy",
+   "map": "arab",
+   "x": 21.9,
+   "y": 5.5,
+   "description": "Kafilah Quraisy berdagang ke Syam pada musim panas. Dalam salah satu perjalanan bersama Abu Thalib, Muhammad muda bertemu rahib Bahira di Bushra.",
+   "meta": "Levant, wilayah Bizantium",
+   "body": "# 📍 TENTANG SYAM\nSyam (Levant) meliputi wilayah Suriah, Lebanon, Palestina, dan Yordania sekarang. Pada awal abad ke-7 wilayah ini berada di bawah kekuasaan Bizantium.\n# 🌟 PERAN DALAM SEJARAH\n- Jalur dagang musim panas\nKafilah Quraisy berdagang ke Syam pada musim panas, kebiasaan yang disebut dalam Surah Quraisy.\n- Perjalanan Nabi muda\nNabi SAW pernah ke Syam bersama Abu Thalib (bertemu Bahira) dan kemudian membawa dagangan Khadijah.\n- Kelak dibebaskan\nWilayah ini dibebaskan pada masa Abu Bakar dan Umar bin Khattab.",
+   "facts": "Kekuasaan saat itu : Bizantium\nKota penting : Bushra, Damaskus, Hims\nPeran : Tujuan dagang Quraisy",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "palestina",
+   "name": "Palestina",
+   "subtitle": "Tanah Baitul Maqdis",
+   "map": "arab",
+   "x": 12.2,
+   "y": 11,
+   "description": "Wilayah Baitul Maqdis, tempat Masjidil Aqsa, kiblat pertama kaum Muslimin sebelum dialihkan ke Ka’bah.",
+   "meta": "Tanah Baitul Maqdis",
+   "body": "# 📍 TENTANG PALESTINA\nPalestina, dengan Baitul Maqdis di dalamnya, adalah tanah suci bagi tiga agama samawi dan pada saat itu berada di bawah kekuasaan Bizantium.\n# 🌟 PERAN DALAM SEJARAH\n- Kiblat pertama\nKaum Muslimin awalnya menghadap Baitul Maqdis dalam shalat sebelum kiblat dialihkan ke Ka’bah.\n- Tujuan Isra’\nNabi SAW diperjalankan ke Masjidil Aqsa dalam peristiwa Isra’ dan Mi’raj.",
+   "facts": "Tempat suci : Masjidil Aqsa, Baitul Maqdis\nKekuasaan saat itu : Bizantium\nDibebaskan : Masa Umar bin Khattab",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "iraq",
+   "name": "Iraq (Kuno)",
+   "subtitle": "Dalam pengaruh Persia Sasaniyah",
+   "map": "arab",
+   "x": 81.2,
+   "y": 15.5,
+   "description": "Wilayah yang berada di bawah pengaruh Kekaisaran Persia Sasaniyah. Api yang disembah penganut Zoroaster menjadi latar kisah malam kelahiran Nabi ﷺ.",
+   "meta": "Dalam pengaruh Persia Sasaniyah",
+   "body": "# 📍 TENTANG IRAQ KUNO\nWilayah Irak berada di bawah Kekaisaran Persia Sasaniyah dengan ibu kota Ctesiphon (Mada’in). Di bagian baratnya, kerajaan Arab Lakhmid di Hira menjadi sekutu Persia.\n# 🌟 PERAN DALAM SEJARAH\n- Persia Zoroaster\nAgama resmi Persia saat itu adalah Zoroaster, dengan api suci sebagai pusat ibadahnya.\n- Kelak dibebaskan\nSetelah Qadisiyyah dan jatuhnya Mada’in, wilayah ini menjadi bagian dunia Islam, dan kota Kufah dan Bashrah didirikan.",
+   "facts": "Penguasa saat itu : Persia Sasaniyah\nIbu kota : Ctesiphon (Mada’in)\nDibebaskan : Masa Umar bin Khattab",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "yaman",
+   "name": "Yaman",
+   "subtitle": "Wilayah kekuasaan Abrahah",
+   "map": "arab",
+   "x": 55.2,
+   "y": 82,
+   "description": "Pada masa itu Yaman dikuasai Abrahah, wakil Kerajaan Habasyah (Aksum). Dari sinilah ia berangkat ke Makkah membawa pasukan bergajah.",
+   "meta": "Wilayah kekuasaan Abrahah",
+   "body": "# 📍 TENTANG YAMAN\nYaman di ujung selatan Jazirah dikenal dengan pegunungan yang subur, pelabuhan, dan peradaban tuanya seperti Saba dan Himyar. Sekitar 570 M wilayahnya dikuasai Abrahah, wakil Aksum.\n# 🌟 PERAN DALAM SEJARAH\n- Pangkalan Abrahah\nAbrahah memerintah dari Shan’a dan membangun gereja besar di sana.\n- Menuju Islam\nPada tahun-tahun akhir kehidupan Nabi SAW, rombongan dari Yaman datang menemui beliau dan banyak yang masuk Islam.",
+   "facts": "Kota utama : Shan’a\nPenguasa ±570 M : Abrahah (Aksum)\nPerdagangan : Dupa, rempah, jalur dagang selatan",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "gajah",
+   "name": "Jalur Pasukan Gajah",
+   "subtitle": "Yaman menuju Makkah, ±570 M",
+   "map": "arab",
+   "x": 46.7,
+   "y": 71,
+   "description": "Rute Abrahah menuju Makkah untuk menghancurkan Ka’bah. Pasukannya binasa sebelum mencapai kota, peristiwa yang diabadikan dalam Surah Al-Fil.",
+   "meta": "Yaman menuju Makkah, ±570 M",
+   "body": "# 📍 JALUR PASUKAN GAJAH\nMenurut riwayat sirah, Abrahah memimpin pasukan dari Yaman menuju Makkah. Pasukan itu membawa gajah, hewan yang belum dikenal bangsa Arab, sehingga peristiwanya begitu membekas.\n# 🌟 PERISTIWA\n- Berhenti di dekat Makkah\nPasukan berhenti di dekat Makkah, dan menurut riwayat gajah utamanya menolak melangkah ke arah Ka’bah.\n- Kebinasaan pasukan\nAllah menurunkan burung-burung yang melempari pasukan dengan batu sijjil (QS. Al-Fil) hingga mereka porak-poranda.\n- Tahun Gajah\nTahun itu dijadikan penanda waktu oleh bangsa Arab dan bertepatan dengan kelahiran Nabi SAW.",
+   "facts": "Tahun : ±570 M (Tahun Gajah)\nPanglima : Abrahah\nSurah : Al-Fil",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "hira",
+   "name": "Gua Hira",
+   "subtitle": "Jabal Nur, dekat Makkah",
+   "map": "arab",
+   "x": 43.4,
+   "y": 52.3,
+   "description": "Gua tempat Nabi ﷺ berkhalwat. Di sinilah wahyu pertama turun pada 610 M.",
+   "meta": "Jabal Nur, dekat Makkah",
+   "body": "# 📍 TENTANG GUA HIRA\nGua Hira berada di Jabal Nur, tidak jauh dari Makkah. Gua kecil yang sunyi ini menjadi tempat Nabi SAW menyendiri.\n# 🌟 PERAN DALAM SEJARAH\n- Tempat berkhalwat\nSebelum kenabian, Nabi SAW sering menyendiri beberapa hari di sini untuk beribadah dan merenung.\n- Wahyu pertama\nPada bulan Ramadhan 610 M, Jibril menyampaikan wahyu pertama, Surah Al-‘Alaq: “Iqra’”.\n- Gua Tsur\nGua lain, Gua Tsur di selatan Makkah, menjadi tempat persembunyian Nabi SAW dan Abu Bakar saat hijrah.",
+   "facts": "Lokasi : Jabal Nur, dekat Makkah\nPeristiwa : Wahyu pertama, Ramadhan 610 M",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "makkah-k",
+   "name": "Makkah",
+   "subtitle": "Kota Ka’bah, kota suci",
+   "map": "khilafah",
+   "x": 49.7,
+   "y": 68.7,
+   "description": "Dibebaskan nyaris tanpa pertempuran pada Fathu Makkah (8 H/630 M), Makkah tetap menjadi pusat ibadah haji sepanjang masa para khalifah.",
+   "meta": "",
+   "body": "# 📍 MAKKAH DI MASA NABI DAN KHALIFAH\nSetelah dakwah selama sekitar 13 tahun di Makkah, Nabi SAW berhijrah ke Madinah. Kota ini kembali dalam pelukan kaum Muslimin pada Fathu Makkah.\n# 🌟 PERISTIWA PENTING\n- Perjanjian Hudaibiyah\nPada 6 H, Nabi SAW dan sekitar seribu empat ratus sahabat menuju Makkah untuk umrah tetapi dihadang di Hudaibiyah, sebelah barat Makkah. Disepakati gencatan senjata selama sekitar sepuluh tahun.\n- Fathu Makkah\nPelanggaran perjanjian oleh sekutu Quraisy memicu keberangkatan pasukan besar pada Ramadhan 8 H. Nabi SAW memberi pengampunan umum dan menghancurkan berhala-berhala di sekitar Ka’bah.\n- Masa khalifah\nUmar dan Utsman memperluas Masjidil Haram untuk menampung jamaah haji yang terus bertambah.",
+   "facts": "Peristiwa : Hudaibiyah (6 H), Fathu Makkah (8 H)\nPusat ibadah : Ka’bah, Masjidil Haram",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "madinah-k",
+   "name": "Madinah",
+   "subtitle": "Ibu kota awal negara Islam",
+   "map": "khilafah",
+   "x": 49.3,
+   "y": 58.3,
+   "description": "Ibu kota pemerintahan sejak hijrah hingga masa Utsman. Di sinilah Masjid Nabawi berdiri dan Nabi SAW dimakamkan.",
+   "meta": "",
+   "body": "# 📍 MADINAH, IBU KOTA ISLAM AWAL\nSetelah hijrah pada 622 M, Madinah menjadi pusat pemerintahan, ilmu, dan pasukan kaum Muslimin. Piagam Madinah mengatur hubungan antara kaum Muslimin, Yahudi, dan suku-suku sekitar.\n# 🌟 PERISTIWA PENTING\n- Perang Uhud dan Khandaq\nUhud (3 H) terjadi di kaki Gunung Uhud, sedangkan pada Perang Khandaq (5 H) kaum Muslimin menggali parit untuk melindungi kota.\n- Wafatnya Nabi dan pemilihan Abu Bakar\nNabi SAW wafat pada 12 Rabiul Awal 11 H dan dimakamkan di kamar Aisyah. Abu Bakar kemudian dibaiat sebagai khalifah di Saqifah Bani Sa’idah.\n- Ibu kota para khalifah\nAbu Bakar, Umar, dan Utsman memerintah dari sini. Pada 36 H Ali memindahkan pusat pemerintahan ke Kufah.",
+   "facts": "Peristiwa : Hijrah (1 H), Uhud (3 H), Khandaq (5 H)\nMasjid : Masjid Nabawi\nKhalifah yang memerintah dari sini : Abu Bakar, Umar, Utsman",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "badar",
+   "name": "Badar",
+   "subtitle": "Lembah pertempuran pertama",
+   "map": "khilafah",
+   "x": 48.0,
+   "y": 60.7,
+   "description": "Perang Badar (17 Ramadhan 2 H/624 M): sekitar tiga ratus pasukan Muslim mengalahkan pasukan Quraisy yang jauh lebih besar.",
+   "meta": "",
+   "body": "# 📍 TENTANG BADAR\nBadar adalah lembah dengan sumur-sumur air di jalur kafilah dagang antara Makkah dan Syam, tidak jauh dari Madinah.\n# 🌟 PERISTIWA PERANG BADAR\n- Latar belakang\nKaum Muslimin keluar untuk menghadang kafilah Abu Sufyan. Kafilah itu lolos, tetapi pasukan Quraisy yang dipimpin Abu Jahal tetap maju.\n- Jalannya perang\nSekitar tiga ratus pasukan Muslim menghadapi sekitar seribu pasukan Quraisy. Kaum Muslimin menang, dan sejumlah tokoh Quraisy tewas, termasuk Abu Jahal.\n- Makna\nPerang ini disebut Al-Qur’an sebagai Yaumul Furqan, hari pembeda antara yang hak dan batil.",
+   "facts": "Tanggal : 17 Ramadhan 2 H (624 M)\nPasukan Muslim : sekitar 300 orang\nPasukan Quraisy : sekitar 1.000 orang",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "khaibar",
+   "name": "Khaibar",
+   "subtitle": "Oasis benteng kaum Yahudi",
+   "map": "khilafah",
+   "x": 48.8,
+   "y": 54.3,
+   "description": "Oasis subur dengan benteng-benteng kaum Yahudi di utara Madinah, direbut pada 7 H/628 M.",
+   "meta": "",
+   "body": "# 📍 TENTANG KHAIBAR\nKhaibar adalah oasis di utara Madinah yang dikelilingi benteng-benteng kuat, dihuni kelompok Yahudi yang bersekutu melawan kaum Muslimin.\n# 🌟 PERISTIWA PENTING\n- Penaklukan pada 7 H\nSetelah Hudaibiyah, Nabi SAW memimpin pasukan menuju Khaibar dan merebut bentengnya satu per satu.\n- Peran Ali\nMenurut riwayat, Ali bin Abi Thalib diberi bendera pasukan dan menaklukkan benteng terakhir yang paling sulit.\n- Perjanjian pengelolaan kebun\nPenduduknya diizinkan tetap menggarap kebun kurma dengan pembagian hasil kepada kaum Muslimin.",
+   "facts": "Tahun : 7 H (628 M)\nWilayah : Utara Madinah\nPeran Ali : Membawa bendera pasukan",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "tabuk",
+   "name": "Tabuk",
+   "subtitle": "Ekspedisi terakhir Nabi",
+   "map": "khilafah",
+   "x": 44.3,
+   "y": 45.3,
+   "description": "Perang Tabuk (9 H/630 M): Nabi SAW memimpin pasukan besar menghadapi ancaman Bizantium di perbatasan utara.",
+   "meta": "",
+   "body": "# 📍 TENTANG TABUK\nTabuk berada di perbatasan utara Hijaz, di jalur menuju Syam. Pada musim panas yang terik, kaum Muslimin berangkat ke sini menghadapi kabar pasukan Bizantium.\n# 🌟 PERISTIWA PENTING\n- Pasukan Usrah\nSekitar tiga puluh ribu pasukan berangkat dalam kondisi sulit. Utsman bin Affan membiayai sebagian besar perbekalan mereka.\n- Tanpa pertempuran\nPasukan Bizantium tidak muncul. Nabi SAW membuat perjanjian dengan penguasa wilayah sekitar dan kembali ke Madinah.",
+   "facts": "Tahun : 9 H (630 M)\nPasukan : sekitar 30.000 orang\nDana utama : Utsman bin Affan",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "yamamah",
+   "name": "Yamamah",
+   "subtitle": "Medan Perang Riddah",
+   "map": "khilafah",
+   "x": 62.2,
+   "y": 59.7,
+   "description": "Di pedalaman Najd ini pasukan Khalid bin Walid mengalahkan Musailamah al-Kadzdzab pada 12 H/633 M.",
+   "meta": "",
+   "body": "# 📍 TENTANG YAMAMAH\nYamamah adalah wilayah subur di tengah Najd, dihuni Bani Hanifah yang dipimpin Musailamah.\n# 🌟 PERISTIWA PENTING\n- Perang Riddah\nSetelah Nabi SAW wafat, sejumlah kabilah murtad dan beberapa orang mengaku nabi. Abu Bakar mengirim pasukan untuk menumpas mereka.\n- Perang Yamamah\nPasukan Khalid bin Walid mengalahkan Musailamah dalam pertempuran sengit. Banyak penghafal Al-Qur’an gugur di sini.\n- Pengumpulan Al-Qur’an\nSyahidnya para penghafal membuat Umar mengusulkan agar Al-Qur’an dikumpulkan, dan Abu Bakar menyetujuinya.",
+   "facts": "Tahun : 12 H (633 M)\nPanglima : Khalid bin Walid\nLawan : Musailamah al-Kadzdzab",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "damaskus",
+   "name": "Damaskus",
+   "subtitle": "Ibu kota Syam",
+   "map": "khilafah",
+   "x": 43.8,
+   "y": 28.3,
+   "description": "Kota tua di Syam yang direbut kaum Muslimin pada 14 H/635 M di bawah pimpinan Khalid bin Walid dan Abu Ubaidah.",
+   "meta": "",
+   "body": "# 📍 TENTANG DAMASKUS\nDamaskus adalah kota besar di Syam yang menjadi pusat penting Bizantium sebelum penaklukan Islam.\n# 🌟 PERISTIWA PENTING\n- Penaklukan\nSetelah beberapa waktu pengepungan, kota ini diserahkan kepada pasukan Muslim sekitar 14 H.\n- Kelak menjadi pusat kekuasaan\nSetelah masa Khulafaur Rasyidin, Damaskus menjadi ibu kota Daulah Umayyah.",
+   "facts": "Tahun : sekitar 14 H (635 M)\nPanglima : Khalid bin Walid, Abu Ubaidah",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "yarmuk",
+   "name": "Yarmuk",
+   "subtitle": "Pertempuran penentu Syam",
+   "map": "khilafah",
+   "x": 43.2,
+   "y": 30.7,
+   "description": "Perang Yarmuk (15 H/636 M): kemenangan kaum Muslimin atas Bizantium yang membuka seluruh Syam.",
+   "meta": "",
+   "body": "# 📍 TENTANG YARMUK\nYarmuk adalah lembah sungai di perbatasan Suriah dan Yordania sekarang, tempat dua pasukan besar bertemu selama beberapa hari.\n# 🌟 PERISTIWA PENTING\n- Strategi Khalid bin Walid\nKhalid menata pasukan Muslim dalam satuan-satuan kecil dan menggunakan pasukan berkuda yang gesit untuk menekan sayap Bizantium.\n- Hasil\nPasukan Bizantium kalah telak, dan kemenangan ini mengakhiri kekuasaan mereka di Syam.",
+   "facts": "Tahun : 15 H (636 M)\nLawan : Kekaisaran Bizantium\nTokoh : Khalid bin Walid, Abu Ubaidah",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "baitulmaqdis",
+   "name": "Baitul Maqdis",
+   "subtitle": "Yerusalem, kiblat pertama",
+   "map": "khilafah",
+   "x": 42.0,
+   "y": 34.0,
+   "description": "Diserahkan kepada Umar bin Khattab sekitar 16 H/637 M melalui perjanjian yang menjamin keamanan penduduknya.",
+   "meta": "",
+   "body": "# 📍 TENTANG BAITUL MAQDIS\nBaitul Maqdis (Yerusalem) adalah kota suci dengan Masjidil Aqsa, kiblat pertama kaum Muslimin, dan tempat Isra’ Nabi SAW.\n# 🌟 PERISTIWA PENTING\n- Penyerahan kota\nSetelah pengepungan oleh pasukan Abu Ubaidah, penduduk kota menyerahkan kota kepada Umar bin Khattab yang datang langsung.\n- Perjanjian Umariyah\nUmar memberi jaminan keamanan jiwa, harta, dan tempat ibadah penduduk, dan tidak ada gereja yang diubah fungsinya.",
+   "facts": "Tahun : sekitar 16 H (637 M)\nTokoh : Umar bin Khattab, Abu Ubaidah\nDokumen : Perjanjian Umariyah",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "hims",
+   "name": "Hims",
+   "subtitle": "Kota di Syam utara",
+   "map": "khilafah",
+   "x": 44.5,
+   "y": 24.3,
+   "description": "Kota Syam yang ditaklukkan setelah Yarmuk. Khalid bin Walid wafat dan dimakamkan di sini.",
+   "meta": "",
+   "body": "# 📍 TENTANG HIMS\nHims adalah kota strategis di jalur antara Damaskus dan Antiokhia yang direbut kaum Muslimin pada masa Umar.\n# 🌟 PERISTIWA PENTING\n- Wafatnya Khalid\nKhalid bin Walid tinggal di sini setelah dicopot dari jabatan panglima dan wafat sekitar 21 H.",
+   "facts": "Tahun penaklukan : sekitar 15 H (636 M)\nTokoh : Khalid bin Walid (wafat di sini)",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "konstantinopel",
+   "name": "Konstantinopel",
+   "subtitle": "Ibu kota Bizantium",
+   "map": "khilafah",
+   "x": 31.6,
+   "y": 3.3,
+   "description": "Pusat Kekaisaran Bizantium, lawan terbesar di barat. Kota ini belum ditaklukkan pada masa Khulafaur Rasyidin.",
+   "meta": "",
+   "body": "# 📍 TENTANG KONSTANTINOPEL\nKonstantinopel adalah ibu kota Kekaisaran Romawi Timur (Bizantium) dan pusat kekuatan yang berhadapan dengan negara Islam di Syam dan Mesir.\n# 🌟 CATATAN SEJARAH\n- Bukan target penaklukan masa ini\nPada masa Khulafaur Rasyidin, kaum Muslimin mengambil wilayah Syam dan Mesir dari Bizantium, tetapi tidak menyerbu ibu kotanya.\n- Kabar kelak\nDalam sebuah hadits, Nabi SAW mengabarkan bahwa kota ini akan ditaklukkan. Penaklukan itu baru terjadi pada 1453 M oleh Sultan Muhammad al-Fatih.",
+   "facts": "Peran : Ibu kota Bizantium\nPenaklukan Islam : 1453 M (Sultan Muhammad al-Fatih)",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "iskandariyah",
+   "name": "Iskandariyah",
+   "subtitle": "Pelabuhan besar Mesir",
+   "map": "khilafah",
+   "x": 33.2,
+   "y": 36.0,
+   "description": "Kota pelabuhan Bizantium di Mesir yang ditaklukkan Amr bin Ash pada 21 H/642 M.",
+   "meta": "",
+   "body": "# 📍 TENTANG ISKANDARIYAH\nIskandariyah (Alexandria) adalah kota pelabuhan besar dan ibu kota Mesir pada masa Bizantium.\n# 🌟 PERISTIWA PENTING\n- Penaklukan\nSetelah mengalahkan Bizantium di Babilonia, pasukan Amr bin Ash maju ke Iskandariyah, dan kota ini menyerah melalui perjanjian pada 21 H.\n- Dampak\nPusat pemerintahan Islam di Mesir kemudian ditempatkan di Fustat, bukan di Iskandariyah.",
+   "facts": "Tahun : 21 H (642 M)\nPanglima : Amr bin Ash",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "fustat",
+   "name": "Fustat",
+   "subtitle": "Ibu kota Islam di Mesir",
+   "map": "khilafah",
+   "x": 35.3,
+   "y": 40.0,
+   "description": "Kota yang didirikan Amr bin Ash sekitar 20 H sebagai pusat pemerintahan baru dan lokasi masjid pertama di Mesir.",
+   "meta": "",
+   "body": "# 📍 TENTANG FUSTAT\nFustat dibangun di dekat benteng Babilonia di tepi sungai Nil, di sekitar tempat Amr bin Ash mendirikan kemah (fustat) pasukannya.\n# 🌟 PERISTIWA PENTING\n- Masjid Amr bin Ash\nDi sini Amr mendirikan masjid, yang dikenal sebagai masjid pertama di Mesir.\n- Pusat pemerintahan\nFustat menjadi ibu kota Mesir Islam, dan kelak menjadi cikal bakal Kairo.",
+   "facts": "Didirikan : sekitar 20 H (641 M)\nPendiri : Amr bin Ash",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "barqah",
+   "name": "Barqah",
+   "subtitle": "Wilayah Cyrenaica",
+   "map": "khilafah",
+   "x": 18.2,
+   "y": 31.7,
+   "description": "Wilayah Libya timur yang dibebaskan pasukan Amr bin Ash sekitar 22 H/643 M, membuka jalan ke Afrika Utara.",
+   "meta": "",
+   "body": "# 📍 TENTANG BARQAH\nBarqah (Cyrenaica) adalah wilayah di pesisir Libya timur, jalur darat antara Mesir dan Afrika Utara.\n# 🌟 PERISTIWA PENTING\n- Perluasan ke barat\nSetelah Mesir jatuh, Amr bin Ash mengirim pasukan ke Barqah dan menyepakati perjanjian dengan penduduknya.",
+   "facts": "Tahun : sekitar 22 H (643 M)\nPanglima : Amr bin Ash",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "kufah",
+   "name": "Kufah dan Qadisiyyah",
+   "subtitle": "Kota garnisun Irak",
+   "map": "khilafah",
+   "x": 57.3,
+   "y": 33.3,
+   "description": "Qadisiyyah (15 H/636 M) mematahkan kekuatan Persia. Tak jauh dari sana Sa’ad bin Abi Waqqash mendirikan Kufah.",
+   "meta": "",
+   "body": "# 📍 TENTANG KUFAH DAN QADISIYYAH\nQadisiyyah adalah dataran di tepi gurun Irak, tempat pertempuran besar antara pasukan Muslim dan pasukan Persia. Tak jauh dari sana berdiri kota Kufah.\n# 🌟 PERISTIWA PENTING\n- Perang Qadisiyyah\nPasukan Sa’ad bin Abi Waqqash mengalahkan Persia yang membawa gajah perang pada 15 H, sehingga jalan menuju ibu kota Persia terbuka.\n- Pendirian Kufah\nSekitar 17 H, Kufah didirikan sebagai kota pangkalan pasukan.\n- Pusat pemerintahan Ali\nAli memindahkan pusat pemerintahan ke Kufah pada 36 H, dan beliau ditikam di sini pada 40 H.",
+   "facts": "Tahun : Qadisiyyah 15 H (636 M), Kufah ±17 H\nTokoh : Sa’ad bin Abi Waqqash, Ali bin Abi Thalib",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "madain",
+   "name": "Al-Mada’in",
+   "subtitle": "Ctesiphon, ibu kota Persia",
+   "map": "khilafah",
+   "x": 57.7,
+   "y": 29.7,
+   "description": "Ibu kota Persia Sasaniyah yang jatuh ke tangan kaum Muslimin sekitar 16 H/637 M setelah Qadisiyyah.",
+   "meta": "",
+   "body": "# 📍 TENTANG AL-MADA’IN\nAl-Mada’in (Ctesiphon) adalah ibu kota Kekaisaran Persia Sasaniyah di tepi sungai Tigris, dengan istana Taq Kisra yang terkenal.\n# 🌟 PERISTIWA PENTING\n- Jatuhnya ibu kota\nSetelah Qadisiyyah, pasukan Sa’ad menyeberangi Tigris dan merebut kota yang telah ditinggalkan para pejabatnya.",
+   "facts": "Tahun : sekitar 16 H (637 M)\nPanglima : Sa’ad bin Abi Waqqash",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "basrah",
+   "name": "Bashrah",
+   "subtitle": "Kota garnisun Irak selatan",
+   "map": "khilafah",
+   "x": 63.0,
+   "y": 38.3,
+   "description": "Kota yang didirikan sekitar 14 H sebagai pangkalan pasukan. Perang Jamal terjadi di dekatnya pada 36 H.",
+   "meta": "",
+   "body": "# 📍 TENTANG BASHRAH\nBashrah berada di dekat Teluk Persia dan menjadi pangkalan pasukan Muslim di Irak selatan di masa Umar.\n# 🌟 PERISTIWA PENTING\n- Perang Jamal\nPada 36 H, perselisihan mengenai penanganan para pembunuh Utsman memuncak dalam Perang Jamal di dekat Bashrah.",
+   "facts": "Didirikan : sekitar 14 H (635 M)\nPeristiwa : Perang Jamal, 36 H (656 M)",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "nahawand",
+   "name": "Nahawand",
+   "subtitle": "Fathul Futuh",
+   "map": "khilafah",
+   "x": 64.0,
+   "y": 26.0,
+   "description": "Pertempuran besar pada 21 H/642 M yang menghancurkan perlawanan terakhir Persia di dataran tinggi Iran.",
+   "meta": "",
+   "body": "# 📍 TENTANG NAHAWAND\nNahawand berada di dataran tinggi Iran barat. Di sini Persia mengumpulkan pasukan terakhirnya.\n# 🌟 PERISTIWA PENTING\n- Fathul Futuh\nKemenangan kaum Muslimin pada 21 H dijuluki Fathul Futuh (kemenangan dari segala kemenangan) karena menghancurkan kekuatan militer Persia.",
+   "facts": "Tahun : 21 H (642 M)\nLawan : Persia Sasaniyah",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "merv",
+   "name": "Merv",
+   "subtitle": "Ujung timur penaklukan",
+   "map": "khilafah",
+   "x": 87.0,
+   "y": 14.3,
+   "description": "Raja terakhir Persia, Yazdegerd III, tewas dekat Merv sekitar 31 H/651 M, mengakhiri Kekaisaran Sasaniyah.",
+   "meta": "",
+   "body": "# 📍 TENTANG MERV\nMerv adalah kota oasis di Asia Tengah dan salah satu pusat Persia di timur.\n# 🌟 PERISTIWA PENTING\n- Berakhirnya Sasaniyah\nYazdegerd III melarikan diri ke timur dan tewas sekitar 651 M. Penaklukan Persia pada masa Utsman ini menjadi puncak perluasan Khulafaur Rasyidin ke timur.",
+   "facts": "Tahun : sekitar 31 H (651 M)\nTokoh : Yazdegerd III (raja Persia terakhir)",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "slug": "habasyah",
+   "name": "Habasyah (Aksum)",
+   "subtitle": "Tujuan hijrah pertama",
+   "map": "khilafah",
+   "x": 47.8,
+   "y": 93.0,
+   "description": "Kerajaan Kristen di tanah Ethiopia sekarang. Raja Najasyi melindungi kaum Muslimin yang berhijrah ke sini sekitar 615 M.",
+   "meta": "",
+   "body": "# 📍 TENTANG HABASYAH\nHabasyah (Kerajaan Aksum) adalah kerajaan Kristen di Tanduk Afrika dengan hubungan dagang erat dengan Jazirah Arab.\n# 🌟 PERISTIWA PENTING\n- Hijrah ke Habasyah\nNabi SAW menyarankan sahabat berhijrah ke negeri yang rajanya tidak menzalimi. Ja’far bin Abi Thalib berbicara di hadapan Najasyi tentang ajaran Islam.\n- Perlindungan Najasyi\nNajasyi menolak permintaan Quraisy agar menyerahkan para pengungsi.",
+   "facts": "Tahun : sekitar 615 M\nRaja : Najasyi (Ashamah)\nTokoh : Ja’far bin Abi Thalib, Utsman, Ruqayyah",
+   "slides": [],
+   "gallery": []
   }
  ],
  "shorts": [
@@ -97,88 +1035,6 @@
    "title": "Masa Kecil Nabi: Berkah Dusun Gersang & Dada yang Disucikan! ✨🕌",
    "summary": "Di pedalaman Bani Sa’d, Halimah merasakan keberkahan sejak mengasuh bayi Muhammad. Riwayat Muslim juga mengisahkan peristiwa pembelahan dada beliau semasa kecil.",
    "url": ""
-  }
- ],
- "places": [
-  {
-   "slug": "makkah",
-   "name": "Makkah",
-   "subtitle": "Kota kelahiran Nabi ﷺ",
-   "x": 34.9,
-   "y": 53.8,
-   "description": "Pusat perdagangan dan keagamaan Jazirah Arab. Di sinilah Ka’bah berdiri, dijaga suku Quraisy, dan di sini Nabi Muhammad ﷺ lahir, tumbuh, dan kelak menerima risalah.",
-   "slides": [],
-   "gallery": []
-  },
-  {
-   "slug": "yatsrib",
-   "name": "Yatsrib (Madinah)",
-   "subtitle": "Oasis di utara Makkah",
-   "x": 40.6,
-   "y": 36.4,
-   "description": "Oasis subur yang dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi. Nabi ﷺ singgah di sini semasa kecil bersama ibunya; sekitar 622 M kota ini menjadi tujuan hijrah dan dikenal sebagai Madinah.",
-   "slides": [],
-   "gallery": []
-  },
-  {
-   "slug": "syam",
-   "name": "Syam (Levant)",
-   "subtitle": "Tujuan kafilah dagang Quraisy",
-   "x": 21.9,
-   "y": 5.5,
-   "description": "Kafilah Quraisy berdagang ke Syam pada musim panas. Dalam salah satu perjalanan bersama Abu Thalib, Muhammad muda bertemu rahib Bahira di Bushra.",
-   "slides": [],
-   "gallery": []
-  },
-  {
-   "slug": "palestina",
-   "name": "Palestina",
-   "subtitle": "Tanah Baitul Maqdis",
-   "x": 12.2,
-   "y": 11,
-   "description": "Wilayah Baitul Maqdis, tempat Masjidil Aqsa, kiblat pertama kaum Muslimin sebelum dialihkan ke Ka’bah.",
-   "slides": [],
-   "gallery": []
-  },
-  {
-   "slug": "iraq",
-   "name": "Iraq (Kuno)",
-   "subtitle": "Dalam pengaruh Persia Sasaniyah",
-   "x": 81.2,
-   "y": 15.5,
-   "description": "Wilayah yang berada di bawah pengaruh Kekaisaran Persia Sasaniyah. Api yang disembah penganut Zoroaster menjadi latar kisah malam kelahiran Nabi ﷺ.",
-   "slides": [],
-   "gallery": []
-  },
-  {
-   "slug": "yaman",
-   "name": "Yaman",
-   "subtitle": "Wilayah kekuasaan Abrahah",
-   "x": 55.2,
-   "y": 82,
-   "description": "Pada masa itu Yaman dikuasai Abrahah, wakil Kerajaan Habasyah (Aksum). Dari sinilah ia berangkat ke Makkah membawa pasukan bergajah.",
-   "slides": [],
-   "gallery": []
-  },
-  {
-   "slug": "gajah",
-   "name": "Jalur Pasukan Gajah",
-   "subtitle": "Yaman menuju Makkah, ±570 M",
-   "x": 46.7,
-   "y": 71,
-   "description": "Rute Abrahah menuju Makkah untuk menghancurkan Ka’bah. Pasukannya binasa sebelum mencapai kota, peristiwa yang diabadikan dalam Surah Al-Fil.",
-   "slides": [],
-   "gallery": []
-  },
-  {
-   "slug": "hira",
-   "name": "Gua Hira",
-   "subtitle": "Jabal Nur, dekat Makkah",
-   "x": 43.4,
-   "y": 52.3,
-   "description": "Gua tempat Nabi ﷺ berkhalwat. Di sinilah wahyu pertama turun pada 610 M.",
-   "slides": [],
-   "gallery": []
   }
  ]
 }

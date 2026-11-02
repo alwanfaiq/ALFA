@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: admin.html v1.0.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
+<!-- ALFA | History of Islam: admin.html v1.1.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -59,6 +59,7 @@ select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:
 .rtc a{color:var(--g)}.rtc img{display:block;max-width:100%;height:auto}.rtc figure{margin:1em 0;padding:4px;border:1px dashed transparent}.rtc figure.sel{border-color:#e04040}
 .rtc figure.fr{float:right;width:42%;margin:.2em 0 .6em 1em}.rtc figure.fl{float:left;width:42%;margin:.2em 1em .6em 0}.rtc figure.fc{max-width:90%;margin:1em auto}.rtc figcaption{font-size:.85rem;color:var(--mut)}
 .rtc table{border-collapse:collapse;width:100%}.rtc th,.rtc td{border:1px solid var(--g2);padding:5px 8px}.rtc th{background:rgba(196,163,90,.15)}.rtc hr{border:0;border-top:1px solid var(--g2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{padding:3px 10px;font-size:.82rem;font-weight:400}.chip.on{background:var(--g);color:var(--bg)}.chips input{width:auto;min-width:200px;padding:3px 8px;font-size:.82rem}
 </style></head><body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
@@ -71,9 +72,10 @@ function toast(m,k="ok"){let w=document.getElementById("tw");if(!w){w=el("div");
 const er=e=>toast(FR(String(e.message||e)),"err"),warn=m=>toast(m,"warn");
 function ask(m,yl){return new Promise(r=>{const ov=el("div","ov"),bx=el("div","cb"),bt=el("div","bt"),y=el("button","",yl||"Ya, hapus"),n=el("button","","Batal"),d=v=>{ov.remove();r(v)};y.onclick=()=>d(true);n.onclick=()=>d(false);ov.onclick=e=>{if(e.target==ov)d(false)};bt.append(y,n);bx.append(el("p","",m),bt);ov.append(bx);document.body.append(ov);n.focus()})}
 const MAPIMG={arab:"assets/map.webp",khilafah:"assets/map2.webp"},norm=s=>(s||"").toLowerCase().replace(/\b(sayyidina|sayyidah|sayyid|pendeta|sy)\b/g,"").replace(/[^a-z0-9]+/g," ").trim();
+const ERAS=["Pra-Kenabian","Periode Makkah","Periode Madinah","Khulafaur Rasyidin"],GROUPS=["Khulafaur Rasyidin","Ummahat al-Mu’minin","Sepuluh Sahabat Dijanjikan Surga","Assabiqunal Awwalun","Keluarga Nabi","Panglima & Penakluk","Sahabat","Ulama Ahli Kitab","Penguasa","Penentang Dakwah"],FAITHS=["Islam","Nasrani","Jahiliyah (Quraisy)"];
 const HELP="Format isi halaman:\n# Judul bagian  (judul tebal, boleh pakai emoji)\n- Sub judul  (diberi tanda ■)\nBaris biasa = paragraf. Tiap baris jadi satu paragraf.";
 const SC={
-characters:{l:"Karakter",f:[["name","Nama"],["role","Gelar singkat (baris kecil di atas nama, contoh: Sayyidina)"],["img","Cover karakter (di slider halaman utama)","c"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman (editor artikel)","r"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
+characters:{l:"Karakter",f:[["name","Nama"],["role","Gelar singkat (baris kecil di atas nama, contoh: Sayyidina)"],["eras","Era (boleh lebih dari satu)","k",ERAS],["groups","Kelompok / kedudukan (untuk filter di bagian Tokoh)","k",GROUPS],["faith","Agama / keyakinan","s2",FAITHS],["gender","Jenis kelamin","s2",["Pria","Wanita"]],["img","Cover karakter (di slider halaman utama)","c"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman (editor artikel)","r"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
 places:{l:"Place",f:[["name","Nama tempat"],["subtitle","Subjudul"],["description","Deskripsi singkat (di kartu peta)","t"],["map","Peta tempat ini","p"],["pos","Posisi di peta (klik gambar peta)","m"],["slides","Foto kartu peta & halaman detail","s"],["meta","Keterangan di bawah judul halaman detail","t"],["body","Isi halaman detail (kosong = pakai deskripsi singkat)","r"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (Label : isi)","t"]],ti:d=>d.name},
 shorts:{l:"Shorts",f:[["ep","Nomor episode","n"],["title","Judul"],["summary","Ringkasan","t"],["url","Link YouTube (opsional)"],["img","Gambar cover","i"]],ti:d=>"EPS."+d.ep+" "+d.title},
 videos:{l:"Video panjang",f:[["title","Judul"],["description","Deskripsi","t"],["url","Link YouTube"],["img","Thumbnail 16:9 (di-crop otomatis)","w"]],ti:d=>d.title}};
@@ -106,7 +108,7 @@ bt.append(ok,no);bx.append(el("p","m","Geser gambar untuk mengatur posisi. Scrol
 // ---- default import
 const isA=u=>typeof u=="string"&&u.startsWith("assets/");
 async function mu(u){if(!isA(u))return u;const bl=await (await fetch(u)).blob();return up(new File([bl],u.split("/").pop(),{type:bl.type}))}
-async function mig(d,r){const o={...d};if(r&&isH(r.body))delete o.body;if(r){if(r.img)delete o.img;if(r.slides&&r.slides.length)delete o.slides;if(r.gallery&&r.gallery.length)delete o.gallery;delete o.x;delete o.y;delete o.map}
+async function mig(d,r){const o={...d};if(r){if(r.groups&&r.groups.length)delete o.groups;if(r.eras&&r.eras.length)delete o.eras;if(r.faith)delete o.faith;if(r.gender)delete o.gender}if(r&&isH(r.body))delete o.body;if(r){if(r.img)delete o.img;if(r.slides&&r.slides.length)delete o.slides;if(r.gallery&&r.gallery.length)delete o.gallery;delete o.x;delete o.y;delete o.map}
 if(o.img)o.img=await mu(o.img);if(o.slides)o.slides=await Promise.all(o.slides.map(mu));if(o.gallery)o.gallery=await Promise.all(o.gallery.map(async g=>({...g,url:await mu(g.url)})));return o}
 const tn=(f,h)=>{const b=el("button","sm",h);b.type="button";b.onclick=f;return b};
 // ---- pratinjau langsung
@@ -217,7 +219,7 @@ b.onclick=async()=>{if(upd.length&&!await ask("Ini menambah "+add.length+" item 
 b.disabled=true;b.textContent="Memproses, tunggu sebentar...";
 try{for(const[d,i,r]of[...add,...upd]){const o=await mig(d,r);o.t=i;const{error}=r?await sb.from(tab).update(o).eq("id",r.id):await sb.from(tab).insert(o);if(error)throw error}toast("Konten bawaan tersinkron")}catch(e){er(e)}panel()};sy.append(b)}).catch(()=>{})}
 const fm=el("div","fm"),val=new Proxy({...(ed&&rows.find(d=>d.id==ed)||{show_label:true})},{set(o,k,v){o[k]=v;chg();return true}});fm.append(el("h3","",ed?"Edit":"Tambah baru"));
-S.f.forEach(([k,lb,ty,hp])=>{const l=el("label","",lb);let i;
+S.f.forEach(([k,lb,ty,hp])=>{const dv=["s","g","k"].includes(ty),l=el(dv?"div":"label",dv?"rf":"",lb);let i;
 if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fm.append(l);return}
 if(ty=="i"||ty=="c"||ty=="w"){i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
 i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"||ty=="w"){f=await(ty=="c"?crop(f,287,787,574):crop(f,16,9,1600));if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
@@ -231,10 +233,12 @@ draw();l.append(box,pick);fm.append(l);return}
 if(ty=="p"){const sel=document.createElement("select");[["arab","Jazirah Arab (peta awal)"],["khilafah","Dunia Islam Awal (peta luas)"]].forEach(([v,tx])=>{const o=el("option","",tx);o.value=v;sel.append(o)});sel.value=val[k]||"arab";val[k]=sel.value;sel.onchange=()=>{val[k]=sel.value;const im=document.querySelector(".mp img");if(im)im.src=MAPIMG[val[k]]};l.append(sel);fm.append(l);return}
 if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src=MAPIMG[val.map||"arab"];im.alt="Peta";w.append(im,dot);const sh=()=>{dot.hidden=val.x==null;dot.style.left=val.x+"%";dot.style.top=val.y+"%"};
 w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fm.append(l);return}
+if(ty=="k"){const ar=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","chips");const draw=()=>{box.replaceChildren();[...new Set([...hp,...ar])].forEach(o=>{const b=el("button","chip"+(ar.includes(o)?" on":""),o);b.type="button";b.onclick=()=>{const i=ar.indexOf(o);i<0?ar.push(o):ar.splice(i,1);val[k]=[...ar];draw()};box.append(b)});const ad=document.createElement("input");ad.placeholder="+ tambah baru, tekan Enter";ad.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();const v=ad.value.trim();if(v&&!ar.includes(v)){ar.push(v);val[k]=[...ar];draw()}}};box.append(ad)};draw();l.append(box);fm.append(l);return}
+if(ty=="s2"){const sel=document.createElement("select"),o0=el("option","","(belum dipilih)");o0.value="";sel.append(o0);hp.forEach(v=>{const o=el("option","",v);o.value=v;sel.append(o)});sel.value=val[k]||"";sel.onchange=()=>{val[k]=sel.value};l.append(sel);fm.append(l);return}
 if(ty=="r"){const rf=el("div","rf");rf.append(el("span","",lb),rich(val,k));fm.append(rf);return}
 if(ty=="t"){i=document.createElement("textarea");i.rows=4;if(hp){i.className="big";l.append(el("span","hlp",HELP))}}else{i=document.createElement("input");if(ty=="n")i.type="number"}
 i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
-const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
+const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g"||ty=="k")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
 CUR={tab,ed,build,S};chg();
 const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o=build();
 if(!o[S.f[0][0]])return warn("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return warn("Isi link YouTube");if(o.url&&!GOOD.test(o.url))return warn("Link harus https dari youtube.com atau youtu.be");
