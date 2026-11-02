@@ -1,0 +1,100 @@
+<!doctype html>
+<!-- ALFA | History of Islam: dashboard.html v1.0.0 -->
+<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Dashboard trafik | ALFA</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><meta name="theme-color" content="#181818">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{--bg:#181818;--p:#212121;--g:#c4a35a;--g2:#6e5c36;--ink:#f3ead8;--mut:#b4a88f;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:400 15px/1.55 Bitter,Georgia,serif;padding:20px clamp(16px,3vw,48px) 60px;max-width:1500px;margin:auto}
+h1,h2{font-family:Cinzel,serif;font-weight:800}h1{font-size:1.8rem}h2{font-size:1rem;color:var(--g);margin-bottom:10px}
+button,.go,select{font:inherit;background:none;border:1px solid var(--g);color:var(--g);padding:6px 14px;cursor:pointer;font-weight:700;text-decoration:none}
+select{background:var(--bg);font-weight:400}button:hover,.go:hover{background:var(--g);color:var(--bg)}
+:focus-visible{outline:2px solid var(--g);outline-offset:3px}
+input{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 10px;font:inherit;width:100%}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}.top div{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.kp{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:14px}
+.cd{background:var(--p);border:1px solid var(--g2);padding:16px 18px}
+.kp .cd b{display:block;font:800 1.9rem/1.1 Cinzel,serif;color:#fff}.kp .cd span{color:var(--mut);font-size:.85rem}
+.gr{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:14px;margin-bottom:14px}
+.gr3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:14px}
+@media(max-width:1000px){.gr{grid-template-columns:1fr}}
+.mapw{position:relative;overflow:hidden;background:#141414;border:1px solid #2c2c2c;touch-action:none;cursor:grab}.mapw svg{display:block;width:100%;height:auto}
+.mapw path{fill:#2b2b2b;stroke:#181818;stroke-width:.3}.mapw path.on{cursor:pointer}.mapw path:hover{stroke:#fff;stroke-width:.8}
+.zc{position:absolute;right:10px;top:10px;display:grid;gap:4px;z-index:2}.zc button{min-width:32px;padding:2px 6px;background:var(--bg)}
+.tip{position:fixed;pointer-events:none;background:#000;border:1px solid var(--g);padding:5px 10px;font-size:.85rem;z-index:9;display:none;white-space:nowrap}
+.lg{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:.8rem;color:var(--mut)}.lg i{display:block;width:140px;height:8px;background:linear-gradient(90deg,rgba(196,163,90,.25),rgba(196,163,90,1))}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:5px 6px;border-bottom:1px solid #2c2c2c;text-align:left}th{color:var(--mut);font-weight:400}td.n,th.n{text-align:right;white-space:nowrap}
+.bar{height:6px;background:var(--g);margin-top:3px;min-width:1px}
+.sc{max-height:420px;overflow:auto}
+a{color:var(--g)}.m{color:var(--mut)}
+.msg{background:var(--p);border:1px solid var(--g2);padding:20px;max-width:640px}
+.fm{display:grid;gap:12px;max-width:440px;background:var(--p);border:1px solid var(--g2);padding:20px;margin:16px 0}
+</style></head><body>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script src="config.js"></script>
+<div id="app"></div><div class="tip" id="tip"></div>
+<script>
+const C=window.ALFA_CFG||{},app=document.getElementById("app"),tip=document.getElementById("tip");
+const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const fmt=n=>(+n).toLocaleString("id-ID");
+let sb,days=30,svgText=null,busy=false;
+let rn=null;try{rn=new Intl.DisplayNames(["id"],{type:"region"})}catch(e){}
+const cname=(c,d)=>c=="??"?"Tidak diketahui":((rn&&(()=>{try{return rn.of(c)}catch(e){return null}})())||d||c);
+if(!C.url||C.url.includes("YOUR-")||!window.supabase){app.append(el("h1","","Dashboard trafik"),el("p","msg","Isi dulu config.js dengan URL dan publishable key Supabase kamu."))}
+else{sb=supabase.createClient(C.url,C.key);sb.auth.onAuthStateChange((ev,s)=>{if(ev=="SIGNED_OUT")login();else if(s&&!busy)show()});sb.auth.getSession().then(({data})=>{if(!data.session&&!busy)login()})}
+function friendly(m){return /Could not find the function|alfa_stats|schema cache/i.test(m)?"Fungsi statistik belum ada di database. Jalankan ulang schema.sql (v0.5.0) di Supabase SQL Editor lalu muat ulang halaman.":/permission denied|not authorized/i.test(m)?"Akses ditolak. Pastikan kamu login, lalu jalankan ulang schema.sql.":/Failed to fetch|NetworkError/i.test(m)?"Koneksi bermasalah. Cek internet lalu coba lagi.":m}
+function login(){busy=false;app.replaceChildren(el("h1","","Dashboard trafik"));const f=el("form","fm"),em=document.createElement("input"),pw=document.createElement("input"),b=el("button","","Masuk");
+em.type="email";em.placeholder="Email";em.required=true;em.autocomplete="username";pw.type="password";pw.placeholder="Password";pw.required=true;pw.autocomplete="current-password";b.type="submit";
+f.onsubmit=async e=>{e.preventDefault();b.disabled=true;const{error}=await sb.auth.signInWithPassword({email:em.value,password:pw.value});if(error){alert(/invalid/i.test(error.message)?"Email atau password salah.":friendly(error.message));b.disabled=false}};
+f.append(el("h2","","Masuk"),em,pw,b);app.append(f)}
+async function show(){busy=true;app.replaceChildren();
+const top=el("div","top"),r=el("div"),sel=document.createElement("select"),rf=el("button","","Segarkan"),ad=el("a","go","Admin"),lo=el("button","","Keluar");
+top.append(el("h1","","Dashboard trafik"));[[7,"7 hari terakhir"],[30,"30 hari terakhir"],[90,"90 hari terakhir"],[365,"1 tahun terakhir"]].forEach(([v,t])=>{const o=el("option","",t);o.value=v;sel.append(o)});sel.value=days;
+sel.onchange=()=>{days=+sel.value;show()};rf.onclick=()=>show();ad.href="admin.html";lo.onclick=()=>sb.auth.signOut();r.append(sel,rf,ad,lo);top.append(r);app.append(top);
+const box=el("div");app.append(box);box.append(el("p","m","Memuat data..."));
+const{data,error}=await sb.rpc("alfa_stats",{p_days:days});box.replaceChildren();
+if(error){box.append(el("p","msg",friendly(error.message)));foot();return}
+const d=data||{};
+if(!d.total){box.append(el("p","msg","Belum ada data kunjungan. Data mulai terkumpul setelah situs memuat track.js (index.html v0.9.0 dan detail.html v0.6.0 ke atas) dan database sudah memakai schema.sql v0.5.0. Kunjungan dari browser yang sedang login admin dan dari pratinjau tidak dihitung."));foot();return}
+const cs=(d.countries||[]),known=cs.filter(c=>c.c!="??");
+const kp=el("div","kp");[[fmt(d.total),"Tayangan halaman"],[fmt(d.visitors),"Pengunjung unik"],[fmt(d.today),"Hari ini"],[fmt(known.length),"Negara"],[fmt(Math.round(d.total/days*10)/10),"Rata-rata per hari"]].forEach(([n,l])=>{const c=el("div","cd");c.append(el("b","",n),el("span","",l));kp.append(c)});box.append(kp);
+// peta + negara
+const gr=el("div","gr"),mc=el("div","cd"),tc=el("div","cd"),mw=el("div","mapw");mc.append(el("h2","","Asal pengunjung"),mw);
+const lg=el("div","lg");lg.append(document.createTextNode("Sedikit"),el("i"),document.createTextNode("Banyak"));mc.append(lg);
+tc.append(el("h2","","Negara teratas"));const tb=el("table"),sc=el("div","sc"),mx=Math.max(1,...cs.map(c=>c.n));
+tb.innerHTML="<tr><th>Negara</th><th class='n'>Tayangan</th><th class='n'>Pengunjung</th></tr>";
+cs.slice(0,25).forEach(c=>{const tr=document.createElement("tr"),td=el("td","",cname(c.c)),b=el("div","bar");b.style.width=c.n/mx*100+"%";td.append(b);tr.append(td,el("td","n",fmt(c.n)),el("td","n",fmt(c.u)));tb.append(tr)});sc.append(tb);tc.append(sc);gr.append(mc,tc);box.append(gr);
+drawMap(mw,cs);
+// harian
+const dc=el("div","cd");dc.append(el("h2","","Tayangan per hari"));dc.append(chart(d.daily||[]));box.append(dc);
+// bawah
+const g3=el("div","gr3"),pc=el("div","cd"),rc=el("div","cd"),vc=el("div","cd");
+pc.append(el("h2","","Halaman terpopuler"));const pt=el("table");pt.innerHTML="<tr><th>Halaman</th><th class='n'>Tayangan</th></tr>";
+(d.pages||[]).forEach(p=>{const tr=document.createElement("tr"),td=document.createElement("td");let lab=p.page=="home"?"Beranda":(p.page=="characters"?"Karakter: ":"Tempat: ")+(p.title||p.pid);
+if(p.pid){const a=el("a","",lab);a.href="detail.html?t="+encodeURIComponent(p.page)+"&id="+encodeURIComponent(p.pid);a.target="_blank";td.append(a)}else td.textContent=lab;tr.append(td,el("td","n",fmt(p.n)));pt.append(tr)});pc.append(pt);
+rc.append(el("h2","","Sumber kunjungan"));rc.append(bars((d.refs||[]).map(x=>[x.r,x.n])));
+vc.append(el("h2","","Perangkat"));vc.append(bars((d.devices||[]).map(x=>[({desktop:"Komputer",mobile:"HP",tablet:"Tablet"})[x.d]||x.d,x.n])));
+g3.append(pc,rc,vc);box.append(g3);foot()}
+function bars(a){const w=el("div"),mx=Math.max(1,...a.map(x=>x[1]));a.forEach(([l,n])=>{const r=el("div");r.style.margin="6px 0";r.append(el("span","",l+"  "),el("span","m",fmt(n)));const b=el("div","bar");b.style.width=n/mx*100+"%";r.append(b);w.append(r)});return w}
+function chart(daily){const m={};daily.forEach(x=>m[x.d]=x.n);const jk=new Date(Date.now()+7*3600e3),list=[];for(let i=days-1;i>=0;i--){const t=new Date(jk.getTime()-i*864e5).toISOString().slice(0,10);list.push([t,m[t]||0])}
+const W=900,H=230,P=30,mx=Math.max(1,...list.map(x=>x[1])),bw=(W-P-8)/list.length,ns="http://www.w3.org/2000/svg",s=document.createElementNS(ns,"svg");
+s.setAttribute("viewBox","0 0 "+W+" "+H);s.style.cssText="width:100%;height:auto;display:block";
+const mk=(t,a)=>{const e=document.createElementNS(ns,t);for(const k in a)e.setAttribute(k,a[k]);return e};
+for(let i=0;i<=4;i++){const y=H-24-(H-44)*i/4;s.append(mk("line",{x1:P,x2:W,y1:y,y2:y,stroke:"#2c2c2c"}));const tx=mk("text",{x:P-4,y:y+4,fill:"#b4a88f","font-size":10,"text-anchor":"end"});tx.textContent=Math.round(mx*i/4);s.append(tx)}
+list.forEach(([t,n],i)=>{const h=(H-44)*n/mx,r=mk("rect",{x:P+i*bw+bw*.12,y:H-24-h,width:Math.max(1,bw*.76),height:h,fill:"#c4a35a"}),ti=mk("title",{});ti.textContent=t+": "+fmt(n)+" tayangan";r.append(ti);s.append(r)});
+[0,Math.floor(list.length/2),list.length-1].forEach(i=>{const tx=mk("text",{x:P+i*bw+bw/2,y:H-8,fill:"#b4a88f","font-size":10,"text-anchor":i==0?"start":i==list.length-1?"end":"middle"});tx.textContent=list[i][0];s.append(tx)});return s}
+async function drawMap(mw,cs){try{if(!svgText)svgText=await (await fetch("assets/world.svg")).text()}catch(e){mw.textContent="Gagal memuat assets/world.svg";return}
+mw.innerHTML=svgText;const svg=mw.querySelector("svg"),mx=Math.max(1,...cs.map(c=>c.n)),by={};cs.forEach(c=>by[c.c]=c);
+svg.querySelectorAll("path").forEach(p=>{const c=by[p.id];if(c){p.classList.add("on");p.style.fill="rgba(196,163,90,"+(.25+.75*Math.sqrt(c.n/mx)).toFixed(2)+")"}});
+svg.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(!p){tip.style.display="none";return}const c=by[p.id];tip.textContent=cname(p.id,p.dataset.n)+": "+(c?fmt(c.n)+" tayangan, "+fmt(c.u)+" pengunjung":"belum ada kunjungan");tip.style.display="block";tip.style.left=e.clientX+14+"px";tip.style.top=e.clientY+14+"px"});
+svg.addEventListener("mouseleave",()=>tip.style.display="none");
+const W0=1136,H0=805.83;let vb={x:0,y:0,w:W0,h:H0};const ap=()=>{vb.w=Math.min(W0,Math.max(120,vb.w));vb.h=vb.w*H0/W0;vb.x=Math.min(W0-vb.w,Math.max(0,vb.x));vb.y=Math.min(H0-vb.h,Math.max(0,vb.y));svg.setAttribute("viewBox",vb.x+" "+vb.y+" "+vb.w+" "+vb.h)};
+const zm=(f,cx=.5,cy=.5)=>{const nw=vb.w/f;vb.x+=(vb.w-nw)*cx;vb.y+=(vb.h-nw*H0/W0)*cy;vb.w=nw;ap()};
+const zc=el("div","zc");[["+",()=>zm(1.6)],["−",()=>zm(1/1.6)],["Reset",()=>{vb={x:0,y:0,w:W0,h:H0};ap()}]].forEach(([t,f])=>{const b=el("button","",t);b.onclick=f;zc.append(b)});mw.append(zc);
+let dr=null;mw.addEventListener("pointerdown",e=>{if(e.target.closest(".zc"))return;dr=[e.clientX,e.clientY]});
+addEventListener("pointermove",e=>{if(!dr)return;const r=svg.getBoundingClientRect(),k=vb.w/r.width;vb.x-=(e.clientX-dr[0])*k;vb.y-=(e.clientY-dr[1])*k;dr=[e.clientX,e.clientY];ap()});addEventListener("pointerup",()=>dr=null);
+mw.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();const r=svg.getBoundingClientRect();zm(e.deltaY<0?1.2:1/1.2,(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height)},{passive:false})}
+function foot(){const f=el("div","cd"),l=el("label"),c=document.createElement("input");f.style.marginTop="14px";c.type="checkbox";c.style.width="auto";c.checked=!!localStorage.getItem("alfa_no_track");c.onchange=()=>{c.checked?localStorage.setItem("alfa_no_track","1"):localStorage.removeItem("alfa_no_track")};
+l.append(c,document.createTextNode(" Jangan hitung kunjungan dari browser ini"));f.append(l,el("p","m","Data yang dicatat: halaman yang dibuka, negara (kode 2 huruf dari api.country.is), jenis perangkat, dan situs asal. Alamat IP tidak disimpan."));app.append(f)}
+</script></body></html>
