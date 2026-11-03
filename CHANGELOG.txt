@@ -1,6 +1,23 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v1.2.0
+- Kronologi baru dengan zoom bertingkat Era > Tahun > Peristiwa: tampilan awal hanya era (11 era dari Pra-Kenabian sampai Era Modern), klik atau zoom-in ke era menampilkan tahun-tahunnya beserta teks singkat peristiwa penting, klik tahun menampilkan peristiwa tahun itu. Zoom lewat tombol + dan -, atau Ctrl + scroll
+- 124 peristiwa dari Tahun Gajah sampai Musim Semi Arab (termasuk jalur Nusantara), tiap peristiwa punya halaman artikel sendiri (detail.html?t=events), daftar negara terkait, dan bagian "Peristiwa lainnya"
+- admin.html: tab Peristiwa (judul, tahun, era, ringkasan, negara, tempat di peta, artikel dengan editor, gambar), pratinjau langsung untuk peristiwa
+- schema.sql v0.7.0: tabel events (WAJIB dijalankan ulang)
+- defaults.json: eras dan 124 events
+- dashboard.html v1.0.1: halaman terpopuler menampilkan peristiwa dan istilah Tokoh
+
+v1.1.0
+- Bagian "Characters" jadi "Tokoh": kotak pencarian (nama, gelar, dan isi artikel sehingga bisa cari peristiwa seperti "Badar") dengan saran otomatis (tokoh, kelompok, peristiwa, tempat), filter kelompok (Khulafaur Rasyidin, Ummahat al-Mu'minin, Sepuluh Sahabat Dijanjikan Surga, Assabiqunal Awwalun, Keluarga Nabi, Panglima & Penakluk, dan lainnya), filter era, agama, jenis kelamin, dan urutan (bawaan, era, nama, kedudukan)
+- Halaman detail: latar hero menyatu dengan gambar character sheet (warna diambil otomatis dari tepi gambar, tepi gambar dibuat memudar), bagian "Tokoh lainnya" / "Tempat lainnya" di bawah artikel
+- Video panjang: slider di tengah (kiri-kanan, video di sisi redup, klik video samping untuk pindah, klik video tengah untuk memutar)
+- Pemutar Shorts: lebar pemutar pas dengan videonya, tidak ada ruang kosong di samping
+- admin.html: field baru untuk tokoh (era, kelompok, agama, jenis kelamin, bisa tambah kelompok sendiri), perbaikan bug klik chip dan daftar gambar
+- schema.sql v0.6.0: kolom eras, groups, faith, gender di tabel characters (WAJIB dijalankan ulang)
+- defaults.json: semua 20 tokoh sudah diberi tag era, kelompok, agama, jenis kelamin
+
 v1.0.0
 - Statistik kunjungan: track.js mencatat halaman, negara (kode 2 huruf), perangkat, dan sumber kunjungan ke tabel visits. IP tidak disimpan. Kunjungan dari browser yang sedang login admin, dari pratinjau, dan dari browser yang diberi centang "Jangan hitung" tidak dihitung
 - dashboard.html (baru): total tayangan, pengunjung unik, grafik harian, peta dunia berwarna per negara (assets/world.svg, bisa di-zoom dan digeser), tabel negara, halaman terpopuler, sumber kunjungan, perangkat
