@@ -1,4 +1,4 @@
--- ALFA | History of Islam: schema.sql v0.6.0
+-- ALFA | History of Islam: schema.sql v0.7.0
 -- Jalankan di Supabase: SQL Editor > New query > Run. Aman dijalankan berulang kali.
 create table if not exists public.characters(id uuid primary key default gen_random_uuid(),name text not null,role text,bio text,img text,t bigint not null default (extract(epoch from now())*1000)::bigint);
 alter table public.characters add column if not exists meta text,add column if not exists body text,add column if not exists facts text,add column if not exists slides jsonb not null default '[]',add column if not exists gallery jsonb not null default '[]',add column if not exists show_label boolean not null default false;
@@ -61,4 +61,10 @@ $$;
 revoke all on function public.alfa_stats(int) from public, anon;
 grant execute on function public.alfa_stats(int) to authenticated;
 alter table public.characters add column if not exists eras jsonb not null default '[]', add column if not exists groups jsonb not null default '[]', add column if not exists faith text, add column if not exists gender text;
+create table if not exists public.events(id uuid primary key default gen_random_uuid(),slug text,title text not null,year int not null,year_end int,era text,summary text,body text,facts text,place text,countries jsonb not null default '[]',slides jsonb not null default '[]',gallery jsonb not null default '[]',t bigint not null default (extract(epoch from now())*1000)::bigint);
+alter table public.events enable row level security;
+drop policy if exists "events public read" on public.events;
+create policy "events public read" on public.events for select using (true);
+drop policy if exists "events admin write" on public.events;
+create policy "events admin write" on public.events for all to authenticated using (true) with check (true);
 notify pgrst, 'reload schema';
