@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: detail.html v1.1.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: detail.html v1.2.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -51,20 +51,21 @@ figcaption{margin-top:10px;font-size:.95rem}
 .rc:hover{transform:translateY(-6px);box-shadow:0 0 0 2px var(--gold),0 12px 32px rgba(196,163,90,.35)}
 .rc img{width:100%;height:100%;object-fit:cover;display:block}.rc.ph{background:linear-gradient(160deg,#2a2418,#3b3120);border:1px solid #6e5c36}
 .rc .lb{position:absolute;inset:auto 0 0;padding:70px 8px 14px;background:linear-gradient(to bottom,rgba(24,24,24,0),rgba(24,24,24,.6) 45%,rgba(24,24,24,.96));display:grid;gap:2px;text-align:center}.rc .lb small{font-size:.8rem;color:#e9dfc9}.rc .lb b{font:700 1rem/1.25 Arvo,serif}
+.rc.ev{aspect-ratio:auto;padding:14px 16px;background:#2a2012;border:1px solid var(--gold);display:grid;gap:6px;align-content:start;min-height:140px}.rc.ev small{color:var(--gold2)}.rc.ev b{font:700 1rem/1.3 Arvo,serif}.rc.ev span{font-size:.85rem;color:#d9cdb2;line-height:1.4}
 </style></head><body>
 <header><a class="logo" href="index.html">ALFA<small>History<br>of Islam</small></a><a class="back" id="back" href="index.html">← Kembali</a></header>
 <div id="app"><p class="msg">Memuat...</p></div>
 <script src="config.js"></script>
 <script src="track.js"></script>
 <script>
-const C=window.ALFA_CFG||{},Q=new URLSearchParams(location.search),T=Q.get("t")=="places"?"places":"characters",ID=Q.get("id")||"",app=document.getElementById("app");
+const C=window.ALFA_CFG||{},Q=new URLSearchParams(location.search),T=["places","events"].includes(Q.get("t"))?Q.get("t"):"characters",ID=Q.get("id")||"",app=document.getElementById("app");
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const OK=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
-document.getElementById("back").href="index.html#"+(T=="places"?"places":"characters");
+document.getElementById("back").href="index.html#"+(T=="places"?"places":T=="events"?"chronology":"characters");
 async function get(){
  if(/^[0-9a-f]{8}-[0-9a-f]{4}-/i.test(ID)&&C.url&&!C.url.includes("YOUR-")){const r=await fetch(C.url+"/rest/v1/"+T+"?id=eq."+ID+"&select=*",{headers:{apikey:C.key}});if(r.ok)return (await r.json())[0]}
  const D=await (await fetch("defaults.json")).json();
- return T=="places"?D.places.find(p=>p.slug==ID):D.characters[+ID.replace(/\D/g,"")]}
+ return T=="places"?D.places.find(p=>p.slug==ID):T=="events"?D.events.find(p=>p.slug==ID):D.characters[+ID.replace(/\D/g,"")]}
 function body(t){const b=el("div","bd");(t||"").split("\n").forEach(l=>{if(!l.trim())return;if(l.startsWith("# "))b.append(el("h4","",l.slice(2)));else if(l.startsWith("- "))b.append(el("h5","",l.slice(2)));else b.append(el("p","",l.trim()))});return b}
 const OKT={P:1,BR:1,H2:1,H3:1,H4:1,STRONG:1,B:1,EM:1,I:1,U:1,S:1,UL:1,OL:1,LI:1,BLOCKQUOTE:1,A:1,IMG:1,FIGURE:1,FIGCAPTION:1,HR:1,TABLE:1,THEAD:1,TBODY:1,TR:1,TH:1,TD:1};
 function san(h){const d=new DOMParser().parseFromString("<body>"+h,"text/html").body,out=document.createElement("div");
@@ -81,20 +82,25 @@ function edgeColor(im){try{const w=40,h=Math.max(8,Math.round(40*im.naturalHeigh
 const isH=s=>/^\s*<[a-z]/i.test(s||"");
 function article(t){if(!isH(t)){return body(t)}const b=el("div","bd rich");b.append(...san(t).childNodes);return b}
 function toc(b){const hs=[...b.querySelectorAll("h2,h3,h4")];if(hs.length<3)return;const n=el("nav","toc");n.append(el("b","","Daftar isi"));hs.forEach((h,i)=>{h.id="b"+i;const a=el("a",h.tagName=="H3"?"s":"",h.textContent);a.href="#b"+i;n.append(a)});b.prepend(n)}
-async function related(d,m){let list=[];const cfg=C.url&&!C.url.includes("YOUR-"),cols=T=="places"?["id,slug,name,subtitle,x,y,map,slides","id,slug,name,subtitle"]:["id,name,role,img,eras,groups,faith","id,name,role,img"];
-if(cfg)for(const c of cols){try{const r=await fetch(C.url+"/rest/v1/"+T+"?select="+c+"&order=t.asc",{headers:{apikey:C.key}});if(r.ok){list=await r.json();if(list.length)break}}catch(e){}}
-if(!list.length){try{const D=await (await fetch("defaults.json")).json();list=(T=="places"?D.places.map(x=>({...x,id:x.slug})):D.characters.map((x,i)=>({...x,id:"d"+i})))}catch(e){return}}
+const cn=c=>{try{return new Intl.DisplayNames(["id"],{type:"region"}).of(c)||c}catch(e){return c}};
+const yl=d=>d.year+(d.year_end&&d.year_end!=d.year?"–"+d.year_end:"")+" M";
+function ev2(d){const cs=(Array.isArray(d.countries)?d.countries:[]).map(cn).join(", ");return {...d,name:d.title,meta:d.meta||yl(d),body:d.body||d.summary,facts:d.facts||("Tahun : "+yl(d)+(cs?"\nWilayah : "+cs:""))}}
+async function related(d,m){let list=[];const cfg=C.url&&!C.url.includes("YOUR-"),
+cols={places:["id,slug,name,subtitle,x,y,map,slides","id,slug,name,subtitle"],events:["id,slug,title,year,year_end,summary,countries"],characters:["id,name,role,img,eras,groups,faith","id,name,role,img"]}[T];
+if(cfg)for(const c of cols){try{const r=await fetch(C.url+"/rest/v1/"+T+"?select="+c+"&order="+(T=="events"?"year.asc":"t.asc"),{headers:{apikey:C.key}});if(r.ok){list=await r.json();if(list.length)break}}catch(e){}}
+if(!list.length){try{const D=await (await fetch("defaults.json")).json();list=T=="places"?D.places.map(x=>({...x,id:x.slug})):T=="events"?D.events.map(x=>({...x,id:x.slug})):D.characters.map((x,i)=>({...x,id:"d"+i}))}catch(e){return}}
 const ar=x=>Array.isArray(x)?x:[],sh=(a,b)=>ar(a).filter(z=>ar(b).includes(z)).length;
-list=list.filter(x=>String(x.id)!=ID&&x.name!=d.name);
-list.forEach(x=>{x._s=T=="places"?((x.map&&d.map&&x.map==d.map?5:0)-(Math.hypot((+x.x||0)-(+d.x||0),(+x.y||0)-(+d.y||0))/20)):sh(x.groups,d.groups)*3+sh(x.eras,d.eras)+(x.faith&&x.faith==d.faith?1:0)+Math.random()*.5});
-list=list.sort((a,b)=>b._s-a._s).slice(0,T=="places"?4:6);if(!list.length)return;
-const s=el("section","rel"),g=el("div","rg");s.append(el("h2","",T=="places"?"Tempat lainnya":"Tokoh lainnya"),g);
-list.forEach(x=>{const a=el("a","rc"+(T=="places"?" pl":"")),u=OK(T=="places"?ar(x.slides)[0]:x.img);a.href="detail.html?t="+T+"&id="+encodeURIComponent(T=="places"&&x.slug&&!/^[0-9a-f]{8}-/i.test(String(x.id))?x.slug:x.id);
-if(u){const im=new Image();im.src=u;im.alt=x.name;im.loading="lazy";a.append(im)}else a.classList.add("ph");
-const lb=el("span","lb");const sm=T=="places"?x.subtitle:x.role;if(sm)lb.append(el("small","",sm));lb.append(el("b","",x.name));a.append(lb);g.append(a)});m.append(s)}
+list=list.filter(x=>String(x.id)!=String(ID)&&x.slug!=ID&&(x.name||x.title)!=d.name);
+list.forEach(x=>{x._s=T=="places"?((x.map&&d.map&&x.map==d.map?5:0)-(Math.hypot((+x.x||0)-(+d.x||0),(+x.y||0)-(+d.y||0))/20)):T=="events"?(sh(x.countries,d.countries)*2-Math.abs((+x.year||0)-(+d.year||0))/40+Math.random()*.3):sh(x.groups,d.groups)*3+sh(x.eras,d.eras)+(x.faith&&x.faith==d.faith?1:0)+Math.random()*.5});
+list=list.sort((a,b)=>b._s-a._s).slice(0,T=="characters"?6:4);if(!list.length)return;
+const s=el("section","rel"),g=el("div","rg");s.append(el("h2","",({places:"Tempat lainnya",events:"Peristiwa lainnya",characters:"Tokoh lainnya"})[T]),g);
+list.forEach(x=>{const a=el("a","rc"+(T=="places"?" pl":T=="events"?" ev":""));const uuid=/^[0-9a-f]{8}-/i.test(String(x.id));a.href="detail.html?t="+T+"&id="+encodeURIComponent((T!="characters"&&x.slug&&!uuid)?x.slug:x.id);
+if(T=="events"){a.append(el("small","",yl(x)),el("b","",x.title),el("span","",(x.summary||"").slice(0,90)+((x.summary||"").length>90?"…":"")));g.append(a);return}
+const u=OK(T=="places"?ar(x.slides)[0]:x.img);if(u){const im=new Image();im.src=u;im.alt=x.name;im.loading="lazy";a.append(im)}else a.classList.add("ph");
+const lb=el("span","lb"),sm=T=="places"?x.subtitle:x.role;if(sm)lb.append(el("small","",sm));lb.append(el("b","",x.name));a.append(lb);g.append(a)});m.append(s)}
 function fail(m){app.replaceChildren(el("p","msg",m))}
 function render(d){
- if(!d)return fail("Halaman tidak ditemukan.");
+ if(!d)return fail("Halaman tidak ditemukan.");if(T=="events")d=ev2(d);
  document.title=d.name+" | ALFA";if(!render.t){render.t=1;alfaTrack({page:T,pid:ID,title:d.name})}app.replaceChildren();
  const sl=(Array.isArray(d.slides)?d.slides:[]).map(OK).filter(Boolean);
  if(sl.length){const h=el("div"),w=el("div","sl"),im=new Image(),l=el("button","ar l"),r=el("button","ar r"),dt=el("div","dots");h.id="hero";im.crossOrigin="anonymous";im.onload=()=>{const c=edgeColor(im);h.style.background=c||""};im.onerror=()=>{if(im.crossOrigin){im.removeAttribute("crossorigin");im.crossOrigin=null;im.src=sl[i]}};im.alt=d.name;l.setAttribute("aria-label","Sebelumnya");r.setAttribute("aria-label","Berikutnya");

@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: admin.html v1.1.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
+<!-- ALFA | History of Islam: admin.html v1.2.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <style>
@@ -73,10 +73,12 @@ const er=e=>toast(FR(String(e.message||e)),"err"),warn=m=>toast(m,"warn");
 function ask(m,yl){return new Promise(r=>{const ov=el("div","ov"),bx=el("div","cb"),bt=el("div","bt"),y=el("button","",yl||"Ya, hapus"),n=el("button","","Batal"),d=v=>{ov.remove();r(v)};y.onclick=()=>d(true);n.onclick=()=>d(false);ov.onclick=e=>{if(e.target==ov)d(false)};bt.append(y,n);bx.append(el("p","",m),bt);ov.append(bx);document.body.append(ov);n.focus()})}
 const MAPIMG={arab:"assets/map.webp",khilafah:"assets/map2.webp"},norm=s=>(s||"").toLowerCase().replace(/\b(sayyidina|sayyidah|sayyid|pendeta|sy)\b/g,"").replace(/[^a-z0-9]+/g," ").trim();
 const ERAS=["Pra-Kenabian","Periode Makkah","Periode Madinah","Khulafaur Rasyidin"],GROUPS=["Khulafaur Rasyidin","Ummahat al-Mu’minin","Sepuluh Sahabat Dijanjikan Surga","Assabiqunal Awwalun","Keluarga Nabi","Panglima & Penakluk","Sahabat","Ulama Ahli Kitab","Penguasa","Penentang Dakwah"],FAITHS=["Islam","Nasrani","Jahiliyah (Quraisy)"];
+const DT=t=>t=="characters"||t=="places"||t=="events",ERAIDS=[["pra","Pra-Kenabian"],["makkah","Periode Makkah"],["madinah","Periode Madinah"],["khulafaur","Khulafaur Rasyidin"],["umayyah","Daulah Umayyah"],["abbasiyah","Abbasiyah dan Zaman Keemasan"],["seljuk","Seljuk, Perang Salib, dan Mongol"],["mamluk","Mamluk dan Pasca-Mongol"],["imperium","Tiga Imperium Besar"],["kolonial","Kolonialisme dan Reformasi"],["modern","Era Modern"]];
 const HELP="Format isi halaman:\n# Judul bagian  (judul tebal, boleh pakai emoji)\n- Sub judul  (diberi tanda ■)\nBaris biasa = paragraf. Tiap baris jadi satu paragraf.";
 const SC={
 characters:{l:"Karakter",f:[["name","Nama"],["role","Gelar singkat (baris kecil di atas nama, contoh: Sayyidina)"],["eras","Era (boleh lebih dari satu)","k",ERAS],["groups","Kelompok / kedudukan (untuk filter di bagian Tokoh)","k",GROUPS],["faith","Agama / keyakinan","s2",FAITHS],["gender","Jenis kelamin","s2",["Pria","Wanita"]],["img","Cover karakter (di slider halaman utama)","c"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman (editor artikel)","r"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
 places:{l:"Place",f:[["name","Nama tempat"],["subtitle","Subjudul"],["description","Deskripsi singkat (di kartu peta)","t"],["map","Peta tempat ini","p"],["pos","Posisi di peta (klik gambar peta)","m"],["slides","Foto kartu peta & halaman detail","s"],["meta","Keterangan di bawah judul halaman detail","t"],["body","Isi halaman detail (kosong = pakai deskripsi singkat)","r"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (Label : isi)","t"]],ti:d=>d.name},
+events:{l:"Peristiwa",f:[["title","Judul peristiwa"],["year","Tahun (Masehi)","n"],["year_end","Tahun akhir (opsional)","n"],["era","Era (kosongkan agar otomatis dari tahun)","s2",ERAIDS],["summary","Ringkasan (tampil di kronologi)","t"],["countries","Negara terkait (kode 2 huruf, pisahkan koma)","cc"],["place","Slug tempat di peta (opsional)"],["body","Isi artikel","r"],["slides","Foto atas halaman","s"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (kosong = otomatis)","t"]],ti:d=>d.year+" "+d.title},
 shorts:{l:"Shorts",f:[["ep","Nomor episode","n"],["title","Judul"],["summary","Ringkasan","t"],["url","Link YouTube (opsional)"],["img","Gambar cover","i"]],ti:d=>"EPS."+d.ep+" "+d.title},
 videos:{l:"Video panjang",f:[["title","Judul"],["description","Deskripsi","t"],["url","Link YouTube"],["img","Thumbnail 16:9 (di-crop otomatis)","w"]],ti:d=>d.title}};
 let inP=false,sb,tab="characters",ed=null,rows=[];
@@ -86,7 +88,7 @@ function login(){inP=false;app.replaceChildren(el("h1","","Admin"));const f=el("
 em.type="email";em.placeholder="Email";em.required=true;em.autocomplete="username";pw.type="password";pw.placeholder="Password";pw.required=true;pw.autocomplete="current-password";b.type="submit";
 f.onsubmit=async e=>{e.preventDefault();b.disabled=true;const{error}=await sb.auth.signInWithPassword({email:em.value,password:pw.value});if(error){er(error);b.disabled=false}};
 f.append(el("h3","","Masuk"),em,pw,b);app.append(f)}
-async function load(){const q=sb.from(tab).select("*");const{data,error}=await (tab=="shorts"?q.order("ep",{ascending:false}):q.order("t",{ascending:tab!="videos"}));if(error)er(error);rows=data||[]}
+async function load(){const q=sb.from(tab).select("*");const{data,error}=await (tab=="shorts"?q.order("ep",{ascending:false}):tab=="events"?q.order("year",{ascending:true}):q.order("t",{ascending:tab!="videos"}));if(error)er(error);rows=data||[]}
 async function up(f){const n=Date.now()+"-"+Math.random().toString(36).slice(2,6)+"-"+f.name.replace(/[^\w.-]/g,"_");const{error}=await sb.storage.from("media").upload(n,f,{contentType:f.type});if(error)throw error;return sb.storage.from("media").getPublicUrl(n).data.publicUrl}
 // ---- cropper
 function crop(file,rw,rh,ow){return new Promise((res,rej)=>{const url=URL.createObjectURL(file),im=new Image();
@@ -120,7 +122,7 @@ const cw=PVF.contentWindow;if(!cw)return;const d=CUR.build();
 if(PVM=="detail"){cw.postMessage({type:"alfa-draft",data:d},location.origin);return}
 const has=d[CUR.S.f[0][0]],old=CUR.ed&&rows.find(r=>r.id==CUR.ed),list=CUR.ed?rows.map(r=>r.id==CUR.ed?{...r,...d}:r):(has?[...rows,{...d,id:"draft",t:Date.now()+1e10}]:rows);
 cw.postMessage({type:"alfa-list",tab:CUR.tab,rows:list,focus:CUR.ed?(old&&(old.slug||old.id)):(has?"draft":null)},location.origin)}
-function setPV(m){if(m=="detail"&&CUR&&CUR.tab!="characters"&&CUR.tab!="places"){toast("Pratinjau halaman detail hanya untuk Karakter dan Place","warn");return}PVM=m;document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));chg()}
+function setPV(m){if(m=="detail"&&CUR&&!DT(CUR.tab)){toast("Pratinjau halaman detail hanya untuk Karakter dan Place","warn");return}PVM=m;document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m==m));chg()}
 function shell(){let l=document.getElementById("left");if(l)return l;app.replaceChildren();
 const w=el("div","wrap"),p=el("div","pane"),h=el("div","pvh"),bx=el("div","pvbox"),f=document.createElement("iframe");l=el("div");l.id="left";bx.id="pvbox";h.append(el("b","","Pratinjau langsung"));
 [["home","Beranda"],["detail","Halaman detail"]].forEach(([m,t])=>{const b=el("button",m==PVM?"on":"",t);b.dataset.m=m;b.onclick=()=>setPV(m);h.append(b)});
@@ -209,10 +211,10 @@ fi.onchange=async()=>{const fs=[...fi.files];fi.value="";for(const f of fs){let 
 w.append(tb,ed,fi);return w}
 async function panel(){inP=true;await load();const L=shell();L.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();const dl=el("a","go","Dashboard trafik");dl.href="dashboard.html";r.append(dl,v,o);top.append(r);L.append(top);
 const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});L.append(tb);
-const S=SC[tab];if(PVM=="detail"&&tab!="characters"&&tab!="places"){PVM="home";document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
+const S=SC[tab];if(PVM=="detail"&&!DT(tab)){PVM="home";document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
 if(tab=="places"){const eb=el("button","","Editor peta: atur posisi semua tempat");eb.style.marginBottom="10px";eb.onclick=mapEditor;L.append(eb)}
 {const sy=el("div");L.append(sy);if(tab!="videos")fetch("defaults.json").then(r=>r.json()).then(D=>{const add=[],upd=[],used=new Set();
-(D[tab]||[]).forEach((d,i)=>{const r=rows.find(r=>!used.has(r.id)&&(tab=="shorts"?r.ep==d.ep:(r.slug?r.slug==d.slug:norm(r.name)==norm(d.name))));if(r)used.add(r.id);(r?upd:add).push([d,i,r])});
+(D[tab]||[]).forEach((d,i)=>{const r=rows.find(r=>!used.has(r.id)&&(tab=="shorts"?r.ep==d.ep:(r.slug?r.slug==d.slug:norm(r.name||r.title)==norm(d.name||d.title))));if(r)used.add(r.id);(r?upd:add).push([d,i,r])});
 if(!add.length&&!upd.length)return;
 const b=el("button","","Sinkronkan konten bawaan (+"+add.length+" baru, "+upd.length+" diperbarui)");
 b.onclick=async()=>{if(upd.length&&!await ask("Ini menambah "+add.length+" item baru dan menimpa teks "+upd.length+" item bawaan yang sudah ada dengan versi terbaru (gambar yang sudah kamu upload tidak diganti, item buatanmu sendiri tidak disentuh). Lanjut?","Ya, sinkronkan"))return;
@@ -234,14 +236,15 @@ if(ty=="p"){const sel=document.createElement("select");[["arab","Jazirah Arab (p
 if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src=MAPIMG[val.map||"arab"];im.alt="Peta";w.append(im,dot);const sh=()=>{dot.hidden=val.x==null;dot.style.left=val.x+"%";dot.style.top=val.y+"%"};
 w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fm.append(l);return}
 if(ty=="k"){const ar=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","chips");const draw=()=>{box.replaceChildren();[...new Set([...hp,...ar])].forEach(o=>{const b=el("button","chip"+(ar.includes(o)?" on":""),o);b.type="button";b.onclick=()=>{const i=ar.indexOf(o);i<0?ar.push(o):ar.splice(i,1);val[k]=[...ar];draw()};box.append(b)});const ad=document.createElement("input");ad.placeholder="+ tambah baru, tekan Enter";ad.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();const v=ad.value.trim();if(v&&!ar.includes(v)){ar.push(v);val[k]=[...ar];draw()}}};box.append(ad)};draw();l.append(box);fm.append(l);return}
-if(ty=="s2"){const sel=document.createElement("select"),o0=el("option","","(belum dipilih)");o0.value="";sel.append(o0);hp.forEach(v=>{const o=el("option","",v);o.value=v;sel.append(o)});sel.value=val[k]||"";sel.onchange=()=>{val[k]=sel.value};l.append(sel);fm.append(l);return}
+if(ty=="cc"){const i=document.createElement("input");i.value=(Array.isArray(val[k])?val[k]:[]).join(", ");i.placeholder="contoh: SA, EG, ID";i.oninput=()=>{val[k]=i.value.split(/[\s,]+/).map(s=>s.toUpperCase()).filter(s=>/^[A-Z]{2}$/.test(s))};l.append(i);fm.append(l);return}
+if(ty=="s2"){const sel=document.createElement("select"),o0=el("option","","(belum dipilih)");o0.value="";sel.append(o0);hp.forEach(v=>{const q=Array.isArray(v)?v:[v,v],o=el("option","",q[1]);o.value=q[0];sel.append(o)});sel.value=val[k]||"";sel.onchange=()=>{val[k]=sel.value};l.append(sel);fm.append(l);return}
 if(ty=="r"){const rf=el("div","rf");rf.append(el("span","",lb),rich(val,k));fm.append(rf);return}
 if(ty=="t"){i=document.createElement("textarea");i.rows=4;if(hp){i.className="big";l.append(el("span","hlp",HELP))}}else{i=document.createElement("input");if(ty=="n")i.type="number"}
 i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
-const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g"||ty=="k")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
+const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g"||ty=="k"||ty=="cc")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
 CUR={tab,ed,build,S};chg();
 const sv=el("button","",ed?"Simpan perubahan":"Tambah");sv.onclick=async()=>{const o=build();
-if(!o[S.f[0][0]])return warn("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return warn("Isi link YouTube");if(o.url&&!GOOD.test(o.url))return warn("Link harus https dari youtube.com atau youtu.be");
+if(!o[S.f[0][0]])return warn("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return warn("Isi link YouTube");if(tab=="events"&&!o.year)return warn("Isi tahun peristiwa");if(o.url&&!GOOD.test(o.url))return warn("Link harus https dari youtube.com atau youtu.be");
 if(tab=="places"&&val.x==null)return warn("Klik peta untuk menentukan posisi tempat");
 sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;toast("Berhasil disimpan");panel()};
 fm.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;panel()};fm.append(c)}

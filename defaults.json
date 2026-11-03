@@ -13,177 +13,2005 @@
  ],
  "events": [
   {
-   "n": "Tahun Gajah",
-   "y": "±570 M",
-   "p": "gajah",
-   "t": "Abrahah dari Yaman datang dengan pasukan bergajah untuk menghancurkan Ka’bah. Pasukan itu binasa sebelum memasuki Makkah (QS. Al-Fil). Tahun ini dikenal sebagai Tahun Gajah."
+   "title": "Tahun Gajah",
+   "year": 570,
+   "year_end": null,
+   "summary": "Abrahah dari Yaman datang dengan pasukan bergajah untuk menghancurkan Ka’bah. Pasukan itu binasa sebelum memasuki Makkah (QS. Al-Fil). Tahun ini dikenal sebagai Tahun Gajah.",
+   "place": "gajah",
+   "countries": [
+    "SA",
+    "YE"
+   ],
+   "slug": "570-tahun-gajah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Kelahiran Nabi",
-   "y": "12 Rabiul Awal, ±570 M",
-   "p": "makkah",
-   "t": "Muhammad ﷺ lahir di Makkah dari Aminah binti Wahb. Ayahnya, Abdullah, wafat sebelum beliau lahir, sehingga kakeknya Abdul Muthalib ikut mengasuhnya."
+   "title": "Kelahiran Nabi",
+   "year": 570,
+   "year_end": null,
+   "summary": "Muhammad ﷺ lahir di Makkah dari Aminah binti Wahb. Ayahnya, Abdullah, wafat sebelum beliau lahir, sehingga kakeknya Abdul Muthalib ikut mengasuhnya.",
+   "place": "makkah",
+   "countries": [
+    "SA"
+   ],
+   "slug": "570-kelahiran-nabi",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Disusui Siti Halimah",
-   "y": "Masa bayi",
-   "t": "Sesuai kebiasaan bangsawan Arab, bayi Muhammad dititipkan kepada Halimah as-Sa’diyah di perkampungan Bani Sa’d agar tumbuh di udara pedalaman yang sehat."
+   "title": "Disusui Siti Halimah",
+   "year": 572,
+   "year_end": null,
+   "summary": "Sesuai kebiasaan bangsawan Arab, bayi Muhammad dititipkan kepada Halimah as-Sa’diyah di perkampungan Bani Sa’d agar tumbuh di udara pedalaman yang sehat.",
+   "place": "",
+   "countries": [
+    "SA"
+   ],
+   "slug": "572-disusui-siti-halimah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Yatim piatu",
-   "y": "6 dan 8 tahun",
-   "p": "yatsrib",
-   "t": "Aminah wafat dalam perjalanan pulang dari Yatsrib. Dua tahun kemudian Abdul Muthalib wafat, dan Abu Thalib mengambil alih pengasuhan."
+   "title": "Yatim piatu",
+   "year": 576,
+   "year_end": null,
+   "summary": "Aminah wafat dalam perjalanan pulang dari Yatsrib. Dua tahun kemudian Abdul Muthalib wafat, dan Abu Thalib mengambil alih pengasuhan.",
+   "place": "yatsrib",
+   "countries": [
+    "SA"
+   ],
+   "slug": "576-yatim-piatu",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Bertemu Bahira",
-   "y": "±12 tahun",
-   "p": "syam",
-   "t": "Dalam safar dagang ke Syam bersama Abu Thalib, rahib Bahira di Bushra mengenali tanda-tanda kenabian pada Muhammad muda dan berpesan agar Abu Thalib menjaganya."
+   "title": "Bertemu Bahira",
+   "year": 582,
+   "year_end": null,
+   "summary": "Dalam safar dagang ke Syam bersama Abu Thalib, rahib Bahira di Bushra mengenali tanda-tanda kenabian pada Muhammad muda dan berpesan agar Abu Thalib menjaganya.",
+   "place": "syam",
+   "countries": [
+    "SY",
+    "SA"
+   ],
+   "slug": "582-bertemu-bahira",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Menikah dengan Khadijah",
-   "y": "25 tahun",
-   "p": "makkah",
-   "t": "Setelah berdagang untuk Khadijah dan dikenal sebagai Al-Amin, Muhammad ﷺ menikah dengannya."
+   "title": "Menikah dengan Khadijah",
+   "year": 595,
+   "year_end": null,
+   "summary": "Setelah berdagang untuk Khadijah dan dikenal sebagai Al-Amin, Muhammad ﷺ menikah dengannya.",
+   "place": "makkah",
+   "countries": [
+    "SA"
+   ],
+   "slug": "595-menikah-dengan-khadijah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Peletakan Hajar Aswad",
-   "y": "35 tahun",
-   "p": "makkah",
-   "t": "Saat Ka’bah direnovasi, kabilah-kabilah Quraisy berselisih siapa yang berhak meletakkan Hajar Aswad. Muhammad ﷺ menghamparkan kain, menaruh batu di atasnya, dan meminta wakil tiap kabilah memegang ujungnya."
+   "title": "Peletakan Hajar Aswad",
+   "year": 605,
+   "year_end": null,
+   "summary": "Saat Ka’bah direnovasi, kabilah-kabilah Quraisy berselisih siapa yang berhak meletakkan Hajar Aswad. Muhammad ﷺ menghamparkan kain, menaruh batu di atasnya, dan meminta wakil tiap kabilah memegang ujungnya.",
+   "place": "makkah",
+   "countries": [
+    "SA"
+   ],
+   "slug": "605-peletakan-hajar-aswad",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Wahyu pertama",
-   "y": "40 tahun, 610 M",
-   "p": "hira",
-   "t": "Di Gua Hira, Jibril menyampaikan wahyu pertama: “Iqra’”. Dari sinilah dakwah Islam bermula."
+   "title": "Wahyu pertama",
+   "year": 610,
+   "year_end": null,
+   "summary": "Di Gua Hira, Jibril menyampaikan wahyu pertama: “Iqra’”. Dari sinilah dakwah Islam bermula.",
+   "place": "hira",
+   "countries": [
+    "SA"
+   ],
+   "slug": "610-wahyu-pertama",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Dakwah terang-terangan",
-   "y": "±613 M",
-   "p": "makkah-k",
-   "t": "Setelah sekitar tiga tahun berdakwah secara sembunyi-sembunyi, Nabi ﷺ diperintahkan berdakwah terbuka. Penentangan Quraisy semakin keras."
+   "title": "Dakwah terang-terangan",
+   "year": 613,
+   "year_end": null,
+   "summary": "Setelah sekitar tiga tahun berdakwah secara sembunyi-sembunyi, Nabi ﷺ diperintahkan berdakwah terbuka. Penentangan Quraisy semakin keras.",
+   "place": "makkah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "613-dakwah-terang-terangan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Hijrah ke Habasyah",
-   "y": "±615 M",
-   "p": "habasyah",
-   "t": "Sekelompok kaum Muslimin berhijrah ke Habasyah menghindari siksaan Quraisy. Raja Najasyi melindungi mereka."
+   "title": "Hijrah ke Habasyah",
+   "year": 615,
+   "year_end": null,
+   "summary": "Sekelompok kaum Muslimin berhijrah ke Habasyah menghindari siksaan Quraisy. Raja Najasyi melindungi mereka.",
+   "place": "habasyah",
+   "countries": [
+    "ET",
+    "SA"
+   ],
+   "slug": "615-hijrah-ke-habasyah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Pemboikotan dan Tahun Duka Cita",
-   "y": "±616–619 M",
-   "p": "makkah-k",
-   "t": "Quraisy memboikot Bani Hasyim dan Bani Muthalib selama sekitar tiga tahun. Tidak lama setelahnya, Abu Thalib dan Khadijah wafat, sehingga disebut Tahun Duka Cita."
+   "title": "Pemboikotan dan Tahun Duka Cita",
+   "year": 619,
+   "year_end": null,
+   "summary": "Quraisy memboikot Bani Hasyim dan Bani Muthalib selama sekitar tiga tahun. Tidak lama setelahnya, Abu Thalib dan Khadijah wafat, sehingga disebut Tahun Duka Cita.",
+   "place": "makkah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "619-pemboikotan-dan-tahun-duka-cita",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Isra’ dan Mi’raj",
-   "y": "±621 M",
-   "p": "palestina",
-   "t": "Nabi ﷺ diperjalankan dari Masjidil Haram ke Masjidil Aqsa, lalu dinaikkan ke langit. Peristiwa ini menjadi sumber kewajiban shalat lima waktu."
+   "title": "Isra’ dan Mi’raj",
+   "year": 621,
+   "year_end": null,
+   "summary": "Nabi ﷺ diperjalankan dari Masjidil Haram ke Masjidil Aqsa, lalu dinaikkan ke langit. Peristiwa ini menjadi sumber kewajiban shalat lima waktu.",
+   "place": "palestina",
+   "countries": [
+    "SA",
+    "PS"
+   ],
+   "slug": "621-isra-dan-miraj",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Hijrah ke Madinah",
-   "y": "1 H, 622 M",
-   "p": "madinah-k",
-   "t": "Setelah Baiat Aqabah, Nabi ﷺ berhijrah bersama Abu Bakar ke Yatsrib, yang kemudian dikenal sebagai Madinah. Tahun ini menjadi awal penanggalan Hijriyah."
+   "title": "Hijrah ke Madinah",
+   "year": 622,
+   "year_end": null,
+   "summary": "Setelah Baiat Aqabah, Nabi ﷺ berhijrah bersama Abu Bakar ke Yatsrib, yang kemudian dikenal sebagai Madinah. Tahun ini menjadi awal penanggalan Hijriyah.",
+   "place": "madinah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "622-hijrah-ke-madinah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Perang Badar",
-   "y": "17 Ramadhan 2 H, 624 M",
-   "p": "badar",
-   "t": "Pertempuran besar pertama antara kaum Muslimin yang berjumlah sedikit dan pasukan Quraisy yang jauh lebih besar. Kaum Muslimin menang, dan Abu Jahal tewas di sini."
+   "title": "Perang Badar",
+   "year": 624,
+   "year_end": null,
+   "summary": "Pertempuran besar pertama antara kaum Muslimin yang berjumlah sedikit dan pasukan Quraisy yang jauh lebih besar. Kaum Muslimin menang, dan Abu Jahal tewas di sini.",
+   "place": "badar",
+   "countries": [
+    "SA"
+   ],
+   "slug": "624-perang-badar",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Perang Uhud",
-   "y": "Syawal 3 H, 625 M",
-   "p": "madinah-k",
-   "t": "Pertempuran di kaki Gunung Uhud. Pasukan pemanah meninggalkan posisi, sehingga pasukan Khalid bin Walid menyerang dari belakang. Hamzah bin Abdul Muthalib gugur."
+   "title": "Perang Uhud",
+   "year": 625,
+   "year_end": null,
+   "summary": "Pertempuran di kaki Gunung Uhud. Pasukan pemanah meninggalkan posisi, sehingga pasukan Khalid bin Walid menyerang dari belakang. Hamzah bin Abdul Muthalib gugur.",
+   "place": "madinah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "625-perang-uhud",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Perang Khandaq",
-   "y": "5 H, 627 M",
-   "p": "madinah-k",
-   "t": "Pasukan sekutu mengepung Madinah. Atas usul Salman al-Farisi, kaum Muslimin menggali parit di sisi utara kota dan berhasil mempertahankannya."
+   "title": "Perang Khandaq",
+   "year": 627,
+   "year_end": null,
+   "summary": "Pasukan sekutu mengepung Madinah. Atas usul Salman al-Farisi, kaum Muslimin menggali parit di sisi utara kota dan berhasil mempertahankannya.",
+   "place": "madinah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "627-perang-khandaq",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Perjanjian Hudaibiyah",
-   "y": "6 H, 628 M",
-   "p": "makkah-k",
-   "t": "Nabi ﷺ dan kaum Muslimin menuju Makkah untuk umrah, tetapi dihadang Quraisy. Disepakati perjanjian gencatan senjata yang membuka jalan dakwah damai."
+   "title": "Perjanjian Hudaibiyah",
+   "year": 628,
+   "year_end": null,
+   "summary": "Nabi ﷺ dan kaum Muslimin menuju Makkah untuk umrah, tetapi dihadang Quraisy. Disepakati perjanjian gencatan senjata yang membuka jalan dakwah damai.",
+   "place": "makkah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "628-perjanjian-hudaibiyah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Fathu Makkah",
-   "y": "Ramadhan 8 H, 630 M",
-   "p": "makkah-k",
-   "t": "Nabi ﷺ memasuki Makkah bersama pasukan besar nyaris tanpa pertempuran dan memberi pengampunan umum. Berhala-berhala di Ka’bah dihancurkan."
+   "title": "Fathu Makkah",
+   "year": 630,
+   "year_end": null,
+   "summary": "Nabi ﷺ memasuki Makkah bersama pasukan besar nyaris tanpa pertempuran dan memberi pengampunan umum. Berhala-berhala di Ka’bah dihancurkan.",
+   "place": "makkah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "630-fathu-makkah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Haji Wada’ dan wafatnya Nabi",
-   "y": "10–11 H, 632 M",
-   "p": "madinah-k",
-   "t": "Nabi ﷺ menunaikan haji terakhirnya dan berkhutbah di Arafah. Tidak lama kemudian beliau wafat di Madinah pada 12 Rabiul Awal 11 H."
+   "title": "Haji Wada’ dan wafatnya Nabi",
+   "year": 632,
+   "year_end": null,
+   "summary": "Nabi ﷺ menunaikan haji terakhirnya dan berkhutbah di Arafah. Tidak lama kemudian beliau wafat di Madinah pada 12 Rabiul Awal 11 H.",
+   "place": "madinah-k",
+   "countries": [
+    "SA"
+   ],
+   "era": "madinah",
+   "slug": "632-haji-wada-dan-wafatnya-nabi",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Abu Bakar menjadi khalifah",
-   "y": "11–13 H, 632–634 M",
-   "p": "yamamah",
-   "t": "Abu Bakar dibaiat sebagai khalifah. Ia memerangi gerakan kemurtadan dan nabi palsu dalam Perang Riddah, termasuk melawan Musailamah di Yamamah."
+   "title": "Abu Bakar menjadi khalifah",
+   "year": 632,
+   "year_end": 634,
+   "summary": "Abu Bakar dibaiat sebagai khalifah. Ia memerangi gerakan kemurtadan dan nabi palsu dalam Perang Riddah, termasuk melawan Musailamah di Yamamah.",
+   "place": "yamamah",
+   "countries": [
+    "SA"
+   ],
+   "slug": "632-abu-bakar-menjadi-khalifah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Penaklukan Syam dan Yarmuk",
-   "y": "13–15 H, 634–636 M",
-   "p": "yarmuk",
-   "t": "Pasukan Muslim merebut Damaskus dan mengalahkan Bizantium dalam Perang Yarmuk, pertempuran penentu yang membuka seluruh Syam."
+   "title": "Penaklukan Syam dan Yarmuk",
+   "year": 636,
+   "year_end": null,
+   "summary": "Pasukan Muslim merebut Damaskus dan mengalahkan Bizantium dalam Perang Yarmuk, pertempuran penentu yang membuka seluruh Syam.",
+   "place": "yarmuk",
+   "countries": [
+    "SY",
+    "JO"
+   ],
+   "slug": "636-penaklukan-syam-dan-yarmuk",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Qadisiyyah dan Mada’in",
-   "y": "15–16 H, 636–637 M",
-   "p": "kufah",
-   "t": "Pasukan Sa’ad bin Abi Waqqash mengalahkan Persia di Qadisiyyah, lalu merebut ibu kota Mada’in. Kota Kufah dan Bashrah kemudian didirikan sebagai pangkalan."
+   "title": "Qadisiyyah dan Mada’in",
+   "year": 636,
+   "year_end": 637,
+   "summary": "Pasukan Sa’ad bin Abi Waqqash mengalahkan Persia di Qadisiyyah, lalu merebut ibu kota Mada’in. Kota Kufah dan Bashrah kemudian didirikan sebagai pangkalan.",
+   "place": "kufah",
+   "countries": [
+    "IQ",
+    "IR"
+   ],
+   "slug": "636-qadisiyyah-dan-madain",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Penyerahan Baitul Maqdis",
-   "y": "±16 H, 637 M",
-   "p": "baitulmaqdis",
-   "t": "Penduduk Baitul Maqdis menyerahkan kota kepada Umar bin Khattab melalui perjanjian yang menjamin keamanan jiwa, harta, dan tempat ibadah mereka."
+   "title": "Penyerahan Baitul Maqdis",
+   "year": 637,
+   "year_end": null,
+   "summary": "Penduduk Baitul Maqdis menyerahkan kota kepada Umar bin Khattab melalui perjanjian yang menjamin keamanan jiwa, harta, dan tempat ibadah mereka.",
+   "place": "baitulmaqdis",
+   "countries": [
+    "PS"
+   ],
+   "slug": "637-penyerahan-baitul-maqdis",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Penaklukan Mesir",
-   "y": "18–21 H, 639–642 M",
-   "p": "iskandariyah",
-   "t": "Amr bin Ash memasuki Mesir, mengalahkan Bizantium di Babilonia dan Iskandariyah, lalu mendirikan kota Fustat."
+   "title": "Penaklukan Mesir",
+   "year": 639,
+   "year_end": 642,
+   "summary": "Amr bin Ash memasuki Mesir, mengalahkan Bizantium di Babilonia dan Iskandariyah, lalu mendirikan kota Fustat.",
+   "place": "iskandariyah",
+   "countries": [
+    "EG"
+   ],
+   "slug": "639-penaklukan-mesir",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Wafatnya Umar, Utsman menjadi khalifah",
-   "y": "23 H, 644 M",
-   "p": "madinah-k",
-   "t": "Umar ditikam saat shalat Subuh dan wafat. Utsman bin Affan dipilih lewat musyawarah enam sahabat sebagai khalifah ketiga."
+   "title": "Wafatnya Umar, Utsman menjadi khalifah",
+   "year": 644,
+   "year_end": null,
+   "summary": "Umar ditikam saat shalat Subuh dan wafat. Utsman bin Affan dipilih lewat musyawarah enam sahabat sebagai khalifah ketiga.",
+   "place": "madinah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "644-wafatnya-umar-utsman-menjadi-khalifah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Mushaf Utsmani",
-   "y": "±25–30 H, 646–651 M",
-   "p": "madinah-k",
-   "t": "Utsman memerintahkan penyalinan Al-Qur’an dalam satu mushaf baku, lalu mengirimkannya ke kota-kota besar. Pada masanya wilayah Islam meluas hingga Armenia, Afrika Utara, dan Persia timur."
+   "title": "Mushaf Utsmani",
+   "year": 650,
+   "year_end": null,
+   "summary": "Utsman memerintahkan penyalinan Al-Qur’an dalam satu mushaf baku, lalu mengirimkannya ke kota-kota besar. Pada masanya wilayah Islam meluas hingga Armenia, Afrika Utara, dan Persia timur.",
+   "place": "madinah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "650-mushaf-utsmani",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Wafatnya Utsman, Ali menjadi khalifah",
-   "y": "35 H, 656 M",
-   "p": "madinah-k",
-   "t": "Setelah gejolak politik, Utsman dikepung di rumahnya dan wafat. Ali bin Abi Thalib dibaiat sebagai khalifah keempat dan kemudian memindahkan pusat pemerintahan ke Kufah."
+   "title": "Wafatnya Utsman, Ali menjadi khalifah",
+   "year": 656,
+   "year_end": null,
+   "summary": "Setelah gejolak politik, Utsman dikepung di rumahnya dan wafat. Ali bin Abi Thalib dibaiat sebagai khalifah keempat dan kemudian memindahkan pusat pemerintahan ke Kufah.",
+   "place": "madinah-k",
+   "countries": [
+    "SA"
+   ],
+   "slug": "656-wafatnya-utsman-ali-menjadi-khalifah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Perang Jamal dan Shiffin",
-   "y": "36–37 H, 656–657 M",
-   "p": "basrah",
-   "t": "Perselisihan atas penanganan pembunuhan Utsman memicu Perang Jamal di dekat Bashrah dan Perang Shiffin melawan Mu’awiyah di Syam."
+   "title": "Perang Jamal dan Shiffin",
+   "year": 656,
+   "year_end": 657,
+   "summary": "Perselisihan atas penanganan pembunuhan Utsman memicu Perang Jamal di dekat Bashrah dan Perang Shiffin melawan Mu’awiyah di Syam.",
+   "place": "basrah",
+   "countries": [
+    "IQ",
+    "SY"
+   ],
+   "slug": "656-perang-jamal-dan-shiffin",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   },
   {
-   "n": "Wafatnya Ali",
-   "y": "Ramadhan 40 H, 661 M",
-   "p": "kufah",
-   "t": "Ali bin Abi Thalib ditikam Abdurrahman bin Muljam di Kufah dan wafat beberapa hari kemudian, menutup masa Khulafaur Rasyidin."
+   "title": "Wafatnya Ali",
+   "year": 661,
+   "year_end": null,
+   "summary": "Ali bin Abi Thalib ditikam Abdurrahman bin Muljam di Kufah dan wafat beberapa hari kemudian, menutup masa Khulafaur Rasyidin.",
+   "place": "kufah",
+   "countries": [
+    "IQ"
+   ],
+   "era": "khulafaur",
+   "slug": "661-wafatnya-ali",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Daulah Umayyah berdiri",
+   "year": 661,
+   "year_end": null,
+   "summary": "Setelah Hasan bin Ali menyerahkan kekuasaan demi persatuan umat (Tahun Jamaah), Mu’awiyah bin Abi Sufyan memerintah dari Damaskus dan mendirikan Daulah Umayyah.",
+   "place": "",
+   "countries": [
+    "SY"
+   ],
+   "slug": "661-daulah-umayyah-berdiri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Peristiwa Karbala",
+   "year": 680,
+   "year_end": null,
+   "summary": "Husain bin Ali, cucu Nabi ﷺ, gugur bersama keluarga dan pengikutnya di Karbala pada 10 Muharram 61 H dalam bentrokan dengan pasukan Yazid bin Mu’awiyah.",
+   "place": "",
+   "countries": [
+    "IQ"
+   ],
+   "slug": "680-peristiwa-karbala",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Kubah Shakhrah dibangun di Yerusalem",
+   "year": 691,
+   "year_end": null,
+   "summary": "Khalifah Abdul Malik bin Marwan membangun Kubah Shakhrah di kompleks Masjidil Aqsa, salah satu bangunan Islam tertua yang masih berdiri.",
+   "place": "baitulmaqdis",
+   "countries": [
+    "PS"
+   ],
+   "slug": "691-kubah-shakhrah-dibangun-di-yerusalem",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Masjid Agung Umawi Damaskus",
+   "year": 706,
+   "year_end": 715,
+   "summary": "Pada masa Al-Walid I dibangun Masjid Agung Damaskus, contoh penting arsitektur masjid awal.",
+   "place": "damaskus",
+   "countries": [
+    "SY"
+   ],
+   "slug": "706-masjid-agung-umawi-damaskus",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Penaklukan Andalusia",
+   "year": 711,
+   "year_end": null,
+   "summary": "Thariq bin Ziyad menyeberangi selat dari Afrika Utara dan mengalahkan Raja Roderic di Guadalete, membuka masa Islam di Semenanjung Iberia.",
+   "place": "",
+   "countries": [
+    "ES"
+   ],
+   "slug": "711-penaklukan-andalusia",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Islam masuk ke Sindh",
+   "year": 712,
+   "year_end": null,
+   "summary": "Pasukan Muhammad bin Qasim memasuki Sindh (Pakistan sekarang), salah satu pintu awal masuknya Islam ke Asia Selatan.",
+   "place": "",
+   "countries": [
+    "PK"
+   ],
+   "slug": "712-islam-masuk-ke-sindh",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pengepungan Konstantinopel kedua",
+   "year": 717,
+   "year_end": 718,
+   "summary": "Pasukan Umayyah mengepung Konstantinopel hampir setahun, tetapi gagal merebutnya.",
+   "place": "konstantinopel",
+   "countries": [
+    "TR"
+   ],
+   "slug": "717-pengepungan-konstantinopel-kedua",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pertempuran Tours (Poitiers)",
+   "year": 732,
+   "year_end": null,
+   "summary": "Pasukan Muslim dari Andalusia dihentikan pasukan Frank di bawah Charles Martel di wilayah Prancis tengah.",
+   "place": "",
+   "countries": [
+    "FR"
+   ],
+   "slug": "732-pertempuran-tours-poitiers",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Revolusi Abbasiyah",
+   "year": 750,
+   "year_end": null,
+   "summary": "Pasukan Abbasiyah mengalahkan Umayyah di Pertempuran Zab, dan Abu al-Abbas as-Saffah menjadi khalifah pertama Abbasiyah.",
+   "place": "",
+   "countries": [
+    "IQ",
+    "EG"
+   ],
+   "slug": "750-revolusi-abbasiyah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pertempuran Talas",
+   "year": 751,
+   "year_end": null,
+   "summary": "Pasukan Abbasiyah mengalahkan pasukan Dinasti Tang di dekat sungai Talas. Dalam tradisi sejarah, setelah peristiwa ini pembuatan kertas dari Tiongkok menyebar ke dunia Islam.",
+   "place": "",
+   "countries": [
+    "KZ"
+   ],
+   "slug": "751-pertempuran-talas",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Emirat Cordoba berdiri",
+   "year": 756,
+   "year_end": null,
+   "summary": "Abdurrahman ad-Dakhil, pangeran Umayyah yang selamat, mendirikan pemerintahan di Andalusia dengan Cordoba sebagai pusatnya.",
+   "place": "",
+   "countries": [
+    "ES"
+   ],
+   "slug": "756-emirat-cordoba-berdiri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Baghdad didirikan",
+   "year": 762,
+   "year_end": null,
+   "summary": "Khalifah Al-Manshur membangun Baghdad di tepi sungai Tigris sebagai ibu kota Abbasiyah, kelak menjadi salah satu pusat ilmu terbesar di dunia.",
+   "place": "",
+   "countries": [
+    "IQ"
+   ],
+   "slug": "762-baghdad-didirikan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Masa Harun ar-Rasyid",
+   "year": 786,
+   "year_end": 809,
+   "summary": "Puncak kemakmuran Abbasiyah dengan perdagangan luas, istana megah, dan dukungan bagi para ilmuwan dan penerjemah.",
+   "place": "",
+   "countries": [
+    "IQ"
+   ],
+   "slug": "786-masa-harun-ar-rasyid",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Al-Khawarizmi dan ilmu aljabar",
+   "year": 820,
+   "year_end": null,
+   "summary": "Muhammad bin Musa al-Khawarizmi menulis karya tentang aljabar di Baghdad. Kata “algoritma” berasal dari namanya.",
+   "place": "",
+   "countries": [
+    "IQ",
+    "UZ"
+   ],
+   "slug": "820-al-khawarizmi-dan-ilmu-aljabar",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Baitul Hikmah di Baghdad",
+   "year": 830,
+   "year_end": null,
+   "summary": "Pada masa Al-Ma’mun, Baitul Hikmah menjadi pusat penerjemahan dan penelitian yang menghimpun ilmu dari Yunani, Persia, dan India.",
+   "place": "",
+   "countries": [
+    "IQ"
+   ],
+   "slug": "830-baitul-hikmah-di-baghdad",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Al-Qarawiyyin didirikan di Fez",
+   "year": 859,
+   "year_end": null,
+   "summary": "Fatima al-Fihri mendirikan masjid dan lembaga pendidikan Al-Qarawiyyin, yang sering disebut sebagai salah satu universitas tertua yang masih beroperasi.",
+   "place": "",
+   "countries": [
+    "MA"
+   ],
+   "slug": "859-al-qarawiyyin-didirikan-di-fez",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Dinasti Fatimiyah berdiri",
+   "year": 909,
+   "year_end": null,
+   "summary": "Dinasti Fatimiyah mulai berkuasa di Ifriqiyah (Tunisia sekarang) dan kelak berpindah ke Mesir.",
+   "place": "",
+   "countries": [
+    "TN"
+   ],
+   "slug": "909-dinasti-fatimiyah-berdiri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Khilafah Cordoba diproklamasikan",
+   "year": 929,
+   "year_end": null,
+   "summary": "Abdurrahman III menyatakan dirinya khalifah, dan Cordoba memasuki masa kejayaannya.",
+   "place": "",
+   "countries": [
+    "ES"
+   ],
+   "slug": "929-khilafah-cordoba-diproklamasikan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Kairo didirikan",
+   "year": 969,
+   "year_end": null,
+   "summary": "Fatimiyah mendirikan kota Kairo sebagai ibu kota baru di Mesir.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "969-kairo-didirikan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Al-Azhar didirikan",
+   "year": 970,
+   "year_end": null,
+   "summary": "Masjid Al-Azhar dibangun di Kairo dan kemudian berkembang menjadi pusat pendidikan Islam yang bertahan hingga kini.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "970-al-azhar-didirikan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Ibnu al-Haitham dan ilmu optik",
+   "year": 1011,
+   "year_end": null,
+   "summary": "Ibnu al-Haitham menulis Kitab al-Manazir tentang optik di Kairo dan dikenal dengan penggunaan metode eksperimen dalam sains.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "1011-ibnu-al-haitham-dan-ilmu-optik",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Wafatnya Ibnu Sina",
+   "year": 1037,
+   "year_end": null,
+   "summary": "Ibnu Sina (Avicenna), dokter dan filsuf penulis Al-Qanun fi ath-Thibb, wafat di Hamadan.",
+   "place": "",
+   "countries": [
+    "IR"
+   ],
+   "slug": "1037-wafatnya-ibnu-sina",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Seljuk memasuki Baghdad",
+   "year": 1055,
+   "year_end": null,
+   "summary": "Tughril Beg dari Seljuk memasuki Baghdad dan menjadi pelindung khalifah Abbasiyah.",
+   "place": "",
+   "countries": [
+    "IQ"
+   ],
+   "slug": "1055-seljuk-memasuki-baghdad",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pertempuran Manzikert",
+   "year": 1071,
+   "year_end": null,
+   "summary": "Sultan Alp Arslan dari Seljuk mengalahkan Bizantium di Manzikert, membuka Anatolia bagi masuknya bangsa Turki.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1071-pertempuran-manzikert",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perang Salib pertama",
+   "year": 1096,
+   "year_end": 1099,
+   "summary": "Pasukan Salib dari Eropa bergerak ke timur dan mendirikan negara-negara Salib di Syam.",
+   "place": "",
+   "countries": [
+    "TR",
+    "SY",
+    "PS"
+   ],
+   "slug": "1096-perang-salib-pertama",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Yerusalem jatuh ke tangan pasukan Salib",
+   "year": 1099,
+   "year_end": null,
+   "summary": "Pasukan Salib merebut Yerusalem setelah pengepungan.",
+   "place": "baitulmaqdis",
+   "countries": [
+    "PS"
+   ],
+   "slug": "1099-yerusalem-jatuh-ke-tangan-pasukan-salib",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Wafatnya Al-Ghazali",
+   "year": 1111,
+   "year_end": null,
+   "summary": "Abu Hamid al-Ghazali, penulis Ihya Ulumiddin, wafat di Thus.",
+   "place": "",
+   "countries": [
+    "IR"
+   ],
+   "slug": "1111-wafatnya-al-ghazali",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Salahuddin al-Ayyubi merebut Yerusalem",
+   "year": 1187,
+   "year_end": null,
+   "summary": "Setelah kemenangan di Hattin, Salahuddin merebut kembali Yerusalem dengan perjanjian yang menjamin keselamatan penduduknya.",
+   "place": "baitulmaqdis",
+   "countries": [
+    "PS"
+   ],
+   "slug": "1187-salahuddin-al-ayyubi-merebut-yerusalem",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perjanjian Ramla",
+   "year": 1192,
+   "year_end": null,
+   "summary": "Salahuddin dan Richard Berhati Singa menyepakati gencatan senjata yang mengakhiri Perang Salib ketiga dan mengizinkan peziarah Kristen ke Yerusalem.",
+   "place": "baitulmaqdis",
+   "countries": [
+    "PS"
+   ],
+   "slug": "1192-perjanjian-ramla",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Wafatnya Ibnu Rusyd",
+   "year": 1198,
+   "year_end": null,
+   "summary": "Ibnu Rusyd (Averroes), filsuf dan hakim dari Cordoba, wafat di Marrakesh.",
+   "place": "",
+   "countries": [
+    "MA"
+   ],
+   "slug": "1198-wafatnya-ibnu-rusyd",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Invasi Mongol ke Khwarezmia",
+   "year": 1219,
+   "year_end": 1221,
+   "summary": "Pasukan Jengis Khan menyerbu Khwarezmia dan menghancurkan kota-kota besar seperti Bukhara, Samarkand, dan Merv.",
+   "place": "",
+   "countries": [
+    "UZ",
+    "IR"
+   ],
+   "slug": "1219-invasi-mongol-ke-khwarezmia",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Jatuhnya Baghdad",
+   "year": 1258,
+   "year_end": null,
+   "summary": "Pasukan Mongol di bawah Hulagu Khan merebut dan menghancurkan Baghdad, mengakhiri kekhalifahan Abbasiyah di kota itu.",
+   "place": "",
+   "countries": [
+    "IQ"
+   ],
+   "slug": "1258-jatuhnya-baghdad",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pertempuran Ain Jalut",
+   "year": 1260,
+   "year_end": null,
+   "summary": "Pasukan Mamluk dari Mesir yang dipimpin Qutuz dan Baybars mengalahkan Mongol di Palestina dan menghentikan laju mereka ke barat.",
+   "place": "",
+   "countries": [
+    "PS"
+   ],
+   "slug": "1260-pertempuran-ain-jalut",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Wafatnya Sultan Malik as-Saleh, Samudra Pasai",
+   "year": 1297,
+   "year_end": null,
+   "summary": "Nisan Sultan Malik as-Saleh di Aceh bertarikh 696 H (1297 M), bukti tertulis tertua kerajaan Islam di Nusantara.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1297-wafatnya-sultan-malik-as-saleh-samudra-pasai",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Awal berdirinya Kesultanan Utsmani",
+   "year": 1299,
+   "year_end": null,
+   "summary": "Utsman I mendirikan emirat di Anatolia barat laut yang kelak berkembang menjadi imperium Utsmani.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1299-awal-berdirinya-kesultanan-utsmani",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Ibnu Battuta memulai pengembaraannya",
+   "year": 1325,
+   "year_end": null,
+   "summary": "Ibnu Battuta berangkat dari Tanger untuk berhaji dan menjelajahi dunia Islam selama hampir tiga dekade.",
+   "place": "",
+   "countries": [
+    "MA"
+   ],
+   "slug": "1325-ibnu-battuta-memulai-pengembaraannya",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Ibnu Battuta singgah di Samudra Pasai",
+   "year": 1345,
+   "year_end": null,
+   "summary": "Dalam perjalanan ke Tiongkok, Ibnu Battuta singgah di Samudra Pasai dan mencatat tentang sultannya.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1345-ibnu-battuta-singgah-di-samudra-pasai",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Timur Lenk berkuasa",
+   "year": 1370,
+   "year_end": null,
+   "summary": "Timur Lenk menjadikan Samarkand pusat kekuasaan dan memulai penaklukan luas di Asia Tengah dan sekitarnya.",
+   "place": "",
+   "countries": [
+    "UZ"
+   ],
+   "slug": "1370-timur-lenk-berkuasa",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Ibnu Khaldun menulis Muqaddimah",
+   "year": 1377,
+   "year_end": null,
+   "summary": "Ibnu Khaldun menyelesaikan Muqaddimah, karya perintis ilmu sosial dan filsafat sejarah.",
+   "place": "",
+   "countries": [
+    "TN"
+   ],
+   "slug": "1377-ibnu-khaldun-menulis-muqaddimah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Malaka menjadi pusat dagang dan Islam",
+   "year": 1414,
+   "year_end": null,
+   "summary": "Pada awal abad ke-15 Malaka tumbuh menjadi pelabuhan utama dan, menurut tradisi, pusat penyebaran Islam di Asia Tenggara.",
+   "place": "",
+   "countries": [
+    "MY"
+   ],
+   "slug": "1414-malaka-menjadi-pusat-dagang-dan-islam",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Wafatnya Maulana Malik Ibrahim",
+   "year": 1419,
+   "year_end": null,
+   "summary": "Maulana Malik Ibrahim, tokoh awal penyebar Islam di Jawa yang dikenal sebagai salah satu Walisongo, wafat di Gresik menurut tarikh pada nisannya.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1419-wafatnya-maulana-malik-ibrahim",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Penaklukan Konstantinopel",
+   "year": 1453,
+   "year_end": null,
+   "summary": "Sultan Muhammad al-Fatih menaklukkan Konstantinopel dan mengakhiri Kekaisaran Bizantium.",
+   "place": "konstantinopel",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1453-penaklukan-konstantinopel",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Kesultanan Demak berdiri",
+   "year": 1478,
+   "year_end": null,
+   "summary": "Demak, kesultanan Islam pertama di Jawa, berdiri di bawah Raden Patah (tahun pendiriannya diperselisihkan, sekitar akhir abad ke-15).",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1478-kesultanan-demak-berdiri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Jatuhnya Granada",
+   "year": 1492,
+   "year_end": null,
+   "summary": "Kerajaan Granada, benteng terakhir Muslim di Semenanjung Iberia, jatuh ke tangan Kastilia dan Aragon.",
+   "place": "",
+   "countries": [
+    "ES"
+   ],
+   "slug": "1492-jatuhnya-granada",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Dinasti Safawiyah berdiri",
+   "year": 1501,
+   "year_end": null,
+   "summary": "Ismail I memproklamasikan diri sebagai Syah di Tabriz dan menjadikan Syiah Dua Belas Imam sebagai mazhab resmi negara.",
+   "place": "",
+   "countries": [
+    "IR"
+   ],
+   "slug": "1501-dinasti-safawiyah-berdiri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Portugis merebut Malaka",
+   "year": 1511,
+   "year_end": null,
+   "summary": "Portugis merebut Malaka, yang mendorong pedagang Muslim berpindah ke pelabuhan lain di Nusantara seperti Aceh dan Banten.",
+   "place": "",
+   "countries": [
+    "MY"
+   ],
+   "slug": "1511-portugis-merebut-malaka",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Kesultanan Aceh Darussalam berdiri",
+   "year": 1511,
+   "year_end": null,
+   "summary": "Aceh tumbuh sebagai kesultanan Islam yang kuat di ujung barat Sumatra (penanggalan pendiriannya bervariasi menurut sumber).",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1511-kesultanan-aceh-darussalam-berdiri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Utsmani menaklukkan Mesir",
+   "year": 1517,
+   "year_end": null,
+   "summary": "Sultan Selim I mengalahkan Mamluk dan menguasai Mesir serta Hijaz, sehingga Utsmani menjadi pelindung Makkah dan Madinah.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "1517-utsmani-menaklukkan-mesir",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Masa Sulaiman al-Qanuni",
+   "year": 1520,
+   "year_end": 1566,
+   "summary": "Puncak kekuatan Utsmani dengan penataan hukum yang luas, arsitektur Mimar Sinan, dan perluasan wilayah.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1520-masa-sulaiman-al-qanuni",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pertempuran Panipat dan awal Mughal",
+   "year": 1526,
+   "year_end": null,
+   "summary": "Babur mengalahkan Sultan Delhi di Panipat dan mendirikan Kekaisaran Mughal di India.",
+   "place": "",
+   "countries": [
+    "IN"
+   ],
+   "slug": "1526-pertempuran-panipat-dan-awal-mughal",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Fatahillah merebut Sunda Kelapa",
+   "year": 1527,
+   "year_end": null,
+   "summary": "Pasukan Banten dan Demak di bawah Fatahillah merebut pelabuhan Sunda Kelapa, yang kemudian dinamai Jayakarta.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1527-fatahillah-merebut-sunda-kelapa",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pengepungan Wina pertama",
+   "year": 1529,
+   "year_end": null,
+   "summary": "Pasukan Sulaiman al-Qanuni mengepung Wina tetapi mundur, menandai batas terjauh Utsmani di Eropa tengah pada masa itu.",
+   "place": "",
+   "countries": [
+    "AT"
+   ],
+   "slug": "1529-pengepungan-wina-pertama",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Masa Akbar Agung",
+   "year": 1556,
+   "year_end": 1605,
+   "summary": "Kaisar Akbar memperluas Mughal dan menjalankan kebijakan yang merangkul beragam kelompok agama dan budaya.",
+   "place": "",
+   "countries": [
+    "IN"
+   ],
+   "slug": "1556-masa-akbar-agung",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pertempuran Lepanto",
+   "year": 1571,
+   "year_end": null,
+   "summary": "Armada Utsmani dikalahkan armada Liga Suci di Teluk Patras, meski Utsmani cepat membangun kembali angkatan lautnya.",
+   "place": "",
+   "countries": [
+    "GR"
+   ],
+   "slug": "1571-pertempuran-lepanto",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Masa Syah Abbas I",
+   "year": 1588,
+   "year_end": 1629,
+   "summary": "Syah Abbas I memindahkan ibu kota ke Isfahan dan membangunnya menjadi pusat seni dan arsitektur Safawiyah.",
+   "place": "",
+   "countries": [
+    "IR"
+   ],
+   "slug": "1588-masa-syah-abbas-i",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Sultan Agung dari Mataram",
+   "year": 1613,
+   "year_end": 1645,
+   "summary": "Sultan Agung membawa Mataram Islam ke puncak kekuasaannya di Jawa dan memadukan tradisi Jawa dengan Islam.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1613-sultan-agung-dari-mataram",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "VOC mendirikan Batavia",
+   "year": 1619,
+   "year_end": null,
+   "summary": "VOC menguasai Jayakarta dan membangun Batavia sebagai pusat kekuasaan dagangnya di Nusantara.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1619-voc-mendirikan-batavia",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Serangan Mataram ke Batavia",
+   "year": 1628,
+   "year_end": 1629,
+   "summary": "Sultan Agung mengirim pasukan menyerang VOC di Batavia, tetapi gagal merebutnya.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1628-serangan-mataram-ke-batavia",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pembangunan Taj Mahal",
+   "year": 1632,
+   "year_end": 1653,
+   "summary": "Kaisar Syah Jahan membangun Taj Mahal di Agra sebagai makam istrinya, Mumtaz Mahal.",
+   "place": "",
+   "countries": [
+    "IN"
+   ],
+   "slug": "1632-pembangunan-taj-mahal",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pengepungan Wina kedua",
+   "year": 1683,
+   "year_end": null,
+   "summary": "Pasukan Utsmani kembali mengepung Wina dan dikalahkan pasukan sekutu Eropa, awal mundurnya Utsmani dari Eropa tengah.",
+   "place": "",
+   "countries": [
+    "AT"
+   ],
+   "slug": "1683-pengepungan-wina-kedua",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perjanjian Karlowitz",
+   "year": 1699,
+   "year_end": null,
+   "summary": "Utsmani menyerahkan sebagian besar Hongaria kepada Habsburg, perjanjian pertama yang menandai kemunduran wilayah Utsmani di Eropa.",
+   "place": "",
+   "countries": [
+    "RS"
+   ],
+   "slug": "1699-perjanjian-karlowitz",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perjanjian Diriyah",
+   "year": 1744,
+   "year_end": null,
+   "summary": "Muhammad bin Saud dan ulama Muhammad bin Abdul Wahhab bersepakat di Diriyah, yang menjadi dasar Negara Saudi pertama.",
+   "place": "",
+   "countries": [
+    "SA"
+   ],
+   "slug": "1744-perjanjian-diriyah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Ekspedisi Napoleon ke Mesir",
+   "year": 1798,
+   "year_end": 1801,
+   "summary": "Pasukan Prancis menyerbu Mesir dan membuka kontak intelektual maupun politik baru antara dunia Islam dan Eropa modern.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "1798-ekspedisi-napoleon-ke-mesir",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Gugurnya Tipu Sultan",
+   "year": 1799,
+   "year_end": null,
+   "summary": "Penguasa Mysore, Tipu Sultan, gugur saat Inggris merebut Srirangapatna.",
+   "place": "",
+   "countries": [
+    "IN"
+   ],
+   "slug": "1799-gugurnya-tipu-sultan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perang Padri",
+   "year": 1803,
+   "year_end": 1837,
+   "summary": "Konflik di Minangkabau antara kaum Padri dan kaum adat yang kemudian melibatkan Belanda. Tuanku Imam Bonjol menjadi tokoh perlawanannya.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1803-perang-padri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Muhammad Ali Pasha berkuasa di Mesir",
+   "year": 1805,
+   "year_end": null,
+   "summary": "Muhammad Ali menjadi gubernur Mesir dan memulai program modernisasi militer, pendidikan, dan ekonomi.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "1805-muhammad-ali-pasha-berkuasa-di-mesir",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perang Diponegoro",
+   "year": 1825,
+   "year_end": 1830,
+   "summary": "Pangeran Diponegoro memimpin perlawanan besar terhadap Belanda di Jawa dengan dukungan para ulama dan rakyat.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1825-perang-diponegoro",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Prancis menjajah Aljazair",
+   "year": 1830,
+   "year_end": null,
+   "summary": "Prancis menyerbu Aljir dan memulai penjajahan panjang atas Aljazair, yang dilawan antara lain oleh Emir Abdul Qadir.",
+   "place": "",
+   "countries": [
+    "DZ"
+   ],
+   "slug": "1830-prancis-menjajah-aljazair",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Era Tanzimat dimulai",
+   "year": 1839,
+   "year_end": null,
+   "summary": "Utsmani meluncurkan reformasi besar di bidang hukum, pemerintahan, dan pendidikan yang dikenal sebagai Tanzimat.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1839-era-tanzimat-dimulai",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pemberontakan India",
+   "year": 1857,
+   "year_end": null,
+   "summary": "Pemberontakan melawan Kompeni Inggris berakhir dengan jatuhnya Kekaisaran Mughal dan beralihnya India ke pemerintahan langsung Inggris.",
+   "place": "",
+   "countries": [
+    "IN"
+   ],
+   "slug": "1857-pemberontakan-india",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Terusan Suez dibuka",
+   "year": 1869,
+   "year_end": null,
+   "summary": "Terusan Suez dibuka dan mengubah jalur perdagangan dunia sekaligus memperkuat kepentingan Eropa di Mesir.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "1869-terusan-suez-dibuka",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perang Aceh",
+   "year": 1873,
+   "year_end": 1904,
+   "summary": "Perang panjang antara Kesultanan Aceh dan Belanda dengan peran besar ulama dan pejuang seperti Teuku Umar dan Cut Nyak Dhien.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1873-perang-aceh",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Wafatnya Jamaluddin al-Afghani",
+   "year": 1897,
+   "year_end": null,
+   "summary": "Tokoh pembaru dan penyeru persatuan dunia Islam, Jamaluddin al-Afghani, wafat di Istanbul.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1897-wafatnya-jamaluddin-al-afghani",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Wafatnya Muhammad Abduh",
+   "year": 1905,
+   "year_end": null,
+   "summary": "Muhammad Abduh, tokoh pembaruan pemikiran Islam dari Mesir, wafat.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "1905-wafatnya-muhammad-abduh",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Revolusi Turki Muda",
+   "year": 1908,
+   "year_end": null,
+   "summary": "Gerakan Turki Muda memaksa Sultan Abdulhamid II memulihkan konstitusi, awal periode politik baru di Utsmani.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1908-revolusi-turki-muda",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Muhammadiyah dan Sarekat Islam",
+   "year": 1912,
+   "year_end": null,
+   "summary": "Muhammadiyah didirikan KH Ahmad Dahlan di Yogyakarta, dan Sarekat Islam menjadi organisasi massa besar yang menghimpun umat dan pedagang pribumi.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1912-muhammadiyah-dan-sarekat-islam",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perjanjian Sykes–Picot",
+   "year": 1916,
+   "year_end": null,
+   "summary": "Inggris dan Prancis secara rahasia membagi wilayah Arab bekas Utsmani menjadi lingkup pengaruh mereka.",
+   "place": "",
+   "countries": [
+    "SY",
+    "IQ"
+   ],
+   "slug": "1916-perjanjian-sykes-picot",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Deklarasi Balfour",
+   "year": 1917,
+   "year_end": null,
+   "summary": "Pemerintah Inggris menyatakan dukungan bagi “rumah nasional bagi bangsa Yahudi” di Palestina, yang kelak menjadi sumber konflik berkepanjangan.",
+   "place": "",
+   "countries": [
+    "PS"
+   ],
+   "slug": "1917-deklarasi-balfour",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Kesultanan Utsmani dihapus",
+   "year": 1922,
+   "year_end": null,
+   "summary": "Majelis Nasional Agung Turki menghapus kesultanan, dan sultan terakhir meninggalkan Istanbul.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1922-kesultanan-utsmani-dihapus",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Penghapusan Khilafah",
+   "year": 1924,
+   "year_end": null,
+   "summary": "Majelis Nasional Agung Turki menghapus jabatan khalifah pada 3 Maret 1924, mengakhiri kekhalifahan yang dipegang Utsmani.",
+   "place": "",
+   "countries": [
+    "TR"
+   ],
+   "slug": "1924-penghapusan-khilafah",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Nahdlatul Ulama berdiri",
+   "year": 1926,
+   "year_end": null,
+   "summary": "KH Hasyim Asy’ari dan para ulama mendirikan Nahdlatul Ulama di Surabaya.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1926-nahdlatul-ulama-berdiri",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Ikhwanul Muslimin didirikan",
+   "year": 1928,
+   "year_end": null,
+   "summary": "Hasan al-Banna mendirikan Ikhwanul Muslimin di Ismailiyah, Mesir.",
+   "place": "",
+   "countries": [
+    "EG"
+   ],
+   "slug": "1928-ikhwanul-muslimin-didirikan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Kerajaan Arab Saudi diproklamasikan",
+   "year": 1932,
+   "year_end": null,
+   "summary": "Abdulaziz bin Saud menyatukan wilayah-wilayah di Jazirah Arab dan memproklamasikan Kerajaan Arab Saudi.",
+   "place": "",
+   "countries": [
+    "SA"
+   ],
+   "slug": "1932-kerajaan-arab-saudi-diproklamasikan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Proklamasi Kemerdekaan Indonesia",
+   "year": 1945,
+   "year_end": null,
+   "summary": "Soekarno dan Hatta memproklamasikan kemerdekaan Indonesia pada 17 Agustus 1945, negara dengan penduduk Muslim terbesar di dunia.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1945-proklamasi-kemerdekaan-indonesia",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Resolusi Jihad",
+   "year": 1945,
+   "year_end": null,
+   "summary": "Para ulama Nahdlatul Ulama menyerukan perlawanan untuk mempertahankan kemerdekaan pada 22 Oktober 1945, yang menjadi latar peristiwa 10 November di Surabaya.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1945-resolusi-jihad",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Pakistan merdeka",
+   "year": 1947,
+   "year_end": null,
+   "summary": "Pakistan berdiri sebagai negara baru bagi umat Islam di Asia Selatan dalam pemisahan wilayah India Britania.",
+   "place": "",
+   "countries": [
+    "PK"
+   ],
+   "slug": "1947-pakistan-merdeka",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Berakhirnya Mandat Inggris di Palestina dan Nakba",
+   "year": 1948,
+   "year_end": null,
+   "summary": "Berdirinya Israel, perang Arab–Israel pertama, dan pengungsian ratusan ribu warga Palestina yang dikenang sebagai Nakba.",
+   "place": "",
+   "countries": [
+    "PS"
+   ],
+   "slug": "1948-berakhirnya-mandat-inggris-di-palestina-dan-nakba",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Konferensi Asia-Afrika di Bandung",
+   "year": 1955,
+   "year_end": null,
+   "summary": "Pemimpin negara-negara Asia dan Afrika, termasuk banyak negara Muslim, berkumpul di Bandung untuk menolak kolonialisme.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "1955-konferensi-asia-afrika-di-bandung",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Malaysia merdeka",
+   "year": 1957,
+   "year_end": null,
+   "summary": "Persekutuan Tanah Melayu merdeka dari Inggris pada 31 Agustus 1957.",
+   "place": "",
+   "countries": [
+    "MY"
+   ],
+   "slug": "1957-malaysia-merdeka",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Organisasi Kerja Sama Islam didirikan",
+   "year": 1969,
+   "year_end": null,
+   "summary": "Organisasi Konferensi Islam (sekarang Organisasi Kerja Sama Islam) didirikan di Rabat setelah pembakaran Masjidil Aqsa.",
+   "place": "",
+   "countries": [
+    "MA"
+   ],
+   "slug": "1969-organisasi-kerja-sama-islam-didirikan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Revolusi Iran",
+   "year": 1979,
+   "year_end": null,
+   "summary": "Revolusi menumbangkan Syah Iran dan mendirikan Republik Islam di bawah Ayatollah Khomeini.",
+   "place": "",
+   "countries": [
+    "IR"
+   ],
+   "slug": "1979-revolusi-iran",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perang Soviet–Afghanistan",
+   "year": 1979,
+   "year_end": 1989,
+   "summary": "Intervensi Uni Soviet di Afghanistan memicu perlawanan panjang yang mendapat dukungan banyak negara.",
+   "place": "",
+   "countries": [
+    "AF"
+   ],
+   "slug": "1979-perang-soviet-afghanistan",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Perang Bosnia",
+   "year": 1992,
+   "year_end": 1995,
+   "summary": "Perang di Bosnia-Herzegovina menelan banyak korban jiwa, termasuk pembantaian di Srebrenica pada Juli 1995 yang menewaskan lebih dari delapan ribu pria dan remaja Muslim.",
+   "place": "",
+   "countries": [
+    "BA"
+   ],
+   "slug": "1992-perang-bosnia",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Gempa dan tsunami Aceh",
+   "year": 2004,
+   "year_end": null,
+   "summary": "Gempa dan tsunami 26 Desember 2004 menewaskan ratusan ribu orang di kawasan Samudra Hindia, dengan Aceh sebagai wilayah terdampak paling parah.",
+   "place": "",
+   "countries": [
+    "ID"
+   ],
+   "slug": "2004-gempa-dan-tsunami-aceh",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
+  },
+  {
+   "title": "Musim Semi Arab",
+   "year": 2010,
+   "year_end": 2012,
+   "summary": "Gelombang protes menuntut perubahan politik melanda negara-negara Arab, dimulai dari Tunisia pada akhir 2010.",
+   "place": "",
+   "countries": [
+    "TN",
+    "EG",
+    "LY",
+    "SY",
+    "YE"
+   ],
+   "slug": "2010-musim-semi-arab",
+   "era": "",
+   "body": "",
+   "facts": "",
+   "slides": [],
+   "gallery": []
   }
  ],
  "characters": [
@@ -1035,6 +2863,107 @@
    "title": "Masa Kecil Nabi: Berkah Dusun Gersang & Dada yang Disucikan! ✨🕌",
    "summary": "Di pedalaman Bani Sa’d, Halimah merasakan keberkahan sejak mengasuh bayi Muhammad. Riwayat Muslim juga mengisahkan peristiwa pembelahan dada beliau semasa kecil.",
    "url": ""
+  }
+ ],
+ "eras": [
+  {
+   "id": "pra",
+   "name": "Pra-Kenabian",
+   "label": "hingga 609 M",
+   "from": 0,
+   "to": 609,
+   "color": "#a08a5c",
+   "desc": "Arab menjelang kenabian: Ka’bah, Quraisy, Tahun Gajah, dan tokoh-tokoh di sekitar kelahiran Nabi ﷺ."
+  },
+  {
+   "id": "makkah",
+   "name": "Periode Makkah",
+   "label": "610–621 M",
+   "from": 610,
+   "to": 621,
+   "color": "#c4a35a",
+   "desc": "Turunnya wahyu, dakwah sembunyi dan terbuka, tekanan Quraisy, dan hijrah ke Habasyah."
+  },
+  {
+   "id": "madinah",
+   "name": "Periode Madinah",
+   "label": "622–632 M",
+   "from": 622,
+   "to": 631,
+   "color": "#b5694a",
+   "desc": "Hijrah dan negara Madinah, perang Badar hingga Khandaq, Hudaibiyah, Fathu Makkah, dan wafatnya Nabi ﷺ."
+  },
+  {
+   "id": "khulafaur",
+   "name": "Khulafaur Rasyidin",
+   "label": "632–661 M",
+   "from": 632,
+   "to": 660,
+   "color": "#6e9a7a",
+   "desc": "Empat khalifah pertama, Abu Bakar, Umar, Utsman, dan Ali, dengan perluasan wilayah ke Syam, Persia, dan Mesir."
+  },
+  {
+   "id": "umayyah",
+   "name": "Daulah Umayyah",
+   "label": "661–750 M",
+   "from": 661,
+   "to": 749,
+   "color": "#5b8bb5",
+   "desc": "Pemerintahan dari Damaskus, perluasan ke Andalusia dan Sindh, serta lahirnya warisan arsitektur Islam awal."
+  },
+  {
+   "id": "abbasiyah",
+   "name": "Abbasiyah dan Zaman Keemasan",
+   "label": "750–1055 M",
+   "from": 750,
+   "to": 1054,
+   "color": "#8a6fb0",
+   "desc": "Baghdad sebagai pusat ilmu, penerjemahan, dan sains, bersama kemunculan Fatimiyah dan Cordoba."
+  },
+  {
+   "id": "seljuk",
+   "name": "Seljuk, Perang Salib, dan Mongol",
+   "label": "1055–1258 M",
+   "from": 1055,
+   "to": 1257,
+   "color": "#b0546a",
+   "desc": "Dominasi Seljuk, Perang Salib, Salahuddin al-Ayyubi, dan runtuhnya Baghdad."
+  },
+  {
+   "id": "mamluk",
+   "name": "Mamluk dan Pasca-Mongol",
+   "label": "1258–1517 M",
+   "from": 1258,
+   "to": 1516,
+   "color": "#7aa0a0",
+   "desc": "Mamluk menghentikan Mongol, Utsmani lahir, Granada jatuh, dan kesultanan Islam tumbuh di Nusantara."
+  },
+  {
+   "id": "imperium",
+   "name": "Tiga Imperium Besar",
+   "label": "1517–1798 M",
+   "from": 1517,
+   "to": 1797,
+   "color": "#c28a4a",
+   "desc": "Utsmani, Safawi, dan Mughal di puncak kekuatan, sementara kesultanan Nusantara berhadapan dengan VOC."
+  },
+  {
+   "id": "kolonial",
+   "name": "Kolonialisme dan Reformasi",
+   "label": "1798–1924 M",
+   "from": 1798,
+   "to": 1924,
+   "color": "#9a7a9a",
+   "desc": "Dunia Islam menghadapi kolonialisme, gerakan pembaruan, dan runtuhnya kekhalifahan."
+  },
+  {
+   "id": "modern",
+   "name": "Era Modern",
+   "label": "1925–kini",
+   "from": 1925,
+   "to": 9999,
+   "color": "#9aa05a",
+   "desc": "Negara bangsa, kemerdekaan, organisasi Islam modern, dan dinamika politik hingga masa kini."
   }
  ]
 }

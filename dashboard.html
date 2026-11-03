@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: dashboard.html v1.0.0 -->
+<!-- ALFA | History of Islam: dashboard.html v1.0.1 -->
 <html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Dashboard trafik | ALFA</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
@@ -71,7 +71,7 @@ const dc=el("div","cd");dc.append(el("h2","","Tayangan per hari"));dc.append(cha
 // bawah
 const g3=el("div","gr3"),pc=el("div","cd"),rc=el("div","cd"),vc=el("div","cd");
 pc.append(el("h2","","Halaman terpopuler"));const pt=el("table");pt.innerHTML="<tr><th>Halaman</th><th class='n'>Tayangan</th></tr>";
-(d.pages||[]).forEach(p=>{const tr=document.createElement("tr"),td=document.createElement("td");let lab=p.page=="home"?"Beranda":(p.page=="characters"?"Karakter: ":"Tempat: ")+(p.title||p.pid);
+(d.pages||[]).forEach(p=>{const tr=document.createElement("tr"),td=document.createElement("td");let lab=p.page=="home"?"Beranda":({characters:"Tokoh: ",places:"Tempat: ",events:"Peristiwa: "})[p.page]+(p.title||p.pid);
 if(p.pid){const a=el("a","",lab);a.href="detail.html?t="+encodeURIComponent(p.page)+"&id="+encodeURIComponent(p.pid);a.target="_blank";td.append(a)}else td.textContent=lab;tr.append(td,el("td","n",fmt(p.n)));pt.append(tr)});pc.append(pt);
 rc.append(el("h2","","Sumber kunjungan"));rc.append(bars((d.refs||[]).map(x=>[x.r,x.n])));
 vc.append(el("h2","","Perangkat"));vc.append(bars((d.devices||[]).map(x=>[({desktop:"Komputer",mobile:"HP",tablet:"Tablet"})[x.d]||x.d,x.n])));

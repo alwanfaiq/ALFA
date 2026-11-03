@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v1.1.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v1.2.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -148,9 +148,30 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 .chips2{display:flex;flex-wrap:wrap;gap:8px}.chip{background:none;border:1px solid var(--g2);color:var(--ink);padding:5px 14px;cursor:pointer;font:inherit;font-size:.88rem}.chip:hover{border-color:var(--g)}.chip.on{background:var(--g);color:var(--bg);border-color:var(--g)}
 .fr2{display:flex;flex-wrap:wrap;gap:8px}.fr2 select,.fr2 button{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:7px 12px;font:inherit;font-size:.9rem;cursor:pointer}.fr2 button{color:var(--g);border-color:var(--g)}
 .cn{margin-top:6px;color:var(--mut);font-size:.88rem}
+#kr{margin-top:28px}
+.kt{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+.kb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--mut)}
+.kc{background:none;border:1px solid var(--g2);color:var(--ink);padding:5px 12px;cursor:pointer;font:inherit;font-size:.9rem}.kc.on{background:var(--g);color:var(--bg);border-color:var(--g)}
+.kzb{display:flex;gap:6px}.kz{width:36px;height:36px;background:var(--bg);border:1px solid var(--g);color:var(--g);font:700 1.2rem/1 Bitter,serif;cursor:pointer}.kz:hover{background:var(--g);color:var(--bg)}
+.kbody.kin{animation:kin .35s ease}@keyframes kin{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.k0{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.ke{display:grid;gap:6px;align-content:start;text-align:left;background:var(--p);border:1px solid var(--g2);border-top:4px solid var(--ec,var(--g));padding:16px 18px;color:var(--ink);cursor:pointer;font:inherit;min-height:180px;transition:transform .2s,box-shadow .2s}
+.ke:hover{transform:translateY(-4px);box-shadow:0 8px 28px rgba(196,163,90,.25)}
+.ke small{color:var(--g);font-size:.8rem}.ke b{font:700 1.1rem/1.25 Arvo,Bitter,serif}.ke span{font-size:.88rem;color:var(--mut);line-height:1.45}.ke em{font-style:normal;font-size:.8rem;color:var(--g)}
+.kd{max-width:80ch;color:var(--mut);margin-bottom:14px}
+.k1{overflow-x:auto;scrollbar-width:thin;scrollbar-color:var(--g2) transparent;padding-bottom:10px}
+.k1 ol{list-style:none;display:flex;position:relative;width:max-content;min-width:100%;padding:0}
+.k1 ol::before{content:"";position:absolute;left:0;right:0;top:19px;height:3px;background:var(--g)}
+.k1 li{width:clamp(170px,15vw,230px);flex:none}
+.k1 li button{display:grid;justify-items:center;gap:6px;width:100%;background:none;border:0;cursor:pointer;color:var(--ink);font:inherit;padding:0 8px 10px;text-align:center}
+.k1 li b{font:700 1.05rem Arvo,serif}.kt1{font-size:.92rem;line-height:1.35}.k1 li small{color:var(--mut);font-size:.78rem;line-height:1.35}
+.kv{display:grid;gap:14px;margin-top:20px;max-width:900px}.kev{background:var(--p);border:1px solid var(--g2);padding:18px 22px}
+.kev h3{font:700 1.2rem Arvo,Bitter,serif;color:var(--g)}.kev small{color:var(--mut)}.kev p{margin:6px 0}
+.kcc{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.kcc span{border:1px solid var(--g2);padding:1px 10px;font-size:.8rem}
+.kev .go{display:inline-block;text-decoration:none;margin:6px 8px 0 0}
 </style></head><body>
 <header><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
-<nav><a class="f" href="#chronology">Chronology</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
+<nav><a class="f" href="#chronology">Kronologi</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
 <main>
 <div id="places"><div id="map" aria-label="Peta Jazirah Arab, bisa di-zoom dan digeser">
 <div id="stage"><img src="assets/map.webp" alt="Peta Jazirah Arab menjelang kenabian"></div>
@@ -159,12 +180,12 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <div class="hint">Ctrl + scroll atau cubit untuk zoom, seret untuk geser, klik ◆ untuk detail</div>
 <aside id="pc" hidden><button class="x" aria-label="Tutup">×</button><div class="pcs"><img alt=""><button class="pa l" aria-label="Foto sebelumnya"></button><button class="pa r" aria-label="Foto berikutnya"></button><div class="dt"></div></div><div class="pcb"><h3></h3><small></small><p></p><a class="mo" href="#">Lihat detail ›</a></div></aside>
 </div></div>
-<section id="chronology"><h2>Chronology</h2><div id="tl"><ol></ol></div><div id="td" aria-live="polite"></div></section>
+<section id="chronology"><h2>Kronologi</h2><div id="kr"></div></section>
 <section id="characters"><h2>Tokoh</h2><div class="ct" id="ct"></div><p class="cn" id="cn"></p><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="cr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 <section id="shorts"><div class="hd"><h2>Shorts</h2><a href="https://www.youtube.com/@alwan-faiq/shorts" target="_blank" rel="noopener">Lihat semua Shorts</a></div><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="sr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 <section id="videos" hidden><div class="hd"><h2>Videos</h2><a href="https://www.youtube.com/@alwan-faiq/videos" target="_blank" rel="noopener">Lihat semua</a></div><div class="rail vrail"><button class="ar l" aria-label="Sebelumnya"></button><div class="vs" id="vr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 </main>
-<footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#chronology">Chronology</a><a href="#characters">Tokoh</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
+<footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#chronology">Kronologi</a><a href="#characters">Tokoh</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
 
 <dialog id="pl"><button class="x" aria-label="Tutup">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Buka di YouTube</a></dialog>
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Tutup">×</button><h3></h3><small></small><p></p></div></div></dialog>
@@ -218,11 +239,36 @@ pc._n=d=>{si=(si+d+sl.length)%sl.length;sh()};if(sl.length)sh()}
 pc.addEventListener("click",e=>{if(e.target.closest(".x"))return;const a=e.target.closest(".pa");if(a){pc._n(a.classList.contains("l")?-1:1);return}location.href=pc.dataset.href});
 pc.querySelector(".x").onclick=close;addEventListener("keydown",e=>{if(e.key=="Escape")close()});
 // timeline
-const ol=$("#tl ol"),td=$("#td");
-function pick(i){ol.querySelectorAll("li").forEach((l,k)=>l.classList.toggle("on",k==i));const v=EV[i];
-td.innerHTML=`<h3></h3><small></small><p></p>`;td.querySelector("h3").textContent=v.n;td.querySelector("small").textContent=v.y;td.querySelector("p").textContent=v.t;
-if(v.p){const g=document.createElement("button");g.className="go";g.textContent="Lihat di peta";g.onclick=()=>openPlace(v.p,true);td.append(g)}}
-function buildTL(){ol.replaceChildren();EV.forEach((v,i)=>{const l=document.createElement("li");l.innerHTML=`<button><span class="dm"></span><span></span></button>`;l.querySelector("span+span").textContent=v.n;l.querySelector("button").onclick=()=>pick(i);ol.append(l)});if(EV.length)pick(0)}
+// ---- Kronologi: zoom Era > Tahun > Peristiwa
+let ERA_DEF=[],KS={era:null,year:null},KH=null,KW=0;
+const normEv=e=>({...e,n:e.title,id:e.slug||e.id,uid:e.id,countries:Array.isArray(e.countries)?e.countries:[]});
+const kcn=c=>{try{return new Intl.DisplayNames(["id"],{type:"region"}).of(c)||c}catch(e){return c}};
+const eraOfEv=e=>ERA_DEF.find(x=>x.id==e.era)||ERA_DEF.find(x=>e.year>=x.from&&e.year<=x.to)||ERA_DEF[ERA_DEF.length-1];
+const kyr=e=>e.year+(e.year_end&&e.year_end!=e.year?"–"+e.year_end:"");
+function krYears(era){const m=new Map();EV.filter(e=>eraOfEv(e)==era).sort((a,b)=>a.year-b.year||(a.t||0)-(b.t||0)).forEach(e=>{if(!m.has(e.year))m.set(e.year,[]);m.get(e.year).push(e)});return m}
+function krGo(era,year){KS.era=era?era.id:null;KS.year=year==null?null:+year;buildKR(1)}
+function krOut(){if(KS.year!=null)KS.year=null;else if(KS.era)KS.era=null;buildKR(1)}
+function krIn(){const era=ERA_DEF.find(e=>e.id==(KS.era||(KH&&KH.era)))||(KS.era?null:ERA_DEF[0]);if(!era)return;if(!KS.era){krGo(era);return}const ys=[...krYears(era).keys()];const y=KS.year==null?(KH&&KH.year&&ys.includes(+KH.year)?+KH.year:ys[0]):null;if(y!=null)krGo(era,y)}
+function krOpen(id,preview){const e=EV.find(x=>x.id==id||x.uid==id||x.slug==id);if(!e)return;KS.era=eraOfEv(e).id;KS.year=e.year;buildKR(!preview);if(!preview)$("#chronology").scrollIntoView()}
+function buildKR(anim){const box=$("#kr");if(!box)return;box.replaceChildren();if(!ERA_DEF.length||!EV.length){box.append(el("p","m","Belum ada data kronologi."));return}
+const era=ERA_DEF.find(e=>e.id==KS.era);
+const tb=el("div","kt"),bc=el("div","kb"),r0=el("button","kc"+(era?"":" on"),"Semua era");r0.onclick=()=>krGo(null);bc.append(r0);
+if(era){bc.append(el("span","","›"));const b=el("button","kc"+(KS.year==null?" on":""),era.name);b.onclick=()=>krGo(era);bc.append(b)}
+if(KS.year!=null){bc.append(el("span","","›"));bc.append(el("button","kc on",KS.year+" M"))}
+const zb=el("div","kzb"),zo=el("button","kz","−"),zi=el("button","kz","+");zo.title="Perkecil (Ctrl + scroll turun)";zi.title="Perbesar (Ctrl + scroll naik)";zo.setAttribute("aria-label","Perkecil");zi.setAttribute("aria-label","Perbesar");zo.onclick=krOut;zi.onclick=krIn;zb.append(zo,zi);tb.append(bc,zb);box.append(tb);
+const body=el("div","kbody"+(anim?" kin":""));box.append(body);
+if(!era){const g=el("div","k0");ERA_DEF.forEach(e=>{const n=EV.filter(x=>eraOfEv(x)==e).length,c=el("button","ke");c.dataset.era=e.id;c.style.setProperty("--ec",e.color||"#c4a35a");c.append(el("small","",e.label||""),el("b","",e.name),el("span","",e.desc||""),el("em","",n+" peristiwa"));c.onclick=()=>krGo(e);g.append(c)});body.append(g);return}
+const ys=krYears(era);body.append(el("p","kd",era.desc||""));
+const sc=el("div","k1"),ol=el("ol");
+ys.forEach((evs,y)=>{const li=el("li",y==KS.year?"on":""),b=document.createElement("button"),sm=evs.length>1?"+"+(evs.length-1)+" peristiwa lainnya":(evs[0].summary||"").slice(0,64)+((evs[0].summary||"").length>64?"…":"");b.dataset.year=y;b.dataset.era=era.id;b.append(el("span","dm"),el("b","",y),el("span","kt1",evs[0].title),el("small","",sm));b.onclick=()=>krGo(era,y);li.append(b);ol.append(li)});
+sc.append(ol);body.append(sc);setTimeout(()=>{const on=sc.querySelector("li.on");if(on)sc.scrollTo({left:on.offsetLeft-sc.clientWidth/2+on.clientWidth/2,behavior:"smooth"})},60);
+if(KS.year!=null&&ys.has(KS.year)){const det=el("div","kv");ys.get(KS.year).forEach(e=>{const c=el("article","kev");c.append(el("h3","",e.title),el("small","",kyr(e)+" M"),el("p","",e.summary||""));
+if(e.countries.length){const cc=el("div","kcc");e.countries.forEach(x=>cc.append(el("span","",kcn(x))));c.append(cc)}
+const a=el("a","go","Baca selengkapnya");a.href="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);c.append(a);
+if(e.place&&PL.some(p=>p.id==e.place)){const m=el("button","go","Lihat di peta");m.onclick=()=>openPlace(e.place,true);c.append(m)}det.append(c)});body.append(det)}}
+(()=>{const kr=$("#kr");kr.addEventListener("mouseover",e=>{const t=e.target.closest("[data-era],[data-year]");if(t)KH={era:t.dataset.era,year:t.dataset.year}});
+kr.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();if(Date.now()-KW<450)return;KW=Date.now();e.deltaY<0?krIn():krOut()},{passive:false})})();
+function rEV(l){EV=l.map(normEv);buildKR()}
 // dialog
 const dlg=$("#dlg");
 function show(img,h,sm,t,link){dlg.querySelector("img").src=img;dlg.querySelector("h3").textContent=h;dlg.querySelector("small").textContent=sm;dlg.querySelector("p").textContent=t;dlg.querySelectorAll("a,.pb").forEach(n=>n.remove());
@@ -232,7 +278,7 @@ dlg.querySelector(".x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>
 
 const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const DEF={characters:[],places:[],shorts:[],videos:[]};
+const DEF={characters:[],places:[],shorts:[],events:[],videos:[]};
 let DATA={characters:[],shorts:[],videos:[]},DB=null,CAN=false;
 const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
 const PLD=document.getElementById("pl");
@@ -279,15 +325,15 @@ function rSH(l){const c=$("#sr");c.replaceChildren();l.forEach(d=>{const b=el("b
 function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||""))a.href=d.url;const v=YID(d.url);a.onclick=e=>{if(!a.classList.contains("act")){e.preventDefault();a.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"});return}if(v){e.preventDefault();play(v,0,d.url)}};if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
 const RN={characters:rCH,shorts:rSH,videos:rVD},SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0))};
 function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[],map:d.map||"arab"});close();buildHS()}
-RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));
+RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));RN.events=rEV;SRT.events=l=>l.sort((a,b)=>(a.year-b.year)||((a.t||0)-(b.t||0)));
 rCH(DEF.characters);rSH(DEF.shorts);rVD([]);
 $("#yr").textContent="© "+new Date().getFullYear()+" ALFA | History of Islam, @alwan-faiq";
 const CFG=window.ALFA_CFG||{},DR={};
 (async()=>{try{DEFS=await (await fetch("defaults.json")).json()}catch(e){DEFS={}}
-EV=DEFS.events||[];buildTL();
-DEF.characters=(DEFS.characters||[]).map((c,i)=>({...c,id:"d"+i,t:i}));DEF.places=DEFS.places||[];DEF.shorts=DEFS.shorts||[];
+ERA_DEF=DEFS.eras||[];EV=(DEFS.events||[]).map(normEv);buildKR();
+DEF.characters=(DEFS.characters||[]).map((c,i)=>({...c,id:"d"+i,t:i}));DEF.places=DEFS.places||[];DEF.shorts=DEFS.shorts||[];DEF.events=EV;
 await loadMaps(DEFS.maps||MAPS);
-for(const k of ["characters","places","shorts"])if(!DR[k])RN[k](DEF[k]);
+for(const k of ["characters","places","shorts","events"])if(!DR[k])RN[k](DEF[k]);
 if(!CFG.url||CFG.url.includes("YOUR-"))return;
 for(const k of Object.keys(RN)){try{const r=await fetch(CFG.url+"/rest/v1/"+k+"?select=*",{headers:{apikey:CFG.key}});if(!r.ok)continue;const j=await r.json();if(DR[k])continue;const l=SRT[k](j);RN[k](l.length?l:DEF[k])}catch(e){}}})();
 document.querySelectorAll(".rail").forEach(r=>{const sc=r.querySelector(".sc");r.querySelector(".l").onclick=()=>sc.scrollBy({left:-sc.clientWidth*.7,behavior:"smooth"});r.querySelector(".r").onclick=()=>sc.scrollBy({left:sc.clientWidth*.7,behavior:"smooth"})});
@@ -296,8 +342,8 @@ document.querySelectorAll(".rail").forEach(r=>{const sc=r.querySelector(".sc");r
 let LT="";
 addEventListener("message",e=>{if(e.origin!==location.origin||!/[?&]preview=1/.test(location.search))return;const m=e.data;if(!m||m.type!="alfa-list"||!RN[m.tab]||!Array.isArray(m.rows))return;
 DR[m.tab]=1;const l=SRT[m.tab](m.rows.slice());RN[m.tab](l.length?l:DEF[m.tab]);
-if(m.tab!=LT){LT=m.tab;const s=document.getElementById(m.tab=="places"?"places":m.tab);if(s)s.scrollIntoView({block:"start"})}
-if(m.tab=="places"&&m.focus)openPlace(m.focus)});
+if(m.tab!=LT){LT=m.tab;const s=document.getElementById(m.tab=="places"?"places":m.tab=="events"?"chronology":m.tab);if(s)s.scrollIntoView({block:"start"})}
+if(m.tab=="places"&&m.focus)openPlace(m.focus);if(m.tab=="events"&&m.focus)krOpen(m.focus,1)});
 (()=>{const r=$(".vrail"),tr=$("#vr"),items=()=>[...tr.querySelectorAll(".vd")];
 const act=()=>{const c=tr.getBoundingClientRect(),m=c.left+c.width/2;let best=null,bd=1e9;items().forEach(x=>{const b=x.getBoundingClientRect(),d=Math.abs(b.left+b.width/2-m);if(d<bd){bd=d;best=x}});items().forEach(x=>x.classList.toggle("act",x==best))};
 let tm;tr.addEventListener("scroll",()=>{clearTimeout(tm);tm=setTimeout(act,40)});addEventListener("resize",act);new MutationObserver(()=>setTimeout(act,50)).observe(tr,{childList:true});
