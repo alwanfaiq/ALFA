@@ -1,4 +1,4 @@
--- ALFA | History of Islam: schema.sql v0.7.0
+-- ALFA | History of Islam: schema.sql v0.8.0
 -- Jalankan di Supabase: SQL Editor > New query > Run. Aman dijalankan berulang kali.
 create table if not exists public.characters(id uuid primary key default gen_random_uuid(),name text not null,role text,bio text,img text,t bigint not null default (extract(epoch from now())*1000)::bigint);
 alter table public.characters add column if not exists meta text,add column if not exists body text,add column if not exists facts text,add column if not exists slides jsonb not null default '[]',add column if not exists gallery jsonb not null default '[]',add column if not exists show_label boolean not null default false;
@@ -67,4 +67,6 @@ drop policy if exists "events public read" on public.events;
 create policy "events public read" on public.events for select using (true);
 drop policy if exists "events admin write" on public.events;
 create policy "events admin write" on public.events for all to authenticated using (true) with check (true);
+alter table public.characters add column if not exists countries jsonb not null default '[]';
+alter table public.places add column if not exists countries jsonb not null default '[]';
 notify pgrst, 'reload schema';
