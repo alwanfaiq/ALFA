@@ -1,6 +1,13 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v1.3.0
+- Bagian baru "Peta Dunia": peta dunia interaktif (pakai assets/world.svg) dengan negara berwarna sesuai jumlah peristiwa pada era yang dipilih, filter 11 era, tombol "Putar sejarah" yang memutar era demi era, zoom dan geser, tooltip, serta klik negara untuk melihat peristiwa (dengan tombol ke kronologi), tokoh, dan tempat di wilayah itu
+- Tokoh dan tempat punya field negara terkait (admin: kolom Negara)
+- schema.sql v0.8.0: kolom countries di characters dan places (WAJIB dijalankan ulang)
+- defaults.json: semua tokoh dan tempat sudah diberi kode negara
+- Menu atas dan footer: tautan Peta Dunia
+
 v1.2.0
 - Kronologi baru dengan zoom bertingkat Era > Tahun > Peristiwa: tampilan awal hanya era (11 era dari Pra-Kenabian sampai Era Modern), klik atau zoom-in ke era menampilkan tahun-tahunnya beserta teks singkat peristiwa penting, klik tahun menampilkan peristiwa tahun itu. Zoom lewat tombol + dan -, atau Ctrl + scroll
 - 124 peristiwa dari Tahun Gajah sampai Musim Semi Arab (termasuk jalur Nusantara), tiap peristiwa punya halaman artikel sendiri (detail.html?t=events), daftar negara terkait, dan bagian "Peristiwa lainnya"
