@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v1.2.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
+<!-- ALFA | History of Islam: index.html v1.3.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>ALFA | History of Islam</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
 <meta name="description" content="Menelusuri sejarah Islam lewat peta interaktif, kronologi, tokoh, dan cerita pendek.">
 <link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
@@ -169,9 +169,23 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 .kev h3{font:700 1.2rem Arvo,Bitter,serif;color:var(--g)}.kev small{color:var(--mut)}.kev p{margin:6px 0}
 .kcc{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.kcc span{border:1px solid var(--g2);padding:1px 10px;font-size:.8rem}
 .kev .go{display:inline-block;text-decoration:none;margin:6px 8px 0 0}
+.wsub{max-width:80ch;margin-top:8px}
+.chip i{display:inline-block;width:10px;height:10px;margin-right:7px;border-radius:50%}
+.wplay{border-color:var(--g)!important;color:var(--g)!important}.wplay:hover{background:var(--g);color:var(--bg)!important}
+.wg{display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:14px;margin-top:12px}
+@media(max-width:1000px){.wg{grid-template-columns:1fr}}
+.wm{position:relative;overflow:hidden;background:#141414;border:1px solid #2c2c2c;touch-action:none;cursor:grab;min-height:200px}.wm svg{display:block;width:100%;height:auto}
+.wm path{fill:#2b2b2b;stroke:#181818;stroke-width:.3;transition:fill .5s}.wm path.on{cursor:pointer}.wm path:hover{stroke:#fff;stroke-width:.8}.wm path.sel{stroke:#fff;stroke-width:1.2}
+.wz{position:absolute;right:10px;top:10px;display:grid;gap:4px;z-index:2}.wz button{min-width:32px;padding:3px 8px;background:var(--bg);border:1px solid var(--g);color:var(--g);cursor:pointer;font:inherit;font-weight:700}.wz button:hover{background:var(--g);color:var(--bg)}
+.wtip{position:fixed;pointer-events:none;background:#000;border:1px solid var(--g);padding:5px 10px;font-size:.85rem;z-index:50;display:none;white-space:nowrap}
+.wpn{background:var(--p);border:1px solid var(--g2);padding:16px 18px;max-height:560px;overflow:auto}
+.wpn h3{font:700 1.3rem Arvo,serif;color:var(--g)}.wpn h4{font:700 .85rem Arvo,serif;text-transform:uppercase;color:var(--g);margin:14px 0 6px;letter-spacing:.04em}
+.wl{list-style:none;padding:0;display:grid;gap:6px}.wl li{display:flex;gap:8px;align-items:baseline;justify-content:space-between}.wl a{color:var(--ink);text-decoration:none;font-size:.92rem;line-height:1.4}.wl a:hover{color:var(--g);text-decoration:underline}
+.wb,.wb2{background:none;border:1px solid var(--g2);color:var(--g);padding:1px 8px;font:inherit;font-size:.75rem;cursor:pointer;flex:none}.wb:hover,.wb2:hover{background:var(--g);color:var(--bg)}.wb2{font-size:.88rem;border:0;padding:0;text-align:left;color:var(--ink)}.wb2:hover{background:none;color:var(--g);text-decoration:underline}
+.wc{display:flex;flex-wrap:wrap;gap:6px}.wc a{border:1px solid var(--g2);padding:2px 10px;font-size:.85rem;color:var(--ink);text-decoration:none}.wc a:hover{border-color:var(--g);color:var(--g)}
 </style></head><body>
 <header><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
-<nav><a class="f" href="#chronology">Kronologi</a><a href="#places">Places</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
+<nav><a class="f" href="#chronology">Kronologi</a><a href="#places">Places</a><a href="#dunia">Peta Dunia</a><a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube"><svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg></a></nav></header>
 <main>
 <div id="places"><div id="map" aria-label="Peta Jazirah Arab, bisa di-zoom dan digeser">
 <div id="stage"><img src="assets/map.webp" alt="Peta Jazirah Arab menjelang kenabian"></div>
@@ -181,11 +195,12 @@ dialog::backdrop{background:rgba(0,0,0,.78)}
 <aside id="pc" hidden><button class="x" aria-label="Tutup">×</button><div class="pcs"><img alt=""><button class="pa l" aria-label="Foto sebelumnya"></button><button class="pa r" aria-label="Foto berikutnya"></button><div class="dt"></div></div><div class="pcb"><h3></h3><small></small><p></p><a class="mo" href="#">Lihat detail ›</a></div></aside>
 </div></div>
 <section id="chronology"><h2>Kronologi</h2><div id="kr"></div></section>
+<section id="dunia"><h2>Peta Dunia</h2><p class="m wsub">Pilih era, lalu klik sebuah wilayah untuk melihat peristiwa, tokoh, dan tempat yang berkaitan. Batas yang dipakai adalah batas negara modern sebagai acuan.</p><div id="dw"></div></section>
 <section id="characters"><h2>Tokoh</h2><div class="ct" id="ct"></div><p class="cn" id="cn"></p><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="cr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 <section id="shorts"><div class="hd"><h2>Shorts</h2><a href="https://www.youtube.com/@alwan-faiq/shorts" target="_blank" rel="noopener">Lihat semua Shorts</a></div><div class="rail"><button class="ar l" aria-label="Sebelumnya"></button><div class="sc" id="sr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 <section id="videos" hidden><div class="hd"><h2>Videos</h2><a href="https://www.youtube.com/@alwan-faiq/videos" target="_blank" rel="noopener">Lihat semua</a></div><div class="rail vrail"><button class="ar l" aria-label="Sebelumnya"></button><div class="vs" id="vr"></div><button class="ar r" aria-label="Berikutnya"></button></div></section>
 </main>
-<footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#chronology">Kronologi</a><a href="#characters">Tokoh</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
+<footer><div class="ft"><div><a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a><p>Menelusuri sejarah Islam lewat peta, tokoh, dan cerita pendek.</p></div><div><h4>Jelajahi</h4><a href="#places">Places</a><a href="#dunia">Peta Dunia</a><a href="#chronology">Kronologi</a><a href="#characters">Tokoh</a><a href="#shorts">Shorts</a></div><div><h4>Ikuti</h4><a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a></div></div><div class="cp"><span id="yr"></span></div></footer>
 
 <dialog id="pl"><button class="x" aria-label="Tutup">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Buka di YouTube</a></dialog>
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Tutup">×</button><h3></h3><small></small><p></p></div></div></dialog>
@@ -268,7 +283,7 @@ const a=el("a","go","Baca selengkapnya");a.href="detail.html?t=events&id="+encod
 if(e.place&&PL.some(p=>p.id==e.place)){const m=el("button","go","Lihat di peta");m.onclick=()=>openPlace(e.place,true);c.append(m)}det.append(c)});body.append(det)}}
 (()=>{const kr=$("#kr");kr.addEventListener("mouseover",e=>{const t=e.target.closest("[data-era],[data-year]");if(t)KH={era:t.dataset.era,year:t.dataset.year}});
 kr.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();if(Date.now()-KW<450)return;KW=Date.now();e.deltaY<0?krIn():krOut()},{passive:false})})();
-function rEV(l){EV=l.map(normEv);buildKR()}
+function rEV(l){EV=l.map(normEv);buildKR();paintWM()}
 // dialog
 const dlg=$("#dlg");
 function show(img,h,sm,t,link){dlg.querySelector("img").src=img;dlg.querySelector("h3").textContent=h;dlg.querySelector("small").textContent=sm;dlg.querySelector("p").textContent=t;dlg.querySelectorAll("a,.pb").forEach(n=>n.remove());
@@ -300,7 +315,7 @@ let l=CHALL.map((d,i)=>[d,i]).filter(([d])=>(!tk.length||tk.every(w=>hay(d).incl
 const so={era:(a,b)=>eraI(a[0])-eraI(b[0]),nama:(a,b)=>(a[0].name||"").localeCompare(b[0].name||"","id"),rank:(a,b)=>rank(a[0])-rank(b[0])}[CF.sort];if(so)l.sort((a,b)=>so(a,b)||a[1]-b[1]);
 l=l.map(x=>x[0]);drawCH(l);const c=$("#cr");c.scrollLeft=0;if(!l.length)c.append(el("p","m","Tidak ada tokoh yang cocok. Coba kata kunci atau filter lain."));
 $("#cn").textContent=l.length==CHALL.length?CHALL.length+" tokoh":"Menampilkan "+l.length+" dari "+CHALL.length+" tokoh"}
-function rCH(l){CHALL=l;buildCT();applyCH()}
+function rCH(l){CHALL=l;buildCT();applyCH();paintWM()}
 function suggest(q){const n=nz(q);if(!n)return[];const m=s=>{const z=nz(s),i=z.indexOf(n);return i<0?-1:(i==0||z[i-1]==" "?0:1)};
 const out=[],add=(t,label,k,f)=>{const s=m(label);if(s>=0)out.push({t,label,k,f,s})};
 CHALL.forEach(d=>add("Tokoh",d.name,"c",d));GROUPS.forEach(g=>add("Kelompok",g,"g",g));EV.forEach(e=>add("Peristiwa",e.n,"q",e.n));[...new Set(PL.map(p=>p.n))].forEach(p=>add("Tempat",p,"q",p));
@@ -321,16 +336,54 @@ const row=el("div","fr2"),mkS=(lb,k,opts)=>{const s=document.createElement("sele
 mkS("Era","era",es.map(x=>[x,x]));mkS("Agama","faith",fs.map(x=>[x,x]));mkS("Jenis kelamin","gender",gn.map(x=>[x,x]));
 const so=document.createElement("select");so.setAttribute("aria-label","Urutkan");[["","Urutan bawaan"],["era","Urut: era"],["nama","Urut: nama A-Z"],["rank","Urut: kedudukan"]].forEach(([v,t])=>{const o=el("option","",t);o.value=v;so.append(o)});so.value=CF.sort;so.onchange=()=>{CF.sort=so.value;applyCH()};row.append(so);
 const rs=el("button","","Reset");rs.type="button";rs.onclick=()=>{CF={q:"",era:"",faith:"",gender:"",group:"",sort:""};CTkey="";buildCT();applyCH()};row.append(rs);ct.append(row)}
+// ---- Peta Dunia
+let WSVG=null,WE="",WSEL=null,WPLAY=null,WM={},WMOVED=false;
+const WTIP=(()=>{const d=document.createElement("div");d.className="wtip";document.body.append(d);return d})();
+const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return"rgba("+(n>>16)+","+((n>>8)&255)+","+(n&255)+","+a.toFixed(2)+")"};
+function wData(){const m={},add=(c,k,x)=>{(m[c]=m[c]||{ev:[],ch:[],pl:[]})[k].push(x)},era=ERA_DEF.find(e=>e.id==WE);
+EV.forEach(e=>{if(!era||eraOfEv(e)==era)e.countries.forEach(c=>add(c,"ev",e))});
+CHALL.forEach(d=>{if(!era||arr(d.eras).includes(era.name))arr(d.countries).forEach(c=>add(c,"ch",d))});
+PL.forEach(p=>arr(p.countries).forEach(c=>add(c,"pl",p)));return m}
+function paintWM(){if(!WSVG)return;WM=wData();const era=ERA_DEF.find(e=>e.id==WE),col=era?era.color:"#c4a35a";let mx=1;Object.values(WM).forEach(v=>mx=Math.max(mx,v.ev.length));
+WSVG.querySelectorAll("path").forEach(p=>{const v=WM[p.id],has=v&&(v.ev.length||v.ch.length||v.pl.length);p.classList.toggle("on",!!has);p.style.fill=has?hexA(col,v.ev.length?.3+.7*Math.sqrt(v.ev.length/mx):.18):""});
+const st=$("#ws");if(st){const n=EV.filter(e=>!era||eraOfEv(e)==era).length,c=Object.values(WM).filter(v=>v.ev.length).length;st.textContent=(era?era.name:"Semua era")+": "+n+" peristiwa di "+c+" wilayah"}
+if(WSEL)showCountry(WSEL)}
+function showCountry(c){WSEL=c;WSVG.querySelectorAll("path.sel").forEach(p=>p.classList.remove("sel"));const sp=WSVG.querySelector('[id="'+c+'"]');if(sp)sp.classList.add("sel");
+const m=WM[c]||{ev:[],ch:[],pl:[]},p=$("#wp");p.replaceChildren();p.append(el("h3","",kcn(c)),el("p","m",m.ev.length+" peristiwa, "+m.ch.length+" tokoh, "+m.pl.length+" tempat"));
+if(!m.ev.length&&!m.ch.length&&!m.pl.length){p.append(el("p","m","Belum ada catatan untuk wilayah ini pada pilihan era ini."));return}
+if(m.ev.length){p.append(el("h4","","Peristiwa"));const ul=el("ul","wl");m.ev.slice().sort((a,b)=>a.year-b.year).forEach(e=>{const li=document.createElement("li"),a=el("a","",kyr(e)+" M, "+e.title),b=el("button","wb","Kronologi");a.href="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);b.onclick=()=>krOpen(e.id);li.append(a,b);ul.append(li)});p.append(ul)}
+if(m.ch.length){p.append(el("h4","","Tokoh"));const w=el("div","wc");m.ch.forEach(d=>{const a=el("a","",d.name);a.href="detail.html?t=characters&id="+encodeURIComponent(d.id);w.append(a)});p.append(w)}
+if(m.pl.length){p.append(el("h4","","Tempat"));const ul=el("ul","wl");m.pl.forEach(x=>{const li=document.createElement("li"),b=el("button","wb2",x.n);b.onclick=()=>openPlace(x.id,true);li.append(b);ul.append(li)});p.append(ul)}}
+function wStop(){if(WPLAY){clearInterval(WPLAY);WPLAY=null;const b=$(".wplay");if(b)b.textContent="▶ Putar sejarah"}}
+function wSet(id){WE=id;$("#dw").querySelectorAll(".chip[data-id]").forEach(x=>x.classList.toggle("on",x.dataset.id==id));paintWM()}
+function wPlay(){if(WPLAY){wStop();return}const ids=ERA_DEF.map(e=>e.id);let i=0;$(".wplay").textContent="■ Berhenti";const step=()=>{wSet(ids[i]);i++;if(i>=ids.length)wStop()};step();WPLAY=setInterval(step,2600)}
+async function initWM(){const box=$("#dw");if(!box||WSVG)return;box.replaceChildren();
+const chips=el("div","chips2"),mk=(id,tx,col)=>{const b=el("button","chip"+(WE==id?" on":""));b.type="button";b.dataset.id=id;if(col){const i=el("i");i.style.background=col;b.append(i)}b.append(document.createTextNode(tx));b.onclick=()=>{wStop();wSet(id)};chips.append(b)};
+mk("","Semua era");ERA_DEF.forEach(e=>mk(e.id,e.name,e.color));const pb=el("button","chip wplay","▶ Putar sejarah");pb.type="button";pb.onclick=wPlay;chips.append(pb);
+const st=el("p","cn");st.id="ws";const grid=el("div","wg"),mw=el("div","wm"),pn=el("aside","wpn");pn.id="wp";pn.append(el("p","m","Klik sebuah wilayah di peta untuk melihat peristiwa, tokoh, dan tempat yang berkaitan."));grid.append(mw,pn);box.append(chips,st,grid);
+try{mw.innerHTML=await (await fetch("assets/world.svg")).text()}catch(e){mw.textContent="Gagal memuat peta dunia";return}
+const svg=mw.querySelector("svg");WSVG=svg;
+svg.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(!p){WTIP.style.display="none";return}const v=WM[p.id];WTIP.textContent=kcn(p.id)+(v&&v.ev.length?": "+v.ev.length+" peristiwa":"");WTIP.style.display="block";WTIP.style.left=e.clientX+14+"px";WTIP.style.top=e.clientY+14+"px"});
+svg.addEventListener("mouseleave",()=>WTIP.style.display="none");
+svg.addEventListener("click",e=>{if(WMOVED)return;const p=e.target.closest("path");if(p)showCountry(p.id)});
+const W0=1136,H0=805.83;let vb={x:0,y:0,w:W0,h:H0};const ap=()=>{vb.w=Math.min(W0,Math.max(120,vb.w));vb.h=vb.w*H0/W0;vb.x=Math.min(W0-vb.w,Math.max(0,vb.x));vb.y=Math.min(H0-vb.h,Math.max(0,vb.y));svg.setAttribute("viewBox",vb.x+" "+vb.y+" "+vb.w+" "+vb.h)};
+const zm=(f,cx=.5,cy=.5)=>{const nw=vb.w/f;vb.x+=(vb.w-nw)*cx;vb.y+=(vb.h-nw*H0/W0)*cy;vb.w=nw;ap()};
+const zc=el("div","wz");[["+",()=>zm(1.6)],["−",()=>zm(1/1.6)],["Reset",()=>{vb={x:0,y:0,w:W0,h:H0};ap()}]].forEach(([tx,f])=>{const b=el("button","",tx);b.type="button";b.onclick=f;zc.append(b)});mw.append(zc);
+let dr=null,mv=0;mw.addEventListener("pointerdown",e=>{if(e.target.closest(".wz"))return;dr=[e.clientX,e.clientY];mv=0;WMOVED=false});
+addEventListener("pointermove",e=>{if(!dr)return;const r=svg.getBoundingClientRect(),k=vb.w/r.width,dx=e.clientX-dr[0],dy=e.clientY-dr[1];mv+=Math.abs(dx)+Math.abs(dy);if(mv>5)WMOVED=true;vb.x-=dx*k;vb.y-=dy*k;dr=[e.clientX,e.clientY];ap()});
+addEventListener("pointerup",()=>{dr=null;setTimeout(()=>WMOVED=false,0)});
+mw.addEventListener("wheel",e=>{if(!(e.ctrlKey||e.metaKey))return;e.preventDefault();const r=svg.getBoundingClientRect();zm(e.deltaY<0?1.2:1/1.2,(e.clientX-r.left)/r.width,(e.clientY-r.top)/r.height)},{passive:false});
+paintWM()}
 function rSH(l){const c=$("#sr");c.replaceChildren();l.forEach(d=>{const b=el("button","sh"),im=new Image(),e=el("span","e","EPS."+String(d.ep).padStart(2,"0")),k=el("span","t",d.title);im.src=GIMG(d.img);im.alt="";b.append(im,e,k);b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1);c.append(b)})}
 function rVD(l){$("#videos").hidden=!l.length;const c=$("#vr");c.replaceChildren();l.forEach(d=>{const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";if(GOOD.test(d.url||""))a.href=d.url;const v=YID(d.url);a.onclick=e=>{if(!a.classList.contains("act")){e.preventDefault();a.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"});return}if(v){e.preventDefault();play(v,0,d.url)}};if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}a.append(th,el("h3","",d.title),el("p","",d.description||""));c.append(a)})}
 const RN={characters:rCH,shorts:rSH,videos:rVD},SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0))};
-function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[],map:d.map||"arab"});close();buildHS()}
+function rPL(l){PL=l.map(d=>d.n?d:{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:+d.x,y:+d.y,t:d.description,sl:Array.isArray(d.slides)?d.slides:[],map:d.map||"arab",countries:Array.isArray(d.countries)?d.countries:[]});close();buildHS();paintWM()}
 RN.places=rPL;SRT.places=l=>l.sort((a,b)=>(a.t||0)-(b.t||0));RN.events=rEV;SRT.events=l=>l.sort((a,b)=>(a.year-b.year)||((a.t||0)-(b.t||0)));
 rCH(DEF.characters);rSH(DEF.shorts);rVD([]);
 $("#yr").textContent="© "+new Date().getFullYear()+" ALFA | History of Islam, @alwan-faiq";
 const CFG=window.ALFA_CFG||{},DR={};
 (async()=>{try{DEFS=await (await fetch("defaults.json")).json()}catch(e){DEFS={}}
-ERA_DEF=DEFS.eras||[];EV=(DEFS.events||[]).map(normEv);buildKR();
+ERA_DEF=DEFS.eras||[];EV=(DEFS.events||[]).map(normEv);buildKR();initWM();
 DEF.characters=(DEFS.characters||[]).map((c,i)=>({...c,id:"d"+i,t:i}));DEF.places=DEFS.places||[];DEF.shorts=DEFS.shorts||[];DEF.events=EV;
 await loadMaps(DEFS.maps||MAPS);
 for(const k of ["characters","places","shorts","events"])if(!DR[k])RN[k](DEF[k]);

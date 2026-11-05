@@ -2031,6 +2031,9 @@
    "gender": "Pria",
    "groups": [
     "Keluarga Nabi"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2049,6 +2052,10 @@
    "gender": "Pria",
    "groups": [
     "Penguasa"
+   ],
+   "countries": [
+    "YE",
+    "SA"
    ]
   },
   {
@@ -2067,6 +2074,9 @@
    "gender": "Wanita",
    "groups": [
     "Keluarga Nabi"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2085,6 +2095,9 @@
    "gender": "Pria",
    "groups": [
     "Ulama Ahli Kitab"
+   ],
+   "countries": [
+    "SY"
    ]
   },
   {
@@ -2104,6 +2117,9 @@
    "gender": "Pria",
    "groups": [
     "Keluarga Nabi"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2125,6 +2141,9 @@
     "Ummahat al-Mu’minin",
     "Assabiqunal Awwalun",
     "Keluarga Nabi"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2143,6 +2162,9 @@
    "gender": "Pria",
    "groups": [
     "Ulama Ahli Kitab"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2166,6 +2188,9 @@
     "Sepuluh Sahabat Dijanjikan Surga",
     "Assabiqunal Awwalun",
     "Sahabat"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2205,6 +2230,10 @@
     "Assabiqunal Awwalun",
     "Keluarga Nabi",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "IQ"
    ]
   },
   {
@@ -2226,6 +2255,9 @@
     "Assabiqunal Awwalun",
     "Keluarga Nabi",
     "Sahabat"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2247,6 +2279,11 @@
    "groups": [
     "Assabiqunal Awwalun",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "ET",
+    "SY"
    ]
   },
   {
@@ -2266,6 +2303,9 @@
    "gender": "Pria",
    "groups": [
     "Penentang Dakwah"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2285,6 +2325,9 @@
    "gender": "Pria",
    "groups": [
     "Penentang Dakwah"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2308,6 +2351,10 @@
     "Sepuluh Sahabat Dijanjikan Surga",
     "Assabiqunal Awwalun",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "PS"
    ]
   },
   {
@@ -2332,6 +2379,10 @@
     "Assabiqunal Awwalun",
     "Keluarga Nabi",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "ET"
    ]
   },
   {
@@ -2352,6 +2403,9 @@
    "groups": [
     "Ummahat al-Mu’minin",
     "Keluarga Nabi"
+   ],
+   "countries": [
+    "SA"
    ]
   },
   {
@@ -2372,6 +2426,11 @@
    "groups": [
     "Panglima & Penakluk",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "IQ",
+    "SY"
    ]
   },
   {
@@ -2395,6 +2454,11 @@
     "Assabiqunal Awwalun",
     "Panglima & Penakluk",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "SY",
+    "JO"
    ]
   },
   {
@@ -2418,6 +2482,10 @@
     "Assabiqunal Awwalun",
     "Panglima & Penakluk",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "IQ"
    ]
   },
   {
@@ -2438,6 +2506,10 @@
    "groups": [
     "Panglima & Penakluk",
     "Sahabat"
+   ],
+   "countries": [
+    "SA",
+    "EG"
    ]
   }
  ],
@@ -2454,7 +2526,10 @@
    "body": "# 📍 TENTANG MAKKAH\nMakkah berada di lembah gersang di antara perbukitan Hijaz, tetapi menjadi pusat perdagangan dan keagamaan karena Ka’bah dan sumur Zamzam. Quraisy menguasai kota ini dan menjaga pelayanan bagi para peziarah.\n# 🕋 PERAN DALAM SEJARAH\n- Pusat peziarahan\nBerbagai kabilah Arab datang setiap tahun, sehingga Makkah tumbuh sebagai kota dagang dan tempat berlangsungnya pasar-pasar tahunan.\n- Tempat kelahiran dan dakwah\nDi sinilah Nabi Muhammad SAW lahir, tumbuh, dan berdakwah selama sekitar 13 tahun sebelum hijrah.",
    "facts": "Wilayah : Hijaz, Arab bagian barat\nKeistimewaan : Ka’bah dan sumur Zamzam\nPenguasa : Suku Quraisy",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "yatsrib",
@@ -2468,7 +2543,10 @@
    "body": "# 📍 TENTANG YATSRIB\nYatsrib adalah oasis subur dengan kebun kurma dan sumber air, dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi seperti Bani Nadhir, Qainuqa’, dan Quraizhah. Kedua suku Arab itu sering berselisih.\n# 🌟 PERAN DALAM SEJARAH\n- Hubungan dengan Nabi\nAminah membawa Muhammad kecil mengunjungi keluarga Bani Najjar di sini. Ia wafat dalam perjalanan pulang di Abwa’.\n- Tujuan hijrah\nSetelah Baiat Aqabah, kaum Anshar mengundang Nabi SAW. Pada 622 M beliau berhijrah ke sini, dan kota ini dikenal sebagai Madinah.",
    "facts": "Wilayah : Hijaz utara\nPenduduk : Aus, Khazraj, dan beberapa kelompok Yahudi\nNama baru : Madinah (Madinatun Nabi)",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "syam",
@@ -2482,7 +2560,13 @@
    "body": "# 📍 TENTANG SYAM\nSyam (Levant) meliputi wilayah Suriah, Lebanon, Palestina, dan Yordania sekarang. Pada awal abad ke-7 wilayah ini berada di bawah kekuasaan Bizantium.\n# 🌟 PERAN DALAM SEJARAH\n- Jalur dagang musim panas\nKafilah Quraisy berdagang ke Syam pada musim panas, kebiasaan yang disebut dalam Surah Quraisy.\n- Perjalanan Nabi muda\nNabi SAW pernah ke Syam bersama Abu Thalib (bertemu Bahira) dan kemudian membawa dagangan Khadijah.\n- Kelak dibebaskan\nWilayah ini dibebaskan pada masa Abu Bakar dan Umar bin Khattab.",
    "facts": "Kekuasaan saat itu : Bizantium\nKota penting : Bushra, Damaskus, Hims\nPeran : Tujuan dagang Quraisy",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SY",
+    "LB",
+    "JO",
+    "PS"
+   ]
   },
   {
    "slug": "palestina",
@@ -2496,7 +2580,10 @@
    "body": "# 📍 TENTANG PALESTINA\nPalestina, dengan Baitul Maqdis di dalamnya, adalah tanah suci bagi tiga agama samawi dan pada saat itu berada di bawah kekuasaan Bizantium.\n# 🌟 PERAN DALAM SEJARAH\n- Kiblat pertama\nKaum Muslimin awalnya menghadap Baitul Maqdis dalam shalat sebelum kiblat dialihkan ke Ka’bah.\n- Tujuan Isra’\nNabi SAW diperjalankan ke Masjidil Aqsa dalam peristiwa Isra’ dan Mi’raj.",
    "facts": "Tempat suci : Masjidil Aqsa, Baitul Maqdis\nKekuasaan saat itu : Bizantium\nDibebaskan : Masa Umar bin Khattab",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "PS"
+   ]
   },
   {
    "slug": "iraq",
@@ -2510,7 +2597,10 @@
    "body": "# 📍 TENTANG IRAQ KUNO\nWilayah Irak berada di bawah Kekaisaran Persia Sasaniyah dengan ibu kota Ctesiphon (Mada’in). Di bagian baratnya, kerajaan Arab Lakhmid di Hira menjadi sekutu Persia.\n# 🌟 PERAN DALAM SEJARAH\n- Persia Zoroaster\nAgama resmi Persia saat itu adalah Zoroaster, dengan api suci sebagai pusat ibadahnya.\n- Kelak dibebaskan\nSetelah Qadisiyyah dan jatuhnya Mada’in, wilayah ini menjadi bagian dunia Islam, dan kota Kufah dan Bashrah didirikan.",
    "facts": "Penguasa saat itu : Persia Sasaniyah\nIbu kota : Ctesiphon (Mada’in)\nDibebaskan : Masa Umar bin Khattab",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "IQ"
+   ]
   },
   {
    "slug": "yaman",
@@ -2524,7 +2614,10 @@
    "body": "# 📍 TENTANG YAMAN\nYaman di ujung selatan Jazirah dikenal dengan pegunungan yang subur, pelabuhan, dan peradaban tuanya seperti Saba dan Himyar. Sekitar 570 M wilayahnya dikuasai Abrahah, wakil Aksum.\n# 🌟 PERAN DALAM SEJARAH\n- Pangkalan Abrahah\nAbrahah memerintah dari Shan’a dan membangun gereja besar di sana.\n- Menuju Islam\nPada tahun-tahun akhir kehidupan Nabi SAW, rombongan dari Yaman datang menemui beliau dan banyak yang masuk Islam.",
    "facts": "Kota utama : Shan’a\nPenguasa ±570 M : Abrahah (Aksum)\nPerdagangan : Dupa, rempah, jalur dagang selatan",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "YE"
+   ]
   },
   {
    "slug": "gajah",
@@ -2538,7 +2631,11 @@
    "body": "# 📍 JALUR PASUKAN GAJAH\nMenurut riwayat sirah, Abrahah memimpin pasukan dari Yaman menuju Makkah. Pasukan itu membawa gajah, hewan yang belum dikenal bangsa Arab, sehingga peristiwanya begitu membekas.\n# 🌟 PERISTIWA\n- Berhenti di dekat Makkah\nPasukan berhenti di dekat Makkah, dan menurut riwayat gajah utamanya menolak melangkah ke arah Ka’bah.\n- Kebinasaan pasukan\nAllah menurunkan burung-burung yang melempari pasukan dengan batu sijjil (QS. Al-Fil) hingga mereka porak-poranda.\n- Tahun Gajah\nTahun itu dijadikan penanda waktu oleh bangsa Arab dan bertepatan dengan kelahiran Nabi SAW.",
    "facts": "Tahun : ±570 M (Tahun Gajah)\nPanglima : Abrahah\nSurah : Al-Fil",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "YE",
+    "SA"
+   ]
   },
   {
    "slug": "hira",
@@ -2552,7 +2649,10 @@
    "body": "# 📍 TENTANG GUA HIRA\nGua Hira berada di Jabal Nur, tidak jauh dari Makkah. Gua kecil yang sunyi ini menjadi tempat Nabi SAW menyendiri.\n# 🌟 PERAN DALAM SEJARAH\n- Tempat berkhalwat\nSebelum kenabian, Nabi SAW sering menyendiri beberapa hari di sini untuk beribadah dan merenung.\n- Wahyu pertama\nPada bulan Ramadhan 610 M, Jibril menyampaikan wahyu pertama, Surah Al-‘Alaq: “Iqra’”.\n- Gua Tsur\nGua lain, Gua Tsur di selatan Makkah, menjadi tempat persembunyian Nabi SAW dan Abu Bakar saat hijrah.",
    "facts": "Lokasi : Jabal Nur, dekat Makkah\nPeristiwa : Wahyu pertama, Ramadhan 610 M",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "makkah-k",
@@ -2566,7 +2666,10 @@
    "body": "# 📍 MAKKAH DI MASA NABI DAN KHALIFAH\nSetelah dakwah selama sekitar 13 tahun di Makkah, Nabi SAW berhijrah ke Madinah. Kota ini kembali dalam pelukan kaum Muslimin pada Fathu Makkah.\n# 🌟 PERISTIWA PENTING\n- Perjanjian Hudaibiyah\nPada 6 H, Nabi SAW dan sekitar seribu empat ratus sahabat menuju Makkah untuk umrah tetapi dihadang di Hudaibiyah, sebelah barat Makkah. Disepakati gencatan senjata selama sekitar sepuluh tahun.\n- Fathu Makkah\nPelanggaran perjanjian oleh sekutu Quraisy memicu keberangkatan pasukan besar pada Ramadhan 8 H. Nabi SAW memberi pengampunan umum dan menghancurkan berhala-berhala di sekitar Ka’bah.\n- Masa khalifah\nUmar dan Utsman memperluas Masjidil Haram untuk menampung jamaah haji yang terus bertambah.",
    "facts": "Peristiwa : Hudaibiyah (6 H), Fathu Makkah (8 H)\nPusat ibadah : Ka’bah, Masjidil Haram",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "madinah-k",
@@ -2580,7 +2683,10 @@
    "body": "# 📍 MADINAH, IBU KOTA ISLAM AWAL\nSetelah hijrah pada 622 M, Madinah menjadi pusat pemerintahan, ilmu, dan pasukan kaum Muslimin. Piagam Madinah mengatur hubungan antara kaum Muslimin, Yahudi, dan suku-suku sekitar.\n# 🌟 PERISTIWA PENTING\n- Perang Uhud dan Khandaq\nUhud (3 H) terjadi di kaki Gunung Uhud, sedangkan pada Perang Khandaq (5 H) kaum Muslimin menggali parit untuk melindungi kota.\n- Wafatnya Nabi dan pemilihan Abu Bakar\nNabi SAW wafat pada 12 Rabiul Awal 11 H dan dimakamkan di kamar Aisyah. Abu Bakar kemudian dibaiat sebagai khalifah di Saqifah Bani Sa’idah.\n- Ibu kota para khalifah\nAbu Bakar, Umar, dan Utsman memerintah dari sini. Pada 36 H Ali memindahkan pusat pemerintahan ke Kufah.",
    "facts": "Peristiwa : Hijrah (1 H), Uhud (3 H), Khandaq (5 H)\nMasjid : Masjid Nabawi\nKhalifah yang memerintah dari sini : Abu Bakar, Umar, Utsman",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "badar",
@@ -2594,7 +2700,10 @@
    "body": "# 📍 TENTANG BADAR\nBadar adalah lembah dengan sumur-sumur air di jalur kafilah dagang antara Makkah dan Syam, tidak jauh dari Madinah.\n# 🌟 PERISTIWA PERANG BADAR\n- Latar belakang\nKaum Muslimin keluar untuk menghadang kafilah Abu Sufyan. Kafilah itu lolos, tetapi pasukan Quraisy yang dipimpin Abu Jahal tetap maju.\n- Jalannya perang\nSekitar tiga ratus pasukan Muslim menghadapi sekitar seribu pasukan Quraisy. Kaum Muslimin menang, dan sejumlah tokoh Quraisy tewas, termasuk Abu Jahal.\n- Makna\nPerang ini disebut Al-Qur’an sebagai Yaumul Furqan, hari pembeda antara yang hak dan batil.",
    "facts": "Tanggal : 17 Ramadhan 2 H (624 M)\nPasukan Muslim : sekitar 300 orang\nPasukan Quraisy : sekitar 1.000 orang",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "khaibar",
@@ -2608,7 +2717,10 @@
    "body": "# 📍 TENTANG KHAIBAR\nKhaibar adalah oasis di utara Madinah yang dikelilingi benteng-benteng kuat, dihuni kelompok Yahudi yang bersekutu melawan kaum Muslimin.\n# 🌟 PERISTIWA PENTING\n- Penaklukan pada 7 H\nSetelah Hudaibiyah, Nabi SAW memimpin pasukan menuju Khaibar dan merebut bentengnya satu per satu.\n- Peran Ali\nMenurut riwayat, Ali bin Abi Thalib diberi bendera pasukan dan menaklukkan benteng terakhir yang paling sulit.\n- Perjanjian pengelolaan kebun\nPenduduknya diizinkan tetap menggarap kebun kurma dengan pembagian hasil kepada kaum Muslimin.",
    "facts": "Tahun : 7 H (628 M)\nWilayah : Utara Madinah\nPeran Ali : Membawa bendera pasukan",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "tabuk",
@@ -2622,7 +2734,10 @@
    "body": "# 📍 TENTANG TABUK\nTabuk berada di perbatasan utara Hijaz, di jalur menuju Syam. Pada musim panas yang terik, kaum Muslimin berangkat ke sini menghadapi kabar pasukan Bizantium.\n# 🌟 PERISTIWA PENTING\n- Pasukan Usrah\nSekitar tiga puluh ribu pasukan berangkat dalam kondisi sulit. Utsman bin Affan membiayai sebagian besar perbekalan mereka.\n- Tanpa pertempuran\nPasukan Bizantium tidak muncul. Nabi SAW membuat perjanjian dengan penguasa wilayah sekitar dan kembali ke Madinah.",
    "facts": "Tahun : 9 H (630 M)\nPasukan : sekitar 30.000 orang\nDana utama : Utsman bin Affan",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "yamamah",
@@ -2636,7 +2751,10 @@
    "body": "# 📍 TENTANG YAMAMAH\nYamamah adalah wilayah subur di tengah Najd, dihuni Bani Hanifah yang dipimpin Musailamah.\n# 🌟 PERISTIWA PENTING\n- Perang Riddah\nSetelah Nabi SAW wafat, sejumlah kabilah murtad dan beberapa orang mengaku nabi. Abu Bakar mengirim pasukan untuk menumpas mereka.\n- Perang Yamamah\nPasukan Khalid bin Walid mengalahkan Musailamah dalam pertempuran sengit. Banyak penghafal Al-Qur’an gugur di sini.\n- Pengumpulan Al-Qur’an\nSyahidnya para penghafal membuat Umar mengusulkan agar Al-Qur’an dikumpulkan, dan Abu Bakar menyetujuinya.",
    "facts": "Tahun : 12 H (633 M)\nPanglima : Khalid bin Walid\nLawan : Musailamah al-Kadzdzab",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SA"
+   ]
   },
   {
    "slug": "damaskus",
@@ -2650,7 +2768,10 @@
    "body": "# 📍 TENTANG DAMASKUS\nDamaskus adalah kota besar di Syam yang menjadi pusat penting Bizantium sebelum penaklukan Islam.\n# 🌟 PERISTIWA PENTING\n- Penaklukan\nSetelah beberapa waktu pengepungan, kota ini diserahkan kepada pasukan Muslim sekitar 14 H.\n- Kelak menjadi pusat kekuasaan\nSetelah masa Khulafaur Rasyidin, Damaskus menjadi ibu kota Daulah Umayyah.",
    "facts": "Tahun : sekitar 14 H (635 M)\nPanglima : Khalid bin Walid, Abu Ubaidah",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SY"
+   ]
   },
   {
    "slug": "yarmuk",
@@ -2664,7 +2785,11 @@
    "body": "# 📍 TENTANG YARMUK\nYarmuk adalah lembah sungai di perbatasan Suriah dan Yordania sekarang, tempat dua pasukan besar bertemu selama beberapa hari.\n# 🌟 PERISTIWA PENTING\n- Strategi Khalid bin Walid\nKhalid menata pasukan Muslim dalam satuan-satuan kecil dan menggunakan pasukan berkuda yang gesit untuk menekan sayap Bizantium.\n- Hasil\nPasukan Bizantium kalah telak, dan kemenangan ini mengakhiri kekuasaan mereka di Syam.",
    "facts": "Tahun : 15 H (636 M)\nLawan : Kekaisaran Bizantium\nTokoh : Khalid bin Walid, Abu Ubaidah",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SY",
+    "JO"
+   ]
   },
   {
    "slug": "baitulmaqdis",
@@ -2678,7 +2803,10 @@
    "body": "# 📍 TENTANG BAITUL MAQDIS\nBaitul Maqdis (Yerusalem) adalah kota suci dengan Masjidil Aqsa, kiblat pertama kaum Muslimin, dan tempat Isra’ Nabi SAW.\n# 🌟 PERISTIWA PENTING\n- Penyerahan kota\nSetelah pengepungan oleh pasukan Abu Ubaidah, penduduk kota menyerahkan kota kepada Umar bin Khattab yang datang langsung.\n- Perjanjian Umariyah\nUmar memberi jaminan keamanan jiwa, harta, dan tempat ibadah penduduk, dan tidak ada gereja yang diubah fungsinya.",
    "facts": "Tahun : sekitar 16 H (637 M)\nTokoh : Umar bin Khattab, Abu Ubaidah\nDokumen : Perjanjian Umariyah",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "PS"
+   ]
   },
   {
    "slug": "hims",
@@ -2692,7 +2820,10 @@
    "body": "# 📍 TENTANG HIMS\nHims adalah kota strategis di jalur antara Damaskus dan Antiokhia yang direbut kaum Muslimin pada masa Umar.\n# 🌟 PERISTIWA PENTING\n- Wafatnya Khalid\nKhalid bin Walid tinggal di sini setelah dicopot dari jabatan panglima dan wafat sekitar 21 H.",
    "facts": "Tahun penaklukan : sekitar 15 H (636 M)\nTokoh : Khalid bin Walid (wafat di sini)",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "SY"
+   ]
   },
   {
    "slug": "konstantinopel",
@@ -2706,7 +2837,10 @@
    "body": "# 📍 TENTANG KONSTANTINOPEL\nKonstantinopel adalah ibu kota Kekaisaran Romawi Timur (Bizantium) dan pusat kekuatan yang berhadapan dengan negara Islam di Syam dan Mesir.\n# 🌟 CATATAN SEJARAH\n- Bukan target penaklukan masa ini\nPada masa Khulafaur Rasyidin, kaum Muslimin mengambil wilayah Syam dan Mesir dari Bizantium, tetapi tidak menyerbu ibu kotanya.\n- Kabar kelak\nDalam sebuah hadits, Nabi SAW mengabarkan bahwa kota ini akan ditaklukkan. Penaklukan itu baru terjadi pada 1453 M oleh Sultan Muhammad al-Fatih.",
    "facts": "Peran : Ibu kota Bizantium\nPenaklukan Islam : 1453 M (Sultan Muhammad al-Fatih)",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "TR"
+   ]
   },
   {
    "slug": "iskandariyah",
@@ -2720,7 +2854,10 @@
    "body": "# 📍 TENTANG ISKANDARIYAH\nIskandariyah (Alexandria) adalah kota pelabuhan besar dan ibu kota Mesir pada masa Bizantium.\n# 🌟 PERISTIWA PENTING\n- Penaklukan\nSetelah mengalahkan Bizantium di Babilonia, pasukan Amr bin Ash maju ke Iskandariyah, dan kota ini menyerah melalui perjanjian pada 21 H.\n- Dampak\nPusat pemerintahan Islam di Mesir kemudian ditempatkan di Fustat, bukan di Iskandariyah.",
    "facts": "Tahun : 21 H (642 M)\nPanglima : Amr bin Ash",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "EG"
+   ]
   },
   {
    "slug": "fustat",
@@ -2734,7 +2871,10 @@
    "body": "# 📍 TENTANG FUSTAT\nFustat dibangun di dekat benteng Babilonia di tepi sungai Nil, di sekitar tempat Amr bin Ash mendirikan kemah (fustat) pasukannya.\n# 🌟 PERISTIWA PENTING\n- Masjid Amr bin Ash\nDi sini Amr mendirikan masjid, yang dikenal sebagai masjid pertama di Mesir.\n- Pusat pemerintahan\nFustat menjadi ibu kota Mesir Islam, dan kelak menjadi cikal bakal Kairo.",
    "facts": "Didirikan : sekitar 20 H (641 M)\nPendiri : Amr bin Ash",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "EG"
+   ]
   },
   {
    "slug": "barqah",
@@ -2748,7 +2888,10 @@
    "body": "# 📍 TENTANG BARQAH\nBarqah (Cyrenaica) adalah wilayah di pesisir Libya timur, jalur darat antara Mesir dan Afrika Utara.\n# 🌟 PERISTIWA PENTING\n- Perluasan ke barat\nSetelah Mesir jatuh, Amr bin Ash mengirim pasukan ke Barqah dan menyepakati perjanjian dengan penduduknya.",
    "facts": "Tahun : sekitar 22 H (643 M)\nPanglima : Amr bin Ash",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "LY"
+   ]
   },
   {
    "slug": "kufah",
@@ -2762,7 +2905,10 @@
    "body": "# 📍 TENTANG KUFAH DAN QADISIYYAH\nQadisiyyah adalah dataran di tepi gurun Irak, tempat pertempuran besar antara pasukan Muslim dan pasukan Persia. Tak jauh dari sana berdiri kota Kufah.\n# 🌟 PERISTIWA PENTING\n- Perang Qadisiyyah\nPasukan Sa’ad bin Abi Waqqash mengalahkan Persia yang membawa gajah perang pada 15 H, sehingga jalan menuju ibu kota Persia terbuka.\n- Pendirian Kufah\nSekitar 17 H, Kufah didirikan sebagai kota pangkalan pasukan.\n- Pusat pemerintahan Ali\nAli memindahkan pusat pemerintahan ke Kufah pada 36 H, dan beliau ditikam di sini pada 40 H.",
    "facts": "Tahun : Qadisiyyah 15 H (636 M), Kufah ±17 H\nTokoh : Sa’ad bin Abi Waqqash, Ali bin Abi Thalib",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "IQ"
+   ]
   },
   {
    "slug": "madain",
@@ -2776,7 +2922,10 @@
    "body": "# 📍 TENTANG AL-MADA’IN\nAl-Mada’in (Ctesiphon) adalah ibu kota Kekaisaran Persia Sasaniyah di tepi sungai Tigris, dengan istana Taq Kisra yang terkenal.\n# 🌟 PERISTIWA PENTING\n- Jatuhnya ibu kota\nSetelah Qadisiyyah, pasukan Sa’ad menyeberangi Tigris dan merebut kota yang telah ditinggalkan para pejabatnya.",
    "facts": "Tahun : sekitar 16 H (637 M)\nPanglima : Sa’ad bin Abi Waqqash",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "IQ"
+   ]
   },
   {
    "slug": "basrah",
@@ -2790,7 +2939,10 @@
    "body": "# 📍 TENTANG BASHRAH\nBashrah berada di dekat Teluk Persia dan menjadi pangkalan pasukan Muslim di Irak selatan di masa Umar.\n# 🌟 PERISTIWA PENTING\n- Perang Jamal\nPada 36 H, perselisihan mengenai penanganan para pembunuh Utsman memuncak dalam Perang Jamal di dekat Bashrah.",
    "facts": "Didirikan : sekitar 14 H (635 M)\nPeristiwa : Perang Jamal, 36 H (656 M)",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "IQ"
+   ]
   },
   {
    "slug": "nahawand",
@@ -2804,7 +2956,10 @@
    "body": "# 📍 TENTANG NAHAWAND\nNahawand berada di dataran tinggi Iran barat. Di sini Persia mengumpulkan pasukan terakhirnya.\n# 🌟 PERISTIWA PENTING\n- Fathul Futuh\nKemenangan kaum Muslimin pada 21 H dijuluki Fathul Futuh (kemenangan dari segala kemenangan) karena menghancurkan kekuatan militer Persia.",
    "facts": "Tahun : 21 H (642 M)\nLawan : Persia Sasaniyah",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "IR"
+   ]
   },
   {
    "slug": "merv",
@@ -2818,7 +2973,10 @@
    "body": "# 📍 TENTANG MERV\nMerv adalah kota oasis di Asia Tengah dan salah satu pusat Persia di timur.\n# 🌟 PERISTIWA PENTING\n- Berakhirnya Sasaniyah\nYazdegerd III melarikan diri ke timur dan tewas sekitar 651 M. Penaklukan Persia pada masa Utsman ini menjadi puncak perluasan Khulafaur Rasyidin ke timur.",
    "facts": "Tahun : sekitar 31 H (651 M)\nTokoh : Yazdegerd III (raja Persia terakhir)",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "TM"
+   ]
   },
   {
    "slug": "habasyah",
@@ -2832,7 +2990,10 @@
    "body": "# 📍 TENTANG HABASYAH\nHabasyah (Kerajaan Aksum) adalah kerajaan Kristen di Tanduk Afrika dengan hubungan dagang erat dengan Jazirah Arab.\n# 🌟 PERISTIWA PENTING\n- Hijrah ke Habasyah\nNabi SAW menyarankan sahabat berhijrah ke negeri yang rajanya tidak menzalimi. Ja’far bin Abi Thalib berbicara di hadapan Najasyi tentang ajaran Islam.\n- Perlindungan Najasyi\nNajasyi menolak permintaan Quraisy agar menyerahkan para pengungsi.",
    "facts": "Tahun : sekitar 615 M\nRaja : Najasyi (Ashamah)\nTokoh : Ja’far bin Abi Thalib, Utsman, Ruqayyah",
    "slides": [],
-   "gallery": []
+   "gallery": [],
+   "countries": [
+    "ET"
+   ]
   }
  ],
  "shorts": [
