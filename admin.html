@@ -71,8 +71,8 @@ const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,FR=m=>/schema cac
 function toast(m,k="ok"){let w=document.getElementById("tw");if(!w){w=el("div");w.id="tw";w.setAttribute("aria-live","polite");document.body.append(w)}const t=el("div","toast "+k),x=el("button","","×");t.append(el("span","",({ok:"✓ ",err:"✕ ",warn:"! "})[k]+m),x);const rm=()=>t.remove();x.onclick=rm;x.setAttribute("aria-label","Tutup");w.append(t);setTimeout(rm,k=="err"?9000:4500)}
 const er=e=>toast(FR(String(e.message||e)),"err"),warn=m=>toast(m,"warn");
 function ask(m,yl){return new Promise(r=>{const ov=el("div","ov"),bx=el("div","cb"),bt=el("div","bt"),y=el("button","",yl||"Ya, hapus"),n=el("button","","Batal"),d=v=>{ov.remove();r(v)};y.onclick=()=>d(true);n.onclick=()=>d(false);ov.onclick=e=>{if(e.target==ov)d(false)};bt.append(y,n);bx.append(el("p","",m),bt);ov.append(bx);document.body.append(ov);n.focus()})}
-const MAPIMG={arab:"assets/map.webp",khilafah:"assets/map2.webp"},norm=s=>(s||"").toLowerCase().replace(/\b(sayyidina|sayyidah|sayyid|pendeta|sy)\b/g,"").replace(/[^a-z0-9]+/g," ").trim();
-const ERAS=["Pra-Kenabian","Periode Makkah","Periode Madinah","Khulafaur Rasyidin"],GROUPS=["Khulafaur Rasyidin","Ummahat al-Mu’minin","Sepuluh Sahabat Dijanjikan Surga","Assabiqunal Awwalun","Keluarga Nabi","Panglima & Penakluk","Sahabat","Ulama Ahli Kitab","Penguasa","Penentang Dakwah"],FAITHS=["Islam","Nasrani","Jahiliyah (Quraisy)"];
+const MAPIMG={world:"assets/world_overview.webp"},norm=s=>(s||"").toLowerCase().replace(/\b(sayyidina|sayyidah|sayyid|pendeta|sy)\b/g,"").replace(/[^a-z0-9]+/g," ").trim();
+const ERAS=["Pra-Kenabian","Periode Makkah","Periode Madinah","Khulafaur Rasyidin","Daulah Umayyah","Abbasiyah dan Zaman Keemasan","Seljuk, Perang Salib, dan Mongol","Mamluk dan Pasca-Mongol","Tiga Imperium Besar","Kolonialisme dan Reformasi","Era Modern"],GROUPS=["Khulafaur Rasyidin","Khalifah Umayyah","Ummahat al-Mu’minin","Sepuluh Sahabat Dijanjikan Surga","Assabiqunal Awwalun","Keluarga Nabi","Panglima & Penakluk","Sahabat","Ulama Ahli Kitab","Penguasa","Penentang Dakwah"],FAITHS=["Islam","Nasrani","Jahiliyah (Quraisy)"];
 const DT=t=>t=="characters"||t=="places"||t=="events",ERAIDS=[["pra","Pra-Kenabian"],["makkah","Periode Makkah"],["madinah","Periode Madinah"],["khulafaur","Khulafaur Rasyidin"],["umayyah","Daulah Umayyah"],["abbasiyah","Abbasiyah dan Zaman Keemasan"],["seljuk","Seljuk, Perang Salib, dan Mongol"],["mamluk","Mamluk dan Pasca-Mongol"],["imperium","Tiga Imperium Besar"],["kolonial","Kolonialisme dan Reformasi"],["modern","Era Modern"]];
 const HELP="Format isi halaman:\n# Judul bagian  (judul tebal, boleh pakai emoji)\n- Sub judul  (diberi tanda ■)\nBaris biasa = paragraf. Tiap baris jadi satu paragraf.";
 const SC={
@@ -132,33 +132,33 @@ const LL={makkah:[39.8,21.4],yatsrib:[39.6,24.5],syam:[36.3,33.5],palestina:[35.
 async function mapEditor(){
 const{data,error}=await sb.from("places").select("*").order("t",{ascending:true});if(error)return er(error);
 const all=data||[],pos={},orig={};all.forEach(p=>{pos[p.id]={x:+p.x,y:+p.y};orig[p.id]={x:+p.x,y:+p.y}});
-let cm=all.some(p=>p.map=="khilafah")?"khilafah":"arab",sel=null,drag=null,grid=true;
+let cm="world",sel=null,drag=null,grid=true;
 const ov=el("div","ov"),bx=el("div","cb mb"),lf=el("div"),rt=el("div","mr"),bar=el("div","bt"),wrap=el("div","mw"),img=new Image(),list=el("div","ls"),info=el("p","m");
 img.alt="Peta";wrap.append(img);bar.style.flexWrap="wrap";
-const moved=()=>all.filter(p=>pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y);
-const mb=[["arab","Jazirah Arab"],["khilafah","Dunia Islam Awal"]].map(([id,nm])=>{const b=el("button","",nm);b.dataset.id=id;b.onclick=()=>{cm=id;sel=null;draw()};return b});
-const gl=el("label","ck"),gc=document.createElement("input");gc.type="checkbox";gc.checked=true;gc.onchange=()=>{grid=gc.checked;draw()};gl.append(gc,document.createTextNode(" Grid koordinat (peta luas)"));
-const rs=el("button","","Reset ke posisi perkiraan"),sv=el("button","","Simpan semua posisi"),cl=el("button","","Tutup");
-rs.onclick=async()=>{try{const D=await (await fetch("defaults.json")).json();let n=0;D.places.filter(d=>d.map==cm).forEach(d=>{const p=all.find(q=>q.slug==d.slug);if(p){pos[p.id]={x:d.x,y:d.y};n++}});toast(n+" titik dikembalikan ke posisi perkiraan (belum disimpan)");draw()}catch(e){er(e)}};
-sv.onclick=async()=>{const ch=moved();if(!ch.length){warn("Belum ada posisi yang diubah");return}sv.disabled=true;try{for(const p of ch){const{error}=await sb.from("places").update({x:pos[p.id].x,y:pos[p.id].y}).eq("id",p.id);if(error)throw error}toast(ch.length+" posisi tersimpan");ov.remove();panel()}catch(e){er(e);sv.disabled=false}};
+const moved=()=>all.filter(p=>pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y||p.map!="world");
+const mb=[["world","Peta Dunia Historis"]].map(([id,nm])=>{const b=el("button","",nm);b.dataset.id=id;b.onclick=()=>{cm=id;sel=null;draw()};return b});
+const gl=el("label","ck"),gc=document.createElement("input");gc.type="checkbox";gc.checked=true;gc.onchange=()=>{grid=gc.checked;draw()};gl.append(gc,document.createTextNode(" Grid referensi"));
+const rs=el("button","","Reset ke posisi bawaan"),sv=el("button","","Simpan semua posisi"),cl=el("button","","Tutup");
+rs.onclick=async()=>{try{const D=await (await fetch("defaults.json")).json();let n=0;D.places.forEach(d=>{const p=all.find(q=>q.slug==d.slug);if(p){pos[p.id]={x:d.x,y:d.y};n++}});toast(n+" titik dikembalikan ke posisi bawaan (belum disimpan)");draw()}catch(e){er(e)}};
+sv.onclick=async()=>{const ch=moved();if(!ch.length){warn("Belum ada posisi yang diubah");return}sv.disabled=true;try{for(const p of ch){const{error}=await sb.from("places").update({x:pos[p.id].x,y:pos[p.id].y,map:"world"}).eq("id",p.id);if(error)throw error}toast(ch.length+" posisi tersimpan");ov.remove();panel()}catch(e){er(e);sv.disabled=false}};
 cl.onclick=async()=>{if(moved().length&&!await ask("Ada "+moved().length+" posisi yang belum disimpan. Tutup tanpa menyimpan?","Ya, tutup"))return;ov.remove()};
 bar.append(...mb,gl,rs,sv,cl);
-function mv(e){if(!sel)return;const r=wrap.getBoundingClientRect();pos[sel]={x:Math.min(100,Math.max(0,+((e.clientX-r.left)/r.width*100).toFixed(1))),y:Math.min(100,Math.max(0,+((e.clientY-r.top)/r.height*100).toFixed(1)))};draw()}
+function mv(e){if(!sel)return;const r=wrap.getBoundingClientRect();pos[sel]={x:Math.min(100,Math.max(0,+((e.clientX-r.left)/r.width*100).toFixed(2))),y:Math.min(100,Math.max(0,+((e.clientY-r.top)/r.height*100).toFixed(2)))};draw()}
 wrap.onpointerdown=e=>{const pn=e.target.closest(".pin");if(pn){sel=pn.dataset.id;drag=sel;wrap.setPointerCapture(e.pointerId);draw()}else mv(e)};
 wrap.onpointermove=e=>{if(drag)mv(e)};wrap.onpointerup=wrap.onpointercancel=()=>{drag=null};
-function draw(){mb.forEach(b=>b.classList.toggle("on",b.dataset.id==cm));gl.hidden=cm!="khilafah";
-const src=MAPIMG[cm];if(img.getAttribute("src")!=src){img.onerror=()=>{info.textContent="File peta belum ada: "+src+". Upload dulu ke folder assets di GitHub."};img.src=src}
+function draw(){mb.forEach(b=>b.classList.toggle("on",b.dataset.id==cm));gl.hidden=false;
+const src=MAPIMG[cm]||MAPIMG.world;if(img.getAttribute("src")!=src){img.onerror=()=>{info.textContent="File peta belum ada: "+src+". Upload dulu ke folder assets di GitHub."};img.src=src}
 wrap.querySelectorAll(".pin,.gl,.gt,.tg").forEach(n=>n.remove());
-if(cm=="khilafah"&&grid){for(let lo=10;lo<=70;lo+=10){const x=(lo-10)/60*100+"%",l=el("div","gl v"),t=el("span","gt",lo+"°BT");l.style.left=x;t.style.left=x;t.style.top="0";wrap.append(l,t)}
-for(let la=40;la>=15;la-=5){const y=(42-la)/30*100+"%",l=el("div","gl h"),t=el("span","gt",la+"°LU");l.style.top=y;t.style.top=y;t.style.left="0";wrap.append(l,t)}}
-const mine=all.filter(p=>(p.map||"arab")==cm);list.replaceChildren();
+if(grid){for(let px=20;px<=80;px+=15){const x=px+"%",l=el("div","gl v"),t=el("span","gt",px+"%");l.style.left=x;t.style.left=x;t.style.top="0";wrap.append(l,t)}
+for(let py=20;py<=80;py+=20){const y=py+"%",l=el("div","gl h"),t=el("span","gt",py+"%");l.style.top=y;t.style.top=y;t.style.left="0";wrap.append(l,t)}}
+const mine=all;list.replaceChildren();
 mine.forEach(p=>{const b=el("button","pin"+(p.id==sel?" on":""));b.dataset.id=p.id;b.title=p.name;b.style.left=pos[p.id].x+"%";b.style.top=pos[p.id].y+"%";wrap.append(b);
 if(p.id==sel){const t=el("div","tg",p.name);t.style.left=pos[p.id].x+"%";t.style.top=pos[p.id].y+"%";wrap.append(t)}
-const ch=pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y,r=el("button","row"+(p.id==sel?" on":""),(ch?"● ":"")+p.name);r.onclick=()=>{sel=p.id;draw()};list.append(r)});
+const ch=pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y,r=el("button","row"+(p.id==sel?" on":""),(ch?"* ":"")+p.name);r.onclick=()=>{sel=p.id;draw()};list.append(r)});
 const p=all.find(q=>q.id==sel);
-if(!mine.length)info.textContent="Belum ada tempat di peta ini. Klik tombol Sinkronkan konten bawaan di tab Place.";
+if(!mine.length)info.textContent="Belum ada tempat di database. Klik tombol Sinkronkan konten bawaan di tab Place.";
 else if(!p)info.textContent="Pilih tempat di daftar atau klik titik di peta, lalu klik peta untuk memindahkannya (atau seret titiknya).";
-else{const c=LL[p.slug];info.textContent=p.name+": x "+pos[p.id].x+"%, y "+pos[p.id].y+"%."+(c?" Koordinat asli sekitar "+c[1]+"°LU, "+c[0]+"°BT. Pada peta luas, bandingkan dengan grid.":"")}}
+else{const c=LL[p.slug];info.textContent=p.name+": x "+pos[p.id].x+"%, y "+pos[p.id].y+"%."+(c?" Koordinat asli: "+c[1]+"°LU, "+c[0]+"°BT.":"")}}
 bar.style.gridColumn="1/-1";lf.append(wrap);rt.append(info,list);bx.append(bar,lf,rt);ov.append(bx);document.body.append(ov);draw()}
 // ---- editor artikel (mirip Word)
 const OKT={P:1,BR:1,H2:1,H3:1,H4:1,STRONG:1,B:1,EM:1,I:1,U:1,S:1,UL:1,OL:1,LI:1,BLOCKQUOTE:1,A:1,IMG:1,FIGURE:1,FIGCAPTION:1,HR:1,TABLE:1,THEAD:1,TBODY:1,TR:1,TH:1,TD:1};
@@ -232,8 +232,8 @@ if(g){const c=document.createElement("input");c.placeholder="Keterangan gambar";
 it.append(tn(()=>{if(n){[arr[n-1],arr[n]]=[arr[n],arr[n-1]];draw()}},"↑"),tn(()=>{if(n<arr.length-1){[arr[n+1],arr[n]]=[arr[n],arr[n+1]];draw()}},"↓"),tn(()=>{arr.splice(n,1);draw()},"Hapus"));box.append(it)})};
 pick.onchange=async()=>{try{for(const f of pick.files)arr.push(g?{url:await up(f),caption:""}:await up(f))}catch(e){er(e)}pick.value="";draw()};
 draw();l.append(box,pick);fm.append(l);return}
-if(ty=="p"){const sel=document.createElement("select");[["arab","Jazirah Arab (peta awal)"],["khilafah","Dunia Islam Awal (peta luas)"]].forEach(([v,tx])=>{const o=el("option","",tx);o.value=v;sel.append(o)});sel.value=val[k]||"arab";val[k]=sel.value;sel.onchange=()=>{val[k]=sel.value;const im=document.querySelector(".mp img");if(im)im.src=MAPIMG[val[k]]};l.append(sel);fm.append(l);return}
-if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src=MAPIMG[val.map||"arab"];im.alt="Peta";w.append(im,dot);const sh=()=>{dot.hidden=val.x==null;dot.style.left=val.x+"%";dot.style.top=val.y+"%"};
+if(ty=="p"){const sel=document.createElement("select");[["world","Peta Dunia Historis (Master 8K)"]].forEach(([v,tx])=>{const o=el("option","",tx);o.value=v;sel.append(o)});sel.value="world";val[k]="world";sel.onchange=()=>{val[k]=sel.value;const im=document.querySelector(".mp img");if(im)im.src=MAPIMG[val[k]]||MAPIMG.world};l.append(sel);fm.append(l);return}
+if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src=MAPIMG[val.map||"world"]||MAPIMG.world;im.alt="Peta";w.append(im,dot);const sh=()=>{dot.hidden=val.x==null;dot.style.left=val.x+"%";dot.style.top=val.y+"%"};
 w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fm.append(l);return}
 if(ty=="k"){const ar=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","chips");const draw=()=>{box.replaceChildren();[...new Set([...hp,...ar])].forEach(o=>{const b=el("button","chip"+(ar.includes(o)?" on":""),o);b.type="button";b.onclick=()=>{const i=ar.indexOf(o);i<0?ar.push(o):ar.splice(i,1);val[k]=[...ar];draw()};box.append(b)});const ad=document.createElement("input");ad.placeholder="+ tambah baru, tekan Enter";ad.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();const v=ad.value.trim();if(v&&!ar.includes(v)){ar.push(v);val[k]=[...ar];draw()}}};box.append(ad)};draw();l.append(box);fm.append(l);return}
 if(ty=="cc"){const i=document.createElement("input");i.value=(Array.isArray(val[k])?val[k]:[]).join(", ");i.placeholder="contoh: SA, EG, ID";i.oninput=()=>{val[k]=i.value.split(/[\s,]+/).map(s=>s.toUpperCase()).filter(s=>/^[A-Z]{2}$/.test(s))};l.append(i);fm.append(l);return}

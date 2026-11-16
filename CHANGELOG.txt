@@ -1,6 +1,49 @@
 ALFA | History of Islam - CHANGELOG
 Versi file = versi proyek saat file itu terakhir berubah. Kalau versi di file GitHub kamu sama dengan versi di nama file .txt, file itu tidak perlu diganti.
 
+v1.6.2
+- Peta Dunia Tunggal Interaktif (Leaflet L.CRS.Simple + Piramida Tile 8K):
+  * Menghapus peta lama map.webp, map2.webp, dan bagian peta ganda (#dunia) sehingga halaman utama berfokus pada satu Peta Dunia Historis terpadu (#places).
+  * Piramida tile WebP 217 ubin (zoom level 0 sampai 4, resolusi master 8192x4864) dari karya master peta perkamen tanpa garis tepi atau distorsi sambungan.
+  * Kalibrasi ulang penuh assets/world.svg (256 batas negara ISO2, proyeksi Natural Earth 1 terkalibrasi terhadap garis pantai master) agar lapisan politik sejarah menempel presisi saat zoom dan pan.
+  * Slider Linimasa Sejarah (570-2025 M) + Tombol Putar Sejarah + 11 Tab Era + Penanda Titik Balik Sejarah: menggerakkan slider atau memilih era menghasilkan transisi warna wilayah kekhalifahan/kerajaan (polities) secara halus.
+  * Popup detail terpadu untuk klik pin kota bersejarah maupun klik wilayah negara, dilengkapi tombol preset pandangan cepat (Full World, Islamic World, Arabian Peninsula) dan integrasi penuh tombol View on map dari Chronology.
+  * Pembaruan admin.html, dashboard.html (viewBox 8192x4864), server.py (dukungan MIME .webp dan .svg), dan meta Open SEO (og:image dan twitter:image menggunakan assets/world_overview.webp).
+
+v1.6.0
+- Ekspansi Tokoh & Karakter Era Daulah Umayyah:
+  * Menambahkan 20 tokoh sejarah dari era transisi Khulafaur Rasyidin akhir hingga keruntuhan Daulah Umayyah di Damaskus dan kebangkitan Keamiran Cordoba (total 40 tokoh).
+  * Tokoh yang ditambahkan mencakup:
+    - Transisi & Pergolakan: Hasan bin Ali, Husain bin Ali, Abdullah bin az-Zubair
+    - Khalifah Bani Umayyah: Mu’awiyah bin Abi Sufyan, Yazid bin Mu’awiyah, Marwan bin al-Hakam, Abdul Malik bin Marwan, Al-Walid bin Abdul Malik (Al-Walid I), Sulaiman bin Abdul Malik, Umar bin Abdul Aziz (Umar II), Hisyam bin Abdul Malik, Marwan bin Muhammad (Marwan II), dan Abdurrahman ad-Dakhil (Rajawali Quraisy/Cordoba)
+    - Panglima & Administrator Terkemuka: Al-Hajjaj bin Yusuf ats-Tsaqafi, Thariq bin Ziyad, Musa bin Nushair, Muhammad bin Qasim ats-Tsaqafi, Qutaibah bin Muslim al-Bahili, Maslamah bin Abdul Malik, dan Abdurrahman al-Ghafiqi
+  * Seluruh narasi biografi dan kisah penting ditulis dengan kepatuhan ketat standar Humanizer-ID (anti-AI tells, pembuka berbasis peristiwa riil, nihil moralizing klise, akurasi data tahun dan lokasi).
+  * Generasi Seni Visual Historis via Google Flow:
+    - Cover Portrait 9:16: hasan.jpg, husain.jpg, muawiyah.jpg, abdul_malik.jpg, thariq.jpg, muhammad_bin_qasim.jpg, qutaibah.jpg, umar_bin_abdul_aziz.jpg, al_hajjaj.jpg, al_ghafiqi.jpg, abdurrahman_ad_dakhil.jpg
+    - Companion Side Scenes 16:9: slide_hasan.jpg ('Aam al-Jama'ah), slide_husain.jpg (Karbala Plains), slide_abdul_malik.jpg (Dome of the Rock), slide_thariq.jpg (Gibraltar Cliff), slide_qutaibah.jpg (Samarkand Silk Road), slide_tours.jpg (Battle of Tours), slide_cordoba.jpg (Great Mosque of Cordoba)
+  * Integrasi Filter & Interaktivitas Web:
+    - Opsi filter Era baru "Umayyad Caliphate" (Daulah Umayyah) dan filter Kelompok "Umayyad Caliphs" (Khalifah Umayyah) pada bar navigasi karakter.
+    - Integrasi penuh dengan Peta Dunia (World Map): tokoh-tokoh terhubung dengan kode negara historis (Spanyol, Prancis, Maroko, Tunisia, Suriah, Irak, Arab Saudi, Pakistan, Uzbekistan, dll.) sehingga otomatis muncul saat negara/wilayah diklik.
+    - Pembaruan form admin.html untuk mendukung era Daulah Umayyah dan grup Khalifah Umayyah.
+  * Opsi Sinkronisasi Supabase Langsung:
+    - 1-Click Sync via admin.html: Buka admin.html, login dengan akun admin Supabase, dan klik tombol 'Sinkronkan konten bawaan (+20 baru)' untuk memasukkan semua tokoh baru secara otomatis.
+    - Skrip SQL Siap Pakai: supabase_characters.sql berisi perintah upsert lengkap untuk seluruh 40 tokoh.
+
+v1.5.0
+- Rombak Desain & UI Sesuai Mockup Premium:
+  * Header: Angka tengah diubah menjadi '1✦✦✦' tipografi emas elegan tanpa kotak/border border.
+  * Navigasi & Label Bahasa: Full English UI consistency di seluruh halaman (Map, Chronology, World Map, Characters, Shorts, Videos) sebagai fondasi fitur multi-bahasa.
+  * Hero Map: Pill selector cepat di atas peta ('Arabian Peninsula' dan 'All Locations') dengan reset view.
+  * Fix Animasi Kronologi: Menghilangkan bug snapping/jumping bolak-balik saat kartu era diklik. Rail kartu tidak di-destroy ulang sehingga posisi scroll tetap stabil dan transisi sub-timeline tahun/peristiwa berjalan mulus.
+  * Peta Dunia 100% Full Width & Floating Event Pop-up:
+    - Peta dunia dan bar era di bawahnya sekarang tampil 100% full-width tanpa terpotong (bar era muat penuh dari All Eras sampai Era Modern).
+    - Saat belum memilih wilayah, tidak ada box/kolom samping yang memakan ruang peta.
+    - Begitu wilayah diklik, rincian peristiwa sejarah, tokoh, dan tempat muncul dalam floating pop-up elegan di atas sudut kanan peta (lengkap dengan tombol close x).
+  * Karakter Card Versi Original (Claude / v1.4.0 Restored):
+    - Layout zigzag khas v1.4.0 (kartu ganjil berselang-seling dengan aspect-ratio 287/787) dan tipografi Arvo/Bitter dikembalikan persis 100% sesuai original.
+    - Efek hover dimming interaktif sempurna: kartu yang disorot kursor menyala terang dengan glow emas dan sedikit terangkat, sementara kartu lainnya di slider meredup halus.
+  * Shorts & Videos: Link 'SEE ALL SHORTS' dan 'SEE ALL VIDEOS' dengan slider panah presisi.
+
 v1.3.0
 - Bagian baru "Peta Dunia": peta dunia interaktif (pakai assets/world.svg) dengan negara berwarna sesuai jumlah peristiwa pada era yang dipilih, filter 11 era, tombol "Putar sejarah" yang memutar era demi era, zoom dan geser, tooltip, serta klik negara untuk melihat peristiwa (dengan tombol ke kronologi), tokoh, dan tempat di wilayah itu
 - Tokoh dan tempat punya field negara terkait (admin: kolom Negara)

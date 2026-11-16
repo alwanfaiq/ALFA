@@ -20,7 +20,7 @@ input{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8
 .gr3{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:14px}
 @media(max-width:1000px){.gr{grid-template-columns:1fr}}
 .mapw{position:relative;overflow:hidden;background:#141414;border:1px solid #2c2c2c;touch-action:none;cursor:grab}.mapw svg{display:block;width:100%;height:auto}
-.mapw path{fill:#2b2b2b;stroke:#181818;stroke-width:.3}.mapw path.on{cursor:pointer}.mapw path:hover{stroke:#fff;stroke-width:.8}
+.mapw path{fill:#2b2b2b;stroke:#181818;stroke-width:.7px;vector-effect:non-scaling-stroke}.mapw path.on{cursor:pointer}.mapw path:hover{stroke:#fff;stroke-width:1.4px}
 .zc{position:absolute;right:10px;top:10px;display:grid;gap:4px;z-index:2}.zc button{min-width:32px;padding:2px 6px;background:var(--bg)}
 .tip{position:fixed;pointer-events:none;background:#000;border:1px solid var(--g);padding:5px 10px;font-size:.85rem;z-index:9;display:none;white-space:nowrap}
 .lg{display:flex;align-items:center;gap:8px;margin-top:8px;font-size:.8rem;color:var(--mut)}.lg i{display:block;width:140px;height:8px;background:linear-gradient(90deg,rgba(196,163,90,.25),rgba(196,163,90,1))}
@@ -89,7 +89,7 @@ mw.innerHTML=svgText;const svg=mw.querySelector("svg"),mx=Math.max(1,...cs.map(c
 svg.querySelectorAll("path").forEach(p=>{const c=by[p.id];if(c){p.classList.add("on");p.style.fill="rgba(196,163,90,"+(.25+.75*Math.sqrt(c.n/mx)).toFixed(2)+")"}});
 svg.addEventListener("mousemove",e=>{const p=e.target.closest("path");if(!p){tip.style.display="none";return}const c=by[p.id];tip.textContent=cname(p.id,p.dataset.n)+": "+(c?fmt(c.n)+" tayangan, "+fmt(c.u)+" pengunjung":"belum ada kunjungan");tip.style.display="block";tip.style.left=e.clientX+14+"px";tip.style.top=e.clientY+14+"px"});
 svg.addEventListener("mouseleave",()=>tip.style.display="none");
-const W0=1136,H0=805.83;let vb={x:0,y:0,w:W0,h:H0};const ap=()=>{vb.w=Math.min(W0,Math.max(120,vb.w));vb.h=vb.w*H0/W0;vb.x=Math.min(W0-vb.w,Math.max(0,vb.x));vb.y=Math.min(H0-vb.h,Math.max(0,vb.y));svg.setAttribute("viewBox",vb.x+" "+vb.y+" "+vb.w+" "+vb.h)};
+const W0=8192,H0=4864;let vb={x:0,y:0,w:W0,h:H0};const ap=()=>{vb.w=Math.min(W0,Math.max(480,vb.w));vb.h=vb.w*H0/W0;vb.x=Math.min(W0-vb.w,Math.max(0,vb.x));vb.y=Math.min(H0-vb.h,Math.max(0,vb.y));svg.setAttribute("viewBox",vb.x+" "+vb.y+" "+vb.w+" "+vb.h)};
 const zm=(f,cx=.5,cy=.5)=>{const nw=vb.w/f;vb.x+=(vb.w-nw)*cx;vb.y+=(vb.h-nw*H0/W0)*cy;vb.w=nw;ap()};
 const zc=el("div","zc");[["+",()=>zm(1.6)],["−",()=>zm(1/1.6)],["Reset",()=>{vb={x:0,y:0,w:W0,h:H0};ap()}]].forEach(([t,f])=>{const b=el("button","",t);b.onclick=f;zc.append(b)});mw.append(zc);
 let dr=null;mw.addEventListener("pointerdown",e=>{if(e.target.closest(".zc"))return;dr=[e.clientX,e.clientY]});
