@@ -1,0 +1,882 @@
+{
+  "eras": {
+    "pra": {
+      "name": "Pre-Prophethood",
+      "desc": "Arabia before prophethood: the Ka'bah, Quraysh, Year of the Elephant, and key figures around the Prophet's birth."
+    },
+    "makkah": {
+      "name": "Mecca Period",
+      "desc": "First revelation, secret and public preaching, Quraysh persecution, and migration to Abyssinia."
+    },
+    "madinah": {
+      "name": "Medina Period",
+      "desc": "The Hijrah and Medina state, battles from Badr to Khandaq, Hudaybiyyah, Fathu Makkah, and the Prophet's passing."
+    },
+    "khulafaur": {
+      "name": "Khulafaur Rasyidin",
+      "desc": "The first four caliphs—Abu Bakar, Umar, Utsman, and Ali—expanding across Syria, Persia, and Egypt."
+    },
+    "umayyah": {
+      "name": "Umayyad Caliphate",
+      "desc": "Governance from Damascus, expansion into Andalusia and Sindh, and the birth of monumental Islamic architecture."
+    },
+    "abbasiyah": {
+      "name": "Abbasid Golden Age",
+      "desc": "Baghdad as a global center of scholarship, translation, and science alongside Cordoba and Fatimid Cairo."
+    },
+    "seljuk": {
+      "name": "Seljuk, Crusades & Mongols",
+      "desc": "Seljuk rise, the Crusades, Salahuddin al-Ayyubi, and the Mongol sack of Baghdad."
+    },
+    "mamluk": {
+      "name": "Mamluk & Post-Mongol",
+      "desc": "Mamluks halting the Mongols at Ain Jalut, Ottoman rise, fall of Granada, and Nusantara sultanates."
+    },
+    "imperium": {
+      "name": "Three Gunpowder Empires",
+      "desc": "Ottoman, Safavid, and Mughal empires at their peak while Nusantara sultanates confronted the VOC."
+    },
+    "kolonial": {
+      "name": "Colonialism & Reform",
+      "desc": "The Muslim world facing European colonialism, reformist movements, and the abolition of the caliphate."
+    },
+    "modern": {
+      "name": "Modern Era",
+      "desc": "Nation-states, independence movements, modern Islamic organizations, and contemporary geopolitical shifts."
+    }
+  },
+  "polities": {
+    "madinah": "Medina (Prophetic State)",
+    "rasyidin": "Khulafaur Rasyidin Caliphate",
+    "umayyah": "Umayyad Caliphate",
+    "abbasiyah": "Abbasid Caliphate",
+    "samaniyah": "Samanid Dynasty",
+    "buwaihiyah": "Buyid Dynasty",
+    "maghribawal": "Idrisid & Aghlabid Dynasties",
+    "mesirawal": "Tulunid & Ikhshidid Dynasties",
+    "andalus": "Al-Andalus (Cordoba & Taifas)",
+    "granada": "Emirate of Granada",
+    "fatimiyah": "Fatimid Caliphate",
+    "ghaznawiyah": "Ghaznavid Dynasty",
+    "seljuk": "Great Seljuk Empire",
+    "rum": "Sultanate of Rum",
+    "khwarazm": "Khwarazmian Empire",
+    "maghrib": "Almoravids, Almohads & Marinids",
+    "mali": "Mali Empire",
+    "ayyubiyah": "Ayyubid Sultanate",
+    "mamluk": "Mamluk Sultanate",
+    "ilkhanat": "Ilkhanate (Mongol Persia)",
+    "delhi": "Delhi Sultanate",
+    "timuriyah": "Timurid Empire",
+    "safawiyah": "Safavid Empire",
+    "nusantara": "Nusantara Sultanates",
+    "mughal": "Mughal Empire",
+    "sokoto": "Sokoto Caliphate",
+    "iran": "Iran (Afsharid to Qajar)",
+    "utsmani": "Ottoman Empire",
+    "kolonial": "Colonial Powers & Mandates",
+    "modern": "Modern Nation-States"
+  },
+  "places": {
+    "makkah": {
+      "name": "Mecca",
+      "subtitle": "Birthplace of Prophet Muhammad ﷺ",
+      "description": "Commercial and spiritual hub of the Arabian Peninsula where the Ka'bah stands under Quraysh guardianship."
+    },
+    "yatsrib": {
+      "name": "Yathrib (Medina)",
+      "subtitle": "Oasis north of Mecca",
+      "description": "Fertile oasis inhabited by Aws, Khazraj, and Jewish tribes; became the destination of the Hijrah in 622 CE."
+    },
+    "syam": {
+      "name": "Syam (Levant)",
+      "subtitle": "Quraysh caravan destination",
+      "description": "Northern trade route of Quraysh caravans where young Muhammad met monk Bahira in Busra."
+    },
+    "palestina": {
+      "name": "Palestine",
+      "subtitle": "Land of Baitul Maqdis",
+      "description": "Region housing Masjid al-Aqsa, the first Qibla of Muslims before Mecca."
+    },
+    "iraq": {
+      "name": "Iraq (Ancient)",
+      "subtitle": "Under Sassanid Persian sphere",
+      "description": "Region under the Sassanid Empire before the campaigns of Qadisiyyah and the founding of Kufah."
+    },
+    "yaman": {
+      "name": "Yemen",
+      "subtitle": "Domain of Abrahah",
+      "description": "Southern Arabian territory governed by Abrahah on behalf of the Aksumite Kingdom."
+    },
+    "gajah": {
+      "name": "Route of the Elephant Army",
+      "subtitle": "Yemen toward Mecca, c. 570 CE",
+      "description": "Campaign route of Abrahah's army marching toward Mecca before perishing outside the sanctuary."
+    },
+    "hira": {
+      "name": "Cave of Hira",
+      "subtitle": "Jabal al-Nour, near Mecca",
+      "description": "Mountain cave where Prophet Muhammad ﷺ retreated in contemplation and received the first revelation in 610 CE."
+    },
+    "makkah-k": {
+      "name": "Mecca",
+      "subtitle": "Sanctuary of the Ka'bah",
+      "description": "Opened nearly without bloodshed during Fathu Makkah (8 AH / 630 CE), remaining the center of Hajj."
+    },
+    "madinah-k": {
+      "name": "Medina",
+      "subtitle": "First capital of the Islamic state",
+      "description": "Seat of governance from the Hijrah through the era of Utsman; home to the Prophet's Mosque."
+    },
+    "badar": {
+      "name": "Badr",
+      "subtitle": "Valley of the first major battle",
+      "description": "Site of the Battle of Badr (17 Ramadan 2 AH / 624 CE), where 313 Muslims defeated a larger Quraysh force."
+    },
+    "khaibar": {
+      "name": "Khaybar",
+      "subtitle": "Fortified oasis north of Medina",
+      "description": "Walled agricultural oasis captured in 7 AH / 628 CE."
+    },
+    "tabuk": {
+      "name": "Tabuk",
+      "subtitle": "The Prophet's final campaign",
+      "description": "Northern frontier expedition in 9 AH / 630 CE facing Byzantine mobilization."
+    },
+    "yamamah": {
+      "name": "Yamamah",
+      "subtitle": "Battlefield of the Riddah Wars",
+      "description": "Interior Najd plain where Khalid bin Walid defeated Musaylimah in 12 AH / 633 CE."
+    },
+    "damaskus": {
+      "name": "Damascus",
+      "subtitle": "Capital of Syam",
+      "description": "Ancient Levantine city taken in 14 AH / 635 CE under Khalid bin Walid and Abu Ubaidah."
+    },
+    "yarmuk": {
+      "name": "Yarmuk",
+      "subtitle": "Decisive battle for Syam",
+      "description": "Site of the 636 CE victory over Byzantine forces that opened all of Greater Syria."
+    },
+    "baitulmaqdis": {
+      "name": "Baitul Maqdis",
+      "subtitle": "Jerusalem, the first Qibla",
+      "description": "Surrendered peacefully to Caliph Umar bin Khattab in 16 AH / 637 CE under a treaty protecting lives and worship."
+    },
+    "hims": {
+      "name": "Homs (Hims)",
+      "subtitle": "Northern Syrian city",
+      "description": "Strategic Syrian city conquered after Yarmuk; resting place of Khalid bin Walid."
+    },
+    "konstantinopel": {
+      "name": "Constantinople",
+      "subtitle": "Byzantine imperial capital",
+      "description": "Fortified capital on the Bosphorus besieged multiple times before falling in 1453 CE."
+    },
+    "iskandariyah": {
+      "name": "Alexandria",
+      "subtitle": "Major Mediterranean port of Egypt",
+      "description": "Byzantine port city captured by Amr bin Ash in 21 AH / 642 CE."
+    },
+    "fustat": {
+      "name": "Fustat",
+      "subtitle": "First Islamic capital in Egypt",
+      "description": "Garrison city founded by Amr bin Ash around 20 AH with the first mosque in Africa."
+    },
+    "barqah": {
+      "name": "Barqah (Cyrenaica)",
+      "subtitle": "Eastern Libya gateway",
+      "description": "Region opened by Amr bin Ash around 22 AH / 643 CE on the road to North Africa."
+    },
+    "kufah": {
+      "name": "Kufah & Qadisiyyah",
+      "subtitle": "Iraqi garrison hub",
+      "description": "Site of the 636 CE victory over Sassanid Persia, followed by Sa'ad bin Abi Waqqash founding Kufah."
+    },
+    "madain": {
+      "name": "Al-Mada'in (Ctesiphon)",
+      "subtitle": "Sassanid imperial capital",
+      "description": "Persian capital captured in 16 AH / 637 CE following the Battle of Qadisiyyah."
+    },
+    "basrah": {
+      "name": "Basra",
+      "subtitle": "Southern Iraq garrison city",
+      "description": "Port and military base founded around 14 AH; nearby site of the Battle of the Camel in 36 AH."
+    },
+    "nahawand": {
+      "name": "Nahawand",
+      "subtitle": "Victory of Victories",
+      "description": "Decisive 21 AH / 642 CE battle breaking organized Sassanid resistance on the Iranian plateau."
+    },
+    "merv": {
+      "name": "Merv",
+      "subtitle": "Eastern frontier of Khorasan",
+      "description": "Oasis city near which the last Sassanid ruler Yazdegerd III died in 31 AH / 651 CE."
+    },
+    "habasyah": {
+      "name": "Abyssinia (Aksum)",
+      "subtitle": "First sanctuary of migration",
+      "description": "Christian kingdom in modern Ethiopia where King Negus protected early Muslim refugees in 615 CE."
+    }
+  },
+  "events": {
+    "570-tahun-gajah": {
+      "title": "Year of the Elephant",
+      "summary": "Abrahah marched from Yemen with war elephants to destroy the Ka'bah, but his army perished before reaching Mecca (Surah Al-Fil)."
+    },
+    "570-kelahiran-nabi": {
+      "title": "Birth of Prophet Muhammad ﷺ",
+      "summary": "Born in Mecca to Aminah binti Wahb; his father Abdullah had passed away earlier, leaving grandfather Abdul Muthalib as guardian."
+    },
+    "572-disusui-siti-halimah": {
+      "title": "Fostering with Halimah as-Sa'diyah",
+      "summary": "Following Quraysh custom, infant Muhammad was raised in the desert air of Bani Sa'd by Halimah as-Sa'diyah."
+    },
+    "576-yatim-piatu": {
+      "title": "Orphaned in Childhood",
+      "summary": "Aminah passed away returning from Yathrib; two years later Abdul Muthalib died, and Abu Thalib assumed guardianship."
+    },
+    "582-bertemu-bahira": {
+      "title": "Meeting Monk Bahira",
+      "summary": "During a trade caravan to Syam with Abu Thalib, the Christian monk Bahira in Busra recognized signs of prophethood."
+    },
+    "595-menikah-dengan-khadijah": {
+      "title": "Marriage to Khadijah",
+      "summary": "Known across Mecca as Al-Amin after leading her trade caravan to Syam, Muhammad ﷺ married Khadijah binti Khuwailid."
+    },
+    "605-peletakan-hajar-aswad": {
+      "title": "Placing the Black Stone",
+      "summary": "When Quraysh clans disputed who would set the Black Stone during Ka'bah renovations, Muhammad ﷺ had all clan chiefs lift it together on a cloak."
+    },
+    "610-wahyu-pertama": {
+      "title": "The First Revelation",
+      "summary": "In the Cave of Hira, Angel Jibril delivered the opening verses of Surah Al-'Alaq ('Iqra'), marking the dawn of prophethood."
+    },
+    "613-dakwah-terang-terangan": {
+      "title": "Public Preaching Begins",
+      "summary": "After three years of quiet invitation, the Prophet ﷺ proclaimed Islam openly in Mecca amid intensifying Quraysh opposition."
+    },
+    "615-hijrah-ke-habasyah": {
+      "title": "Migration to Abyssinia",
+      "summary": "Early Muslims fled Quraysh persecution to Aksum, where King Negus granted them safe refuge."
+    },
+    "619-pemboikotan-dan-tahun-duka-cita": {
+      "title": "Boycott & Year of Sorrow",
+      "summary": "Following a three-year clan boycott in Shi'b Abi Thalib, both Abu Thalib and Khadijah passed away in 619 CE."
+    },
+    "621-isra-dan-miraj": {
+      "title": "Isra' and Mi'raj",
+      "summary": "The miraculous night journey from Mecca to Masjid al-Aqsa and ascension through the heavens, establishing the five daily prayers."
+    },
+    "622-hijrah-ke-madinah": {
+      "title": "The Hijrah to Medina",
+      "summary": "After the Pledges of Aqabah, the Prophet ﷺ migrated with Abu Bakar to Yathrib (Medina), inaugurating the Hijri calendar."
+    },
+    "624-perang-badar": {
+      "title": "Battle of Badr",
+      "summary": "The first major battle: 313 Muslims defeated a much larger Quraysh army, marking a decisive turning point."
+    },
+    "625-perang-uhud": {
+      "title": "Battle of Uhud",
+      "summary": "Fought at Mount Uhud; archers leaving their post allowed Khalid bin Walid's cavalry to flank, and Hamzah fell in battle."
+    },
+    "627-perang-khandaq": {
+      "title": "Battle of the Trench (Khandaq)",
+      "summary": "Coalition forces besieged Medina; adopting Salman al-Farisi's trench defense preserved the city."
+    },
+    "628-perjanjian-hudaibiyah": {
+      "title": "Treaty of Hudaybiyyah",
+      "summary": "A ten-year truce negotiated outside Mecca that opened peaceful outreach across Arabia."
+    },
+    "630-fathu-makkah": {
+      "title": "Fathu Makkah (Opening of Mecca)",
+      "summary": "Prophet Muhammad ﷺ entered Mecca with 10,000 troops virtually unopposed, granting general amnesty and clearing the Ka'bah."
+    },
+    "632-haji-wada-dan-wafatnya-nabi": {
+      "title": "Farewell Pilgrimage & Passing of the Prophet",
+      "summary": "After delivering the Farewell Sermon at Arafah, Prophet Muhammad ﷺ passed away in Medina on 12 Rabi'ul Awwal 11 AH."
+    },
+    "632-abu-bakar-menjadi-khalifah": {
+      "title": "Abu Bakar Elected Caliph",
+      "summary": "Abu Bakar ash-Shiddiq stabilized Arabia during the Riddah Wars, culminating against Musaylimah at Yamamah."
+    },
+    "636-penaklukan-syam-dan-yarmuk": {
+      "title": "Conquest of Syam & Battle of Yarmuk",
+      "summary": "Muslim forces captured Damascus and broke Byzantine military dominance in the Levant at the Yarmuk River."
+    },
+    "636-qadisiyyah-dan-madain": {
+      "title": "Battle of Qadisiyyah & Al-Mada'in",
+      "summary": "Sa'ad bin Abi Waqqash defeated Sassanid forces at Qadisiyyah and captured Ctesiphon, founding Kufah and Basra."
+    },
+    "637-penyerahan-baitul-maqdis": {
+      "title": "Surrender of Baitul Maqdis (Jerusalem)",
+      "summary": "Residents of Jerusalem surrendered to Caliph Umar bin Khattab under a covenant guaranteeing protection of lives and churches."
+    },
+    "639-penaklukan-mesir": {
+      "title": "Conquest of Egypt",
+      "summary": "Amr bin Ash entered Egypt, captured Babylon Fortress and Alexandria, and founded Fustat."
+    },
+    "644-wafatnya-umar-utsman-menjadi-khalifah": {
+      "title": "Death of Umar & Caliphate of Utsman",
+      "summary": "Following Umar's assassination at dawn prayer, a six-member council selected Utsman bin Affan as the third caliph."
+    },
+    "650-mushaf-utsmani": {
+      "title": "Compilation of the Uthmani Mushaf",
+      "summary": "Utsman standardized the written Quranic codex and dispatched copies to major provinces as borders reached Armenia and Khorasan."
+    },
+    "656-wafatnya-utsman-ali-menjadi-khalifah": {
+      "title": "Death of Utsman & Caliphate of Ali",
+      "summary": "Amid political turmoil in Medina, Utsman was slain and Ali bin Abi Thalib was pledged allegiance, later shifting the seat to Kufah."
+    },
+    "656-perang-jamal-dan-shiffin": {
+      "title": "Battles of the Camel & Siffin",
+      "summary": "Disputes over Utsman's assassination sparked internal conflicts near Basra and at Siffin against Mu'awiyah."
+    },
+    "661-wafatnya-ali": {
+      "title": "Martyrdom of Ali bin Abi Thalib",
+      "summary": "Ali was fatally struck in Kufah by Ibn Muljam, bringing the Khulafaur Rasyidin era to a close."
+    },
+    "661-daulah-umayyah-berdiri": {
+      "title": "Founding of the Umayyad Caliphate",
+      "summary": "After Hasan bin Ali abdicated to preserve unity ('Aam al-Jama'ah), Mu'awiyah established Umayyad rule in Damascus."
+    },
+    "680-peristiwa-karbala": {
+      "title": "Tragedy of Karbala",
+      "summary": "Husain bin Ali and his companions fell at Karbala on 10 Muharram 61 AH against Yazid's forces."
+    },
+    "691-kubah-shakhrah-dibangun-di-yerusalem": {
+      "title": "Completion of the Dome of the Rock",
+      "summary": "Caliph Abdul Malik bin Marwan built Qubbat ash-Shakhrah in Jerusalem, the oldest surviving monumental Islamic sanctuary."
+    },
+    "706-masjid-agung-umawi-damaskus": {
+      "title": "Great Mosque of Damascus",
+      "summary": "Under Caliph Al-Walid I, the Umayyad Mosque of Damascus set a benchmark for early Islamic architecture."
+    },
+    "711-penaklukan-andalusia": {
+      "title": "Crossing to Al-Andalus (Iberia)",
+      "summary": "Thariq bin Ziyad crossed Gibraltar and defeated King Roderic at Guadalete, inaugurating Islamic Iberia."
+    },
+    "712-islam-masuk-ke-sindh": {
+      "title": "Arrival in Sindh",
+      "summary": "Muhammad bin Qasim entered the Indus Valley (modern Pakistan), establishing early Islamic presence in South Asia."
+    },
+    "717-pengepungan-konstantinopel-kedua": {
+      "title": "Second Siege of Constantinople",
+      "summary": "Umayyad land and naval forces under Maslamah besieged Constantinople for nearly a year before withdrawing."
+    },
+    "732-pertempuran-tours-poitiers": {
+      "title": "Battle of Tours (Poitiers)",
+      "summary": "Andalusian forces under Abdurrahman al-Ghafiqi were halted by Charles Martel's Frankish army in central France."
+    },
+    "750-revolusi-abbasiyah": {
+      "title": "The Abbasid Revolution",
+      "summary": "Abbasid forces defeated the Umayyads at the Battle of the Zab, proclaiming Abu al-Abbas as-Saffah caliph."
+    },
+    "751-pertempuran-talas": {
+      "title": "Battle of Talas",
+      "summary": "Abbasid troops defeated Tang Dynasty forces near the Talas River, accelerating the spread of papermaking westward."
+    },
+    "756-emirat-cordoba-berdiri": {
+      "title": "Emirate of Cordoba Founded",
+      "summary": "Surviving Umayyad prince Abdurrahman ad-Dakhil established an independent emirate centered in Cordoba."
+    },
+    "762-baghdad-didirikan": {
+      "title": "Founding of Baghdad",
+      "summary": "Caliph Al-Mansur built the Round City of Baghdad on the Tigris, soon becoming a global center of scholarship."
+    },
+    "786-masa-harun-ar-rasyid": {
+      "title": "Reign of Harun ar-Rasyid",
+      "summary": "Height of Abbasid prosperity, diplomacy, and patronage of scholars and translators in Baghdad."
+    },
+    "820-al-khawarizmi-dan-ilmu-aljabar": {
+      "title": "Al-Khawarizmi & Algebra",
+      "summary": "Muhammad bin Musa al-Khawarizmi authored his foundational treatise on algebra in Baghdad; his Latinized name gave us 'algorithm'."
+    },
+    "830-baitul-hikmah-di-baghdad": {
+      "title": "Bayt al-Hikmah (House of Wisdom)",
+      "summary": "Under Al-Ma'mun, Baghdad's academy translated and advanced Greek, Persian, and Indian scientific works."
+    },
+    "859-al-qarawiyyin-didirikan-di-fez": {
+      "title": "Founding of Al-Qarawiyyin in Fez",
+      "summary": "Fatima al-Fihri founded Al-Qarawiyyin, recognized as one of the oldest continuously operating universities."
+    },
+    "909-dinasti-fatimiyah-berdiri": {
+      "title": "Rise of the Fatimid Caliphate",
+      "summary": "The Fatimid dynasty took power in Ifriqiya (Tunisia) before expanding into Egypt."
+    },
+    "929-khilafah-cordoba-diproklamasikan": {
+      "title": "Caliphate of Cordoba Proclaimed",
+      "summary": "Abdurrahman III proclaimed the Caliphate of Cordoba, ushering in Andalusian cultural splendor."
+    },
+    "969-kairo-didirikan": {
+      "title": "Founding of Cairo",
+      "summary": "The Fatimids founded Al-Qahirah (Cairo) as their new imperial capital on the Nile."
+    },
+    "970-al-azhar-didirikan": {
+      "title": "Founding of Al-Azhar",
+      "summary": "Al-Azhar Mosque was built in Cairo and evolved into one of the foremost centers of Islamic learning."
+    },
+    "1011-ibnu-al-haitham-dan-ilmu-optik": {
+      "title": "Ibn al-Haytham & Optics",
+      "summary": "In Cairo, Ibn al-Haytham wrote Kitab al-Manazir (Book of Optics), pioneering experimental scientific method."
+    },
+    "1037-wafatnya-ibnu-sina": {
+      "title": "Passing of Ibn Sina (Avicenna)",
+      "summary": "Physician and philosopher Ibn Sina, author of The Canon of Medicine, passed away in Hamadan."
+    },
+    "1055-seljuk-memasuki-baghdad": {
+      "title": "Seljuks Enter Baghdad",
+      "summary": "Tughril Beg entered Baghdad, becoming protector of the Abbasid caliphate."
+    },
+    "1071-pertempuran-manzikert": {
+      "title": "Battle of Manzikert",
+      "summary": "Seljuk Sultan Alp Arslan defeated Byzantine Emperor Romanos IV, opening Anatolia to Turkic settlement."
+    },
+    "1096-perang-salib-pertama": {
+      "title": "The First Crusade",
+      "summary": "European Crusader armies marched east, establishing Crusader states along the Levantine coast."
+    },
+    "1099-yerusalem-jatuh-ke-tangan-pasukan-salib": {
+      "title": "Crusader Capture of Jerusalem",
+      "summary": "Crusader forces breached Jerusalem following a prolonged siege."
+    },
+    "1111-wafatnya-al-ghazali": {
+      "title": "Passing of Imam al-Ghazali",
+      "summary": "Scholar and theologian Abu Hamid al-Ghazali, author of Ihya' Ulumiddin, passed away in Tus."
+    },
+    "1187-salahuddin-al-ayyubi-merebut-yerusalem": {
+      "title": "Salahuddin Recaptures Jerusalem",
+      "summary": "Following victory at Hattin, Salahuddin al-Ayyubi reclaimed Jerusalem under terms guaranteeing civilian safety."
+    },
+    "1192-perjanjian-ramla": {
+      "title": "Treaty of Ramla",
+      "summary": "Salahuddin and Richard the Lionheart agreed to a truce ending the Third Crusade and allowing Christian pilgrims."
+    },
+    "1198-wafatnya-ibnu-rusyd": {
+      "title": "Passing of Ibn Rushd (Averroes)",
+      "summary": "Andalusian jurist and philosopher Ibn Rushd passed away in Marrakesh."
+    },
+    "1219-invasi-mongol-ke-khwarezmia": {
+      "title": "Mongol Invasion of Khwarazmia",
+      "summary": "Genghis Khan's armies devastated Central Asian cities including Bukhara, Samarkand, and Merv."
+    },
+    "1258-jatuhnya-baghdad": {
+      "title": "Fall of Baghdad",
+      "summary": "Hulagu Khan's Mongol forces sacked Baghdad, ending the Abbasid Caliphate in Iraq."
+    },
+    "1260-pertempuran-ain-jalut": {
+      "title": "Battle of Ain Jalut",
+      "summary": "Mamluk forces led by Qutuz and Baybars defeated the Mongols in Palestine, halting their westward advance."
+    },
+    "1297-wafatnya-sultan-malik-as-saleh-samudra-pasai": {
+      "title": "Tombstone of Sultan Malik as-Saleh, Samudra Pasai",
+      "summary": "Dated 696 AH (1297 CE) in Aceh, providing the earliest epigraphic evidence of a Muslim kingdom in Nusantara."
+    },
+    "1299-awal-berdirinya-kesultanan-utsmani": {
+      "title": "Founding of the Ottoman Beylik",
+      "summary": "Osman I established a frontier principality in northwestern Anatolia that grew into the Ottoman Empire."
+    },
+    "1325-ibnu-battuta-memulai-pengembaraannya": {
+      "title": "Ibn Battuta Begins His Travels",
+      "summary": "Departing Tangier for Hajj, Ibn Battuta journeyed across Africa, Asia, and Europe for nearly thirty years."
+    },
+    "1345-ibnu-battuta-singgah-di-samudra-pasai": {
+      "title": "Ibn Battuta Visits Samudra Pasai",
+      "summary": "En route to China, Ibn Battuta visited Samudra Pasai in Sumatra and recorded life at its court."
+    },
+    "1370-timur-lenk-berkuasa": {
+      "title": "Rise of Timur (Tamerlane)",
+      "summary": "Making Samarkand his capital, Timur launched sweeping campaigns across Central Asia, Persia, and Anatolia."
+    },
+    "1377-ibnu-khaldun-menulis-muqaddimah": {
+      "title": "Ibn Khaldun Writes the Muqaddimah",
+      "summary": "Ibn Khaldun completed the Muqaddimah, pioneering historiography, sociology, and economic theory."
+    },
+    "1414-malaka-menjadi-pusat-dagang-dan-islam": {
+      "title": "Malacca as Trade & Islamic Hub",
+      "summary": "By the early 15th century, Malacca emerged as Southeast Asia's premier maritime port and center of Islamic diffusion."
+    },
+    "1419-wafatnya-maulana-malik-ibrahim": {
+      "title": "Passing of Maulana Malik Ibrahim",
+      "summary": "Early Islamic preacher in Java and revered member of the Walisongo, buried in Gresik."
+    },
+    "1453-penaklukan-konstantinopel": {
+      "title": "Conquest of Constantinople",
+      "summary": "Ottoman Sultan Mehmed II captured Constantinople, ending the Byzantine Empire."
+    },
+    "1478-kesultanan-demak-berdiri": {
+      "title": "Founding of the Demak Sultanate",
+      "summary": "Demak emerged as the first Islamic sultanate on Java under Raden Patah in the late 15th century."
+    },
+    "1492-jatuhnya-granada": {
+      "title": "Fall of Granada",
+      "summary": "The Emirate of Granada, last Muslim polity in Iberia, surrendered to Castile and Aragon."
+    },
+    "1501-dinasti-safawiyah-berdiri": {
+      "title": "Rise of the Safavid Dynasty",
+      "summary": "Shah Ismail I took Tabriz and established Twelver Shi'ism as the state creed of Persia."
+    },
+    "1511-portugis-merebut-malaka": {
+      "title": "Portuguese Capture of Malacca",
+      "summary": "Portuguese forces seized Malacca, shifting regional Muslim trade toward Aceh, Banten, and Makassar."
+    },
+    "1511-kesultanan-aceh-darussalam-berdiri": {
+      "title": "Rise of Aceh Darussalam",
+      "summary": "Aceh consolidated as a major maritime Islamic sultanate at the northern tip of Sumatra."
+    },
+    "1517-utsmani-menaklukkan-mesir": {
+      "title": "Ottoman Conquest of Egypt",
+      "summary": "Sultan Selim I defeated the Mamluks, incorporating Egypt and the Hijaz under Ottoman protection."
+    },
+    "1520-masa-sulaiman-al-qanuni": {
+      "title": "Reign of Suleiman the Magnificent",
+      "summary": "Ottoman zenith marked by legal codification, Mimar Sinan's architecture, and territorial peak."
+    },
+    "1526-pertempuran-panipat-dan-awal-mughal": {
+      "title": "Battle of Panipat & Mughal Founding",
+      "summary": "Babur defeated the Delhi Sultanate at Panipat, establishing the Mughal Empire in India."
+    },
+    "1527-fatahillah-merebut-sunda-kelapa": {
+      "title": "Fatahillah Captures Sunda Kelapa",
+      "summary": "Joint Banten and Demak forces under Fatahillah took Sunda Kelapa, renaming it Jayakarta."
+    },
+    "1529-pengepungan-wina-pertama": {
+      "title": "First Siege of Vienna",
+      "summary": "Suleiman's forces besieged Vienna before retreating, marking the farthest Ottoman push of that era."
+    },
+    "1556-masa-akbar-agung": {
+      "title": "Reign of Emperor Akbar",
+      "summary": "Akbar expanded Mughal rule across northern India while pursuing religious pluralism and administrative reform."
+    },
+    "1571-pertempuran-lepanto": {
+      "title": "Battle of Lepanto",
+      "summary": "A Holy League fleet defeated the Ottoman navy in the Gulf of Patras, though the Ottomans rapidly rebuilt."
+    },
+    "1588-masa-syah-abbas-i": {
+      "title": "Reign of Shah Abbas I",
+      "summary": "Shah Abbas moved the Safavid capital to Isfahan, turning it into a jewel of Persian art and architecture."
+    },
+    "1613-sultan-agung-dari-mataram": {
+      "title": "Sultan Agung of Mataram",
+      "summary": "Sultan Agung brought Islamic Mataram to its height on Java, synthesizing Javanese and Islamic statecraft."
+    },
+    "1619-voc-mendirikan-batavia": {
+      "title": "VOC Establishes Batavia",
+      "summary": "The Dutch East India Company seized Jayakarta and built Batavia as its colonial headquarters."
+    },
+    "1628-serangan-mataram-ke-batavia": {
+      "title": "Mataram Sieges of Batavia",
+      "summary": "Sultan Agung dispatched major forces against the VOC at Batavia, though logistical lines forced a retreat."
+    },
+    "1632-pembangunan-taj-mahal": {
+      "title": "Construction of the Taj Mahal",
+      "summary": "Mughal Emperor Shah Jahan commissioned the Taj Mahal in Agra as a mausoleum for Mumtaz Mahal."
+    },
+    "1683-pengepungan-wina-kedua": {
+      "title": "Second Siege of Vienna",
+      "summary": "A European coalition relieved Vienna against Ottoman forces, marking the start of Ottoman territorial retreat."
+    },
+    "1699-perjanjian-karlowitz": {
+      "title": "Treaty of Karlowitz",
+      "summary": "The Ottomans ceded most of Hungary to the Habsburgs, their first major territorial concession in Europe."
+    },
+    "1744-perjanjian-diriyah": {
+      "title": "Pact of Diriyah",
+      "summary": "Muhammad bin Saud and scholar Muhammad bin Abdul Wahhab allied in Diriyah, forming the First Saudi State."
+    },
+    "1798-ekspedisi-napoleon-ke-mesir": {
+      "title": "Napoleon's Expedition to Egypt",
+      "summary": "French occupation of Egypt triggered intense political and intellectual engagement with European modernity."
+    },
+    "1799-gugurnya-tipu-sultan": {
+      "title": "Fall of Tipu Sultan",
+      "summary": "Tipu Sultan of Mysore fell defending Srirangapatna against British East India Company forces."
+    },
+    "1803-perang-padri": {
+      "title": "The Padri War",
+      "summary": "Conflict in Minangkabau between Islamic reformers and adat leaders that drew Dutch military intervention."
+    },
+    "1805-muhammad-ali-pasha-berkuasa-di-mesir": {
+      "title": "Rule of Muhammad Ali Pasha in Egypt",
+      "summary": "Muhammad Ali modernized Egypt's military, industry, and educational institutions."
+    },
+    "1825-perang-diponegoro": {
+      "title": "The Java War (Perang Diponegoro)",
+      "summary": "Prince Diponegoro led a five-year anti-colonial uprising across Java backed by scholars and villagers."
+    },
+    "1830-prancis-menjajah-aljazair": {
+      "title": "French Conquest of Algeria",
+      "summary": "France invaded Algiers, sparking long resistance led by figures such as Emir Abdelkader."
+    },
+    "1839-era-tanzimat-dimulai": {
+      "title": "Launch of the Tanzimat Reforms",
+      "summary": "The Ottoman state enacted sweeping legal, administrative, and educational modernization."
+    },
+    "1857-pemberontakan-india": {
+      "title": "Indian Rebellion of 1857",
+      "summary": "Uprising against British Company rule ended the Mughal dynasty and brought India under direct British Crown rule."
+    },
+    "1869-terusan-suez-dibuka": {
+      "title": "Opening of the Suez Canal",
+      "summary": "Connecting the Mediterranean and Red Seas reshaped global trade and deepened European stakes in Egypt."
+    },
+    "1873-perang-aceh": {
+      "title": "The Aceh War",
+      "summary": "Protracted resistance by the Aceh Sultanate against Dutch invasion led by Teuku Umar, Cut Nyak Dhien, and ulama."
+    },
+    "1897-wafatnya-jamaluddin-al-afghani": {
+      "title": "Passing of Jamaluddin al-Afghani",
+      "summary": "Pan-Islamic thinker and anti-colonial activist Jamaluddin al-Afghani passed away in Istanbul."
+    },
+    "1905-wafatnya-muhammad-abduh": {
+      "title": "Passing of Muhammad Abduh",
+      "summary": "Egyptian jurist and Islamic modernist reformer Muhammad Abduh passed away."
+    },
+    "1908-revolusi-turki-muda": {
+      "title": "Young Turk Revolution",
+      "summary": "Constitutionalists compelled Sultan Abdulhamid II to restore the Ottoman parliament and constitution."
+    },
+    "1912-muhammadiyah-dan-sarekat-islam": {
+      "title": "Founding of Muhammadiyah & Sarekat Islam",
+      "summary": "KH Ahmad Dahlan founded Muhammadiyah in Yogyakarta while Sarekat Islam mobilized mass Muslim solidarity."
+    },
+    "1916-perjanjian-sykes-picot": {
+      "title": "Sykes–Picot Agreement",
+      "summary": "Britain and France secretly partitioned Ottoman Arab provinces into spheres of European influence."
+    },
+    "1917-deklarasi-balfour": {
+      "title": "The Balfour Declaration",
+      "summary": "Britain expressed support for a 'national home for the Jewish people' in Palestine, sowing enduring conflict."
+    },
+    "1922-kesultanan-utsmani-dihapus": {
+      "title": "Abolition of the Ottoman Sultanate",
+      "summary": "The Grand National Assembly of Turkey abolished the Ottoman Sultanate."
+    },
+    "1924-penghapusan-khilafah": {
+      "title": "Abolition of the Caliphate",
+      "summary": "On 3 March 1924, Turkey's parliament abolished the office of the Caliphate."
+    },
+    "1926-nahdlatul-ulama-berdiri": {
+      "title": "Founding of Nahdlatul Ulama",
+      "summary": "KH Hasyim Asy'ari and scholars established Nahdlatul Ulama in Surabaya."
+    },
+    "1928-ikhwanul-muslimin-didirikan": {
+      "title": "Founding of the Muslim Brotherhood",
+      "summary": "Hasan al-Banna founded the Muslim Brotherhood in Ismailia, Egypt."
+    },
+    "1932-kerajaan-arab-saudi-diproklamasikan": {
+      "title": "Kingdom of Saudi Arabia Proclaimed",
+      "summary": "Abdulaziz bin Saud unified Najd and Hijaz, proclaiming the Kingdom of Saudi Arabia."
+    },
+    "1945-proklamasi-kemerdekaan-indonesia": {
+      "title": "Indonesian Independence Proclamation",
+      "summary": "Soekarno and Hatta proclaimed Indonesia's independence on 17 August 1945."
+    },
+    "1945-resolusi-jihad": {
+      "title": "Resolusi Jihad (Jihad Resolution)",
+      "summary": "Nahdlatul Ulama scholars called to defend independence on 22 October 1945, culminating in the Battle of Surabaya."
+    },
+    "1947-pakistan-merdeka": {
+      "title": "Independence of Pakistan",
+      "summary": "Pakistan emerged as an independent Muslim-majority state upon the partition of British India."
+    },
+    "1948-berakhirnya-mandat-inggris-di-palestina-dan-nakba": {
+      "title": "End of British Mandate & the Nakba",
+      "summary": "Creation of Israel, the first Arab–Israeli war, and the mass displacement of Palestinians known as the Nakba."
+    },
+    "1955-konferensi-asia-afrika-di-bandung": {
+      "title": "Asian–African Conference in Bandung",
+      "summary": "Leaders of newly independent Asian and African nations gathered in Bandung to oppose colonialism."
+    },
+    "1957-malaysia-merdeka": {
+      "title": "Independence of Malaya (Malaysia)",
+      "summary": "The Federation of Malaya gained independence from Britain on 31 August 1957."
+    },
+    "1969-organisasi-kerja-sama-islam-didirikan": {
+      "title": "Founding of the OIC",
+      "summary": "The Organisation of Islamic Cooperation was founded in Rabat after the arson attack on Masjid al-Aqsa."
+    },
+    "1979-revolusi-iran": {
+      "title": "Iranian Revolution",
+      "summary": "Popular revolution overthrew the Pahlavi monarchy and established the Islamic Republic under Ayatollah Khomeini."
+    },
+    "1979-perang-soviet-afghanistan": {
+      "title": "Soviet–Afghan War",
+      "summary": "Soviet military intervention in Afghanistan triggered a decade-long resistance movement."
+    },
+    "1992-perang-bosnia": {
+      "title": "Bosnian War",
+      "summary": "Brutal conflict in Bosnia-Herzegovina including the 1995 Srebrenica genocide that claimed over 8,000 Muslim lives."
+    },
+    "2004-gempa-dan-tsunami-aceh": {
+      "title": "2004 Indian Ocean Earthquake & Tsunami",
+      "summary": "On 26 December 2004, a massive tsunami devastated Aceh and Indian Ocean coastlines."
+    },
+    "2010-musim-semi-arab": {
+      "title": "Arab Spring",
+      "summary": "A wave of pro-reform protests swept across the Arab world beginning in Tunisia in late 2010."
+    }
+  },
+  "characters": {
+    "Abdul Muthalib": {
+      "role": "Grandfather of the Prophet ﷺ",
+      "meta": "Birth name: Syaibah al-Hamd\nEra/Setting: Mecca, late 6th century CE"
+    },
+    "Abrahah": {
+      "role": "Ruler of Yemen",
+      "meta": "Viceroy of Yemen for the Kingdom of Aksum\nEra/Setting: Yemen and Mecca, c. 570 CE"
+    },
+    "Halimah as-Sa’diyah": {
+      "role": "Foster Mother of the Prophet ﷺ",
+      "meta": "Tribe: Bani Sa'd bin Bakr\nEra/Setting: Desert near Mecca, c. 570–575 CE"
+    },
+    "Bahira": {
+      "role": "Christian Monk",
+      "meta": "Monk in Busra, Syam\nEra/Setting: Busra (Syria), c. 582 CE"
+    },
+    "Abi Thalib": {
+      "role": "Guardian of the Prophet ﷺ",
+      "meta": "Title: Chief of Bani Hashim\nEra/Setting: Mecca, late 6th century to 619 CE"
+    },
+    "Khadijah": {
+      "role": "Sayyidah",
+      "meta": "Title: Ummul Mukminin, At-Thahirah\nEra/Setting: Mecca, 6th–7th century CE"
+    },
+    "Waraqah bin Naufal": {
+      "role": "Christian Scholar",
+      "meta": "Cousin of Khadijah\nEra/Setting: Mecca, early 7th century CE"
+    },
+    "Abu Bakar Asshiddiq": {
+      "role": "Sayyidina",
+      "meta": "Birth name: Abdullah bin Abi Quhafah\nTitle: Ash-Shiddiq, Al-Atiq\nEra/Setting: Mecca and Medina, 7th century CE"
+    },
+    "Ali bin Abi Thalib": {
+      "role": "Sayyidina",
+      "meta": "Title: Asadullah (Lion of God), Gate of Knowledge, Amirul Mukminin\nEra/Setting: 7th century Arabia (Mecca & Medina)"
+    },
+    "Hamzah bin Abdul Muthalib": {
+      "role": "Uncle of the Prophet ﷺ",
+      "meta": "Title: Asadullah, Sayyidusy Syuhada\nEra/Setting: Mecca and Medina, 6th–7th century CE"
+    },
+    "Bilal bin Rabah": {
+      "role": "First Muezzin",
+      "meta": "Title: Muezzin of the Messenger of Allah ﷺ\nEra/Setting: Mecca, Medina, Syam, 7th century CE"
+    },
+    "Abu Jahal": {
+      "role": "Quraysh Leader",
+      "meta": "Birth name: Amr bin Hisyam\nEra/Setting: Mecca, until 624 CE"
+    },
+    "Abu Lahab": {
+      "role": "Opponent of Islam",
+      "meta": "Birth name: Abdul Uzza bin Abdul Muthalib\nEra/Setting: Mecca, until 2 AH (624 CE)"
+    },
+    "Umar bin Khattab": {
+      "role": "Sayyidina",
+      "meta": "Title: Al-Faruq, Amirul Mukminin\nEra/Setting: Mecca and Medina, 7th century CE"
+    },
+    "Utsman bin Affan": {
+      "role": "Sayyidina",
+      "meta": "Title: Dzun Nurain (Possessor of Two Lights)\nEra/Setting: Mecca, Abyssinia, Medina, 7th century CE"
+    },
+    "Aisyah binti Abu Bakar": {
+      "role": "Sayyidah",
+      "meta": "Title: Ummul Mukminin, Ash-Shiddiqah\nEra/Setting: Mecca and Medina, 7th century CE"
+    },
+    "Khalid bin Walid": {
+      "role": "Sword of Allah",
+      "meta": "Title: Saifullah al-Maslul\nEra/Setting: Mecca, Medina, Syam, Iraq, 7th century CE"
+    },
+    "Abu Ubaidah bin al-Jarrah": {
+      "role": "Trustee of the Ummah",
+      "meta": "Birth name: Amir bin Abdullah bin al-Jarrah\nTitle: Amin hadzihil Ummah\nEra/Setting: Mecca, Medina, Syam, 7th century CE"
+    },
+    "Sa’ad bin Abi Waqqash": {
+      "role": "Conqueror of Persia",
+      "meta": "Title: Mustajabud Da'wah\nEra/Setting: Mecca, Medina, Iraq, 7th century CE"
+    },
+    "Amr bin Ash": {
+      "role": "Conqueror of Egypt",
+      "meta": "Title: Fatih Misr\nEra/Setting: Mecca, Medina, Egypt, 7th century CE"
+    },
+    "Hasan bin Ali": {
+      "role": "Grandson of the Prophet & 5th Caliph",
+      "meta": "Full name: Hasan bin Ali bin Abi Thalib\nTitle: Al-Mujtaba\nEra/Setting: Medina and Kufah, 7th century CE"
+    },
+    "Husain bin Ali": {
+      "role": "Grandson of the Prophet & Martyr of Karbala",
+      "meta": "Full name: Husain bin Ali bin Abi Thalib\nTitle: Sayyid Syuhada\nEra/Setting: Medina, Mecca, Karbala, 7th century CE"
+    },
+    "Mu’awiyah bin Abi Sufyan": {
+      "role": "Founder of the Umayyad Caliphate",
+      "meta": "Title: Katib al-Wahy (Scribe of Revelation)\nEra/Setting: Mecca, Medina, Damascus, 602–680 CE"
+    },
+    "Yazid bin Mu’awiyah": {
+      "role": "Second Umayyad Caliph",
+      "meta": "Full name: Yazid bin Mu'awiyah bin Abi Sufyan\nEra/Setting: Damascus, 647–683 CE"
+    },
+    "Abdullah bin az-Zubair": {
+      "role": "Companion & Caliph in Mecca",
+      "meta": "Full name: Abdullah bin az-Zubair bin al-Awwam\nEra/Setting: Medina and Mecca, 624–692 CE"
+    },
+    "Marwan bin al-Hakam": {
+      "role": "Founder of the Marwanid Branch",
+      "meta": "Full name: Marwan bin al-Hakam bin Abi al-Ash\nEra/Setting: Mecca, Medina, Damascus, 623–685 CE"
+    },
+    "Abdul Malik bin Marwan": {
+      "role": "Architect of Umayyad Consolidation",
+      "meta": "Title: Abu al-Muluk\nEra/Setting: Medina, Damascus, Jerusalem, 646–705 CE"
+    },
+    "Al-Hajjaj bin Yusuf ats-Tsaqafi": {
+      "role": "Governor of Iraq & Administrator",
+      "meta": "Full name: Al-Hajjaj bin Yusuf ats-Tsaqafi\nEra/Setting: Taif, Mecca, Wasit, 661–714 CE"
+    },
+    "Al-Walid bin Abdul Malik": {
+      "role": "Caliph of Expansion & Architecture",
+      "meta": "Title: Al-Walid I\nEra/Setting: Damascus, 668–715 CE"
+    },
+    "Thariq bin Ziyad": {
+      "role": "Conqueror of Al-Andalus",
+      "meta": "Title: Fatih al-Andalus\nEra/Setting: Maghrib and Iberian Peninsula, d. 720 CE"
+    },
+    "Musa bin Nushair": {
+      "role": "Governor of Ifriqiya & Iberia",
+      "meta": "Full name: Musa bin Nushair al-Lakhmi\nEra/Setting: Kairouan, Morocco, Spain, 640–716 CE"
+    },
+    "Muhammad bin Qasim ats-Tsaqafi": {
+      "role": "Conqueror of the Indus Valley",
+      "meta": "Full name: Muhammad bin Qasim ats-Tsaqafi\nEra/Setting: Basra, Makran, Sindh, 695–715 CE"
+    },
+    "Qutaibah bin Muslim al-Bahili": {
+      "role": "Conqueror of Transoxiana",
+      "meta": "Full name: Qutaibah bin Muslim al-Bahili\nEra/Setting: Khorasan, Merv, Transoxiana, 669–715 CE"
+    },
+    "Sulaiman bin Abdul Malik": {
+      "role": "Initiator of the Constantinople Campaign",
+      "meta": "Full name: Sulaiman bin Abdul Malik bin Marwan\nEra/Setting: Ramla and Damascus, 674–717 CE"
+    },
+    "Maslamah bin Abdul Malik": {
+      "role": "Commander at Constantinople",
+      "meta": "Full name: Maslamah bin Abdul Malik bin Marwan\nEra/Setting: Damascus, Anatolia, Constantinople, d. 738 CE"
+    },
+    "Umar bin Abdul Aziz": {
+      "role": "Just Caliph & Renewer",
+      "meta": "Title: Fifth Rightly Guided Caliph, Umar II\nEra/Setting: Medina, Cairo, Damascus, 682–720 CE"
+    },
+    "Hisyam bin Abdul Malik": {
+      "role": "Fiscal & Bureaucratic Reformer",
+      "meta": "Title: Abu al-Walid\nEra/Setting: Damascus and Rusafah, 691–743 CE"
+    },
+    "Abdurrahman al-Ghafiqi": {
+      "role": "Commander at the Battle of Tours",
+      "meta": "Title: Martyr of Balath asy-Syuhada\nEra/Setting: Al-Andalus and France, d. 732 CE"
+    },
+    "Marwan bin Muhammad": {
+      "role": "Last Umayyad Caliph in Damascus",
+      "meta": "Title: Marwan II\nEra/Setting: Armenia, Harran, Egypt, 691–750 CE"
+    },
+    "Abdurrahman ad-Dakhil": {
+      "role": "Founder of Umayyad Cordoba",
+      "meta": "Title: Saqr Quraysh (Falcon of Quraysh), Abdurrahman I\nEra/Setting: Damascus, Maghrib, Cordoba, 731–788 CE"
+    }
+  }
+}

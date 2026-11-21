@@ -1,27 +1,27 @@
 <!doctype html>
-<!-- ALFA | History of Islam: index.html v1.6.2 -->
+<!-- ALFA | History of Islam: index.html v1.7.0 -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ALFA | History of Islam — Peta Interaktif &amp; Kronologi Sejarah</title>
+<title>ALFA | History of Islam — Interactive World Map &amp; Timeline</title>
 <link rel="canonical" href="https://alfahistory.web.id/">
-<meta name="keywords" content="sejarah islam, peta sejarah islam, kronologi islam, sirah nabawiyah, khulafaur rasyidin, alfahistory">
+<meta name="keywords" content="sejarah islam, peta sejarah islam, kronologi islam, sirah nabawiyah, khulafaur rasyidin, alfahistory, islamic history map">
 <meta name="robots" content="index, follow">
 
 <!-- Open Graph / Social (Open SEO) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://alfahistory.web.id/">
 <meta property="og:site_name" content="ALFA | History of Islam">
-<meta property="og:title" content="ALFA | History of Islam — Peta Interaktif &amp; Kronologi Sejarah">
-<meta property="og:description" content="Jelajahi sejarah peradaban Islam melalui peta dunia interaktif lintas era, kronologi peristiwa, dan profil tokoh sejarah Islam.">
+<meta property="og:title" content="ALFA | History of Islam — Interactive World Map &amp; Timeline">
+<meta property="og:description" content="Jelajahi sejarah peradaban Islam melalui peta dunia interaktif lintas era, linimasa peristiwa, dan profil tokoh sejarah Islam.">
 <meta property="og:image" content="https://alfahistory.web.id/assets/world_overview.webp">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="https://alfahistory.web.id/">
 <meta name="twitter:title" content="ALFA | History of Islam">
-<meta name="twitter:description" content="Jelajahi sejarah peradaban Islam melalui peta dunia interaktif lintas era, kronologi peristiwa, dan profil tokoh sejarah Islam.">
+<meta name="twitter:description" content="Jelajahi sejarah peradaban Islam melalui peta dunia interaktif lintas era, linimasa peristiwa, dan profil tokoh sejarah Islam.">
 <meta name="twitter:image" content="https://alfahistory.web.id/assets/world_overview.webp">
 
 <!-- JSON-LD Structured Data (Open SEO) -->
@@ -34,8 +34,8 @@
       "@id": "https://alfahistory.web.id/#website",
       "url": "https://alfahistory.web.id/",
       "name": "ALFA - History of Islam",
-      "description": "Platform edukasi sejarah peradaban Islam interaktif berbasis peta dunia lintas era, kronologi, dan tokoh penting.",
-      "inLanguage": ["id", "en"]
+      "description": "Platform edukasi sejarah peradaban Islam interaktif berbasis peta dunia lintas era, timeline, dan tokoh penting.",
+      "inLanguage": ["en", "id"]
     },
     {
       "@type": "EducationalOrganization",
@@ -68,16 +68,21 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--g);outline-offset:3px}
 
-/* HEADER */
-header{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:var(--bg);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px clamp(16px,3vw,56px);border-bottom:1px solid rgba(110,92,54,.3)}
-.logo{display:flex;align-items:center;gap:12px;font:800 clamp(1.4rem,2.8vw,2rem)/1 Cinzel,serif;text-decoration:none;color:#fff;letter-spacing:.04em}
-.logo small{font:400 .76rem/1.2 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0}
+/* HEADER (Clean Borderless Nav + Active Section Indicator + Language Switcher) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:rgba(24,24,24,.96);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px clamp(16px,3vw,56px);border-bottom:1px solid rgba(110,92,54,.3)}
+.logo{display:flex;align-items:center;gap:12px;font:800 clamp(1.35rem,2.6vw,1.95rem)/1 Cinzel,serif;text-decoration:none;color:#fff;letter-spacing:.04em}
+.logo small{font:400 .74rem/1.2 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0}
 .h-mid{display:flex;align-items:center;justify-content:center}
-.h-num{font:700 1.25rem/1 Cinzel,serif;color:var(--g);letter-spacing:.26em;text-shadow:0 0 10px rgba(196,163,90,.35)}
-nav{display:flex;gap:10px;align-items:center}
-nav a{font:700 .86rem Cinzel,serif;padding:7px clamp(12px,1.6vw,20px);border:1px solid var(--g);color:var(--g);text-decoration:none;display:flex;align-items:center;transition:all .2s;letter-spacing:.03em}
-nav a:hover{background:var(--g);color:var(--bg)}
-nav a.yt{background:#c00;border-color:#c00;color:#fff;padding:6px 12px}
+.h-num{font:700 1.2rem/1 Cinzel,serif;color:var(--g);letter-spacing:.26em;text-shadow:0 0 10px rgba(196,163,90,.35)}
+nav{display:flex;gap:clamp(10px,1.6vw,22px);align-items:center}
+.lang-btn{background:none;border:1px solid var(--g2);color:var(--g);font:700 .78rem/1 Cinzel,serif;padding:6px 10px;cursor:pointer;letter-spacing:.06em;transition:all .2s;text-transform:uppercase}
+.lang-btn:hover{border-color:var(--g);background:rgba(196,163,90,.12)}
+nav a.nav-link{position:relative;font:700 .86rem/1.2 Cinzel,serif;padding:8px 2px;border:0;color:var(--mut);text-decoration:none;display:inline-flex;align-items:center;transition:color .2s;letter-spacing:.04em;white-space:nowrap}
+nav a.nav-link::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--g);transform:scaleX(0);transform-origin:center;transition:transform .24s cubic-bezier(.22,1,.36,1)}
+nav a.nav-link:hover{color:var(--ink)}
+nav a.nav-link.on{color:var(--g)}
+nav a.nav-link.on::after{transform:scaleX(1)}
+nav a.yt{background:#c00;border:1px solid #c00;color:#fff;padding:6px 10px;display:inline-flex;align-items:center;text-decoration:none;transition:background .2s}
 nav a.yt:hover{background:#e00;border-color:#e00}
 
 /* UNIFIED HERO WORLD MAP (LEAFLET + SMOOTH ERA SLIDER) */
@@ -137,6 +142,21 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 .tl-readout{text-align:right;min-width:155px}
 .tl-yr{display:block;font:800 1.05rem/1.15 Cinzel,serif;color:var(--g);letter-spacing:.03em}
 .tl-hij{display:block;font:400 .76rem/1.2 Bitter,serif;color:var(--mut);margin-top:2px}
+
+/* BOTTOM ERA BAR (with scroll arrows) */
+.w-era-wrap{position:relative;display:flex;align-items:stretch;background:#191919}
+.w-era-ar{flex:none;width:30px;background:#191919;border:0;border-right:1px solid #282828;color:var(--g);cursor:pointer;display:grid;place-items:center;font:700 1rem/1 Bitter,serif}
+.w-era-ar.r{border-right:0;border-left:1px solid #282828}
+.w-era-ar:hover{background:#24211b}
+.w-era-bar{display:flex;overflow-x:auto;scrollbar-width:none;background:#191919;width:100%}
+.w-era-bar::-webkit-scrollbar{display:none}
+.w-eb{flex:1 0 auto;min-width:96px;background:none;border:0;border-right:1px solid #282828;padding:11px 10px;font:700 .72rem/1.2 Cinzel,serif;color:var(--mut);cursor:pointer;text-align:center;position:relative;transition:all .2s;text-transform:uppercase;white-space:nowrap;letter-spacing:.02em}
+.w-eb::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--ec,#c4a35a);opacity:.5}
+.w-eb:hover{color:var(--ink);background:#222}
+.w-eb:hover::before{opacity:1}
+.w-eb.on{background:#262218;color:var(--g);font-weight:800}
+.w-eb.on::before{opacity:1;height:4px;background:var(--g)}
+
 /* UNIFIED FLOATING DETAIL POPUP (PLACE + COUNTRY) */
 .pcs{position:relative;aspect-ratio:16/9;background:#111;border:1px solid var(--g2);margin-bottom:4px;overflow:hidden}
 .pcs[hidden]{display:none}
@@ -158,7 +178,7 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .hd a:hover{border-color:var(--g)}
 .m{color:var(--mut);font-size:.92rem}
 
-/* CHRONOLOGY */
+/* TIMELINE (CHRONOLOGY REVISED TO MATCH FIGCRAFT v1.7.0) */
 .k-arrows{display:flex;gap:6px}
 .k-ar{width:36px;height:36px;background:none;border:1px solid var(--g2);color:var(--g);font:700 1.3rem/1 Bitter,serif;cursor:pointer;display:grid;place-items:center;transition:all .2s}
 .k-ar:hover{background:var(--g);color:var(--bg);border-color:var(--g)}
@@ -176,8 +196,8 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .kr-sub{margin-top:16px;background:var(--p);border:1px solid var(--border);padding:20px 24px}
 .kt{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:14px}
 .kb{display:flex;gap:8px;align-items:center;flex-wrap:wrap;color:var(--mut)}
-.kc{background:none;border:1px solid var(--g2);color:var(--ink);padding:4px 12px;cursor:pointer;font:inherit;font-size:.85rem}
-.kc.on{background:var(--g);color:var(--bg);border-color:var(--g);font-weight:700}
+.kc{background:none;border:1px solid var(--g2);color:var(--ink);padding:5px 12px;cursor:pointer;font:700 .78rem Cinzel,serif;text-transform:uppercase;letter-spacing:.04em}
+.kc.on{background:var(--g);color:var(--bg);border-color:var(--g);font-weight:800}
 .kzb{display:flex;gap:6px}
 .kz{width:32px;height:32px;background:var(--bg);border:1px solid var(--g);color:var(--g);font:700 1.1rem/1 Bitter,serif;cursor:pointer}
 .kz:hover{background:var(--g);color:var(--bg)}
@@ -191,23 +211,29 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .dm::after{content:"";position:absolute;inset:12px;transform:rotate(45deg);background:var(--g2)}
 .k1 li.on .dm::after{inset:9px;background:var(--g)}
 .k1 li.on button{color:var(--g);font-weight:700}
-.k1 li b{font:700 1.05rem Arvo,serif}.kt1{font-size:.92rem;line-height:1.35}.k1 li small{color:var(--mut);font-size:.78rem;line-height:1.35}
-.kv{display:grid;gap:12px;margin-top:16px;max-width:900px}
-.kev{background:var(--bg);border:1px solid var(--border);padding:16px 20px}
-.kev h3{font:700 1.15rem Arvo,Bitter,serif;color:var(--g)}.kev small{color:var(--mut)}.kev p{margin:6px 0;font-size:.95rem}
-.kcc{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.kcc span{border:1px solid var(--g2);padding:1px 10px;font-size:.78rem}
-.go{margin-top:8px;background:none;border:1px solid var(--g);color:var(--g);padding:5px 14px;cursor:pointer;font-weight:700;display:inline-block;text-decoration:none}
-.go:hover{background:var(--g);color:var(--bg)}
+.k1 li b{font:700 1.02rem Arvo,serif}.kt1{font-size:.9rem;line-height:1.35}.k1 li small{color:var(--mut);font-size:.76rem;line-height:1.35}
 
-/* BOTTOM ERA BAR (100% FULL WIDTH) */
-.w-era-bar{display:flex;overflow-x:auto;scrollbar-width:none;background:#191919;width:100%}
-.w-era-bar::-webkit-scrollbar{display:none}
-.w-eb{flex:1 0 auto;min-width:96px;background:none;border:0;border-right:1px solid #282828;padding:11px 10px;font:700 .72rem/1.2 Cinzel,serif;color:var(--mut);cursor:pointer;text-align:center;position:relative;transition:all .2s;text-transform:uppercase;white-space:nowrap;letter-spacing:.02em}
-.w-eb::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--ec,#c4a35a);opacity:.5}
-.w-eb:hover{color:var(--ink);background:#222}
-.w-eb:hover::before{opacity:1}
-.w-eb.on{background:#262218;color:var(--g);font-weight:800}
-.w-eb.on::before{opacity:1;height:4px;background:var(--g)}
+/* 2-Column Rich Event Cards (with Banner + Dynamic Char/Place Count + Dynamic Reading Time) */
+.kv{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px}
+.kev{background:var(--bg);border:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;cursor:pointer;transition:border-color .24s cubic-bezier(.22,1,.36,1),transform .24s cubic-bezier(.22,1,.36,1),box-shadow .24s ease}
+.kev:hover{border-color:var(--g);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.55),0 0 0 1px var(--g)}
+.kev:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+.kev-banner{position:relative;aspect-ratio:16/7.5;background:linear-gradient(135deg,#2a2418,#1a1712);overflow:hidden;border-bottom:1px solid var(--border)}
+.kev-banner img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.kev:hover .kev-banner img{transform:scale(1.03)}
+.kev-banner::after{content:"";position:absolute;inset:auto 0 0;height:44%;background:linear-gradient(transparent,rgba(24,24,24,.75));pointer-events:none}
+.kev-body{padding:16px 20px 18px;display:flex;flex-direction:column;flex:1;gap:6px}
+.kev h3{font:700 1.25rem/1.25 Arvo,Bitter,serif;color:#fff;transition:color .2s ease}
+.kev:hover h3{color:var(--g)}
+.kev small.kev-yr{color:var(--g);font:700 .84rem Arvo,serif}
+.kev p{margin:4px 0 8px;font-size:.9rem;color:var(--mut);line-height:1.5;flex:1}
+.kev-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding-top:10px;border-top:1px solid #2a241a;margin-top:auto}
+.kev-counts{font-size:.78rem;color:var(--mut);font-style:italic}
+.kev-actions{display:flex;gap:8px;align-items:center}
+.go{background:none;border:1px solid var(--g);color:var(--g);padding:5px 12px;cursor:pointer;font:700 .74rem Cinzel,serif;letter-spacing:.05em;display:inline-block;text-decoration:none;text-transform:uppercase;transition:all .2s}
+.go:hover{background:var(--g);color:var(--bg)}
+.go.sub{border-color:var(--g2);color:var(--mut);position:relative;z-index:2}
+.go.sub:hover{border-color:var(--g);color:var(--g);background:rgba(196,163,90,.12)}
 
 /* FLOATING POPUP OVER UNIFIED MAP */
 .w-popup{position:absolute;top:16px;right:16px;width:min(420px,calc(100% - 32px));max-height:calc(100% - 32px);background:rgba(22,20,17,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--g2);box-shadow:0 14px 44px rgba(0,0,0,.78);padding:22px 22px 20px;overflow-y:auto;z-index:840;display:flex;flex-direction:column;gap:12px;animation:wPopIn .2s ease}
@@ -233,7 +259,7 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .w-chip:hover{border-color:var(--g);color:var(--g)}
 .w-pop-empty{color:var(--mut);font-size:.88rem;line-height:1.5;margin-top:4px}
 
-/* CHARACTERS (CLAUDE / V1.4.0 RESTORED) */
+/* CHARACTERS */
 .ct-bar{display:grid;grid-template-columns:1.4fr repeat(4,minmax(120px,1fr));gap:10px;margin-top:16px;align-items:end}
 .ct-search{position:relative}
 .ct-search input{width:100%;background:var(--bg);color:var(--ink);border:1px solid var(--border);padding:10px 14px;font:inherit;font-size:.9rem}
@@ -247,18 +273,17 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .ar{position:absolute;top:50%;width:44px;height:64px;margin-top:-32px;background:none;border:0;cursor:pointer;z-index:2;display:grid;place-items:center}
 .ar::before{content:"";width:20px;height:20px;border:solid #e4cf9f;border-width:0 0 3px 3px;transform:rotate(45deg)}
 .ar.l{left:0}.ar.r{right:0}.ar.r::before{transform:rotate(-135deg)}
-
-/* CLAUDE V1.4.0 ZIGZAG CHARACTER CARD & HOVER EFFECT (RESTORED EXACTLY) */
-.sc{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:12px 56px 48px}
+.sc{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:12px 56px 64px;align-items:flex-start}
 .sc::-webkit-scrollbar{display:none}
-.cc{flex:none;width:clamp(180px,15vw,287px);aspect-ratio:287/787;scroll-snap-align:start;border:0;padding:0;background:none;cursor:pointer;position:relative;transition:transform .25s,filter .3s,box-shadow .3s}
-.cc:nth-child(odd){margin-top:clamp(30px,3.9vw,74px)}
+.cc{flex:none;width:clamp(180px,15vw,287px);aspect-ratio:287/787;scroll-snap-align:start;border:0;padding:0;background:none;cursor:pointer;position:relative;transition:transform .28s cubic-bezier(.22,1,.36,1),filter .3s ease,box-shadow .3s ease}
+.cc:nth-child(odd){margin-top:0}
+.cc:nth-child(even){margin-top:clamp(44px,5.2vw,88px)}
 .cc img{width:100%;height:100%;object-fit:cover;display:block}
 .cc.ph{background:linear-gradient(160deg,#2a2418,#3b3120);border:1px solid var(--g2);display:grid;place-items:center}
 .cc.ph::before{content:"◆";font-size:3rem;color:var(--g2)}
-.lb{position:absolute;inset:auto 0 0;padding:110px 8px 16px;background:linear-gradient(to bottom,rgba(24,24,24,0),rgba(24,24,24,.6) 45%,rgba(24,24,24,.96));display:grid;gap:2px;text-align:center;pointer-events:none}
-.lb small{font-size:.85rem;color:#e9dfc9}
-.lb b{font:700 1.02rem/1.25 Arvo,Bitter,serif;color:#fff;text-wrap:balance}
+.lb{position:absolute;inset:auto 0 0;padding:120px 10px 18px;background:linear-gradient(to bottom,rgba(18,17,14,0) 0%,rgba(18,17,14,.55) 42%,rgba(18,17,14,.96) 100%);display:grid;gap:3px;text-align:center;pointer-events:none}
+.lb small{font:600 .82rem Cinzel,Bitter,serif;color:var(--g);text-transform:uppercase;letter-spacing:.04em;line-height:1.2}
+.lb b{font:700 1.04rem/1.25 Arvo,Bitter,serif;color:#fbf6ec;text-wrap:balance}
 
 @media(hover:hover){
   #cr:has(.cc:hover) .cc:not(:hover),#cr:has(.cc:focus-visible) .cc:not(:focus-visible){
@@ -291,14 +316,44 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .vd p{color:var(--mut);font-size:.88rem}
 .vd:hover h3{color:var(--g)}
 
-/* FOOTER */
-footer{border-top:1px solid var(--border);margin-top:80px;padding:48px clamp(16px,3vw,56px) 28px;background:#151515}
-.ft{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;max-width:1200px}
+/* FOOTER (4 Columns including QRIS Support) */
+footer{border-top:1px solid var(--border);margin-top:80px;padding:48px clamp(16px,3vw,56px) 32px;background:#151515}
+.ft{display:grid;grid-template-columns:1.4fr 1fr 1.15fr auto;gap:32px;max-width:1320px;align-items:start}
 .ft h4{font:800 .85rem Cinzel,serif;color:var(--g);text-transform:uppercase;margin-bottom:10px;letter-spacing:.06em}
-.ft a{display:block;color:var(--ink);text-decoration:none;margin:5px 0;opacity:.8;font-size:.9rem}.ft a:hover{color:var(--g);opacity:1}
-.ft .logo{margin:0 0 10px}
-.ft p{color:var(--mut);font-size:.86rem;max-width:34ch}
-.cp{margin-top:36px;padding-top:16px;border-top:1px solid #252525;color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.ft a:not(.logo){display:block;color:var(--ink);text-decoration:none;margin:6px 0;opacity:.82;font-size:.9rem;transition:color .2s,opacity .2s}
+.ft a:not(.logo):hover{color:var(--g);opacity:1}
+.ft .logo{display:inline-flex;align-items:center;gap:12px;font:800 1.65rem/1 Cinzel,serif;color:#fff;text-decoration:none;margin:0 0 14px;letter-spacing:.04em;opacity:1;transition:color .2s}
+.ft .logo:hover{color:var(--g)}
+.ft .logo small{display:block;font:400 .76rem/1.25 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0;text-align:left}
+.ft p{color:var(--mut);font-size:.86rem;max-width:34ch;line-height:1.55}
+.ft-qris{background:#FAF6EE;border:2px solid var(--g2);padding:6px;width:112px;height:112px;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,transform .2s}
+.ft-qris:hover{border-color:var(--g);transform:translateY(-2px)}
+.ft-qris img{width:100%;height:100%;object-fit:contain;display:block}
+.ft-qris-cap{font-size:.72rem;color:var(--mut);margin-top:6px;max-width:120px;line-height:1.3}
+.cp{margin-top:36px;padding-top:16px;border-top:1px solid #252525;color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:16px}
+
+/* FLOATING BOTTOM-LEFT SUPPORT / QRIS OVERLAY */
+.sup-dock{position:fixed;left:16px;bottom:16px;z-index:920;display:flex;align-items:center;gap:10px;background:rgba(20,18,15,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--g2);padding:8px 12px;box-shadow:0 10px 30px rgba(0,0,0,.65);opacity:0;transform:translateY(14px);pointer-events:none;transition:transform .25s ease,opacity .25s ease,border-color .2s}
+.sup-dock.vis{opacity:1;transform:none;pointer-events:auto}
+.sup-dock[hidden]{display:none}
+.sup-dock:hover{border-color:var(--g)}
+.sup-open{display:flex;align-items:center;gap:10px;background:none;border:0;padding:0;cursor:pointer;text-align:left}
+.sup-qr-mini{width:34px;height:34px;background:#FAF6EE;padding:2px;border:1px solid var(--g2);flex:none}
+.sup-qr-mini img{width:100%;height:100%;object-fit:contain;display:block}
+.sup-txt b{display:block;font:700 .78rem/1.2 Cinzel,serif;color:var(--g);letter-spacing:.04em}
+.sup-txt span{display:block;font-size:.72rem;color:var(--mut);line-height:1.25}
+.sup-x{background:none;border:0;color:var(--mut);font-size:1.15rem;line-height:1;cursor:pointer;padding:2px 4px;margin-left:2px}
+.sup-x:hover{color:#fff}
+
+/* QRIS MODAL */
+#qrisDlg{width:min(380px,calc(100vw - 32px));padding:24px;text-align:center}
+#qrisDlg .qris-frame{background:#FAF6EE;padding:12px;border:2px solid var(--g);margin:14px auto;max-width:240px}
+#qrisDlg .qris-frame img{width:100%;height:auto;display:block}
+#qrisDlg h3{font:800 1.15rem Cinzel,serif;color:var(--g);text-transform:uppercase}
+#qrisDlg p{font-size:.86rem;color:var(--mut);line-height:1.45;margin-top:6px}
+#qrisDlg .qx{position:absolute;right:10px;top:8px;background:none;border:0;font-size:1.6rem;color:var(--mut);cursor:pointer}
+#qrisDlg .qx:hover{color:#fff}
+#qrisDlg .qlink{display:inline-block;margin-top:12px;background:var(--g);color:var(--bg);padding:8px 18px;font:700 .8rem Cinzel,serif;text-decoration:none;text-transform:uppercase}
 
 /* DIALOG & POPUP */
 dialog{margin:auto;border:1px solid var(--g);background:var(--p);color:var(--ink);padding:0;width:min(860px,calc(100vw - 32px));max-height:calc(100svh - 32px);overflow:auto}
@@ -319,7 +374,8 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 @media(max-width:980px){
   .h-mid{display:none}
   .ct-bar{grid-template-columns:1fr 1fr}
-  .ft{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr}
+  .ft{grid-template-columns:1fr 1fr}
   .tl-ctrl{grid-template-columns:1fr;gap:8px;padding-block:10px}
   .tl-readout{text-align:left;display:flex;justify-content:space-between;align-items:baseline;order:-1}
   .tl-marks{position:static;height:auto;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin-top:4px;padding-top:6px;border-top:1px dashed rgba(110,92,54,.3)}
@@ -331,12 +387,13 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   header{gap:6px;padding:10px 10px}
   .logo{font-size:1.18rem;gap:6px;flex:none}
   .logo small{display:none}
-  nav{gap:4px;min-width:0;overflow-x:auto;scrollbar-width:none}
+  nav{gap:8px;min-width:0;overflow-x:auto;scrollbar-width:none}
   nav::-webkit-scrollbar{display:none}
-  nav a{font-size:.66rem;padding:4px 7px;white-space:nowrap}
+  nav a.nav-link{font-size:.7rem;padding:6px 1px}
+  .lang-btn{font-size:.66rem;padding:4px 7px}
   nav a.yt{padding:4px 7px}
   nav a.yt svg{width:16px;height:12px}
-  .ct-bar{grid-template-columns:1fr}
+  .ct-bar,.ft{grid-template-columns:1fr}
   .sc{padding-inline:28px}
   #map{height:clamp(380px,56svh,520px);min-height:380px}
   .mt{top:10px;left:auto;right:10px;transform:none;max-width:calc(100% - 66px);justify-content:flex-end}
@@ -347,6 +404,7 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   .hint{display:none}
   .dg{grid-template-columns:1fr}.dg img{max-height:44svh}
   .w-popup{width:calc(100% - 20px);top:10px;right:10px;max-height:calc(100% - 20px);padding:18px 16px}
+  .sup-dock{left:10px;bottom:10px;padding:6px 10px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}#worldSvg path{transition:none!important}}
 </style>
@@ -354,13 +412,14 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 <body>
 
 <header>
-<div id="scroll-progress" style="position:absolute;left:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--g),#f3ead8);width:0%;transition:width .05s linear;z-index:30;pointer-events:none"></div>
+  <div id="scroll-progress" style="position:absolute;left:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--g),#f3ead8);width:0%;transition:width .05s linear;z-index:30;pointer-events:none"></div>
   <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
   <div class="h-mid"><span class="h-num">1✦✦✦</span></div>
   <nav>
-    <a href="#places">World Map</a>
-    <a href="#chronology">Chronology</a>
-    <a href="#characters">Characters</a>
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
+    <a class="nav-link on" href="#places" data-sec="places" data-i18n="navMap">World Map</a>
+    <a class="nav-link" href="#chronology" data-sec="chronology" data-i18n="navTimeline">Timeline</a>
+    <a class="nav-link" href="#characters" data-sec="characters" data-i18n="navCharacters">Characters</a>
     <a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube">
       <svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg>
     </a>
@@ -380,12 +439,12 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
       </div>
       <div id="mt" class="mt" aria-label="Map view presets"></div>
       <div class="map-hud" id="mapHud">
-        <h1>Atlas Sejarah Dunia Islam</h1>
+        <h1 id="hudKicker">Atlas of Islamic History</h1>
         <div class="hud-title" id="hudTitle">All Eras (570–2025 CE)</div>
-        <p class="hud-desc" id="hudDesc">Geser linimasa atau pilih era untuk melihat pergeseran wilayah peradaban Islam. Klik negara atau pin kota untuk detail sejarah.</p>
+        <p class="hud-desc" id="hudDesc"></p>
         <div class="hud-polities" id="hudPolities"></div>
       </div>
-      <div class="hint">Ctrl + scroll or pinch to zoom, drag to pan, click country or pin for details</div>
+      <div class="hint" id="mapHint"></div>
 
       <!-- Unified Floating Detail Popup (Place Pin or Country Region) -->
       <aside class="w-popup" id="wPopup" hidden>
@@ -404,17 +463,17 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
         <div class="w-pop-stats" id="wPopStats" hidden></div>
         <p class="w-pop-desc" id="wPopDesc" hidden></p>
         <div id="wPopMore" hidden><a class="go" id="wPopMoreLink" href="#">Read full profile ›</a></div>
-        <p class="w-pop-empty" id="wPopEmpty" hidden>No historical records found for this region in the selected period.</p>
+        <p class="w-pop-empty" id="wPopEmpty" hidden></p>
         <div id="wEvSection" hidden>
-          <h4>Historical Events</h4>
+          <h4 id="wEvHead">Historical Events</h4>
           <ul class="w-ev-list" id="wEvList"></ul>
         </div>
         <div id="wFigSection" hidden>
-          <h4>Notable Figures</h4>
+          <h4 id="wFigHead">Notable Figures</h4>
           <div class="w-chips" id="wFigList"></div>
         </div>
         <div id="wPlaceSection" hidden>
-          <h4>Historic Places</h4>
+          <h4 id="wPlaceHead">Historic Places</h4>
           <div class="w-chips" id="wPlaceList"></div>
         </div>
       </aside>
@@ -436,14 +495,18 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
           <span class="tl-hij" id="tlHij">570–2025 CE · Cumulative View</span>
         </div>
       </div>
-      <div class="w-era-bar" id="wEraBar"></div>
+      <div class="w-era-wrap">
+        <button class="w-era-ar l" id="eraPrev" type="button" aria-label="Scroll eras left">‹</button>
+        <div class="w-era-bar" id="wEraBar"></div>
+        <button class="w-era-ar r" id="eraNext" type="button" aria-label="Scroll eras right">›</button>
+      </div>
     </div>
   </div>
 
-  <!-- CHRONOLOGY -->
+  <!-- TIMELINE (CHRONOLOGY REVISED) -->
   <section id="chronology">
     <div class="hd">
-      <h2>Chronology</h2>
+      <h2 id="tlHeading">TIMELINE</h2>
       <div class="k-arrows">
         <button class="k-ar l" id="kPrev" aria-label="Previous">‹</button>
         <button class="k-ar r" id="kNext" aria-label="Next">›</button>
@@ -454,43 +517,43 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 
   <!-- CHARACTERS -->
   <section id="characters">
-    <h2>Characters</h2>
+    <h2 id="chHeading">CHARACTERS</h2>
     <div class="ct-bar" id="ctBar">
       <div class="ct-search">
         <input type="search" id="chSearch" placeholder="Search figures, titles, clans, events, locations..." autocomplete="off">
       </div>
       <div class="ct-fg">
-        <label>Religion</label>
+        <label id="lblFaith">Religion</label>
         <select id="chFaith">
-          <option value="">All</option>
+          <option value="" data-i18n="optAll">All</option>
           <option value="Islam">Islam</option>
-          <option value="Nasrani">Christian</option>
+          <option value="Nasrani">Christian / Nasrani</option>
           <option value="Jahiliyah (Quraisy)">Quraysh Polytheist</option>
           <option value="Majusi">Zoroastrian</option>
           <option value="Yahudi">Jewish</option>
         </select>
       </div>
       <div class="ct-fg">
-        <label>Era</label>
+        <label id="lblEra">Era</label>
         <select id="chEra">
-          <option value="">All</option>
-          <option value="Pra-Kenabian">Pre-Prophethood</option>
+          <option value="" data-i18n="optAll">All</option>
+          <option value="Pra-Kenabian">Pre-Prophethood / Pra-Kenabian</option>
           <option value="Periode Makkah">Mecca Period</option>
           <option value="Periode Madinah">Medina Period</option>
-          <option value="Khulafaur Rasyidin">Rightly Guided Caliphate</option>
+          <option value="Khulafaur Rasyidin">Khulafaur Rasyidin</option>
           <option value="Daulah Umayyah">Umayyad Caliphate</option>
         </select>
       </div>
       <div class="ct-fg">
-        <label>Filter By</label>
+        <label id="lblGroup">Filter By</label>
         <select id="chGroup">
-          <option value="">All</option>
-          <option value="Khulafaur Rasyidin">Rightly Guided Caliphs</option>
+          <option value="" data-i18n="optAll">All</option>
+          <option value="Khulafaur Rasyidin">Khulafaur Rasyidin</option>
           <option value="Khalifah Umayyah">Umayyad Caliphs</option>
-          <option value="Ummahat al-Mu’minin">Mothers of the Believers</option>
+          <option value="Ummahat al-Mu’minin">Ummahat al-Mu’minin</option>
           <option value="Sepuluh Sahabat Dijanjikan Surga">Ten Promised Paradise</option>
           <option value="Keluarga Nabi">Prophet's Family</option>
-          <option value="Panglima & Penakluk">Commanders & Conquerors</option>
+          <option value="Panglima & Penakluk">Commanders &amp; Conquerors</option>
           <option value="Sahabat">Companions</option>
           <option value="Ulama Ahli Kitab">People of the Book</option>
           <option value="Penentang Dakwah">Opponents of Islam</option>
@@ -498,12 +561,12 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
         </select>
       </div>
       <div class="ct-fg">
-        <label>Sort By</label>
+        <label id="lblSort">Sort By</label>
         <select id="chSort">
-          <option value="">Default</option>
-          <option value="nama">Name (A-Z)</option>
-          <option value="era">Era</option>
-          <option value="rank">Significance</option>
+          <option value="" data-i18n="optDefault">Default</option>
+          <option value="nama" data-i18n="optName">Name (A–Z)</option>
+          <option value="era" data-i18n="optEra">Era</option>
+          <option value="rank" data-i18n="optRank">Significance</option>
         </select>
       </div>
     </div>
@@ -518,8 +581,8 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   <!-- SHORTS -->
   <section id="shorts">
     <div class="hd">
-      <h2>Shorts</h2>
-      <a href="https://www.youtube.com/@alwan-faiq/shorts" target="_blank" rel="noopener">SEE ALL SHORTS</a>
+      <h2 id="shHeading">SHORTS</h2>
+      <a id="shSeeAll" href="https://www.youtube.com/@alfa-history/shorts" target="_blank" rel="noopener">SEE ALL SHORTS</a>
     </div>
     <div class="rail">
       <button class="ar l" aria-label="Previous"></button>
@@ -531,8 +594,8 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   <!-- VIDEOS -->
   <section id="videos" hidden>
     <div class="hd">
-      <h2>Videos</h2>
-      <a href="https://www.youtube.com/@alwan-faiq/videos" target="_blank" rel="noopener">SEE ALL VIDEOS</a>
+      <h2 id="vdHeading">VIDEOS</h2>
+      <a id="vdSeeAll" href="https://www.youtube.com/@alfa-history/videos" target="_blank" rel="noopener">SEE ALL VIDEOS</a>
     </div>
     <div class="rail vrail">
       <button class="ar l" aria-label="Previous"></button>
@@ -546,31 +609,65 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   <div class="ft">
     <div>
       <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
-      <p>Tracing the history of Islam through interactive maps, notable figures, and short stories.</p>
+      <p id="ftDesc">Tracing the history of Islam through interactive maps, notable figures, and short stories.</p>
     </div>
     <div>
-      <h4>Explore</h4>
-      <a href="#places">World Map</a>
-      <a href="#chronology">Chronology</a>
-      <a href="#characters">Characters</a>
+      <h4 id="ftExpHead">Explore</h4>
+      <a href="#places" data-i18n="navMap">World Map</a>
+      <a href="#chronology" data-i18n="navTimeline">Timeline</a>
+      <a href="#characters" data-i18n="navCharacters">Characters</a>
       <a href="#shorts">Shorts</a>
     </div>
     <div>
-      <h4>Follow</h4>
-      <a href="https://www.youtube.com/@alwan-faiq" target="_blank" rel="noopener">YouTube @alwan-faiq</a>
+      <h4 id="ftFolHead">Follow</h4>
+      <a href="https://www.youtube.com/@alfa-history" target="_blank" rel="noopener">YouTube : @alfa-history</a>
+      <a href="https://www.instagram.com/alfaahistory" target="_blank" rel="noopener">Instagram : @alfaahistory</a>
+      <a href="https://www.tiktok.com/@alfahistory" target="_blank" rel="noopener">Tiktok : @alfahistory</a>
+      <a href="https://www.threads.net/@alfaahistory" target="_blank" rel="noopener">Threads : @alfaahistory</a>
+    </div>
+    <div>
+      <h4 id="ftSupHead">Support</h4>
+      <button class="ft-qris" id="ftQrisBtn" type="button" aria-label="Open QRIS Donation">
+        <img id="ftQrisImg" src="assets/qris-support.svg" alt="QRIS Support ALFA">
+      </button>
+      <p class="ft-qris-cap" id="ftQrisCap">Scan QRIS to support research &amp; production</p>
     </div>
   </div>
   <div class="cp"><span id="yr"></span></div>
 </footer>
+
+<!-- Floating Bottom-Left Support / QRIS Overlay -->
+<aside class="sup-dock" id="supDock" hidden>
+  <button class="sup-open" id="supOpenBtn" type="button">
+    <span class="sup-qr-mini"><img id="supMiniImg" src="assets/qris-support.svg" alt="QRIS"></span>
+    <span class="sup-txt">
+      <b id="supDockTitle">Support ALFA History</b>
+      <span id="supDockSub">Support via QRIS</span>
+    </span>
+  </button>
+  <button class="sup-x" id="supDismiss" type="button" aria-label="Dismiss support overlay">×</button>
+</aside>
+
+<!-- QRIS Modal -->
+<dialog id="qrisDlg">
+  <button class="qx" id="qrisClose" type="button" aria-label="Close">×</button>
+  <h3 id="qrisTitle">Support ALFA History</h3>
+  <p id="qrisMerchant">ALFA | History of Islam</p>
+  <div class="qris-frame"><img id="qrisModalImg" src="assets/qris-support.svg" alt="QRIS Donation"></div>
+  <p id="qrisNote"></p>
+  <a class="qlink" id="qrisExtLink" href="#" target="_blank" rel="noopener" hidden>Open Donation Link</a>
+</dialog>
 
 <dialog id="pl"><button class="x" aria-label="Close">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Watch on YouTube</a></dialog>
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Close">×</button><h3></h3><small></small><p></p></div></div></dialog>
 
 <script src="assets/leaflet/leaflet.js"></script>
 <script src="config.js"></script>
+<script src="i18n.js"></script>
 <script src="track.js"></script>
 <script>
-const YT="https://www.youtube.com/@alwan-faiq",$=q=>document.querySelector(q);
+const YT="https://www.youtube.com/@alfa-history",$=q=>document.querySelector(q);
+const I=window.ALFA_I18N;
 $("#yt").href=YT;
 let PL=[],EV=[],POLITIES=[],MAPS=[{id:"world",name:"Full World",img:"assets/world_overview.webp"}],DEFS=null;
 const MAP_W=8192,MAP_H=4864,S4=16;
@@ -583,9 +680,9 @@ let LMAP=null,SVG_OV=null,WSVG=null,PIN_LAYER=null,PIN_MAP=new Map();
 let CM="world",WPOP_MODE=null,WSEL_PIN=null;
 
 const PRESETS=[
-  {id:"world",name:"Full World",bounds:[[-298,10],[ -6,502]]},
-  {id:"islam",name:"Islamic World",bounds:[[-176,222],[-72,422]]},
-  {id:"arabia",name:"Arabian Peninsula",bounds:[[-148,266],[-90,326]]}
+  {id:"world",key:"presetWorld",bounds:[[-298,10],[-6,502]]},
+  {id:"islam",key:"presetIslam",bounds:[[-176,222],[-72,422]]},
+  {id:"arabia",key:"presetArabia",bounds:[[-148,266],[-90,326]]}
 ];
 
 function initLeaflet(){
@@ -621,13 +718,10 @@ function initLeaflet(){
   const fitZ=LMAP.getZoom();
   LMAP.setMinZoom(Math.max(0.3,fitZ-0.15));
 
-  const syncZoomClass=()=>{
-    host.classList.toggle("map-zoom-high",LMAP.getZoom()>=2.7);
-  };
+  const syncZoomClass=()=>host.classList.toggle("map-zoom-high",LMAP.getZoom()>=2.7);
   LMAP.on("zoomend",syncZoomClass);
   syncZoomClass();
 
-  // Ctrl/Cmd + Scroll zooms map without trapping normal page scroll
   const mapEl=$("#map");
   mapEl.addEventListener("wheel",e=>{
     if(!(e.ctrlKey||e.metaKey))return;
@@ -666,7 +760,7 @@ function buildMT(){
   PRESETS.forEach(m=>{
     const b=document.createElement("button");
     b.type="button";
-    b.textContent=m.name;
+    b.textContent=I.t(m.key);
     b.dataset.id=m.id;
     b.className=m.id==CM?"on":"";
     b.onclick=()=>{closePopup();flyPreset(m.id)};
@@ -710,7 +804,8 @@ function buildHS(){
   PIN_LAYER.clearLayers();
   PIN_MAP.clear();
   const skip=new Set(["makkah-k","madinah-k"]);
-  PL.forEach(p=>{
+  PL.forEach(rawP=>{
+    const p=I.place(rawP);
     if(skip.has(p.id)||!Number.isFinite(p.x)||!Number.isFinite(p.y))return;
     const icon=L.divIcon({
       className:"hs-wrap",
@@ -737,40 +832,94 @@ const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=nu
 const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
 const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
 const hij=y=>y<622?"":Math.round((y-622)*1.030684+1);
-const kcn=c=>{try{return new Intl.DisplayNames(["en","id"],{type:"region"}).of(c)||c}catch(e){return c}};
-const hexA=(h,a)=>{const n=parseInt(h.slice(1),16);return"rgba("+(n>>16)+","+((n>>8)&255)+","+(n&255)+","+a.toFixed(2)+")"};
+const kcn=c=>I.countryName(c);
 
-// ---- KRONOLOGI (FIXED: Smooth selection without rail reset)
-let ERA_DEF=[],KS={era:null,year:null};
+// ---- TIMELINE (CHRONOLOGY REVISED: Default Era Open + 2-Col Banner Cards + Dynamic Counts & Read Time)
+let ERA_DEF=[],KS={era:null,year:null,inited:false};
 const normEv=e=>({...e,n:e.title,id:e.slug||e.id,uid:e.id,countries:Array.isArray(e.countries)?e.countries:[]});
 const eraOfEv=e=>ERA_DEF.find(x=>x.id==e.era)||ERA_DEF.find(x=>e.year>=x.from&&e.year<=x.to)||ERA_DEF[ERA_DEF.length-1];
 const kyr=e=>e.year+(e.year_end&&e.year_end!=e.year?"–"+e.year_end:"");
 function krYears(era){const m=new Map();EV.filter(e=>eraOfEv(e)==era).sort((a,b)=>a.year-b.year||(a.t||0)-(b.t||0)).forEach(e=>{if(!m.has(e.year))m.set(e.year,[]);m.get(e.year).push(e)});return m}
 
+// Fallbacks for event banner image & character/place counts
+const ERA_BANNER_FALLBACK={
+  pra:"assets/world_overview.webp",
+  makkah:"assets/world_overview.webp",
+  madinah:"assets/world_overview.webp",
+  khulafaur:"assets/world_overview.webp",
+  umayyah:"assets/world_overview.webp",
+  abbasiyah:"assets/world_overview.webp",
+  seljuk:"assets/world_overview.webp",
+  mamluk:"assets/world_overview.webp",
+  imperium:"assets/world_overview.webp",
+  kolonial:"assets/world_overview.webp",
+  modern:"assets/world_overview.webp"
+};
+
+function eventBannerImg(ev){
+  const sl=(Array.isArray(ev.slides)?ev.slides:[]).map(GIMG).filter(Boolean);
+  if(sl.length)return sl[0];
+  if(ev.place){
+    const pl=PL.find(p=>p.id==ev.place);
+    const psl=pl&&Array.isArray(pl.sl)?pl.sl.map(GIMG).filter(Boolean):[];
+    if(psl.length)return psl[0];
+  }
+  const era=eraOfEv(ev);
+  return (era&&ERA_BANNER_FALLBACK[era.id])||"assets/world_overview.webp";
+}
+
+function eventCounts(ev, era){
+  const cs=arr(ev.countries);
+  const txt=nz([ev.title,ev.summary,ev.body].join(" "));
+  const matchedChars=CHALL.filter(c=>{
+    const nameTok=nz(c.name||"").split(" ").filter(w=>w.length>3);
+    const mentioned=nameTok.length&&nameTok.some(w=>txt.includes(w));
+    const eraMatch=era&&arr(c.eras).includes(era.name);
+    const ctryMatch=cs.length&&arr(c.countries).some(x=>cs.includes(x));
+    return mentioned||(eraMatch&&ctryMatch);
+  });
+  const charCount=matchedChars.length||(era?Math.min(2,CHALL.filter(c=>arr(c.eras).includes(era.name)).length):0)||1;
+  const placeMatches=new Set();
+  if(ev.place)placeMatches.add(ev.place);
+  cs.forEach(c=>placeMatches.add(c));
+  const placeCount=Math.max(1,placeMatches.size);
+  return {charCount, placeCount};
+}
+
 function initKR(){
   const box=$("#kr");if(!box)return;
   box.replaceChildren();
-  if(!ERA_DEF.length||!EV.length){box.append(el("p","m","No chronology data available."));return}
+  if(!ERA_DEF.length||!EV.length){box.append(el("p","m",I.t("noChronoData")));return}
+
+  if(!KS.inited){
+    KS.inited=true;
+    KS.era=ERA_DEF[0].id;
+    const ys0=[...krYears(ERA_DEF[0]).keys()];
+    KS.year=ys0.length?ys0[0]:null;
+  }
 
   const rail=el("div","kr-rail");rail.id="krRail";
-  ERA_DEF.forEach(e=>{
-    const n=EV.filter(x=>eraOfEv(x)==e).length;
+  ERA_DEF.forEach(rawE=>{
+    const e=I.era(rawE);
+    const n=EV.filter(x=>eraOfEv(x).id==e.id).length;
     const c=el("div","kec"+(KS.era==e.id?" on":""));
     c.dataset.id=e.id;
     c.style.setProperty("--ec",e.color||"#c4a35a");
 
     const top=el("div","kec-top");
-    const mStr=e.label||(e.from+(e.to<9000?"–"+e.to:"")+" CE");
+    const mStr=e.from<600&&e.id=="pra"
+      ?(I.t("untilYear")+" "+e.to+" "+I.t("eraSuffix"))
+      :(e.from+(e.to<9000?"–"+e.to:"")+" "+I.t("eraSuffix"));
     const h1=hij(e.from),h2=e.to<9000?hij(e.to):"";
-    const hStr=(h1?(h1+(h2&&h2!=h1?"–"+h2:"")+" AH"):"");
+    const hStr=(h1?(h1+(h2&&h2!=h1?"–"+h2:"")+" "+I.t("hijriSuffix")):"");
     top.append(el("span","",mStr),el("span","",hStr));
 
     const t=el("div","kec-title",e.name);
     const d=el("div","kec-desc",e.desc||"");
-    const f=el("div","kec-foot",n+" events");
+    const f=el("div","kec-foot",I.t("eventsCount",n));
 
     c.append(top,t,d,f);
-    c.onclick=()=>toggleEra(e);
+    c.onclick=()=>toggleEra(rawE);
     rail.append(c);
   });
   box.append(rail);
@@ -786,7 +935,8 @@ function toggleEra(e){
     KS.year=null;
   } else {
     KS.era=e.id;
-    KS.year=null;
+    const ys=[...krYears(e).keys()];
+    KS.year=ys.length?ys[0]:null;
   }
   document.querySelectorAll(".kec").forEach(c=>c.classList.toggle("on",c.dataset.id==KS.era));
   renderKRSub();
@@ -801,28 +951,30 @@ function renderKRSub(){
   subBox.replaceChildren();
   if(!KS.era)return;
 
-  const era=ERA_DEF.find(e=>e.id==KS.era);if(!era)return;
+  const rawEra=ERA_DEF.find(e=>e.id==KS.era);if(!rawEra)return;
+  const era=I.era(rawEra);
   const sub=el("div","kr-sub");
   const tb=el("div","kt"),bc=el("div","kb");
-  const b0=el("button","kc","All Eras");
+  const b0=el("button","kc",I.t("allEras"));
   b0.onclick=()=>{KS.era=null;KS.year=null;document.querySelectorAll(".kec").forEach(c=>c.classList.remove("on"));renderKRSub()};
-  const bE=el("button","kc on",era.name);
+  const bE=el("button","kc"+(KS.year==null?" on":""),era.name);
   bE.onclick=()=>{KS.year=null;renderKRSub()};
   bc.append(b0,el("span","","›"),bE);
-  if(KS.year!=null){bc.append(el("span","","›"),el("button","kc on",KS.year+" CE"))}
+  if(KS.year!=null){bc.append(el("span","","›"),el("button","kc on",KS.year+" "+I.t("eraSuffix")))}
 
   const zb=el("div","kzb"),zo=el("button","kz","−"),zi=el("button","kz","+");
   zo.onclick=()=>{if(KS.year!=null){KS.year=null;renderKRSub()}else{b0.click()}};
-  zi.onclick=()=>{if(KS.year==null){const ys=[...krYears(era).keys()];if(ys.length){KS.year=ys[0];renderKRSub()}}};
+  zi.onclick=()=>{if(KS.year==null){const ys=[...krYears(rawEra).keys()];if(ys.length){KS.year=ys[0];renderKRSub()}}};
   zb.append(zo,zi);tb.append(bc,zb);sub.append(tb);
 
-  const ys=krYears(era);
+  const ys=krYears(rawEra);
   const sc=el("div","k1"),ol=el("ol");
   ys.forEach((evs,y)=>{
+    const firstEv=I.event(evs[0]);
     const li=el("li",y==KS.year?"on":"");
     const b=document.createElement("button");
-    const sm=evs.length>1?"+"+(evs.length-1)+" more":(evs[0].summary||"").slice(0,50)+((evs[0].summary||"").length>50?"…":"");
-    b.append(el("span","dm"),el("b","",y),el("span","kt1",evs[0].title),el("small","",sm));
+    const sm=evs.length>1?I.t("moreCount",evs.length-1):(firstEv.summary||"").slice(0,46)+((firstEv.summary||"").length>46?"…":"");
+    b.append(el("span","dm"),el("b","",y+" "+I.t("eraSuffix")),el("span","kt1",firstEv.title),el("small","",sm));
     b.onclick=()=>{
       KS.year=(KS.year==y?null:y);
       renderKRSub();
@@ -833,22 +985,59 @@ function renderKRSub(){
 
   if(KS.year!=null&&ys.has(KS.year)){
     const det=el("div","kv");
-    ys.get(KS.year).forEach(e=>{
+    ys.get(KS.year).forEach(rawEv=>{
+      const e=I.event(rawEv);
       const c=el("article","kev");
-      c.append(el("h3","",e.title),el("small","",kyr(e)+" CE"),el("p","",e.summary||""));
-      if(e.countries.length){
-        const cc=el("div","kcc");
-        e.countries.forEach(x=>cc.append(el("span","",kcn(x))));
-        c.append(cc);
-      }
-      const a=el("a","go","Read full article ›");
-      a.href="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
-      c.append(a);
+      const evUrl="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
+
+      // Whole card clickable to article
+      c.setAttribute("role","link");
+      c.setAttribute("tabindex","0");
+      c.setAttribute("aria-label",e.title||"");
+      c.onclick=ev=>{
+        if(ev.target.closest("button.sub")||ev.target.closest(".kev-actions button"))return;
+        location.href=evUrl;
+      };
+      c.onkeydown=ev=>{
+        if((ev.key=="Enter"||ev.key==" ")&&!ev.target.closest("button")){
+          ev.preventDefault();
+          location.href=evUrl;
+        }
+      };
+
+      // Banner image at top of event card
+      const bWrap=el("div","kev-banner");
+      const bImg=new Image();
+      bImg.src=eventBannerImg(rawEv);
+      bImg.alt=e.title||"";
+      bImg.loading="lazy";
+      bWrap.append(bImg);
+      c.append(bWrap);
+
+      const bd=el("div","kev-body");
+      bd.append(el("h3","",e.title),el("small","kev-yr",kyr(e)+" "+I.t("eraSuffix")),el("p","",e.summary||""));
+
+      const foot=el("div","kev-foot");
+      const cnt=eventCounts(rawEv,rawEra);
+      foot.append(el("span","kev-counts",`${I.t("charsCount",cnt.charCount)} | ${I.t("placesCount",cnt.placeCount)}`));
+
+      const acts=el("div","kev-actions");
       if(e.place&&PL.some(p=>p.id==e.place)){
-        const m=el("button","go","View on map");
-        m.onclick=()=>openPlace(e.place,true);
-        c.append(m);
+        const m=el("button","go sub",I.t("viewOnMap"));
+        m.type="button";
+        m.onclick=ev=>{
+          ev.stopPropagation();
+          openPlace(e.place,true);
+        };
+        acts.append(m);
       }
+      const mins=I.readingMins((e.body||"")+" "+(e.summary||""));
+      const a=el("a","go",I.t("readMins",mins));
+      a.href=evUrl;
+      acts.append(a);
+      foot.append(acts);
+      bd.append(foot);
+      c.append(bd);
       det.append(c);
     });
     sub.append(det);
@@ -931,9 +1120,7 @@ function wData(eid){
 }
 
 function closePopup(){
-  WSEL=null;
-  WSEL_PIN=null;
-  WPOP_MODE=null;
+  WSEL=null;WSEL_PIN=null;WPOP_MODE=null;
   if(WSVG)WSVG.querySelectorAll("path.sel").forEach(x=>x.classList.remove("sel"));
   document.querySelectorAll(".hs-pin.on").forEach(b=>b.classList.remove("on"));
   const pop=$("#wPopup");if(pop)pop.hidden=true;
@@ -943,7 +1130,8 @@ $("#wClose").onclick=closePopup;
 addEventListener("keydown",e=>{if(e.key=="Escape")closePopup()});
 
 let popSlideIdx=0;
-function openPlacePopup(p){
+function openPlacePopup(rawP){
+  const p=I.place(rawP);
   WPOP_MODE="place";
   const pop=$("#wPopup");if(!pop)return;
   const media=$("#wPopMedia"),img=media.querySelector("img");
@@ -965,6 +1153,7 @@ function openPlacePopup(p){
   const stats=$("#wPopStats");stats.hidden=true;
   const desc=$("#wPopDesc");desc.textContent=p.t||"";desc.hidden=!p.t;
   const more=$("#wPopMore"),link=$("#wPopMoreLink");
+  link.textContent=I.t("readFullProfile");
   link.href="detail.html?t=places&id="+encodeURIComponent(p.uid||p.id);
   more.hidden=false;
 
@@ -975,10 +1164,11 @@ function openPlacePopup(p){
   if(relEv.length){
     evSec.hidden=false;
     evList.replaceChildren();
-    relEv.forEach(e=>{
+    relEv.forEach(rawE=>{
+      const e=I.event(rawE);
       const li=el("li","w-ev-item");
-      li.append(el("b","",e.title),el("small","",kyr(e)+" CE"));
-      const a=el("a","go","Read detail ›");
+      li.append(el("b","",e.title),el("small","",kyr(e)+" "+I.t("eraSuffix")));
+      const a=el("a","go",I.t("readDetail"));
       a.href="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
       li.append(a);
       evList.append(li);
@@ -1002,17 +1192,18 @@ function openWPopup(c){
 
   const name=kcn(c);
   $("#wPopTitle").textContent=name;
-  const era=WMODE=="year"?eraAtYear(WY):(WE?ERA_DEF.find(e=>e.id==WE):null);
-  const tagText=WMODE=="year"?(WY+" CE · "+(era?era.name:"")):(era?era.name:"All Eras");
+  const rawEra=WMODE=="year"?eraAtYear(WY):(WE?ERA_DEF.find(e=>e.id==WE):null);
+  const era=rawEra?I.era(rawEra):null;
+  const tagText=WMODE=="year"?(WY+" "+I.t("eraSuffix")+" · "+(era?era.name:"")):(era?era.name:I.t("allEras"));
   $("#wPopEra").textContent=tagText;
 
   const eidFilter=era?era.id:"";
   const data=wData(eidFilter)[c]||{ev:[],ch:[],pl:[]};
-  const pols=WMODE=="year"?(politiesAtYear(WY).byCountry[c]||[]):[];
+  const pols=WMODE=="year"?(politiesAtYear(WY).byCountry[c]||[]).map(I.polity):[];
   const polNames=pols.map(p=>p.name).join(" / ");
   const stats=$("#wPopStats");
   stats.hidden=false;
-  stats.textContent=(polNames?polNames+" · ":"")+`${data.ev.length} Events · ${data.ch.length} Figures · ${data.pl.length} Historic Places`;
+  stats.textContent=(polNames?polNames+" · ":"")+`${I.t("eventsCount",data.ev.length)} · ${I.t("charsCount",data.ch.length)} · ${I.t("placesCount",data.pl.length)}`;
 
   const empty=$("#wPopEmpty");
   const evSec=$("#wEvSection"),evList=$("#wEvList");
@@ -1022,18 +1213,19 @@ function openWPopup(c){
   if(!data.ev.length&&!data.ch.length&&!data.pl.length){
     empty.hidden=false;
     empty.textContent=polNames
-      ?`Wilayah ${polNames} pada tahun ${WY} M (${era?era.name:""}).`
-      :"No historical records found for this region in "+(era?era.name:"the selected period")+".";
+      ?I.t("popPolityIn",polNames,WY,era?era.name:"")
+      :I.t("popEmpty",era?era.name:I.t("allEras"));
     evSec.hidden=true;figSec.hidden=true;plSec.hidden=true;
   } else {
     empty.hidden=true;
     if(data.ev.length){
       evSec.hidden=false;
       evList.replaceChildren();
-      data.ev.slice().sort((a,b)=>a.year-b.year).forEach(e=>{
+      data.ev.slice().sort((a,b)=>a.year-b.year).forEach(rawE=>{
+        const e=I.event(rawE);
         const li=el("li","w-ev-item");
-        li.append(el("b","",e.title),el("small","",kyr(e)+" CE"),el("p","",(e.summary||"").slice(0,140)+((e.summary||"").length>140?"…":"")));
-        const a=el("a","go","Read detail ›");
+        li.append(el("b","",e.title),el("small","",kyr(e)+" "+I.t("eraSuffix")),el("p","",(e.summary||"").slice(0,140)+((e.summary||"").length>140?"…":"")));
+        const a=el("a","go",I.t("readDetail"));
         a.href="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
         li.append(a);
         evList.append(li);
@@ -1054,7 +1246,8 @@ function openWPopup(c){
       plSec.hidden=false;
       plList.replaceChildren();
       const seen=new Set();
-      data.pl.forEach(p=>{
+      data.pl.forEach(rawP=>{
+        const p=I.place(rawP);
         const k=p.n||p.id;if(seen.has(k))return;seen.add(k);
         const b=el("button","w-chip",p.n);
         b.type="button";
@@ -1066,11 +1259,7 @@ function openWPopup(c){
   pop.hidden=false;
 }
 
-function setModeAll(){
-  stopPlay();
-  WMODE="all";WE="";
-  paintWM();
-}
+function setModeAll(){stopPlay();WMODE="all";WE="";paintWM()}
 
 function setYear(y){
   WMODE="year";
@@ -1089,7 +1278,7 @@ function setYear(y){
 function stopPlay(){
   if(WPLAY){clearInterval(WPLAY);WPLAY=null}
   const pb=$("#wPlay");
-  if(pb){pb.classList.remove("playing");pb.textContent="Play Timeline"}
+  if(pb){pb.classList.remove("playing");pb.textContent=I.t("playTimeline")}
 }
 
 function togglePlay(){
@@ -1097,7 +1286,7 @@ function togglePlay(){
   if(WMODE=="all"||WY>=2020)setYear(570);
   else setYear(WY);
   const pb=$("#wPlay");
-  if(pb){pb.classList.add("playing");pb.textContent="Pause"}
+  if(pb){pb.classList.add("playing");pb.textContent=I.t("pauseTimeline")}
   WPLAY=setInterval(()=>{
     const step=WY<661?2:(WY<850?5:(WY<1500?10:12));
     if(WY+step>=2025){setYear(2025);stopPlay();return}
@@ -1106,50 +1295,50 @@ function togglePlay(){
 }
 
 function paintWM(){
-  const era=WMODE=="year"?eraAtYear(WY):null;
+  const rawEra=WMODE=="year"?eraAtYear(WY):null;
+  const era=rawEra?I.era(rawEra):null;
   const activeColor=era&&era.color?era.color:"#c4a35a";
   const allM=wData("");
   const eraM=era?wData(era.id):allM;
   const polState=WMODE=="year"?politiesAtYear(WY):{active:[],byCountry:{}};
 
-  // Update HUD & Timeline Readout
   const titleEl=$("#hudTitle"),descEl=$("#hudDesc"),polBox=$("#hudPolities");
   const yrEl=$("#tlYr"),hijEl=$("#tlHij");
   if(WMODE=="all"){
-    if(titleEl){titleEl.textContent="All Eras (570–2025 CE)";titleEl.style.color="#c4a35a"}
-    if(descEl)descEl.textContent="Akumulasi wilayah peristiwa, tokoh, dan situs sejarah peradaban Islam. Klik negara atau pin kota untuk detail.";
-    if(yrEl)yrEl.textContent="All Eras";
-    if(hijEl)hijEl.textContent="570–2025 CE · Cumulative View";
+    if(titleEl){titleEl.textContent=I.t("hudAllTitle");titleEl.style.color="#c4a35a"}
+    if(descEl)descEl.textContent=I.t("hudAllDesc");
+    if(yrEl)yrEl.textContent=I.t("allEras");
+    if(hijEl)hijEl.textContent=I.t("cumulativeView");
     if(polBox){
       polBox.replaceChildren();
-      const s1=el("span","hud-pol");const i1=document.createElement("i");i1.style.background="#c4a35a";s1.append(i1,document.createTextNode("Historical Footprint (click Play or slide timeline)"));polBox.append(s1);
+      const s1=el("span","hud-pol");const i1=document.createElement("i");i1.style.background="#c4a35a";s1.append(i1,document.createTextNode(I.t("hudFootprint")));polBox.append(s1);
     }
   } else {
     const hYr=hij(WY);
-    const yrLabel=WY+" CE"+(hYr?" · "+hYr+" AH":"");
+    const yrLabel=WY+" "+I.t("eraSuffix")+(hYr?" · "+hYr+" "+I.t("hijriSuffix"):"");
     if(titleEl){titleEl.textContent=yrLabel+" — "+(era?era.name:"");titleEl.style.color=activeColor}
     if(descEl)descEl.textContent=era&&era.desc?era.desc:"";
-    if(yrEl)yrEl.textContent=WY+" CE";
-    if(hijEl)hijEl.textContent=(hYr?hYr+" AH · ":"")+(era?era.name:"");
+    if(yrEl)yrEl.textContent=WY+" "+I.t("eraSuffix");
+    if(hijEl)hijEl.textContent=(hYr?hYr+" "+I.t("hijriSuffix")+" · ":"")+(era?era.name:"");
     if(polBox){
       polBox.replaceChildren();
       const sorted=polState.active.slice().sort((a,b)=>b.countries.length-a.countries.length).slice(0,6);
       sorted.forEach(item=>{
+        const lp=I.polity(item.pol);
         const sp=el("span","hud-pol");
-        const sw=document.createElement("i");sw.style.background=item.pol.color||"#c4a35a";
-        sp.append(sw,document.createTextNode(item.pol.name+" ("+item.countries.length+")"));
+        const sw=document.createElement("i");sw.style.background=lp.color||"#c4a35a";
+        sp.append(sw,document.createTextNode(lp.name+" ("+item.countries.length+")"));
         polBox.append(sp);
       });
       if(!sorted.length&&era){
         const sp=el("span","hud-pol");
         const sw=document.createElement("i");sw.style.background=activeColor;
-        sp.append(sw,document.createTextNode(era.name+" — Event Regions"));
+        sp.append(sw,document.createTextNode(era.name+" — "+I.t("hudRegions")));
         polBox.append(sp);
       }
     }
   }
 
-  // Update SVG Paths smoothly via CSS transitions
   if(WSVG){
     let mx=1;Object.values(allM).forEach(v=>mx=Math.max(mx,v.ev.length));
     WSVG.querySelectorAll("path").forEach(p=>{
@@ -1169,17 +1358,11 @@ function paintWM(){
         const anyHit=allM[id]&&(allM[id].ev.length||allM[id].ch.length||allM[id].pl.length);
         if(pols&&pols.length){
           const dom=pols[pols.length-1];
-          fill=dom.color||activeColor;
-          op="0.58";
-          isOn=true;
+          fill=dom.color||activeColor;op="0.58";isOn=true;
         }else if(evHit){
-          fill=activeColor;
-          op="0.34";
-          isOn=true;
+          fill=activeColor;op="0.34";isOn=true;
         }else if(anyHit){
-          fill="transparent";
-          op="0";
-          isOn=true;
+          fill="transparent";op="0";isOn=true;
         }
       }
       p.classList.toggle("on",isOn);
@@ -1188,7 +1371,6 @@ function paintWM(){
     });
   }
 
-  // Sync Active states on Era Bar, All Eras Button, Milestones
   const sl0=$("#wSlider");
   if(sl0&&WMODE=="all")sl0.style.setProperty("--p","0%");
   const allBtn=$("#wAllBtn");if(allBtn)allBtn.classList.toggle("on",WMODE=="all");
@@ -1218,15 +1400,16 @@ function paintWM(){
 function buildWEraBar(){
   const bar=$("#wEraBar");if(!bar)return;
   bar.replaceChildren();
-  const allB=el("button","w-eb"+(WMODE=="all"?" on":""),"All Eras");
+  const allB=el("button","w-eb"+(WMODE=="all"?" on":""),I.t("allEras"));
   allB.type="button";allB.dataset.id="";allB.style.setProperty("--ec","#c4a35a");
   allB.onclick=setModeAll;
   bar.append(allB);
 
-  ERA_DEF.forEach(e=>{
+  ERA_DEF.forEach(rawE=>{
+    const e=I.era(rawE);
     const b=el("button","w-eb"+(WMODE=="year"&&WE==e.id?" on":""),e.name);
     b.type="button";b.dataset.id=e.id;b.style.setProperty("--ec",e.color||"#c4a35a");
-    b.onclick=()=>{stopPlay();setYear(peakYearForEra(e))};
+    b.onclick=()=>{stopPlay();setYear(peakYearForEra(rawE))};
     bar.append(b);
   });
 
@@ -1243,6 +1426,9 @@ function buildWEraBar(){
     });
   }
 }
+
+$("#eraPrev").onclick=()=>{const b=$("#wEraBar");if(b)b.scrollBy({left:-260,behavior:"smooth"})};
+$("#eraNext").onclick=()=>{const b=$("#wEraBar");if(b)b.scrollBy({left:260,behavior:"smooth"})};
 
 async function initWM(){
   initLeaflet();
@@ -1275,16 +1461,16 @@ async function initWM(){
     let extra="";
     if(WMODE=="year"){
       const pols=politiesAtYear(WY).byCountry[p.id];
-      if(pols&&pols.length)extra=" — "+pols[pols.length-1].name;
+      if(pols&&pols.length)extra=" — "+I.polity(pols[pols.length-1]).name;
       else{
         const era=eraAtYear(WY);
         const nEv=era&&wData(era.id)[p.id]?wData(era.id)[p.id].ev.length:0;
-        if(nEv)extra=` (${nEv} events)`;
+        if(nEv)extra=` (${I.t("eventsCount",nEv)})`;
       }
     }else{
       const data=wData("")[p.id];
       const nEv=(data&&data.ev.length)?data.ev.length:0;
-      if(nEv)extra=` (${nEv} events)`;
+      if(nEv)extra=` (${I.t("eventsCount",nEv)})`;
     }
     WTIP.textContent=name+extra;
     WTIP.style.display="block";
@@ -1310,9 +1496,7 @@ async function initWM(){
   });
 
   const sl=$("#wSlider");
-  if(sl){
-    sl.addEventListener("input",e=>{stopPlay();setYear(sliderToYear(e.target.value))});
-  }
+  if(sl)sl.addEventListener("input",e=>{stopPlay();setYear(sliderToYear(e.target.value))});
   const pb=$("#wPlay");if(pb)pb.onclick=togglePlay;
   const ab=$("#wAllBtn");if(ab)ab.onclick=setModeAll;
 
@@ -1320,7 +1504,7 @@ async function initWM(){
   paintWM();
 }
 
-// ---- CHARACTERS (CLAUDE / V1.4.0 RESTORED)
+// ---- CHARACTERS
 let CHALL=[],CF={q:"",era:"",faith:"",gender:"",group:"",sort:""};
 const arr=x=>Array.isArray(x)?x:[];
 const nz=s=>(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[’'`]/g,"").replace(/[^a-z0-9 ]+/g," ").replace(/\s+/g," ").trim();
@@ -1337,12 +1521,13 @@ function applyCH(){
   if(CF.sort=="nama")l.sort((a,b)=>(a[0].name||"").localeCompare(b[0].name||"","id"));
   l=l.map(x=>x[0]);
   drawCH(l);
-  $("#cn").textContent=l.length==CHALL.length?`Showing all ${CHALL.length} figures`:`Showing ${l.length} of ${CHALL.length} figures`;
+  $("#cn").textContent=l.length==CHALL.length?I.t("showingAll",CHALL.length):I.t("showingFiltered",l.length,CHALL.length);
 }
 
 function drawCH(l){
   const c=$("#cr");c.replaceChildren();
-  l.forEach(d=>{
+  l.forEach(rawD=>{
+    const d=I.char(rawD);
     const b=el("button","cc");
     if(GIMG(d.img)){
       const im=new Image();im.src=GIMG(d.img);im.alt=d.name||"";b.append(im);
@@ -1357,7 +1542,7 @@ function drawCH(l){
     b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};
     c.append(b);
   });
-  if(!l.length)c.append(el("p","m","No characters match your search or filter criteria."));
+  if(!l.length)c.append(el("p","m",I.t("noCharsMatch")));
 }
 
 $("#chSearch").oninput=e=>{CF.q=e.target.value;applyCH()};
@@ -1400,8 +1585,8 @@ function show(img,h,sm,t,link){
   dlg.querySelector("img").src=img;dlg.querySelector("h3").textContent=h;dlg.querySelector("small").textContent=sm;dlg.querySelector("p").textContent=t;dlg.querySelectorAll("a,.pb").forEach(n=>n.remove());
   if(link){
     const bx=dlg.querySelector("div div");
-    if(YID(link)){const pb=el("button","go pb","▶ Play here");pb.onclick=()=>{dlg.close();play(YID(link),1,link)};bx.append(pb)}
-    const a=document.createElement("a");a.href=typeof link=="string"?link:YT+"/shorts";a.target="_blank";a.rel="noopener";a.textContent=typeof link=="string"?"Watch on YouTube":"Open Shorts on YouTube";
+    if(YID(link)){const pb=el("button","go pb",I.t("playHere"));pb.onclick=()=>{dlg.close();play(YID(link),1,link)};bx.append(pb)}
+    const a=document.createElement("a");a.href=typeof link=="string"?link:YT+"/shorts";a.target="_blank";a.rel="noopener";a.textContent=typeof link=="string"?I.t("watchYt"):I.t("openShortsYt");
     dlg.querySelector("div div").append(a);
   }
   dlg.showModal();
@@ -1414,10 +1599,109 @@ function play(id,sv,href){
   const f=document.createElement("iframe");
   f.src="https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";
   f.title="YouTube Video Player";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";
-  const pf=PLD.querySelector(".pf");pf.className="pf"+(sv?" v":"");pf.replaceChildren(f);PLD.querySelector(".yl").href=href;PLD.showModal();
+  const pf=PLD.querySelector(".pf");pf.className="pf"+(sv?" v":"");pf.replaceChildren(f);PLD.querySelector(".yl").href=href;PLD.querySelector(".yl").textContent=I.t("watchYt");PLD.showModal();
 }
 PLD.addEventListener("close",()=>PLD.querySelector(".pf").replaceChildren());
 PLD.querySelector(".x").onclick=()=>PLD.close();PLD.addEventListener("click",e=>{if(e.target==PLD)PLD.close()});
+
+// ---- SUPPORT / QRIS OVERLAY & MODAL
+function initSupport(){
+  const sup=window.ALFA_SUPPORT||{};
+  const qrSrc=sup.qrisImg||"assets/qris-support.svg";
+  ["#ftQrisImg","#supMiniImg","#qrisModalImg"].forEach(s=>{const im=$(s);if(im)im.src=qrSrc});
+  const qd=$("#qrisDlg"),openQris=()=>{
+    $("#qrisMerchant").textContent=sup.merchantName||"ALFA | History of Islam";
+    $("#qrisNote").textContent=(I.getLang()=="id"?sup.noteId:sup.noteEn)||I.t("supportCaption");
+    const lnk=$("#qrisExtLink");
+    if(sup.link){lnk.href=sup.link;lnk.textContent=sup.linkLabel||I.t("supportOpenLink");lnk.hidden=false}
+    else lnk.hidden=true;
+    qd.showModal();
+  };
+  $("#ftQrisBtn").onclick=openQris;
+  $("#supOpenBtn").onclick=openQris;
+  $("#qrisClose").onclick=()=>qd.close();
+  qd.addEventListener("click",e=>{if(e.target==qd)qd.close()});
+
+  const dock=$("#supDock");
+  let dismissed=false;
+  try{dismissed=sessionStorage.getItem("alfa_sup_dismissed")==="1"}catch(e){}
+  if(sup.showFloatingOverlay!==false&&!dismissed){
+    dock.hidden=false;
+    const syncDock=()=>dock.classList.toggle("vis",window.scrollY>380);
+    window.addEventListener("scroll",syncDock,{passive:true});
+    syncDock();
+  }
+  $("#supDismiss").onclick=()=>{
+    dock.hidden=true;
+    try{sessionStorage.setItem("alfa_sup_dismissed","1")}catch(e){}
+  };
+}
+
+// ---- LANGUAGE APPLICATION (UI + CONTENT)
+function applyStaticI18n(){
+  $("#langBtn").textContent=I.getLang().toUpperCase();
+  document.querySelectorAll("[data-i18n]").forEach(node=>{
+    node.textContent=I.t(node.dataset.i18n);
+  });
+  $("#hudKicker").textContent=I.t("hudKicker");
+  $("#mapHint").textContent=I.t("mapHint");
+  $("#wPlay").textContent=WPLAY?I.t("pauseTimeline"):I.t("playTimeline");
+  $("#wAllBtn").textContent=I.t("allEras");
+  $("#tlHeading").textContent=I.t("timelineHeading");
+  $("#chHeading").textContent=I.t("charactersHeading");
+  $("#shHeading").textContent=I.t("shortsHeading");
+  $("#vdHeading").textContent=I.t("videosHeading");
+  $("#shSeeAll").textContent=I.t("seeAllShorts");
+  $("#vdSeeAll").textContent=I.t("seeAllVideos");
+  $("#wEvHead").textContent=I.t("popEvents");
+  $("#wFigHead").textContent=I.t("popFigures");
+  $("#wPlaceHead").textContent=I.t("popPlaces");
+  $("#chSearch").placeholder=I.t("searchPlaceholder");
+  $("#lblFaith").textContent=I.t("lblFaith");
+  $("#lblEra").textContent=I.t("lblEra");
+  $("#lblGroup").textContent=I.t("lblGroup");
+  $("#lblSort").textContent=I.t("lblSort");
+  $("#ftDesc").textContent=I.t("ftDesc");
+  $("#ftExpHead").textContent=I.t("ftExplore");
+  $("#ftFolHead").textContent=I.t("ftFollow");
+  $("#ftSupHead").textContent=I.t("ftSupport");
+  $("#ftQrisCap").textContent=I.t("supportCaption");
+  $("#supDockTitle").textContent=I.t("supportTitle");
+  $("#supDockSub").textContent=I.t("supportBtn");
+  $("#qrisTitle").textContent=I.t("supportTitle");
+  $("#yr").textContent=I.t("cpText",new Date().getFullYear());
+}
+
+$("#langBtn").onclick=()=>I.toggleLang();
+window.addEventListener("alfa:langchange",async()=>{
+  await I.ensurePack();
+  applyStaticI18n();
+  buildMT();
+  buildWEraBar();
+  paintWM();
+  buildHS();
+  initKR();
+  applyCH();
+});
+
+// ---- ACTIVE SECTION NAVIGATION UNDERLINE (SCROLL SPY)
+(()=>{
+  const links=[...document.querySelectorAll("nav a.nav-link[data-sec]")];
+  const secs=links.map(a=>document.getElementById(a.dataset.sec)).filter(Boolean);
+  if(!links.length||!secs.length)return;
+  const setAct=id=>links.forEach(a=>a.classList.toggle("on",a.dataset.sec===id));
+  const spy=()=>{
+    const y=window.scrollY+140;
+    let cur=secs[0].id;
+    for(const s of secs){
+      if(s.offsetTop<=y)cur=s.id;
+    }
+    setAct(cur);
+  };
+  window.addEventListener("scroll",spy,{passive:true});
+  window.addEventListener("resize",spy);
+  spy();
+})();
 
 // ---- DATA BOOTSTRAP
 const DEF={characters:[],places:[],shorts:[],events:[],videos:[]};
@@ -1430,13 +1714,22 @@ function remapPlaceXY(d){
   if(ex)return ex;
   return[+d.x,+d.y];
 }
-const RN={characters:l=>{CHALL=l;applyCH();paintWM()},shorts:rSH,videos:rVD,places:l=>{PL=l.map(d=>{if(d.n)return d;const[wx,wy]=remapPlaceXY(d);return{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:wx,y:wy,t:d.description,sl:Array.isArray(d.slides)?d.slides:[],map:"world",countries:Array.isArray(d.countries)?d.countries:[]}});closePopup();buildHS();paintWM()},events:l=>{EV=l.map(normEv);initKR();paintWM()}};
+const RN={
+  characters:l=>{CHALL=l;applyCH();initKR();paintWM()},
+  shorts:rSH,
+  videos:rVD,
+  places:l=>{PL=l.map(d=>{if(d.n)return d;const[wx,wy]=remapPlaceXY(d);return{id:d.slug||d.id,uid:d.id,n:d.name,s:d.subtitle,x:wx,y:wy,t:d.description,sl:Array.isArray(d.slides)?d.slides:[],map:"world",countries:Array.isArray(d.countries)?d.countries:[]}});closePopup();buildHS();initKR();paintWM()},
+  events:l=>{EV=l.map(normEv);initKR();paintWM()}
+};
 const SRT={characters:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),shorts:l=>l.sort((a,b)=>b.ep-a.ep),videos:l=>l.sort((a,b)=>(b.t||0)-(a.t||0)),places:l=>l.sort((a,b)=>(a.t||0)-(b.t||0)),events:l=>l.sort((a,b)=>(a.year-b.year)||((a.t||0)-(b.t||0)))};
 
-$("#yr").textContent="© "+new Date().getFullYear()+" ALFA | History of Islam, @alwan-faiq. All rights reserved.";
 const CFG=window.ALFA_CFG||{},DR={};
 
 (async()=>{
+  await I.ensurePack();
+  applyStaticI18n();
+  initSupport();
+
   try{DEFS=await(await fetch("defaults.json")).json()}catch(e){DEFS={}}
   ERA_DEF=DEFS.eras||[];
   POLITIES=DEFS.polities||[];
