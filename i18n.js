@@ -832,11 +832,11 @@
   const HISTORICAL_GRAPH = {
     events_to_chars: {
       "570-tahun-gajah": [
-        { name: "Abdul Muthalib", role: "Sayyid Quraisy & Penjaga Ka'bah" },
+        { name: "Abdul Muthalib", role: "Sayyid Quraisy dan Penjaga Ka'bah" },
         { name: "Abrahah", role: "Panglima Pasukan Gajah dari Yaman" }
       ],
       "570-kelahiran-nabi": [
-        { name: "Abdul Muthalib", role: "Kakek & Pengasuh Pertama" }
+        { name: "Abdul Muthalib", role: "Kakek dan Pengasuh Pertama" }
       ],
       "572-disusui-siti-halimah": [
         { name: "Halimah as-Sa’diyah", role: "Ibu Susuan di Perkampungan Bani Sa'ad" }
@@ -849,11 +849,14 @@
         { name: "Abi Thalib", role: "Paman Pemimpin Kafilah Dagang ke Syam" }
       ],
       "595-menikah-dengan-khadijah": [
-        { name: "Khadijah", role: "Ummul Mukminin & Pendukung Utama Dakwah" },
+        { name: "Khadijah", role: "Ummul Mukminin dan Pendukung Utama Dakwah" },
         { name: "Abi Thalib", role: "Paman yang Menyampaikan Khutbah Lamaran" }
       ],
+      "605-peletakan-hajar-aswad": [
+        { name: "Abu Bakar Asshiddiq", role: "Sahabat Terdekat Pembela Kebijaksanaan Nabi" }
+      ],
       "610-wahyu-pertama": [
-        { name: "Khadijah", role: "Penenteram Jiwa Rasulullah ﷺ Pasca Turun Wahyu" },
+        { name: "Khadijah", role: "Penenteram Jiwa Rasulullah Pasca Turun Wahyu" },
         { name: "Waraqah bin Naufal", role: "Ulama Ahli Kitab Saksi Namus al-Akbar" }
       ],
       "613-dakwah-terang-terangan": [
@@ -861,138 +864,128 @@
         { name: "Abu Lahab", role: "Penentang Keras Dakwah Terbuka di Bukit Shafa" }
       ],
       "615-hijrah-ke-habasyah": [
-        { name: "Utsman bin Affan", role: "Pemimpin Rombongan Muhajirin Pertama" }
+        { name: "Utsman bin Affan", role: "Pemimpin Rombongan Muhajirin Pertama ke Habasyah" }
       ],
       "616-hamzah-dan-umar-masuk-islam": [
-        { name: "Hamzah bin Abdul Muthalib", role: "Singa Allah & Pelindung Dakwah" },
-        { name: "Umar bin Khattab", role: "Penguat Kemuliaan & Keterbukaan Syiar Islam" }
+        { name: "Hamzah bin Abdul Muthalib", role: "Singa Allah dan Pelindung Dakwah Terbuka" },
+        { name: "Umar bin Khattab", role: "Al-Faruq Penegas Barisan Shalat Terang-terangan" }
       ],
-      "617-pemboikotan-bani-hasyim": [
-        { name: "Abi Thalib", role: "Pemimpin Keteguhan Perlindungan Bani Hasyim" },
-        { name: "Khadijah", role: "Penyumbang Seluruh Harta Selama Pemboikotan" },
-        { name: "Abu Jahal", role: "Penggagas Piagam Pemboikotan Total di Ka'bah" }
+      "619-pemboikotan-dan-tahun-duka-cita": [
+        { name: "Abi Thalib", role: "Pemimpin Perlindungan Bani Hasyim di Syi'ib" },
+        { name: "Khadijah", role: "Ummul Mukminin Pendonor Seluruh Harta Dakwah" }
       ],
-      "619-tahun-kesedihan": [
-        { name: "Abi Thalib", role: "Wafatnya Paman Pelindung Terbesar" },
-        { name: "Khadijah", role: "Wafatnya Istri Tercinta & Ummul Mukminin Pertama" }
+      "621-isra-dan-miraj": [
+        { name: "Abu Bakar Asshiddiq", role: "Peraih Gelar Ash-Shiddiq atas Pembenaran Mukjizat" }
       ],
       "622-hijrah-ke-madinah": [
-        { name: "Abu Bakar Asshiddiq", role: "Sahabat Karib Pendamping di Gua Tsur" },
-        { name: "Ali bin Abi Thalib", role: "Penebus Ranjang Tidur Nabi ﷺ di Makkah" }
+        { name: "Abu Bakar Asshiddiq", role: "Teman Seperjalanan di Gua Tsur" },
+        { name: "Ali bin Abi Thalib", role: "Penebus Ranjang Tidur Nabi di Makkah" }
       ],
       "624-perang-badar": [
-        { name: "Ali bin Abi Thalib", role: "Panglima & Pahlawan Duel Mubarazah" },
+        { name: "Ali bin Abi Thalib", role: "Panglima dan Pahlawan Duel Mubarazah" },
         { name: "Hamzah bin Abdul Muthalib", role: "Singa Allah Penakluk Pembesar Quraisy" },
-        { name: "Abu Bakar Asshiddiq", role: "Penjaga Tenda Komando Rasulullah ﷺ (Arisy)" },
+        { name: "Abu Bakar Asshiddiq", role: "Penjaga Tenda Komando Rasulullah (Arisy)" },
         { name: "Sa’ad bin Abi Waqqash", role: "Pemanah Ulung Pertahanan Muslimin" },
         { name: "Bilal bin Rabah", role: "Penuntut Keadilan atas Majikan Zalim Umayyah" },
         { name: "Abu Jahal", role: "Panglima Tertinggi Pasukan Musyrik yang Tewas" }
       ],
       "625-perang-uhud": [
-        { name: "Hamzah bin Abdul Muthalib", role: "Sayyidus Syuhada (Gugur Syahid di Uhud)" },
-        { name: "Ali bin Abi Thalib", role: "Pembawa Panji Perang & Perisai Rasulullah ﷺ" },
-        { name: "Abu Bakar Asshiddiq", role: "Pembela Barisan Depan di Masa Kritis" },
-        { name: "Abu Ubaidah bin al-Jarrah", role: "Pencabut Rantai Zirah dari Pipi Nabi ﷺ" },
-        { name: "Khalid bin Walid", role: "Panglima Kavaleri Kanan Quraisy (Sebelum Masuk Islam)" }
+        { name: "Hamzah bin Abdul Muthalib", role: "Sayyidus Syuhada yang Syahid di Medan Uhud" },
+        { name: "Ali bin Abi Thalib", role: "Pembawa Panji Perang dan Perisai Rasulullah" },
+        { name: "Abu Bakar Asshiddiq", role: "Pembela Garis Depan Penyelamat Komando" },
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Pencabut Rantai Zirah Besi dari Pipi Nabi" },
+        { name: "Khalid bin Walid", role: "Panglima Kavaleri Musyrik Sebelum Masuk Islam" }
       ],
       "627-perang-khandaq": [
         { name: "Ali bin Abi Thalib", role: "Penakluk Pendekar Ahzab Amr bin Abdi Wudd" },
-        { name: "Abu Bakar Asshiddiq", role: "Penjaga Titik Sektor Parit Madinah" },
-        { name: "Umar bin Khattab", role: "Pemeriksa Pos Pasukan Pertahanan Parit" }
+        { name: "Abu Bakar Asshiddiq", role: "Penjaga Pos Pertahanan Sektor Parit Madinah" },
+        { name: "Umar bin Khattab", role: "Pengawas Jalur Sempit Garis Parit Pertahanan" }
       ],
       "628-perjanjian-hudaibiyah": [
-        { name: "Utsman bin Affan", role: "Utusan Diplomatik Masuk ke Kota Makkah" },
-        { name: "Ali bin Abi Thalib", role: "Juru Tulis Naskah Perjanjian Damai" },
-        { name: "Abu Bakar Asshiddiq", role: "Saksi Utama Baiat Ridhwan di Bawah Pohon" },
-        { name: "Umar bin Khattab", role: "Penguji Keteguhan & Hikmah Perjanjian" }
-      ],
-      "629-perang-khaibar": [
-        { name: "Ali bin Abi Thalib", role: "Pembawa Panji & Pembuka Benteng Qamush" },
-        { name: "Abu Bakar Asshiddiq", role: "Panglima Sayap Penyerang Benteng" },
-        { name: "Umar bin Khattab", role: "Panglima Sayap Penyerang Benteng" }
-      ],
-      "629-perang-mutah": [
-        { name: "Khalid bin Walid", role: "Penyelamat Pasukan & Bergelar Saifullah al-Maslul" }
+        { name: "Utsman bin Affan", role: "Utusan Negosiasi Masuk Kota Makkah dan Pemicu Baiat Ridhwan" },
+        { name: "Ali bin Abi Thalib", role: "Juru Tulis Naskah Perjanjian Damai Hudaibiyah" },
+        { name: "Abu Bakar Asshiddiq", role: "Penasihat Setia Penenang Jiwa Para Sahabat" },
+        { name: "Umar bin Khattab", role: "Sahabat Kritis yang Meminta Kepastian Kemenangan Nyata" }
       ],
       "630-fathu-makkah": [
-        { name: "Khalid bin Walid", role: "Panglima Sayap Kanan Penembus Kota Makkah" },
-        { name: "Abu Bakar Asshiddiq", role: "Pendamping Rasulullah ﷺ Masuk Ka'bah" },
-        { name: "Bilal bin Rabah", role: "Pengumandang Adzan Pembebasan di Atas Ka'bah" },
-        { name: "Ali bin Abi Thalib", role: "Pembantu Penurunan dan Penghancuran Berhala" }
+        { name: "Khalid bin Walid", role: "Panglima Sayap Kanan Penembus Masuk Kota Makkah" },
+        { name: "Abu Bakar Asshiddiq", role: "Sahabat Pendamping Masuk Masjidil Haram" },
+        { name: "Bilal bin Rabah", role: "Muadzin Pertama Penyeru Adzan dari Atas Ka'bah" },
+        { name: "Ali bin Abi Thalib", role: "Pembantu Penurunan dan Penghancuran Berhala Ka'bah" }
       ],
-      "630-perang-hunain": [
-        { name: "Ali bin Abi Thalib", role: "Pembalik Serangan Sengit di Lembah Hunain" },
-        { name: "Abu Bakar Asshiddiq", role: "Pembela yang Tetap Bertahan di Samping Nabi ﷺ" }
+      "632-haji-wada-dan-wafatnya-nabi": [
+        { name: "Abu Bakar Asshiddiq", role: "Imam Shalat Sahabat dan Pembaca Khutbah Peneguh Umat" },
+        { name: "Ali bin Abi Thalib", role: "Pengurus Pemakaman Suci Rasulullah di Kamar Aisyah" },
+        { name: "Aisyah binti Abu Bakar", role: "Ummul Mukminin Pemilik Tempat Peristirahatan Terakhir Nabi" }
       ],
-      "632-haji-wada": [
-        { name: "Abu Bakar Asshiddiq", role: "Pendamping Utama Ibadah Haji Perpisahan" },
-        { name: "Ali bin Abi Thalib", role: "Penyampai Pesan Penting Sepulang dari Yaman" }
+      "632-abu-bakar-menjadi-khalifah": [
+        { name: "Abu Bakar Asshiddiq", role: "Khalifah Pertama Pengukuh Fondasi Daulah" },
+        { name: "Umar bin Khattab", role: "Pembaiat Pertama di Saqifah Bani Sa'idah" },
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Amien al-Ummah yang Menyepakati Baiat Saqifah" }
       ],
-      "632-wafatnya-nabi": [
-        { name: "Abu Bakar Asshiddiq", role: "Penenang Hati Umat & Khalifah Pertama" },
-        { name: "Umar bin Khattab", role: "Penyumpah Setia di Saqifah Bani Sa'idah" },
-        { name: "Ali bin Abi Thalib", role: "Pemimpin Pengurusan Jenazah Rasulullah ﷺ" }
+      "636-penaklukan-syam-dan-yarmuk": [
+        { name: "Khalid bin Walid", role: "Panglima Manuver Kavaleri Penentu Kehancuran Bizantium" },
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Amirul Jaisy (Panglima Tertinggi) Muslimin di Syam" }
       ],
-      "632-perang-riddah": [
-        { name: "Abu Bakar Asshiddiq", role: "Pemrakarsa Perang Menegakkan Syariat Zakat" },
-        { name: "Khalid bin Walid", role: "Panglima Penumpas Musailamah di Yamamah" }
+      "636-qadisiyyah-dan-madain": [
+        { name: "Sa’ad bin Abi Waqqash", role: "Panglima Tertinggi Penakluk Imperium Persia Sasania" }
       ],
-      "634-perang-yarmuk": [
-        { name: "Khalid bin Walid", role: "Panglima Tertinggi & Penakluk Pasukan Romawi" },
-        { name: "Abu Ubaidah bin al-Jarrah", role: "Panglima Pasukan Tengah (Aminul Ummah)" },
-        { name: "Amr bin Ash", role: "Panglima Sayap Kanan Menghadapi Pasukan Bizantium" }
+      "637-penyerahan-baitul-maqdis": [
+        { name: "Umar bin Khattab", role: "Amirul Mukminin Penerima Kunci Al-Quds dan Pembuat Piagam Aelia" },
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Pengepung Kota Baitul Maqdis Hingga Menyerah Damai" }
       ],
-      "636-perang-qadisiyah": [
-        { name: "Sa’ad bin Abi Waqqash", role: "Panglima Tertinggi Penakluk Kekaisaran Persia" }
+      "639-penaklukan-mesir": [
+        { name: "Amr bin Ash", role: "Panglima Penakluk Benteng Babilon dan Pembebas Mesir" }
       ],
-      "637-penaklukan-baitul-maqdis": [
-        { name: "Umar bin Khattab", role: "Penerima Kunci Al-Quds & Penulis Piagam Perdamaian" },
-        { name: "Abu Ubaidah bin al-Jarrah", role: "Pengepung Kota & Negosiator Damai" }
+      "644-wafatnya-umar-utsman-menjadi-khalifah": [
+        { name: "Umar bin Khattab", role: "Amirul Mukminin Syahid Pembentuk Dewan Syura Enam Tokoh" },
+        { name: "Utsman bin Affan", role: "Khalifah Ketiga Terpilih Hasil Musyawarah Syura" }
       ],
-      "641-penaklukan-mesir": [
-        { name: "Amr bin Ash", role: "Panglima Penakluk Mesir & Pendiri Kota Fustat" }
+      "650-mushaf-utsmani": [
+        { name: "Utsman bin Affan", role: "Pemrakarsa Penyatuan Bacaan dan Penggandaan Mushaf Induk Al-Qur'an" }
       ],
-      "642-perang-nahawand": [
-        { name: "Umar bin Khattab", role: "Khalifah Pengarah Strategi Fathul Futuh" }
+      "656-wafatnya-utsman-ali-menjadi-khalifah": [
+        { name: "Utsman bin Affan", role: "Dzun Nurain yang Wafat Syahid Mempertahankan Keutuhan Umat" },
+        { name: "Ali bin Abi Thalib", role: "Khalifah Keempat yang Menerima Baiat di Masjid Nabawi" }
       ],
-      "656-perang-jamal": [
-        { name: "Ali bin Abi Thalib", role: "Khalifah Keempat yang Menjaga Persatuan Umat" },
-        { name: "Aisyah binti Abu Bakar", role: "Ummul Mukminin Penuntut Keadilan Darah Utsman" }
+      "656-perang-jamal-dan-shiffin": [
+        { name: "Ali bin Abi Thalib", role: "Amirul Mukminin Penjaga Garis Hukum dan Persatuan Negara" },
+        { name: "Aisyah binti Abu Bakar", role: "Ummul Mukminin Penuntut Keadilan atas Wafatnya Utsman" },
+        { name: "Mu’awiyah bin Abi Sufyan", role: "Gubernur Syam Penuntut Qishash Darah Utsman" },
+        { name: "Amr bin Ash", role: "Juru Runding Pihak Syam dalam Majelis Tahkim" }
       ],
-      "657-perang-shiffin": [
-        { name: "Ali bin Abi Thalib", role: "Khalifah Pemimpin Pasukan Irak" },
-        { name: "Mu’awiyah bin Abi Sufyan", role: "Gubernur Syam Pihak Berselisih" },
-        { name: "Amr bin Ash", role: "Juru Runding Tahkim Pihak Syam" }
+      "661-wafatnya-ali": [
+        { name: "Ali bin Abi Thalib", role: "Amirul Mukminin yang Gugur Syahid Ditikam Ibnu Muljam" },
+        { name: "Hasan bin Ali", role: "Putra Tertua yang Menerima Wasiat Kepemimpinan Sementara" }
       ],
-      "661-kekhalifahan-umayyah": [
-        { name: "Hasan bin Ali", role: "Sayyid yang Berdamai Demi Persatuan (Amul Jama'ah)" },
-        { name: "Mu’awiyah bin Abi Sufyan", role: "Khalifah Pertama Dinasti Umayyah di Damaskus" }
+      "661-daulah-umayyah-berdiri": [
+        { name: "Mu’awiyah bin Abi Sufyan", role: "Pendiri Daulah Umayyah Berpusat di Damaskus" },
+        { name: "Hasan bin Ali", role: "Sayyidul Ummah Tokoh Perdamaian Amul Jama'ah (Tahun Persatuan)" }
       ],
       "680-peristiwa-karbala": [
-        { name: "Husain bin Ali", role: "Sayyidus Syuhada Penegak Prinsip Kebenaran" },
-        { name: "Yazid bin Mu’awiyah", role: "Khalifah Umayyah di Damaskus" }
+        { name: "Husain bin Ali", role: "Sayyidus Syuhada yang Gugur Syahid di Padang Karbala" },
+        { name: "Yazid bin Mu’awiyah", role: "Khalifah Kedua Umayyah Pemegang Takhta Damaskus" }
       ],
       "685-masa-abdul-malik": [
-        { name: "Abdul Malik bin Marwan", role: "Khalifah Pemersatu Negeri & Pembangun Qubbah ash-Shakhrah" },
-        { name: "Al-Hajjaj bin Yusuf ats-Tsaqafi", role: "Gubernur Irak Penstabil Keamanan Negara" }
+        { name: "Abdul Malik bin Marwan", role: "Khalifah Pemersatu Negeri dan Pembangun Kubah Shakhrah" },
+        { name: "Al-Hajjaj bin Yusuf ats-Tsaqafi", role: "Gubernur Penumpas Perlawanan Makkah dan Irak" },
+        { name: "Abdullah bin az-Zubair", role: "Khalifah Makkah Pembela Otonomi Hijaz Selama 9 Tahun" }
       ],
-      "711-thariq-bin-ziyad-ke-andalusia": [
+      "711-penaklukan-andalusia": [
         { name: "Thariq bin Ziyad", role: "Panglima Penyeberang Selat Jabal Thariq (Gibraltar)" },
-        { name: "Musa bin Nushair", role: "Gubernur Afrika Utara Penguat Penaklukan Semenanjung Iberia" }
+        { name: "Musa bin Nushair", role: "Gubernur Ifriqiyah Pemimpin Pasukan Bala Bantuan ke Toledo" }
       ],
-      "711-penaklukan-sindh": [
-        { name: "Muhammad bin Qasim ats-Tsaqafi", role: "Panglima Muda Penakluk Lembah Indus dan Sindh" }
+      "712-islam-masuk-ke-sindh": [
+        { name: "Muhammad bin Qasim ats-Tsaqafi", role: "Panglima Muda 17 Tahun Pembawa Islam ke Lembah Indus" }
       ],
-      "712-penaklukan-transoxiana": [
-        { name: "Qutaibah bin Muslim al-Bahili", role: "Panglima Penakluk Bukhara dan Samarkand" }
-      ],
-      "717-kekhalifahan-umar-bin-abdul-aziz": [
-        { name: "Umar bin Abdul Aziz", role: "Khalifah Zahid & Pembaru Keadilan Peradaban Islam" }
+      "717-pengepungan-konstantinopel-kedua": [
+        { name: "Maslamah bin Abdul Malik", role: "Panglima Pengepung Darat dan Laut Selat Bosphorus" },
+        { name: "Umar bin Abdul Aziz", role: "Khalifah Adil yang Menarik Mundur Pasukan Demi Menjaga Jiwa Prajurit" }
       ],
       "732-pertempuran-tours-poitiers": [
-        { name: "Abdurrahman al-Ghafiqi", role: "Panglima Pasukan Muslimin di Pertempuran Balathusy Syuhada" }
+        { name: "Abdurrahman al-Ghafiqi", role: "Gubernur Mujahid Andalusia yang Gugur di Balath asy-Syuhada" }
       ],
-      "756-berdirinya-keamiran-cordoba": [
+      "756-emirat-cordoba-berdiri": [
         { name: "Abdurrahman ad-Dakhil", role: "Shaqr Quraisy (Rajawali Quraisy) Pendiri Keamiran Cordoba" }
       ]
     },
@@ -1292,6 +1285,7 @@
   }
 
   // Semantic search implementation
+    // Semantic search implementation with high-precision intent boosting
   function semanticSearch(rawQuery, currentLang){
     const lang = currentLang || LANG || "id";
     const q = String(rawQuery || "").trim().toLowerCase();
@@ -1307,10 +1301,10 @@
       if(intent.all_match && intent.all_match.length){
         const allOk = intent.all_match.some(w => q.includes(w.toLowerCase()));
         if(!allOk) continue;
-        score += 30;
+        score += 35;
       }
       for(const trig of intent.triggers){
-        if(q.includes(trig.toLowerCase())) score += 10;
+        if(q.includes(trig.toLowerCase())) score += 12;
       }
       if(score > highestScore && score >= 20){
         highestScore = score;
@@ -1320,51 +1314,93 @@
 
     const results = [];
     const seen = new Set();
+    const D = window.__ALFA_DEFS;
 
-    // If intent matches, add its primary entities first
+    // If intent matches, add curated primary entities FIRST with top priority score
     if(bestIntent){
-      for(const ent of bestIntent.entities){
-        const img = getEntityImg(ent.type, ent.id);
+      bestIntent.entities.forEach((ent, idx) => {
+        let title = ent.id.replace(/^\d+-/, "").split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
+        let role = ent.role;
+        let img = getEntityImg(ent.type, ent.id);
+        let yr = "";
+
+        if(D){
+          if(ent.type === "characters" && Array.isArray(D.characters)){
+            const c = D.characters.find(x => (x.name && x.name.toLowerCase() === ent.id.toLowerCase()) || x.id === ent.id);
+            if(c){
+              title = c.name;
+              if(!img) img = c.img || "";
+              if(!role) role = c.role || "";
+            }
+          } else if(ent.type === "events" && Array.isArray(D.events)){
+            const entSlugStripped = ent.id.replace(/^\d+-/, "").toLowerCase();
+            const e = D.events.find(x => x.slug === ent.id || (x.slug && x.slug.replace(/^\d+-/, "").toLowerCase() === entSlugStripped) || x.id === ent.id || (x.title && x.title.toLowerCase().includes(entSlugStripped)));
+            if(e){
+              title = e.title;
+              yr = e.year ? (e.year + " " + t("eraSuffix")) : "";
+              if(!img) img = (Array.isArray(e.slides) && e.slides[0]) || (Array.isArray(e.gallery) && e.gallery[0]) || "";
+              if(!role) role = yr + (e.summary ? " — " + e.summary.slice(0, 90) + "..." : "");
+            }
+          } else if(ent.type === "places" && Array.isArray(D.places)){
+            const p = D.places.find(x => x.slug === ent.id || x.id === ent.id || (x.name && x.name.toLowerCase() === ent.id.toLowerCase()) || (x.slug && x.slug.toLowerCase() === ent.id.toLowerCase()));
+            if(p){
+              title = p.name;
+              if(!img) img = (Array.isArray(p.slides) && p.slides[0]) || "";
+              if(!role) role = p.subtitle || "";
+            }
+          }
+        }
+
         const url = "detail.html?t=" + ent.type + "&id=" + encodeURIComponent(ent.id);
-        const key = ent.type + ":" + ent.id;
+        const key = ent.type + ":" + ent.id.toLowerCase();
         seen.add(key);
+
         results.push({
           type: ent.type,
           id: ent.id,
-          title: ent.id,
-          role: ent.role,
+          title: title,
+          role: role,
           badge: t(ent.type === "characters" ? "badgeChar" : ent.type === "events" ? "badgeEvent" : "badgePlace"),
           img: img,
           url: url,
-          isIntentMatch: true
+          isIntentMatch: true,
+          score: 1000 - idx
         });
-      }
+      });
     }
 
-    // 2. Keyword fallback search over all entities in defaults
-    const D = window.__ALFA_DEFS;
+    // Stop words to prevent false positive keyword flooding
+    const STOP_WORDS = new Set([
+      "para", "yang", "dan", "di", "ke", "dari", "ikut", "dalam", "pada", "tentang", 
+      "siapa", "saja", "ada", "itu", "ini", "dengan", "oleh", "atau", "adalah", "yaitu",
+      "the", "and", "of", "in", "to", "who", "for", "with", "on", "at", "by", "from",
+      "في", "من", "إلى", "على", "عن", "مع", "التي", "الذي", "الذين", "كان"
+    ]);
+
     if(D){
-      const tokens = q.split(/\s+/).filter(w => w.length >= 2);
+      const rawTokens = q.split(/\s+/).filter(w => w.length >= 2);
+      const tokens = rawTokens.filter(w => !STOP_WORDS.has(w));
+      const searchTokens = tokens.length ? tokens : rawTokens;
 
       // Search characters
       (D.characters || []).forEach((c, idx) => {
-        const idVal = c.id || "d" + idx;
-        const key = "characters:" + idVal;
+        const idVal = c.name || c.id || ("d" + idx);
+        const key = "characters:" + idVal.toLowerCase();
         if(seen.has(key)) return;
         const name = (c.name || "").toLowerCase();
         const role = (c.role || "").toLowerCase();
-        const bio = (c.bio || c.description || "").toLowerCase();
+        const bio = (c.body || c.meta || "").toLowerCase();
 
         let s = 0;
-        if(name.includes(q)) s += 50;
+        if(name.includes(q)) s += 60;
         else {
-          for(const t of tokens){
-            if(name.includes(t)) s += 15;
-            if(role.includes(t)) s += 8;
-            if(bio.includes(t)) s += 3;
+          for(const tk of searchTokens){
+            if(name.includes(tk)) s += 25;
+            if(role.includes(tk)) s += 12;
+            if(bio.includes(tk)) s += 4;
           }
         }
-        if(s >= 8){
+        if(s >= 12){
           seen.add(key);
           results.push({
             type: "characters",
@@ -1382,27 +1418,27 @@
       // Search events
       (D.events || []).forEach(e => {
         const slug = e.slug || e.id;
-        const key = "events:" + slug;
+        const key = "events:" + slug.toLowerCase();
         if(seen.has(key)) return;
         const title = (e.title || "").toLowerCase();
         const summary = (e.summary || "").toLowerCase();
 
         let s = 0;
-        if(title.includes(q)) s += 50;
+        if(title.includes(q)) s += 60;
         else {
-          for(const t of tokens){
-            if(title.includes(t)) s += 15;
-            if(summary.includes(t)) s += 6;
+          for(const tk of searchTokens){
+            if(title.includes(tk)) s += 25;
+            if(summary.includes(tk)) s += 6;
           }
         }
-        if(s >= 6){
+        if(s >= 14){
           seen.add(key);
           const img = (Array.isArray(e.slides) && e.slides[0]) || (Array.isArray(e.gallery) && e.gallery[0]) || "";
           results.push({
             type: "events",
             id: slug,
             title: e.title,
-            role: e.year + " " + t("eraSuffix") + (e.summary ? " — " + e.summary.slice(0, 80) + "..." : ""),
+            role: (e.year ? e.year + " " + t("eraSuffix") : "") + (e.summary ? " — " + e.summary.slice(0, 85) + "..." : ""),
             badge: t("badgeEvent"),
             img: img,
             url: "detail.html?t=events&id=" + encodeURIComponent(slug),
@@ -1414,20 +1450,20 @@
       // Search places
       (D.places || []).forEach(p => {
         const slug = p.slug || p.id;
-        const key = "places:" + slug;
+        const key = "places:" + slug.toLowerCase();
         if(seen.has(key)) return;
         const name = (p.name || "").toLowerCase();
         const sub = (p.subtitle || "").toLowerCase();
 
         let s = 0;
-        if(name.includes(q)) s += 50;
+        if(name.includes(q)) s += 60;
         else {
-          for(const t of tokens){
-            if(name.includes(t)) s += 15;
-            if(sub.includes(t)) s += 6;
+          for(const tk of searchTokens){
+            if(name.includes(tk)) s += 25;
+            if(sub.includes(tk)) s += 8;
           }
         }
-        if(s >= 6){
+        if(s >= 14){
           seen.add(key);
           const img = (Array.isArray(p.slides) && p.slides[0]) || "";
           results.push({
@@ -1444,7 +1480,7 @@
       });
     }
 
-    // Sort results by score if not intent match
+    // Sort results by score: intent matches stay strictly at top!
     results.sort((a, b) => (b.score || 0) - (a.score || 0));
 
     let intentInfo = null;
@@ -1461,9 +1497,28 @@
     };
   }
 
-  // Get characters for an event
+  // Get characters for an event with flexible slug and alias resolution
   function getEventCharacters(eventSlug){
-    const list = HISTORICAL_GRAPH.events_to_chars[eventSlug] || [];
+    if(!eventSlug) return [];
+    const raw = String(eventSlug).trim().toLowerCase();
+    const stripped = raw.replace(/^\d+-/, "");
+
+    // 1. Exact match
+    let list = HISTORICAL_GRAPH.events_to_chars[raw] || HISTORICAL_GRAPH.events_to_chars[stripped];
+
+    // 2. Fallback: match by stripped slug or substring in slug keys
+    if(!list || !list.length){
+      for(const [k, chars] of Object.entries(HISTORICAL_GRAPH.events_to_chars)){
+        const kStripped = k.replace(/^\d+-/, "").toLowerCase();
+        if(k.toLowerCase() === raw || kStripped === stripped || raw.includes(kStripped) || kStripped.includes(stripped)){
+          list = chars;
+          break;
+        }
+      }
+    }
+
+    if(!list || !list.length) return [];
+
     return list.map(item => {
       const img = getEntityImg("characters", item.name);
       return {
@@ -1475,26 +1530,36 @@
     });
   }
 
-  // Get events for a character
+  // Get events for a character with normalized names
   function getCharacterEvents(charName){
+    if(!charName) return [];
     const res = [];
     const D = window.__ALFA_DEFS;
     const evMap = {};
     if(D && Array.isArray(D.events)){
-      D.events.forEach(e => { evMap[e.slug] = e; });
+      D.events.forEach(e => {
+        evMap[e.slug] = e;
+        evMap[e.slug.replace(/^\d+-/, "")] = e;
+      });
     }
 
+    const cTarget = String(charName).trim().toLowerCase();
+
     for(const [slug, chars] of Object.entries(HISTORICAL_GRAPH.events_to_chars)){
-      const found = chars.find(c => c.name.toLowerCase() === charName.toLowerCase());
+      const found = chars.find(c => {
+        const cName = (c.name || "").toLowerCase();
+        return cName === cTarget || cName.includes(cTarget) || cTarget.includes(cName);
+      });
       if(found){
-        const ev = evMap[slug] || {};
+        const stripped = slug.replace(/^\d+-/, "");
+        const ev = evMap[slug] || evMap[stripped] || {};
         res.push({
-          slug: slug,
-          title: ev.title || slug,
-          year: ev.year || "",
+          slug: ev.slug || slug,
+          title: ev.title || slug.replace(/^\d+-/, "").replace(/-/g, " "),
+          year: ev.year || slug.match(/^\d+/)?.[0] || "",
           role: found.role,
           img: (Array.isArray(ev.slides) && ev.slides[0]) || "",
-          url: "detail.html?t=events&id=" + encodeURIComponent(slug)
+          url: "detail.html?t=events&id=" + encodeURIComponent(ev.slug || slug)
         });
       }
     }

@@ -345,7 +345,7 @@ footer{border-top:1px solid rgba(110,92,54,.3);margin-top:80px;padding:56px clam
 .ft-qris-inner img{width:100%;height:100%;object-fit:contain;display:block}
 .cp{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1440px;margin-left:auto;margin-right:auto}
 @media(max-width:1050px){.ft{grid-template-columns:1fr 1fr;gap:32px}.ft-sup-block{grid-column:span 2}}
-@media(max-width:640px){.ft{grid-template-columns:1fr;gap:28px}.ft-sup-block{grid-column:span 1;flex-direction:row;align-items:center}}
+
 
 /* FLOATING BOTTOM-LEFT SUPPORT / QRIS OVERLAY */
 .sup-dock{position:fixed;left:16px;bottom:16px;z-index:920;display:flex;align-items:center;gap:10px;background:rgba(20,18,15,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--g2);padding:8px 12px;box-shadow:0 10px 30px rgba(0,0,0,.65);opacity:0;transform:translateY(14px);pointer-events:none;transition:transform .25s ease,opacity .25s ease,border-color .2s}
@@ -438,7 +438,7 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   .lang-btn{font-size:.66rem;padding:4px 7px}
   nav a.yt{padding:4px 7px}
   nav a.yt svg{width:16px;height:12px}
-  .ct-bar,.ft{grid-template-columns:1fr}
+  .ct-bar{grid-template-columns:1fr}
   .sc{padding-inline:28px}
   #map{height:clamp(380px,56svh,520px);min-height:380px}
   .mt{top:10px;left:auto;right:10px;transform:none;max-width:calc(100% - 66px);justify-content:flex-end}
@@ -601,6 +601,21 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
   #places #wm{transform:none !important}
 }
 
+
+  /* Event Card Character Badges / Mini Cards on Timeline */
+  .kev-chars-sec{margin-top:12px;padding-top:10px;border-top:1px solid rgba(196,163,90,.18)}
+  .kev-chars-lbl{display:block;font:700 .68rem Cinzel,serif;color:var(--g);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+  .kev-chars-row{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .kev-chars-row::-webkit-scrollbar{display:none}
+  .kev-char-mini{display:flex;align-items:center;gap:8px;background:rgba(24,20,14,.92);border:1px solid rgba(196,163,90,.25);border-radius:5px;padding:4px 8px;text-decoration:none;color:#fff;flex-shrink:0;max-width:185px;transition:all .2s;cursor:pointer}
+  .kev-char-mini:hover{border-color:var(--g);background:rgba(196,163,90,.16);transform:translateY(-1px);box-shadow:0 4px 12px rgba(196,163,90,.18)}
+  .kev-char-mini-img{width:30px;height:30px;border-radius:4px;overflow:hidden;background:#241d13;flex-shrink:0;border:1px solid rgba(196,163,90,.32)}
+  .kev-char-mini-img img{width:100%;height:100%;object-fit:cover;display:block}
+  .kev-char-mini-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 .72rem Cinzel,serif;color:var(--g);background:linear-gradient(135deg,#2e2417,#1a150e)}
+  .kev-char-mini-info{display:flex;flex-direction:column;min-width:0;overflow:hidden}
+  .kev-char-mini-name{font:700 .78rem Bitter,serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .kev-char-mini-role{font-size:.66rem;color:var(--g2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 /* Responsive Mobile Navigation (< 800px) */
 @media(max-width:800px){
   header{gap:10px;padding:10px 14px}
@@ -610,35 +625,164 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
   .search-nav-btn{padding:7px 10px}
   .hamburger-btn{display:inline-flex}
   
-  /* Footer Mobile 2-column Polish */
+  /* REVISED MOBILE FOOTER (Compact, Symmetrical, Sleek matching prototype) */
+  footer{
+    padding:36px 16px 28px !important;
+    margin-top:50px !important;
+  }
   .ft{
-    grid-template-columns:1fr 1fr;
-    gap:24px 16px;
-    padding:32px 16px 20px;
+    display:grid !important;
+    grid-template-columns:1fr 1fr !important;
+    gap:20px 16px !important;
+    max-width:520px !important;
+    margin:0 auto !important;
   }
   .ft-brand{
-    grid-column:span 2;
-    margin-bottom:8px;
+    order:1 !important;
+    grid-column:span 2 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    padding-bottom:18px !important;
+    border-bottom:1px solid rgba(196,163,90,.16) !important;
+    margin-bottom:0 !important;
   }
+  .ft-brand .logo{margin-bottom:6px !important}
+  .ft-brand p{
+    text-align:center !important;
+    font-size:0.82rem !important;
+    line-height:1.5 !important;
+    max-width:32ch !important;
+  }
+  .ft-src-btn{
+    margin-top:12px !important;
+    font-size:0.7rem !important;
+    padding:6px 14px !important;
+  }
+
+  /* Col 1: JELAJAHI (order 2, left col) */
+  .ft-explore-col{
+    order:2 !important;
+    grid-column:1 / 2 !important;
+  }
+  .ft-explore-col h4{
+    font-size:0.8rem !important;
+    margin-bottom:10px !important;
+  }
+  .ft-explore-col a{
+    font-size:0.82rem !important;
+    margin:5px 0 !important;
+  }
+
+  /* Col 2: IKUTI KANAL (order 3, right col) */
+  .ft-follow-col{
+    order:3 !important;
+    grid-column:2 / 3 !important;
+  }
+  .ft-follow-col h4{
+    font-size:0.8rem !important;
+    margin-bottom:10px !important;
+  }
+  .ft-follow-col a{
+    font-size:0.82rem !important;
+    margin:5px 0 !important;
+    white-space:nowrap !important;
+    overflow:hidden !important;
+    text-overflow:ellipsis !important;
+  }
+
+  /* RUJUKAN UTAMA NASIONAL & GLOBAL (order 4, span 2, centered horizontal pills) */
   .ft-col.ft-sources-col{
-    grid-column:span 2;
-    padding:16px 14px;
-    background:#16120b;
-    border:1px solid rgba(196,163,90,.2);
-    border-radius:8px;
+    order:4 !important;
+    grid-column:span 2 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    padding:16px 6px !important;
+    border-top:1px solid rgba(196,163,90,.16) !important;
+    border-bottom:1px solid rgba(196,163,90,.16) !important;
+    margin:0 !important;
+    background:transparent !important;
+    border-radius:0 !important;
   }
+  .ft-col.ft-sources-col h4{
+    font-size:0.78rem !important;
+    letter-spacing:0.08em !important;
+    margin-bottom:10px !important;
+    color:var(--g) !important;
+    text-align:center !important;
+  }
+  .ft-src-links{
+    display:flex !important;
+    flex-wrap:wrap !important;
+    justify-content:center !important;
+    gap:6px !important;
+    width:100% !important;
+  }
+  .ft-col.ft-sources-col a{
+    display:inline-block !important;
+    padding:4px 10px !important;
+    background:#1e1910 !important;
+    border:1px solid rgba(196,163,90,.25) !important;
+    border-radius:4px !important;
+    font-size:0.72rem !important;
+    color:#c9bfa7 !important;
+    margin:0 !important;
+    text-decoration:none !important;
+    transition:all .2s !important;
+  }
+  .ft-col.ft-sources-col a:hover{
+    border-color:var(--g) !important;
+    color:var(--g) !important;
+    background:rgba(196,163,90,.12) !important;
+  }
+
+  /* DUKUNG ALFA HISTORY (order 5, span 2, rounded card) */
   .ft-sup-block{
-    grid-column:span 2;
-    flex-direction:row;
-    align-items:center;
-    justify-content:space-between;
-    padding:16px 18px;
-    background:#16120b;
-    border:1px solid rgba(196,163,90,.2);
-    border-radius:8px;
-    gap:16px;
+    order:5 !important;
+    grid-column:span 2 !important;
+    background:#18140c !important;
+    border:1px solid rgba(196,163,90,.28) !important;
+    border-radius:12px !important;
+    padding:14px 16px !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:space-between !important;
+    gap:12px !important;
   }
-  .ft-sup-block .ft-sup-info{flex:1;text-align:left}
+  .ft-sup-block .ft-sup-info{
+    flex:1 !important;
+    text-align:left !important;
+  }
+  .ft-sup-block .ft-sup-info h4{
+    font-size:0.8rem !important;
+    margin-bottom:4px !important;
+    color:var(--g) !important;
+  }
+  .ft-qris-cap{
+    font-size:0.76rem !important;
+    line-height:1.35 !important;
+    color:var(--mut) !important;
+    white-space:normal !important;
+  }
+  .ft-qris{
+    width:72px !important;
+    height:72px !important;
+    padding:3px !important;
+    border-radius:6px !important;
+    flex-shrink:0 !important;
+  }
+
+  .cp{
+    margin-top:24px !important;
+    padding-top:16px !important;
+    text-align:center !important;
+    justify-content:center !important;
+    font-size:0.72rem !important;
+    line-height:1.5 !important;
+  }
 }
 
 </style>
@@ -886,7 +1030,7 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
       <p id="ftDesc">Tracing the history of Islam through interactive maps, notable figures, and short stories.</p>
       <button class="ft-src-btn" id="ftSourcesBtn" type="button" data-i18n="ftSourcesBtn">Methodology &amp; Primary Sources ›</button>
     </div>
-    <div class="ft-col">
+    <div class="ft-col ft-explore-col">
       <h4 id="ftExpHead">Explore</h4>
       <a href="#places" data-i18n="navMap">World Map</a>
       <a href="#chronology" data-i18n="navTimeline">Timeline</a>
@@ -896,14 +1040,16 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
     </div>
     <div class="ft-col ft-sources-col">
       <h4 id="ftSrcHead">Scholarly Sources</h4>
-      <a href="https://quran.com" target="_blank" rel="noopener">Quran.com (Al-Qur'an)</a>
-      <a href="https://quran.kemenag.go.id" target="_blank" rel="noopener">Qur'an Kemenag RI</a>
-      <a href="https://sunnah.com" target="_blank" rel="noopener">Sunnah.com (Hadits)</a>
-      <a href="https://dorar.net/hadith" target="_blank" rel="noopener">Dorar.net (Takhrij Hadits)</a>
-      <a href="https://shamela.ws" target="_blank" rel="noopener">Shamela.ws (Kitab Tarikh)</a>
-      <a href="https://khastara.perpusnas.go.id" target="_blank" rel="noopener">Perpusnas RI (Naskah)</a>
+      <div class="ft-src-links">
+        <a href="https://quran.com" target="_blank" rel="noopener">Quran.com</a>
+        <a href="https://quran.kemenag.go.id" target="_blank" rel="noopener">Qur'an Kemenag</a>
+        <a href="https://sunnah.com" target="_blank" rel="noopener">Sunnah.com</a>
+        <a href="https://dorar.net/hadith" target="_blank" rel="noopener">Dorar.net</a>
+        <a href="https://shamela.ws" target="_blank" rel="noopener">Shamela.ws</a>
+        <a href="https://khastara.perpusnas.go.id" target="_blank" rel="noopener">Perpusnas RI</a>
+      </div>
     </div>
-    <div class="ft-col">
+    <div class="ft-col ft-follow-col">
       <h4 id="ftFolHead">Follow</h4>
       <a href="https://www.youtube.com/@alfa-history" target="_blank" rel="noopener">YouTube : @alfa-history</a>
       <a href="https://www.instagram.com/alfaahistory" target="_blank" rel="noopener">Instagram : @alfaahistory</a>
@@ -1370,6 +1516,39 @@ function renderKRSub(){
 
       const bd=el("div","kev-body");
       bd.append(el("h3","",e.title),el("small","kev-yr",kyr(e)+" "+I.t("eraSuffix")),el("p","",e.summary||""));
+
+      // Square Character Cards inside Timeline Event Cards
+      if(I && typeof I.getEventCharacters === "function"){
+        const evChars = I.getEventCharacters(rawEv.slug || e.slug || e.id);
+        if(evChars && evChars.length){
+          const charSec = el("div", "kev-chars-sec");
+          charSec.append(el("span", "kev-chars-lbl", I.t("eventFiguresHeading") || "Tokoh Peristiwa:"));
+          const charRow = el("div", "kev-chars-row");
+          evChars.forEach(ch => {
+            const card = el("a", "kev-char-mini");
+            card.href = ch.url;
+            card.title = ch.name + (ch.role ? " — " + ch.role : "");
+            card.onclick = ev => {
+              ev.stopPropagation(); // so it navigates to character detail, not event article
+            };
+            const imgBox = el("div", "kev-char-mini-img");
+            if(ch.img){
+              const im = new Image(); im.src = ch.img; im.alt = ch.name; im.loading = "lazy";
+              imgBox.append(im);
+            } else {
+              const inits = ch.name.split(" ").map(w => w[0]).filter(Boolean).slice(0, 2).join("");
+              imgBox.append(el("div", "kev-char-mini-ph", inits));
+            }
+            const info = el("div", "kev-char-mini-info");
+            info.append(el("b", "kev-char-mini-name", ch.name));
+            if(ch.role) info.append(el("span", "kev-char-mini-role", ch.role));
+            card.append(imgBox, info);
+            charRow.append(card);
+          });
+          charSec.append(charRow);
+          bd.append(charSec);
+        }
+      }
 
       const foot=el("div","kev-foot");
       const cnt=eventCounts(rawEv,rawEra);
@@ -1865,17 +2044,51 @@ const nz=s=>(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,""
 const hay=d=>d._h||(d._h=nz([d.name,d.role,d.meta,d.facts,arr(d.groups).join(" "),arr(d.eras).join(" "),d.faith,d.gender].join(" ")));
 
 function applyCH(){
-  const tk=nz(CF.q).split(" ").filter(Boolean);
-  let l=CHALL.map((d,i)=>[d,i]).filter(([d])=>
-    (!tk.length||tk.every(w=>hay(d).includes(w)))&&
-    (!CF.era||arr(d.eras).includes(CF.era))&&
-    (!CF.faith||d.faith==CF.faith)&&
-    (!CF.group||arr(d.groups).includes(CF.group))
-  );
-  if(CF.sort=="nama")l.sort((a,b)=>(a[0].name||"").localeCompare(b[0].name||"","id"));
-  l=l.map(x=>x[0]);
+  const rawQ = String(CF.q || "").trim();
+  let semanticCharNames = null;
+
+  if(rawQ.length >= 3 && I && typeof I.semanticSearch === "function"){
+    const sem = I.semanticSearch(rawQ);
+    if(sem && Array.isArray(sem.results) && sem.results.length){
+      const charMatches = sem.results.filter(r => r.type === "characters");
+      if(charMatches.length){
+        semanticCharNames = new Set(charMatches.map(c => (c.title || c.id || "").toLowerCase()));
+      }
+    }
+  }
+
+  const tk = nz(rawQ).split(" ").filter(w => w.length >= 2);
+  const stopWords = new Set(["para", "yang", "dan", "di", "ke", "dari", "ikut", "dalam", "pada", "tentang", "siapa", "saja", "the", "and", "of", "in", "who"]);
+  const activeTokens = tk.filter(w => !stopWords.has(w));
+  const queryTokens = activeTokens.length ? activeTokens : tk;
+
+  let l = CHALL.map((d, i) => [d, i]).filter(([d]) => {
+    const nameLower = (d.name || "").toLowerCase();
+    const isSemantic = semanticCharNames && (semanticCharNames.has(nameLower) || Array.from(semanticCharNames).some(sn => nameLower.includes(sn) || sn.includes(nameLower)));
+    const matchesKeyword = !queryTokens.length || (queryTokens.length > 2 ? queryTokens.some(w => hay(d).includes(w)) : queryTokens.every(w => hay(d).includes(w)));
+    const filterOk = (!CF.era || arr(d.eras).includes(CF.era)) &&
+      (!CF.faith || d.faith == CF.faith) &&
+      (!CF.group || arr(d.groups).includes(CF.group));
+    return (isSemantic || matchesKeyword) && filterOk;
+  });
+
+  if(semanticCharNames){
+    l.sort((a, b) => {
+      const aName = (a[0].name || "").toLowerCase();
+      const bName = (b[0].name || "").toLowerCase();
+      const aSem = semanticCharNames.has(aName) || Array.from(semanticCharNames).some(sn => aName.includes(sn));
+      const bSem = semanticCharNames.has(bName) || Array.from(semanticCharNames).some(sn => bName.includes(sn));
+      if(aSem && !bSem) return -1;
+      if(!aSem && bSem) return 1;
+      return 0;
+    });
+  } else if(CF.sort == "nama"){
+    l.sort((a, b) => (a[0].name || "").localeCompare(b[0].name || "", "id"));
+  }
+
+  l = l.map(x => x[0]);
   drawCH(l);
-  $("#cn").textContent=l.length==CHALL.length?I.t("showingAll",CHALL.length):I.t("showingFiltered",l.length,CHALL.length);
+  $("#cn").textContent = l.length == CHALL.length ? I.t("showingAll", CHALL.length) : I.t("showingFiltered", l.length, CHALL.length);
 }
 
 function drawCH(l){
