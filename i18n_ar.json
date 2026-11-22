@@ -1,0 +1,968 @@
+{
+  "eras": {
+    "pra": {
+      "name": "عصر ما قبل البعثة",
+      "desc": "أحوال جزيرة العرب قبل البعثة النبوية: الكعبة المشرفة، قبيلة قريش، عام الفيل، والشخصيات البارزة حول مولد النبي ﷺ."
+    },
+    "makkah": {
+      "name": "العهد المكي",
+      "desc": "بدء الوحي، الدعوة سراً وجهراً، اضطهاد قريش للمسلمين المستضعفين، والهجرة الأولى إلى الحبشة."
+    },
+    "madinah": {
+      "name": "العهد المدني",
+      "desc": "الهجرة النبوية الشريفة وتأسيس دولة المدينة، المغازي الكبرى من بدر إلى الخندق، صلح الحديبية، وفتح مكة المكرمة."
+    },
+    "khulafaur": {
+      "name": "عصر الخلفاء الراشدين",
+      "desc": "عهد الخلفاء الراشدين الأربعة: أبو بكر وعمر وعثمان وعلي، والفتوحات الكبرى في الشام وفارس ومصر."
+    },
+    "umayyah": {
+      "name": "الدولة الأموية",
+      "desc": "الخلافة من دمشق، اتساع الفتوح نحو الأندلس غرباً وبلاد السند شرقاً، وبداية العمارة الإسلامية الخالدة."
+    },
+    "abbasiyah": {
+      "name": "العصر الذهبي العباسي",
+      "desc": "بغداد حاضرة الخلافة ومركزاً عالمياً للترجمة والعلوم والطب والفلسفة، إلى جانب قرطبة والقاهرة الفاطمية."
+    },
+    "seljuk": {
+      "name": "عصر السلاجقة والحروب الصليبية",
+      "desc": "صعود السلاجقة، انطلاق الحروب الصليبية، جهاد السلطان صلاح الدين الأيوبي، وسقوط بغداد على يد المغول."
+    },
+    "mamluk": {
+      "name": "دولة المماليك وما بعد المغول",
+      "desc": "صد المماليك لزحف المغول في عين جالوت، بواكير الدولة العثمانية، سقوط غرناطة، وانتشار الإسلام في الأرخبيل."
+    },
+    "imperium": {
+      "name": "عصر الإمبراطوريات الإسلامية الكبرى",
+      "desc": "الدول العثمانية والصفوية والمغولية في أوج قوتها، بينما خاضت سلطنات نوسانتارا ملاحم المقاومة ضد الاستعمار."
+    },
+    "kolonial": {
+      "name": "عصر الاستعمار وحركات التجديد",
+      "desc": "مواجهة العالم الإسلامي للاستعمار الأوروبي، بزوغ حركات الإصلاح والنهضة، وإلغاء الخلافة العثمانية."
+    },
+    "modern": {
+      "name": "العصر المعاصر",
+      "desc": "نشوء الدول الوطنية الحديثة، حركات التحرر والاستقلال، والتحولات الجيوسياسية المعاصرة في العالم الإسلامي."
+    }
+  },
+  "polities": {
+    "madinah": "المدينة المنورة (الدولة النبوية)",
+    "rasyidin": "دولة الخلافة الراشدة",
+    "umayyah": "الدولة الأموية",
+    "abbasiyah": "الدولة العباسية",
+    "samaniyah": "الدولة السامانية",
+    "buwaihiyah": "الدولة البويهية",
+    "maghribawal": "الدولة الإدريسية ودولة الأغالبة",
+    "mesirawal": "الدولة الطولونية والإخشيدية",
+    "andalus": "الأندلس (قرطبة وملوك الطوائف)",
+    "granada": "مملكة غرناطة",
+    "fatimiyah": "الدولة الفاطمية",
+    "ghaznawiyah": "الدولة الغزنوية",
+    "seljuk": "الدولة السلجوقية الكبرى",
+    "rum": "سلطنة سلاجقة الروم",
+    "khwarazm": "الدولة الخوارزمية",
+    "maghrib": "المرابطون والموحدون والمرينيون",
+    "mali": "إمبراطورية مالي",
+    "ayyubiyah": "الدولة الأيوبية",
+    "mamluk": "دولة المماليك",
+    "ilkhanat": "الدولة الإيلخانية (مغول فارس)",
+    "delhi": "سلطنة دلهي",
+    "timuriyah": "الدولة التيمورية",
+    "safawiyah": "الدولة الصفوية",
+    "nusantara": "سلطنات جنوب شرق آسيا الإسلامية",
+    "mughal": "إمبراطورية مغول الهند",
+    "sokoto": "خلافة صكتو",
+    "iran": "إيران",
+    "utsmani": "الدولة العثمانية",
+    "kolonial": "عهد الاستعمار الأوروبي",
+    "modern": "العالم المعاصر"
+  },
+  "places": {
+    "makkah": {
+      "name": "مكة المكرمة",
+      "subtitle": "أم القرى ومهبط الوحي الشريف",
+      "description": "مهبط الوحي وقبلة المسلمين، وموطن الكعبة المشرفة التي بناها إبراهيم وإسماعيل عليهما السلام، ومركز قريش التجاري والروحي."
+    },
+    "yatsrib": {
+      "name": "يثرب (المدينة المنورة)",
+      "subtitle": "دار الهجرة وعاصمة النبوة الأولى",
+      "description": "واحة زراعية استقبلت النبي المهاجر والمهاجرين، وآخى فيها بين الأنصار والمهاجرين، وأسس أول دولة للإسلام."
+    },
+    "syam": {
+      "name": "بلاد الشام",
+      "subtitle": "أرض الأنبياء ومحطة التجارة الكبرى",
+      "description": "إقليم تاريخي شمال جزيرة العرب، ارتبطت به قريش برحلة الصيف، وشهد لقاء النبي ﷺ بالراهب بحيرى والفتوحات الإسلامية المبكرة."
+    },
+    "palestina": {
+      "name": "فلسطين والقدس",
+      "subtitle": "أرض المسجد الأقصى والبركات",
+      "description": "مسرى رسول الله ﷺ ومعراجه إلى السماوات العلا، وأولى القبلتين وثالث الحرمين الشريفين، فتحها عمر بن الخطاب رضي الله عنه صلحاً."
+    },
+    "iraq": {
+      "name": "أرض الرافدين (العراق)",
+      "subtitle": "مهد الحضارات وعاصمة الخلافة",
+      "description": "بلاد الكوفة والبصرة وبغداد، حاضرة الفتوحات المبكرة ومركز العلوم الشرعية واللغوية والعقلية لقرون طويلة."
+    },
+    "yaman": {
+      "name": "اليمن السعيد",
+      "subtitle": "بلاد سبأ وحمير وموطن الأنصار الأول",
+      "description": "موطن الأوس والخزرج الأصلي ومسار رحلة الشتاء، انطلق منه أبرهة الحبشي بجيش الفيل لهدم الكعبة المشرفة."
+    },
+    "gajah": {
+      "name": "وادي محسر (مسار أصحاب الفيل)",
+      "subtitle": "موقع هلاك جيش أبرهة بالطيور الأبابيل",
+      "description": "الوادي الواقع بين مزدلفة ومنى، حيث حبس الله الفيل محمود وأرسل على جيش أبرهة طيراً أبابيل ترميهم بحجارة من سجيل."
+    },
+    "hira": {
+      "name": "غار حراء (جبل النور)",
+      "subtitle": "موضع انبثاق أول أنوار الوحي الخاتم",
+      "description": "الغار الشريف الذي كان يتحنث فيه النبي ﷺ حتى نزل عليه أمين الوحي جبريل عليه السلام بقوله تعالى: ﴿اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ﴾."
+    },
+    "makkah-k": {
+      "name": "مكة المكرمة (العهد النبوي)",
+      "subtitle": "مركز الدعوة الأولى ومهد الرسالة",
+      "description": "الحرم الآمن حيث جهر النبي ﷺ بالدعوة عند الصفا، وعانى المسلمون المستضعفون من حصار الشِّعب، حتى فتحت سلماً عام ٨ هـ."
+    },
+    "madinah-k": {
+      "name": "المدينة المنورة (دار الهجرة)",
+      "subtitle": "عاصمة الدولة النبوية والخلافة الراشدة",
+      "description": "المدينة الطيبة التي احتضنت المسجد النبوي الشريف ومثوى النبي ﷺ وأصحابه، وانطلقت منها رايات الهدى لنشر الإسلام."
+    },
+    "badar": {
+      "name": "بدر",
+      "subtitle": "موقع يوم الفرقان والانتصار الأول",
+      "description": "الآبار والسهل الذي شهد أول معركة فاصلة بين الحق والباطل عام ٢ هـ، حيث نصر الله المؤمنين وأعز جنده."
+    },
+    "khaibar": {
+      "name": "خيبر",
+      "subtitle": "معقل الحصون والكتائب في شمال الحجاز",
+      "description": "واحة ذات حصون منيعة في شمال المدينة، فتحها المسلمون بقيادة النبي ﷺ عام ٧ هـ وأبرزت شجاعة علي بن أبي طالب في فتح حصن القموص."
+    },
+    "tabuk": {
+      "name": "تبوك",
+      "subtitle": "أقصى غزوات النبي ﷺ شمالاً (غزوة العسرة)",
+      "description": "الموقع الذي رابط فيه الجيش الإسلامي (جيش العسرة) عام ٩ هـ في مواجهة جيوش الروم والقبائل المتحالفة معها."
+    },
+    "yamamah": {
+      "name": "اليمامة",
+      "subtitle": "معركة حديقة الموت ضد مسيلمة الكذاب",
+      "description": "موقع المعركة الفاصلة في حروب الردة عام ١٢ هـ بقيادة خالد بن الوليد، واستشهد فيها عدد كبير من حفظة القرآن الكريم."
+    },
+    "damaskus": {
+      "name": "دمشق",
+      "subtitle": "عاصمة الخلافة الأموية الفيحاء",
+      "description": "أقدم مدن العالم المأهولة، فتحت صلحاً وحرباً عام ١٤ هـ وصارت حاضرة بني أمية ودرة الشرق الإسلامي."
+    },
+    "yarmuk": {
+      "name": "معركة اليرموك",
+      "subtitle": "الملحمة الفاصلة لفتح بلاد الشام",
+      "description": "الوادي الذي حسم فيه المسلمون بقيادة خالد بن الوليد وأبي عبيدة بن الجراح مصير بلاد الشام بهزيمة جيوش الإمبراطورية البيزنطية عام ١٥ هـ."
+    },
+    "baitulmaqdis": {
+      "name": "بيت المقدس",
+      "subtitle": "مدينة القدس الشريف والمسجد الأقصى",
+      "description": "تسلم مفاتيحها أمير المؤمنين عمر بن الخطاب رضي الله عنه عام ١٦ هـ وكتب لأهلها العهدة العمرية الخالدة لحماية كنائسهم ودمائهم."
+    },
+    "hims": {
+      "name": "حمص",
+      "subtitle": "قلب الشام وثغر الجند",
+      "description": "مدينة تاريخية في وادي العاصي فتحت عام ١٥ هـ، ودُفن فيها سيف الله المسلول خالد بن الوليد رضي الله عنه."
+    },
+    "konstantinopel": {
+      "name": "القسطنطينية (إسطنبول)",
+      "subtitle": "حاضرة الروم وميدان البشارة النبوية",
+      "description": "المدينة العظيمة التي بشر النبي ﷺ بفتحها، وحاصرها الصحابة مبكراً واستشهد تحت أسوارها أبو أيوب الأنصاري، حتى فتحها محمد الفاتح عام ١٤٥٣ م."
+    },
+    "iskandariyah": {
+      "name": "الإسكندرية",
+      "subtitle": "ثغر مصر العظيم وعروس البحر الأبيض المتوسط",
+      "description": "المدينة الساحلية العريقة التي فتحها عمرو بن العاص رضي الله عنه عام ٢١ هـ بعد معاهدة تاريخية مع المقوقس."
+    },
+    "fustat": {
+      "name": "الفسطاط",
+      "subtitle": "أول عاصمة إسلامية في مصر والقارة الأفريقية",
+      "description": "المدينة التي اختطها عمرو بن العاص عام ٢٠ هـ وبنى فيها أول مسجد في أفريقيا جامع عمرو بن العاص (تاج الجوامع)."
+    },
+    "barqah": {
+      "name": "برقة",
+      "subtitle": "بوابة الفتوحات الإسلامية في شمال أفريقيا",
+      "description": "إقليم شرق ليبيا الذي فتحه عمرو بن العاص وعقبة بن نافع سلماً عام ٢٢ هـ، وكان منطلق الجيوش نحو المغرب العربي."
+    },
+    "kufah": {
+      "name": "الكوفة",
+      "subtitle": "مصر الجند وعاصمة خلافة الإمام علي بن أبي طالب",
+      "description": "المدينة التي اختطها سعد بن أبي وقاص بأمر عمر بن الخطاب عام ١٧ هـ، واحتضنت كبار فقهاء الصحابة والتابعين ومدرسة النحو الكوفية."
+    },
+    "madain": {
+      "name": "المدائن (طيسفون)",
+      "subtitle": "عاصمة الإمبراطورية الساسانية وإيوان كسرى",
+      "description": "حاضرة كسرى وفارس التي فتحها سعد بن أبي وقاص بعد عبور دجلة عام ١٦ هـ، ودخل إيوانها مكبراً ومصلياً صلاة الفتح."
+    },
+    "basrah": {
+      "name": "البصرة",
+      "subtitle": "ثغر العراق وبوابة الفتوح الشرقية",
+      "description": "بناها عتبة بن غزوان عام ١٤ هـ بأمر عمر بن الخطاب، لتكون قاعدة عسكرية ومرفأ بحرياً ومركزاً لعلوم اللغة والحديث."
+    },
+    "nahawand": {
+      "name": "نهاوند",
+      "subtitle": "موقع معركة فتح الفتوح في بلاد فارس",
+      "description": "المعركة التاريخية الحاسمة عام ٢١ هـ بقيادة النعمان بن مقرن المزني، والتي أنهت الوجود العسكري للساسانيين في فارس."
+    },
+    "merv": {
+      "name": "مرو الشاهجان",
+      "subtitle": "جوهرة خراسان وقاعدة فتوح آسيا الوسطى",
+      "description": "واحة كبرى على طريق الحرير، فتحت عام ٣١ هـ وكانت منطلق الجيوش الإسلامية نحو نهر جيحون وما وراء النهر."
+    },
+    "habasyah": {
+      "name": "مملكة أكسوم (الحبشة)",
+      "subtitle": "أرض الصدق وملاذ الهجرة النبوية الأولى",
+      "description": "مملكة النجاشي أصحمة بن أبجر التي هاجر إليها الصحابة فراراً بدينهم، وأشاد النبي ﷺ بعدل ملكها قائلاً: «إن بها ملكاً لا يُظلم عنده أحد»."
+    }
+  },
+  "events": {
+    "570-tahun-gajah": {
+      "title": "عام الفيل وزحف أبرهة",
+      "summary": "زحف أبرهة الأشرم بجيش الفيلة لهدم الكعبة، فهلك جيشه بحجارة من سجيل أرسلتها طيور أبابيل قبل وصولهم مكة."
+    },
+    "570-kelahiran-nabi": {
+      "title": "مولد النبي محمد ﷺ",
+      "summary": "ولادة خير البرية محمد ﷺ في مكة المكرمة يتيماً، فكفله جده عبد المطلب وحضنته أمه آمنة بنت وهب."
+    },
+    "572-disusui-siti-halimah": {
+      "title": "رضاعته ﷺ في بادية بني سعد",
+      "summary": "استرضاع محمد ﷺ في ديار بني سعد عند حليمة السعدية حيث حلت البركات في بيتها ووقعت حادثة شق الصدر."
+    },
+    "576-yatim-piatu": {
+      "title": "وفاة السيدة آمنة وكفالة عبد المطلب",
+      "summary": "وفاة أمه آمنة بالأبواء وهو ابن ست سنين، وانتقال كفالته لجده عبد المطلب سيد قريش."
+    },
+    "582-bertemu-bahira": {
+      "title": "لقاء الراهب بحيرى في بصرى الشام",
+      "summary": "سفره مع عمه أبي طالب إلى الشام واكتشاف الراهب بحيرى لعلامات وخاتم النبوة فيه وتحذيره من كيد المتربصين."
+    },
+    "595-menikah-dengan-khadijah": {
+      "title": "الزواج المبارك من السيدة خديجة",
+      "summary": "اقترانه بالسيدة خديجة بنت خويلد بعد رحلة تجارة الشام الميمونة وهو ابن خمس وعشرين سنة."
+    },
+    "605-peletakan-hajar-aswad": {
+      "title": "تحكيم الصادق الأمين في وضع الحجر الأسود",
+      "summary": "حكمته العظيمة في إنهاء نزاع قبائل قريش على وضع الحجر الأسود بالرداء المشترك."
+    },
+    "610-wahyu-pertama": {
+      "title": "بدء الوحي ونزول القرآن بغار حراء",
+      "summary": "نزول أمين الوحي جبريل عليه السلام بقوله ﴿اقْرَأْ بِاسْمِ رَبِّكَ الَّذِي خَلَقَ﴾ في شهر رمضان المبارك."
+    },
+    "613-dakwah-terang-terangan": {
+      "title": "الجهر بالدعوة النبوية عند الصفا",
+      "summary": "صدع النبي ﷺ بالحق عند جبل الصفا امتثالاً لأمر الله: ﴿فَاصْدَعْ بِمَا تُؤْمَرُ﴾."
+    },
+    "615-hijrah-ke-habasyah": {
+      "title": "الهجرة الأولى إلى أرض الحبشة",
+      "summary": "هجرة ثلة من الصحابة فراراً بدينهم إلى ملك الحبشة العادل النجاشي أصحمة بن أبجر."
+    },
+    "619-pemboikotan-dan-tahun-duka-cita": {
+      "title": "حصار قريش الجائر لبني هاشم في الشِّعب",
+      "summary": "Following a three-year clan boycott in Shi'b Abi Thalib, both Abu Thalib and Khadijah passed away in 619 CE."
+    },
+    "621-isra-dan-miraj": {
+      "title": "Isra’ dan Mi’raj",
+      "summary": "The miraculous night journey from مكة المكرمة to Masjid al-Aqsa and ascension through the heavens, establishing the five daily prayers."
+    },
+    "622-hijrah-ke-madinah": {
+      "title": "الهجرة النبوية المباركة وتأسيس الدولة",
+      "summary": "خروج النبي ﷺ والصديق من مكة إلى يثرب وبناء المسجد النبوي والمؤاخاة بين المهاجرين والأنصار."
+    },
+    "624-perang-badar": {
+      "title": "غزوة بدر الكبرى (يوم الفرقان)",
+      "summary": "انتصار ثلاثمائة وبضعة عشر مسلماً على جيش قريش المؤلف من ألف مقاتل وقتل صناديد الكفر."
+    },
+    "625-perang-uhud": {
+      "title": "غزوة أحد وملحمة الصبر",
+      "summary": "مواجهة المسلمين لجيش قريش عند جبل أحد واستشهاد حمزة بن عبد المطلب وسبعين من الصحابة بعد مخالفة الرماة للأمر."
+    },
+    "627-perang-khandaq": {
+      "title": "غزوة الخندق (الأحزاب)",
+      "summary": "حصار جيوش الأحزاب للمدينة وحفر المسلمين للخندق بمشورة سلمان الفارسي حتى أرسل الله ريحاً هزمتهم."
+    },
+    "628-perjanjian-hudaibiyah": {
+      "title": "صلح الحديبية والفتح المبين",
+      "summary": "معاهدة الهدنة لعشر سنوات بين المسلمين وقريش وبيعة الرضوان تحت الشجرة، مما مهد لدخول أفواج في الإسلام."
+    },
+    "630-fathu-makkah": {
+      "title": "فتح مكة المكرمة الأعظم",
+      "summary": "دخول عشرة آلاف مسلم مكة سلماً وتحطيم الأصنام وإعلان العفو العام: «اذهبوا فأنتم الطلقاء»."
+    },
+    "632-haji-wada-dan-wafatnya-nabi": {
+      "title": "حجة الوداع وخطبة البلاغ المبين",
+      "summary": "After delivering the Farewell Sermon at Arafah, النبي محمد ﷺ ﷺ passed away in المدينة المنورة on 12 Rabi'ul Awwal 11 AH."
+    },
+    "632-abu-bakar-menjadi-khalifah": {
+      "title": "Abu Bakar menjadi khalifah",
+      "summary": "Abu Bakar ash-Shiddiq stabilized Arabia during the Riddah Wars, culminating against Musaylimah at Yamamah."
+    },
+    "636-penaklukan-syam-dan-yarmuk": {
+      "title": "Penaklukan Syam dan Yarmuk",
+      "summary": "Muslim forces captured Damascus and broke Byzantine military dominance in the Levant at the Yarmuk River."
+    },
+    "636-qadisiyyah-dan-madain": {
+      "title": "Qadisiyyah dan Mada’in",
+      "summary": "Sa'ad bin Abi Waqqash defeated Sassanid forces at Qadisiyyah and captured Ctesiphon, founding Kufah and Basra."
+    },
+    "637-penyerahan-baitul-maqdis": {
+      "title": "Penyerahan Baitul Maqdis",
+      "summary": "Residents of Jerusalem surrendered to Caliph Umar bin Khattab under a covenant guaranteeing protection of lives and churches."
+    },
+    "639-penaklukan-mesir": {
+      "title": "فتح مصر وتأسيس مدينة الفسطاط",
+      "summary": "Amr bin Ash entered Egypt, captured Babylon Fortress and Alexandria, and founded Fustat."
+    },
+    "644-wafatnya-umar-utsman-menjadi-khalifah": {
+      "title": "Wafatnya Umar, Utsman menjadi khalifah",
+      "summary": "Following Umar's assassination at dawn prayer, a six-member council selected Utsman bin Affan as the third caliph."
+    },
+    "650-mushaf-utsmani": {
+      "title": "Mushaf Utsmani",
+      "summary": "Utsman standardized the written Quranic codex and dispatched copies to major provinces as borders reached Armenia and Khorasan."
+    },
+    "656-wafatnya-utsman-ali-menjadi-khalifah": {
+      "title": "Wafatnya Utsman, Ali menjadi khalifah",
+      "summary": "Amid political turmoil in المدينة المنورة, Utsman was slain and Ali bin Abi Thalib was pledged allegiance, later shifting the seat to Kufah."
+    },
+    "656-perang-jamal-dan-shiffin": {
+      "title": "Perang Jamal dan Shiffin",
+      "summary": "Disputes over Utsman's assassination sparked internal conflicts near Basra and at Siffin against Mu'awiyah."
+    },
+    "661-wafatnya-ali": {
+      "title": "Wafatnya Ali",
+      "summary": "Ali was fatally struck in Kufah by Ibn Muljam, bringing the Khulafaur Rasyidin era to a close."
+    },
+    "661-daulah-umayyah-berdiri": {
+      "title": "Daulah Umayyah berdiri",
+      "summary": "After Hasan bin Ali abdicated to preserve unity ('Aam al-Jama'ah), Mu'awiyah established Umayyad rule in Damascus."
+    },
+    "680-peristiwa-karbala": {
+      "title": "Peristiwa Karbala",
+      "summary": "Husain bin Ali and his companions fell at Karbala on 10 Muharram 61 AH against Yazid's forces."
+    },
+    "691-kubah-shakhrah-dibangun-di-yerusalem": {
+      "title": "Kubah Shakhrah dibangun di Yerusalem",
+      "summary": "Caliph Abdul Malik bin Marwan built Qubbat ash-Shakhrah in Jerusalem, the oldest surviving monumental Islamic sanctuary."
+    },
+    "706-masjid-agung-umawi-damaskus": {
+      "title": "Masjid Agung Umawi Damaskus",
+      "summary": "Under Caliph Al-Walid I, the Umayyad Mosque of Damascus set a benchmark for early Islamic architecture."
+    },
+    "711-penaklukan-andalusia": {
+      "title": "Penaklukan Andalusia",
+      "summary": "Thariq bin Ziyad crossed Gibraltar and defeated King Roderic at Guadalete, inaugurating Islamic Iberia."
+    },
+    "712-islam-masuk-ke-sindh": {
+      "title": "Islam masuk ke Sindh",
+      "summary": "Muhammad bin Qasim entered the Indus Valley (modern Pakistan), establishing early Islamic presence in South Asia."
+    },
+    "717-pengepungan-konstantinopel-kedua": {
+      "title": "Pengepungan Konstantinopel kedua",
+      "summary": "Umayyad land and naval forces under Maslamah besieged Constantinople for nearly a year before withdrawing."
+    },
+    "732-pertempuran-tours-poitiers": {
+      "title": "Pertempuran Tours (Poitiers)",
+      "summary": "Andalusian forces under Abdurrahman al-Ghafiqi were halted by Charles Martel's Frankish army in central France."
+    },
+    "750-revolusi-abbasiyah": {
+      "title": "Revolusi Abbasiyah",
+      "summary": "Abbasid forces defeated the Umayyads at the Battle of the Zab, proclaiming Abu al-Abbas as-Saffah caliph."
+    },
+    "751-pertempuran-talas": {
+      "title": "Pertempuran Talas",
+      "summary": "Abbasid troops defeated Tang Dynasty forces near the Talas River, accelerating the spread of papermaking westward."
+    },
+    "756-emirat-cordoba-berdiri": {
+      "title": "Emirat Cordoba berdiri",
+      "summary": "Surviving Umayyad prince Abdurrahman ad-Dakhil established an independent emirate centered in Cordoba."
+    },
+    "762-baghdad-didirikan": {
+      "title": "Baghdad didirikan",
+      "summary": "Caliph Al-Mansur built the Round City of Baghdad on the Tigris, soon becoming a global center of scholarship."
+    },
+    "786-masa-harun-ar-rasyid": {
+      "title": "Masa Harun ar-Rasyid",
+      "summary": "Height of Abbasid prosperity, diplomacy, and patronage of scholars and translators in Baghdad."
+    },
+    "820-al-khawarizmi-dan-ilmu-aljabar": {
+      "title": "Al-Khawarizmi dan ilmu aljabar",
+      "summary": "Muhammad bin Musa al-Khawarizmi authored his foundational treatise on algebra in Baghdad; his Latinized name gave us 'algorithm'."
+    },
+    "830-baitul-hikmah-di-baghdad": {
+      "title": "Baitul Hikmah di Baghdad",
+      "summary": "Under Al-Ma'mun, Baghdad's academy translated and advanced Greek, Persian, and Indian scientific works."
+    },
+    "859-al-qarawiyyin-didirikan-di-fez": {
+      "title": "Al-Qarawiyyin didirikan di Fez",
+      "summary": "Fatima al-Fihri founded Al-Qarawiyyin, recognized as one of the oldest continuously operating universities."
+    },
+    "909-dinasti-fatimiyah-berdiri": {
+      "title": "Dinasti Fatimiyah berdiri",
+      "summary": "The Fatimid dynasty took power in Ifriqiya (Tunisia) before expanding into Egypt."
+    },
+    "929-khilafah-cordoba-diproklamasikan": {
+      "title": "Khilafah Cordoba diproklamasikan",
+      "summary": "Abdurrahman III proclaimed the Caliphate of Cordoba, ushering in Andalusian cultural splendor."
+    },
+    "969-kairo-didirikan": {
+      "title": "Kairo didirikan",
+      "summary": "The Fatimids founded Al-Qahirah (Cairo) as their new imperial capital on the Nile."
+    },
+    "970-al-azhar-didirikan": {
+      "title": "Al-Azhar didirikan",
+      "summary": "Al-Azhar Mosque was built in Cairo and evolved into one of the foremost centers of Islamic learning."
+    },
+    "1011-ibnu-al-haitham-dan-ilmu-optik": {
+      "title": "Ibnu al-Haitham dan ilmu optik",
+      "summary": "In Cairo, Ibn al-Haytham wrote Kitab al-Manazir (Book of Optics), pioneering experimental scientific method."
+    },
+    "1037-wafatnya-ibnu-sina": {
+      "title": "Wafatnya Ibnu Sina",
+      "summary": "Physician and philosopher Ibn Sina, author of The Canon of Medicine, passed away in Hamadan."
+    },
+    "1055-seljuk-memasuki-baghdad": {
+      "title": "Seljuk memasuki Baghdad",
+      "summary": "Tughril Beg entered Baghdad, becoming protector of the Abbasid caliphate."
+    },
+    "1071-pertempuran-manzikert": {
+      "title": "Pertempuran Manzikert",
+      "summary": "Seljuk Sultan Alp Arslan defeated Byzantine Emperor Romanos IV, opening Anatolia to Turkic settlement."
+    },
+    "1096-perang-salib-pertama": {
+      "title": "Perang Salib pertama",
+      "summary": "European Crusader armies marched east, establishing Crusader states along the Levantine coast."
+    },
+    "1099-yerusalem-jatuh-ke-tangan-pasukan-salib": {
+      "title": "Yerusalem jatuh ke tangan pasukan Salib",
+      "summary": "Crusader forces breached Jerusalem following a prolonged siege."
+    },
+    "1111-wafatnya-al-ghazali": {
+      "title": "Wafatnya Al-Ghazali",
+      "summary": "Scholar and theologian Abu Hamid al-Ghazali, author of Ihya' Ulumiddin, passed away in Tus."
+    },
+    "1187-salahuddin-al-ayyubi-merebut-yerusalem": {
+      "title": "Salahuddin al-Ayyubi merebut Yerusalem",
+      "summary": "Following victory at Hattin, Salahuddin al-Ayyubi reclaimed Jerusalem under terms guaranteeing civilian safety."
+    },
+    "1192-perjanjian-ramla": {
+      "title": "Perjanjian Ramla",
+      "summary": "Salahuddin and Richard the Lionheart agreed to a truce ending the Third Crusade and allowing Christian pilgrims."
+    },
+    "1198-wafatnya-ibnu-rusyd": {
+      "title": "Wafatnya Ibnu Rusyd",
+      "summary": "Andalusian jurist and philosopher Ibn Rushd passed away in Marrakesh."
+    },
+    "1219-invasi-mongol-ke-khwarezmia": {
+      "title": "Invasi Mongol ke Khwarezmia",
+      "summary": "Genghis Khan's armies devastated Central Asian cities including Bukhara, Samarkand, and Merv."
+    },
+    "1258-jatuhnya-baghdad": {
+      "title": "Jatuhnya Baghdad",
+      "summary": "Hulagu Khan's Mongol forces sacked Baghdad, ending the Abbasid Caliphate in Iraq."
+    },
+    "1260-pertempuran-ain-jalut": {
+      "title": "Pertempuran Ain Jalut",
+      "summary": "Mamluk forces led by Qutuz and Baybars defeated the Mongols in Palestine, halting their westward advance."
+    },
+    "1297-wafatnya-sultan-malik-as-saleh-samudra-pasai": {
+      "title": "Wafatnya Sultan Malik as-Saleh, Samudra Pasai",
+      "summary": "Dated 696 AH (1297 CE) in Aceh, providing the earliest epigraphic evidence of a Muslim kingdom in Nusantara."
+    },
+    "1299-awal-berdirinya-kesultanan-utsmani": {
+      "title": "Awal berdirinya Kesultanan Utsmani",
+      "summary": "Osman I established a frontier principality in northwestern Anatolia that grew into the Ottoman Empire."
+    },
+    "1325-ibnu-battuta-memulai-pengembaraannya": {
+      "title": "Ibnu Battuta memulai pengembaraannya",
+      "summary": "Departing Tangier for Hajj, Ibn Battuta journeyed across Africa, Asia, and Europe for nearly thirty years."
+    },
+    "1345-ibnu-battuta-singgah-di-samudra-pasai": {
+      "title": "Ibnu Battuta singgah di Samudra Pasai",
+      "summary": "En route to China, Ibn Battuta visited Samudra Pasai in Sumatra and recorded life at its court."
+    },
+    "1370-timur-lenk-berkuasa": {
+      "title": "Timur Lenk berkuasa",
+      "summary": "Making Samarkand his capital, Timur launched sweeping campaigns across Central Asia, Persia, and Anatolia."
+    },
+    "1377-ibnu-khaldun-menulis-muqaddimah": {
+      "title": "Ibnu Khaldun menulis Muqaddimah",
+      "summary": "Ibn Khaldun completed the Muqaddimah, pioneering historiography, sociology, and economic theory."
+    },
+    "1414-malaka-menjadi-pusat-dagang-dan-islam": {
+      "title": "Malaka menjadi pusat dagang dan Islam",
+      "summary": "By the early 15th century, Malacca emerged as Southeast Asia's premier maritime port and center of Islamic diffusion."
+    },
+    "1419-wafatnya-maulana-malik-ibrahim": {
+      "title": "Wafatnya Maulana Malik Ibrahim",
+      "summary": "Early Islamic preacher in Java and revered member of the Walisongo, buried in Gresik."
+    },
+    "1453-penaklukan-konstantinopel": {
+      "title": "Penaklukan Konstantinopel",
+      "summary": "Ottoman Sultan Mehmed II captured Constantinople, ending the Byzantine Empire."
+    },
+    "1478-kesultanan-demak-berdiri": {
+      "title": "Kesultanan Demak berdiri",
+      "summary": "Demak emerged as the first Islamic sultanate on Java under Raden Patah in the late 15th century."
+    },
+    "1492-jatuhnya-granada": {
+      "title": "Jatuhnya Granada",
+      "summary": "The Emirate of Granada, last Muslim polity in Iberia, surrendered to Castile and Aragon."
+    },
+    "1501-dinasti-safawiyah-berdiri": {
+      "title": "Dinasti Safawiyah berdiri",
+      "summary": "Shah Ismail I took Tabriz and established Twelver Shi'ism as the state creed of Persia."
+    },
+    "1511-portugis-merebut-malaka": {
+      "title": "Portugis merebut Malaka",
+      "summary": "Portuguese forces seized Malacca, shifting regional Muslim trade toward Aceh, Banten, and Makassar."
+    },
+    "1511-kesultanan-aceh-darussalam-berdiri": {
+      "title": "Kesultanan Aceh Darussalam berdiri",
+      "summary": "Aceh consolidated as a major maritime Islamic sultanate at the northern tip of Sumatra."
+    },
+    "1517-utsmani-menaklukkan-mesir": {
+      "title": "Utsmani menaklukkan Mesir",
+      "summary": "Sultan Selim I defeated the Mamluks, incorporating Egypt and the Hijaz under Ottoman protection."
+    },
+    "1520-masa-sulaiman-al-qanuni": {
+      "title": "Masa Sulaiman al-Qanuni",
+      "summary": "Ottoman zenith marked by legal codification, Mimar Sinan's architecture, and territorial peak."
+    },
+    "1526-pertempuran-panipat-dan-awal-mughal": {
+      "title": "Pertempuran Panipat dan awal Mughal",
+      "summary": "Babur defeated the Delhi Sultanate at Panipat, establishing the Mughal Empire in India."
+    },
+    "1527-fatahillah-merebut-sunda-kelapa": {
+      "title": "Fatahillah merebut Sunda Kelapa",
+      "summary": "Joint Banten and Demak forces under Fatahillah took Sunda Kelapa, renaming it Jayakarta."
+    },
+    "1529-pengepungan-wina-pertama": {
+      "title": "Pengepungan Wina pertama",
+      "summary": "Suleiman's forces besieged Vienna before retreating, marking the farthest Ottoman push of that era."
+    },
+    "1556-masa-akbar-agung": {
+      "title": "Masa Akbar Agung",
+      "summary": "Akbar expanded Mughal rule across northern India while pursuing religious pluralism and administrative reform."
+    },
+    "1571-pertempuran-lepanto": {
+      "title": "Pertempuran Lepanto",
+      "summary": "A Holy League fleet defeated the Ottoman navy in the Gulf of Patras, though the Ottomans rapidly rebuilt."
+    },
+    "1588-masa-syah-abbas-i": {
+      "title": "Masa Syah Abbas I",
+      "summary": "Shah Abbas moved the Safavid capital to Isfahan, turning it into a jewel of Persian art and architecture."
+    },
+    "1613-sultan-agung-dari-mataram": {
+      "title": "Sultan Agung dari Mataram",
+      "summary": "Sultan Agung brought Islamic Mataram to its height on Java, synthesizing Javanese and Islamic statecraft."
+    },
+    "1619-voc-mendirikan-batavia": {
+      "title": "VOC mendirikan Batavia",
+      "summary": "The Dutch East India Company seized Jayakarta and built Batavia as its colonial headquarters."
+    },
+    "1628-serangan-mataram-ke-batavia": {
+      "title": "Serangan Mataram ke Batavia",
+      "summary": "Sultan Agung dispatched major forces against the VOC at Batavia, though logistical lines forced a retreat."
+    },
+    "1632-pembangunan-taj-mahal": {
+      "title": "Pembangunan Taj Mahal",
+      "summary": "Mughal Emperor Shah Jahan commissioned the Taj Mahal in Agra as a mausoleum for Mumtaz Mahal."
+    },
+    "1683-pengepungan-wina-kedua": {
+      "title": "Pengepungan Wina kedua",
+      "summary": "A European coalition relieved Vienna against Ottoman forces, marking the start of Ottoman territorial retreat."
+    },
+    "1699-perjanjian-karlowitz": {
+      "title": "Perjanjian Karlowitz",
+      "summary": "The Ottomans ceded most of Hungary to the Habsburgs, their first major territorial concession in Europe."
+    },
+    "1744-perjanjian-diriyah": {
+      "title": "Perjanjian Diriyah",
+      "summary": "Muhammad bin Saud and scholar Muhammad bin Abdul Wahhab allied in Diriyah, forming the First Saudi State."
+    },
+    "1798-ekspedisi-napoleon-ke-mesir": {
+      "title": "Ekspedisi Napoleon ke Mesir",
+      "summary": "French occupation of Egypt triggered intense political and intellectual engagement with European modernity."
+    },
+    "1799-gugurnya-tipu-sultan": {
+      "title": "Gugurnya Tipu Sultan",
+      "summary": "Tipu Sultan of Mysore fell defending Srirangapatna against British East India Company forces."
+    },
+    "1803-perang-padri": {
+      "title": "Perang Padri",
+      "summary": "Conflict in Minangkabau between Islamic reformers and adat leaders that drew Dutch military intervention."
+    },
+    "1805-muhammad-ali-pasha-berkuasa-di-mesir": {
+      "title": "Muhammad Ali Pasha berkuasa di Mesir",
+      "summary": "Muhammad Ali modernized Egypt's military, industry, and educational institutions."
+    },
+    "1825-perang-diponegoro": {
+      "title": "Perang Diponegoro",
+      "summary": "Prince Diponegoro led a five-year anti-colonial uprising across Java backed by scholars and villagers."
+    },
+    "1830-prancis-menjajah-aljazair": {
+      "title": "Prancis menjajah Aljazair",
+      "summary": "France invaded Algiers, sparking long resistance led by figures such as Emir Abdelkader."
+    },
+    "1839-era-tanzimat-dimulai": {
+      "title": "Era Tanzimat dimulai",
+      "summary": "The Ottoman state enacted sweeping legal, administrative, and educational modernization."
+    },
+    "1857-pemberontakan-india": {
+      "title": "Pemberontakan India",
+      "summary": "Uprising against British Company rule ended the Mughal dynasty and brought India under direct British Crown rule."
+    },
+    "1869-terusan-suez-dibuka": {
+      "title": "Terusan Suez dibuka",
+      "summary": "Connecting the Mediterranean and Red Seas reshaped global trade and deepened European stakes in Egypt."
+    },
+    "1873-perang-aceh": {
+      "title": "Perang Aceh",
+      "summary": "Protracted resistance by the Aceh Sultanate against Dutch invasion led by Teuku Umar, Cut Nyak Dhien, and ulama."
+    },
+    "1897-wafatnya-jamaluddin-al-afghani": {
+      "title": "Wafatnya Jamaluddin al-Afghani",
+      "summary": "Pan-Islamic thinker and anti-colonial activist Jamaluddin al-Afghani passed away in Istanbul."
+    },
+    "1905-wafatnya-muhammad-abduh": {
+      "title": "Wafatnya Muhammad Abduh",
+      "summary": "Egyptian jurist and Islamic modernist reformer Muhammad Abduh passed away."
+    },
+    "1908-revolusi-turki-muda": {
+      "title": "Revolusi Turki Muda",
+      "summary": "Constitutionalists compelled Sultan Abdulhamid II to restore the Ottoman parliament and constitution."
+    },
+    "1912-muhammadiyah-dan-sarekat-islam": {
+      "title": "Muhammadiyah dan Sarekat Islam",
+      "summary": "KH Ahmad Dahlan founded Muhammadiyah in Yogyakarta while Sarekat Islam mobilized mass Muslim solidarity."
+    },
+    "1916-perjanjian-sykes-picot": {
+      "title": "Perjanjian Sykes–Picot",
+      "summary": "Britain and France secretly partitioned Ottoman Arab provinces into spheres of European influence."
+    },
+    "1917-deklarasi-balfour": {
+      "title": "Deklarasi Balfour",
+      "summary": "Britain expressed support for a 'national home for the Jewish people' in Palestine, sowing enduring conflict."
+    },
+    "1922-kesultanan-utsmani-dihapus": {
+      "title": "Kesultanan Utsmani dihapus",
+      "summary": "The Grand National Assembly of Turkey abolished the Ottoman Sultanate."
+    },
+    "1924-penghapusan-khilafah": {
+      "title": "Penghapusan Khilafah",
+      "summary": "On 3 March 1924, Turkey's parliament abolished the office of the Caliphate."
+    },
+    "1926-nahdlatul-ulama-berdiri": {
+      "title": "Nahdlatul Ulama berdiri",
+      "summary": "KH Hasyim Asy'ari and scholars established Nahdlatul Ulama in Surabaya."
+    },
+    "1928-ikhwanul-muslimin-didirikan": {
+      "title": "Ikhwanul Muslimin didirikan",
+      "summary": "Hasan al-Banna founded the Muslim Brotherhood in Ismailia, Egypt."
+    },
+    "1932-kerajaan-arab-saudi-diproklamasikan": {
+      "title": "Kerajaan Arab Saudi diproklamasikan",
+      "summary": "Abdulaziz bin Saud unified Najd and Hijaz, proclaiming the Kingdom of Saudi Arabia."
+    },
+    "1945-proklamasi-kemerdekaan-indonesia": {
+      "title": "Proklamasi Kemerdekaan Indonesia",
+      "summary": "Soekarno and Hatta proclaimed Indonesia's independence on 17 August 1945."
+    },
+    "1945-resolusi-jihad": {
+      "title": "Resolusi Jihad",
+      "summary": "Nahdlatul Ulama scholars called to defend independence on 22 October 1945, culminating in the Battle of Surabaya."
+    },
+    "1947-pakistan-merdeka": {
+      "title": "Pakistan merdeka",
+      "summary": "Pakistan emerged as an independent Muslim-majority state upon the partition of British India."
+    },
+    "1948-berakhirnya-mandat-inggris-di-palestina-dan-nakba": {
+      "title": "Berakhirnya Mandat Inggris di Palestina dan Nakba",
+      "summary": "Creation of Israel, the first Arab–Israeli war, and the mass displacement of Palestinians known as the Nakba."
+    },
+    "1955-konferensi-asia-afrika-di-bandung": {
+      "title": "Konferensi Asia-Afrika di Bandung",
+      "summary": "Leaders of newly independent Asian and African nations gathered in Bandung to oppose colonialism."
+    },
+    "1957-malaysia-merdeka": {
+      "title": "Malaysia merdeka",
+      "summary": "The Federation of Malaya gained independence from Britain on 31 August 1957."
+    },
+    "1969-organisasi-kerja-sama-islam-didirikan": {
+      "title": "Organisasi Kerja Sama Islam didirikan",
+      "summary": "The Organisation of Islamic Cooperation was founded in Rabat after the arson attack on Masjid al-Aqsa."
+    },
+    "1979-revolusi-iran": {
+      "title": "Revolusi Iran",
+      "summary": "Popular revolution overthrew the Pahlavi monarchy and established the Islamic Republic under Ayatollah Khomeini."
+    },
+    "1979-perang-soviet-afghanistan": {
+      "title": "Perang Soviet–Afghanistan",
+      "summary": "Soviet military intervention in Afghanistan triggered a decade-long resistance movement."
+    },
+    "1992-perang-bosnia": {
+      "title": "Perang Bosnia",
+      "summary": "Brutal conflict in Bosnia-Herzegovina including the 1995 Srebrenica genocide that claimed over 8,000 Muslim lives."
+    },
+    "2004-gempa-dan-tsunami-aceh": {
+      "title": "Gempa dan tsunami Aceh",
+      "summary": "On 26 December 2004, a massive tsunami devastated Aceh and Indian Ocean coastlines."
+    },
+    "2010-musim-semi-arab": {
+      "title": "Arab Spring",
+      "summary": "A wave of pro-reform protests swept across the Arab world beginning in Tunisia in late 2010."
+    }
+  },
+  "characters": {
+    "Abdul Muthalib": {
+      "name": "عبد المطلب بن هاشم",
+      "role": "جد النبي ﷺ وزعيم قريش",
+      "meta": "الاسم: شيبة الحمد\nالعصر / المكان: مكة المكرمة، أواخر القرن السادس الميلادي",
+      "facts": "اللقب : سيد البطحاء\nالعصر/المكان : مكة، أواخر القرن السادس الميلادي\nالصلة بالنبي ﷺ : الجد والكافل الأول",
+      "body": "<h2><b>النسب والنشأة الأولى</b></h2>\n<p>شيبة الحمد (عبد المطلب بن هاشم بن عبد مناف)، سيد بطحاء مكة وزعيم قريش الأوحد، وجدُّ النبي ﷺ وكافله. كان رجلاً وسيماً مهيباً مطاعاً في قومه، عُرف بالحكمة والعدل وإطعام الطير والوحوش في رؤوس الجبال.</p>\n<h2><b>الأحداث المفصلية والدور التاريخي</b></h2>\n<h3><b>١. إعادة حفر بئر زمزم المباركة</b></h3>\n<ul><li><p><b>الرؤيا الصادقة:</b> أُري في المنام موضع بئر زمزم التي طمرتها قبيلة جرهم قديماً، فقام بحفرها واستخراج مائها العذب وسقاية الحجيج بها، فعادت زمزم أعظم مورد ماء في الحرم.</p></li></ul>\n<h3><b>٢. مواجهة جيش أبرهة (عام الفيل ٥٧٠ م)</b></h3>\n<ul><li><p><b>عزة ورباطة جأش:</b> حين أقبل أبرهة بالفيل، وقف عبد المطلب شامخاً وطلب مئتي بعير أخذها جيش أبرهة، قائلاً: «أنا ربُّ الإبل، وإن للبيت ربّاً سيمنعه». وصعد إلى جبل أبي قبيس ممسكاً بحلقة باب الكعبة يدعو الله حتى أهلك الله الغزاة بالطيور الأبابيل.</p></li></ul>\n<h3><b>٣. كفالة النبي ﷺ وتكريمه</b></h3>\n<ul><li><p><b>العناية الفائقة:</b> لما توفيت السيدة آمنة، ضم حفيده اليتيم محمداً ﷺ إلى حضانته، وكان يجلسه على فراشه الخاص في ظل الكعبة ويقول لأبنائه: «دعوا ابني هذا، فوالله إن له لشأناً عظيمـاً».</p></li></ul>\n<h2><b>الوفاة والإرث التاريخي</b></h2>\n<p>توفي عبد المطلب بمكة والنبي ﷺ في الثامنة من عمره. وأوصى قبل وفاته بكفالة حفيده المبارك لولده أبي طالب شقيق عبد الله لأبيه وأمه، مودعاً تاريخاً مشهوداً في زعامة مكة.</p>"
+    },
+    "Abrahah": {
+      "name": "أبرهة الأشرم",
+      "role": "حاكم اليمن وقائد جيش الفيل",
+      "meta": "نائب مملكة أكسوم في اليمن\nالعصر / المكان: اليمن ومكة، قرابة ٥٧٠ م",
+      "facts": "اللقب : الأشرم\nالعصر/المكان : اليمن ومكة المكرمة (٥٧٠ م)\nالحدث : قيادة جيش الفيل لهدم الكعبة",
+      "body": "<h2><b>الخلفية والحكم في اليمن</b></h2>\n<p>أبرهة الأشرم الحبشي، حاكم وقائد عسكري تولى حكم اليمن نائباً عن ملك النجاشي في مملكة أكسوم الحبشية النصرانية خلال القرن السادس الميلادي. سعى لتحويل قوافل العرب وحجهم وتجارتهم من مكة إلى اليمن، فبنى كنيسة عظيمة وفخمة في صنعاء عُرفت بـ«القُلَّيْس».</p>\n<h2><b>الأحداث المفصلية والدور التاريخي</b></h2>\n<h3><b>١. بناء كنيسة القُلَّيْس في صنعاء</b></h3>\n<ul><li><p><b>الطموح الجيوسياسي:</b> جلب لبنائها المرمر والرخام والذهب والأخشاب الثمينة لتكون أعظم صرح ديني في الجزيرة، قاصداً صرف حج العرب عن الكعبة المشرفة.</p></li></ul>\n<h3><b>٢. حملة أصحاب الفيل على مكة (عام ٥٧٠ م)</b></h3>\n<ul><li><p><b>الزحف لهدم الكعبة:</b> بعد تدنيس أعرابي للكنيسة، غضب أبرهة وجيَّش جيشاً لجباً تقدمته فيلة حربية ضخمة (على رأسها الفيل محمود) متوجهاً لهدم الكعبة وتسويتها بالأرض.</p></li>\n<li><p><b>موقف عبد المطلب:</b> استولى أبرهة على مئتي بعير لسيد قريش عبد المطلب. وحين قابله عبد المطلب طالباً إبله، تعجب أبرهة فقال له عبد المطلب مقالته الخالدة: «أنا ربُّ الإبل، وإن للبيت ربّاً سيمنعه».</p></li>\n<li><p><b>الهلاك بوادي محسر:</b> حين وصل الجيش مشارف مكة بوادي محسر، برك الفيل وامتنع عن التقدم نحو الكعبة، فأرسل الله عليهم طيراً أبابيل ترميهم بحجارة من سجيل، فأهلكتهم وجعلتهم كعصف مأكول كما خلد القرآن في سورة الفيل.</p></li></ul>\n<h2><b>الموت والأثر التاريخي</b></h2>\n<p>فرّ أبرهة متساقط الأطراف إلى صنعاء حيث هلك هناك شر قتلة. ورسخ هلاك جيشه مكانة الكعبة وحمايتها الإلهية في قلوب العرب، وسُمي ذلك العام بـ«عام الفيل» وهو العام المبارك الذي شهد ولادة النبي محمد ﷺ.</p>"
+    },
+    "Halimah as-Sa’diyah": {
+      "name": "حليمة السعدية",
+      "role": "مرضعة النبي ﷺ",
+      "meta": "من قبيلة بني سعد بن بكر في بادية هوازن\nالعصر / المكان: بادية هوازن، قرابة ٥٧٢ م",
+      "facts": "القبيلة : بنو سعد بن بكر\nالعصر/المكان : بادية هوازن والحجاز\nالصلة بالنبي ﷺ : الأم من الرضاعة"
+    },
+    "Bahira": {
+      "name": "الراهب بحيرى",
+      "role": "عالم ونصراني في بصرى الشام",
+      "meta": "راهب في بصرى الشام\nالعصر / المكان: بصرى (الشام)، قرابة ٥٨٢ م",
+      "facts": "اللقب : راهب بصرى\nالعصر/المكان : بصرى الشام، قرابة ٥٨٢ م\nالحدث : استبصار علامات النبوة الخاتمة في النبي ﷺ وهو غلام",
+      "body": "<h2><b>النسب والنشأة الأولى</b></h2>\n<p>الراهب بحيرى (بحيرا) راهبٌ وعالمٌ نصراني كان يقيم في صومعته بناحية بُصرى من أرض الشام (في حوران، جنوب سوريا حالياً). وكان من أوسع أهل زمانه علماً بكتب النصارى وأعظمهم دراية بما توارثه الرهبان كابراً عن كابر من صحف العهد وأخبار الأنبياء المرتقبين المدونة في الكتب القديمة.</p>\n<h2><b>الأحداث المفصلية والدور التاريخي</b></h2>\n<h3><b>١. مشاهدة دلائل النبوة في الطبيعة</b></h3>\n<ul><li><p><b>الغمامة المظلة وانحناء الشجر:</b> حينما أقبلت قافلة قريش التجارية ومعها النبي محمد ﷺ وهو غلام (في نحو التاسعة أو الثانية عشرة من عمره)، رمق بحيرى من صومعته أمراً عجيباً؛ رأى غمامة تظله وحده من بين سائر القوم وتقف لوقوفه، ورأى أغصان الشجرة تميل وتتدلى لتظلله حين نزل تحتها ليستريح.</p></li></ul>\n<h3><b>٢. إقامة مأدبة لقافلة قريش</b></h3>\n<ul><li><p><b>المبادرة بالمأدبة:</b> على الرغم من أن قريشاً كانت تمر كثيراً بديره دون أن يعبأ بهم، إلا أنه في ذلك العام صنع طعاماً وفيراً ودعا الركب بأكمله، صغيرهم وكبيرهم، حرّهم وعبدهم.</p></li>\n<li><p><b>البحث عن النبي ﷺ:</b> لما تفقد القوم في المأدبة لم يجد العلامات المرجوة فيمن حضر، فعلم أن الغلام قد تخلّف عند رحال القوم لحراستها، فأصر على حضوره وأرسلوا في طلبه حتى جلس معهم.</p></li></ul>\n<h3><b>٣. فحص خاتم النبوة الشريف</b></h3>\n<ul><li><p><b>مساءلة واختبار الأخلاق:</b> خلا بحيرى بالغلام وسأله عن نومه ويقظته وهيئته، ثم استحلفه باللات والعزى، فقال له رسول الله ﷺ: «لا تسألني باللات والعزى، فوالله ما أبغضت شيئاً بغضهما»، فاستحلفه بالله.</p></li>\n<li><p><b>معاينة خاتم النبوة:</b> نظر بحيرى إلى ظهر النبي ﷺ بين كتفيه، فرأى خاتم النبوة في موضعه المحدد طبقاً لما هو موصوف ومحفوظ في الكتب القديمة.</p></li></ul>\n<h3><b>٤. تحذير أبي طالب ونصحه</b></h3>\n<ul><li><p><b>تأكيد النسب:</b> سأل بحيرى أبا طالب: «ما هذا الغلام منك؟» فقال: «ابني»، فقال بحيرى: «ما هو بابنك، وما ينبغي لهذا الغلام أن يكون أبوه حياً»، فأخبره أبو طالب بأنه ابن أخيه مات أبوه وهو حَمْل، فصدّقه بحيرى.</p></li>\n<li><p><b>النصيحة بالعودة إلى مكة:</b> ناشد بحيرى أبا طالب أن يعود بابن أخيه إلى بلده سريعاً وأن يحذر عليه من كيد المتربصين وأهل الكتاب إن رأوه وعرفوا ما عرف فيه. فعاد به أبو طالب إلى مكة على الفور حفظاً له.</p></li></ul>\n<h3><b>٥. حماية محمد ﷺ من كيد المتربصين</b></h3>\n<ul><li><p><b>رد الخطر:</b> حينما رصد نفر من أهل الكتاب (كزُرَيْر وتمّام ودارس) أمارات النبوة في الغلام وأرادوا به شراً، وعظهم بحيرى وذكّرهم بما قضاه الله في محكم الكتب السالفة حتى تراجعوا عن عزمهم.</p></li></ul>\n<p><b>الوفاة</b></p>\n<p>لم تثبت في مصادر السيرة النبوية المعتمدة تواريخ محددة لسنة وفاة الراهب بحيرى، غير أنه بقي في الذاكرة الإسلامية كأحد أوائل الأحناف وأهل الكتاب الذين شهدوا بالحق وأقروا بدلائل النبوة الخاتمة قبل مبعث النبي محمد ﷺ.</p>"
+    },
+    "Abi Thalib": {
+      "name": "أبو طالب بن عبد المطلب",
+      "role": "عم النبي ﷺ وحاميه في مكة",
+      "meta": "سيد بني هاشم وكافل النبي ﷺ\nالعصر / المكان: مكة المكرمة، حتى ٦١٩ م",
+      "facts": "الاسم : عبد مناف بن عبد المطلب\nالعصر/المكان : مكة المكرمة\nالصلة بالنبي ﷺ : العم والحامي الأول"
+    },
+    "Khadijah": {
+      "name": "خديجة بنت خويلد",
+      "role": "أم المؤمنين وأول من آمن بالرسالة",
+      "meta": "سيدة نساء قريش والطاهرة\nالعصر / المكان: مكة المكرمة، حتى ٦١٩ م",
+      "facts": "اللقب : الطاهرة، سيدة نساء قريش\nالصلة بالنبي ﷺ : الزوجة الأولى وأم أولاده\nالعصر/المكان : مكة المكرمة (حتى ٦١٩ م)",
+      "body": "<h2><b>النسب والنشأة الأولى</b></h2>\n<p>السيدة أم المؤمنين خديجة بنت خويلد بن أسد بن عبد العزى القرشية الأسدية. عُرفت في الجاهلية بلقب «الطاهرة» وسيدة نساء قريش لشرف نسبها وعفتها ورجاحة عقلها. وكانت سيدة أعمال وتاجرة ذات مال وفير وشرف رفيع تستأجر الرجال ليتاجروا بمالها في أسواق الشام واليمن.</p>\n<h2><b>الأحداث المفصلية والدور التاريخي</b></h2>\n<h3><b>١. الشراكة التجارية والزواج المبارك</b></h3>\n<ul><li><p><b>استئمان الصادق الأمين:</b> حين بلغها صدق حديث محمد ﷺ وأمانته وكرم أخلاقه، استأمنته على قافلتها إلى بصرى الشام مع غلامها ميسرة، فعاد بربح وفير وبركات عظيمة وثناء عاطر على خلقه العظيم.</p></li>\n<li><p><b>الزواج الميمون:</b> خطبت خديجة النبي ﷺ لما رأت فيه من شمائل النبوة والأمانة، فتزوجها وعاش معها خمسة وعشرين عاماً في مودة وسكينة وإخلاص لم يتزوج عليها أحداً في حياتها.</p></li></ul>\n<h3><b>٢. أول من آمن وعضد الرسالة</b></h3>\n<ul><li><p><b>تثبيت النبي عند بدء الوحي:</b> لما نزل الوحي على النبي ﷺ بغار حراء ورجع ترجف بوادره قائلاً «زمّلوني»، ثبّتت فؤاده بمقولتها الخالدة: «كلا والله ما يخزيك الله أبداً، إنك لتصل الرحم، وتحمل الكلّ، وتكسب المعدوم، وتقري الضيف، وتعين على نوائب الحق».</p></li>\n<li><p><b>استشارة ورقة بن نوفل:</b> أخذت بيده إلى ابن عمها ورقة بن نوفل فأكد أنه الناموس الأكبر الذي نزل على موسى عليه السلام.</p></li>\n<li><p><b>الصبر في حصار الشِّعب:</b> أنفقت مالها كله في سبيل الله خلال حصار قريش الظالم لبني هاشم في شِعب أبي طالب لمدة ثلاث سنين صابرة محتسبة.</p></li></ul>\n<h2><b>الوفاة والإرث التاريخي</b></h2>\n<p>توفيت السيدة خديجة رضي الله عنها بمكة قبل الهجرة بثلاث سنوات (عام ٦١٩ م)، فحزن النبي ﷺ لوفاتها حزناً شديداً وسُمي ذلك العام «عام الحزن». وظل رسول الله ﷺ يذكر فضلها ويبر صويحباتها طيلة حياته قائلاً: «آمنت بي إذ كفر بي الناس، وصدقتني إذ كذبني الناس، وواستني بمالها إذ حرمني الناس».</p>"
+    },
+    "Waraqah bin Naufal": {
+      "name": "ورقة بن نوفل",
+      "role": "عالم حنيفي قارئ للكتب القديمة",
+      "meta": "ابن عم خديجة بنت خويلد\nالعصر / المكان: مكة المكرمة، حتى ٦١٠ م",
+      "facts": "العصر/المكان : مكة المكرمة (حتى ٦١٠ م)\nالحدث : الشهادة بنزول الناموس الأكبر على النبي ﷺ",
+      "body": "<h2><b>النسب والنشأة الأولى</b></h2>\n<p>ورقة بن نوفل بن أسد بن عبد العزى القرشي الأسدي، ابن عم أم المؤمنين خديجة بنت خويلد. كان من الأحناف الذين نبذوا عبادة الأوثان وامتنعوا عن أكل ذبائح الأصنام في الجاهلية، وتنصر وقرأ الكتب وكتب الكتاب العبراني بالعربية والعبرانية حتى صار شيخاً كبيراً ضريراً متضلعاً في علوم الأديان.</p>\n<h2><b>الأحداث المفصلية والدور التاريخي</b></h2>\n<h3><b>١. التوحيد ونبذ الأوثان</b></h3>\n<ul><li><p><b>المذهب الحنيفي:</b> فارق ورقة وأصحابه كزيد بن عمرو بن نفيل عبادة الأصنام، وبحثوا عن ملة إبراهيم الخالصة وطلبوا دين الحق في الشام والحجاز.</p></li></ul>\n<h3><b>٢. الشهادة بالنبوة وتأييد الوحي</b></h3>\n<ul><li><p><b>لقاء النبي ﷺ وخديجة:</b> لما نزل الوحي على رسول الله ﷺ بغار حراء، انطلقت به خديجة إلى ورقة بن نوفل وقالت: «يا ابن عم، اسمع من ابن أخيك». فاستمع ورقة إلى ما رآه النبي ﷺ في الغار.</p></li>\n<li><p><b>الشهادة بالناموس الأكبر:</b> هتف ورقة بن نوفل مستيقناً: «هذا الناموس (جبريل) الذي نزل الله على موسى، يا ليتني فيها جذعاً، ليتني أكون حياً إذ يخرجك قومك!».</p></li>\n<li><p><b>نصرة الحق:</b> تعجب النبي ﷺ وقال: «أَوَ مُخْرِجِيَّ هُمْ؟» فقال ورقة: «نعم، لم يأتِ رجلٌ قط بمثل ما جئتَ به إلا عُودي، وإن يدركني يومك أنصرك نصراً مؤزراً».</p></li></ul>\n<h2><b>الوفاة والإرث التاريخي</b></h2>\n<p>توفي ورقة بن نوفل بعد هذا اللقاء بمدة يسيرة أثناء فترة فَتْرَة الوحي قبل أن يجهر النبي ﷺ بالدعوة. وثبت في الصحيح أن النبي ﷺ قال: «لا تسبوا ورقة، فإني رأيت له جنة أو جنتين» لثباته على التوحيد وتصديقه بنبوة محمد ﷺ.</p>"
+    },
+    "Abu Bakar Asshiddiq": {
+      "name": "أبو بكر الصديق",
+      "role": "أول الخلفاء الراشدين وثاني اثنين في الغار",
+      "meta": "عبد الله بن أبي قحافة التيمي\nالعصر / المكان: مكة والمدينة (٥٧٣–٦٣٤ م)",
+      "facts": "اللقب : الصديق، العتيق\nالخلافة : ١١–١٣ هـ (٦٣٢–٦٣٤ م)\nالعصر/المكان : مكة المكرمة والمدينة المنورة",
+      "body": "<h2><b>النسب والنشأة الأولى</b></h2>\n<p>عبد الله بن عثمان بن عامر (أبو بكر الصديق) القرشي التيمي، صاحب رسول الله ﷺ وأول الخلفاء الراشدين. كان أنسب قريش لقريش وأعلمهم بأنساب العرب وأيامها، تاجراً ذا خلق رفيع ومروءة كاملة، لم يسجد لصنم ولم يشرب خمراً قط حتى في الجاهلية.</p>\n<h2><b>الأحداث المفصلية والدور التاريخي</b></h2>\n<h3><b>١. أول من أسلم من الرجال وأعظم الصحابة</b></h3>\n<ul><li><p><b>الإيمان بلا تردد:</b> لما عرض عليه النبي ﷺ الإسلام آمن من فوره دون تردد ولا تلعثم، ولُقب بـ«الصِّدِّيق» لتصديقه النبي في خبر الإسراء والمعراج وفي كل خبر يأتيه من السماء.</p></li>\n<li><p><b>عتق المستضعفين:</b> سخر ثروته كلها في سبيل الله، فاشترى وأعتق المستضعفين الذين كانوا يُعذبون بمكة، وفي مقدمتهم بلال بن رباح وعامر بن فهيرة.</p></li></ul>\n<h3><b>٢. ثاني اثنين في الغار والهجرة المباركة</b></h3>\n<ul><li><p><b>رفيق الهجرة:</b> اختاره النبي ﷺ ليكون رفيقه الوحيد في الهجرة النبوية إلى المدينة، واختبآ في غار ثور حيث خلّد القرآن الكريم موقفه: ﴿إِذْ يَقُولُ لِصَاحِبِهِ لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا﴾.</p></li></ul>\n<h3><b>٣. خلافة النبوة وإنقاذ الأمة (١١–١٣ هـ)</b></h3>\n<ul><li><p><b>الثبات عند وفاة النبي ﷺ:</b> ثبت المسلمين في أشد اللحظات خطباً بخطبته الشهيرة: «ألا من كان يعبد محمداً فإن محمداً قد مات، ومن كان يعبد الله فإن الله حيٌّ لا يموت».</p></li>\n<li><p><b>حروب الردة وجمع القرآن:</b> أنفذ جيش أسامة، وقمع حركة الردة ومدعي النبوة كمسيلمة، وجمع القرآن الكريم لأول مرة في مصحف واحد بين دفتين بإشارة من عمر بن الخطاب.</p></li></ul>\n<h2><b>الوفاة والإرث التاريخي</b></h2>\n<p>توفي الصديق رضي الله عنه في المدينة المنورة عام ١٣ هـ (٦٣٤ م) عن ثلاث وستين سنة، ودُفن إلى جوار النبي ﷺ في الحجرة النبوية الشريفة، متوجاً سيرة أعظم رجل في الأمة بعد الأنبياء والمرسلين.</p>"
+    },
+    "Ali bin Abi Thalib": {
+      "name": "علي بن أبي طالب",
+      "role": "رابع الخلفاء الراشدين وباب مدينة العلم",
+      "meta": "ابن عم رسول الله ﷺ وصهره\nالعصر / المكان: مكة، المدينة، والكوفة (٦٠٠–٦٦١ م)",
+      "facts": "اللقب : أبو تراب، أسد الله الغالب\nالخلافة : ٣٥–٤٠ هـ (٦٥٦–٦٦١ م)\nالصلة بالنبي ﷺ : ابن عمه وزوج ابنته فاطمة الزهراء"
+    },
+    "Hamzah bin Abdul Muthalib": {
+      "name": "حمزة بن عبد المطلب",
+      "role": "سيد الشهداء وأسد الله ورسوله",
+      "meta": "عم النبي ﷺ وأخوه من الرضاعة\nالعصر / المكان: مكة والمدينة (حتى ٣ هـ / ٦٢٥ م)",
+      "facts": "اللقب : أسد الله، سيد الشهداء\nالحدث : بطل معركة بدر وشجاع أحد"
+    },
+    "Bilal bin Rabah": {
+      "name": "بلال بن رباح",
+      "role": "مؤذن رسول الله ﷺ ورمز الصبر والحرية",
+      "meta": "صحابي جليل من السابقين الأولين\nالعصر / المكان: مكة، المدينة، ودمشق (توفي ٢٠ هـ)",
+      "facts": "اللقب : مؤذن الرسول ﷺ\nالحدث : الصمود في وجه تعذيب قريش تحت شعار «أحدٌ أحد»"
+    },
+    "Abu Jahal": {
+      "name": "أبو جهل (عمرو بن هشام)",
+      "role": "أشد أعداء الدعوة النبوية ورأس قريش",
+      "meta": "سيد بني مخزوم\nالعصر / المكان: مكة وبدر (هلك عام ٢ هـ / ٦٢٤ م)",
+      "facts": "الاسم : عمرو بن هشام المخزومي\nاللقب : فرعون هذه الأمة\nالحدث : قيادة المشركين في غزوة بدر ومقتله فيها"
+    },
+    "Abu Lahab": {
+      "name": "أبو لهب (عبد العزى بن عبد المطلب)",
+      "role": "عم النبي ﷺ والمعادي لرسالته",
+      "meta": "عبد العزى بن عبد المطلب\nالعصر / المكان: مكة المكرمة (هلك عام ٦٢٤ م)",
+      "facts": "القرآن : ورد ذكره في سورة المسد\nالحدث : معاداة النبي ﷺ عند الصفا وخلال مقاطعة الشِّعب"
+    },
+    "Umar bin Khattab": {
+      "name": "عمر بن الخطاب",
+      "role": "ثاني الخلفاء الراشدين وأمير المؤمنين الفاروق",
+      "meta": "أبو حفص عمر بن الخطاب العدوي\nالعصر / المكان: مكة والمدينة (٥٨٤–٦٤٤ م)",
+      "facts": "اللقب : الفاروق، أمير المؤمنين\nالخلافة : ١٣–٢٣ هـ (٦٣٤–٦44 م)\nالإنجازات : الفتوحات الكبرى وتأسيس الدواوين وتاريخ الهجرة"
+    },
+    "Utsman bin Affan": {
+      "name": "عثمان بن عفان",
+      "role": "ثالث الخلفاء الراشدين وذو النورين",
+      "meta": "عثمان بن عفان الأموي القرشي\nالعصر / المكان: مكة والمدينة (٥٧٦–٦٥٦ م)",
+      "facts": "اللقب : ذو النورين\nالخلافة : ٢٣–٣٥ هـ (٦٤٤–٦٥٦ م)\nالإنجازات : جمع القرآن الكريم في المصحف الإمام وبناء أول أسطول بحري"
+    },
+    "Aisyah binti Abu Bakar": {
+      "name": "عائشة بنت أبي بكر",
+      "role": "أم المؤمنين وفقيهة الأمة ومحدثتها الكبرى",
+      "meta": "حبيبة رسول الله ﷺ وبنت الصديق\nالعصر / المكان: مكة والمدينة (٦١٣–٦٧٨ م)",
+      "facts": "اللقب : الصديقة بنت الصديق، الحميراء\nالصلة بالنبي ﷺ : زوجته الأثيرة ومحدثة كبرى روت آلاف الأحاديث"
+    },
+    "Khalid bin Walid": {
+      "name": "خالد بن الوليد",
+      "role": "سيف الله المسلول وقائد الفتوحات العبقري",
+      "meta": "خالد بن الوليد المخزومي\nالعصر / المكان: مكة، اليمامة، العراق، والشام (توفي ٢١ هـ)",
+      "facts": "اللقب : سيف الله المسلول\nالمعارك : اليرموك، اليمامة، ذات السلاسل، فتح دمشق"
+    },
+    "Abu Ubaidah bin al-Jarrah": {
+      "name": "أبو عبيدة بن الجراح",
+      "role": "أمين هذه الأمة وقائد جيوش فتح الشام",
+      "meta": "عامر بن عبد الله بن الجراح الفهري\nالعصر / المكان: مكة، المدينة، والشام (توفي ١٨ هـ)",
+      "facts": "اللقب : أمين الأمة\nالحدث : قيادة الفتوحات في الشام وفاتح بيت المقدس مع عمر بن الخطاب"
+    },
+    "Sa’ad bin Abi Waqqash": {
+      "name": "سعد بن أبي وقاص",
+      "role": "فاتح بلاد فارس وقائد معركة القادسية",
+      "meta": "أول من رمى بسهم في سبيل الله\nالعصر / المكان: مكة، المدينة، والعراق (توفي ٥٥ هـ)",
+      "facts": "اللقب : خال النبي ﷺ، بطل القادسية\nالإنجازات : كسر الإمبراطورية الفارسية وتأسيس الكوفة"
+    },
+    "Amr bin Ash": {
+      "name": "عمرو بن العاص",
+      "role": "فاتح مصر ودهية العرب وقائد الفتوح",
+      "meta": "عمرو بن العاص السهمي القرشي\nالعصر / المكان: مكة، الشام، ومصر (توفي ٤٣ هـ)",
+      "facts": "اللقب : دهية العرب، فاتح مصر\nالإنجازات : فتح مصر وتأسيس الفسطاط وبناء جامع عمرو بن العاص"
+    },
+    "Hasan bin Ali": {
+      "name": "الحسن بن علي",
+      "role": "سيد شباب أهل الجنة وخامس الخلفاء الراشدين",
+      "meta": "سبط رسول الله ﷺ وريحانته\nالعصر / المكان: المدينة والكوفة (٣–٥٠ هـ)",
+      "facts": "اللقب : ريحانة رسول الله، سيد شباب أهل الجنة\nالحدث : عام الجماعة والتنازل عن الخلافة حقناً لدماء المسلمين"
+    },
+    "Husain bin Ali": {
+      "name": "الحسين بن علي",
+      "role": "سيد شباب أهل الجنة وشهيد كربلاء",
+      "meta": "سبط رسول الله ﷺ وشهيد المبدأ\nالعصر / المكان: المدينة، مكة، وكربلاء (٤–٦١ هـ)",
+      "facts": "اللقب : سيد شباب أهل الجنة، شهيد كربلاء\nالحدث : معركة كربلاء عام ٦١ هـ"
+    },
+    "Mu’awiyah bin Abi Sufyan": {
+      "name": "معاوية بن أبي سفيان",
+      "role": "مؤسس الدولة الأموية وكاتب الوحي",
+      "meta": "أول ملوك وخلفاء بني أمية\nالعصر / المكان: مكة والشام (توفي ٦٠ هـ / ٦٨٠ م)",
+      "facts": "اللقب : مؤسس الدولة الأموية، حليم العرب\nالخلافة : ٤١–٦٠ هـ (٦٦١–٦٨٠ م)"
+    },
+    "Yazid bin Mu’awiyah": {
+      "name": "يزيد بن معاوية",
+      "role": "ثاني خلفاء بني أمية",
+      "meta": "خلافته من دمشق\nالعصر / المكان: دمشق (٦٠–٦٤ هـ / ٦٨٠–٦٨٣ م)",
+      "facts": "الخلافة : ٦٠–٦٤ هـ\nالحدث : واقعة كربلاء وموقعة الحرة"
+    },
+    "Abdullah bin az-Zubair": {
+      "name": "عبد الله بن الزبير",
+      "role": "فارس قريش وأمير المؤمنين بمكة",
+      "meta": "أول مولود للمهاجرين في المدينة\nالعصر / المكان: مكة المكرمة (١–٧٣ هـ / ٦٢٢–٦٩٢ م)",
+      "facts": "اللقب : عائذ البيت\nالحدث : خلافته في مكة وإعادة بناء الكعبة على قواعد إبراهيم"
+    },
+    "Marwan bin al-Hakam": {
+      "name": "مروان بن الحكم",
+      "role": "مؤسس الفرع المرواني في الخلافة الأموية",
+      "meta": "خلافته في الشام\nالعصر / المكان: دمشق (٦٤–٦٥ هـ / ٦٨٤–٦٨٥ م)",
+      "facts": "الخلافة : مؤسس الدولة الأموية المروانية\nالحدث : مؤتمر الجابية وتوحيد بلاد الشام"
+    },
+    "Abdul Malik bin Marwan": {
+      "name": "عبد الملك بن مروان",
+      "role": "المؤسس الثاني للدولة الأموية وباني قبة الصخرة",
+      "meta": "خامس الخلفاء الأمويين\nالعصر / المكان: دمشق (٦٥–٨٦ هـ / ٦٨٥–٧٠٥ م)",
+      "facts": "الإنجازات : تعريب الدواوين، صك الدينار الإسلامي، وبناء مسجد قبة الصخرة"
+    },
+    "Al-Hajjaj bin Yusuf ats-Tsaqafi": {
+      "name": "الحجاج بن يوسف الثقفي",
+      "role": "والي العراق القوي في العهد الأموي",
+      "meta": "والي بني أمية المشهور\nالعصر / المكان: الحجاز والعراق (٤٠–٩٥ هـ / ٦٦١–٧١٤ م)",
+      "facts": "الإنجازات : تنقيط وتشكيل المصحف الشريف، بناء مدينة واسط، ودعم فتوحات المشرق"
+    },
+    "Al-Walid bin Abdul Malik": {
+      "name": "الوليد بن عبد الملك",
+      "role": "سادس خلفاء بني أمية وباني المسجد الأموي",
+      "meta": "عهد الفتوحات الأندلسية والسندية\nالعصر / المكان: دمشق (٨٦–٩٦ هـ / ٧٠٥–٧١٥ م)",
+      "facts": "الإنجازات : فتح الأندلس وبلاد السند، وبناء الجامع الأموي بدمشق وتوسعة المسجد النبوي"
+    },
+    "Thariq bin Ziyad": {
+      "name": "طارق بن زياد",
+      "role": "فاتح الأندلس وبطل معركة وادي لكة",
+      "meta": "قائد عسكري بربري مسلم\nالعصر / المكان: طنجة والأندلس (توفي نحو ٧٢٠ م)",
+      "facts": "اللقب : فاتح الأندلس\nالحدث : عبور مضيق جبل طارق والانتصار الحاسم في معركة وادي لكة"
+    },
+    "Musa bin Nushair": {
+      "name": "موسى بن نصير",
+      "role": "والي إفريقية وفاتح المغرب والأندلس",
+      "meta": "قائد عسكري مخضرم للأمويين\nالعصر / المكان: إفريقية والأندلس (١٩–٩٧ هـ / ٦٤٠–٧١٦ م)",
+      "facts": "الإنجازات : استكمال فتح الشمال الأفريقي وتأمين فتح بلاد الأندلس"
+    },
+    "Muhammad bin Qasim ats-Tsaqafi": {
+      "name": "محمد بن القاسم الثقفي",
+      "role": "فاتح بلاد السند والشاب العبقري",
+      "meta": "قائد فتوحات المشرق الأموي\nالعصر / المكان: البصرة والسند (٧٢–٩٥ هـ / ٦٩١–٧١٥ م)",
+      "facts": "الإنجازات : فتح بلاد السند ونشر الإسلام في شبه القارة الهندية وهو دون العشرين"
+    },
+    "Qutaibah bin Muslim al-Bahili": {
+      "name": "قتيبة بن مسلم الباهلي",
+      "role": "فاتح بلاد ما وراء النهر ووسط آسيا",
+      "meta": "والي خراسان والقائد الفاتح\nالعصر / المكان: خراسان وما وراء النهر (٤٩–٩٦ هـ / ٦٦٩–٧١٥ م)",
+      "facts": "الإنجازات : فتح بخارى وسمرقند وخوارزم ووصول رايات الإسلام إلى حدود الصين"
+    },
+    "Sulaiman bin Abdul Malik": {
+      "name": "سليمان بن عبد الملك",
+      "role": "سابع خلفاء بني أمية",
+      "meta": "خلافته من الرملة ودمشق\nالعصر / المكان: فلسطين والشام (٩٦–٩٩ هـ / ٧١٥–٧١٧ م)",
+      "facts": "الحدث : تسيير حملة القسطنطينية الكبرى وتولية عمر بن عبد العزيز من بعده"
+    },
+    "Maslamah bin Abdul Malik": {
+      "name": "مسلمة بن عبد الملك",
+      "role": "أمير الجيوش وفارس بني أمية في حروب الروم",
+      "meta": "ابن الخليفة عبد الملك وقائد الصوائف\nالعصر / المكان: الشام والأناضول (توفي ١٢١ هـ / ٧٣٨ م)",
+      "facts": "اللقب : جرادة الصيف\nالحدث : قيادة حصار القسطنطينية الشهير وبناء أول مسجد فيها"
+    },
+    "Umar bin Abdul Aziz": {
+      "name": "عمر بن عبد العزيز",
+      "role": "خامس الخلفاء الراشدين وإمام العدل والزهد",
+      "meta": "أبو حفص الأموي القرشي\nالعصر / المكان: المدينة ودمشق (٦١–١٠١ هـ / ٦٨١–٧٢٠ م)",
+      "facts": "اللقب : الخليفة الزاهد، خامس الخلفاء الراشدين\nالإنجازات : إشاعة العدل ورد المظالم وتدوين الحديث النبوي الشريف"
+    },
+    "Hisyam bin Abdul Malik": {
+      "name": "هشام بن عبد الملك",
+      "role": "عاشر خلفاء بني أمية ورجل الإدارة العظيم",
+      "meta": "أطول خلفاء بني أمية حكماً بعد معاوية\nالعصر / المكان: الرصافة ودمشق (١٠٥–١٢٥ هـ / ٧٢٤–٧٤٣ م)",
+      "facts": "الإنجازات : استقرار الخزانة وتشييد القصور والمنشآت المائية في بادية الشام"
+    },
+    "Abdurrahman al-Ghafiqi": {
+      "name": "عبد الرحمن الغافقي",
+      "role": "والي الأندلس وبطل معركة بلاط الشهداء",
+      "meta": "قائد معركة بواتييه في قلب فرنسا\nالعصر / المكان: قرطبة وجنوب فرنسا (استشهد عام ١١٤ هـ / ٧٣٢ م)",
+      "facts": "الحدث : قيادة جيش الأندلس في معركة بلاط الشهداء واستشهاده في الميدان"
+    },
+    "Marwan bin Muhammad": {
+      "name": "مروان بن محمد (مروان الحمار)",
+      "role": "آخر خلفاء الدولة الأموية في دمشق",
+      "meta": "الملقب بالجعدي وصاحب الصبر في الحروب\nالعصر / المكان: دمشق وحران ومصر (١٢٧–١٣٢ هـ / ٧٤٤–٧٥٠ م)",
+      "facts": "الحدث : معركة الزاب الكبرى وسقوط الدولة الأموية وانتقال الخلافة للعباسيين"
+    },
+    "Abdurrahman ad-Dakhil": {
+      "name": "عبد الرحمن الداخل (صقر قريش)",
+      "role": "مؤسس الدولة الأموية في الأندلس",
+      "meta": "الأمير الأموي الهارب من العباسيين\nالعصر / المكان: قرطبة (١١٣–١٧٢ هـ / ٧٣١–٧٨٨ م)",
+      "facts": "اللقب : صقر قريش\nالإنجازات : عبور البحر بمفرده وتأسيس إمارة قرطبة وبناء جامع قرطبة الكبير"
+    }
+  }
+}

@@ -53,7 +53,7 @@
 <link rel="manifest" href="site.webmanifest">
 <meta name="theme-color" content="#181818">
 <meta name="description" content="Tracing the history of Islam through a unified interactive world map with historical era timeline slider, chronology, notable figures, and short stories.">
-<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/leaflet/leaflet.css">
 <style>
 *{box-sizing:border-box;margin:0}
@@ -64,6 +64,13 @@
 }
 html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px);overflow-x:clip;max-width:100%}
 body{background:var(--bg);color:var(--ink);font:400 16px/1.65 Bitter,Georgia,serif;overflow-x:clip;max-width:100%}
+[dir="rtl"] body{font-family:'Noto Naskh Arabic',Amiri,Bitter,Georgia,serif}
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,[dir="rtl"] .logo,[dir="rtl"] .h-num,[dir="rtl"] .sec-title,[dir="rtl"] .modal-title{font-family:Amiri,Cinzel,serif}
+[dir="rtl"] .logo small{border-left:0;border-right:1px solid var(--mut);padding-left:0;padding-right:10px}
+[dir="rtl"] .ft-brand-sep{margin-left:0;margin-right:12px}
+[dir="rtl"] .f-links a{padding-left:0;padding-right:10px}
+[dir="rtl"] .f-links a:hover{transform:translateX(-4px)}
+[dir="rtl"] .ft-top{direction:rtl}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--g);outline-offset:3px}
@@ -445,25 +452,253 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   .sup-dock{left:10px;bottom:10px;padding:6px 10px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}#worldSvg path{transition:none!important}}
+
+/* ==========================================
+   ALFA HISTORY v1.8.0 RESPONSIVE & SEARCH CSS
+   ========================================== */
+
+/* Search Header Button & Shortcut */
+.search-nav-btn{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.05);border:1px solid rgba(196,163,90,.32);
+  border-radius:20px;padding:6px 12px;color:var(--gold2);
+  font:600 .78rem Cinzel,serif;cursor:pointer;transition:all .2s;
+}
+.search-nav-btn:hover{
+  background:rgba(196,163,90,.15);border-color:var(--gold);color:#fff;
+}
+.search-kbd{
+  display:inline-block;padding:1px 5px;background:#201b13;border:1px solid rgba(196,163,90,.25);
+  border-radius:4px;font:700 .65rem/1.2 monospace;color:var(--mut);
+}
+.hamburger-btn{
+  display:none;align-items:center;justify-content:center;
+  background:none;border:1px solid rgba(196,163,90,.3);border-radius:4px;
+  color:var(--gold2);padding:6px;cursor:pointer;transition:all .2s;
+}
+.hamburger-btn:hover{color:#fff;border-color:var(--gold);background:rgba(196,163,90,.1)}
+
+/* Mobile Drawer */
+.drawer-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.68);backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);z-index:998;opacity:0;pointer-events:none;
+  transition:opacity .28s ease;
+}
+.drawer-overlay.open{opacity:1;pointer-events:auto}
+.drawer-panel{
+  position:fixed;top:0;right:0;bottom:0;width:min(320px,86vw);background:#13100b;
+  border-left:1px solid rgba(196,163,90,.3);z-index:999;
+  transform:translateX(100%);transition:transform .3s cubic-bezier(0.16,1,0.3,1);
+  display:flex;flex-direction:column;padding:20px 22px;box-shadow:-8px 0 32px rgba(0,0,0,.8);
+  overflow-y:auto;
+}
+[dir="rtl"] .drawer-panel{right:auto;left:0;border-left:none;border-right:1px solid rgba(196,163,90,.3);transform:translateX(-100%)}
+.drawer-panel.open{transform:translateX(0)}
+.drw-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(110,92,54,.3)}
+.drw-close-btn{background:none;border:1px solid rgba(196,163,90,.3);border-radius:4px;color:var(--gold2);width:32px;height:32px;font-size:1.1rem;cursor:pointer;transition:all .2s}
+.drw-close-btn:hover{background:var(--gold);color:#181818}
+.drw-search-btn{
+  width:100%;display:flex;align-items:center;gap:10px;padding:10px 14px;
+  background:#1e1810;border:1px solid rgba(196,163,90,.35);border-radius:6px;
+  color:var(--gold2);font:600 .84rem Bitter,serif;cursor:pointer;margin-bottom:18px;text-align:left;
+}
+.drw-search-btn:hover{border-color:var(--gold);color:#fff}
+.drw-nav{display:grid;gap:6px}
+.drw-link{
+  display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:6px;
+  color:#f3ead8;text-decoration:none;font:700 .92rem Arvo,serif;transition:background .2s,color .2s;
+}
+.drw-link:hover{background:rgba(196,163,90,.12);color:var(--gold2)}
+.drw-divider{height:1px;background:rgba(110,92,54,.3);margin:16px 0}
+.drw-src-btn{
+  width:100%;padding:10px 14px;background:rgba(196,163,90,.08);border:1px solid var(--gold);
+  border-radius:4px;color:var(--gold2);font:700 .82rem Cinzel,serif;cursor:pointer;
+  letter-spacing:.04em;text-align:center;transition:all .2s;
+}
+.drw-src-btn:hover{background:var(--gold);color:#181818}
+.drw-lang-block{display:grid;gap:8px}
+.drw-label{font:700 .75rem Cinzel,serif;color:var(--mut);letter-spacing:.05em}
+.drw-lang-pills{display:flex;gap:8px}
+.drw-lang-pill{
+  flex:1;padding:7px;background:#1e1810;border:1px solid rgba(196,163,90,.3);border-radius:4px;
+  color:#fff;font:700 .82rem Bitter,serif;cursor:pointer;transition:all .2s;text-align:center;
+}
+.drw-lang-pill.on,.drw-lang-pill:hover{background:var(--gold);color:#181818;border-color:var(--gold)}
+
+/* Semantic Search Dialog Modal */
+dialog.search-modal{
+  margin:auto;border:1px solid var(--gold);border-radius:10px;background:#14110b;
+  color:#fff;padding:0;width:min(720px,calc(100vw - 28px));max-height:86vh;
+  box-shadow:0 16px 48px rgba(0,0,0,.8);overflow:hidden;
+}
+dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8px)}
+.search-dlg-inner{display:flex;flex-direction:column;max-height:86vh}
+.search-dlg-head{
+  display:flex;align-items:center;gap:10px;padding:16px 20px;
+  background:#1a150e;border-bottom:1px solid rgba(110,92,54,.35);
+}
+.search-input-wrap{
+  flex:1;display:flex;align-items:center;gap:10px;background:#0f0d09;
+  border:1px solid rgba(196,163,90,.35);border-radius:6px;padding:8px 14px;
+}
+.search-input-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 2px rgba(196,163,90,.2)}
+.search-input-icon{color:var(--gold2);flex-shrink:0}
+#semanticInput{
+  flex:1;background:none;border:none;color:#fff;font:600 .98rem Bitter,serif;outline:none;width:100%;
+}
+#semanticInput::placeholder{color:rgba(217,205,178,.45)}
+.search-clear-btn{background:none;border:none;color:var(--mut);cursor:pointer;font-size:.9rem}
+.search-clear-btn:hover{color:#fff}
+.search-close-btn{
+  background:none;border:1px solid rgba(196,163,90,.3);border-radius:4px;
+  color:var(--gold2);width:34px;height:34px;font-size:1.05rem;cursor:pointer;transition:all .2s;
+}
+.search-close-btn:hover{background:var(--gold);color:#181818}
+.search-chips-bar{
+  display:flex;align-items:center;gap:10px;padding:10px 20px;
+  background:#17130c;border-bottom:1px solid rgba(110,92,54,.25);overflow-x:auto;scrollbar-width:none;
+}
+.search-chips-bar::-webkit-scrollbar{display:none}
+.search-chips-lbl{font:700 .72rem Cinzel,serif;color:var(--mut);white-space:nowrap;letter-spacing:.05em}
+.search-chips-list{display:flex;gap:6px;overflow-x:auto}
+.search-chip-btn{
+  white-space:nowrap;padding:4px 10px;background:rgba(196,163,90,.08);border:1px solid rgba(196,163,90,.28);
+  border-radius:14px;color:var(--gold2);font:600 .76rem Bitter,serif;cursor:pointer;transition:all .2s;
+}
+.search-chip-btn:hover{background:var(--gold);color:#181818;border-color:var(--gold)}
+.search-results-area{padding:18px 20px;overflow-y:auto;display:grid;gap:14px;flex:1}
+.search-hint-box{text-align:center;padding:26px 14px;color:#d9cdb2;font-size:.92rem;line-height:1.6}
+.search-intent-box{
+  background:rgba(196,163,90,.09);border:1px dashed var(--gold);border-radius:8px;
+  padding:14px 18px;display:grid;gap:4px;
+}
+.search-intent-title{font:700 1.05rem Arvo,serif;color:var(--gold2);margin:0}
+.search-intent-desc{font-size:.88rem;color:#f3ead8;margin:0;line-height:1.55}
+.search-res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.search-card{
+  display:flex;align-items:center;gap:12px;padding:10px 12px;background:#1b1610;
+  border:1px solid rgba(196,163,90,.25);border-radius:6px;text-decoration:none;
+  color:#fff;transition:transform .2s,border-color .2s;
+}
+.search-card:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 6px 18px rgba(196,163,90,.15)}
+.search-card-thumb{width:46px;height:46px;border-radius:4px;overflow:hidden;background:#261f14;flex-shrink:0}
+.search-card-thumb img{width:100%;height:100%;object-fit:cover}
+.search-card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 1rem Cinzel,serif;color:var(--gold);background:linear-gradient(135deg,#2e2417,#1b150d)}
+.search-card-info{flex:1;min-width:0;display:grid;gap:2px}
+.search-card-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.search-card-title{font:700 .9rem Arvo,serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-badge{
+  font:700 .66rem Cinzel,serif;padding:2px 6px;border-radius:3px;
+  background:rgba(196,163,90,.18);color:var(--gold);border:1px solid rgba(196,163,90,.3);letter-spacing:.04em;
+}
+.search-card-role{font-size:.76rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-empty-box{text-align:center;padding:32px 14px;color:var(--mut);font-size:.95rem}
+
+/* Parallax World Map Support */
+#places{overflow:hidden}
+#places #wm{transition:transform .1s linear;will-change:transform}
+@media(prefers-reduced-motion:reduce){
+  #places #wm{transform:none !important}
+}
+
+/* Responsive Mobile Navigation (< 800px) */
+@media(max-width:800px){
+  header{gap:10px;padding:10px 14px}
+  .h-mid{display:none}
+  .nav-links-desktop{display:none}
+  .search-kbd,.search-btn-txt{display:none}
+  .search-nav-btn{padding:7px 10px}
+  .hamburger-btn{display:inline-flex}
+  
+  /* Footer Mobile 2-column Polish */
+  .ft{
+    grid-template-columns:1fr 1fr;
+    gap:24px 16px;
+    padding:32px 16px 20px;
+  }
+  .ft-brand{
+    grid-column:span 2;
+    margin-bottom:8px;
+  }
+  .ft-col.ft-sources-col{
+    grid-column:span 2;
+    padding:16px 14px;
+    background:#16120b;
+    border:1px solid rgba(196,163,90,.2);
+    border-radius:8px;
+  }
+  .ft-sup-block{
+    grid-column:span 2;
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 18px;
+    background:#16120b;
+    border:1px solid rgba(196,163,90,.2);
+    border-radius:8px;
+    gap:16px;
+  }
+  .ft-sup-block .ft-sup-info{flex:1;text-align:left}
+}
+
 </style>
 </head>
 <body>
 
 <header>
-  <div id="scroll-progress" style="position:absolute;left:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--g),#f3ead8);width:0%;transition:width .05s linear;z-index:30;pointer-events:none"></div>
+  <div id="scroll-progress" style="position:absolute;left:0;bottom:0;height:2.5px;background:linear-gradient(90deg,var(--g),#f3ead8);width:0%;transition:width .05s linear;z-index:30;pointer-events:none"></div>
   <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
   <div class="h-mid"><span class="h-num">1✦✦✦</span></div>
   <nav>
-    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
-    <a class="nav-link on" href="#places" data-sec="places" data-i18n="navMap">World Map</a>
-    <a class="nav-link" href="#chronology" data-sec="chronology" data-i18n="navTimeline">Timeline</a>
-    <a class="nav-link" href="#characters" data-sec="characters" data-i18n="navCharacters">Characters</a>
-    <button class="nav-link" id="navSources" type="button" data-i18n="navSources" style="background:none;cursor:pointer">Sources</button>
-    <a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+    <button class="search-nav-btn" id="searchTrigger" type="button" aria-label="Search history (Ctrl+K)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <span class="search-btn-txt" data-i18n="searchBtn">Cari</span>
+      <kbd class="search-kbd">Ctrl K</kbd>
+    </button>
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">ID</button>
+    <div class="nav-links-desktop">
+      <a class="nav-link on" href="#places" data-sec="places" data-i18n="navMap">World Map</a>
+      <a class="nav-link" href="#chronology" data-sec="chronology" data-i18n="navTimeline">Timeline</a>
+      <a class="nav-link" href="#characters" data-sec="characters" data-i18n="navCharacters">Characters</a>
+    </div>
+    <a class="yt" id="yt" href="https://www.youtube.com/@alfa-history" target="_blank" rel="noopener" aria-label="YouTube">
       <svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg>
     </a>
+    <button class="hamburger-btn" id="hamburgerBtn" type="button" aria-label="Navigation Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </button>
   </nav>
 </header>
+
+<!-- Mobile Slide-over Drawer -->
+<div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+<aside id="drawerPanel" class="drawer-panel" aria-label="Mobile Navigation">
+  <div class="drw-head">
+    <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
+    <button id="drawerClose" class="drw-close-btn" type="button" aria-label="Close menu">✕</button>
+  </div>
+  <button class="drw-search-btn" id="drawerSearchTrigger" type="button">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <span data-i18n="searchBtn">Cari Konsep, Tokoh, Peristiwa...</span>
+  </button>
+  <nav class="drw-nav">
+    <a class="drw-link" href="#places" data-sec="places"><span data-i18n="navMap">World Map</span></a>
+    <a class="drw-link" href="#chronology" data-sec="chronology"><span data-i18n="navTimeline">Timeline</span></a>
+    <a class="drw-link" href="#characters" data-sec="characters"><span data-i18n="navCharacters">Characters</span></a>
+    <a class="drw-link" href="#shorts"><span>Shorts</span></a>
+  </nav>
+  <div class="drw-divider"></div>
+  <button class="drw-src-btn" id="drawerSourcesBtn" type="button" data-i18n="ftSourcesBtn">Metodologi &amp; Sumber Rujukan ›</button>
+  <div class="drw-divider"></div>
+  <div class="drw-lang-block">
+    <span class="drw-label">Bahasa / Language / اللغة:</span>
+    <div class="drw-lang-pills">
+      <button class="drw-lang-pill" data-lang="id">ID</button>
+      <button class="drw-lang-pill" data-lang="en">EN</button>
+      <button class="drw-lang-pill" data-lang="ar">AR</button>
+    </div>
+  </div>
+</aside>
 
 <main>
   <!-- UNIFIED INTERACTIVE WORLD MAP + ERA SLIDER -->
@@ -659,7 +894,7 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
       <a href="#shorts">Shorts</a>
       <a href="#chronology" data-i18n="navStories">Stories</a>
     </div>
-    <div class="ft-col">
+    <div class="ft-col ft-sources-col">
       <h4 id="ftSrcHead">Scholarly Sources</h4>
       <a href="https://quran.com" target="_blank" rel="noopener">Quran.com (Al-Qur'an)</a>
       <a href="https://quran.kemenag.go.id" target="_blank" rel="noopener">Qur'an Kemenag RI</a>
@@ -743,6 +978,42 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 
 <dialog id="pl"><button class="x" aria-label="Close">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Watch on YouTube</a></dialog>
 <dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Close">×</button><h3></h3><small></small><p></p></div></div></dialog>
+
+
+<!-- Semantic Search Modal Dialog -->
+<dialog id="semanticSearchDlg" class="search-modal">
+  <div class="search-dlg-inner">
+    <div class="search-dlg-head">
+      <div class="search-input-wrap">
+        <svg class="search-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input id="semanticInput" type="text" autocomplete="off" spellcheck="false" placeholder="Cari konsep sejarah, sahabat perang badar, kejatuhan baghdad...">
+        <button id="searchClearBtn" class="search-clear-btn" type="button" aria-label="Clear search" hidden>✕</button>
+      </div>
+      <button id="searchCloseBtn" class="search-close-btn" type="button" aria-label="Close search">✕</button>
+    </div>
+    <div class="search-chips-bar">
+      <span class="search-chips-lbl" data-i18n="searchPopular">Pencarian Populer:</span>
+      <div class="search-chips-list" id="searchChipsList">
+        <button class="search-chip-btn" data-query="sahabat perang badar">Sahabat Perang Badar</button>
+        <button class="search-chip-btn" data-query="perang yg menghancurkan masa keemasan Islam">Kejatuhan Baghdad</button>
+        <button class="search-chip-btn" data-query="wanita pertama masuk islam">Wanita Pertama Masuk Islam</button>
+        <button class="search-chip-btn" data-query="penakluk spanyol dan andalusia">Penakluk Andalusia</button>
+        <button class="search-chip-btn" data-query="pembebasan baitul maqdis al-quds">Baitul Maqdis (Al-Quds)</button>
+        <button class="search-chip-btn" data-query="pedang allah yang tak terkalahkan">Saifullah (Khalid bin Walid)</button>
+      </div>
+    </div>
+    <div class="search-results-area" id="searchResultsArea">
+      <div class="search-hint-box" id="searchHintBox">
+        <p data-i18n="searchHint">Ketik pertanyaan alami, topik sejarah, nama tokoh, atau peristiwa untuk menemukan penelusuran semantik seketika.</p>
+      </div>
+      <div id="searchIntentCallout" class="search-intent-box" hidden></div>
+      <div id="searchResultsGrid" class="search-res-grid"></div>
+      <div id="searchEmptyMsg" class="search-empty-box" hidden>
+        <p data-i18n="searchNoResults">Tidak ditemukan hasil yang cocok.</p>
+      </div>
+    </div>
+  </div>
+</dialog>
 
 <script src="assets/leaflet/leaflet.js"></script>
 <script src="config.js"></script>
@@ -1807,7 +2078,7 @@ function applyStaticI18n(){
   const ftSrcHead=$("#ftSrcHead");if(ftSrcHead)ftSrcHead.textContent=I.t("ftSources");
   const ftSourcesBtn=$("#ftSourcesBtn");if(ftSourcesBtn)ftSourcesBtn.textContent=I.t("ftSourcesBtn");
   const navSources=$("#navSources");if(navSources)navSources.textContent=I.t("navSources");
-  $("#ftQrisCap").innerHTML=I.getLang()==="id"?"Scan QRIS untuk dukung<br>riset &amp; produksi":"Scan QRIS to support<br>research &amp; production";
+  $("#ftQrisCap").innerHTML=I.getLang()==="id"?"Scan QRIS untuk dukung<br>riset &amp; produksi":(I.getLang()==="ar"?"امسح رمز QRIS لدعم<br>أبحاث وتوثيق التاريخ":"Scan QRIS to support<br>research &amp; production");
   $("#supDockTitle").textContent=I.t("supportTitle");
   $("#supDockSub").textContent=I.t("supportBtn");
   $("#qrisTitle").textContent=I.t("supportTitle");
@@ -1938,6 +2209,269 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
   window.addEventListener("resize", updateProgress);
   updateProgress();
 })();
+
+
+// ==========================================
+
+
+// ==========================================
+// ALFA v1.8.0 INTERACTIVE HANDLERS
+// ==========================================
+(function initV180(){
+  const I = window.ALFA_I18N;
+  
+  // Pass DEFS to i18n engine as soon as loaded
+  if(window.DEFS && I && typeof I.setDefaultsData === "function"){
+    I.setDefaultsData(window.DEFS);
+  }
+
+  // --- Mobile Drawer ---
+  const drwOverlay = document.getElementById("drawerOverlay");
+  const drwPanel = document.getElementById("drawerPanel");
+  const hamburgerBtn = document.getElementById("hamburgerBtn");
+  const drawerClose = document.getElementById("drawerClose");
+  const drawerSourcesBtn = document.getElementById("drawerSourcesBtn");
+  const drawerSearchTrigger = document.getElementById("drawerSearchTrigger");
+
+  function openDrawer(){
+    if(!drwPanel) return;
+    drwOverlay.classList.add("open");
+    drwPanel.classList.add("open");
+    updateDrawerLangPills();
+  }
+  function closeDrawer(){
+    if(!drwPanel) return;
+    drwOverlay.classList.remove("open");
+    drwPanel.classList.remove("open");
+  }
+
+  if(hamburgerBtn) hamburgerBtn.onclick = openDrawer;
+  if(drawerClose) drawerClose.onclick = closeDrawer;
+  if(drwOverlay) drwOverlay.onclick = closeDrawer;
+
+  document.querySelectorAll(".drw-link").forEach(a => {
+    a.addEventListener("click", closeDrawer);
+  });
+
+  if(drawerSourcesBtn){
+    drawerSourcesBtn.onclick = () => {
+      closeDrawer();
+      const dlg = document.getElementById("sourcesDlg");
+      if(dlg && typeof dlg.showModal === "function") dlg.showModal();
+    };
+  }
+
+  function updateDrawerLangPills(){
+    const cur = I ? I.getLang() : "id";
+    document.querySelectorAll(".drw-lang-pill").forEach(p => {
+      p.classList.toggle("on", p.dataset.lang === cur);
+    });
+  }
+
+  document.querySelectorAll(".drw-lang-pill").forEach(p => {
+    p.onclick = () => {
+      const targetLang = p.dataset.lang;
+      if(I && targetLang){
+        I.setLang(targetLang);
+        updateDrawerLangPills();
+      }
+    };
+  });
+
+  // --- Semantic Search Modal ---
+  const searchDlg = document.getElementById("semanticSearchDlg");
+  const searchTrigger = document.getElementById("searchTrigger");
+  const searchCloseBtn = document.getElementById("searchCloseBtn");
+  const searchClearBtn = document.getElementById("searchClearBtn");
+  const semanticInput = document.getElementById("semanticInput");
+  const searchChipsList = document.getElementById("searchChipsList");
+  const searchResultsGrid = document.getElementById("searchResultsGrid");
+  const searchIntentCallout = document.getElementById("searchIntentCallout");
+  const searchEmptyMsg = document.getElementById("searchEmptyMsg");
+  const searchHintBox = document.getElementById("searchHintBox");
+
+  function openSearch(initialQuery){
+    const dlg = document.getElementById("semanticSearchDlg");
+    if(!dlg) return;
+    closeDrawer();
+    if(typeof dlg.showModal === "function") dlg.showModal();
+    if(semanticInput){
+      if(initialQuery) semanticInput.value = initialQuery;
+      semanticInput.focus();
+      triggerSearch(semanticInput.value);
+    }
+  }
+
+  function closeSearch(){
+    const dlg = document.getElementById("semanticSearchDlg");
+    if(!dlg) return;
+    dlg.close();
+  }
+
+  if(searchTrigger) searchTrigger.onclick = () => openSearch();
+  if(drawerSearchTrigger) drawerSearchTrigger.onclick = () => openSearch();
+  if(searchCloseBtn) searchCloseBtn.onclick = closeSearch;
+
+  // Close dialog on backdrop click
+  if(searchDlg){
+    searchDlg.addEventListener("click", e => {
+      const rect = searchDlg.getBoundingClientRect();
+      const inDialog = (rect.top <= e.clientY && e.clientY <= rect.top + rect.height &&
+                        rect.left <= e.clientX && e.clientX <= rect.left + rect.width);
+      if(!inDialog) closeSearch();
+    });
+  }
+
+  // Shortcut Ctrl+K / Cmd+K / Slash (/)
+  window.addEventListener("keydown", e => {
+    const dlg = document.getElementById("semanticSearchDlg");
+    if((e.ctrlKey || e.metaKey) && (e.key === "k" || e.key === "K")){
+      e.preventDefault();
+      if(dlg && dlg.open) closeSearch(); else openSearch();
+    } else if(e.key === "/" && document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA"){
+      e.preventDefault();
+      openSearch();
+    } else if(e.key === "Escape" && dlg && dlg.open){
+      closeSearch();
+    }
+  });
+
+  // Chip buttons
+  if(searchChipsList){
+    searchChipsList.addEventListener("click", e => {
+      const btn = e.target.closest(".search-chip-btn");
+      if(btn && btn.dataset.query){
+        if(semanticInput) semanticInput.value = btn.dataset.query;
+        triggerSearch(btn.dataset.query);
+      }
+    });
+  }
+
+  // Live input handler
+  if(semanticInput){
+    semanticInput.addEventListener("input", () => {
+      triggerSearch(semanticInput.value);
+    });
+  }
+  if(searchClearBtn){
+    searchClearBtn.onclick = () => {
+      semanticInput.value = "";
+      triggerSearch("");
+      semanticInput.focus();
+    };
+  }
+
+  function triggerSearch(q){
+    const query = String(q || "").trim();
+    if(searchClearBtn) searchClearBtn.hidden = !query;
+
+    if(!query){
+      if(searchHintBox) searchHintBox.hidden = false;
+      if(searchIntentCallout) searchIntentCallout.hidden = true;
+      if(searchResultsGrid) searchResultsGrid.replaceChildren();
+      if(searchEmptyMsg) searchEmptyMsg.hidden = true;
+      return;
+    }
+
+    if(searchHintBox) searchHintBox.hidden = true;
+
+    if(!I || typeof I.semanticSearch !== "function") return;
+    const res = I.semanticSearch(query, I.getLang());
+
+    // Intent Callout
+    if(res.matchedIntent){
+      searchIntentCallout.hidden = false;
+      searchIntentCallout.innerHTML = `
+        <h4 class="search-intent-title">✦ ${res.matchedIntent.title}</h4>
+        <p class="search-intent-desc">${res.matchedIntent.desc}</p>
+      `;
+    } else {
+      searchIntentCallout.hidden = true;
+      searchIntentCallout.replaceChildren();
+    }
+
+    // Results Cards
+    searchResultsGrid.replaceChildren();
+    if(!res.results || !res.results.length){
+      if(searchEmptyMsg) searchEmptyMsg.hidden = false;
+      return;
+    }
+    if(searchEmptyMsg) searchEmptyMsg.hidden = true;
+
+    res.results.forEach(item => {
+      const card = document.createElement("a");
+      card.className = "search-card";
+      card.href = item.url;
+      
+      const thumb = document.createElement("div");
+      thumb.className = "search-card-thumb";
+      if(item.img){
+        const im = new Image();
+        im.src = item.img;
+        im.alt = item.title;
+        im.loading = "lazy";
+        thumb.append(im);
+      } else {
+        const inits = (item.title || "").split(" ").map(w=>w[0]).filter(Boolean).slice(0,2).join("");
+        const ph = document.createElement("div");
+        ph.className = "search-card-ph";
+        ph.textContent = inits;
+        thumb.append(ph);
+      }
+
+      const info = document.createElement("div");
+      info.className = "search-card-info";
+
+      const topRow = document.createElement("div");
+      topRow.className = "search-card-top";
+
+      const tTitle = document.createElement("b");
+      tTitle.className = "search-card-title";
+      tTitle.textContent = item.title;
+
+      const badge = document.createElement("span");
+      badge.className = "search-badge";
+      badge.textContent = item.badge || item.type;
+
+      topRow.append(tTitle, badge);
+
+      const rRole = document.createElement("span");
+      rRole.className = "search-card-role";
+      rRole.textContent = item.role || "";
+
+      info.append(topRow, rRole);
+      card.append(thumb, info);
+      searchResultsGrid.append(card);
+    });
+  }
+
+  // --- Parallax Effect on World Map ---
+  (function initParallax(){
+    const placesSec = document.getElementById("places");
+    const mapEl = document.getElementById("wm");
+    if(!placesSec || !mapEl) return;
+
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if(!ticking){
+        window.requestAnimationFrame(() => {
+          const rect = placesSec.getBoundingClientRect();
+          if(rect.bottom > 0 && rect.top < window.innerHeight){
+            const y = Math.min(50, Math.max(0, window.scrollY * 0.1));
+            mapEl.style.transform = `translate3d(0, ${y}px, 0)`;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  })();
+
+})();
+
 </script>
+
+
+
 </body>
 </html>

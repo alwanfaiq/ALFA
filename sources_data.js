@@ -532,6 +532,7 @@
 
   function resolveContextualSources(item, type, lang){
     const isId = lang === "id";
+    const isAr = lang === "ar";
     if(!item) return null;
 
     // 1. Direct match by slug (for events) or name (for characters)
@@ -550,12 +551,17 @@
     }
 
     if(s) {
+      const telling = isAr ? (s.telling_ar || s.telling_en || s.telling_id) : (isId ? (s.telling_id || s.telling_en) : (s.telling_en || s.telling_id));
+      const collection = isAr ? (s.collection_ar || s.collection_en || s.collection) : (isId ? (s.collection || s.collection_en) : (s.collection_en || s.collection));
+      const narr = isAr ? (s.narration_ar || s.narration_en || s.narration) : (isId ? (s.narration || s.narration_en) : (s.narration_en || s.narration));
+      const grading = isAr ? (s.grading_ar || s.grading || s.grading_id) : (isId ? (s.grading_id || s.grading) : (s.grading || s.grading_id));
+      
       return {
-        telling: isId ? (s.telling_id || s.telling_en) : (s.telling_en || s.telling_id),
-        collection: isId ? (s.collection || s.collection_en) : (s.collection_en || s.collection),
-        narration_text: isId ? (s.narration || s.narration_en) : (s.narration_en || s.narration),
+        telling: telling,
+        collection: collection,
+        narration_text: narr,
         narration_url: s.narration_url,
-        grading: isId ? (s.grading_id || s.grading) : (s.grading || s.grading_id),
+        grading: grading,
         verses: s.verses || [],
         also_reported: s.also_reported || [],
         sunnah_url: s.narration_url && s.narration_url.includes("sunnah.com") ? s.narration_url : "https://sunnah.com",
@@ -570,83 +576,100 @@
 
     let eraChronicle = "Tarikh ath-Thabari (Tarikh ar-Rusul wal-Muluk)";
     let eraChronicleEn = "Tarikh al-Tabari (History of the Prophets and Kings)";
+    let eraChronicleAr = "تاريخ الطبري (تاريخ الرسل والملوك)";
     let shamelaLink = "https://shamela.ws/book/9783";
     let hadithCollection = "Koleksi Hadits Shahih & Kitab Tarikh";
     let hadithCollectionEn = "Authenticated Hadith Collections & Classical Chronicles";
+    let hadithCollectionAr = "دواوين الحديث النبوي وأمهات كتب التاريخ";
     let sunnahLink = "https://sunnah.com";
 
     if(yr < 610) {
       eraChronicle = "Sirah Ibnu Hisyam & Al-Bidayah wan-Nihayah Ibnu Katsir (Jilid 2)";
       eraChronicleEn = "Sirah Ibn Hisham & Al-Bidayah wa al-Nihayah by Ibn Kathir (Vol. 2)";
+      eraChronicleAr = "السيرة النبوية لابن هشام والبداية والنهاية لابن كثير";
       shamelaLink = "https://shamela.ws/book/23833";
       hadithCollection = "Sirah Nabawiyyah & Kutubus Sittah";
       hadithCollectionEn = "Prophetic Biography & Primary Hadith Compilations";
+      hadithCollectionAr = "السيرة النبوية ودواوين الحديث المعتمدة";
       sunnahLink = "https://sunnah.com";
     } else if(yr <= 632) {
       eraChronicle = "Sahih al-Bukhari (Kitab al-Maghazi) & Tarikh ath-Thabari";
       eraChronicleEn = "Sahih al-Bukhari (Book of Expeditions) & Tarikh al-Tabari";
+      eraChronicleAr = "صحيح البخاري (كتاب المغازي) وتاريخ الطبري";
       hadithCollection = "Sahih al-Bukhari & Sahih Muslim";
       hadithCollectionEn = "Sahih al-Bukhari & Sahih Muslim";
+      hadithCollectionAr = "صحيح البخاري وصحيح مسلم";
       shamelaLink = "https://shamela.ws/book/9783";
       sunnahLink = "https://sunnah.com/bukhari";
     } else if(yr <= 661) {
       eraChronicle = "Tarikh ath-Thabari (Jilid 3–4: Khulafaur Rasyidin) & Al-Bidayah wan-Nihayah (Jilid 7)";
       eraChronicleEn = "Tarikh al-Tabari (Vol. 3–4: Rashidun Caliphate) & Al-Bidayah wa al-Nihayah (Vol. 7)";
+      eraChronicleAr = "تاريخ الطبري (عهد الخلفاء الراشدين) والبداية والنهاية";
       hadithCollection = "Sahih al-Bukhari (Fadhail Ashab an-Nabi) & Tarikh";
       hadithCollectionEn = "Sahih al-Bukhari (Virtues of the Companions) & Chronicles";
+      hadithCollectionAr = "فضائل الصحابة في الصحيحين وكتب التراجم";
       shamelaLink = "https://shamela.ws/book/9783";
       sunnahLink = "https://sunnah.com/bukhari";
     } else if(yr <= 750) {
       eraChronicle = "Tarikh ath-Thabari (Jilid 5–6: Daulah Umayyah) & Al-Kamil fit-Tarikh Ibnul Atsir";
       eraChronicleEn = "Tarikh al-Tabari (Vol. 5–6: Umayyad Caliphate) & Al-Kamil fi al-Tarikh";
+      eraChronicleAr = "تاريخ الطبري (الدولة الأموية) والكامل في التاريخ لابن الأثير";
       hadithCollection = "Kitab Induk Tarikh Klasik (Tarikh ath-Thabari)";
       hadithCollectionEn = "Classical Islamic Chronicles (Tarikh al-Tabari)";
+      hadithCollectionAr = "أمهات كتب التاريخ الإسلامي (تاريخ الطبري)";
       shamelaLink = "https://shamela.ws/book/9783";
     } else if(yr <= 1258) {
       eraChronicle = "Al-Kamil fit-Tarikh Ibnul Atsir & Siyar A'lam an-Nubala' Adz-Dzahabi";
       eraChronicleEn = "Al-Kamil fi al-Tarikh by Ibn al-Athir & Siyar A'lam al-Nubala";
+      eraChronicleAr = "الكامل في التاريخ لابن الأثير وسير أعلام النبلاء للذهبي";
       hadithCollection = "Koleksi Tarikh & Biografi Ulama (Adz-Dzahabi)";
       hadithCollectionEn = "Classical Biographies & Chronicles (al-Dhahabi)";
+      hadithCollectionAr = "سير أعلام النبلاء وكتب التراجم (للإمام الذهبي)";
       shamelaLink = "https://shamela.ws/book/21712";
     } else {
       eraChronicle = "Al-Bidayah wan-Nihayah & Khazanah Manuskrip Sejarah Islam";
       eraChronicleEn = "Al-Bidayah wa al-Nihayah & Digital Islamic Historical Manuscripts";
+      eraChronicleAr = "البداية والنهاية وخزانة المخطوطات والوثائق التاريخية";
       shamelaLink = "https://shamela.ws/book/4445";
     }
 
-    const narrationTitle = isId 
-      ? `${eraChronicle} (Catatan Peristiwa tahun ${yr} M)` 
-      : `${eraChronicleEn} (Chronicle entry for ${yr} CE)`;
+    const narrationTitle = isAr
+      ? `${eraChronicleAr} (تدوين أحداث سنة ${yr} م)`
+      : (isId ? `${eraChronicle} (Catatan Peristiwa tahun ${yr} M)` : `${eraChronicleEn} (Chronicle entry for ${yr} CE)`);
 
-    const gradingSummary = isId
-      ? `Diselaraskan dengan riwayat naskah primer tarikh klasik (${eraChronicle}) dan divalidasi melalui metodologi takhrij sanad mu'tabar.`
-      : `Cross-referenced with primary classical chronicles (${eraChronicleEn}) and verified against authenticated transmission chains.`;
+    const gradingSummary = isAr
+      ? `تمت مطابقة الوقائع والأنساب مع أمهات المصادر التاريخية المعتمدة (${eraChronicleAr}) والتحقق منها عبر مناهج التخريج وضبط الأسانيد.`
+      : (isId ? `Diselaraskan dengan riwayat naskah primer tarikh klasik (${eraChronicle}) dan divalidasi melalui metodologi takhrij sanad mu'tabar.` : `Cross-referenced with primary classical chronicles (${eraChronicleEn}) and verified against authenticated transmission chains.`);
 
     const tellingText = type === "characters"
-      ? (isId
-          ? `Biografi dan peran historis ${title} dirangkum dari kitab induk thabaqat dan tarikh klasik (Siyar A'lam an-Nubala' & Al-Ishabah). Ilustrasi karakter mengedepankan realisme busana abad ke-7 tanpa representasi berlebihan demi menjaga adab dan akurasi sejarah edukatif.`
-          : `The biography and historical significance of ${title} are synthesized from classical biographical tomes (Siyar A'lam al-Nubala & Al-Isabah). Visual representations maintain period-accurate attire strictly for educational clarity and historical authenticity.`)
-      : (isId
-          ? `Catatan peristiwa ${title} (${yr} M) disarikan dari naskah primer tarikh klasik dengan mempertahankan akurasi waktu, toponimi lokasi, dan catatan rawi terpercaya tanpa bumbu narasi fiktif.`
-          : `The historical account of ${title} (${yr} CE) is drawn directly from classical primary chronicles, preserving exact chronology, geographic toponyms, and verified narrator chains without artificial dramatization.`);
+      ? (isAr
+          ? `سيرة ${title} ودوره التاريخي مستخلصة من أمهات كتب التراجم والطبقات (سير أعلام النبلاء والإصابة). الرسوم الإيضاحية تلتزم بأزياء القرن السابع الميلادي كأداة تعليمية دون بهرجة حديثة.`
+          : (isId
+              ? `Biografi dan peran historis ${title} dirangkum dari kitab induk thabaqat dan tarikh klasik (Siyar A'lam an-Nubala' & Al-Ishabah). Ilustrasi karakter mengedepankan realisme busana abad ke-7 tanpa representasi berlebihan demi menjaga adab dan akurasi sejarah edukatif.`
+              : `The biography and historical significance of ${title} are synthesized from classical biographical tomes (Siyar A'lam al-Nubala & Al-Isabah). Visual representations maintain period-accurate attire strictly for educational clarity and historical authenticity.`))
+      : (isAr
+          ? `سرد أحداث ${title} (${yr} م) مدوَّن بدقة من أمهات كتب السير والتواريخ الكبرى، مع الحفاظ على الأماكن والأسماء وسياق الرواة.`
+          : (isId
+              ? `Catatan peristiwa ${title} (${yr} M) disarikan dari naskah primer tarikh klasik dengan mempertahankan akurasi waktu, toponimi lokasi, dan catatan rawi terpercaya tanpa bumbu narasi fiktif.`
+              : `The historical account of ${title} (${yr} CE) is drawn directly from classical primary chronicles, preserving exact chronology, geographic toponyms, and verified narrator chains without artificial dramatization.`));
 
     return {
       telling: tellingText,
-      collection: isId ? hadithCollection : hadithCollectionEn,
+      collection: isAr ? hadithCollectionAr : (isId ? hadithCollection : hadithCollectionEn),
       narration_text: narrationTitle,
       narration_url: shamelaLink,
       grading: gradingSummary,
       verses: [],
       also_reported: [
-        { title: isId ? `${eraChronicle} (Katalog Shamela)` : `${eraChronicleEn} (Shamela Library)`, url: shamelaLink },
-        { title: isId ? "Verifikasi Hadits & Sanad (Sunnah.com)" : "Hadith & Chain Verification (Sunnah.com)", url: sunnahLink }
+        { title: isAr ? `${eraChronicleAr} (المكتبة الشاملة)` : (isId ? `${eraChronicle} (Katalog Shamela)` : `${eraChronicleEn} (Shamela Library)`), url: shamelaLink },
+        { title: isAr ? "تخريج الحديث والأسانيد (Sunnah.com)" : (isId ? "Verifikasi Hadits & Sanad (Sunnah.com)" : "Hadith & Chain Verification (Sunnah.com)"), url: sunnahLink }
       ],
       sunnah_url: sunnahLink,
       quran_url: "https://quran.com",
       shamela_url: shamelaLink
     };
   }
-
+  
   window.ALFA_SOURCES_ENGINE = {
     resolve: resolveContextualSources
   };
