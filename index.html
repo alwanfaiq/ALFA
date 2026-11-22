@@ -316,9 +316,9 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .vd p{color:var(--mut);font-size:.88rem}
 .vd:hover h3{color:var(--g)}
 
-/* FOOTER (4 Columns including QRIS Support) */
+/* FOOTER (5 Columns including Scholarly Sources & QRIS Support) */
 footer{border-top:1px solid var(--border);margin-top:80px;padding:48px clamp(16px,3vw,56px) 32px;background:#151515}
-.ft{display:grid;grid-template-columns:1.4fr 1fr 1.15fr auto;gap:32px;max-width:1320px;align-items:start}
+.ft{display:grid;grid-template-columns:1.35fr .85fr 1.15fr 1.05fr auto;gap:28px;max-width:1380px;align-items:start}
 .ft h4{font:800 .85rem Cinzel,serif;color:var(--g);text-transform:uppercase;margin-bottom:10px;letter-spacing:.06em}
 .ft a:not(.logo){display:block;color:var(--ink);text-decoration:none;margin:6px 0;opacity:.82;font-size:.9rem;transition:color .2s,opacity .2s}
 .ft a:not(.logo):hover{color:var(--g);opacity:1}
@@ -326,11 +326,15 @@ footer{border-top:1px solid var(--border);margin-top:80px;padding:48px clamp(16p
 .ft .logo:hover{color:var(--g)}
 .ft .logo small{display:block;font:400 .76rem/1.25 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0;text-align:left}
 .ft p{color:var(--mut);font-size:.86rem;max-width:34ch;line-height:1.55}
+.ft-src-btn{background:none;border:1px solid var(--g2);color:var(--g);font:700 .76rem Cinzel,serif;padding:7px 12px;cursor:pointer;margin-top:14px;display:inline-block;transition:all .2s;text-transform:uppercase;letter-spacing:.04em}
+.ft-src-btn:hover{border-color:var(--g);background:rgba(196,163,90,.12);color:#fff}
 .ft-qris{background:#FAF6EE;border:2px solid var(--g2);padding:6px;width:112px;height:112px;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,transform .2s}
 .ft-qris:hover{border-color:var(--g);transform:translateY(-2px)}
 .ft-qris img{width:100%;height:100%;object-fit:contain;display:block}
 .ft-qris-cap{font-size:.72rem;color:var(--mut);margin-top:6px;max-width:120px;line-height:1.3}
 .cp{margin-top:36px;padding-top:16px;border-top:1px solid #252525;color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:16px}
+@media(max-width:1100px){.ft{grid-template-columns:1fr 1fr;gap:28px}}
+@media(max-width:640px){.ft{grid-template-columns:1fr;gap:24px}}
 
 /* FLOATING BOTTOM-LEFT SUPPORT / QRIS OVERLAY */
 .sup-dock{position:fixed;left:16px;bottom:16px;z-index:920;display:flex;align-items:center;gap:10px;background:rgba(20,18,15,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--g2);padding:8px 12px;box-shadow:0 10px 30px rgba(0,0,0,.65);opacity:0;transform:translateY(14px);pointer-events:none;transition:transform .25s ease,opacity .25s ease,border-color .2s}
@@ -354,6 +358,36 @@ footer{border-top:1px solid var(--border);margin-top:80px;padding:48px clamp(16p
 #qrisDlg .qx{position:absolute;right:10px;top:8px;background:none;border:0;font-size:1.6rem;color:var(--mut);cursor:pointer}
 #qrisDlg .qx:hover{color:#fff}
 #qrisDlg .qlink{display:inline-block;margin-top:12px;background:var(--g);color:var(--bg);padding:8px 18px;font:700 .8rem Cinzel,serif;text-decoration:none;text-transform:uppercase}
+
+/* SOURCES MODAL */
+#sourcesDlg{width:min(880px,calc(100vw - 28px));padding:0;background:#181510;border:1px solid var(--g);box-shadow:0 24px 64px rgba(0,0,0,.85)}
+.src-modal{position:relative}
+.src-close{position:absolute;right:14px;top:12px;background:none;border:0;font-size:1.8rem;color:var(--mut);cursor:pointer;line-height:1;z-index:2;padding:4px 8px}
+.src-close:hover{color:#fff}
+.src-head{padding:26px 30px 18px;border-bottom:1px solid rgba(196,163,90,.2);background:linear-gradient(180deg,#221a0d,transparent)}
+.src-kicker{display:block;font:700 .72rem/1 Cinzel,serif;color:var(--g);letter-spacing:.18em;margin-bottom:8px}
+.src-head h3{font:700 clamp(1.2rem,2.2vw,1.5rem) Arvo,serif;color:#fff;line-height:1.25}
+.src-head p{color:var(--mut);font-size:.86rem;margin-top:6px;line-height:1.4}
+.src-tabs{display:flex;gap:10px;padding:12px 30px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(110,92,54,.2)}
+.src-tab{background:none;border:1px solid transparent;color:var(--mut);font:700 .8rem Cinzel,serif;padding:7px 14px;cursor:pointer;border-radius:2px;letter-spacing:.04em;transition:all .2s}
+.src-tab:hover{color:#fff}
+.src-tab.on{color:var(--g);border-color:var(--g);background:rgba(196,163,90,.12)}
+.src-panel{padding:22px 30px 28px;max-height:min(64vh,520px);overflow-y:auto}
+.src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.src-card{background:#221b14;border:1px solid var(--border);padding:14px 16px;border-radius:2px;display:flex;flex-direction:column;justify-content:space-between;transition:border-color .2s,transform .2s}
+.src-card:hover{border-color:var(--g);transform:translateY(-2px)}
+.src-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px}
+.src-cat{font:700 .68rem Cinzel,serif;color:var(--g);letter-spacing:.05em}
+.src-scope{font-size:.66rem;font-weight:700;padding:2px 6px;border-radius:2px;background:rgba(196,163,90,.15);color:var(--ink);letter-spacing:.04em}
+.src-card h5{font:700 .96rem Cinzel,serif;color:#fff;margin-bottom:6px}
+.src-card p{font-size:.82rem;color:var(--mut);line-height:1.45;margin-bottom:12px;flex:1}
+.src-card a{display:inline-flex;align-items:center;gap:6px;font:700 .76rem Cinzel,serif;color:var(--g);text-decoration:none;padding-top:6px;border-top:1px solid rgba(110,92,54,.3);text-transform:uppercase;letter-spacing:.05em}
+.src-card a:hover{color:#fff}
+.src-tell-card{background:#221b14;border:1px solid var(--border);padding:18px 22px;margin-bottom:16px;border-radius:2px}
+.src-tell-card.eth{border-left:4px solid var(--g)}
+.src-tell-card h4{font:700 1.05rem Arvo,serif;color:var(--g);margin-bottom:10px}
+.src-tell-card p{font-size:.88rem;line-height:1.65;color:var(--ink);white-space:pre-line}
+@media(max-width:640px){.src-head{padding:20px 18px 14px}.src-tabs{padding:10px 18px}.src-panel{padding:16px 18px 22px}.src-grid{grid-template-columns:1fr}}
 
 /* DIALOG & POPUP */
 dialog{margin:auto;border:1px solid var(--g);background:var(--p);color:var(--ink);padding:0;width:min(860px,calc(100vw - 32px));max-height:calc(100svh - 32px);overflow:auto}
@@ -420,6 +454,7 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
     <a class="nav-link on" href="#places" data-sec="places" data-i18n="navMap">World Map</a>
     <a class="nav-link" href="#chronology" data-sec="chronology" data-i18n="navTimeline">Timeline</a>
     <a class="nav-link" href="#characters" data-sec="characters" data-i18n="navCharacters">Characters</a>
+    <button class="nav-link" id="navSources" type="button" data-i18n="navSources" style="background:none;cursor:pointer">Sources</button>
     <a class="yt" id="yt" href="#" target="_blank" rel="noopener" aria-label="YouTube">
       <svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg>
     </a>
@@ -610,6 +645,7 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
     <div>
       <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
       <p id="ftDesc">Tracing the history of Islam through interactive maps, notable figures, and short stories.</p>
+      <button class="ft-src-btn" id="ftSourcesBtn" type="button" data-i18n="ftSourcesBtn">Methodology &amp; Primary Sources ›</button>
     </div>
     <div>
       <h4 id="ftExpHead">Explore</h4>
@@ -617,6 +653,16 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
       <a href="#chronology" data-i18n="navTimeline">Timeline</a>
       <a href="#characters" data-i18n="navCharacters">Characters</a>
       <a href="#shorts">Shorts</a>
+      <a href="#sources" id="ftSrcLink" data-i18n="navSources">Sources</a>
+    </div>
+    <div>
+      <h4 id="ftSrcHead">Scholarly Sources</h4>
+      <a href="https://quran.com" target="_blank" rel="noopener">Quran.com (Al-Qur'an)</a>
+      <a href="https://quran.kemenag.go.id" target="_blank" rel="noopener">Qur'an Kemenag RI</a>
+      <a href="https://sunnah.com" target="_blank" rel="noopener">Sunnah.com (Hadits)</a>
+      <a href="https://dorar.net/hadith" target="_blank" rel="noopener">Dorar.net (Takhrij Hadits)</a>
+      <a href="https://shamela.ws" target="_blank" rel="noopener">Shamela.ws (Kitab Tarikh)</a>
+      <a href="https://khastara.perpusnas.go.id" target="_blank" rel="noopener">Perpusnas RI (Naskah)</a>
     </div>
     <div>
       <h4 id="ftFolHead">Follow</h4>
@@ -656,6 +702,35 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
   <div class="qris-frame"><img id="qrisModalImg" src="assets/qris-support.svg" alt="QRIS Donation"></div>
   <p id="qrisNote"></p>
   <a class="qlink" id="qrisExtLink" href="#" target="_blank" rel="noopener" hidden>Open Donation Link</a>
+</dialog>
+
+<!-- Primary Islamic Sources & Research Methodology Modal -->
+<dialog id="sourcesDlg">
+  <div class="src-modal">
+    <button class="src-close" id="sourcesClose" type="button" aria-label="Close">×</button>
+    <div class="src-head">
+      <span class="src-kicker">ALFA RESEARCH &amp; ARCHIVES</span>
+      <h3 id="srcModalTitle">Primary Sources &amp; Research Methodology</h3>
+      <p id="srcModalSubtitle">Authoritative Standards &amp; Digital Libraries of Islamic History (National &amp; International)</p>
+    </div>
+    <div class="src-tabs">
+      <button class="src-tab on" id="tabSrcDirBtn" type="button" data-i18n="tabSources">Primary Sources Directory</button>
+      <button class="src-tab" id="tabSrcTellBtn" type="button" data-i18n="tabTelling">About This Telling &amp; Visual Ethics</button>
+    </div>
+    <div class="src-panel" id="panelSrcDir">
+      <div class="src-grid" id="srcGridContainer"></div>
+    </div>
+    <div class="src-panel" id="panelSrcTell" hidden>
+      <div class="src-tell-card">
+        <h4 id="tellMethHead">Historical Research &amp; Verification Methodology</h4>
+        <p id="tellMethBody"></p>
+      </div>
+      <div class="src-tell-card eth">
+        <h4 id="tellEthHead">Islamic Reverence &amp; Visual Representation Ethics</h4>
+        <p id="tellEthBody"></p>
+      </div>
+    </div>
+  </div>
 </dialog>
 
 <dialog id="pl"><button class="x" aria-label="Close">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Watch on YouTube</a></dialog>
@@ -1637,6 +1712,62 @@ function initSupport(){
   };
 }
 
+// ---- PRIMARY ISLAMIC SOURCES & METHODOLOGY MODAL
+function initSources(){
+  const sd=$("#sourcesDlg");
+  function renderSourcesModal(){
+    const list=I.getSources();
+    const cont=$("#srcGridContainer");
+    if(cont){
+      cont.replaceChildren();
+      list.forEach(s=>{
+        const card=document.createElement("div");card.className="src-card";
+        const meta=document.createElement("div");meta.className="src-meta";
+        const cat=document.createElement("span");cat.className="src-cat";cat.textContent=s.category;
+        const scope=document.createElement("span");scope.className="src-scope";scope.textContent=s.scopeLabel;
+        meta.append(cat,scope);
+        const h5=document.createElement("h5");h5.textContent=s.name;
+        const p=document.createElement("p");p.textContent=s.desc;
+        const a=document.createElement("a");a.href=s.url;a.target="_blank";a.rel="noopener";
+        a.textContent=I.t("srcVisit")+" ↗";
+        card.append(meta,h5,p,a);
+        cont.append(card);
+      });
+    }
+    $("#srcModalTitle").textContent=I.t("sourcesTitle");
+    $("#srcModalSubtitle").textContent=I.t("sourcesSub");
+    $("#tabSrcDirBtn").textContent=I.t("tabSources");
+    $("#tabSrcTellBtn").textContent=I.t("tabTelling");
+    $("#tellMethHead").textContent=I.t("tellingMethodHead");
+    $("#tellMethBody").textContent=I.t("tellingMethodBody");
+    $("#tellEthHead").textContent=I.t("tellingEthicsHead");
+    $("#tellEthBody").textContent=I.t("tellingEthicsBody");
+  }
+
+  const openSources=()=>{
+    renderSourcesModal();
+    if(sd&&!sd.open)sd.showModal();
+  };
+  const closeSources=()=>{if(sd&&sd.open)sd.close()};
+  const scClose=$("#sourcesClose");if(scClose)scClose.onclick=closeSources;
+  if(sd)sd.addEventListener("click",e=>{if(e.target==sd)closeSources()});
+  const navSrc=$("#navSources");if(navSrc)navSrc.onclick=openSources;
+  const ftSrcBtn=$("#ftSourcesBtn");if(ftSrcBtn)ftSrcBtn.onclick=openSources;
+  const ftSrcLink=$("#ftSrcLink");if(ftSrcLink)ftSrcLink.onclick=e=>{e.preventDefault();openSources()};
+
+  const btnDir=$("#tabSrcDirBtn"),btnTell=$("#tabSrcTellBtn");
+  if(btnDir)btnDir.onclick=()=>{
+    btnDir.classList.add("on");if(btnTell)btnTell.classList.remove("on");
+    $("#panelSrcDir").hidden=false;$("#panelSrcTell").hidden=true;
+  };
+  if(btnTell)btnTell.onclick=()=>{
+    btnTell.classList.add("on");if(btnDir)btnDir.classList.remove("on");
+    $("#panelSrcDir").hidden=true;$("#panelSrcTell").hidden=false;
+  };
+  window.alfaOpenSources=openSources;
+  window.alfaRenderSources=renderSourcesModal;
+}
+
 // ---- LANGUAGE APPLICATION (UI + CONTENT)
 function applyStaticI18n(){
   $("#langBtn").textContent=I.getLang().toUpperCase();
@@ -1665,11 +1796,15 @@ function applyStaticI18n(){
   $("#ftExpHead").textContent=I.t("ftExplore");
   $("#ftFolHead").textContent=I.t("ftFollow");
   $("#ftSupHead").textContent=I.t("ftSupport");
+  const ftSrcHead=$("#ftSrcHead");if(ftSrcHead)ftSrcHead.textContent=I.t("ftSources");
+  const ftSourcesBtn=$("#ftSourcesBtn");if(ftSourcesBtn)ftSourcesBtn.textContent=I.t("ftSourcesBtn");
+  const navSources=$("#navSources");if(navSources)navSources.textContent=I.t("navSources");
   $("#ftQrisCap").textContent=I.t("supportCaption");
   $("#supDockTitle").textContent=I.t("supportTitle");
   $("#supDockSub").textContent=I.t("supportBtn");
   $("#qrisTitle").textContent=I.t("supportTitle");
   $("#yr").textContent=I.t("cpText",new Date().getFullYear());
+  const sd=$("#sourcesDlg");if(sd&&sd.open&&window.alfaRenderSources)window.alfaRenderSources();
 }
 
 $("#langBtn").onclick=()=>I.toggleLang();
@@ -1729,6 +1864,7 @@ const CFG=window.ALFA_CFG||{},DR={};
   await I.ensurePack();
   applyStaticI18n();
   initSupport();
+  initSources();
 
   try{DEFS=await(await fetch("defaults.json")).json()}catch(e){DEFS={}}
   ERA_DEF=DEFS.eras||[];
