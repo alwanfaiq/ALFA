@@ -317,24 +317,28 @@ h2{font:800 clamp(1.8rem,3.4vw,2.6rem)/1.1 Cinzel,serif;text-transform:uppercase
 .vd:hover h3{color:var(--g)}
 
 /* FOOTER (5 Columns including Scholarly Sources & QRIS Support) */
-footer{border-top:1px solid var(--border);margin-top:80px;padding:48px clamp(16px,3vw,56px) 32px;background:#151515}
-.ft{display:grid;grid-template-columns:1.35fr .85fr 1.15fr 1.05fr auto;gap:28px;max-width:1380px;align-items:start}
-.ft h4{font:800 .85rem Cinzel,serif;color:var(--g);text-transform:uppercase;margin-bottom:10px;letter-spacing:.06em}
-.ft a:not(.logo){display:block;color:var(--ink);text-decoration:none;margin:6px 0;opacity:.82;font-size:.9rem;transition:color .2s,opacity .2s}
+footer{border-top:1px solid rgba(110,92,54,.3);margin-top:80px;padding:56px clamp(16px,4vw,64px) 36px;background:#141414}
+.ft{display:grid;grid-template-columns:minmax(270px,1.5fr) minmax(110px,.8fr) minmax(185px,1.15fr) minmax(185px,1.15fr) auto;gap:clamp(14px,2.2vw,36px);max-width:1440px;margin:0 auto;align-items:start}
+.ft h4{font:700 .86rem Cinzel,serif;color:var(--g);text-transform:uppercase;margin-bottom:14px;letter-spacing:.08em}
+.ft a:not(.logo){display:block;color:#dcd4c3;text-decoration:none;margin:7px 0;opacity:.85;font:400 .88rem/1.55 Bitter,Georgia,serif;transition:color .2s,opacity .2s}
 .ft a:not(.logo):hover{color:var(--g);opacity:1}
 .ft .logo{display:inline-flex;align-items:center;gap:12px;font:800 1.65rem/1 Cinzel,serif;color:#fff;text-decoration:none;margin:0 0 14px;letter-spacing:.04em;opacity:1;transition:color .2s}
 .ft .logo:hover{color:var(--g)}
 .ft .logo small{display:block;font:400 .76rem/1.25 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0;text-align:left}
-.ft p{color:var(--mut);font-size:.86rem;max-width:34ch;line-height:1.55}
-.ft-src-btn{background:none;border:1px solid var(--g2);color:var(--g);font:700 .76rem Cinzel,serif;padding:7px 12px;cursor:pointer;margin-top:14px;display:inline-block;transition:all .2s;text-transform:uppercase;letter-spacing:.04em}
+.ft p{color:var(--mut);font-size:.86rem;max-width:32ch;line-height:1.6}
+.ft-src-btn{background:transparent;border:1px solid var(--g2);color:var(--g);font:700 .68rem Cinzel,serif;padding:7px 11px;cursor:pointer;margin-top:16px;display:inline-block;transition:all .2s;text-transform:uppercase;letter-spacing:.04em;white-space:nowrap}
 .ft-src-btn:hover{border-color:var(--g);background:rgba(196,163,90,.12);color:#fff}
-.ft-qris{background:#FAF6EE;border:2px solid var(--g2);padding:6px;width:112px;height:112px;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,transform .2s}
-.ft-qris:hover{border-color:var(--g);transform:translateY(-2px)}
-.ft-qris img{width:100%;height:100%;object-fit:contain;display:block}
-.ft-qris-cap{font-size:.72rem;color:var(--mut);margin-top:6px;max-width:120px;line-height:1.3}
-.cp{margin-top:36px;padding-top:16px;border-top:1px solid #252525;color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:16px}
-@media(max-width:1100px){.ft{grid-template-columns:1fr 1fr;gap:28px}}
-@media(max-width:640px){.ft{grid-template-columns:1fr;gap:24px}}
+.ft-sup-block{display:flex;align-items:flex-start;gap:18px}
+.ft-sup-info{display:flex;flex-direction:column}
+.ft-sup-info h4{font:700 .86rem Cinzel,serif;color:var(--g);text-transform:uppercase;margin-bottom:12px;letter-spacing:.08em}
+.ft-qris-cap{font-size:.82rem;color:var(--mut);line-height:1.45;margin:0;white-space:nowrap}
+.ft-qris{background:#FAF6EE;border:2px solid var(--g);padding:6px;width:116px;height:116px;cursor:pointer;display:grid;place-items:center;transition:border-color .2s,transform .2s,box-shadow .2s;box-shadow:0 4px 16px rgba(0,0,0,.45);flex-shrink:0}
+.ft-qris:hover{border-color:#f3ead8;transform:translateY(-2px);box-shadow:0 8px 24px rgba(196,163,90,.3)}
+.ft-qris-inner{width:100%;height:100%;border:1px solid rgba(196,163,90,.55);border-radius:2px;display:grid;place-items:center;padding:2px}
+.ft-qris-inner img{width:100%;height:100%;object-fit:contain;display:block}
+.cp{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1440px;margin-left:auto;margin-right:auto}
+@media(max-width:1050px){.ft{grid-template-columns:1fr 1fr;gap:32px}.ft-sup-block{grid-column:span 2}}
+@media(max-width:640px){.ft{grid-template-columns:1fr;gap:28px}.ft-sup-block{grid-column:span 1;flex-direction:row;align-items:center}}
 
 /* FLOATING BOTTOM-LEFT SUPPORT / QRIS OVERLAY */
 .sup-dock{position:fixed;left:16px;bottom:16px;z-index:920;display:flex;align-items:center;gap:10px;background:rgba(20,18,15,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--g2);padding:8px 12px;box-shadow:0 10px 30px rgba(0,0,0,.65);opacity:0;transform:translateY(14px);pointer-events:none;transition:transform .25s ease,opacity .25s ease,border-color .2s}
@@ -642,20 +646,20 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 
 <footer>
   <div class="ft">
-    <div>
+    <div class="ft-brand">
       <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
       <p id="ftDesc">Tracing the history of Islam through interactive maps, notable figures, and short stories.</p>
       <button class="ft-src-btn" id="ftSourcesBtn" type="button" data-i18n="ftSourcesBtn">Methodology &amp; Primary Sources ›</button>
     </div>
-    <div>
+    <div class="ft-col">
       <h4 id="ftExpHead">Explore</h4>
       <a href="#places" data-i18n="navMap">World Map</a>
       <a href="#chronology" data-i18n="navTimeline">Timeline</a>
       <a href="#characters" data-i18n="navCharacters">Characters</a>
       <a href="#shorts">Shorts</a>
-      <a href="#sources" id="ftSrcLink" data-i18n="navSources">Sources</a>
+      <a href="#chronology" data-i18n="navStories">Stories</a>
     </div>
-    <div>
+    <div class="ft-col">
       <h4 id="ftSrcHead">Scholarly Sources</h4>
       <a href="https://quran.com" target="_blank" rel="noopener">Quran.com (Al-Qur'an)</a>
       <a href="https://quran.kemenag.go.id" target="_blank" rel="noopener">Qur'an Kemenag RI</a>
@@ -664,19 +668,23 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
       <a href="https://shamela.ws" target="_blank" rel="noopener">Shamela.ws (Kitab Tarikh)</a>
       <a href="https://khastara.perpusnas.go.id" target="_blank" rel="noopener">Perpusnas RI (Naskah)</a>
     </div>
-    <div>
+    <div class="ft-col">
       <h4 id="ftFolHead">Follow</h4>
       <a href="https://www.youtube.com/@alfa-history" target="_blank" rel="noopener">YouTube : @alfa-history</a>
       <a href="https://www.instagram.com/alfaahistory" target="_blank" rel="noopener">Instagram : @alfaahistory</a>
       <a href="https://www.tiktok.com/@alfahistory" target="_blank" rel="noopener">Tiktok : @alfahistory</a>
       <a href="https://www.threads.net/@alfaahistory" target="_blank" rel="noopener">Threads : @alfaahistory</a>
     </div>
-    <div>
-      <h4 id="ftSupHead">Support</h4>
+    <div class="ft-sup-block">
+      <div class="ft-sup-info">
+        <h4 id="ftSupHead">Support</h4>
+        <p class="ft-qris-cap" id="ftQrisCap">Scan QRIS to support<br>research &amp; production</p>
+      </div>
       <button class="ft-qris" id="ftQrisBtn" type="button" aria-label="Open QRIS Donation">
-        <img id="ftQrisImg" src="assets/qris-support.svg" alt="QRIS Support ALFA">
+        <div class="ft-qris-inner">
+          <img id="ftQrisImg" src="assets/qris-support.svg" alt="QRIS Support ALFA">
+        </div>
       </button>
-      <p class="ft-qris-cap" id="ftQrisCap">Scan QRIS to support research &amp; production</p>
     </div>
   </div>
   <div class="cp"><span id="yr"></span></div>
@@ -1702,7 +1710,7 @@ function initSupport(){
   try{dismissed=sessionStorage.getItem("alfa_sup_dismissed")==="1"}catch(e){}
   if(sup.showFloatingOverlay!==false&&!dismissed){
     dock.hidden=false;
-    const syncDock=()=>dock.classList.toggle("vis",window.scrollY>380);
+    const syncDock=()=>{const ft=document.querySelector("footer")?.getBoundingClientRect();dock.classList.toggle("vis",window.scrollY>380&&(!ft||ft.top>window.innerHeight-40))};
     window.addEventListener("scroll",syncDock,{passive:true});
     syncDock();
   }
@@ -1799,7 +1807,7 @@ function applyStaticI18n(){
   const ftSrcHead=$("#ftSrcHead");if(ftSrcHead)ftSrcHead.textContent=I.t("ftSources");
   const ftSourcesBtn=$("#ftSourcesBtn");if(ftSourcesBtn)ftSourcesBtn.textContent=I.t("ftSourcesBtn");
   const navSources=$("#navSources");if(navSources)navSources.textContent=I.t("navSources");
-  $("#ftQrisCap").textContent=I.t("supportCaption");
+  $("#ftQrisCap").innerHTML=I.getLang()==="id"?"Scan QRIS untuk dukung<br>riset &amp; produksi":"Scan QRIS to support<br>research &amp; production";
   $("#supDockTitle").textContent=I.t("supportTitle");
   $("#supDockSub").textContent=I.t("supportBtn");
   $("#qrisTitle").textContent=I.t("supportTitle");
