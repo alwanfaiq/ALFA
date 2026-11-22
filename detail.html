@@ -57,6 +57,30 @@ figcaption{margin-top:10px;font-size:.95rem}
 .rc img{width:100%;height:100%;object-fit:cover;display:block}.rc.ph{background:linear-gradient(160deg,#2a2418,#3b3120);border:1px solid #6e5c36}
 .rc .lb{position:absolute;inset:auto 0 0;padding:70px 8px 14px;background:linear-gradient(to bottom,rgba(24,24,24,0),rgba(24,24,24,.6) 45%,rgba(24,24,24,.96));display:grid;gap:2px;text-align:center}.rc .lb small{font-size:.8rem;color:#e9dfc9}.rc .lb b{font:700 1rem/1.25 Arvo,serif}
 .rc.ev{aspect-ratio:auto;padding:14px 16px;background:#2a2012;border:1px solid var(--gold);display:grid;gap:6px;align-content:start;min-height:140px}.rc.ev small{color:var(--gold2)}.rc.ev b{font:700 1rem/1.3 Arvo,serif}.rc.ev span{font-size:.85rem;color:#d9cdb2;line-height:1.4}
+.qabas-sources{margin-top:48px;padding:clamp(20px,3.5vw,36px);background:#14110b;border:1px solid #332717;border-radius:8px;scroll-margin-top:80px;box-shadow:0 10px 36px rgba(0,0,0,.45)}
+.qs-kicker{display:flex;align-items:center;gap:8px;font:700 .82rem Cinzel,serif;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;margin-bottom:18px}
+.qs-telling-block{margin-bottom:20px}
+.qs-pill{display:inline-block;background:#231b11;border:1px solid rgba(196,163,90,.32);border-radius:20px;padding:6px 16px;font:700 .84rem Bitter,serif;color:#fff;margin-bottom:14px;letter-spacing:.02em}
+.qs-telling-text{font-size:.94rem;line-height:1.7;color:#d9cdb2;margin:0;white-space:pre-line}
+.qs-sep{border:0;border-top:1px solid rgba(110,92,54,.35);margin:24px 0 26px}
+.qs-auth-section{display:grid;gap:18px}
+.qs-auth-title{font:700 1.22rem/1.3 Arvo,serif;color:#fff;margin:0;letter-spacing:.02em}
+.qs-field{display:grid;gap:4px}
+.qs-label{font:700 .76rem Cinzel,serif;color:var(--mut);letter-spacing:.06em;text-transform:uppercase}
+.qs-col-val{font:700 1.25rem/1.3 Arvo,serif;color:#fff;margin:2px 0 0}
+.qs-narr-link{display:inline-block;font:700 1.05rem/1.4 Bitter,serif;color:var(--gold2);text-decoration:none;border-bottom:1px dashed var(--gold);padding-bottom:2px;transition:all .2s;width:fit-content}
+.qs-narr-link:hover{color:#fff;border-bottom-style:solid}
+.qs-grading-box{background:rgba(196,163,90,.07);border:1px dashed var(--gold);border-radius:8px;padding:14px 18px;font-size:.9rem;line-height:1.62;color:#f3ead8;margin-top:4px}
+.qs-chips-row{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.qs-verse-chip{display:inline-flex;align-items:center;justify-content:center;min-width:48px;height:30px;padding:0 10px;background:#231b11;border:1px solid rgba(196,163,90,.38);border-radius:15px;color:var(--gold2);font:700 .82rem Bitter,serif;text-decoration:none;transition:all .2s}
+.qs-verse-chip:hover{background:var(--gold);color:#181818;border-color:var(--gold);transform:translateY(-1px)}
+.qs-also-list{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:8px}
+.qs-also-item a{color:var(--gold2);text-decoration:none;font-size:.92rem;transition:color .2s}
+.qs-also-item a:hover{color:#fff;text-decoration:underline}
+.qs-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;padding-top:20px;border-top:1px solid rgba(110,92,54,.35)}
+.qs-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 18px;background:rgba(196,163,90,.1);border:1px solid var(--gold);border-radius:4px;color:var(--gold2);font:700 .8rem Cinzel,serif;text-decoration:none;letter-spacing:.05em;transition:all .2s}
+.qs-btn:hover{background:var(--gold);color:#181818;transform:translateY(-1px)}
+@media(max-width:600px){.qabas-sources{padding:18px 14px}.qs-btn{width:100%;justify-content:center}}
 </style></head><body>
 <header>
   <a class="logo" href="index.html">ALFA<small>History<br>of Islam</small></a>
@@ -69,6 +93,7 @@ figcaption{margin-top:10px;font-size:.95rem}
 <div id="app"><p class="msg" id="loadMsg">Loading...</p></div>
 <script src="config.js"></script>
 <script src="i18n.js"></script>
+<script src="sources_data.js"></script>
 <script src="track.js"></script>
 <script>
 const C=window.ALFA_CFG||{},I=window.ALFA_I18N,Q=new URLSearchParams(location.search),T=["places","events"].includes(Q.get("t"))?Q.get("t"):"characters",ID=Q.get("id")||"",app=document.getElementById("app");
@@ -166,6 +191,77 @@ function render(raw){
   const art=article(d.body||d.description||d.bio);toc(art);left.append(art);
   const fl=(d.facts||"").split("\n").filter(l=>l.trim()&&(!l.includes(":")||l.slice(l.indexOf(":")+1).trim()));
   if(fl.length){const bx=el("div","box");bx.append(el("b","",I.t("detailBox")));bx.append(document.createTextNode(fl.join("\n")));left.append(bx)}
+
+  // Rujukan Sumber Kontekstual & "About This Telling" (Gaya MyQabas)
+  if(window.ALFA_SOURCES_ENGINE){
+    const sData=window.ALFA_SOURCES_ENGINE.resolve(raw,T,I.getLang());
+    if(sData){
+      const srcSec=el("section","qabas-sources");
+      srcSec.append(el("div","qs-kicker",I.t("qsKicker")));
+      
+      const tb=el("div","qs-telling-block");
+      tb.append(el("div","qs-pill",I.t("qsAboutTelling")),el("p","qs-telling-text",sData.telling));
+      srcSec.append(tb,el("hr","qs-sep"));
+
+      const authSec=el("div","qs-auth-section");
+      authSec.append(el("h3","qs-auth-title",I.t("qsWhatAuthentic")));
+
+      const colBox=el("div","qs-field");
+      colBox.append(el("span","qs-label",I.t("qsCollection")),el("h4","qs-col-val",sData.collection));
+      authSec.append(colBox);
+
+      const narrBox=el("div","qs-field");
+      narrBox.append(el("span","qs-label",I.t("qsNarration")));
+      const nl=el("a","qs-narr-link",sData.narration_text);
+      if(sData.narration_url){nl.href=sData.narration_url;nl.target="_blank";nl.rel="noopener"}
+      narrBox.append(nl);
+      authSec.append(narrBox);
+
+      const grBox=el("div","qs-field");
+      grBox.append(el("span","qs-label",I.t("qsGrading")),el("div","qs-grading-box",sData.grading));
+      authSec.append(grBox);
+
+      if(Array.isArray(sData.verses)&&sData.verses.length){
+        const vb=el("div","qs-field");
+        vb.append(el("span","qs-label",I.t("qsVerses")));
+        const cr=el("div","qs-chips-row");
+        sData.verses.forEach(v=>{
+          const chip=el("a","qs-verse-chip",v.label);
+          chip.href=v.url;chip.target="_blank";chip.rel="noopener";
+          cr.append(chip);
+        });
+        vb.append(cr);
+        authSec.append(vb);
+      }
+
+      if(Array.isArray(sData.also_reported)&&sData.also_reported.length){
+        const ab=el("div","qs-field");
+        ab.append(el("span","qs-label",I.t("qsAlsoReported")));
+        const ul=el("ul","qs-also-list");
+        sData.also_reported.forEach(r=>{
+          const li=el("li","qs-also-item"),a=el("a","",r.title);
+          a.href=r.url;a.target="_blank";a.rel="noopener";
+          li.append(a);ul.append(li);
+        });
+        ab.append(ul);
+        authSec.append(ab);
+      }
+
+      const acts=el("div","qs-actions");
+      if(sData.sunnah_url){
+        const b=el("a","qs-btn",I.t("qsOpenSunnah"));b.href=sData.sunnah_url;b.target="_blank";b.rel="noopener";acts.append(b);
+      }
+      if(sData.quran_url){
+        const b=el("a","qs-btn",I.t("qsOpenQuran"));b.href=sData.quran_url;b.target="_blank";b.rel="noopener";acts.append(b);
+      }
+      if(sData.shamela_url){
+        const b=el("a","qs-btn",I.t("qsOpenShamela"));b.href=sData.shamela_url;b.target="_blank";b.rel="noopener";acts.append(b);
+      }
+      authSec.append(acts);
+      srcSec.append(authSec);
+      left.append(srcSec);
+    }
+  }
   (Array.isArray(d.gallery)?d.gallery:[]).forEach(g=>{if(!OK(g.url))return;const f=el("figure"),im=new Image();im.src=g.url;im.alt=g.caption||"";f.append(im);if(g.caption)f.append(el("figcaption","",g.caption));right.append(f)});
   cols.append(left);if(right.children.length)cols.append(right);else cols.style.gridTemplateColumns="minmax(0,820px)";
   m.append(cols);app.append(m);if(!/[?&]preview=1/.test(location.search))related(d,m);

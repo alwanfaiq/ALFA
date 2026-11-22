@@ -20,5 +20,19 @@ v1.7.0 (FigCraft Redesign Implementation + Bilingual Engine + Support QRIS)
 - Perbaikan Logo Footer & Navigasi Klik Keseluruhan Kartu Peristiwa:
   * Memperbaiki tata letak logo ALFA di footer agar proporsional sejajar (inline-flex) dengan pemisah garis vertikal rapi antara teks 'ALFA' dan 'History of Islam'.
   * Kartu peristiwa linimasa (Timeline Event Cards) kini dapat diklik di seluruh area kartu (banner gambar, judul, ringkasan, teks) untuk langsung membuka artikel detail, sementara tombol 'VIEW ON MAP' tetap berfungsi mengarahkan fokus peta tanpa memicu navigasi artikel.
+- Integrasi Direktori Rujukan Primer Islam & Catatan Transparansi Riset:
+  * Menghadirkan portal rujukan ilmiah primer Islam berskala Nasional dan Internasional (Quran.com, Qur'an Kemenag RI, Sunnah.com, Dorar.net Hadits Encyclopedia, Shamela.ws Al-Maktabah as-Syamilah, Khastara Perpusnas RI, Puslitbang Lektur Kemenag RI, ArchNet MIT/AKTC, dan Brill Encyclopaedia of Islam).
+  * Menambahkan tombol dan kolom khusus 'Rujukan Ilmiah' di header dan footer index.html yang membuka modal interaktif komprehensif (#sourcesDlg) dengan tab 'Katalog Sumber Primer' dan 'Transparansi & Adab Visual'.
+  * Menghadirkan komponen Rujukan Kontekstual per Halaman bergaya MyQabas (sources_data.js & .qabas-sources pada detail.html):
+    - Kicker rujukan beraksen emas (✦ SOURCES / ✦ RUJUKAN SEJARAH).
+    - Blok 'About this telling' / 'Tentang Penuturan Ini' yang menjelaskan keputusan artistik, adab syariat (tanpa visualisasi Nabi & Ummahatul Mukminin), dan keotentikan busana gurun abad ke-7.
+    - Bagian 'What is authentic in it' / 'Otentisitas & Derajat Riwayat':
+      * Koleksi kitab induk (Collection): Sahih al-Bukhari, Sahih Muslim, Tarikh ath-Thabari, Siyar A'lam an-Nubala'.
+      * Teks riwayat / Hadits (Narration) dengan pranala langsung ke naskah digital.
+      * Kotak callout putus-putus takhrij sanad & derajat keshahihan riwayat (Grading).
+      * Rangkaian chip/pil ayat Al-Qur'an (Verses) yang dapat diklik langsung membuka quran.com/<surah>/<ayat>.
+      * Daftar riwayat pendukung (Also reported in) bersumber dari Kutubus Sittah dan manuskrip Syamilah.
+      * Tombol aksi satu klik: [ Buka di Sunnah.com ↗ ], [ Baca di Quran.com ↗ ], [ Buka di Shamela.ws ↗ ].
+    - Didukung mesin resolver cerdas (ALFA_SOURCES_ENGINE.resolve) yang memetakan seluruh 124 peristiwa dan 40 tokoh secara dinamis dan bilingual (ID & EN).
 - Pembersihan Aset Tidak Terpakai:
   * Menghapus 5 berkas peta SVG/WebP duplikat (~12 MB) yang tidak direferensikan oleh kode serta __pycache__.
