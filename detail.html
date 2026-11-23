@@ -102,17 +102,17 @@ figcaption{margin-top:10px;font-size:.95rem}
 .event-figures-sec,.char-events-sec{margin-top:36px;padding-top:24px;border-top:1px solid rgba(196,163,90,.28)}
 .sec-title{font:700 1.05rem Cinzel,serif;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin:0 0 16px;display:flex;align-items:center;gap:8px}
 .sq-char-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:14px}
-.sq-char-card{display:flex;flex-direction:column;background:#18140e;border:1px solid rgba(196,163,90,.25);border-radius:6px;overflow:hidden;text-decoration:none;color:#fff;transition:transform .2s,box-shadow .2s,border-color .2s}
+.sq-char-card{display:flex;flex-direction:column;background:#18140e;border:1px solid rgba(196,163,90,.25);border-radius:0;overflow:hidden;text-decoration:none;color:#fff;transition:transform .2s,box-shadow .2s,border-color .2s}
 .sq-char-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 24px rgba(196,163,90,.2)}
 .sq-char-img{aspect-ratio:1/1;width:100%;overflow:hidden;background:#261f14;position:relative}
-.sq-char-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .3s ease}
+.sq-char-img img{width:100%;height:100%;object-fit:cover;object-position:top center !important;transition:transform .3s ease}
 .sq-char-card:hover .sq-char-img img{transform:scale(1.06)}
 .sq-char-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 1.4rem Cinzel,serif;color:var(--gold);background:linear-gradient(135deg,#2c2317,#19140e)}
 .sq-char-info{padding:8px 10px;display:grid;gap:2px}
 .sq-char-name{font:700 .88rem/1.25 Arvo,serif;color:#fff}
 .sq-char-role{font-size:.76rem;line-height:1.3;color:var(--gold2)}
 .ch-events-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
-.ch-event-card{display:grid;gap:4px;padding:12px 14px;background:#18140e;border:1px solid rgba(196,163,90,.25);border-radius:6px;text-decoration:none;color:#fff;transition:transform .2s,border-color .2s}
+.ch-event-card{display:grid;gap:4px;padding:12px 14px;background:#18140e;border:1px solid rgba(196,163,90,.25);border-radius:0;text-decoration:none;color:#fff;transition:transform .2s,border-color .2s}
 .ch-event-card:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 6px 18px rgba(196,163,90,.15)}
 .ch-event-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}.ch-event-year{font:700 .76rem Cinzel,serif;color:var(--gold2);letter-spacing:.05em;margin-right:4px}
 .ch-event-title{font:700 .92rem/1.3 Arvo,serif;color:#fff}
@@ -124,7 +124,7 @@ figcaption{margin-top:10px;font-size:.95rem}
 <div id="readProgress"></div>
 <div id="toastBox" class="alfa-toast"></div>
 <header>
-  <a class="logo" href="index.html">ALFA<small>History<br>of Islam</small></a>
+  <a class="logo" href="/">ALFA<small>History<br>of Islam</small></a>
   <div class="h-mid"><span class="h-num">1✦✦✦</span></div>
   <div class="h-acts">
     <button class="share-btn" id="shareBtn" type="button" aria-label="Share story">
@@ -132,7 +132,7 @@ figcaption{margin-top:10px;font-size:.95rem}
       <span id="shareTxt">Bagi Kisah</span>
     </button>
     <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
-    <a class="back" id="back" href="index.html">← Back</a>
+    <a class="back" id="back" href="/">← Back</a>
   </div>
 </header>
 <div id="app"><p class="msg" id="loadMsg">Loading...</p></div>

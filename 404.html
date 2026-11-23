@@ -9,6 +9,10 @@
       var path = window.location.pathname;
       var clean = path.replace(/^\/+|\/+$/g, "");
       var parts = clean.split("/");
+      if(clean.toLowerCase() === "admin" || (parts.length === 1 && parts[0].toLowerCase() === "admin")){
+        window.location.replace("/admin.html");
+        return;
+      }
       // e.g. /figures/abdul-muthallib, /events/570-kelahiran-nabi, /places/makkah
       if(parts.length >= 2){
         var segment = parts[0].toLowerCase();

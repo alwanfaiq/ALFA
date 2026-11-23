@@ -1,17 +1,29 @@
-PANDUAN UPLOAD KE GITHUB (BATAS MAKSIMAL 100 FILE)
+================================================================================
+PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.8.2)
+================================================================================
 
-Karena folder `assets/tiles/` (217 file ubin peta 8K) TIDAK BERUBAH dari v1.6.2,
-kamu TIDAK perlu mengupload ulang `assets/tiles/` ke GitHub!
+Folder ini berisi 15 berkas produksi siap pakai untuk diunggah ke root repositori GitHub:
 
-Jika repositori GitHub `alfahistory.web.id` sudah berisi v1.6.2, cukup upload 8 file berikut saja:
-1. index.html
-2. detail.html
-3. config.js
-4. defaults.json
-5. i18n.js
-6. i18n_en.json
-7. CHANGELOG.txt
-8. assets/qris-support.svg  (atau ganti dengan file QRIS milikmu dan sesuaikan `config.js`)
+DAFTAR BERKAS:
+1.  404.html          -> Pengalihan SPA & routing URL bersih /admin
+2.  admin.html        -> Panel admin pengelolaan konten & konfigurasi AI
+3.  CHANGELOG.txt     -> Catatan riwayat pembaruan versi 1.8.2
+4.  CNAME             -> Domain custom alfahistory.web.id
+5.  config.js         -> Konfigurasi Firebase / Web
+6.  defaults.json     -> Data sejarah (32 koordinat dunia yang telah dikalibrasi)
+7.  detail.html       -> Halaman artikel tokoh & peristiwa (potret mentok atas)
+8.  favicon.ico       -> Ikon browser format ICO (transparan)
+9.  favicon.svg       -> Ikon vektor emas-obsidian tajam
+10. i18n.js           -> Mesin multibahasa & penelusuran semantik akurat
+11. i18n_ar.json      -> Paket bahasa Arab
+12. i18n_en.json      -> Paket bahasa Inggris
+13. index.html        -> Halaman utama (Atlas interaktif, dropdown rapi, un-rounded UI)
+14. sources_data.js   -> Rujukan primer sejarah Islam
+15. track.js          -> Skrip analitik
 
-Total file non-tiles di folder `alfa-siap-upload-v1.7.0` hanyalah ~47 file (jauh di bawah batas 100 file GitHub),
-sedangkan `assets/tiles/` tetap disimpan di folder ini agar `Buka Web Lokal.bat` bisa jalan offline 100% dan sebagai arsip rollback lengkap.
+CARA UNGGAH KE GITHUB:
+1. Buka repositori GitHub alfahistory.web.id di browser.
+2. Drag & drop seluruh 15 berkas di atas langsung ke root repository.
+3. Beri pesan commit: "Release v1.8.2: audit search relevance, map calibration, clean UI & rich story cards"
+4. Klik Commit Changes.
+================================================================================

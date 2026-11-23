@@ -2665,37 +2665,25 @@
     {
 
       id: "concept-companions",
-
       triggers: ["companion", "companions", "sahabat", "sahabah", "ash-sahabah", "ashabah", "sahabat nabi", "para sahabat", "sahabat rasul", "sahabat-sahabat", "al-ashab", "hawariyun", "sahabi"],
-
       title_id: "Para Sahabat Nabi Muhammad ﷺ",
-
       title_en: "The Noble Companions of the Prophet (Ash-Sahabah)",
-
       title_ar: "صحابة رسول الله ﷺ الكرام",
-
       desc_id: "Generasi terbaik umat Islam yang hidup sezaman, beriman, dan berjuang bersama Rasulullah ﷺ.",
-
       desc_en: "The blessed first generation of Muslims who believed, accompanied, and struggled alongside the Prophet ﷺ.",
-
       desc_ar: "الجيل الأول المبارك من المسلمين الذين آمنوا بصحبة النبي ﷺ وجاهدوا معه.",
-
       matchEntities: (D) => {
-
         if(!D || !Array.isArray(D.characters)) return [];
-
+        const EXCLUDED_ENEMIES = new Set(["abu lahab", "abu jahal", "abrahah", "al-hajjaj bin yusuf ats-tsaqafi"]);
         return D.characters.filter(c => {
-
+          const nameLow = (c.name || "").toLowerCase();
+          if(EXCLUDED_ENEMIES.has(nameLow)) return false;
           const groups = c.groups || [];
-
-          return groups.includes('Khulafaur Rasyidin') || groups.includes('Sahabat Nabi') || groups.includes('Sahabat') ||
-
-                 (c.meta && c.meta.toLowerCase().includes('sahabat'));
-
+          if(groups.includes("Penentang Dakwah") || groups.includes("Penguasa Kuno")) return false;
+          return groups.includes('Khulafaur Rasyidin') || groups.includes('Sahabat Nabi') || groups.includes('Sahabat') || groups.includes('Sepuluh Sahabat Dijanjikan Surga') || groups.includes('Assabiqunal Awwalun') ||
+                 (c.meta && c.meta.toLowerCase().includes('sahabat') && !c.meta.toLowerCase().includes('menentang'));
         }).map(c => ({ type: 'characters', id: c.name, role: c.role }));
-
       }
-
     },
 
     {
@@ -3469,274 +3457,153 @@
 
 
       // Search characters
-
       (D.characters || []).forEach((c, idx) => {
-
         const idVal = c.name || c.id || ("d" + idx);
-
         const key = "characters:" + idVal.toLowerCase();
-
         if(seen.has(key)) return;
-
-
 
         const enC = enPack.characters ? (enPack.characters[c.id || "d" + idx] || enPack.characters[c.name]) : null;
-
         const arC = arPack.characters ? (arPack.characters[c.id || "d" + idx] || arPack.characters[c.name]) : null;
 
+        const namePool = [c.name, enC?.name, arC?.name].filter(Boolean).join(" ").toLowerCase();
+        const rolePool = [c.role, c.meta, enC?.role, enC?.meta, arC?.role, arC?.meta].filter(Boolean).join(" ").toLowerCase();
+        const bodyPool = [c.body, enC?.body, arC?.body].filter(Boolean).join(" ").toLowerCase();
 
-
-        const textPool = [
-
-          c.name, c.role, c.meta, c.body,
-
-          enC?.name, enC?.role, enC?.meta, enC?.body,
-
-          arC?.name, arC?.role, arC?.meta, arC?.body
-
-        ].filter(Boolean).join(" ").toLowerCase();
-
-
+        // Filter out enemies of Islam from general searches unless explicitly queried
+        const isEnemy = (c.groups || []).includes("Penentang Dakwah");
+        const queryWantsEnemy = /lahab|jahal|penentang|musuh|musyrik|quraisy/i.test(q);
+        if(isEnemy && !queryWantsEnemy) return;
 
         let s = 0;
+        if(namePool === q) s += 500;
+        else if(namePool.includes(q)) s += 250;
+        else if(namePool.includes(qStem)) s += 200;
 
-        if(textPool.includes(q)) s += 60;
-
-        else if(textPool.includes(qStem)) s += 45;
-
-        else {
-
-          for(const tk of searchTokens){
-
-            if(textPool.includes(tk)) s += 20;
-
-          }
-
-          for(const st of searchStems){
-
-            if(textPool.includes(st)) s += 15;
-
-          }
-
+        for(const tk of searchTokens){
+          if(namePool.includes(tk)) s += 80;
         }
 
+        if(rolePool.includes(q)) s += 150;
+        else if(rolePool.includes(qStem)) s += 100;
+        for(const tk of searchTokens){
+          if(rolePool.includes(tk)) s += 40;
+        }
 
+        if(q.length >= 4 && bodyPool.includes(q)) s += 15;
 
-        if(s >= 15){
-
+        if(s >= 25){
           seen.add(key);
-
           const title = (lang === "en" && enC?.name) || (lang === "ar" && arC?.name) || c.name;
-
           const role = (lang === "en" && enC?.role) || (lang === "ar" && arC?.role) || c.role || "";
-
           results.push({
-
             type: "characters",
-
             id: idVal,
-
             title: title,
-
             role: role,
-
             badge: t("badgeChar"),
-
             img: c.img || "",
-
             url: "detail.html?t=characters&id=" + encodeURIComponent(idVal),
-
             score: s
-
           });
-
         }
-
       });
-
-
 
       // Search events
-
       (D.events || []).forEach(e => {
-
         const slug = e.slug || e.id;
-
         const key = "events:" + slug.toLowerCase();
-
         if(seen.has(key)) return;
-
-
 
         const enE = enPack.events ? enPack.events[slug] : null;
-
         const arE = arPack.events ? arPack.events[slug] : null;
 
-
-
-        const textPool = [
-
-          e.title, e.summary, e.body,
-
-          enE?.title, enE?.summary, enE?.body,
-
-          arE?.title, arE?.summary, arE?.body
-
-        ].filter(Boolean).join(" ").toLowerCase();
-
-
+        const titlePool = [e.title, enE?.title, arE?.title].filter(Boolean).join(" ").toLowerCase();
+        const summPool = [e.summary, enE?.summary, arE?.summary].filter(Boolean).join(" ").toLowerCase();
+        const bodyPool = [e.body, enE?.body, arE?.body].filter(Boolean).join(" ").toLowerCase();
 
         let s = 0;
+        if(titlePool === q) s += 480;
+        else if(titlePool.includes(q)) s += 240;
+        else if(titlePool.includes(qStem)) s += 180;
 
-        if(textPool.includes(q)) s += 60;
-
-        else if(textPool.includes(qStem)) s += 45;
-
-        else {
-
-          for(const tk of searchTokens){
-
-            if(textPool.includes(tk)) s += 20;
-
-          }
-
-          for(const st of searchStems){
-
-            if(textPool.includes(st)) s += 15;
-
-          }
-
+        for(const tk of searchTokens){
+          if(titlePool.includes(tk)) s += 70;
         }
 
+        if(summPool.includes(q)) s += 80;
+        else if(summPool.includes(qStem)) s += 50;
+        for(const tk of searchTokens){
+          if(summPool.includes(tk)) s += 30;
+        }
 
+        if(e.year && String(e.year) === q) s += 200;
+        if(q.length >= 4 && bodyPool.includes(q)) s += 15;
 
-        if(s >= 15){
-
+        if(s >= 25){
           seen.add(key);
-
           const img = (Array.isArray(e.slides) && e.slides[0]) || (Array.isArray(e.gallery) && e.gallery[0]) || "";
-
           const title = (lang === "en" && enE?.title) || (lang === "ar" && arE?.title) || e.title;
-
           const summ = (lang === "en" && enE?.summary) || (lang === "ar" && arE?.summary) || e.summary || "";
-
           results.push({
-
             type: "events",
-
             id: slug,
-
             title: title,
-
             role: (e.year ? e.year + " " + t("eraSuffix") : "") + (summ ? " — " + summ.slice(0, 85) + "..." : ""),
-
             badge: t("badgeEvent"),
-
             img: img,
-
             url: "detail.html?t=events&id=" + encodeURIComponent(slug),
-
             score: s
-
           });
-
         }
-
       });
-
-
 
       // Search places
-
       (D.places || []).forEach(p => {
-
         const slug = p.slug || p.id;
-
         const key = "places:" + slug.toLowerCase();
-
         if(seen.has(key)) return;
 
-
-
         const enP = enPack.places ? enPack.places[slug] : null;
-
         const arP = arPack.places ? arPack.places[slug] : null;
 
-
-
-        const textPool = [
-
-          p.name, p.subtitle, p.body,
-
-          enP?.name, enP?.subtitle, enP?.body,
-
-          arP?.name, arP?.subtitle, arP?.body
-
-        ].filter(Boolean).join(" ").toLowerCase();
-
-
+        const namePool = [p.name, p.slug, enP?.name, arP?.name].filter(Boolean).join(" ").toLowerCase();
+        const subPool = [p.subtitle, enP?.subtitle, arP?.subtitle].filter(Boolean).join(" ").toLowerCase();
+        const descPool = [p.description, p.body, enP?.body, arP?.body].filter(Boolean).join(" ").toLowerCase();
 
         let s = 0;
+        if(namePool === q) s += 420;
+        else if(namePool.includes(q)) s += 220;
+        else if(namePool.includes(qStem)) s += 160;
 
-        if(textPool.includes(q)) s += 60;
-
-        else if(textPool.includes(qStem)) s += 45;
-
-        else {
-
-          for(const tk of searchTokens){
-
-            if(textPool.includes(tk)) s += 20;
-
-          }
-
-          for(const st of searchStems){
-
-            if(textPool.includes(st)) s += 15;
-
-          }
-
+        for(const tk of searchTokens){
+          if(namePool.includes(tk)) s += 60;
         }
 
+        if(subPool.includes(q)) s += 120;
+        for(const tk of searchTokens){
+          if(subPool.includes(tk)) s += 30;
+        }
 
+        if(q.length >= 4 && descPool.includes(q)) s += 15;
 
-        if(s >= 15){
-
+        if(s >= 25){
           seen.add(key);
-
           const img = (Array.isArray(p.slides) && p.slides[0]) || "";
-
           const name = (lang === "en" && enP?.name) || (lang === "ar" && arP?.name) || p.name;
-
           const sub = (lang === "en" && enP?.subtitle) || (lang === "ar" && arP?.subtitle) || p.subtitle || "";
-
           results.push({
-
             type: "places",
-
             id: slug,
-
             title: name,
-
             role: sub,
-
             badge: t("badgePlace"),
-
             img: img,
-
             url: "detail.html?t=places&id=" + encodeURIComponent(slug),
-
             score: s
-
           });
-
         }
-
       });
-
     }
-
-
 
     results.sort((a, b) => b.score - a.score);
 

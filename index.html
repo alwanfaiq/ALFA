@@ -816,7 +816,19 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 
 .dg .x{position:absolute;right:10px;top:6px;background:none;border:0;font-size:1.8rem;cursor:pointer;color:var(--ink)}
 
-.dg a{display:inline-block;margin-top:14px;background:#c00;color:#fff;padding:6px 16px;text-decoration:none;font-weight:700}
+.dg a{display:inline-block;margin-top:14px;background:#c00;color:#fff;padding:6px 16px;text-decoration:none;font-weight:700;border-radius:0 !important}
+.dg-rel-section{margin-top:16px;padding-top:12px;border-top:1px solid rgba(196,163,90,.22)}
+.dg-rel-label{font:700 .72rem Cinzel,serif;letter-spacing:.08em;color:var(--g);margin-bottom:8px}
+.dg-rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px}
+.dg-card{display:flex;align-items:center;gap:10px;background:rgba(196,163,90,.08);border:1px solid rgba(196,163,90,.28);border-radius:0 !important;padding:6px 10px;text-decoration:none;color:var(--ink);transition:all .18s}
+.dg-card:hover{background:rgba(196,163,90,.18);border-color:var(--g)}
+.dg-card-thumb{width:46px;height:46px;overflow:hidden;flex-shrink:0;background:#241d13;border:1px solid rgba(196,163,90,.3);border-radius:0 !important}
+.dg-card-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center !important;display:block;border-radius:0 !important}
+.dg-card-thumb .ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 .78rem Cinzel,serif;color:var(--g);background:#1a150e}
+.dg-card-info{min-width:0;flex:1}
+.dg-card-title{font:700 .82rem Cinzel,serif;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dg-card-role{font:400 .72rem Bitter,serif;color:var(--g);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
 
 #pl{width:min(1100px,calc(100vw - 24px),calc((100svh - 90px)*16/9))}#pl.v{width:min(calc(80svh*9/16),calc(100vw - 24px))}
 
@@ -919,15 +931,9 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 /* Search Header Button & Shortcut */
 
 .search-nav-btn{
-
-  display:inline-flex;align-items:center;gap:7px;
-
-  background:rgba(255,255,255,.05);border:1px solid rgba(196,163,90,.32);
-
-  border-radius:20px;padding:6px 12px;color:var(--gold2);
-
-  font:600 .78rem Cinzel,serif;cursor:pointer;transition:all .2s;
-
+  display:flex;align-items:center;gap:8px;background:rgba(196,163,90,.08);
+  border:1px solid rgba(196,163,90,.32);border-radius:0 !important;padding:5px 12px;
+  color:var(--gold2);font:600 .8rem Cinzel,serif;cursor:pointer;transition:all .2s;
 }
 
 .search-nav-btn:hover{
@@ -1055,13 +1061,9 @@ dialog::backdrop{background:rgba(0,0,0,.82)}
 /* Semantic Search Dialog Modal */
 
 dialog.search-modal{
-
-  margin:auto;border:1px solid var(--gold);border-radius:10px;background:#14110b;
-
-  color:#fff;padding:0;width:min(720px,calc(100vw - 28px));max-height:86vh;
-
-  box-shadow:0 16px 48px rgba(0,0,0,.8);overflow:hidden;
-
+  margin:auto;border:1px solid var(--gold);border-radius:0 !important;background:#14110b;
+  color:var(--mut);padding:0;width:min(680px,calc(100vw - 28px));
+  max-height:calc(100svh - 40px);box-shadow:0 18px 48px rgba(0,0,0,.92);overflow:hidden;
 }
 
 dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8px)}
@@ -1077,11 +1079,8 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 }
 
 .search-input-wrap{
-
-  flex:1;display:flex;align-items:center;gap:10px;background:#0f0d09;
-
-  border:1px solid rgba(196,163,90,.35);border-radius:6px;padding:8px 14px;
-
+  flex:1;display:flex;align-items:center;gap:10px;background:#1e1810;
+  border:1px solid rgba(196,163,90,.35);border-radius:0 !important;padding:8px 14px;
 }
 
 .search-input-wrap:focus-within{border-color:var(--gold);box-shadow:0 0 0 2px rgba(196,163,90,.2)}
@@ -1101,11 +1100,9 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 .search-clear-btn:hover{color:#fff}
 
 .search-close-btn{
-
-  background:none;border:1px solid rgba(196,163,90,.3);border-radius:4px;
-
-  color:var(--gold2);width:34px;height:34px;font-size:1.05rem;cursor:pointer;transition:all .2s;
-
+  background:none;border:1px solid rgba(196,163,90,.3);border-radius:0 !important;
+  color:var(--gold2);width:36px;height:36px;display:flex;align-items:center;
+  justify-content:center;font-size:1.1rem;cursor:pointer;transition:all .2s;flex-shrink:0;
 }
 
 .search-close-btn:hover{background:var(--gold);color:#181818}
@@ -1125,11 +1122,8 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 .search-chips-list{display:flex;gap:6px;overflow-x:auto}
 
 .search-chip-btn{
-
-  white-space:nowrap;padding:4px 10px;background:rgba(196,163,90,.08);border:1px solid rgba(196,163,90,.28);
-
-  border-radius:14px;color:var(--gold2);font:600 .76rem Bitter,serif;cursor:pointer;transition:all .2s;
-
+  flex-shrink:0;padding:5px 12px;background:#1c170f;border:1px solid rgba(196,163,90,.28);
+  border-radius:0 !important;color:var(--gold2);font:600 .76rem Bitter,serif;cursor:pointer;transition:all .2s;
 }
 
 .search-chip-btn:hover{background:var(--gold);color:#181818;border-color:var(--gold)}
@@ -1139,11 +1133,8 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 .search-hint-box{text-align:center;padding:26px 14px;color:#d9cdb2;font-size:.92rem;line-height:1.6}
 
 .search-intent-box{
-
-  background:rgba(196,163,90,.09);border:1px dashed var(--gold);border-radius:8px;
-
-  padding:14px 18px;display:grid;gap:4px;
-
+  background:rgba(196,163,90,.09);border:1px dashed var(--gold);border-radius:0 !important;
+  padding:12px 16px;display:grid;gap:4px;
 }
 
 .search-intent-title{font:700 1.05rem Arvo,serif;color:var(--gold2);margin:0}
@@ -1153,20 +1144,18 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 .search-res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
 
 .search-card{
-
-  display:flex;align-items:center;gap:12px;padding:10px 12px;background:#1b1610;
-
-  border:1px solid rgba(196,163,90,.25);border-radius:6px;text-decoration:none;
-
-  color:#fff;transition:transform .2s,border-color .2s;
-
+  display:flex;align-items:center;gap:12px;padding:8px 10px;background:#19140d;
+  border:1px solid rgba(196,163,90,.25);border-radius:0 !important;text-decoration:none;
+  transition:all .18s;cursor:pointer;
 }
 
 .search-card:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 6px 18px rgba(196,163,90,.15)}
 
-.search-card-thumb{width:46px;height:46px;border-radius:4px;overflow:hidden;background:#261f14;flex-shrink:0}
+.search-card-thumb{
+  width:46px;height:46px;border-radius:0 !important;overflow:hidden;background:#261f14;flex-shrink:0;
+}
 
-.search-card-thumb img{width:100%;height:100%;object-fit:cover}
+.search-card-thumb img{width:100%;height:100%;object-fit:cover;object-position:top center !important;border-radius:0 !important}
 
 .search-card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 1rem Cinzel,serif;color:var(--gold);background:linear-gradient(135deg,#2e2417,#1b150d)}
 
@@ -2364,7 +2353,7 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 
 <dialog id="pl"><button class="x" aria-label="Close">×</button><div class="pf"></div><a class="yl" target="_blank" rel="noopener">Watch on YouTube</a></dialog>
 
-<dialog id="dlg"><div class="dg"><img alt=""><div><button class="x" aria-label="Close">×</button><h3></h3><small></small><p></p></div></div></dialog>
+<dialog id="dlg"><div class="dg"><img alt="" style="object-position:top center !important;"><div class="dg-inner"><button class="x" aria-label="Close">×</button><h3></h3><small></small><p></p><div class="dg-act"></div><div id="dlgRelated" class="dg-related"></div></div></div></dialog>
 
 
 
@@ -2453,6 +2442,10 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 <script src="track.js"></script>
 
 <script>
+if(window.location.pathname.endsWith("/index.html")){
+  const cleanPath = window.location.pathname.replace(/\/index\.html$/, "/") || "/";
+  window.history.replaceState(null, "", cleanPath + window.location.search + window.location.hash);
+}
 
 const YT="https://www.youtube.com/@alfa-history",$=q=>document.querySelector(q);
 
@@ -4333,11 +4326,8 @@ function rVD(l){
     const v=YID(d.url);
 
     a.onclick=e=>{
-
-      if(!a.classList.contains("act")){e.preventDefault();a.scrollIntoView({behavior:"smooth",inline:"center",block:"nearest"});return}
-
-      if(v){e.preventDefault();play(v,0,d.url)}
-
+      e.preventDefault();
+      show(GIMG(d.img), d.title, "VIDEO DOKUMENTER", d.description||"", d.url||1);
     };
 
     if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}
@@ -4357,23 +4347,135 @@ function rVD(l){
 const dlg=$("#dlg");
 
 function show(img,h,sm,t,link){
+  const imNode = dlg.querySelector("img");
+  if(imNode){ imNode.src=img; imNode.style.objectPosition="top center"; }
+  dlg.querySelector("h3").textContent=h;
+  dlg.querySelector("small").textContent=sm;
+  dlg.querySelector("p").textContent=t;
 
-  dlg.querySelector("img").src=img;dlg.querySelector("h3").textContent=h;dlg.querySelector("small").textContent=sm;dlg.querySelector("p").textContent=t;dlg.querySelectorAll("a,.pb").forEach(n=>n.remove());
+  const innerBx = dlg.querySelector(".dg-act") || dlg.querySelector(".dg-inner") || dlg.querySelector("div div");
+  dlg.querySelectorAll("a.watch-btn, button.pb, .dg-act a, .dg-act button").forEach(n=>n.remove());
 
   if(link){
+    if(YID(link)){
+      const pb=el("button","go pb watch-btn",I.t("playHere"));
+      pb.onclick=()=>{dlg.close();play(YID(link),1,link)};
+      innerBx.append(pb);
+    }
+    const a=document.createElement("a");
+    a.className="watch-btn";
+    a.href=typeof link=="string"?link:YT+"/shorts";
+    a.target="_blank";
+    a.rel="noopener";
+    a.textContent=typeof link=="string"?I.t("watchYt"):I.t("openShortsYt");
+    innerBx.append(a);
+  }
 
-    const bx=dlg.querySelector("div div");
+  // Scan related characters and places
+  const relContainer=document.getElementById("dlgRelated");
+  if(relContainer){
+    relContainer.replaceChildren();
+    const D = window.__ALFA_DEFS || window.DEFS || (typeof DEFS !== "undefined" ? DEFS : null);
+    if(D){
+      const textToScan = ((h||"") + " " + (sm||"") + " " + (t||"")).toLowerCase();
+      const matchedChars = [];
+      const matchedPlaces = [];
 
-    if(YID(link)){const pb=el("button","go pb",I.t("playHere"));pb.onclick=()=>{dlg.close();play(YID(link),1,link)};bx.append(pb)}
+      const CHAR_ALIASES = {
+        'Halimah Assa\'diyah': ['halimah', 'bani sa\'ad', 'bani sa\'d'],
+        'Bahira': ['bahira', 'buhaira', 'rahib bahira', 'pendeta bahira'],
+        'Abu Thalib bin Abdul Muthallib': ['abu thalib', 'paman nabi'],
+        'Abdul Muthallib': ['abdul muthalib', 'abdul muthallib', 'syaibah al-hamd'],
+        'Abrahah': ['abrahah', 'pasukan gajah'],
+        'Hamzah bin Abdul Muthallib': ['hamzah', 'singa allah'],
+        'Abu Bakar Asshiddiq': ['abu bakar', 'ash-shiddiq'],
+        'Umar bin Khattab': ['umar bin khattab', 'al-faruq'],
+        'Utsman bin Affan': ['utsman bin affan', 'dzun nurain'],
+        'Ali bin Abi Thalib': ['ali bin abi thalib', 'singa allah', 'abu turab'],
+        'Khalid bin Walid': ['khalid bin walid', 'saifullah'],
+        'Khadijah': ['khadijah', 'at-thahirah'],
+        'Aisyah binti Abu Bakar': ['aisyah'],
+        'Bilal bin Rabah': ['bilal bin rabah', 'bilal'],
+        'Thariq bin Ziyad': ['thariq bin ziyad', 'andalus', 'spanyol']
+      };
 
-    const a=document.createElement("a");a.href=typeof link=="string"?link:YT+"/shorts";a.target="_blank";a.rel="noopener";a.textContent=typeof link=="string"?I.t("watchYt"):I.t("openShortsYt");
+      const PLACE_ALIASES = {
+        'makkah': ['makkah', 'ka\'bah', 'kabah', 'hajar aswad', 'zamzam', 'quraisy'],
+        'madinah': ['madinah', 'yatsrib', 'nabawi', 'quba', 'uhud'],
+        'baitul maqdis': ['baitul maqdis', 'al-quds', 'yerusalem', 'jerusalem', 'aqsha', 'al-aqsha'],
+        'persia': ['persia', 'sasaniyah', 'sassanid', 'kisra', 'api abadi'],
+        'syam': ['syam', 'levant', 'damaskus'],
+        'yaman': ['yaman', 'shan\'a', 'abrahah'],
+        'habasyah': ['habasyah', 'aksum', 'najasyi', 'ethiopia'],
+        'mesir': ['mesir', 'fustat', 'iskandariyah']
+      };
 
-    dlg.querySelector("div div").append(a);
+      for(const [cName, aliases] of Object.entries(CHAR_ALIASES)) {
+        if(aliases.some(a => textToScan.includes(a))) {
+          const charObj = (D.characters || []).find(c => c.name === cName);
+          if(charObj && !matchedChars.some(x => x.name === charObj.name)) matchedChars.push(charObj);
+        }
+      }
 
+      (D.characters || []).forEach(c => {
+        const fn = (c.name || '').toLowerCase();
+        if(fn.length >= 6 && textToScan.includes(fn) && !matchedChars.some(x => x.name === c.name)) {
+          matchedChars.push(c);
+        }
+      });
+
+      for(const [pKey, aliases] of Object.entries(PLACE_ALIASES)) {
+        if(aliases.some(a => textToScan.includes(a))) {
+          const placeObj = (D.places || []).find(p => (p.slug || '').includes(pKey) || (p.name || '').toLowerCase().includes(pKey));
+          if(placeObj && !matchedPlaces.some(x => x.name === placeObj.name)) matchedPlaces.push(placeObj);
+        }
+      }
+
+      (D.places || []).forEach(p => {
+        const pn = (p.name || '').toLowerCase().replace(/\s*\([^)]*\)/g, '').trim();
+        if(pn.length >= 4 && textToScan.includes(pn) && !matchedPlaces.some(x => x.name === p.name)) {
+          matchedPlaces.push(p);
+        }
+      });
+
+      if(matchedChars.length){
+        const sec=document.createElement("div");sec.className="dg-rel-section";
+        const lbl=document.createElement("div");lbl.className="dg-rel-label";lbl.textContent="✦ TOKOH TERKAIT";
+        const gr=document.createElement("div");gr.className="dg-rel-grid";
+        matchedChars.slice(0, 3).forEach(c => {
+          const card=document.createElement("a");card.className="dg-card";card.href="detail.html?t=characters&id="+encodeURIComponent(c.name);
+          const th=document.createElement("div");th.className="dg-card-thumb";
+          if(c.img){const im=new Image();im.src=c.img;im.alt=c.name;im.loading="lazy";th.append(im)}
+          else{const ph=document.createElement("div");ph.className="ph";ph.textContent=c.name.slice(0,2);th.append(ph)}
+          const inf=document.createElement("div");inf.className="dg-card-info";
+          const tit=document.createElement("div");tit.className="dg-card-title";tit.textContent=c.name;
+          const rol=document.createElement("div");rol.className="dg-card-role";rol.textContent=c.role||"";
+          inf.append(tit,rol);card.append(th,inf);gr.append(card);
+        });
+        sec.append(lbl,gr);relContainer.append(sec);
+      }
+
+      if(matchedPlaces.length){
+        const sec=document.createElement("div");sec.className="dg-rel-section";
+        const lbl=document.createElement("div");lbl.className="dg-rel-label";lbl.textContent="✦ TEMPAT TERKAIT";
+        const gr=document.createElement("div");gr.className="dg-rel-grid";
+        matchedPlaces.slice(0, 3).forEach(p => {
+          const card=document.createElement("a");card.className="dg-card";card.href="detail.html?t=places&id="+encodeURIComponent(p.slug||p.name);
+          const th=document.createElement("div");th.className="dg-card-thumb";
+          const pImg=(Array.isArray(p.slides)&&p.slides[0])||"";
+          if(pImg){const im=new Image();im.src=pImg;im.alt=p.name;im.loading="lazy";th.append(im)}
+          else{const ph=document.createElement("div");ph.className="ph";ph.textContent=(p.name||"PL").slice(0,2);th.append(ph)}
+          const inf=document.createElement("div");inf.className="dg-card-info";
+          const tit=document.createElement("div");tit.className="dg-card-title";tit.textContent=p.name;
+          const rol=document.createElement("div");rol.className="dg-card-role";rol.textContent=p.subtitle||"";
+          inf.append(tit,rol);card.append(th,inf);gr.append(card);
+        });
+        sec.append(lbl,gr);relContainer.append(sec);
+      }
+    }
   }
 
   dlg.showModal();
-
 }
 
 dlg.querySelector(".x").onclick=()=>dlg.close();dlg.addEventListener("click",e=>{if(e.target==dlg)dlg.close()});
@@ -4662,6 +4764,40 @@ function applyStaticI18n(){
 
 const lbBtn=$("#langBtn");if(lbBtn)lbBtn.onclick=()=>I.toggleLang();
 
+// Desktop Language Dropdown Menu Toggle & Outside Click
+const langDropTrigger = document.getElementById("langDropTrigger");
+const langDropMenu = document.getElementById("langDropMenu");
+if(langDropTrigger && langDropMenu){
+  langDropTrigger.onclick = (e) => {
+    e.stopPropagation();
+    const isOpen = langDropMenu.classList.toggle("open");
+    langDropTrigger.setAttribute("aria-expanded", String(isOpen));
+  };
+  document.addEventListener("click", (e) => {
+    if(!langDropMenu.contains(e.target) && !langDropTrigger.contains(e.target)){
+      langDropMenu.classList.remove("open");
+      langDropTrigger.setAttribute("aria-expanded", "false");
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "Escape"){
+      langDropMenu.classList.remove("open");
+      langDropTrigger.setAttribute("aria-expanded", "false");
+    }
+  });
+  document.querySelectorAll(".lang-drop-item").forEach(item => {
+    item.onclick = (e) => {
+      e.stopPropagation();
+      const l = item.getAttribute("data-lang");
+      if(l && I && typeof I.setLang === "function"){
+        I.setLang(l);
+      }
+      langDropMenu.classList.remove("open");
+      langDropTrigger.setAttribute("aria-expanded", "false");
+    };
+  });
+}
+
 window.addEventListener("alfa:langchange",async()=>{
 
   await I.ensurePack();
@@ -4726,7 +4862,7 @@ window.addEventListener("alfa:langchange",async()=>{
 
 const DEF={characters:[],places:[],shorts:[],events:[],videos:[]};
 
-const EXTRA_WORLD={thaif:[57.687,41.078],taif:[57.687,41.078],persia:[61.09,34.654],mesir:[54.855,37.897],"laut merah":[57.158,41.689]};
+const EXTRA_WORLD={"iskandariyah":[54.43,35.39],"gajah":[58.01,43.5],"jalur pasukan gajah":[58.01,43.5],"barqah":[51.86,34.62],"fustat":[54.8,36.1],"iraq":[58.58,34.62],"iraq (kuno)":[58.58,34.62],"kufah":[58.55,34.9],"kufah dan qadisiyyah":[58.55,34.9],"basrah":[59.52,35.8],"bashrah":[59.52,35.8],"mesir":[54.68,37.98],"nahawand":[59.69,33.62],"madain":[58.61,34.27],"al-mada’in":[58.61,34.27],"madinah-k":[57.19,39.38],"madinah":[57.19,39.38],"damaskus":[56.24,34.02],"tabuk":[56.32,37.06],"yamamah":[59.38,39.59],"makkah":[57.25,41.18],"palestina":[55.93,34.98],"syam":[56.3,33.85],"syam (levant)":[56.3,33.85],"yaman":[58.49,44.76],"hira":[57.26,41.16],"gua hira":[57.26,41.16],"konstantinopel":[54.16,29.58],"baitulmaqdis":[55.94,35.05],"baitul maqdis":[55.94,35.05],"thaif":[57.42,41.27],"makkah-k":[57.25,41.18],"badar":[56.95,39.78],"yarmuk":[56.12,34.5],"khaibar":[57.1,38.65],"habasyah":[56.93,45.5],"habasyah (aksum)":[56.93,45.5],"yatsrib":[57.19,39.38],"yatsrib (madinah)":[57.19,39.38],"hims":[56.36,33.3],"merv":[63.62,31.57],"laut-merah":[56.87,42.02],"laut merah":[56.87,42.02],"persia":[61.2,34.66]};
 
 function remapPlaceXY(d){
 

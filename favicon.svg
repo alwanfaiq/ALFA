@@ -1,5 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <style>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 64 64"
+   fill="none"
+   version="1.1"
+   id="svg3"
+   sodipodi:docname="favicon.svg"
+   xml:space="preserve"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"><defs
+     id="defs3" /><sodipodi:namedview
+     id="namedview3"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="35.266951"
+     inkscape:cy="41.984465"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3" /><style
+     id="style1">
     .vajra-outer { stroke: #D4AF37; stroke-width: 4.5; fill: #18140E; }
     .vajra-inner { fill: #D4AF37; }
     .vajra-center { fill: #18140E; }
@@ -8,10 +38,22 @@
       .vajra-inner { fill: #1A1A1A; }
       .vajra-center { fill: #C4A35A; }
     }
-  </style>
-  <g transform="rotate(45 32 32)">
-    <rect class="vajra-outer" x="12" y="12" width="40" height="40" rx="4" />
-    <rect class="vajra-inner" x="20" y="20" width="24" height="24" rx="2" />
-    <rect class="vajra-center" x="27" y="27" width="10" height="10" rx="1" />
-  </g>
-</svg>
+  </style><rect
+     width="64"
+     height="64"
+     rx="14"
+     fill="#181818"
+     id="rect1-8"
+     x="-0.064839795"
+     y="0"
+     inkscape:label="rect-1" /><path
+     id="path5"
+     style="fill:#c4a35a;fill-opacity:1;stroke:none;stroke-width:1.04793;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+     d="M 14.140549,32.376513 31.935202,14.581961 49.72988,32.376513 31.935202,50.171291 Z"
+     sodipodi:nodetypes="ccccc"
+     inkscape:label="rect-2" /><path
+     id="path6"
+     style="fill:#c4a35a;fill-opacity:1;stroke:none;stroke-width:1.38845;stroke-linecap:round;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;paint-order:markers stroke fill"
+     d="M 5.2609624,32.352032 31.935202,59.026322 58.609517,32.352032 31.935202,5.6771897 Z M 9.9932202,32.351454 31.935202,10.409623 54.464096,32.351454 31.935202,54.880399 Z"
+     sodipodi:nodetypes="cccccccccc"
+     inkscape:label="rect-3" /></svg>

@@ -3944,8 +3944,8 @@
       "name": "Iskandariyah",
       "subtitle": "Pelabuhan besar Mesir",
       "description": "Kota pelabuhan Bizantium di Mesir yang ditaklukkan Amr bin Ash pada 21 H/642 M.",
-      "x": 33.2,
-      "y": 36,
+      "x": 54.43,
+      "y": 35.39,
       "t": 19,
       "meta": "",
       "body": "<h2><b>TENTANG ISKANDARIYAH</b></h2><p>Iskandariyah (Alexandria) adalah kota pelabuhan besar dan ibu kota Mesir pada masa Bizantium.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Penaklukan</b>: Setelah mengalahkan Bizantium di Babilonia, pasukan Amr bin Ash maju ke Iskandariyah, dan kota ini menyerah melalui perjanjian pada 21 H.</p></li><li><p><b>Dampak</b>: Pusat pemerintahan Islam di Mesir kemudian ditempatkan di Fustat, bukan di Iskandariyah.</p></li></ul>",
@@ -3959,8 +3959,10 @@
           "caption": "Pesisir Pelabuhan Kuno Iskandariyah dan Mercusuar Pharos di Laut Tengah (21 H / 641 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 31.2001,
+      "lng": 29.9187
     },
     {
       "id": "5e12710e-e9ee-4570-ac7d-5c01159ae2bb",
@@ -3968,8 +3970,8 @@
       "name": "Jalur Pasukan Gajah",
       "subtitle": "Yaman menuju Makkah, ±570 M",
       "description": "Rute Abrahah menuju Makkah untuk menghancurkan Ka’bah. Pasukannya binasa sebelum mencapai kota, peristiwa yang diabadikan dalam Surah Al-Fil.",
-      "x": 54.5,
-      "y": 71.9,
+      "x": 58.01,
+      "y": 43.5,
       "t": 6,
       "meta": "Yaman menuju Makkah, ±570 M",
       "body": "<h3><b>JALUR PASUKAN GAJAH</b></h3><p>Menurut riwayat sirah, Abrahah memimpin pasukan dari Yaman menuju Makkah. Pasukan itu membawa gajah, hewan yang belum dikenal bangsa Arab, sehingga peristiwanya begitu membekas.</p><h3><b>PERISTIWA</b></h3><ul><li><p><b>Berhenti di dekat Makkah</b>: Pasukan berhenti di dekat Makkah, dan menurut riwayat gajah utamanya menolak melangkah ke arah Ka’bah.</p></li><li><p><b>Kebinasaan pasukan</b>: Allah menurunkan burung-burung yang melempari pasukan dengan batu sijjil (QS. Al-Fil) hingga mereka porak-poranda.</p></li><li><p><b>Tahun Gajah</b>: Tahun itu dijadikan penanda waktu oleh bangsa Arab dan bertepatan dengan kelahiran Nabi SAW.</p></li></ul>",
@@ -3983,8 +3985,10 @@
           "caption": "Rute ekspedisi Abrahah melewati lintasan ngarai bebatuan curam menuju Makkah (Tahun Gajah / 570 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 17.5,
+      "lng": 42.5
     },
     {
       "id": "12572bd4-f443-4a3d-a646-c85cd2d6816e",
@@ -3992,8 +3996,8 @@
       "name": "Barqah",
       "subtitle": "Wilayah Cyrenaica",
       "description": "Wilayah Libya timur yang dibebaskan pasukan Amr bin Ash sekitar 22 H/643 M, membuka jalan ke Afrika Utara.",
-      "x": 18.2,
-      "y": 31.7,
+      "x": 51.86,
+      "y": 34.62,
       "t": 21,
       "meta": "",
       "body": "<h2><b>TENTANG BARQAH</b></h2><p>Barqah (Cyrenaica) adalah wilayah di pesisir Libya timur, jalur darat antara Mesir dan Afrika Utara.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Perluasan ke barat</b>: Setelah Mesir jatuh, Amr bin Ash mengirim pasukan ke Barqah dan menyepakati perjanjian dengan penduduknya.</p></li></ul>",
@@ -4007,8 +4011,10 @@
           "caption": "Pesisir Karang Cyrenaica dan Pos Pertahanan Kuno Barqah di Pintu Masuk Afrika Utara (22 H / 642 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 32.495,
+      "lng": 20.8986
     },
     {
       "id": "476abbfc-8f10-47df-8647-3e5bba1c5c71",
@@ -4016,8 +4022,8 @@
       "name": "Fustat",
       "subtitle": "Ibu kota Islam di Mesir",
       "description": "Kota yang didirikan Amr bin Ash sekitar 20 H sebagai pusat pemerintahan baru dan lokasi masjid pertama di Mesir.",
-      "x": 35.3,
-      "y": 40,
+      "x": 54.8,
+      "y": 36.1,
       "t": 20,
       "meta": "",
       "body": "<h2><b>TENTANG FUSTAT</b></h2><p>Fustat dibangun di dekat benteng Babilonia di tepi sungai Nil, di sekitar tempat Amr bin Ash mendirikan kemah (fustat) pasukannya.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Masjid Amr bin Ash</b>: Di sini Amr mendirikan masjid, yang dikenal sebagai masjid pertama di Mesir.</p></li><li><p><b>Pusat pemerintahan</b>: Fustat menjadi ibu kota Mesir Islam, dan kelak menjadi cikal bakal Kairo.</p></li></ul>",
@@ -4031,8 +4037,10 @@
           "caption": "Tepian Lembah Sungai Nil dan Pembangunan Awal Kota Fustat serta Masjid Amr bin al-As (21 H / 641 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 30.0055,
+      "lng": 31.2333
     },
     {
       "id": "82185f54-04d3-4da4-878b-9582e812f125",
@@ -4040,8 +4048,8 @@
       "name": "Iraq (Kuno)",
       "subtitle": "Dalam pengaruh Persia Sasaniyah",
       "description": "Wilayah yang berada di bawah pengaruh Kekaisaran Persia Sasaniyah. Api yang disembah penganut Zoroaster menjadi latar kisah malam kelahiran Nabi ﷺ.",
-      "x": 81.2,
-      "y": 15.5,
+      "x": 58.58,
+      "y": 34.62,
       "t": 4,
       "meta": "Dalam pengaruh Persia Sasaniyah",
       "body": "<h2><b>TENTANG IRAQ KUNO</b></h2><p>Wilayah Irak berada di bawah Kekaisaran Persia Sasaniyah dengan ibu kota Ctesiphon (Mada’in). Di bagian baratnya, kerajaan Arab Lakhmid di Hira menjadi sekutu Persia.</p><h3><b>PERAN DALAM SEJARAH</b></h3><ul><li><p><b>Persia Zoroaster</b>: Agama resmi Persia saat itu adalah Zoroaster, dengan api suci sebagai pusat ibadahnya.</p></li><li><p><b>Kelak dibebaskan</b>: Setelah Qadisiyyah dan jatuhnya Mada’in, wilayah ini menjadi bagian dunia Islam, dan kota Kufah dan Bashrah didirikan.</p></li></ul>",
@@ -4055,8 +4063,10 @@
           "caption": "Lembah Aluvial Sungai Efrat dan Perkebunan Kurma Kuno Mesopotamia (Abad ke-7 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 32.5,
+      "lng": 44.5
     },
     {
       "id": "b4958d9f-9170-4b56-9fdd-b397a3b58bbe",
@@ -4064,8 +4074,8 @@
       "name": "Kufah dan Qadisiyyah",
       "subtitle": "Kota garnisun Irak",
       "description": "Qadisiyyah (15 H/636 M) mematahkan kekuatan Persia. Tak jauh dari sana Sa’ad bin Abi Waqqash mendirikan Kufah.",
-      "x": 57.3,
-      "y": 33.3,
+      "x": 58.55,
+      "y": 34.9,
       "t": 22,
       "meta": "",
       "body": "<h2><b>TENTANG KUFAH DAN QADISIYYAH</b></h2><p>Qadisiyyah adalah dataran di tepi gurun Irak, tempat pertempuran besar antara pasukan Muslim dan pasukan Persia. Tak jauh dari sana berdiri kota Kufah.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Perang Qadisiyyah</b>: Pasukan Sa’ad bin Abi Waqqash mengalahkan Persia yang membawa gajah perang pada 15 H, sehingga jalan menuju ibu kota Persia terbuka.</p></li><li><p><b>Pendirian Kufah</b>: Sekitar 17 H, Kufah didirikan sebagai kota pangkalan pasukan.</p></li><li><p><b>Pusat pemerintahan Ali</b>: Ali memindahkan pusat pemerintahan ke Kufah pada 36 H, dan beliau ditikam di sini pada 40 H.</p></li></ul>",
@@ -4079,8 +4089,10 @@
           "caption": "Dataran terbuka Qadisiyyah dan permukiman tepi Sungai Efrat serta kanal kurma Irak (15 H / 636 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 32.0298,
+      "lng": 44.401
     },
     {
       "id": "0aa510f5-30db-4080-8400-98876d177a0a",
@@ -4088,8 +4100,8 @@
       "name": "Bashrah",
       "subtitle": "Kota garnisun Irak selatan",
       "description": "Kota yang didirikan sekitar 14 H sebagai pangkalan pasukan. Perang Jamal terjadi di dekatnya pada 36 H.",
-      "x": 63,
-      "y": 38.3,
+      "x": 59.52,
+      "y": 35.8,
       "t": 24,
       "meta": "",
       "body": "<h2><b>TENTANG BASHRAH</b></h2><p>Bashrah berada di dekat Teluk Persia dan menjadi pangkalan pasukan Muslim di Irak selatan di masa Umar.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Perang Jamal</b>: Pada 36 H, perselisihan mengenai penanganan para pembunuh Utsman memuncak dalam Perang Jamal di dekat Bashrah.</p></li></ul>",
@@ -4103,8 +4115,10 @@
           "caption": "Pangkalan Garnisun Awal Muslim Bashrah di Dekat Muara Shatt al-Arab Irak Selatan (14 H / 636 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 30.5081,
+      "lng": 47.7835
     },
     {
       "id": "3174d353-f4bb-4f83-9a4d-148c1e90ff84",
@@ -4112,8 +4126,8 @@
       "name": "Mesir",
       "subtitle": "",
       "description": "Sejarah Mesir membentang dari peradaban kuno para Firaun di sepanjang lembah Sungai Nil hingga menjadi salah satu pusat peradaban serta keilmuan Islam yang sangat strategis. Memasuki masa penaklukan Islam (Futuh Misr) pada era Khulafaur Rasyidin di bawah kepemimpinan Amru bin Ash.",
-      "x": 34.7,
-      "y": 62,
+      "x": 54.68,
+      "y": 37.98,
       "t": 1793484369500,
       "meta": "",
       "body": "<h3>1. Nubuat dan Hubungan Awal dengan Bangsa Arab</h3><ul><li><p><b>Pesan Rasulullah SAW</b>: Rasulullah SAW pernah memberikan petunjuk khusus kepada kaum Muslimin mengenai Mesir: <i>\"Jika kalian menaklukkan Mesir, maka berlaku baiklah kepada penduduknya karena mereka memiliki perlindungan dari kita dan memiliki hubungan kekerabatan.\"</i> (HR. Muslim).   </p></li><li><p><b>Penguasa Mesir (Muqauqis)</b>: Pada masa dakwah diplomatik (sekitar 7 H), Rasulullah SAW mengirimkan surat ajakan berislam kepada Muqauqis (penguasa Mesir dari Bizantium). Muqauqis merespons surat tersebut dengan penuh hormat serta mengirimkan hadiah diplomatik.   </p></li></ul><h3>2. Penaklukan Mesir (<i>Futuh Misr</i>)</h3><ul><li><p><b>Masa Khalifah Umar bin Khaththab</b>: Penaklukan Mesir dipimpin oleh panglima <b>Amru bin Ash</b> atas izin Khalifah Umar bin Khaththab.   </p></li><li><p><b>Proses Penaklukan (20–21 H)</b>: Pasukan Muslimin di bawah Amru bin Ash dan bantuan pasukan Zubair bin Awwam berhasil menguasai benteng Babilonia/Younah. Penaklukan dilanjutkan hingga ke pusat kekuasaan Bizantium di Iskandariyah (Alexandria) pada sekitar tahun 21 H.   </p></li><li><p><b>Perjanjian dan Kedamaian</b>: Kebanyakan wilayah Mesir ditaklukkan dengan pengajuan syarat dan perjanjian damai, di mana penduduk setempat yang dilindungi membayar <i>jizyah</i>.   </p></li></ul><h3>3. Dinamika Politik dan Masa Khalifah Utsman bin Affan</h3><ul><li><p><b>Pergantian Kepemimpinan</b>: Pada masa Kekhalifahan Utsman bin Affan, Amru bin Ash diberhentikan dan digantikan oleh <b>Abdullah bin Sa'ad bin Abi Sarh</b> sebagai Gubernur Mesir.   </p></li><li><p><b>Pusat Ekspansi</b>: Di bawah kepemimpinan Abdullah bin Sa'ad, Mesir menjadi pangkalan utama ekspansi dakwah dan militer ke wilayah Afrika Utara.   </p></li><li><p><b>Gejolak Politik</b>: Mesir menjadi salah satu pusat gejolak ketidakpuasan politik terhadap beberapa kebijakan administrasi di masa-masa akhir pemerintahan Khalifah Utsman, yang memicu munculnya rombongan penuntut dari Mesir menuju Madinah.   </p></li></ul><h3>Peran Penting Mesir dalam Sejarah Islam</h3><p></p><table><thead><tr><td><strong>Aspek</strong></td><td><strong>Peran / Peristiwa Utama</strong></td></tr></thead><tbody><tr><td><b>Pusat Ilmu &amp; Studi</b></td><td><p>Mesir kelak berkembang menjadi pusat kebudayaan dan keilmuan Islam terbesar melalui perguruan tinggi legendaris seperti Universitas Al-Azhar di Kairo.   </p></td></tr><tr><td><b>Struktur Administrasi</b></td><td><p>Sejak masa penaklukan awal, Mesir dibentuk menjadi pangkalan wilayah (<i>amsyar</i>) utama bagi pemerintahan Islam di Afrika.</p></td></tr></tbody></table><br><p>Sejarah perkembangan kota Makkah dari era Kekhalifahan pasca-Khulafaur Rasyidin, masa Kesultanan Utsmani (Ottoman), hingga era modern Kerajaan Arab Saudi:</p><h3>1. Era Kekhalifahan Umayyah dan Abbasiyah (Abad ke-7 – 13 M)</h3><ul><li><p><b>Pergeseran Pusat Politik</b>: Setelah kepemimpinan Khulafaur Rasyidin berakhir dan dimulainya Dinasti Umayyah, pusat pemerintahan Islam dipindahkan ke Damaskus, dan kemudian ke Baghdad pada masa Dinasti Abbasiyah. Makkah tidak lagi menjadi ibu kota politik, melainkan mempertahankan posisinya sebagai <b>pusat keagamaan dan keilmuan spiritual dunia Islam</b>.</p></li><li><p><b>Konflik Internal Kekhalifahan</b>: Makkah sempat menjadi saksi pertempuran politik internal, seperti pengepungan Makkah pada masa Abdullah bin Az-Zubair melawan pasukan Umayyah (di bawah pimpinan Al-Hajjaj bin Yusuf).</p></li><li><p><b>Pembangunan Infrastruktur Haji</b>:</p><ul><li><p>Khalifah-khalifah Abbasiyah (seperti Harun Al-Rasyid dan istrinya, Zubaydah) membangun jalur jalan haji terkenal (<i>Darb Zubaida</i>) yang dilengkapi sumur dan sarana penampungan air dari Irak menuju Makkah.</p></li><li><p>Pemugaran dan perluasan Kompleks Masjidil Haram terus dilakukan untuk menampung gelombang jamaah haji dari seluruh penjuru dunia.</p></li></ul></li></ul><h3>2. Era Dinasti Mamluk dan Syarif Makkah (Abad ke-13 – 16 M)</h3><ul><li><p><b>Kepemimpinan Para Syarif (Keturunan Nabi)</b>: Pengelolaan harian kota Makkah dipegang oleh dinasti <b>Syarif Makkah</b> (keturunan Hasan bin Ali bin Abi Thalib) yang memimpin Makkah secara otonom dengan mendapat naungan dan perlindungan dari dinasti-dinasti penguasa regional.</p></li><li><p><b>Perlindungan Dinasti Mamluk</b>: Setelah Baghdad hancur akibat serangan Mongol (1258 M), Dinasti Mamluk yang berpusat di Kairo (Mesir) menjadi pelindung utama kawasan Hijaz (Makkah dan Madinah), menjamin suplai bahan pangan serta keamanan jalur haji.</p></li></ul><h3>3. Era Kesultanan Utsmani / Ottoman (1517 – 1916 M)</h3><ul><li><p><b>Integrasi ke Kesultanan Utsmani</b>: Setelah Sultan Selim I menaklukkan Kairo pada tahun 1517 M, penguasa Syarif Makkah secara sukarela menyerahkan kunci Ka'bah dan menyatakan ketundukan kepada Kesultanan Utsmani. Sultan-sultan Utsmani mengambil gelar <i>Khadimul Haramain Asy-Syarifain</i> (Pelayan Dua Kota Suci).</p></li><li><p><b>Pembangunan Arsitektur Klasik</b>:</p><ul><li><p><b>Kanopi dan Kubah Masjidil Haram</b>: Sultan Suleiman I (<i>Suleiman the Magnificent</i>) merenovasi total arsitektur Masjidil Haram dengan menambahkan atap bernuansa kubah dan pilar-pilar khas arsitektur Utsmani.</p></li><li><p><b>Sistem Drainase &amp; Bendungan</b>: Diperbaiki untuk melindungi Makkah dari ancaman banjir bandang tahunan.</p></li><li><p><b>Kereta Api Hijaz (<i>Hijaz Railway</i>)</b>: Di awal abad ke-20 (masa Sultan Abdul Hamid II), jaringan kereta api dibangun dari Damaskus menuju Hijaz untuk mempermudah serta mengamankan perjalanan haji.</p></li></ul></li></ul><h3>4. Perang Dunia I &amp; Berdirinya Kerajaan Arab Saudi (1916 – 1932 M)</h3><ul><li><p><b>Revolusi Arab (1916 M)</b>: Syarif Hussein bin Ali memimpin Pemberontakan Arab terhadap kekuasaan Utsmani dengan bantuan Inggris selama Perang Dunia I, yang mengakhiri 400 tahun kekuasaan Utsmani di Hijaz.</p></li><li><p><b>Penyatuan di Bawah Ibnu Saud (1924–1925 M)</b>: Abdul Aziz bin Abdul Rahman Al-Saud (Ibnu Saud) dari Najd berhasil menguasai wilayah Hijaz dan menduduki Makkah pada tahun 1924 M. Pada tahun 1932 M, seluruh kawasan digabungkan menjadi <b>Kerajaan Arab Saudi</b> (<i>Kingdom of Saudi Arabia</i>).</p></li></ul><h3>5. Era Modern dan Modernisasi Kota (Abad ke-20 – Sekarang)</h3><ul><li><p><b>Eksplorasi Minyak &amp; Gelombang Perluasan Massal</b>: Penemuan minyak bumi mengubah lanskap ekonomi Arab Saudi. Pendapatan negara dialokasikan secara besar-besaran untuk proyek perluasan Masjidil Haram secara bertahap (Perluasan Saudi Pertama hingga Ketiga).</p></li><li><p><b>Transformasi Infrastruktur dan Arsitektur</b>:</p><ul><li><p><b>Kompleks Abraj Al-Bait (Makkah Royal Clock Tower)</b>: Dibangun persis di depan Masjidil Haram sebagai simbol modernitas dan akomodasi jamaah haji/umrah.</p></li><li><p><b>Transportasi Modern</b>: Pembangunan Kereta Cepat Haramain (<i>Haramain High-Speed Railway</i>) yang menghubungkan Makkah, Jeddah, dan Madinah.</p></li><li><p><b>Sistem Manajemen Haji Digital</b>: Penerapan teknologi digital, infrastruktur pendingin udara skala besar, tata kelola sanitasi mutakhir, dan perluasan area Tawaf (<i>Mataf</i>) serta Sa'i untuk menampung jutaan jemaah secara aman.</p></li></ul></li></ul><h3>Ringkasan Lintasan Sejarah Makkah</h3><table><thead><tr><td><strong>Era / Periode</strong></td><td><strong>Penguasa / Dinasti Utama</strong></td><td><strong>Karakter &amp; Peristiwa Utama</strong></td></tr></thead><tbody><tr><td><b>Umayyah &amp; Abbasiyah</b> <i>(Abad 7–13 M)</i></td><td>Khalifah di Damaskus &amp; Baghdad</td><td>Makkah menjadi pusat spiritual/ilmu; pembangunan jalur haji <i>Darb Zubaida</i>.</td></tr><tr><td><b>Mamluk &amp; Syarif</b> <i>(Abad 13–16 M)</i></td><td>Syarif Makkah di bawah Mamluk Kairo</td><td>Otonomi lokal di bawah pengawasan Mamluk pasca-invasi Mongol.</td></tr><tr><td><b>Utsmani / Ottoman</b> <i>(1517–1916 M)</i></td><td>Kesultanan Utsmani (Turki)</td><td>Arsitektur kubah Utsmani; perlindungan pertahanan; proyek Kereta Api Hijaz.</td></tr><tr><td><b>Penyatuan Saudi</b> <i>(1924–1932 M)</i></td><td>King Abdul Aziz Al-Saud</td><td>Penggabungan Najd dan Hijaz menjadi Kerajaan Arab Saudi.</td></tr><tr><td><b>Era Modern</b> <i>(Sembilan Puluh–Kini)</i></td><td>Kerajaan Arab Saudi</td><td>Perluasan mega-struktur Masjidil Haram, Abraj Al-Bait, dan sistem transportasi cepat.</td></tr></tbody></table><p></p>",
@@ -4127,8 +4141,10 @@
           "caption": "Lembah subur Sungai Nil dan peninggalan kuno peradaban Mesir menjelang pembebasan (640 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 26.8206,
+      "lng": 30.8025
     },
     {
       "id": "4b5188d5-09ee-48da-bc11-0ee85ddc0ce8",
@@ -4136,8 +4152,8 @@
       "name": "Nahawand",
       "subtitle": "Fathul Futuh",
       "description": "Pertempuran besar pada 21 H/642 M yang menghancurkan perlawanan terakhir Persia di dataran tinggi Iran.",
-      "x": 64,
-      "y": 26,
+      "x": 59.69,
+      "y": 33.62,
       "t": 25,
       "meta": "",
       "body": "<h2><b>TENTANG NAHAWAND</b></h2><p>Nahawand berada di dataran tinggi Iran barat. Di sini Persia mengumpulkan pasukan terakhirnya.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Fathul Futuh</b>: Kemenangan kaum Muslimin pada 21 H dijuluki Fathul Futuh (kemenangan dari segala kemenangan) karena menghancurkan kekuatan militer Persia.</p></li></ul>",
@@ -4151,8 +4167,10 @@
           "caption": "Lintasan Tebing Pegunungan Zagros Lokasi Fathul Futuh di Nahawand Persia (21 H / 642 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 34.1887,
+      "lng": 48.3758
     },
     {
       "id": "67db2ed2-7358-4ad5-909d-5fe031c2f715",
@@ -4160,8 +4178,8 @@
       "name": "Al-Mada’in",
       "subtitle": "Ctesiphon, ibu kota Persia",
       "description": "Ibu kota Persia Sasaniyah yang jatuh ke tangan kaum Muslimin sekitar 16 H/637 M setelah Qadisiyyah.",
-      "x": 57.7,
-      "y": 29.7,
+      "x": 58.61,
+      "y": 34.27,
       "t": 23,
       "meta": "",
       "body": "<h2><b>TENTANG AL-MADA’IN</b></h2><p>Al-Mada’in (Ctesiphon) adalah ibu kota Kekaisaran Persia Sasaniyah di tepi sungai Tigris, dengan istana Taq Kisra yang terkenal.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Jatuhnya ibu kota</b>: Setelah Qadisiyyah, pasukan Sa’ad menyeberangi Tigris dan merebut kota yang telah ditinggalkan para pejabatnya.</p></li></ul>",
@@ -4175,8 +4193,10 @@
           "caption": "Kemegahan Istana Taq Kasra dan Lengkung Bata Raksasa Ctesiphon di Tepi Sungai Tigris (16 H / 637 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 33.1,
+      "lng": 44.58
     },
     {
       "id": "61590a1f-355f-4a29-82ec-7cae235cac0a",
@@ -4184,8 +4204,8 @@
       "name": "Madinah",
       "subtitle": "Ibu kota awal negara Islam",
       "description": "Ibu kota pemerintahan sejak hijrah hingga masa Utsman. Di sinilah Masjid Nabawi berdiri dan Nabi SAW dimakamkan.",
-      "x": 49.3,
-      "y": 58.3,
+      "x": 57.19,
+      "y": 39.38,
       "t": 9,
       "meta": "",
       "body": "<h3><b>MADINAH, IBU KOTA ISLAM AWAL</b></h3><p>Setelah hijrah pada 622 M, Madinah menjadi pusat pemerintahan, ilmu, dan pasukan kaum Muslimin. Piagam Madinah mengatur hubungan antara kaum Muslimin, Yahudi, dan suku-suku sekitar.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Perang Uhud dan Khandaq</b>: Uhud (3 H) terjadi di kaki Gunung Uhud, sedangkan pada Perang Khandaq (5 H) kaum Muslimin menggali parit untuk melindungi kota.</p></li><li><p><b>Wafatnya Nabi dan pemilihan Abu Bakar</b>: Nabi SAW wafat pada 12 Rabiul Awal 11 H dan dimakamkan di kamar Aisyah. Abu Bakar kemudian dibaiat sebagai khalifah di Saqifah Bani Sa’idah.</p></li><li><p><b>Ibu kota para khalifah</b>: Abu Bakar, Umar, dan Utsman memerintah dari sini. Pada 36 H Ali memindahkan pusat pemerintahan ke Kufah.</p></li></ul>",
@@ -4199,8 +4219,10 @@
           "caption": "Masjid Nabawi dan Kawasan Pemukiman Madinah sebagai Ibu Kota Khilafah (11-35 H / 632-656 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 24.4672,
+      "lng": 39.6111
     },
     {
       "id": "af8d152f-402f-4888-be2b-67e5d4c2fc62",
@@ -4208,8 +4230,8 @@
       "name": "Damaskus",
       "subtitle": "Ibu kota Syam",
       "description": "Kota tua di Syam yang direbut kaum Muslimin pada 14 H/635 M di bawah pimpinan Khalid bin Walid dan Abu Ubaidah.",
-      "x": 43.8,
-      "y": 28.3,
+      "x": 56.24,
+      "y": 34.02,
       "t": 14,
       "meta": "",
       "body": "<h2><b>TENTANG DAMASKUS</b></h2><p>Damaskus adalah kota besar di Syam yang menjadi pusat penting Bizantium sebelum penaklukan Islam.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Penaklukan</b>: Setelah beberapa waktu pengepungan, kota ini diserahkan kepada pasukan Muslim sekitar 14 H.</p></li><li><p><b>Kelak menjadi pusat kekuasaan</b>: Setelah masa Khulafaur Rasyidin, Damaskus menjadi ibu kota Daulah Umayyah.</p></li></ul>",
@@ -4223,8 +4245,10 @@
           "caption": "Gerbang timur Bab Sharqi dan dinding benteng kota kuno Damaskus berlatar Jabal Qasiyun (14 H / 635 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 33.5138,
+      "lng": 36.2765
     },
     {
       "id": "fdf75878-b5b5-4fbf-a07a-c120e8f7569d",
@@ -4232,8 +4256,8 @@
       "name": "Tabuk",
       "subtitle": "Ekspedisi terakhir Nabi",
       "description": "Perang Tabuk (9 H/630 M): Nabi SAW memimpin pasukan besar menghadapi ancaman Bizantium di perbatasan utara.",
-      "x": 44.3,
-      "y": 45.3,
+      "x": 56.32,
+      "y": 37.06,
       "t": 12,
       "meta": "",
       "body": "<h2><b>TENTANG TABUK</b></h2><p>Tabuk berada di perbatasan utara Hijaz, di jalur menuju Syam. Pada musim panas yang terik, kaum Muslimin berangkat ke sini menghadapi kabar pasukan Bizantium.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Pasukan Usrah</b>: Sekitar tiga puluh ribu pasukan berangkat dalam kondisi sulit. Utsman bin Affan membiayai sebagian besar perbekalan mereka.</p></li><li><p><b>Tanpa pertempuran</b>: Pasukan Bizantium tidak muncul. Nabi SAW membuat perjanjian dengan penguasa wilayah sekitar dan kembali ke Madinah.</p></li></ul>",
@@ -4247,8 +4271,10 @@
           "caption": "Bentang Alam Padang Pasir dan Mata Air Ain Tabuk Menjelang Ekspedisi Utara (9 H / 630 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 28.3835,
+      "lng": 36.5662
     },
     {
       "id": "e7bdad28-7a23-414c-af75-a0c4abf97411",
@@ -4256,8 +4282,8 @@
       "name": "Yamamah",
       "subtitle": "Medan Perang Riddah",
       "description": "Di pedalaman Najd ini pasukan Khalid bin Walid mengalahkan Musailamah al-Kadzdzab pada 12 H/633 M.",
-      "x": 62.2,
-      "y": 59.7,
+      "x": 59.38,
+      "y": 39.59,
       "t": 13,
       "meta": "",
       "body": "<h2><b>TENTANG YAMAMAH</b></h2><p>Yamamah adalah wilayah subur di tengah Najd, dihuni Bani Hanifah yang dipimpin Musailamah.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Perang Riddah</b>: Setelah Nabi SAW wafat, sejumlah kabilah murtad dan beberapa orang mengaku nabi. Abu Bakar mengirim pasukan untuk menumpas mereka.</p></li><li><p><b>Perang Yamamah</b>: Pasukan Khalid bin Walid mengalahkan Musailamah dalam pertempuran sengit. Banyak penghafal Al-Qur’an gugur di sini.</p></li><li><p><b>Pengumpulan Al-Qur’an</b>: Syahidnya para penghafal membuat Umar mengusulkan agar Al-Qur’an dikumpulkan, dan Abu Bakar menyetujuinya.</p></li></ul>",
@@ -4271,8 +4297,10 @@
           "caption": "Kawasan Oase Lembah Yamamah dan Dinding Kebun Hadiqat al-Mawt di Najd (11 H / 632 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 24.1167,
+      "lng": 47.3
     },
     {
       "id": "33c81e57-19d7-4025-816e-7d5e8df408d8",
@@ -4280,8 +4308,8 @@
       "name": "Makkah",
       "subtitle": "Kota kelahiran Nabi ﷺ",
       "description": "Pusat perdagangan dan keagamaan Jazirah Arab. Di sinilah Ka’bah berdiri, dijaga suku Quraisy, dan di sini Nabi Muhammad ﷺ lahir, tumbuh, dan kelak menerima risalah.",
-      "x": 50.1,
-      "y": 59.3,
+      "x": 57.25,
+      "y": 41.18,
       "t": 0,
       "meta": "Hijaz, Arab bagian barat",
       "body": "<p>Sejarah kota Makkah merupakan perjalanan panjang yang mencakup perkembangan spiritual, politik, dan sosial bangsa Arab sejak zaman pra-Islam hingga masa awal kejayaan Islam.</p><h3>1. Awal Mula Permukiman dan Suku Jurhum</h3><ul><li><p><b>Nenek Moyang dan Sumur Zamzam</b>: Sejarah Makkah bermula dari kisah keturunan Nabi Ismail AS dan bangsa Arab terdahulu. Ketika Nabi Ismail AS dan ibunya diletakkan di lembah Makkah, ditemukannya air Zamzam menarik perhatian suku-suku musafir.   </p></li><li><p><b>Kedatangan Jurhum dan Qathura'</b>: Kabilah Jurhum (di bawah pimpinan Mudhadh bin Amr) dan kabilah Qathura' (di bawah pimpinan As-Samaida') datang dari Yaman dan melihat wilayah yang kaya akan air serta pepohonan. Mereka memutuskan menetap dan membagi pengelolaan Makkah: Jurhum di Makkah Atas (Qu'aiqi'an) dan Qathura' di Makkah Bawah (Ajyad).   </p></li><li><p><b>Konflik Pertama di Makkah</b>: Persaingan kepemimpinan memicu pertempuran sengit di Fadhih antara Jurhum dan Qathura'. As-Samaida' tewas, dan akhirnya kepemimpinan serta pengelolaan Baitullah diserahkan sepenuhnya kepada Mudhadh bin Amr.   </p></li><li><p><b>Kehidupan Harmonis</b>: Anak-cucu Nabi Ismail AS hidup berdampingan dengan suku Jurhum yang merupakan kerabat dari garis ibu mereka.   </p></li></ul><h3>2. Masa Kezaliman Suku Jurhum dan Penguasaan Khuza'ah</h3><ul><li><p><b>Kezaliman Jurhum</b>: Seiring berjalannya waktu, suku Jurhum mulai berlaku zalim di Makkah, melanggar kehormatan tanah suci, dan memakan harta milik Ka'bah.   </p></li><li><p><b>Terusirnya Jurhum</b>: Suku Bani Bakr bin Abdu Manaf bin Kinanah dan suku Khuza'ah bersekutu memerangi dan mengusir suku Jurhum dari Makkah. Makkah pada masa itu dijuluki <i>Bakkah</i> atau <i>An-Nassah</i> karena menghancurkan tiran yang melanggar hukum di dalamnya.   </p></li><li><p><b>Penyimpangan Tauhid dan Penyembahan Berhala</b>: Amr bin Luhay dari suku Khuza'ah membawa berhala bernama Hubal ke Makkah dan memerintahkan penduduk untuk menyembahnya. Sejak saat itu, tradisi monoteisme ajaran Nabi Ibrahim AS dan Nabi Ismail AS mulai tercemar oleh penyembahan berhala, bid'ah, dan khurafat.   </p></li></ul><h3>3. Era Qushay bin Kilab dan Penyatuan Suku Quraisy</h3><ul><li><p><b>Penyatuan Quraisy</b>: Qushay bin Kilab, keturunan Nabi Ismail AS dari suku Quraisy, merasa bahwa Quraisy lebih berhak mengelola Ka'bah dibanding Khuza'ah. Dengan bantuan kerabatnya dari Qudha'ah, Qushay memenangkan pertempuran melawan Khuza'ah.   </p></li><li><p><b>Pemerintahan Pertama Quraisy</b>: Qushay menyatukan berbagai faksi suku Quraisy ke Makkah, sehingga ia dijuluki <i>Mujammi'</i> (pemersatu).   </p></li><li><p><b>Lembaga Kepemimpinan Makkah</b>: Qushay memegang seluruh kehormatan dan otoritas Makkah, yang meliputi:   </p><ul><li><p><i>Siqayah</i> (penyediaan air minum untuk jamaah haji).   </p></li><li><p><i>Rifadah</i> (pemberian makanan bagi jamaah haji).   </p></li><li><p><i>Hijabah</i> (penjagaan pintu Ka'bah).   </p></li><li><p><i>Daar An-Nadwah</i> (majelis musyawarah kepemimpinan).   </p></li><li><p><i>Liva'</i> (komando perang).   </p></li></ul></li></ul><h3>4. Makkah Menjelang Kelahiran Rasulullah SAW</h3><ul><li><p><b>Pemugaran Ka'bah dan Air Zamzam</b>: Setelah sumur Zamzam lama terimbun, Abdul Muthalib (kakek Nabi Muhammad SAW) menggali kembali sumur tersebut dan memasang hiasan emas pada pintu Ka'bah.   </p></li><li><p><b>Peristiwa Pasukan Gajah (Tahun Gajah / 571 M)</b>: Raja Abrahah dari Yaman memimpin pasukan gajah untuk menghancurkan Ka'bah. Allah SWT membinasakan pasukan tersebut, dan peristiwa ini menandai tahun lahirnya Nabi Muhammad SAW.   </p></li><li><p><b>Sosial-Masyarakat Jahiliyah</b>: Makkah menjadi pusat perdagangan dan keagamaan di Jazirah Arab. Namun, secara sosial ditandai oleh sistem kabilah yang ketat, fanatisme kesuku, serta perlakuan zalim terhadap wanita (seperti tradisi <i>wa'dul banat</i> atau mengubur bayi perempuan hidup-hidup).   </p></li></ul><h3>5. Masa Kerasulan dan Pembebasan Makkah (<i>Fathu Makkah</i>)</h3><ul><li><p><b>Awal Kenabian (610 M)</b>: Nabi Muhammad SAW menerima wahyu pertama di Gua Hira. Beliau memulai dakwah secara sembunyi-sembunyi (<i>sirriyah</i>) selama 3 tahun, sebelum akhirnya berdakwah secara terbuka.   </p></li><li><p><b>Penindasan dan Boikot</b>: Kaum Quraisy menolak ajaran tauhid dan melancarkan tekanan, penindasan, hingga pemboikotan total terhadap keluarga Nabi. Hal ini memicu terjadinya hijrah ke Habasyah dan akhirnya hijrah besar ke Madinah pada 622 M.   </p></li><li><p><b>Fathu Makkah (8 H / 630 M)</b>: Akibat pelanggaran Perjanjian Hudaibiyah oleh sekutu Quraisy (Bani Bakr terhadap suku Khuza'ah), Rasulullah SAW memimpin 10.000 pasukan Muslim menuju Makkah.   </p></li><li><p><b>Pembersihan Berhala dan Pengembalian Kesucian</b>: Kota Makkah dibebaskan tanpa pertumpahan darah masif. Rasulullah SAW menghancurkan seluruh berhala di sekitarnya, memperbaharui batas tanah haram, dan menegaskan kembali keharaman penumpahan darah, penebangan pohon, serta perburuan di tanah suci Makkah.   </p></li></ul><h3>Summary Timeline Ringkas</h3><p></p><table><thead><tr><td><strong>Periode / Era</strong></td><td><strong>Tokoh / Kabilah Utama</strong></td><td><strong>Peristiwa Penting</strong></td></tr></thead><tbody><tr><td><b>Awal Permukiman</b></td><td>Nabi Ismail AS, Suku Jurhum &amp; Qathura'</td><td><p>Penemuan air Zamzam; perang di Fadhih.   </p></td></tr><tr><td><b>Masa Penguasaan Khuza'ah</b></td><td>Amr bin Luhay</td><td><p>Terusirnya Jurhum; masuknya berhala Hubal ke Makkah.   </p></td></tr><tr><td><b>Masa Penyatuan Quraisy</b></td><td>Qushay bin Kilab, Abdul Muthalib</td><td><p>Qushay menyatukan Quraisy (<i>Mujammi'</i>); penggalian ulang Zamzam; serangan Abrahah.   </p></td></tr><tr><td><b>Masa Kerasulan (610–622 M)</b></td><td>Nabi Muhammad SAW</td><td><p>Turunnya wahyu di Gua Hira; boikot Quraisy; Hijrah ke Madinah.   </p></td></tr><tr><td><b>Fathu Makkah (630 M / 8 H)</b></td><td>Nabi Muhammad SAW &amp; Para Sahabat</td><td><p>Pembebasan Makkah; pembersihan berhala; penegakan kembali kesucian Makkah.</p></td></tr></tbody></table><br><p>Sejarah perkembangan kota Makkah dari era Kekhalifahan pasca-Khulafaur Rasyidin, masa Kesultanan Utsmani (Ottoman), hingga era modern Kerajaan Arab Saudi:</p><h3>1. Era Kekhalifahan Umayyah dan Abbasiyah (Abad ke-7 – 13 M)</h3><ul><li><p><b>Pergeseran Pusat Politik</b>: Setelah kepemimpinan Khulafaur Rasyidin berakhir dan dimulainya Dinasti Umayyah, pusat pemerintahan Islam dipindahkan ke Damaskus, dan kemudian ke Baghdad pada masa Dinasti Abbasiyah. Makkah tidak lagi menjadi ibu kota politik, melainkan mempertahankan posisinya sebagai <b>pusat keagamaan dan keilmuan spiritual dunia Islam</b>.</p></li><li><p><b>Konflik Internal Kekhalifahan</b>: Makkah sempat menjadi saksi pertempuran politik internal, seperti pengepungan Makkah pada masa Abdullah bin Az-Zubair melawan pasukan Umayyah (di bawah pimpinan Al-Hajjaj bin Yusuf).</p></li><li><p><b>Pembangunan Infrastruktur Haji</b>:</p><ul><li><p>Khalifah-khalifah Abbasiyah (seperti Harun Al-Rasyid dan istrinya, Zubaydah) membangun jalur jalan haji terkenal (<i>Darb Zubaida</i>) yang dilengkapi sumur dan sarana penampungan air dari Irak menuju Makkah.</p></li><li><p>Pemugaran dan perluasan Kompleks Masjidil Haram terus dilakukan untuk menampung gelombang jamaah haji dari seluruh penjuru dunia.</p></li></ul></li></ul><h3>2. Era Dinasti Mamluk dan Syarif Makkah (Abad ke-13 – 16 M)</h3><ul><li><p><b>Kepemimpinan Para Syarif (Keturunan Nabi)</b>: Pengelolaan harian kota Makkah dipegang oleh dinasti <b>Syarif Makkah</b> (keturunan Hasan bin Ali bin Abi Thalib) yang memimpin Makkah secara otonom dengan mendapat naungan dan perlindungan dari dinasti-dinasti penguasa regional.</p></li><li><p><b>Perlindungan Dinasti Mamluk</b>: Setelah Baghdad hancur akibat serangan Mongol (1258 M), Dinasti Mamluk yang berpusat di Kairo (Mesir) menjadi pelindung utama kawasan Hijaz (Makkah dan Madinah), menjamin suplai bahan pangan serta keamanan jalur haji.</p></li></ul><h3>3. Era Kesultanan Utsmani / Ottoman (1517 – 1916 M)</h3><ul><li><p><b>Integrasi ke Kesultanan Utsmani</b>: Setelah Sultan Selim I menaklukkan Kairo pada tahun 1517 M, penguasa Syarif Makkah secara sukarela menyerahkan kunci Ka'bah dan menyatakan ketundukan kepada Kesultanan Utsmani. Sultan-sultan Utsmani mengambil gelar <i>Khadimul Haramain Asy-Syarifain</i> (Pelayan Dua Kota Suci).</p></li><li><p><b>Pembangunan Arsitektur Klasik</b>:</p><ul><li><p><b>Kanopi dan Kubah Masjidil Haram</b>: Sultan Suleiman I (<i>Suleiman the Magnificent</i>) merenovasi total arsitektur Masjidil Haram dengan menambahkan atap bernuansa kubah dan pilar-pilar khas arsitektur Utsmani.</p></li><li><p><b>Sistem Drainase &amp; Bendungan</b>: Diperbaiki untuk melindungi Makkah dari ancaman banjir bandang tahunan.</p></li><li><p><b>Kereta Api Hijaz (<i>Hijaz Railway</i>)</b>: Di awal abad ke-20 (masa Sultan Abdul Hamid II), jaringan kereta api dibangun dari Damaskus menuju Hijaz untuk mempermudah serta mengamankan perjalanan haji.</p></li></ul></li></ul><h3>4. Perang Dunia I &amp; Berdirinya Kerajaan Arab Saudi (1916 – 1932 M)</h3><ul><li><p><b>Revolusi Arab (1916 M)</b>: Syarif Hussein bin Ali memimpin Pemberontakan Arab terhadap kekuasaan Utsmani dengan bantuan Inggris selama Perang Dunia I, yang mengakhiri 400 tahun kekuasaan Utsmani di Hijaz.</p></li><li><p><b>Penyatuan di Bawah Ibnu Saud (1924–1925 M)</b>: Abdul Aziz bin Abdul Rahman Al-Saud (Ibnu Saud) dari Najd berhasil menguasai wilayah Hijaz dan menduduki Makkah pada tahun 1924 M. Pada tahun 1932 M, seluruh kawasan digabungkan menjadi <b>Kerajaan Arab Saudi</b> (<i>Kingdom of Saudi Arabia</i>).</p></li></ul><h3>5. Era Modern dan Modernisasi Kota (Abad ke-20 – Sekarang)</h3><ul><li><p><b>Eksplorasi Minyak &amp; Gelombang Perluasan Massal</b>: Penemuan minyak bumi mengubah lanskap ekonomi Arab Saudi. Pendapatan negara dialokasikan secara besar-besaran untuk proyek perluasan Masjidil Haram secara bertahap (Perluasan Saudi Pertama hingga Ketiga).</p></li><li><p><b>Transformasi Infrastruktur dan Arsitektur</b>:</p><ul><li><p><b>Kompleks Abraj Al-Bait (Makkah Royal Clock Tower)</b>: Dibangun persis di depan Masjidil Haram sebagai simbol modernitas dan akomodasi jamaah haji/umrah.</p></li><li><p><b>Transportasi Modern</b>: Pembangunan Kereta Cepat Haramain (<i>Haramain High-Speed Railway</i>) yang menghubungkan Makkah, Jeddah, dan Madinah.</p></li><li><p><b>Sistem Manajemen Haji Digital</b>: Penerapan teknologi digital, infrastruktur pendingin udara skala besar, tata kelola sanitasi mutakhir, dan perluasan area Tawaf (<i>Mataf</i>) serta Sa'i untuk menampung jutaan jemaah secara aman.</p></li></ul></li></ul><h3>Ringkasan Lintasan Sejarah Makkah</h3><table><thead><tr><td><strong>Era / Periode</strong></td><td><strong>Penguasa / Dinasti Utama</strong></td><td><strong>Karakter &amp; Peristiwa Utama</strong></td></tr></thead><tbody><tr><td><b>Umayyah &amp; Abbasiyah</b> <i>(Abad 7–13 M)</i></td><td>Khalifah di Damaskus &amp; Baghdad</td><td>Makkah menjadi pusat spiritual/ilmu; pembangunan jalur haji <i>Darb Zubaida</i>.</td></tr><tr><td><b>Mamluk &amp; Syarif</b> <i>(Abad 13–16 M)</i></td><td>Syarif Makkah di bawah Mamluk Kairo</td><td>Otonomi lokal di bawah pengawasan Mamluk pasca-invasi Mongol.</td></tr><tr><td><b>Utsmani / Ottoman</b> <i>(1517–1916 M)</i></td><td>Kesultanan Utsmani (Turki)</td><td>Arsitektur kubah Utsmani; perlindungan pertahanan; proyek Kereta Api Hijaz.</td></tr><tr><td><b>Penyatuan Saudi</b> <i>(1924–1932 M)</i></td><td>King Abdul Aziz Al-Saud</td><td>Penggabungan Najd dan Hijaz menjadi Kerajaan Arab Saudi.</td></tr><tr><td><b>Era Modern</b> <i>(Sembilan Puluh–Kini)</i></td><td>Kerajaan Arab Saudi</td><td>Perluasan mega-struktur Masjidil Haram, Abraj Al-Bait, dan sistem transportasi cepat.</td></tr></tbody></table><p></p>",
@@ -4296,8 +4324,10 @@
           "caption": ""
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 21.4225,
+      "lng": 39.8262
     },
     {
       "id": "be4cc9aa-911e-42dc-af7b-2dce554bf1c2",
@@ -4305,8 +4335,8 @@
       "name": "Palestina",
       "subtitle": "Tanah Baitul Maqdis",
       "description": "Wilayah Baitul Maqdis, tempat Masjidil Aqsa, kiblat pertama kaum Muslimin sebelum dialihkan ke Ka’bah.",
-      "x": 42.8,
-      "y": 40.2,
+      "x": 55.93,
+      "y": 34.98,
       "t": 3,
       "meta": "Tanah Baitul Maqdis",
       "body": "<h2><b>TENTANG PALESTINA</b></h2><p>Palestina, dengan Baitul Maqdis di dalamnya, adalah tanah suci bagi tiga agama samawi dan pada saat itu berada di bawah kekuasaan Bizantium.</p><h3><b>PERAN DALAM SEJARAH</b></h3><ul><li><p><b>Kiblat pertama</b>: Kaum Muslimin awalnya menghadap Baitul Maqdis dalam shalat sebelum kiblat dialihkan ke Ka’bah.</p></li><li><p><b>Tujuan Isra’</b>: Nabi SAW diperjalankan ke Masjidil Aqsa dalam peristiwa Isra’ dan Mi’raj.</p></li></ul>",
@@ -4325,8 +4355,10 @@
           "caption": "Bentang alam perbukitan zaitun dan lembah subur bersejarah tanah Palestina (Abad ke-7 M) (Tampilan 2)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 31.9,
+      "lng": 35.2
     },
     {
       "id": "322dd974-edd5-4d76-a67a-805976177fce",
@@ -4334,8 +4366,8 @@
       "name": "Syam (Levant)",
       "subtitle": "Tujuan kafilah dagang Quraisy",
       "description": "Kafilah Quraisy berdagang ke Syam pada musim panas. Dalam salah satu perjalanan bersama Abu Thalib, Muhammad muda bertemu rahib Bahira di Bushra.",
-      "x": 48.9,
-      "y": 32.9,
+      "x": 56.3,
+      "y": 33.85,
       "t": 2,
       "meta": "Levant, wilayah Bizantium",
       "body": "<h2><b>TENTANG SYAM</b></h2><p>Syam (Levant) meliputi wilayah Suriah, Lebanon, Palestina, dan Yordania sekarang. Pada awal abad ke-7 wilayah ini berada di bawah kekuasaan Bizantium.</p><h3><b>PERAN DALAM SEJARAH</b></h3><ul><li><p><b>Jalur dagang musim panas</b>: Kafilah Quraisy berdagang ke Syam pada musim panas, kebiasaan yang disebut dalam Surah Quraisy.</p></li><li><p><b>Perjalanan Nabi muda</b>: Nabi SAW pernah ke Syam bersama Abu Thalib (bertemu Bahira) dan kemudian membawa dagangan Khadijah.</p></li><li><p><b>Kelak dibebaskan</b>: Wilayah ini dibebaskan pada masa Abu Bakar dan Umar bin Khattab.</p></li></ul>",
@@ -4349,8 +4381,10 @@
           "caption": "Bentang Alam Lembah Zaitun dan Jalur Niaga Kafilah Syam (Abad ke-7 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 33.8,
+      "lng": 36.5
     },
     {
       "id": "4e42818e-712e-4e4d-87bb-ef8fe10a077f",
@@ -4358,8 +4392,8 @@
       "name": "Yaman",
       "subtitle": "Wilayah kekuasaan Abrahah",
       "description": "Pada masa itu Yaman dikuasai Abrahah, wakil Kerajaan Habasyah (Aksum). Dari sinilah ia berangkat ke Makkah membawa pasukan bergajah.",
-      "x": 57.8,
-      "y": 83.4,
+      "x": 58.49,
+      "y": 44.76,
       "t": 5,
       "meta": "Wilayah kekuasaan Abrahah",
       "body": "<h2><b>TENTANG YAMAN</b></h2><p>Yaman di ujung selatan Jazirah dikenal dengan pegunungan yang subur, pelabuhan, dan peradaban tuanya seperti Saba dan Himyar. Sekitar 570 M wilayahnya dikuasai Abrahah, wakil Aksum.</p><h3><b>PERAN DALAM SEJARAH</b></h3><ul><li><p><b>Pangkalan Abrahah</b>: Abrahah memerintah dari Shan’a dan membangun gereja besar di sana.</p></li><li><p><b>Menuju Islam</b>: Pada tahun-tahun akhir kehidupan Nabi SAW, rombongan dari Yaman datang menemui beliau dan banyak yang masuk Islam.</p></li></ul>",
@@ -4373,8 +4407,10 @@
           "caption": "Kawasan pegunungan bertingkat dan lembah subur Yaman di selatan Semenanjung Arab (Abad ke-7 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 15.3694,
+      "lng": 44.191
     },
     {
       "id": "950998fe-139e-46da-8517-dce72d71f5f3",
@@ -4382,8 +4418,8 @@
       "name": "Gua Hira",
       "subtitle": "Jabal Nur, dekat Makkah",
       "description": "Gua tempat Nabi ﷺ berkhalwat. Di sinilah wahyu pertama turun pada 610 M.",
-      "x": 50.3,
-      "y": 54.8,
+      "x": 57.26,
+      "y": 41.16,
       "t": 7,
       "meta": "Jabal Nur, dekat Makkah",
       "body": "<h2><b>TENTANG GUA HIRA</b></h2><p>Gua Hira berada di Jabal Nur, tidak jauh dari Makkah. Gua kecil yang sunyi ini menjadi tempat Nabi SAW menyendiri.</p><h3><b>PERAN DALAM SEJARAH</b></h3><ul><li><p><b>Tempat berkhalwat</b>: Sebelum kenabian, Nabi SAW sering menyendiri beberapa hari di sini untuk beribadah dan merenung.</p></li><li><p><b>Wahyu pertama</b>: Pada bulan Ramadhan 610 M, Jibril menyampaikan wahyu pertama, Surah Al-‘Alaq: “Iqra’”.</p></li><li><p><b>Gua Tsur</b>: Gua lain, Gua Tsur di selatan Makkah, menjadi tempat persembunyian Nabi SAW dan Abu Bakar saat hijrah.</p></li></ul>",
@@ -4397,8 +4433,10 @@
           "caption": "Puncak Jabal Nur dan celah Gua Hira menghadap panorama lembah kota Makkah (610 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 21.4583,
+      "lng": 39.8583
     },
     {
       "id": "8dc52417-0005-4d8d-bc02-92faeeab5cb8",
@@ -4406,8 +4444,8 @@
       "name": "Konstantinopel",
       "subtitle": "Ibu kota Bizantium",
       "description": "Pusat Kekaisaran Bizantium, lawan terbesar di barat. Kota ini belum ditaklukkan pada masa Khulafaur Rasyidin.",
-      "x": 34.8,
-      "y": 7.8,
+      "x": 54.16,
+      "y": 29.58,
       "t": 18,
       "meta": "",
       "body": "<h2><b>TENTANG KONSTANTINOPEL</b></h2><p>Konstantinopel adalah ibu kota Kekaisaran Romawi Timur (Bizantium) dan pusat kekuatan yang berhadapan dengan negara Islam di Syam dan Mesir.</p><h3><b>CATATAN SEJARAH</b></h3><ul><li><p><b>Bukan target penaklukan masa ini</b>: Pada masa Khulafaur Rasyidin, kaum Muslimin mengambil wilayah Syam dan Mesir dari Bizantium, tetapi tidak menyerbu ibu kotanya.</p></li><li><p><b>Kabar kelak</b>: Dalam sebuah hadits, Nabi SAW mengabarkan bahwa kota ini akan ditaklukkan. Penaklukan itu baru terjadi pada 1453 M oleh Sultan Muhammad al-Fatih.</p></li></ul>",
@@ -4421,8 +4459,10 @@
           "caption": "Penaklukan Sultan Muhammad Al Fatih"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 41.0082,
+      "lng": 28.9784
     },
     {
       "id": "1da9f1ba-9a34-42a5-a759-683c32da66b3",
@@ -4430,8 +4470,8 @@
       "name": "Baitul Maqdis",
       "subtitle": "Yerusalem, kiblat pertama",
       "description": "Diserahkan kepada Umar bin Khattab sekitar 16 H/637 M melalui perjanjian yang menjamin keamanan penduduknya.",
-      "x": 42,
-      "y": 34,
+      "x": 55.94,
+      "y": 35.05,
       "t": 16,
       "meta": "",
       "body": "<h2><b>TENTANG BAITUL MAQDIS</b></h2><p>Baitul Maqdis (Yerusalem) adalah kota suci dengan Masjidil Aqsa, kiblat pertama kaum Muslimin, dan tempat Isra’ Nabi SAW.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Penyerahan kota</b>: Setelah pengepungan oleh pasukan Abu Ubaidah, penduduk kota menyerahkan kota kepada Umar bin Khattab yang datang langsung.</p></li><li><p><b>Perjanjian Umariyah</b>: Umar memberi jaminan keamanan jiwa, harta, dan tempat ibadah penduduk, dan tidak ada gereja yang diubah fungsinya.</p></li></ul>",
@@ -4445,8 +4485,10 @@
           "caption": "Pemandangan kota suci Baitul Maqdis dan dinding batu kuno dari arah Bukit Zaitun (16 H / 637 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 31.7767,
+      "lng": 35.2345
     },
     {
       "id": "e95e1639-d971-415d-96b4-e7dfe230e1fa",
@@ -4454,8 +4496,8 @@
       "name": "Thaif",
       "subtitle": "Lembah sejuk pegunungan di tenggara Makkah",
       "description": "Kota pegunungan berhawa sejuk di dataran tinggi Sarawat yang subur dengan kebun anggur dan delima. Tempat Rasulullah ﷺ mencari suaka dakwah pada Tahun Kesedihan ('Amul Huzni).",
-      "x": 51.5,
-      "y": 61,
+      "x": 57.42,
+      "y": 41.27,
       "t": 2,
       "meta": "Pegunungan Sarawat, Hijaz Tenggara",
       "body": "<h2><b>TENTANG THAIF</b></h2><p>Thaif adalah kota dataran tinggi berhawa sejuk di Pegunungan Sarawat, sekitar 85 kilometer di tenggara Makkah. Dikelilingi lembah subur, perkebunan anggur bertingkat, dan pepohonan delima, kawasan ini sejak masa Jahiliyah menjadi tempat peristirahatan musim panas bagi bangsawan Quraisy dan pusat kabilah Bani Tsaqif.</p><h3><b>PERISTIWA SEJARAH</b></h3><ul><li><p><b>Perjalanan Dakwah Tahun 619 M</b>: Setelah wafatnya Abu Thalib dan Sayyidah Khadijah pada Tahun Kesedihan ('Amul Huzni), penindasan Quraisy di Makkah semakin keras. Rasulullah Shallallahu 'Alaihi Wasallam berjalan kaki menempuh puluhan kilometer melintasi pegunungan terjal menuju Thaif bersama Sayyidina Zaid bin Haritsah untuk mengajak para pembesar kabilah Tsaqif beriman dan memohon suaka dakwah.</p></li><li><p><b>Penolakan dan Pengorbanan Sayyidina Zaid bin Haritsah</b>: Para pembesar Bani Tsaqif menolak dakwah dengan kasar dan menghasut orang-orang bodoh serta budak untuk melempari beliau dengan batu di sepanjang jalan keluar kota. Sayyidina Zaid bin Haritsah berulang kali memasang tubuhnya sebagai perisai hidup melindungi Baginda Nabi hingga kepalanya terluka parah dan kedua kaki Rasulullah mengalirkan darah.</p></li><li><p><b>Perlindungan di Kebun Anggur dan Keislaman Addas</b>: Dengan tubuh lelah dan terluka, Rasulullah Shallallahu 'Alaihi Wasallam dan Zaid berlindung di sebuah kebun anggur milik Utbah dan Syaibah bin Rabi'ah. Di sanalah beliau memanjatkan doa munajat kepasrahan yang masyhur. Addas, seorang pelayan Nasrani asal Ninawa, tergerak saat mendengar beliau mengucap Bismillah dan menyebut nama Nabi Yunus bin Matta, lalu memeluk Islam dan mencium tangan serta kaki beliau.</p></li><li><p><b>Doa Kasih Sayang Menolak Azab</b>: Malaikat Penjaga Gunung menemui Rasulullah Shallallahu 'Alaihi Wasallam dan menawarkan untuk menimpakan dua gunung besar ke atas penduduk Thaif. Namun Baginda Nabi menolak tawaran tersebut dengan penuh kasih sayang, seraya mendoakan agar kelak dari keturunan mereka lahir generasi yang beriman kepada Allah semata.</p></li></ul>",
@@ -4469,10 +4511,12 @@
           "caption": "Lembah perkebunan anggur Thaif dan dinding benteng suku Tsaqif di perbukitan Hijaz (630 M)"
         }
       ],
-      "map": "arab",
+      "map": "world",
       "countries": [
         "SA"
-      ]
+      ],
+      "lat": 21.2703,
+      "lng": 40.4158
     },
     {
       "id": "1c3ea15f-2fe3-416f-aa50-c12660f79812",
@@ -4480,8 +4524,8 @@
       "name": "Makkah",
       "subtitle": "Kota Ka’bah, kota suci",
       "description": "Dibebaskan nyaris tanpa pertempuran pada Fathu Makkah (8 H/630 M), Makkah tetap menjadi pusat ibadah haji sepanjang masa para khalifah.",
-      "x": 49.7,
-      "y": 68.7,
+      "x": 57.25,
+      "y": 41.18,
       "t": 8,
       "meta": "",
       "body": "<h3><b>MAKKAH DI MASA NABI DAN KHALIFAH</b></h3><p>Setelah dakwah selama sekitar 13 tahun di Makkah, Nabi SAW berhijrah ke Madinah. Kota ini kembali dalam pelukan kaum Muslimin pada Fathu Makkah.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Perjanjian Hudaibiyah</b>: Pada 6 H, Nabi SAW dan sekitar seribu empat ratus sahabat menuju Makkah untuk umrah tetapi dihadang di Hudaibiyah, sebelah barat Makkah. Disepakati gencatan senjata selama sekitar sepuluh tahun.</p></li><li><p><b>Fathu Makkah</b>: Pelanggaran perjanjian oleh sekutu Quraisy memicu keberangkatan pasukan besar pada Ramadhan 8 H. Nabi SAW memberi pengampunan umum dan menghancurkan berhala-berhala di sekitar Ka’bah.</p></li><li><p><b>Masa khalifah</b>: Umar dan Utsman memperluas Masjidil Haram untuk menampung jamaah haji yang terus bertambah.</p></li></ul>",
@@ -4495,8 +4539,10 @@
           "caption": "Lembah Makkah dan Kawasan Ka'bah Menjelang Peristiwa Pembebasan Makkah (8 H / 630 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 21.4225,
+      "lng": 39.8262
     },
     {
       "id": "b60d811f-d497-439f-83a4-8be2422a1fc9",
@@ -4504,8 +4550,8 @@
       "name": "Badar",
       "subtitle": "Lembah pertempuran pertama",
       "description": "Perang Badar (17 Ramadhan 2 H/624 M): sekitar tiga ratus pasukan Muslim mengalahkan pasukan Quraisy yang jauh lebih besar.",
-      "x": 48,
-      "y": 60.7,
+      "x": 56.95,
+      "y": 39.78,
       "t": 10,
       "meta": "",
       "body": "<h2><b>TENTANG BADAR</b></h2><p>Badar adalah lembah dengan sumur-sumur air di jalur kafilah dagang antara Makkah dan Syam, tidak jauh dari Madinah.</p><h3><b>PERISTIWA PERANG BADAR</b></h3><ul><li><p><b>Latar belakang</b>: Kaum Muslimin keluar untuk menghadang kafilah Abu Sufyan. Kafilah itu lolos, tetapi pasukan Quraisy yang dipimpin Abu Jahal tetap maju.</p></li><li><p><b>Jalannya perang</b>: Sekitar tiga ratus pasukan Muslim menghadapi sekitar seribu pasukan Quraisy. Kaum Muslimin menang, dan sejumlah tokoh Quraisy tewas, termasuk Abu Jahal.</p></li><li><p><b>Makna</b>: Perang ini disebut Al-Qur’an sebagai Yaumul Furqan, hari pembeda antara yang hak dan batil.</p></li></ul>",
@@ -4519,8 +4565,10 @@
           "caption": "Panorama Lembah Badar dengan sumur-sumur batu kuno di tepi barat bukit pasir (2 H / 624 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 23.7833,
+      "lng": 38.7833
     },
     {
       "id": "d4aca037-f748-4934-9fd2-ed24ccf9b55d",
@@ -4528,8 +4576,8 @@
       "name": "Yarmuk",
       "subtitle": "Pertempuran penentu Syam",
       "description": "Perang Yarmuk (15 H/636 M): kemenangan kaum Muslimin atas Bizantium yang membuka seluruh Syam.",
-      "x": 43.2,
-      "y": 30.7,
+      "x": 56.12,
+      "y": 34.5,
       "t": 15,
       "meta": "",
       "body": "<h2><b>TENTANG YARMUK</b></h2><p>Yarmuk adalah lembah sungai di perbatasan Suriah dan Yordania sekarang, tempat dua pasukan besar bertemu selama beberapa hari.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Strategi Khalid bin Walid</b>: Khalid menata pasukan Muslim dalam satuan-satuan kecil dan menggunakan pasukan berkuda yang gesit untuk menekan sayap Bizantium.</p></li><li><p><b>Hasil</b>: Pasukan Bizantium kalah telak, dan kemenangan ini mengakhiri kekuasaan mereka di Syam.</p></li></ul>",
@@ -4543,8 +4591,10 @@
           "caption": "Tebing batu kapur terjal dan ngarai Sungai Yarmuk di perbatasan Syam (15 H / 636 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 32.709,
+      "lng": 35.867
     },
     {
       "id": "b87d77b8-d942-4708-a856-e336720f9b66",
@@ -4552,8 +4602,8 @@
       "name": "Khaibar",
       "subtitle": "Oasis benteng kaum Yahudi",
       "description": "Oasis subur dengan benteng-benteng kaum Yahudi di utara Madinah, direbut pada 7 H/628 M.",
-      "x": 48.8,
-      "y": 54.3,
+      "x": 57.1,
+      "y": 38.65,
       "t": 11,
       "meta": "",
       "body": "<h2><b>TENTANG KHAIBAR</b></h2><p>Khaibar adalah oasis di utara Madinah yang dikelilingi benteng-benteng kuat, dihuni kelompok Yahudi yang bersekutu melawan kaum Muslimin.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Penaklukan pada 7 H</b>: Setelah Hudaibiyah, Nabi SAW memimpin pasukan menuju Khaibar dan merebut bentengnya satu per satu.</p></li><li><p><b>Peran Ali</b>: Menurut riwayat, Ali bin Abi Thalib diberi bendera pasukan dan menaklukkan benteng terakhir yang paling sulit.</p></li><li><p><b>Perjanjian pengelolaan kebun</b>: Penduduknya diizinkan tetap menggarap kebun kurma dengan pembagian hasil kepada kaum Muslimin.</p></li></ul>",
@@ -4567,8 +4617,10 @@
           "caption": "Benteng batu basal hitam Al-Qamus di puncak bukit oasis lembah Khaibar (7 H / 628 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 25.6983,
+      "lng": 39.2964
     },
     {
       "id": "b4a805d5-fe44-4d06-9a42-b70225f91945",
@@ -4576,8 +4628,8 @@
       "name": "Habasyah (Aksum)",
       "subtitle": "Tujuan hijrah pertama",
       "description": "Kerajaan Kristen di tanah Ethiopia sekarang. Raja Najasyi melindungi kaum Muslimin yang berhijrah ke sini sekitar 615 M.",
-      "x": 47.8,
-      "y": 93,
+      "x": 56.93,
+      "y": 45.5,
       "t": 27,
       "meta": "",
       "body": "<h2><b>TENTANG HABASYAH</b></h2><p>Habasyah (Kerajaan Aksum) adalah kerajaan Kristen di Tanduk Afrika dengan hubungan dagang erat dengan Jazirah Arab.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Hijrah ke Habasyah</b>: Nabi SAW menyarankan sahabat berhijrah ke negeri yang rajanya tidak menzalimi. Ja’far bin Abi Thalib berbicara di hadapan Najasyi tentang ajaran Islam.</p></li><li><p><b>Perlindungan Najasyi</b>: Najasyi menolak permintaan Quraisy agar menyerahkan para pengungsi.</p></li></ul>",
@@ -4591,8 +4643,10 @@
           "caption": "Dataran Tinggi Pegunungan Aksum dan Obelisk Granit Kuno Tempat Suaka Kaum Muhajirin (615 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 14.12,
+      "lng": 38.72
     },
     {
       "id": "93242f95-3d9c-43cd-b01c-028113d1834a",
@@ -4600,8 +4654,8 @@
       "name": "Yatsrib (Madinah)",
       "subtitle": "Oasis di utara Makkah",
       "description": "Oasis subur yang dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi. Nabi ﷺ singgah di sini semasa kecil bersama ibunya; sekitar 622 M kota ini menjadi tujuan hijrah dan dikenal sebagai Madinah.",
-      "x": 47.4,
-      "y": 43,
+      "x": 57.19,
+      "y": 39.38,
       "t": 1,
       "meta": "Hijaz utara",
       "body": "<h2><b>TENTANG YATSRIB</b></h2><p>Yatsrib adalah oasis subur dengan kebun kurma dan sumber air, dihuni suku Aus dan Khazraj serta beberapa kelompok Yahudi seperti Bani Nadhir, Qainuqa’, dan Quraizhah. Kedua suku Arab itu sering berselisih.</p><h3><b>PERAN DALAM SEJARAH</b></h3><ul><li><p><b>Hubungan dengan Nabi</b>: Aminah membawa Muhammad kecil mengunjungi keluarga Bani Najjar di sini. Ia wafat dalam perjalanan pulang di Abwa’.</p></li><li><p><b>Tujuan hijrah</b>: Setelah Baiat Aqabah, kaum Anshar mengundang Nabi SAW. Pada 622 M beliau berhijrah ke sini, dan kota ini dikenal sebagai Madinah.</p></li></ul>",
@@ -4615,8 +4669,10 @@
           "caption": "Kawasan oase kurma Yatsrib dan perbukitan Harrah menjelang peristiwa Hijrah Nabi SAW (622 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 24.4672,
+      "lng": 39.6111
     },
     {
       "id": "1bb046a6-ce02-405e-8145-b05b82650c89",
@@ -4624,8 +4680,8 @@
       "name": "Hims",
       "subtitle": "Kota di Syam utara",
       "description": "Kota Syam yang ditaklukkan setelah Yarmuk. Khalid bin Walid wafat dan dimakamkan di sini.",
-      "x": 44.4,
-      "y": 24.1,
+      "x": 56.36,
+      "y": 33.3,
       "t": 17,
       "meta": "",
       "body": "<h2><b>TENTANG HIMS</b></h2><p>Hims adalah kota strategis di jalur antara Damaskus dan Antiokhia yang direbut kaum Muslimin pada masa Umar.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Wafatnya Khalid</b>: Khalid bin Walid tinggal di sini setelah dicopot dari jabatan panglima dan wafat sekitar 21 H.</p></li></ul>",
@@ -4639,8 +4695,10 @@
           "caption": "Benteng Kuno Emesa dan Lembah Subur Hims di Jalur Strategis Suriah Tengah (15 H / 636 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 34.7324,
+      "lng": 36.7136
     },
     {
       "id": "ab0e57fb-91c1-4b8f-81d3-bb38815efda3",
@@ -4648,8 +4706,8 @@
       "name": "Merv",
       "subtitle": "Ujung timur penaklukan",
       "description": "Raja terakhir Persia, Yazdegerd III, tewas dekat Merv sekitar 31 H/651 M, mengakhiri Kekaisaran Sasaniyah.",
-      "x": 85.3,
-      "y": 16.6,
+      "x": 63.62,
+      "y": 31.57,
       "t": 26,
       "meta": "",
       "body": "<h2><b>TENTANG MERV</b></h2><p>Merv adalah kota oasis di Asia Tengah dan salah satu pusat Persia di timur.</p><h3><b>PERISTIWA PENTING</b></h3><ul><li><p><b>Berakhirnya Sasaniyah</b>: Yazdegerd III melarikan diri ke timur dan tewas sekitar 651 M. Penaklukan Persia pada masa Utsman ini menjadi puncak perluasan Khulafaur Rasyidin ke timur.</p></li></ul>",
@@ -4663,8 +4721,10 @@
           "caption": "Benteng Tanah Liat Kuno dan Oase Merv di Khurasan Lintasan Jalur Sutra (31 H / 651 M)"
         }
       ],
-      "map": "khilafah",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 37.6611,
+      "lng": 62.1906
     },
     {
       "id": "3125b47c-dd46-4e34-a59a-15b36ba26105",
@@ -4672,8 +4732,8 @@
       "name": "Laut Merah",
       "subtitle": "",
       "description": "Laut ini muncul karena pemisahan Jazirah Arab dari benua Afrika yang dimulai sekitar 30 juta tahun yang lalu dan masih berlanjut sampai sekarang. Suhu permukaan laut selalu konstan sekitar 31-35°C dengan jarak penglihatan 200 m. Namun, sering terjadi angin kencang dan arus lokal yang membingungkan.",
-      "x": 47.4,
-      "y": 68.1,
+      "x": 56.87,
+      "y": 42.02,
       "t": 1793479369171,
       "meta": "",
       "body": "<p>Laut Merah (bahasa Arab: البحر الأحمر al-Bahr al-Ahmar — pada Abad Pertengahan disebut بحر القلزم Bahr al-Qulzum; bahasa Ibrani: ים סוף‎ Yam Suf; bahasa Tigrinya: ቀይሕ ባሕሪ? QeyH baHri) atau Laut Teberau adalah sebuah teluk besar di sebelah barat Jazirah Arab yang memisahkan benua Asia dengan Afrika. Jalur ke laut di selatan melewati Babul Mandib dan Teluk Aden sedangkan di utara terdapat Semenanjung Sinai, Teluk Suez dan Teluk Aqaba. Laut ini di tempat yang terlebar berjarak 300 km dan panjangnya 1.900 km dengan titik terdalam 2.500 m. Laut Merah juga menjadi habitat bagi berbagai makhluk air dan koral.</p><p>Walaupun sering dikaitkan dengan berbagai cerita pada masa lampau, tetapi sampai abad ke-20, orang Eropa menyebutnya \"Teluk Arab\", sedangkan Herodotus dan Ptolemeus menyebutnya \"Arabicus Sinus\". Air Laut Merah sendiri sebenarnya tidak beda dengan air laut yang lain.</p><p>Penjelasan-penjelasan ilmiah menyebutkan bahwa warna merah di permukaan muncul akibat Trichodesmium erythraeum yang berkembang. Ada juga yang menjelaskan bahwa namanya berasal dari gunung yang kaya mineral di sekitarnya dan berwarna merah.</p>",
@@ -4687,8 +4747,10 @@
           "caption": "Pesisir perairan Laut Merah rute pelayaran niaga dan penyeberangan hijrah ke Habasyah (Abad ke-7 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 20.0,
+      "lng": 38.5
     },
     {
       "id": "f5ed4f88-b76d-421f-9da3-33cad27e5705",
@@ -4696,8 +4758,8 @@
       "name": "Persia",
       "subtitle": "",
       "description": "Persia adalah nama historis untuk wilayah dan peradaban yang kini dikenal sebagai Iran, serta merujuk pada kelompok etnis utama yang mendiami negara tersebut.\nAsal-Usul Nama: Kata \"Persia\" berasal dari bahasa Yunani Kuno Persis, yang merujuk pada wilayah kuno Parsa atau Fars di bagian barat daya Iran (tempat lahirnya Kekaisaran Akhemeniyah)",
-      "x": 79.5,
-      "y": 36.3,
+      "x": 61.2,
+      "y": 34.66,
       "t": 1793484100988,
       "meta": "",
       "body": "<p>Kekaisaran Persia</p><p>Rangkaian dinasti monarki yang berpusat di Iran pernah menjadi salah satu kekaisaran terbesar di dunia kuno:</p><p>• Dinasti Akhemeniyah (550–330 SM): Didirikan oleh Koresh Agung, dikenal karena toleransi, pelarangan perbudakan awal (Silinder Koresh), serta pembangunan Jalan Kerajaan dan Persepolis oleh Darius Agung.</p><p>• Dinasti Lainnya: Meliputi Kekaisaran Parthia dan Kekaisaran Sasanian (224–651 M) yang sering bersaing dengan Kekaisaran Romawi/Bizantium.</p><p>• Masuknya Islam: Wilayah Persia ditaklukkan oleh kekuatan Muslim pada abad ke-7 (masa Kekhalifahan Umar bin Khattab), yang kemudian melahirkan masa keemasan Islam dengan kontribusi besar dari para ilmuwan dan ulama asal Persia (seperti Ibnu Sina, Al-Khawarizmi, dan Imam Al-Ghazali).</p>",
@@ -4711,8 +4773,10 @@
           "caption": "Dataran tinggi dan lanskap kekuasaan Kekaisaran Persia Sasaniyah (Abad ke-7 M)"
         }
       ],
-      "map": "arab",
-      "countries": []
+      "map": "world",
+      "countries": [],
+      "lat": 32.4279,
+      "lng": 53.688
     }
   ],
   "shorts": [
