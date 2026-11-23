@@ -3802,16 +3802,11 @@ Kaidah Ketat:
 
 
 
-    const modelsToTry = [
-
-      "gemini-3.5-flash-lite",
-
-      "gemini-3.8-flash",
-
-      "gemini-flash-latest",
-
-      "gemini-3.5-flash"
-
+    const modelsToTry = [
+      (window.ALFA_CFG && window.ALFA_CFG.geminiModel) || "gemini-3.5-flash",
+      "gemini-3.5-flash",
+      "gemini-flash-lite-latest",
+      "gemini-3.8-flash"
     ];
 
 

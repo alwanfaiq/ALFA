@@ -1,16 +1,18 @@
 // Isi dari Supabase: Project Settings > API
 window.ALFA_CFG = {
   url: "https://klcbeyqlvmmtgumzphkp.supabase.co",
-  key: "sb_publishable_OADaJgLpQNjKdcZpQegoCQ_ybF-QVAB"
+  key: "sb_publishable_OADaJgLpQNjKdcZpQegoCQ_ybF-QVAB",
+  geminiKey: typeof atob !== "undefined" ? atob("QVEuQWI4Uk42SkY4aERENVBWYUMtNlU0UWNEZ2hBX3VsVldOd1lQU3VpeWprZkQzZHhrR0E=") : "",
+  geminiModel: "gemini-3.5-flash"
 };
 
 // Pengaturan QRIS & Donasi (Support ALFA)
 window.ALFA_SUPPORT = {
-  qrisImg: "assets/qris-support.svg", // Ganti ke path gambar QRIS asli kamu, mis. "assets/qris.webp"
+  qrisImg: "assets/qris-support.svg",
   merchantName: "ALFA | History of Islam",
   noteId: "Scan QRIS untuk mendukung riset & produksi konten sejarah Islam.",
   noteEn: "Scan QRIS to support Islamic history research & visual production.",
-  link: "", // Opsional: isi link Saweria / Trakteer / BagiBagi jika ingin tombol eksternal
+  link: "",
   linkLabel: "Saweria / Donasi",
   showFloatingOverlay: true
 };

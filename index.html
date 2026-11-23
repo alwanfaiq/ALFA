@@ -1728,7 +1728,7 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
         </button>
       </div>
     </div>
-    <a class="yt" id="yt" href="https://www.youtube.com/@alfa-history" target="_blank" rel="noopener" aria-label="YouTube"> href="https://www.youtube.com/@alfa-history" target="_blank" rel="noopener" aria-label="YouTube">
+    <a class="yt" id="yt" href="https://www.youtube.com/@alfa-history" target="_blank" rel="noopener" aria-label="YouTube">
 
       <svg width="24" height="18" viewBox="0 0 24 18"><rect width="24" height="18" rx="5" fill="#fff"/><path d="M10 5l6 4-6 4z" fill="#c00"/></svg>
 
@@ -2416,31 +2416,7 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 
     <div class="search-results-area" id="searchResultsArea">
 
-      <div id="searchAiConfigBox" class="search-ai-config" hidden>
-
-        <div class="ai-config-head">
-
-          <span class="ai-config-title">✦ Konfigurasi Gemini AI (Asisten Sejarah)</span>
-
-          <button type="button" id="searchAiConfigClose" class="ai-close-mini">✕</button>
-
-        </div>
-
-        <p class="ai-config-desc">Kunci API disimpan privat di <code>localStorage</code> peramban Anda. Tidak pernah diunggah ke server.</p>
-
-        <div class="ai-config-inputs">
-
-          <input type="password" id="geminiApiKeyInput" placeholder="Masukkan GEMINI_API_KEY...">
-
-          <button type="button" id="saveGeminiKeyBtn" class="ai-btn-primary">Simpan</button>
-
-          <button type="button" id="clearGeminiKeyBtn" class="ai-btn-secondary">Hapus</button>
-
-        </div>
-
-        <div id="aiConfigStatus" class="ai-config-status"></div>
-
-      </div>
+      
 
       <div class="search-hint-box" id="searchHintBox">
 
@@ -5234,152 +5210,15 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
 
 
-  // --- AI Gemini State & Handlers ---
-
-  const searchAiToggleBtn = document.getElementById("searchAiToggleBtn");
-
-  const searchAiDot = document.getElementById("searchAiDot");
-
-  const searchAiConfigBox = document.getElementById("searchAiConfigBox");
-
-  const searchAiConfigClose = document.getElementById("searchAiConfigClose");
-
-  const geminiApiKeyInput = document.getElementById("geminiApiKeyInput");
-
-  const saveGeminiKeyBtn = document.getElementById("saveGeminiKeyBtn");
-
-  const clearGeminiKeyBtn = document.getElementById("clearGeminiKeyBtn");
-
-  const aiConfigStatus = document.getElementById("aiConfigStatus");
-
-  const searchAiInsightBox = document.getElementById("searchAiInsightBox");
-
-
-
-  function getStoredGeminiKey(){
-
-    try{
-
-      return (window.ALFA_CFG && window.ALFA_CFG.geminiKey) || localStorage.getItem("alfa_gemini_key") || "";
-
-    }catch(e){ return ""; }
-
-  }
-
-
-
-  function updateAiStatusUI(){
-
-    const k = getStoredGeminiKey();
-
-    if(searchAiDot){
-
-      if(k) searchAiDot.classList.add("connected");
-
-      else searchAiDot.classList.remove("connected");
-
-    }
-
-    if(searchAiToggleBtn){
-
-      if(k) searchAiToggleBtn.classList.add("active");
-
-      else searchAiToggleBtn.classList.remove("active");
-
-    }
-
-  }
-
-  updateAiStatusUI();
-
-
-
-  if(searchAiToggleBtn && searchAiConfigBox){
-
-    searchAiToggleBtn.onclick = () => {
-
-      const isHidden = searchAiConfigBox.hidden;
-
-      searchAiConfigBox.hidden = !isHidden;
-
-      if(!searchAiConfigBox.hidden && geminiApiKeyInput){
-
-        geminiApiKeyInput.value = getStoredGeminiKey();
-
-        geminiApiKeyInput.focus();
-
-      }
-
-    };
-
-  }
-
-  if(searchAiConfigClose && searchAiConfigBox){
-
-    searchAiConfigClose.onclick = () => { searchAiConfigBox.hidden = true; };
-
-  }
-
-  if(saveGeminiKeyBtn && geminiApiKeyInput){
-
-    saveGeminiKeyBtn.onclick = () => {
-
-      const val = geminiApiKeyInput.value.trim();
-
-      if(!val){
-
-        if(aiConfigStatus) aiConfigStatus.textContent = "Kunci API tidak boleh kosong.";
-
-        return;
-
-      }
-
-      try{
-
-        localStorage.setItem("alfa_gemini_key", val);
-
-        if(window.ALFA_CFG) window.ALFA_CFG.geminiKey = val;
-
-        updateAiStatusUI();
-
-        if(aiConfigStatus) aiConfigStatus.textContent = "Kunci API berhasil disimpan di peramban!";
-
-        setTimeout(() => { if(searchAiConfigBox) searchAiConfigBox.hidden = true; }, 1200);
-
-      }catch(e){
-
-        if(aiConfigStatus) aiConfigStatus.textContent = "Gagal menyimpan di localStorage.";
-
-      }
-
-    };
-
-  }
-
-  if(clearGeminiKeyBtn){
-
-    clearGeminiKeyBtn.onclick = () => {
-
-      try{
-
-        localStorage.removeItem("alfa_gemini_key");
-
-        if(window.ALFA_CFG) delete window.ALFA_CFG.geminiKey;
-
-        if(geminiApiKeyInput) geminiApiKeyInput.value = "";
-
-        updateAiStatusUI();
-
-        if(aiConfigStatus) aiConfigStatus.textContent = "Kunci API dihapus.";
-
-      }catch(e){}
-
-    };
-
-  }
-
-
-
+  // --- AI Gemini Helper ---
+  const searchAiInsightBox = document.getElementById("searchAiInsightBox");
+
+  function getStoredGeminiKey(){
+    try{
+      return (window.ALFA_CFG && window.ALFA_CFG.geminiKey) || localStorage.getItem("alfa_gemini_key") || "";
+    }catch(e){ return ""; }
+  }
+
   let aiDebounceTimer = null;
 
 

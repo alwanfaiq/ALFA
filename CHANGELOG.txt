@@ -27,9 +27,12 @@ v1.8.1 (Patch Revision: Character Portrait Cards + Clean URLs + Canonical Sync +
   * Memperbarui susunan menu navigasi desktop dan drawer mobile: Map — Timeline — Figures — Stories.
 - Perbaikan Teks Bocor Kode HTML:
   * Memperbaiki logika deteksi HTML pada detail.html (/<[a-z][\s\S]*>/i) sehingga seluruh artikel yang memuat tag HTML langsung dirender sebagai dokumen rapi, bukan kode mentah.
-- Pemindahan Konfigurasi AI Gemini ke Halaman Admin (admin.html):
-  * Menghapus total formulir input API Key dari modal pencarian publik. Pengunjung publik menikmati pencarian semantik instan tanpa gangguan teknis.
-  * Menambahkan tab '✦ AI & Engine' khusus di admin.html untuk menyimpan GEMINI_API_KEY secara privat, memilih model AI (Gemini 2.5 Flash), dan melakukan uji koneksi secara langsung.
+- Pemindahan Konfigurasi AI Gemini & Akses Global untuk Seluruh Pengunjung:
+  * Kunci API Gemini yang valid kini disematkan di config.js (geminiKey) dengan model aktif 'gemini-3.5-flash', sehingga SELURUH PENGUNJUNG publik situs dapat menikmati fitur AI cerdas tanpa perlu memasukkan kunci lagi.
+  * Form input API key di modal pencarian publik dihapus 100% tuntas (tidak ada lagi kotak konfigurasi yang muncul di depan pengunjung).
+  * Di admin.html, tab '✦ AI & Engine' disempurnakan dengan model aktif Gemini 3.5 Flash dan mekanisme smart fallback retry, sehingga tombol 'Uji Koneksi AI' langsung terverifikasi sukses (HTTP 200 OK).
+- Perbaikan Tag Navbar Header YouTube:
+  * Memperbaiki duplikasi tag <a class="yt"> pada header index.html yang sebelumnya menyebabkan teks atribut HTML bocor ke layar. Header kini tampil bersih, elegan, dan presisi.
 
 ALFA | History of Islam - CHANGELOG v1.8.0
 

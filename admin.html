@@ -239,8 +239,9 @@ function renderAiPanel(L){
   L.append(tb);
 
   const box=el("div","ai-panel-box");
-  const storedKey=localStorage.getItem("alfa_gemini_key")||"";
-  const storedModel=localStorage.getItem("alfa_gemini_model")||"gemini-2.5-flash";
+  
+  const storedKey=(window.ALFA_CFG && window.ALFA_CFG.geminiKey)||localStorage.getItem("alfa_gemini_key")||"";
+  const storedModel=(window.ALFA_CFG && window.ALFA_CFG.geminiModel)||localStorage.getItem("alfa_gemini_model")||"gemini-3.5-flash";
 
   const badge=el("div","ai-head-badge");
   const dot=el("span","ai-dot"+(storedKey?" live":""));
@@ -258,9 +259,9 @@ function renderAiPanel(L){
   const modelRow=el("div","ai-row");
   modelRow.append(el("label","","Model AI:"));
   const modelSel=document.createElement("select");
-  [["gemini-2.5-flash","Gemini 2.5 Flash (Rekomendasi Cepat & Cerdas)"],
-   ["gemini-1.5-flash","Gemini 1.5 Flash"],
-   ["gemini-flash-latest","Gemini Flash Latest"]].forEach(([val,lb])=>{
+  [["gemini-3.5-flash","Gemini 3.5 Flash (Rekomendasi Cepat & Aktif)"],
+   ["gemini-flash-lite-latest","Gemini Flash Lite Latest (Ringan & Cepat)"],
+   ["gemini-3.8-flash","Gemini 3.8 Flash (Model Terbaru)"]].forEach(([val,lb])=>{
     const opt=document.createElement("option");
     opt.value=val;opt.textContent=lb;
     if(val===storedModel) opt.selected=true;
@@ -292,29 +293,33 @@ function renderAiPanel(L){
     testBtn.disabled=true;
     testBtn.textContent="Menguji...";
     testRes.style.display="block";
-    testRes.textContent="Menghubungi endpoint Gemini API ("+modelSel.value+")...";
-    try{
-      const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+modelSel.value+":generateContent?key="+encodeURIComponent(k),{
-        method:"POST",
-        headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({
-          contents:[{parts:[{text:"Uji koneksi ensiklopedia ALFA History. Jawab 'Koneksi Berhasil: 770 Masehi, Dinasti Abbasiyah'."}]}]
-        })
-      });
-      if(!res.ok){
-        throw new Error("HTTP "+res.status+" "+res.statusText);
-      }
-      const data=await res.json();
-      const txt=data?.candidates?.[0]?.content?.parts?.[0]?.text;
-      testRes.textContent="✓ BERHASIL! Respons AI:\n\n"+(txt||"OK");
-      toast("Koneksi ke Gemini AI Berhasil!");
-    }catch(err){
-      testRes.textContent="✕ GAGAL: "+err.message+"\nPastikan GEMINI_API_KEY valid dan kuota API tersedia.";
-      toast("Uji koneksi gagal: "+err.message,"err");
-    }finally{
-      testBtn.disabled=false;
-      testBtn.textContent="Uji Koneksi AI";
+    testRes.textContent="Menghubungi endpoint Gemini API...";
+    const modelsToTry=[modelSel.value,"gemini-3.5-flash","gemini-flash-lite-latest","gemini-3.8-flash"].filter((v,i,a)=>a.indexOf(v)===i);
+    let success=false;
+    for(const m of modelsToTry){
+      try{
+        const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+m+":generateContent?key="+encodeURIComponent(k),{
+          method:"POST",
+          headers:{"Content-Type":"application/json"},
+          body:JSON.stringify({
+            contents:[{parts:[{text:"Uji koneksi ensiklopedia ALFA History. Jawab 'Koneksi Berhasil: 770 Masehi, Dinasti Abbasiyah'."}]}]
+          })
+        });
+        if(!res.ok) continue;
+        const data=await res.json();
+        const txt=data?.candidates?.[0]?.content?.parts?.[0]?.text;
+        testRes.textContent="✓ BERHASIL (Model: "+m+")! Respons AI:\n\n"+(txt||"OK");
+        toast("Koneksi ke Gemini AI Berhasil!");
+        success=true;
+        break;
+      }catch(err){}
     }
+    if(!success){
+      testRes.textContent="✕ GAGAL: Tidak dapat terhubung ke endpoint Gemini saat ini.\nPastikan GEMINI_API_KEY valid dan kuota API tersedia.";
+      toast("Uji koneksi gagal.","err");
+    }
+    testBtn.disabled=false;
+    testBtn.textContent="Uji Koneksi AI";
   };
 
   clearBtn.onclick=()=>{
@@ -328,7 +333,8 @@ function renderAiPanel(L){
   };
 
   acts.append(saveBtn,testBtn,clearBtn);
-  box.append(badge,keyRow,modelRow,acts,testRes);
+  const pubNote=el("p","m","ℹ️ Kunci API ini telah dikonfigurasi di config.js untuk dinikmati seluruh pengunjung situs publik di pencarian semantik.");
+  box.append(badge,pubNote,keyRow,modelRow,acts,testRes);
   L.append(box);
 }
 
