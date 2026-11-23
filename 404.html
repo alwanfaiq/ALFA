@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <title>ALFA | History of Islam</title>
+  <script>
+    (function(){
+      // Clean URL client router for GitHub Pages
+      var path = window.location.pathname;
+      var clean = path.replace(/^\/+|\/+$/g, "");
+      var parts = clean.split("/");
+      // e.g. /figures/abdul-muthallib, /events/570-kelahiran-nabi, /places/makkah
+      if(parts.length >= 2){
+        var segment = parts[0].toLowerCase();
+        var id = decodeURIComponent(parts.slice(1).join("/"));
+        var t = (segment === "figure" || segment === "figures" || segment === "characters") ? "characters"
+              : (segment === "place" || segment === "places") ? "places"
+              : "events";
+        window.location.replace("/detail.html?t=" + t + "&id=" + encodeURIComponent(id));
+      } else {
+        window.location.replace("/");
+      }
+    })();
+  </script>
+</head>
+<body style="background:#121212;color:#f3ead8;font-family:serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0">
+  <p>Memuat kisah sejarah...</p>
+</body>
+</html>

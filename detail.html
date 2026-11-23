@@ -1,6 +1,6 @@
 <!doctype html>
 <!-- ALFA | History of Islam: detail.html v1.7.0 --><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
-<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#181818">
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}
@@ -20,7 +20,7 @@ header{position:sticky;top:0;z-index:25;background:var(--bg);display:flex;justif
 .logo{display:flex;align-items:center;gap:12px;font:800 clamp(1.3rem,2.4vw,1.8rem)/1 Cinzel,serif;color:#fff;text-decoration:none;letter-spacing:.04em}
 .logo small{font:400 .76rem/1.15 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0}
 .h-mid{display:flex;align-items:center;justify-content:center}
-.h-num{font:700 1.2rem/1 Cinzel,serif;color:var(--gold);letter-spacing:.26em;text-shadow:0 0 10px rgba(196,163,90,.35)}
+.h-num{font:700 1.2rem/1 Cinzel,serif;color:var(--gold);letter-spacing:.26em;text-shadow:0 0 10px rgba(196,163,90,.35);direction:ltr !important;unicode-bidi:isolate;display:inline-block}
 .h-acts{display:flex;align-items:center;gap:10px}
 .lang-btn{background:none;border:1px solid var(--g2);color:var(--gold);font:700 .78rem/1 Cinzel,serif;padding:7px 11px;cursor:pointer;letter-spacing:.06em;transition:all .2s;text-transform:uppercase}
 .lang-btn:hover{border-color:var(--gold);background:rgba(196,163,90,.12)}
@@ -105,7 +105,7 @@ figcaption{margin-top:10px;font-size:.95rem}
 .sq-char-card{display:flex;flex-direction:column;background:#18140e;border:1px solid rgba(196,163,90,.25);border-radius:6px;overflow:hidden;text-decoration:none;color:#fff;transition:transform .2s,box-shadow .2s,border-color .2s}
 .sq-char-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 24px rgba(196,163,90,.2)}
 .sq-char-img{aspect-ratio:1/1;width:100%;overflow:hidden;background:#261f14;position:relative}
-.sq-char-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.sq-char-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform .3s ease}
 .sq-char-card:hover .sq-char-img img{transform:scale(1.06)}
 .sq-char-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 1.4rem Cinzel,serif;color:var(--gold);background:linear-gradient(135deg,#2c2317,#19140e)}
 .sq-char-info{padding:8px 10px;display:grid;gap:2px}
@@ -189,21 +189,34 @@ document.getElementById("shareBtn").onclick=()=>{
 };
 
 async function get(){
-  const D=await (await fetch("defaults.json")).json();
+  const D=await (await fetch("/defaults.json")).json();
   if(I && typeof I.setDefaultsData === "function") I.setDefaultsData(D);
+  const canonID = (I && typeof I.resolveCharacterName === "function") ? I.resolveCharacterName(ID) : ID;
+
   if(/^[0-9a-f]{8}-[0-9a-f]{4}-/i.test(ID)&&C.url&&!C.url.includes("YOUR-")){
     try{
       const r=await fetch(C.url+"/rest/v1/"+T+"?id=eq."+ID+"&select=*",{headers:{apikey:C.key}});
       if(r.ok){const j=await r.json();if(j&&j[0])return j[0]}
     }catch(e){}
   }
+
+  // Also query live Supabase if connected
+  if(C.url && !C.url.includes("YOUR-")){
+    try{
+      const fld = T === "events" ? "slug" : T === "places" ? "slug" : "name";
+      const qVal = T === "characters" ? canonID : ID;
+      const r = await fetch(C.url+"/rest/v1/"+T+"?"+fld+"=eq."+encodeURIComponent(qVal)+"&select=*",{headers:{apikey:C.key}});
+      if(r.ok){const j=await r.json();if(j&&j[0])return j[0]}
+    }catch(e){}
+  }
+
   if(T=="places") return D.places.find(p=>p.slug==ID||p.name==ID||p.id==ID);
   if(T=="events") return D.events.find(p=>p.slug==ID||p.title==ID||p.id==ID);
   if(/^[0-9]+$/.test(ID)||/^d\d+$/.test(ID)){
     const idx=+ID.replace(/\D/g,"");
     if(D.characters[idx]) return D.characters[idx];
   }
-  return D.characters.find(c=>c.name==ID||c.slug==ID||c.id==ID)||D.characters[0];
+  return D.characters.find(c=>c.name==canonID||c.name==ID||c.slug==ID||c.id==ID)||D.characters[0];
 }
 
 function body(t){const b=el("div","bd");(t||"").split("\n").forEach(l=>{if(!l.trim())return;if(l.startsWith("# "))b.append(el("h4","",l.slice(2)));else if(l.startsWith("- "))b.append(el("h5","",l.slice(2)));else b.append(el("p","",l.trim()))});return b}
@@ -219,8 +232,8 @@ if(t=="FIGURE"){const c=(n.getAttribute("class")||"").split(/\s+/).filter(x=>x==
 if(t=="TD"||t=="TH"){const cs=+n.getAttribute("colspan");if(cs>1&&cs<10)e.setAttribute("colspan",cs)}
 walk(n,e);dst.append(e)})})(d,out);return out}
 function edgeColor(im){try{const w=40,h=Math.max(8,Math.round(40*im.naturalHeight/im.naturalWidth)),c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.drawImage(im,0,0,w,h);const p=x.getImageData(0,0,w,h).data;const R=[],G=[],B=[];for(let i=0;i<w;i++)for(let j=0;j<h;j++){if(i>1&&i<w-2&&j>1&&j<h-2)continue;const k=(j*w+i)*4;R.push(p[k]);G.push(p[k+1]);B.push(p[k+2])}const md=a=>a.sort((x,y)=>x-y)[a.length>>1];return"rgb("+md(R)+","+md(G)+","+md(B)+")"}catch(e){return null}}
-const isH=s=>/^\s*<[a-z]/i.test(s||"");
-function article(t){if(!isH(t)){return body(t)}const b=el("div","bd rich");b.append(...san(t).childNodes);return b}
+const isH=s=>/<[a-z][\s\S]*>/i.test(s||"");
+function article(t){if(!t)return el("div","bd");if(isH(t)){const b=el("div","bd rich");b.append(...san(t).childNodes);return b}return body(t)}
 function toc(b){const hs=[...b.querySelectorAll("h2,h3,h4")];if(hs.length<3)return;const n=el("nav","toc");n.append(el("b","",I.t("tocTitle")));hs.forEach((h,i)=>{h.id="b"+i;const a=el("a",h.tagName=="H3"?"s":"",h.textContent);a.href="#b"+i;n.append(a)});b.prepend(n)}
 const yl=d=>d.year+(d.year_end&&d.year_end!=d.year?"–"+d.year_end:"")+" "+I.t("eraSuffix");
 function ev2(d){
@@ -234,7 +247,7 @@ async function related(d,m){
   let list=REL_LIST||[];const cfg=C.url&&!C.url.includes("YOUR-"),
   cols={places:["id,slug,name,subtitle,x,y,map,slides","id,slug,name,subtitle"],events:["id,slug,title,year,year_end,summary,countries"],characters:["id,name,role,img,eras,groups,faith","id,name,role,img"]}[T];
   if(!list.length&&cfg)for(const c of cols){try{const r=await fetch(C.url+"/rest/v1/"+T+"?select="+c+"&order="+(T=="events"?"year.asc":"t.asc"),{headers:{apikey:C.key}});if(r.ok){list=await r.json();if(list.length)break}}catch(e){}}
-  if(!list.length){try{const D=await (await fetch("defaults.json")).json();list=T=="places"?D.places.map(x=>({...x,id:x.slug})):T=="events"?D.events.map(x=>({...x,id:x.slug})):D.characters.map((x,i)=>({...x,id:"d"+i}))}catch(e){return}}
+  if(!list.length){try{const D=await (await fetch("/defaults.json")).json();list=T=="places"?D.places.map(x=>({...x,id:x.slug})):T=="events"?D.events.map(x=>({...x,id:x.slug})):D.characters.map((x,i)=>({...x,id:"d"+i}))}catch(e){return}}
   REL_LIST=list;
   const ar=x=>Array.isArray(x)?x:[],sh=(a,b)=>ar(a).filter(z=>ar(b).includes(z)).length;
   list=list.filter(x=>String(x.id)!=String(ID)&&x.slug!=ID&&(x.name||x.title)!=d.name);
@@ -258,6 +271,14 @@ function render(raw){
   RAW_REC=raw;
   const d=T=="events"?ev2(raw):T=="places"?I.place(raw):I.char(raw);
   document.title=d.name+" | ALFA";if(!render.t){render.t=1;if(typeof alfaTrack==="function")alfaTrack({page:T,pid:ID,title:d.name})}app.replaceChildren();
+  try {
+    if(window.history && window.history.replaceState){
+      const typeMap={characters:"figures",events:"events",places:"places"};
+      const cType=typeMap[T]||"events";
+      const cSlug=T==="characters"?encodeURIComponent((d.name||ID).toLowerCase().replace(/['’]/g,"").replace(/\s+/g,"-")):encodeURIComponent(d.slug||ID);
+      window.history.replaceState({t:T,id:ID},d.name+" | ALFA","/"+cType+"/"+cSlug);
+    }
+  }catch(e){}
   const sl=(Array.isArray(d.slides)?d.slides:[]).map(OK).filter(Boolean);
   if(sl.length){
     const h=el("div"),w=el("div","sl"),im=new Image(),l=el("button","ar l"),r=el("button","ar r"),dt=el("div","dots");

@@ -54,7 +54,7 @@
 
       timelineHeading: "TIMELINE",
 
-      charactersHeading: "CHARACTERS",
+      charactersHeading: "FIGURES",
 
       shortsHeading: "SHORTS",
 
@@ -278,11 +278,11 @@
 
     en: {
 
-      navMap: "World Map",
+      navMap: "Map",
 
       navTimeline: "Timeline",
 
-      navCharacters: "Characters",
+      navCharacters: "Figures",
 
       navStories: "Stories",
 
@@ -2204,6 +2204,38 @@
 
 
 
+    const CHARACTER_ALIASES = {
+    "abdul muthalib": "Abdul Muthallib",
+    "abdul muthallib": "Abdul Muthallib",
+    "hamzah bin abdul muthalib": "Hamzah bin Abdul Muthallib",
+    "hamzah bin abdul muthallib": "Hamzah bin Abdul Muthallib",
+    "abi thalib": "Abu Thalib bin Abdul Muthallib",
+    "abu thalib": "Abu Thalib bin Abdul Muthallib",
+    "abu thalib bin abdul muthallib": "Abu Thalib bin Abdul Muthallib",
+    "abu ubaidah bin al-jarrah": "Abu Ubaidah bin Jarrah",
+    "abu ubaidah bin jarrah": "Abu Ubaidah bin Jarrah",
+    "sa'ad bin abi waqqash": "Sa'ad bin Abi Waqash",
+    "sa'ad bin abi waqash": "Sa'ad bin Abi Waqash",
+    "sa’ad bin abi waqqash": "Sa'ad bin Abi Waqash",
+    "sa’ad bin abi waqash": "Sa'ad bin Abi Waqash",
+    "amr bin ash": "Amru bin Ash",
+    "amru bin ash": "Amru bin Ash",
+    "halimah as-sa'diyah": "Halimah Assa'diyah",
+    "halimah as-sa’diyah": "Halimah Assa'diyah",
+    "halimah assa'diyah": "Halimah Assa'diyah",
+    "husain bin ali": "Husein bin Ali",
+    "husein bin ali": "Husein bin Ali",
+    "abu bakar": "Abu Bakar Asshiddiq",
+    "abu bakar ash-shiddiq": "Abu Bakar Asshiddiq",
+    "umar bin al-khattab": "Umar bin Khattab"
+  };
+
+  function resolveCharacterName(name){
+    if(!name) return "";
+    const clean = String(name).trim().toLowerCase().replace(/['’`]/g, "'");
+    return CHARACTER_ALIASES[clean] || name;
+  }
+
   // Helper to resolve entity image from defaults
 
   function getEntityImg(type, idOrName){
@@ -2214,12 +2246,12 @@
 
       if(!D) return "";
 
-      if(type === "characters"){
-
-        const c = (/^[0-9]+$/.test(idOrName) || /^d\d+$/.test(idOrName)) ? D.characters[+idOrName.replace(/\D/g,"")] : D.characters.find(x => x.name === idOrName || x.slug === idOrName || x.id === idOrName);
-
-        return c && c.img ? c.img : "";
-
+      if(type === "characters"){
+        const canon = resolveCharacterName(idOrName);
+        const c = (/^[0-9]+$/.test(idOrName) || /^d\d+$/.test(idOrName)) 
+          ? D.characters[+idOrName.replace(/\D/g,"")] 
+          : D.characters.find(x => x.name === canon || x.name === idOrName || x.slug === idOrName || x.id === idOrName);
+        return c && c.img ? c.img : "";
       }
 
       if(type === "events"){
@@ -3988,7 +4020,8 @@ Kaidah Ketat:
 
     autoWikiLink,
 
-    getEventCharacters,
+    getEventCharacters,
+    resolveCharacterName,
 
     getCharacterEvents,
 

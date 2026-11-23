@@ -60,6 +60,15 @@ select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:
 .rtc figure.fr{float:right;width:42%;margin:.2em 0 .6em 1em}.rtc figure.fl{float:left;width:42%;margin:.2em 1em .6em 0}.rtc figure.fc{max-width:90%;margin:1em auto}.rtc figcaption{font-size:.85rem;color:var(--mut)}
 .rtc table{border-collapse:collapse;width:100%}.rtc th,.rtc td{border:1px solid var(--g2);padding:5px 8px}.rtc th{background:rgba(196,163,90,.15)}.rtc hr{border:0;border-top:1px solid var(--g2)}
 .chips{display:flex;flex-wrap:wrap;gap:6px}.chip{padding:3px 10px;font-size:.82rem;font-weight:400}.chip.on{background:var(--g);color:var(--bg)}.chips input{width:auto;min-width:200px;padding:3px 8px;font-size:.82rem}
+
+.ai-panel-box{background:var(--p);border:1px solid var(--g2);padding:24px;border-radius:4px;display:grid;gap:18px;margin-top:14px}
+.ai-head-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;background:rgba(196,163,90,.15);border:1px solid var(--g);border-radius:20px;font-size:.84rem;color:var(--g);width:fit-content}
+.ai-dot{width:8px;height:8px;border-radius:50%;background:#888}
+.ai-dot.live{background:#4cd964;box-shadow:0 0 8px #4cd964}
+.ai-row{display:grid;gap:6px}
+.ai-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.ai-test-res{padding:12px;background:var(--bg);border:1px solid var(--g2);border-radius:4px;font-size:.9rem;white-space:pre-wrap;display:none}
+
 </style></head><body>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
@@ -209,8 +218,127 @@ B("―","Garis pemisah",()=>cmd("insertHorizontalRule"));B("↶","Urungkan",()=>
 B("Bersihkan","Hapus format",()=>{cmd("removeFormat");cmd("formatBlock","<p>")});
 fi.onchange=async()=>{const fs=[...fi.files];fi.value="";for(const f of fs){let r=await form("Gambar: "+f.name,[["cap","Keterangan (opsional)"],["pos","Posisi",[["fc","Tengah"],["fr","Kanan (teks mengalir)"],["fl","Kiri (teks mengalir)"]]]]);if(!r)continue;try{const u=await up(f);restore();document.execCommand("insertHTML",false,"<figure class=\""+r.pos+"\"><img src=\""+u+"\" alt=\""+esc(r.cap)+"\">"+(r.cap?"<figcaption>"+esc(r.cap)+"</figcaption>":"")+"</figure><p><br></p>");save();push()}catch(e){er(e)}}};
 w.append(tb,ed,fi);return w}
+
+function renderAiPanel(L){
+  L.replaceChildren();
+  const top=el("div","top");
+  top.append(el("h1","","Admin — AI & Engine Config"));
+  const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");
+  v.href="index.html";o.onclick=()=>sb.auth.signOut();
+  r.append(v,o);top.append(r);L.append(top);
+
+  const tb=el("div","tabs");
+  Object.keys(SC).forEach(k=>{
+    const b=el("button",k==tab?"on":"",SC[k].l);
+    b.onclick=async()=>{tab=k;ed=null;await panel()};
+    tb.append(b);
+  });
+  const aiBtn=el("button","on","✦ AI & Engine");
+  aiBtn.onclick=()=>{tab="ai";ed=null;renderAiPanel(shell())};
+  tb.append(aiBtn);
+  L.append(tb);
+
+  const box=el("div","ai-panel-box");
+  const storedKey=localStorage.getItem("alfa_gemini_key")||"";
+  const storedModel=localStorage.getItem("alfa_gemini_model")||"gemini-2.5-flash";
+
+  const badge=el("div","ai-head-badge");
+  const dot=el("span","ai-dot"+(storedKey?" live":""));
+  const badgeTxt=el("span","",storedKey?"Google Gemini AI: Terhubung":"Google Gemini AI: Belum Terhubung");
+  badge.append(dot,badgeTxt);
+
+  const keyRow=el("div","ai-row");
+  keyRow.append(el("label","","Gemini API Key (Tersimpan privat di peramban ini):"));
+  const keyInput=document.createElement("input");
+  keyInput.type="password";
+  keyInput.placeholder="AIzaSy...";
+  keyInput.value=storedKey;
+  keyRow.append(keyInput);
+
+  const modelRow=el("div","ai-row");
+  modelRow.append(el("label","","Model AI:"));
+  const modelSel=document.createElement("select");
+  [["gemini-2.5-flash","Gemini 2.5 Flash (Rekomendasi Cepat & Cerdas)"],
+   ["gemini-1.5-flash","Gemini 1.5 Flash"],
+   ["gemini-flash-latest","Gemini Flash Latest"]].forEach(([val,lb])=>{
+    const opt=document.createElement("option");
+    opt.value=val;opt.textContent=lb;
+    if(val===storedModel) opt.selected=true;
+    modelSel.append(opt);
+  });
+  modelRow.append(modelSel);
+
+  const testRes=el("div","ai-test-res");
+
+  const acts=el("div","ai-acts");
+  const saveBtn=el("button","","Simpan Pengaturan");
+  const testBtn=el("button","","Uji Koneksi AI");
+  const clearBtn=el("button","","Hapus Kunci");
+
+  saveBtn.onclick=()=>{
+    const k=keyInput.value.trim();
+    if(!k){toast("Kunci API tidak boleh kosong","warn");return}
+    localStorage.setItem("alfa_gemini_key",k);
+    localStorage.setItem("alfa_gemini_model",modelSel.value);
+    if(window.ALFA_CFG) window.ALFA_CFG.geminiKey=k;
+    dot.className="ai-dot live";
+    badgeTxt.textContent="Google Gemini AI: Terhubung";
+    toast("Pengaturan AI Gemini berhasil disimpan!");
+  };
+
+  testBtn.onclick=async()=>{
+    const k=keyInput.value.trim();
+    if(!k){toast("Masukkan kunci API terlebih dahulu","warn");return}
+    testBtn.disabled=true;
+    testBtn.textContent="Menguji...";
+    testRes.style.display="block";
+    testRes.textContent="Menghubungi endpoint Gemini API ("+modelSel.value+")...";
+    try{
+      const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+modelSel.value+":generateContent?key="+encodeURIComponent(k),{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          contents:[{parts:[{text:"Uji koneksi ensiklopedia ALFA History. Jawab 'Koneksi Berhasil: 770 Masehi, Dinasti Abbasiyah'."}]}]
+        })
+      });
+      if(!res.ok){
+        throw new Error("HTTP "+res.status+" "+res.statusText);
+      }
+      const data=await res.json();
+      const txt=data?.candidates?.[0]?.content?.parts?.[0]?.text;
+      testRes.textContent="✓ BERHASIL! Respons AI:\n\n"+(txt||"OK");
+      toast("Koneksi ke Gemini AI Berhasil!");
+    }catch(err){
+      testRes.textContent="✕ GAGAL: "+err.message+"\nPastikan GEMINI_API_KEY valid dan kuota API tersedia.";
+      toast("Uji koneksi gagal: "+err.message,"err");
+    }finally{
+      testBtn.disabled=false;
+      testBtn.textContent="Uji Koneksi AI";
+    }
+  };
+
+  clearBtn.onclick=()=>{
+    localStorage.removeItem("alfa_gemini_key");
+    if(window.ALFA_CFG) delete window.ALFA_CFG.geminiKey;
+    keyInput.value="";
+    dot.className="ai-dot";
+    badgeTxt.textContent="Google Gemini AI: Belum Terhubung";
+    testRes.style.display="none";
+    toast("Kunci AI dihapus dari peramban.");
+  };
+
+  acts.append(saveBtn,testBtn,clearBtn);
+  box.append(badge,keyRow,modelRow,acts,testRes);
+  L.append(box);
+}
+
 async function panel(){inP=true;await load();const L=shell();L.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();const dl=el("a","go","Dashboard trafik");dl.href="dashboard.html";r.append(dl,v,o);top.append(r);L.append(top);
-const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});L.append(tb);
+const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});
+const aiTabBtn=el("button",tab=="ai"?"on":"","✦ AI & Engine");
+aiTabBtn.onclick=()=>{tab="ai";ed=null;renderAiPanel(shell())};
+tb.append(aiTabBtn);
+L.append(tb);
+if(tab=="ai"){renderAiPanel(L);return;}
 const S=SC[tab];if(PVM=="detail"&&!DT(tab)){PVM="home";document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
 if(tab=="places"){const eb=el("button","","Editor peta: atur posisi semua tempat");eb.style.marginBottom="10px";eb.onclick=mapEditor;L.append(eb)}
 {const sy=el("div");L.append(sy);if(tab!="videos")fetch("defaults.json").then(r=>r.json()).then(D=>{const add=[],upd=[],used=new Set();
