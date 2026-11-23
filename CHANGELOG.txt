@@ -1,14 +1,32 @@
 ALFA | History of Islam - CHANGELOG v1.8.0
 
-v1.8.0 (Mobile UX Overhaul + Semantic Search + Auto-Wiki Linking + Square Character Cards + Parallax Scroll)
+v1.8.0 (Mobile UX Overhaul + Multilingual Semantic Engine + Optional Gemini AI Assistant + Auto-Wiki Linking + Square Character Cards + Parallax Scroll)
 - Perombakan Responsif & Navigasi Mobile (Minimal Header & Slide-over Drawer):
   * Header Mobile Rapi & Minimal: Menghilangkan deretan teks menu yang menumpuk di layar ponsel (<=800px). Header kini hanya menampilkan logo ALFA, tombol switch bahasa (ID/EN/AR), tombol ikon pencarian (🔍), ikon YouTube, dan tombol menu hamburger (☰).
   * Menghapus tombol 'Rujukan' dari top header sesuai arahan agar navbar atas tetap bersih dan elegan.
   * Slide-over Side Drawer (Navbar Samping): Menghadirkan drawer samping elegan dengan latar gelap (#13100b), border aksen emas, dan backdrop blur. Memuat navigasi lengkap (Peta Dunia, Timeline, Tokoh, Shorts), tombol 'Metodologi & Sumber Rujukan ›' yang membuka modal rujukan ilmiah, serta tombol pemilih bahasa (ID / EN / AR).
-- Mesin Pencarian Semantik Sejarah (Natural Language Semantic Search Engine):
-  * Memungkinkan penelusuran sejarah berbasis konsep dan pertanyaan alami tanpa harus menghafal judul baku (contoh: "para sahabat yang ikut perang badar", "perang yg menghancurkan masa keemasan Islam", "wanita pertama masuk islam", "penakluk spanyol dan andalusia", "pembebasan baitul maqdis", "pedang allah yang tak terkalahkan").
-  * Modal pencarian interaktif (Ctrl+K atau tombol 🔍) dengan dialog modern, input instan, chip saran pencarian populer, callout tematik berbingkai emas, dan kartu hasil pencarian dengan badge kategori (TOKOH / PERISTIWA / TEMPAT).
-  * Terintegrasi penuh dengan basis data 40 tokoh, 124 peristiwa, dan 28 tempat bersejarah secara trilingual (ID, EN, AR).
+- Mesin Pencarian Semantik Sejarah Multilingual (Multilingual Concept Taxonomy + Natural Language Semantic Search):
+  * Tidak lagi terbatas pada frasa populer: kini mendukung pencarian konsep sejarah luas, kata jamak (stemming Bahasa Inggris & Indonesia), dan kueri alami trilingual (ID, EN, AR).
+  * Taksonomi Konsep Sejarah Otomatis (Broad Concept Matching):
+    - "companions" / "sahabat" / "sahabah": Menampilkan 15 tokoh Sahabat Nabi (Khulafaur Rasyidin, Hamzah, Bilal, Sa'ad, dll.).
+    - "caliphs" / "khalifah" / "amirul mukminin": Menampilkan 10 pemimpin kekhalifahan Islam.
+    - "battles" / "perang" / "ghazwah": Menampilkan 16 palagan pertempuran besar (Badar, Uhud, Khandaq, Yarmuk, Qadisiyyah, dll.).
+    - "conquests" / "penaklukan" / "futuh": Menampilkan 6 gelombang pembebasan kota & wilayah strategis (Fathu Makkah, Syam, Mesir, dll.).
+    - "scholars" / "scientists" / "ilmuwan" / "algebra": Menampilkan 8 peristiwa puncak ilmu pengetahuan & cendekiawan Islam (Al-Khawarizmi, Baitul Hikmah, Al-Azhar, dll.).
+    - "women" / "wanita" / "istri nabi": Menampilkan tokoh-tokoh teladan muslimah & Ummahatul Mukminin.
+    - "spain" / "andalusia" / "cordoba": Menampilkan peradaban Islam di Semenanjung Iberia.
+    - "crusades" / "perang salib": Menampilkan konflik Perang Salib dan pembebasan Baitul Maqdis oleh Salahuddin al-Ayyubi.
+    - "mongols" / "kejatuhan baghdad": Menampilkan peristiwa invasi Mongol dan titik balik Ain Jalut.
+    - "jerusalem" / "al-quds" / "palestina": Menampilkan peristiwa & tempat bersejarah di Baitul Maqdis.
+    - "monk" / "pendeta" / "rahib": Menampilkan Rahib Bahira di Busra dan Waraqah bin Naufal.
+    - "traders" / "saudagar": Menampilkan kafilah dagang Makkah dan saudagar mulia (Khadijah, Abdurrahman bin Auf).
+  * Stemming Fleksibel: Mengetik "companions" otomatis mencocokkan "companion", "caliphs" mencocokkan "caliph", "battles" mencocokkan "battle".
+  * Indexing Trilingual Lintas Bahasa: Menelusuri seluruh basis data 40 tokoh, 124 peristiwa, dan 28 tempat dalam Bahasa Indonesia, English (i18n_en.json), dan Arabic (i18n_ar.json).
+- Integrasi Opsional Asisten Sejarah Google Gemini AI (Gemini AI Historical Assistant):
+  * Menghadirkan tombol 'AI Gemini' berstatus visual di modal pencarian.
+  * Keamanan Tingkat Tinggi (Zero Secret Leak): Kunci API GEMINI_API_KEY TIDAK PERNAH di-hardcode ke file publik GitHub. Pengguna dapat menghubungkan kunci API mereka yang disimpan secara privat dan aman di localStorage peramban pengguna.
+  * Ketika aktif, pencarian pertanyaan percakapan otomatis memanggil model Gemini terbaru (gemini-3.5-flash-lite / gemini-3.8-flash) untuk menghasilkan intisari sejarah 2-3 kalimat lugas tanpa emoji (standar Humanizer-ID) di bagian atas kartu hasil pencarian.
+  * Jika tanpa API Key, mesin pencarian semantik offline tetap bekerja 100% sempurna dengan kecepatan 0 milidetik.
 - Kartu Kotak Karakter dalam Artikel Peristiwa (1:1 Square Character Cards):
   * Banner linimasa di halaman depan tetap bersih dengan rasio 16:9.
   * Di dalam artikel peristiwa (detail.html?t=events&id=...), hadir section khusus '✦ TOKOH DALAM PERISTIWA INI' yang menampilkan kartu kotak rasio 1:1 berisi potret tokoh, nama, dan peran spesifik mereka dalam peristiwa tersebut (contoh di Perang Badar: Ali, Hamzah, Abu Bakar, Sa'ad bin Abi Waqqash, Bilal, Abu Jahal).
@@ -58,22 +76,3 @@ v1.7.0 (FigCraft Redesign + Trilingual Engine [ID, EN, AR] + RTL Support + Suppo
 - Layout Karakter Zig-Zag (Staggered Cards):
   * Kartu tokoh ganjil (Abu Thalib, Bahira, Waraqah) sejajar di atas, sedangkan kartu genap (Abrahah, Khadijah, Abu Bakar) diturunkan ke bawah secara dinamis (staggered).
   * Label peran/gelar tokoh diberi aksen emas (#C4A35A) dengan gradien gelap lembut.
-- Perbaikan Logo Footer & Navigasi Klik Keseluruhan Kartu Peristiwa:
-  * Memperbaiki tata letak logo ALFA di footer agar proporsional sejajar (inline-flex) dengan pemisah garis vertikal rapi antara teks 'ALFA' dan 'History of Islam'.
-  * Kartu peristiwa linimasa (Timeline Event Cards) kini dapat diklik di seluruh area kartu (banner gambar, judul, ringkasan, teks) untuk langsung membuka artikel detail, sementara tombol 'VIEW ON MAP' tetap berfungsi mengarahkan fokus peta tanpa memicu navigasi artikel.
-- Integrasi Direktori Rujukan Primer Islam & Catatan Transparansi Riset:
-  * Menghadirkan portal rujukan ilmiah primer Islam berskala Nasional dan Internasional (Quran.com, Qur'an Kemenag RI, Sunnah.com, Dorar.net Hadits Encyclopedia, Shamela.ws Al-Maktabah as-Syamilah, Khastara Perpusnas RI, Puslitbang Lektur Kemenag RI, ArchNet MIT/AKTC, dan Brill Encyclopaedia of Islam).
-  * Menambahkan tombol dan kolom khusus 'Rujukan Ilmiah' di header dan footer index.html yang membuka modal interaktif komprehensif (#sourcesDlg) dengan tab 'Katalog Sumber Primer' dan 'Transparansi & Adab Visual'.
-  * Menghadirkan komponen Rujukan Kontekstual per Halaman bergaya MyQabas (sources_data.js & .qabas-sources pada detail.html):
-    - Kicker rujukan beraksen emas (✦ SOURCES / ✦ RUJUKAN SEJARAH).
-    - Blok 'About this telling' / 'Tentang Penuturan Ini' yang menjelaskan keputusan artistik, adab syariat (tanpa visualisasi Nabi & Ummahatul Mukminin), dan keotentikan busana gurun abad ke-7.
-    - Bagian 'What is authentic in it' / 'Otentisitas & Derajat Riwayat':
-      * Koleksi kitab induk (Collection): Sahih al-Bukhari, Sahih Muslim, Tarikh ath-Thabari, Siyar A'lam an-Nubala'.
-      * Teks riwayat / Hadits (Narration) dengan pranala langsung ke naskah digital.
-      * Kotak callout putus-putus takhrij sanad & derajat keshahihan riwayat (Grading).
-      * Rangkaian chip/pil ayat Al-Qur'an (Verses) yang dapat diklik langsung membuka quran.com/<surah>/<ayat>.
-      * Daftar riwayat pendukung (Also reported in) bersumber dari Kutubus Sittah dan manuskrip Syamilah.
-      * Tombol aksi satu klik: [ Buka di Sunnah.com ↗ ], [ Baca di Quran.com ↗ ], [ Buka di Shamela.ws ↗ ].
-    - Didukung mesin resolver cerdas (ALFA_SOURCES_ENGINE.resolve) yang memetakan seluruh 124 peristiwa dan 40 tokoh secara dinamis dan bilingual (ID & EN).
-- Pembersihan Aset Tidak Terpakai:
-  * Menghapus 5 berkas peta SVG/WebP duplikat (~12 MB) yang tidak direferensikan oleh kode serta __pycache__.
