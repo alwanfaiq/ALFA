@@ -105,7 +105,7 @@ figcaption{margin-top:10px;font-size:.95rem}
 .sq-char-card{display:flex;flex-direction:column;background:#18140e;border:1px solid rgba(196,163,90,.25);border-radius:0;overflow:hidden;text-decoration:none;color:#fff;transition:transform .2s,box-shadow .2s,border-color .2s}
 .sq-char-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 8px 24px rgba(196,163,90,.2)}
 .sq-char-img{aspect-ratio:1/1;width:100%;overflow:hidden;background:#261f14;position:relative}
-.sq-char-img img{width:100%;height:100%;object-fit:cover;object-position:top center !important;transition:transform .3s ease}
+.sq-char-img img{width:100%;height:100%;object-fit:cover;object-position:50% 13% !important;display:block}
 .sq-char-card:hover .sq-char-img img{transform:scale(1.06)}
 .sq-char-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 1.4rem Cinzel,serif;color:var(--gold);background:linear-gradient(135deg,#2c2317,#19140e)}
 .sq-char-info{padding:8px 10px;display:grid;gap:2px}
@@ -144,7 +144,15 @@ figcaption{margin-top:10px;font-size:.95rem}
 const C=window.ALFA_CFG||{},I=window.ALFA_I18N,Q=new URLSearchParams(location.search),T=["places","events"].includes(Q.get("t"))?Q.get("t"):"characters",ID=Q.get("id")||"",app=document.getElementById("app");
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 const OK=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
-document.getElementById("back").href="index.html#"+(T=="places"?"places":T=="events"?"chronology":"characters");
+const bkBtn = document.getElementById("back");
+const bkSec = (T=="places"?"places":T=="events"?"chronology":"characters");
+bkBtn.href = "/#" + bkSec;
+bkBtn.onclick = (e) => {
+  if(window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)){
+    e.preventDefault();
+    window.history.back();
+  }
+};
 
 let RAW_REC=null;
 function showToast(msg){

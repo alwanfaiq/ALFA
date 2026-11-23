@@ -1,29 +1,30 @@
 ================================================================================
-PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.8.2)
+PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.8.3)
 ================================================================================
 
-Folder ini berisi 15 berkas produksi siap pakai untuk diunggah ke root repositori GitHub:
+Folder ini adalah rilis resmi versi 1.8.3 yang siap diunggah ke root repositori GitHub (alfahistory.web.id).
 
-DAFTAR BERKAS:
-1.  404.html          -> Pengalihan SPA & routing URL bersih /admin
-2.  admin.html        -> Panel admin pengelolaan konten & konfigurasi AI
-3.  CHANGELOG.txt     -> Catatan riwayat pembaruan versi 1.8.2
-4.  CNAME             -> Domain custom alfahistory.web.id
-5.  config.js         -> Konfigurasi Firebase / Web
-6.  defaults.json     -> Data sejarah (32 koordinat dunia yang telah dikalibrasi)
-7.  detail.html       -> Halaman artikel tokoh & peristiwa (potret mentok atas)
-8.  favicon.ico       -> Ikon browser format ICO (transparan)
-9.  favicon.svg       -> Ikon vektor emas-obsidian tajam
-10. i18n.js           -> Mesin multibahasa & penelusuran semantik akurat
-11. i18n_ar.json      -> Paket bahasa Arab
-12. i18n_en.json      -> Paket bahasa Inggris
-13. index.html        -> Halaman utama (Atlas interaktif, dropdown rapi, un-rounded UI)
-14. sources_data.js   -> Rujukan primer sejarah Islam
-15. track.js          -> Skrip analitik
+DAFTAR BERKAS & FOLDER UTAMA:
+- assets/             -> Berisi leaflet, tiles peta, world overview, dan thumbnail (s2-s6.webp)
+- 404.html            -> Router SPA & penanganan rute bersih (tanpa .html, anti-404)
+- admin.html          -> Panel admin konten dengan dukungan Google Gemini AI generasi terbaru
+- CHANGELOG.txt       -> Dokumentasi perubahan versi 1.8.3
+- CNAME               -> alfahistory.web.id
+- config.js           -> Konfigurasi web & API
+- defaults.json       -> Database offline (Abu Thalib terverifikasi, tanpa emoji)
+- detail.html         -> Halaman artikel tokoh & peristiwa (tombol kembali dinamis, potret presisi)
+- favicon.ico         -> Ikon tab peramban format ICO (latar transparan)
+- favicon.svg         -> Ikon vektor wajik emas adaptif
+- i18n.js             -> Mesin multibahasa, sinonim semantik "companions", dan integrasi AI
+- i18n_ar.json        -> Data lokalisasi bahasa Arab
+- i18n_en.json        -> Data lokalisasi bahasa Inggris
+- index.html          -> Beranda web (modal shorts rapi, potret wajah pas, hover close tanpa kotak)
+- sources_data.js     -> Direktori sumber primer sejarah Islam & etika visual
+- track.js            -> Skrip pelacakan performa & analitik
 
 CARA UNGGAH KE GITHUB:
 1. Buka repositori GitHub alfahistory.web.id di browser.
-2. Drag & drop seluruh 15 berkas di atas langsung ke root repository.
-3. Beri pesan commit: "Release v1.8.2: audit search relevance, map calibration, clean UI & rich story cards"
+2. Unggah seluruh berkas di atas beserta folder 'assets' ke root repository (atau via git push).
+3. Beri pesan commit: "Release v1.8.3: Bio sync Abu Thalib, Gemini AI upgrade, normalized portraits & refined modals"
 4. Klik Commit Changes.
 ================================================================================

@@ -4,65 +4,72 @@ Repository: alfahistory.web.id
 ================================================================================
 
 --------------------------------------------------------------------------------
-VERSI 1.8.2 (24 November 2026) - AUDIT, CLEAN UI & SEARCH RELEVANCE RELEASE
+VERSI 1.8.3 (24 November 2026) - ULTIMATE AUDIT, BIO SYNC & MODAL REFINEMENT
 --------------------------------------------------------------------------------
-1. Karakter Card & Potret Wajah (Mentok Atas):
-   - Seluruh thumbnail karakter di search modal (.search-card-thumb img),
-     halaman detail (.sq-char-img img), dan kartu tokoh disetel dengan
-     object-position: top center !important.
-   - Wajah tokoh (sorban, mahkota, kepala) kini tampil utuh dan proporsional,
-     tidak lagi terpotong pada bagian torso atau dada.
+1. Perbaikan Duplikasi Halaman Abdul Muthalib vs Abu Thalib:
+   - Abu Thalib kini memiliki narasi biografi historis yang autentik dan terverifikasi
+     (Nasab Bani Hasyim, pertemuan dengan Rahib Bahira di Syam, benteng politik
+     dakwah, masa pemboikotan 3 tahun di Syi'ib Abi Thalib, dan wafatnya di Tahun
+     Kesedihan/'Amul Huzni).
+   - Format penulisan mematuhi standar Humanizer-ID: tanpa emoji, menggunakan heading
+     HTML baku, dan nada ensiklopedia ilmiah.
+   - Sinkronisasi langsung dan terverifikasi ke live database Supabase dan defaults.json.
 
-2. Clean URLs & Routing Navigasi:
-   - URL admin bersih: mengakses /admin secara otomatis dialihkan oleh 404.html
-     ke admin.html dan alamat browser ditampilkan rapi sebagai /admin
-     (menggunakan history.replaceState).
-   - Menghilangkan ekstensi .html dari tautan root, beranda, dan hash navigation.
+2. Pembersihan Total Emoji dari Judul Konten (Rule #2 Compliance):
+   - Menghapus seluruh emoji (📜, 🔥, 🕋, ✨, dll.) dari judul Shorts dan Stories
+     baik di defaults.json maupun di live database Supabase.
 
-3. Kalibrasi Koordinat Peta Dunia (32 Titik Sejarah):
-   - Seluruh 32 lokasi sejarah (Makkah, Madinah, Baitul Maqdis, Syam, Yarmuk,
-     Persia, Yaman, Nahawand, Kufah, Fustat, dll.) telah dikonversi secara presisi
-     dari koordinat geografis nyata (lat/lng) ke persentase koordinat SVG peta dunia
-     8192x4864 (x: 51%–63%, y: 29%–45%).
-   - Memperbaiki anomali titik peta yang sebelumnya terlempar ke Samudra Atlantik
-     atau Antartika karena data lama berbasis peta regional Jazirah Arab.
-   - Menambahkan seluruh 32 lokasi ke tabel EXTRA_WORLD sebagai fallback absolut.
+3. Pemutakhiran Gemini AI Engine & Resolusi Model Deprecation:
+   - Memperbaiki error HTTP 404 pada uji koneksi admin yang disebabkan oleh
+     penghentian layanan Google untuk model lawas 'gemini-2.5-flash'.
+   - Mengalihkan default engine ke 'gemini-flash-lite-latest' (responsif <1 detik),
+     serta mendukung 'gemini-3.5-flash-lite', 'gemini-3.8-flash', dan 'gemini-flash-latest'.
+   - Dilengkapi fallback berantai otomatis dan pencegahan kebocoran kunci API
+     pada repositori publik.
 
-4. Perbaikan Dropdown Bahasa:
-   - Memperbaiki bug CSS di mana .lang-drop-menu selalu tampil (display: grid
-     menimpa atribut hidden).
-   - Menu dropdown bahasa disetel default tersembunyi (display: none !important)
-     dan hanya terbuka (.open) saat tombol trigger diklik.
-   - Dilengkapi penutup otomatis saat pengguna mengeklik area di luar menu
-     (outside-click dismiss) atau menekan tombol Escape.
+4. Normalisasi Framing Potret Wajah Tokoh (Anti-Pentok & Anti-Kelelep):
+   - Memangkas padding atas berlebih (140–213px) pada 10 berkas cover tokoh
+     (Az-Zubair, Abu Jahal, Khadijah, Abdullah bin az-Zubair, Yazid, Abu Bakar,
+     Ali bin Abi Thalib, Ja'far, Halimah, Abrahah).
+   - Menerapkan kalibrasi presisi object-position: 50% 13% !important pada seluruh
+     elemen thumbnail (.search-card-thumb, .sq-char-img, dan kartu terkait modal).
+   - Mahkota dan sorban tokoh kini memiliki ruang nafas yang pas di bagian atas
+     (tidak pentok), dan dagu/jenggot tokoh tetap utuh terlihat (tidak kelelep).
 
-5. Enrich Modal Shorts & Stories (Video Panjang) dengan Kartu Tokoh & Tempat:
-   - Modal penampil Shorts dan Stories (#dlg) kini secara otomatis memindai tokoh
-     dan lokasi sejarah yang terkait dengan narasi video.
-   - Menampilkan blok visual "✦ TOKOH TERKAIT" dan "✦ TEMPAT TERKAIT" lengkap dengan
-     potret wajah (object-position: top center), gelar/peran, dan tautan langsung
-     ke artikel biografi/geografi terkait.
+5. Perbaikan Total Pop-out Modal Shorts & Stories (Video Panjang):
+   - Menuntaskan akar masalah bug layout di mana selektor umum '.dg div' menimpa
+     seluruh container anak, yang sebelumnya mengakibatkan thumbnail mengecil ke 0x0
+     dan kartu membengkak hingga 206px.
+   - Kartu "✦ TOKOH TERKAIT" dan "✦ TEMPAT TERKAIT" kini tersusun rapi dalam 2 kolom
+     dengan potret wajah/lanskap beresolusi tajam, gelar peran, dan tautan artikel.
+   - Tombol aksi diperbaiki secara elegan: tombol pemutar in-app berbingkai emas klasik
+     dan tombol tautan luar YouTube berwarna merah resmi.
 
-6. Audit Penelusuran Semantik & Relevansi Pencarian:
-   - Konsep Sahabat (concept-companions) kini menerapkan filter eksklusi ketat:
-     tokoh musuh/penentang dakwah (Abu Lahab, Abu Jahal, Abrahah, Al-Hajjaj)
-     dilarang masuk ke kategori Sahabat Nabi.
-   - Algoritma pembobotan baru: Pencocokan nama tokoh (+500) dan judul peristiwa
-     (+480) selalu diprioritaskan di atas kemunculan kata di badan artikel (+15),
-     sehingga hasil pencarian akurat dan bebas halusinasi.
+6. Navigasi Tombol Kembali Bebas 404:
+   - Tombol kembali di detail.html kini secara dinamis menautkan ke anchor section
+     beranda (/#chronology, /#characters, /#places).
+   - Berkas 404.html diperbarui untuk menangani rute yang tersesat (seperti /events/index.html)
+     dan langsung mengembalikannya ke section terkait di halaman utama.
 
-7. Un-rounded UI & Penyelarasan Desain Geometris Klasik:
-   - Menghilangkan sudut tumpul (rounded 4px–20px) pada dialog modal pencarian,
-     kotak input, kartu hasil cari, tombol chip pencarian populer, menu dropdown
-     bahasa, dan kartu tokoh mini.
-   - Mengembalikan estetika sudut tegas persegi (border-radius: 0) yang selaras
-     dengan wibawa naskah sejarah Islam klasik ALFA History.
+7. Penghapusan Bingkai Kotak pada Hover Ikon Close (X):
+   - Menghilangkan garis tepi kotak dan latar belakang saat pengguna menyorot (hover)
+     ikon 'X' pada modal pencarian, modal video/shorts, dan drawer mobile.
+   - Ikon 'X' kini melayang anggun dan bertransisi halus menjadi warna emas terang.
+
+8. Penelusuran Semantik Cerdas (Bidirectional Synonyms):
+   - Mendukung pencarian istilah bahasa Inggris alami seperti "companions", "figures",
+     "battles", "caliphs", yang seketika menampilkan 24 Sahabat Nabi atau peristiwa
+     terkait dengan kartu lengkap.
+
+9. Bundel Aset Lengkap:
+   - Menyertakan kembali seluruh aset pendukung lokal (s2.webp, s3.webp, s5.webp, s6.webp,
+     world overview, dan tiles peta) sehingga tidak ada error 404 di konsol browser.
 
 --------------------------------------------------------------------------------
-VERSI 1.8.1 (23 November 2026)
+VERSI 1.8.2 (24 November 2026)
 --------------------------------------------------------------------------------
-- Pembersihan bundel publikasi siap-upload (14 berkas inti tanpa tile raster lokal).
-- Penyempurnaan favicon.svg & favicon.ico (transparan tanpa sudut putih).
-- Perbaikan layout navbar desktop: Map - Timeline - Figures - Stories.
-- Pindai keamanan rahasia (bebas dari kunci API GCP/GitHub mentah).
+- Audit UI & pembersihan ekstensi .html dari URL.
+- Kalibrasi 32 koordinat titik sejarah pada peta dunia.
+- Perbaikan dropdown bahasa (outside-click dismiss).
+- Desain geometris klasik tanpa rounded corner (border-radius: 0).
 ================================================================================

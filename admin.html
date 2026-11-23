@@ -248,7 +248,7 @@ function renderAiPanel(L){
   const box=el("div","ai-panel-box");
   
   const storedKey=(window.ALFA_CFG && window.ALFA_CFG.geminiKey)||localStorage.getItem("alfa_gemini_key")||"";
-  const storedModel=(window.ALFA_CFG && window.ALFA_CFG.geminiModel)||localStorage.getItem("alfa_gemini_model")||"gemini-3.5-flash";
+  const storedModel=(window.ALFA_CFG && window.ALFA_CFG.geminiModel)||localStorage.getItem("alfa_gemini_model")||"gemini-flash-lite-latest";
 
   const badge=el("div","ai-head-badge");
   const dot=el("span","ai-dot"+(storedKey?" live":""));
@@ -266,9 +266,10 @@ function renderAiPanel(L){
   const modelRow=el("div","ai-row");
   modelRow.append(el("label","","Model AI:"));
   const modelSel=document.createElement("select");
-  [["gemini-3.5-flash","Gemini 3.5 Flash (Rekomendasi Cepat & Aktif)"],
-   ["gemini-flash-lite-latest","Gemini Flash Lite Latest (Ringan & Cepat)"],
-   ["gemini-3.8-flash","Gemini 3.8 Flash (Model Terbaru)"]].forEach(([val,lb])=>{
+  [["gemini-flash-lite-latest","Gemini Flash Lite (Rekomendasi Cepat & Ringan)"],
+   ["gemini-3.5-flash-lite","Gemini 3.5 Flash Lite (Cepat & Stabil)"],
+   ["gemini-3.8-flash","Gemini 3.8 Flash (Model Cerdas)"],
+   ["gemini-flash-latest","Gemini Flash Latest (Standar)"]].forEach(([val,lb])=>{
     const opt=document.createElement("option");
     opt.value=val;opt.textContent=lb;
     if(val===storedModel) opt.selected=true;
@@ -288,7 +289,10 @@ function renderAiPanel(L){
     if(!k){toast("Kunci API tidak boleh kosong","warn");return}
     localStorage.setItem("alfa_gemini_key",k);
     localStorage.setItem("alfa_gemini_model",modelSel.value);
-    if(window.ALFA_CFG) window.ALFA_CFG.geminiKey=k;
+    if(window.ALFA_CFG) {
+      window.ALFA_CFG.geminiKey=k;
+      window.ALFA_CFG.geminiModel=modelSel.value;
+    }
     dot.className="ai-dot live";
     badgeTxt.textContent="Google Gemini AI: Terhubung";
     toast("Pengaturan AI Gemini berhasil disimpan!");
@@ -301,28 +305,34 @@ function renderAiPanel(L){
     testBtn.textContent="Menguji...";
     testRes.style.display="block";
     testRes.textContent="Menghubungi endpoint Gemini API...";
-    const modelsToTry=[modelSel.value,"gemini-3.5-flash","gemini-flash-lite-latest","gemini-3.8-flash"].filter((v,i,a)=>a.indexOf(v)===i);
+    const modelsToTry=[modelSel.value,"gemini-flash-lite-latest","gemini-3.5-flash-lite","gemini-3.8-flash","gemini-flash-latest"].filter((v,i,a)=>a.indexOf(v)===i);
     let success=false;
+    let lastErr="";
     for(const m of modelsToTry){
       try{
         const res=await fetch("https://generativelanguage.googleapis.com/v1beta/models/"+m+":generateContent?key="+encodeURIComponent(k),{
           method:"POST",
           headers:{"Content-Type":"application/json"},
           body:JSON.stringify({
-            contents:[{parts:[{text:"Uji koneksi ensiklopedia ALFA History. Jawab 'Koneksi Berhasil: 770 Masehi, Dinasti Abbasiyah'."}]}]
+            contents:[{parts:[{text:"Uji koneksi ensiklopedia ALFA History. Jawab ringkas."}]}]
           })
         });
-        if(!res.ok) continue;
         const data=await res.json();
+        if(!res.ok){
+          lastErr=data?.error?.message || ("HTTP "+res.status);
+          continue;
+        }
         const txt=data?.candidates?.[0]?.content?.parts?.[0]?.text;
         testRes.textContent="✓ BERHASIL (Model: "+m+")! Respons AI:\n\n"+(txt||"OK");
         toast("Koneksi ke Gemini AI Berhasil!");
         success=true;
         break;
-      }catch(err){}
+      }catch(err){
+        lastErr=err.message;
+      }
     }
     if(!success){
-      testRes.textContent="✕ GAGAL: Tidak dapat terhubung ke endpoint Gemini saat ini.\nPastikan GEMINI_API_KEY valid dan kuota API tersedia.";
+      testRes.textContent="✕ GAGAL: "+(lastErr||"Tidak dapat terhubung ke endpoint Gemini.")+"\nPastikan GEMINI_API_KEY valid dan kuota API tersedia.";
       toast("Uji koneksi gagal.","err");
     }
     testBtn.disabled=false;

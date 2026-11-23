@@ -3,7 +3,7 @@ window.ALFA_CFG = {
   url: "https://klcbeyqlvmmtgumzphkp.supabase.co",
   key: "sb_publishable_OADaJgLpQNjKdcZpQegoCQ_ybF-QVAB",
   geminiKey: typeof atob !== "undefined" ? atob("QVEuQWI4Uk42SkY4aERENVBWYUMtNlU0UWNEZ2hBX3VsVldOd1lQU3VpeWprZkQzZHhrR0E=") : "",
-  geminiModel: "gemini-3.5-flash"
+  geminiModel: "gemini-flash-lite-latest"
 };
 
 // Pengaturan QRIS & Donasi (Support ALFA)

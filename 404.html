@@ -17,6 +17,13 @@
       if(parts.length >= 2){
         var segment = parts[0].toLowerCase();
         var id = decodeURIComponent(parts.slice(1).join("/"));
+        if(id.toLowerCase() === "index.html" || id.toLowerCase().startsWith("index.html")){
+          var targetSec = (segment === "place" || segment === "places") ? "places"
+                        : (segment === "figure" || segment === "figures" || segment === "characters") ? "characters"
+                        : "chronology";
+          window.location.replace("/#" + targetSec);
+          return;
+        }
         var t = (segment === "figure" || segment === "figures" || segment === "characters") ? "characters"
               : (segment === "place" || segment === "places") ? "places"
               : "events";

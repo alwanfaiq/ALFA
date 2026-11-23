@@ -12,9 +12,9 @@
 
     id: {
 
-      navMap: "Peta Dunia",
+      navMap: "Peta",
 
-      navTimeline: "Timeline",
+      navTimeline: "Linimasa",
 
       navCharacters: "Tokoh",
 
@@ -280,7 +280,7 @@
 
       navMap: "Map",
 
-      navTimeline: "Timeline",
+      navTimeline: "Linimasa",
 
       navCharacters: "Figures",
 
@@ -2242,7 +2242,11 @@
 
     try{
 
-      const D = window.__ALFA_DEFS || window.DEFS || (typeof DEFS !== "undefined" ? DEFS : null);
+      const D = window.__ALFA_DEFS || window.DEFS || (typeof DEFS !== "undefined" ? DEFS : null) || {
+      characters: window.CHALL || [],
+      events: window.EV || [],
+      places: window.PL || []
+    };
 
       if(!D) return "";
 
@@ -3081,12 +3085,30 @@
   // --- SEMANTIC SEARCH ENGINE (CONCEPTS + INTENTS + MULTILINGUAL STEMMING) ---
 
   function semanticSearch(rawQuery, currentLang){
-
     const lang = currentLang || LANG || "id";
-
     const q = String(rawQuery || "").trim().toLowerCase();
-
     if(!q) return { matchedIntent: null, results: [] };
+
+    // Synonyms dictionary
+    const SYNONYM_MAP = {
+      "companions": ["sahabat", "sahabah", "ashabah", "companion", "hawariyun", "ashab", "khulafaur rasyidin", "tokoh", "figures"],
+      "companion": ["sahabat", "sahabah", "ashabah", "companions", "ashab", "tokoh", "figures"],
+      "sahabat": ["companions", "companion", "sahabah", "ashabah", "hawariyun", "tokoh", "figures"],
+      "figures": ["tokoh", "karakter", "characters", "figure", "sahabat", "biografi"],
+      "figure": ["tokoh", "karakter", "characters", "figures", "tokoh"],
+      "characters": ["figures", "tokoh", "karakter", "figure"],
+      "places": ["tempat", "lokasi", "kota", "negeri", "wilayah", "place"],
+      "place": ["tempat", "lokasi", "kota", "negeri", "wilayah", "places"],
+      "tempat": ["places", "place", "lokasi", "kota", "wilayah"],
+      "battles": ["perang", "pertempuran", "battle", "ghazwah", "sariyah", "badar", "uhud", "khandaq"],
+      "battle": ["perang", "pertempuran", "battles", "ghazwah", "sariyah", "badar", "uhud", "khandaq"],
+      "perang": ["battle", "battles", "pertempuran", "ghazwah", "sariyah", "badar", "uhud", "khandaq"],
+      "caliphs": ["khalifah", "khulafaur rasyidin", "caliph", "amiril mukminin"],
+      "caliph": ["khalifah", "khulafaur rasyidin", "caliphs", "amiril mukminin"],
+      "khalifah": ["caliph", "caliphs", "khulafaur rasyidin", "amiril mukminin", "abu bakar", "umar", "utsman", "ali"]
+    };
+
+    
 
 
 
@@ -3450,8 +3472,15 @@
 
       const tokens = rawTokens.filter(w => !STOP_WORDS.has(w));
 
-      const searchTokens = tokens.length ? tokens : rawTokens;
-
+      let searchTokens = tokens.length ? tokens : rawTokens;
+      const extraSyns = [];
+      for(const tk of searchTokens){
+        if(SYNONYM_MAP[tk]) extraSyns.push(...SYNONYM_MAP[tk]);
+        if(SYNONYM_MAP[stem(tk)]) extraSyns.push(...SYNONYM_MAP[stem(tk)]);
+      }
+      if(extraSyns.length){
+        searchTokens = [...new Set([...searchTokens, ...extraSyns])];
+      }
       const searchStems = searchTokens.map(stem);
 
 
@@ -3466,7 +3495,9 @@
         const arC = arPack.characters ? (arPack.characters[c.id || "d" + idx] || arPack.characters[c.name]) : null;
 
         const namePool = [c.name, enC?.name, arC?.name].filter(Boolean).join(" ").toLowerCase();
-        const rolePool = [c.role, c.meta, enC?.role, enC?.meta, arC?.role, arC?.meta].filter(Boolean).join(" ").toLowerCase();
+        const cGroups = Array.isArray(c.groups) ? c.groups.join(" ") : (c.groups || "");
+        const cEras = Array.isArray(c.eras) ? c.eras.join(" ") : (c.eras || "");
+        const rolePool = [c.role, c.meta, cGroups, cEras, enC?.role, enC?.meta, arC?.role, arC?.meta].filter(Boolean).join(" ").toLowerCase();
         const bodyPool = [c.body, enC?.body, arC?.body].filter(Boolean).join(" ").toLowerCase();
 
         // Filter out enemies of Islam from general searches unless explicitly queried
@@ -3670,11 +3701,12 @@ Kaidah Ketat:
 
 
     const modelsToTry = [
-      (window.ALFA_CFG && window.ALFA_CFG.geminiModel) || "gemini-3.5-flash",
-      "gemini-3.5-flash",
+      (window.ALFA_CFG && window.ALFA_CFG.geminiModel) || localStorage.getItem("alfa_gemini_model") || "gemini-flash-lite-latest",
       "gemini-flash-lite-latest",
-      "gemini-3.8-flash"
-    ];
+      "gemini-3.5-flash-lite",
+      "gemini-3.8-flash",
+      "gemini-flash-latest"
+    ].filter((v,i,a)=>a.indexOf(v)===i);
 
 
 
