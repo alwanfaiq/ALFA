@@ -26,16 +26,55 @@ button.danger-sm:hover{background:#7a2828;border-color:#a33a3a;color:#fff}
 .tabs button{height:35px;padding:0 14px;font:700 .78rem/1 Cinzel,serif;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);border-color:#3a3122;background:#1c1914}
 .tabs button:hover{color:#fff;border-color:var(--g)}
 .tabs .on{background:var(--g) !important;border-color:var(--g) !important;color:#14110b !important}
-.fm{display:grid;gap:14px;width:100%;max-width:none;background:var(--p);border:1px solid var(--g2);padding:22px;margin:0 0 18px}
-.fm-acts{display:flex;align-items:center;gap:10px;padding-top:6px;flex-wrap:wrap}
-label{display:grid;gap:5px;font-size:.88rem;color:var(--mut)}label.ck{display:flex;gap:8px;align-items:center}
-input,textarea{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:9px 11px;font:inherit;width:100%}input[type=checkbox]{width:auto}
-textarea.big{min-height:260px}
-.hlp{font-size:.8rem;color:var(--mut);white-space:pre-line}
-.pv{width:56px;height:72px;object-fit:cover;border:1px solid var(--g2)}.pv[hidden]{display:none}
-.pvc{width:80px;height:220px}
-.ls{display:grid;gap:8px;width:100%;max-width:none}.row,.it{display:flex;align-items:center;gap:10px;background:var(--p);padding:8px 12px;border:1px solid #2c2c2c}.row span{flex:1;min-width:0}.it{background:var(--bg)}.it input{flex:1}.it .pv{width:72px;height:48px}
-.row button,.sm{height:30px;padding:0 11px;font-size:.78rem}
+.fm{display:grid;gap:16px;width:100%;max-width:none;background:var(--p);border:1px solid var(--g2);padding:22px;margin:0 0 22px}
+.fm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid #2e271b}
+.fm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px 18px;align-items:start}
+.span-2{grid-column:span 2}
+.span-all{grid-column:1 / -1}
+@media(max-width:860px){.span-2{grid-column:1 / -1}}
+.fm-acts{display:flex;align-items:center;gap:10px;padding-top:8px;border-top:1px solid #2e271b;flex-wrap:wrap}
+label{display:grid;gap:5px;font-size:.86rem;color:var(--mut)}label.ck{display:flex;gap:8px;align-items:center}
+input,textarea,select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 11px;font:inherit;width:100%}input[type=checkbox]{width:auto}
+textarea{min-height:84px;resize:vertical}
+textarea.big{min-height:180px}
+.hlp{font-size:.78rem;color:var(--mut);white-space:pre-line}
+.pv{width:52px;height:68px;object-fit:cover;object-position:50% 13%;border:1px solid var(--g2);flex-shrink:0}.pv[hidden]{display:none}
+.pvc{width:64px;height:140px}
+.file-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.file-row input[type=file]{flex:1;min-width:180px}
+
+/* Searchable Multi-Column Content Browser (.ls-sec + .ls) */
+.ls-sec{display:grid;gap:12px;width:100%;margin-top:6px}
+.ls-bar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:var(--p);border:1px solid var(--g2);padding:12px 16px}
+.ls-bar h3{margin:0;font-size:1rem}
+.ls-search-wrap{position:relative;flex:1;min-width:240px;max-width:460px;display:flex;align-items:center}
+.ls-search-wrap svg{position:absolute;left:11px;color:var(--g);pointer-events:none}
+.ls-search-wrap input{padding-left:34px;padding-right:30px;height:36px;background:#14120e;border:1px solid var(--g2);font-size:.88rem}
+.ls-search-wrap input:focus{border-color:var(--g);outline:none}
+.ls-clr{position:absolute;right:6px;width:24px;height:24px;padding:0;border:0;background:none;color:var(--mut);font-size:1rem;cursor:pointer}
+.ls-clr:hover{background:none;color:#fff}
+.ls-cnt{font-size:.8rem;color:var(--mut);white-space:nowrap}
+.ls{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:10px;width:100%;max-width:none}
+.ls-stack{display:grid;gap:8px;width:100%}
+.row,.it{display:flex;align-items:center;gap:11px;background:var(--p);padding:9px 12px;border:1px solid #30291e;transition:border-color .15s,background .15s}
+.row:hover{border-color:var(--g2);background:#252119}
+.row.editing{border-color:var(--g);background:#292317}
+.row .pv{width:46px;height:46px;object-fit:cover;object-position:50% 13%}
+.row .ph{width:46px;height:46px;flex-shrink:0;display:grid;place-items:center;background:#191610;border:1px solid #383022;font:700 .78rem Cinzel,serif;color:var(--g)}
+.row .r-info{flex:1;min-width:0;display:grid;gap:2px}
+.row .r-title{font:700 .9rem/1.3 Bitter,serif;color:#faf6ee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .r-sub{font-size:.76rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .r-acts{display:flex;gap:6px;flex-shrink:0}
+.it{background:var(--bg)}.it input{flex:1}.it .pv{width:72px;height:48px}
+.row button,.sm{height:30px;padding:0 10px;font-size:.76rem}
+.adm-quick-search{position:relative;min-width:220px;max-width:300px}
+.adm-quick-search input{height:35px;padding:0 10px 0 30px;font-size:.82rem;background:#16130d;border:1px solid #4b3e24}
+.adm-quick-search svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--g);pointer-events:none}
+.adm-quick-drop{position:absolute;top:calc(100% + 4px);right:0;left:0;background:#18140e;border:1px solid var(--g);box-shadow:0 12px 32px rgba(0,0,0,.85);z-index:45;max-height:300px;overflow-y:auto;display:grid}
+.adm-quick-drop[hidden]{display:none}
+.adm-quick-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 11px;border:0;border-bottom:1px solid #2b2418;background:none;color:var(--ink);text-align:left;height:auto;font-size:.8rem}
+.adm-quick-item:hover{background:#282115;color:#fff}
+.adm-quick-item small{color:var(--g);font:700 .66rem Cinzel,serif;text-transform:uppercase;flex-shrink:0}
 .mp{position:relative;max-width:720px;cursor:crosshair;border:1px solid var(--g2)}.mp img{display:block;width:100%}.mp i{position:absolute;width:18px;height:18px;background:var(--g);border:2px solid #181818;transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 0 2px var(--g)}
 .m{color:var(--mut);max-width:56ch;margin:12px 0}
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:50;display:grid;place-items:center;padding:16px;overflow:auto}
@@ -577,6 +616,34 @@ L.append(sub);
 if(tab=="ai"){renderAiPanel(L);return;}
 const S=SC[tab];if(PVM=="detail"&&!DT(tab)){PVM="home";document.querySelectorAll(".pvh button[data-m]").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
 if(tab=="places"){const eb=el("button","sec","Editor Peta");eb.title="Atur posisi titik semua tempat di peta dunia";eb.onclick=mapEditor;tools.append(eb)}
+// Quick Global Search in Top Sub-bar (jump to edit any character, place, event, short, or video)
+const qsWrap=el("div","adm-quick-search");
+qsWrap.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
+const qsInp=document.createElement("input");qsInp.type="search";qsInp.placeholder="Cari cepat & edit...";qsInp.setAttribute("aria-label","Cari cepat konten");
+const qsDrop=el("div","adm-quick-drop");qsDrop.hidden=true;
+qsWrap.append(qsInp,qsDrop);tools.prepend(qsWrap);
+let listFilterQ="";
+const updateQuickDrop=()=>{
+  const q=(qsInp.value||"").trim().toLowerCase();
+  listFilterQ=q;
+  if(typeof renderList==="function")renderList();
+  if(!q){qsDrop.hidden=true;qsDrop.replaceChildren();return}
+  const hits=rows.filter(d=>(S.ti(d)+" "+(d.role||d.subtitle||d.summary||d.year||"")).toLowerCase().includes(q)).slice(0,12);
+  qsDrop.replaceChildren();
+  if(!hits.length){qsDrop.hidden=true;return}
+  hits.forEach(d=>{
+    const b=el("button","adm-quick-item");b.type="button";
+    const sp=el("span","",S.ti(d));sp.style.cssText="overflow:hidden;text-overflow:ellipsis;white-space:nowrap";
+    b.append(sp,el("small","","Edit"));
+    b.onclick=()=>{qsDrop.hidden=true;ed=d.id;panel();scrollTo(0,0)};
+    qsDrop.append(b);
+  });
+  qsDrop.hidden=false;
+};
+qsInp.oninput=updateQuickDrop;
+qsInp.onfocus=()=>{if((qsInp.value||"").trim())updateQuickDrop()};
+document.addEventListener("click",e=>{if(!qsWrap.contains(e.target))qsDrop.hidden=true});
+
 {if(tab!="videos")fetch("defaults.json").then(r=>r.json()).then(D=>{const add=[],upd=[],used=new Set();
 (D[tab]||[]).forEach((d,i)=>{const r=rows.find(r=>!used.has(r.id)&&(tab=="shorts"?r.ep==d.ep:(r.slug?r.slug==d.slug:norm(r.name||r.title)==norm(d.name||d.title))));if(r)used.add(r.id);(r?upd:add).push([d,i,r])});
 if(!add.length&&!upd.length)return;
@@ -585,27 +652,32 @@ b.title="Sinkronkan konten bawaan defaults.json ("+add.length+" baru, "+upd.leng
 b.onclick=async()=>{if(upd.length&&!await ask("Ini menambah "+add.length+" item baru dan menimpa teks "+upd.length+" item bawaan yang sudah ada dengan versi terbaru (gambar yang sudah kamu upload tidak diganti, item buatanmu sendiri tidak disentuh). Lanjut?","Ya, sinkronkan"))return;
 b.disabled=true;b.textContent="Memproses...";
 try{for(const[d,i,r]of[...add,...upd]){const o=await mig(d,r);o.t=i;const{error}=r?await sb.from(tab).update(o).eq("id",r.id):await sb.from(tab).insert(o);if(error)throw error}toast("Konten bawaan tersinkron")}catch(e){er(e)}panel()};tools.append(b)}).catch(()=>{})}
-const fm=el("div","fm"),val=new Proxy({...(ed&&rows.find(d=>d.id==ed)||{show_label:true})},{set(o,k,v){o[k]=v;chg();return true}});fm.append(el("h3","",ed?"Edit":"Tambah baru"));
+const fm=el("div","fm"),fmHead=el("div","fm-head"),fmGrid=el("div","fm-grid"),val=new Proxy({...(ed&&rows.find(d=>d.id==ed)||{show_label:true})},{set(o,k,v){o[k]=v;chg();return true}});
+fmHead.append(el("h3","",ed?("Edit "+S.l+": "+(S.ti(val)||"")):("Tambah "+S.l+" Baru")));
+if(ed){const topCancel=el("button","sec","Batal Edit");topCancel.onclick=()=>{ed=null;panel()};fmHead.append(topCancel)}
+fm.append(fmHead,fmGrid);
 S.f.forEach(([k,lb,ty,hp])=>{const dv=["s","g","k"].includes(ty),l=el(dv?"div":"label",dv?"rf":"",lb);let i;
-if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fm.append(l);return}
-if(ty=="i"||ty=="c"||ty=="w"){i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
+if(["k","g","r","m"].includes(ty)) l.classList.add("span-all");
+if(ty=="t"&&k=="facts") l.classList.add("span-2");
+if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fmGrid.append(l);return}
+if(ty=="i"||ty=="c"||ty=="w"){const fr=el("div","file-row");i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
 i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"||ty=="w"){f=await(ty=="c"?crop(f,287,787,574):crop(f,16,9,1600));if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
-l.append(i,pv);fm.append(l);return}
-if(ty=="s"||ty=="g"){const arr=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","ls"),g=ty=="g",pick=document.createElement("input");pick.type="file";pick.accept="image/*";pick.multiple=true;
+fr.append(i,pv);l.append(fr);fmGrid.append(l);return}
+if(ty=="s"||ty=="g"){const arr=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","ls-stack"),g=ty=="g",pick=document.createElement("input");pick.type="file";pick.accept="image/*";pick.multiple=true;
 const draw=()=>{chg();box.replaceChildren();arr.forEach((x,n)=>{const it=el("div","it"),im=el("img","pv");im.alt="";im.src=g?x.url:x;it.append(im);
 if(g){const c=document.createElement("input");c.placeholder="Keterangan gambar";c.value=x.caption||"";c.oninput=()=>{x.caption=c.value;chg()};it.append(c)}else it.append(el("span","",""));
 it.append(tn(()=>{if(n){[arr[n-1],arr[n]]=[arr[n],arr[n-1]];draw()}},"↑"),tn(()=>{if(n<arr.length-1){[arr[n+1],arr[n]]=[arr[n],arr[n+1]];draw()}},"↓"),tn(()=>{arr.splice(n,1);draw()},"Hapus"));box.append(it)})};
 pick.onchange=async()=>{try{for(const f of pick.files)arr.push(g?{url:await up(f),caption:""}:await up(f))}catch(e){er(e)}pick.value="";draw()};
-draw();l.append(box,pick);fm.append(l);return}
-if(ty=="p"){const sel=document.createElement("select");[["world","Peta Dunia Historis (Master 8K)"]].forEach(([v,tx])=>{const o=el("option","",tx);o.value=v;sel.append(o)});sel.value="world";val[k]="world";sel.onchange=()=>{val[k]=sel.value;const im=document.querySelector(".mp img");if(im)im.src=MAPIMG[val[k]]||MAPIMG.world};l.append(sel);fm.append(l);return}
+draw();l.append(box,pick);fmGrid.append(l);return}
+if(ty=="p"){const sel=document.createElement("select");[["world","Peta Dunia Historis (Master 8K)"]].forEach(([v,tx])=>{const o=el("option","",tx);o.value=v;sel.append(o)});sel.value="world";val[k]="world";sel.onchange=()=>{val[k]=sel.value;const im=document.querySelector(".mp img");if(im)im.src=MAPIMG[val[k]]||MAPIMG.world};l.append(sel);fmGrid.append(l);return}
 if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src=MAPIMG[val.map||"world"]||MAPIMG.world;im.alt="Peta";w.append(im,dot);const sh=()=>{dot.hidden=val.x==null;dot.style.left=val.x+"%";dot.style.top=val.y+"%"};
-w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fm.append(l);return}
-if(ty=="k"){const ar=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","chips");const draw=()=>{box.replaceChildren();[...new Set([...hp,...ar])].forEach(o=>{const b=el("button","chip"+(ar.includes(o)?" on":""),o);b.type="button";b.onclick=()=>{const i=ar.indexOf(o);i<0?ar.push(o):ar.splice(i,1);val[k]=[...ar];draw()};box.append(b)});const ad=document.createElement("input");ad.placeholder="+ tambah baru, tekan Enter";ad.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();const v=ad.value.trim();if(v&&!ar.includes(v)){ar.push(v);val[k]=[...ar];draw()}}};box.append(ad)};draw();l.append(box);fm.append(l);return}
-if(ty=="cc"){const i=document.createElement("input");i.value=(Array.isArray(val[k])?val[k]:[]).join(", ");i.placeholder="contoh: SA, EG, ID";i.oninput=()=>{val[k]=i.value.split(/[\s,]+/).map(s=>s.toUpperCase()).filter(s=>/^[A-Z]{2}$/.test(s))};l.append(i);fm.append(l);return}
-if(ty=="s2"){const sel=document.createElement("select"),o0=el("option","","(belum dipilih)");o0.value="";sel.append(o0);hp.forEach(v=>{const q=Array.isArray(v)?v:[v,v],o=el("option","",q[1]);o.value=q[0];sel.append(o)});sel.value=val[k]||"";sel.onchange=()=>{val[k]=sel.value};l.append(sel);fm.append(l);return}
-if(ty=="r"){const rf=el("div","rf");rf.append(el("span","",lb),rich(val,k));fm.append(rf);return}
-if(ty=="t"){i=document.createElement("textarea");i.rows=4;if(hp){i.className="big";l.append(el("span","hlp",HELP))}}else{i=document.createElement("input");if(ty=="n")i.type="number"}
-i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
+w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fmGrid.append(l);return}
+if(ty=="k"){const ar=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","chips");const draw=()=>{box.replaceChildren();[...new Set([...hp,...ar])].forEach(o=>{const b=el("button","chip"+(ar.includes(o)?" on":""),o);b.type="button";b.onclick=()=>{const i=ar.indexOf(o);i<0?ar.push(o):ar.splice(i,1);val[k]=[...ar];draw()};box.append(b)});const ad=document.createElement("input");ad.placeholder="+ tambah baru, tekan Enter";ad.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();const v=ad.value.trim();if(v&&!ar.includes(v)){ar.push(v);val[k]=[...ar];draw()}}};box.append(ad)};draw();l.append(box);fmGrid.append(l);return}
+if(ty=="cc"){const i=document.createElement("input");i.value=(Array.isArray(val[k])?val[k]:[]).join(", ");i.placeholder="contoh: SA, EG, ID";i.oninput=()=>{val[k]=i.value.split(/[\s,]+/).map(s=>s.toUpperCase()).filter(s=>/^[A-Z]{2}$/.test(s))};l.append(i);fmGrid.append(l);return}
+if(ty=="s2"){const sel=document.createElement("select"),o0=el("option","","(belum dipilih)");o0.value="";sel.append(o0);hp.forEach(v=>{const q=Array.isArray(v)?v:[v,v],o=el("option","",q[1]);o.value=q[0];sel.append(o)});sel.value=val[k]||"";sel.onchange=()=>{val[k]=sel.value};l.append(sel);fmGrid.append(l);return}
+if(ty=="r"){const rf=el("div","rf span-all");rf.append(el("span","",lb),rich(val,k));fmGrid.append(rf);return}
+if(ty=="t"){i=document.createElement("textarea");i.rows=3;if(hp){i.className="big";l.append(el("span","hlp",HELP))}}else{i=document.createElement("input");if(ty=="n")i.type="number"}
+i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fmGrid.append(l)});
 const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g"||ty=="k"||ty=="cc")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
 CUR={tab,ed,build,S};chg();
 const sv=el("button","pri",ed?"Simpan Perubahan":"Tambah Data"),fmActs=el("div","fm-acts");
@@ -614,12 +686,53 @@ if(!o[S.f[0][0]])return warn("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return w
 if(tab=="places"&&val.x==null)return warn("Klik peta untuk menentukan posisi tempat");
 sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;toast("Berhasil disimpan");panel()};
 sv.onclick=doSave;SAVE_FN=doSave;
-fmActs.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;panel()};fmActs.append(c)}
+fmActs.append(sv);if(ed){const c=el("button","sec","Batal");c.onclick=()=>{ed=null;panel()};fmActs.append(c)}
 fm.append(fmActs);
-const ls=el("div","ls");rows.forEach(d=>{const w=el("div","row"),im=el("img","pv");im.alt="";const th=d.img||(Array.isArray(d.slides)&&d.slides[0]);if(th)im.src=th;else im.hidden=true;w.append(im,el("span","",S.ti(d)));
-const e=el("button","","Edit");e.onclick=()=>{ed=d.id;panel();scrollTo(0,0)};
-const x=el("button","danger-sm","Hapus");x.onclick=async()=>{if(!await ask("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);else toast("Berhasil dihapus");panel()};w.append(e,x);ls.append(w)});
-L.append(fm,ls)}
+
+// Searchable Multi-Column Browser Section
+const lsSec=el("section","ls-sec"),lsBar=el("div","ls-bar"),lsWrap=el("div","ls-search-wrap"),lsInp=document.createElement("input"),lsClr=el("button","ls-clr","×"),lsCnt=el("span","ls-cnt"),ls=el("div","ls");
+lsWrap.innerHTML='<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>';
+lsInp.type="text";lsInp.placeholder=`Cari di ${S.l} (nama, judul, tahun, peran)...`;
+lsClr.type="button";lsClr.hidden=true;
+lsWrap.append(lsInp,lsClr);
+lsBar.append(el("h3","",`Daftar ${S.l}`),lsWrap,lsCnt);
+lsSec.append(lsBar,ls);
+
+function renderList(){
+  const q=(lsInp.value||listFilterQ||"").trim().toLowerCase();
+  lsClr.hidden=!lsInp.value;
+  const filtered=rows.filter(d=>{
+    if(!q)return true;
+    const hay=(S.ti(d)+" "+(d.role||"")+" "+(d.subtitle||"")+" "+(d.summary||"")+" "+(d.description||"")+" "+(d.year||"")+" "+(d.faith||"")).toLowerCase();
+    return hay.includes(q);
+  });
+  lsCnt.textContent=q?`Menampilkan ${filtered.length} dari ${rows.length} item`:`${rows.length} total item`;
+  ls.replaceChildren();
+  if(!filtered.length){
+    ls.append(el("p","m","Tidak ada data yang cocok dengan pencarian."));
+    return;
+  }
+  filtered.forEach(d=>{
+    const w=el("div","row"+(ed==d.id?" editing":""));
+    const th=d.img||(Array.isArray(d.slides)&&d.slides[0]);
+    if(th){const im=el("img","pv");im.alt="";im.loading="lazy";im.src=th;w.append(im)}
+    else{
+      const inits=(S.ti(d)||"AL").split(/\s+/).map(x=>x[0]).filter(Boolean).slice(0,2).join("").toUpperCase();
+      w.append(el("div","ph",inits));
+    }
+    const inf=el("div","r-info"),subTxt=d.role||d.subtitle||(d.year?(d.year+" M"):"")||(d.ep!=null?("Episode "+d.ep):"")||(d.summary||d.description||"").slice(0,55);
+    inf.append(el("span","r-title",S.ti(d)));
+    if(subTxt) inf.append(el("span","r-sub",subTxt));
+    const acts=el("div","r-acts");
+    const e=el("button","","Edit");e.onclick=()=>{ed=d.id;panel();scrollTo(0,0)};
+    const x=el("button","danger-sm","Hapus");x.onclick=async()=>{if(!await ask("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);else toast("Berhasil dihapus");panel()};
+    acts.append(e,x);w.append(inf,acts);ls.append(w);
+  });
+}
+lsInp.oninput=()=>{listFilterQ="";renderList()};
+lsClr.onclick=()=>{lsInp.value="";listFilterQ="";renderList();lsInp.focus()};
+renderList();
+L.append(fm,lsSec)}
 
 // Global Admin Keyboard Shortcuts (Ctrl+Shift+P Preview Toggle, Ctrl+S Save, Esc Exit Focus)
 window.addEventListener("keydown",e=>{
