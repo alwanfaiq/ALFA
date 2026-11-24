@@ -13,15 +13,22 @@
         window.location.replace("/admin.html");
         return;
       }
-      // e.g. /figures/abdul-muthallib, /events/570-kelahiran-nabi, /places/makkah
+      // e.g. /figures/abdul-muthallib, /events/570-kelahiran-nabi, /places/makkah, /videos/fathu-makkah, /shorts/ep-6
       if(parts.length >= 2){
         var segment = parts[0].toLowerCase();
         var id = decodeURIComponent(parts.slice(1).join("/"));
         if(id.toLowerCase() === "index.html" || id.toLowerCase().startsWith("index.html")){
           var targetSec = (segment === "place" || segment === "places") ? "places"
                         : (segment === "figure" || segment === "figures" || segment === "characters") ? "characters"
+                        : (segment === "video" || segment === "videos" || segment === "watch") ? "videos"
+                        : (segment === "short" || segment === "shorts") ? "shorts"
                         : "chronology";
           window.location.replace("/#" + targetSec);
+          return;
+        }
+        if(segment === "video" || segment === "videos" || segment === "watch" || segment === "short" || segment === "shorts"){
+          var vt = (segment === "short" || segment === "shorts") ? "shorts" : "videos";
+          window.location.replace("/watch.html?t=" + vt + "&id=" + encodeURIComponent(id));
           return;
         }
         var t = (segment === "figure" || segment === "figures" || segment === "characters") ? "characters"

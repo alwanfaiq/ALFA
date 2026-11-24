@@ -4,6 +4,59 @@ Repository: alfahistory.web.id
 ================================================================================
 
 --------------------------------------------------------------------------------
+VERSI 1.8.4 (24 November 2026) - QABAS WATCH ROOM, 5-LEVEL WORLD MAP & WORD ADMIN
+--------------------------------------------------------------------------------
+1. Kartu Hasil Pencarian Opsi C, Saran Kontekstual & Ringkasan Sejarah ALFA:
+   - Memperbaiki warna ungu visited-link pada badge pencarian dengan mendefinisikan
+     variabel --gold/--gold2 dan menerapkan tata letak Opsi C (strip aksen kiri 3px:
+     Emas Tokoh, Tembaga Peristiwa, Hijau Zaitun Tempat + label kategori sejajar subjudul).
+   - Judul peristiwa panjang (seperti Organisasi Kerja Sama Islam / Pengepungan Wina)
+     kini terbaca penuh tanpa bentrok atau terpotong.
+   - Menghilangkan kebocoran nama model AI teknis; judul kini bersih dan berwibawa:
+     "✦ RINGKASAN SEJARAH ALFA" (multibahasa ID/EN/AR).
+   - Menghapus bar "Pencarian Populer" ber-scrollbar abu-abu dan menggantinya dengan
+     Saran Pencarian Kontekstual dinamis tanpa scrollbar.
+
+2. Ruang Putar Dokumenter ala Qabas (watch.html) & Modal Opsi B (Auto 16:9 / 9:16):
+   - Menambahkan halaman baru watch.html (/videos/<slug> & /shorts/<slug>) dengan
+     pemutar sinema 16:9 untuk dokumenter dan mode sorot vertikal 9:16 untuk Shorts,
+     dilengkapi tab Ringkasan, Sumber Referensi Primer (Quran.com, Sunnah.com,
+     Shamela.ws + About This Telling), Bab Video interaktif, Glosarium Istilah,
+     Tokoh & Tempat Terkait, serta daftar putar episode lain.
+   - Modal info di beranda ditingkatkan ke Opsi B (Hero Banner 16:9 utuh di atas)
+     dengan tombol "▸ Buka Ruang Putar & Rujukan" serta tombol "▸ Putar Cepat"
+     berdeteksi otomatis 16:9 Cinema vs 9:16 Shorts (memperbaiki bug portrait).
+
+3. Peta Dunia 5 Lapis Pengerucutan + Tile Regional HD Zoom 5 + Smart Offset Opsi B:
+   - Membangun data geografis modular geo_labels.json mencakup 7 Benua, 12 Samudra/Laut,
+     250 Negara sedunia (otomatis dari poligon world.svg dalam 3 bahasa ID/EN/AR),
+     64 Provinsi/Wilayah historis, 29 Kota referensi global, dan 15 Situs/Medan mikro.
+   - Pengerucutan zoom otomatis: Benua > Negara > Provinsi > Kota > Daerah & Situs,
+     dilengkapi indikator Skala Aktif di HUD peta.
+   - Menerapkan Smart Offset Opsi B (label zig-zag kiri/kanan dengan garis tipis emas)
+     untuk merapikan klaster padat Syam-Hijaz-Mesir-Irak.
+   - Meningkatkan ketajaman grafis peta koridor Timur Tengah (Mesir-Syam-Hijaz-Irak-Persia)
+     menggunakan tile master tajam pada Zoom 3, Zoom 4, dan lapisan baru Regional Zoom 5 HD.
+
+4. Penyeragaman Dropdown Bahasa di Halaman Detail & Perbaikan Total Tautan Wiki:
+   - Menyamakan komponen dropdown bahasa (ID / EN / AR) pada detail.html dan watch.html
+     agar seragam dengan beranda.
+   - Memperbaiki bug seluruh tautan wiki yang sebelumnya mengarah ke Siti 'Aisyah
+     dengan menormalisasi seluruh tautan internal menjadi root-absolut (/detail.html?t=...)
+     di i18n.js, index.html, detail.html, dan admin.html, serta menghapus fallback paksa
+     ke D.characters[0] agar ID yang tidak valid menampilkan pesan tidak ditemukan.
+   - Memperbarui router 404.html agar mendukung rute bersih /videos/<slug>, /watch/<slug>,
+     dan /shorts/<slug> (100% bersih tanpa rahasia/kunci API).
+
+5. Pembaruan Panel Admin: Side Toggle Pratinjau & Editor Dokumen Ikon Rasa MS Word:
+   - Menambahkan tombol ikon sembunyikan/tampilkan Pratinjau Langsung (Ctrl+Shift+P)
+     agar area penyuntingan melebar lapang.
+   - Merombak editor artikel menjadi kanvas lembar kertas A4 (bawaan Kertas Perkamen
+     #FAF6EE dengan sakelar Mode Gelap), toolbar 100% ikon SVG tajam, tombol layar penuh,
+     Cari & Ganti (Ctrl+H), serta pintasan keyboard lengkap (Ctrl+B/I/U/Z/Y/K/Shift+K/
+     Alt+2/3/0/Shift+7/8/Q/L/E/J/\ dan Ctrl+S untuk simpan).
+
+--------------------------------------------------------------------------------
 VERSI 1.8.3 (24 November 2026) - ULTIMATE AUDIT, BIO SYNC & MODAL REFINEMENT
 --------------------------------------------------------------------------------
 1. Perbaikan Duplikasi Halaman Abdul Muthalib vs Abu Thalib:

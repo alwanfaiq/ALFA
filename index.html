@@ -118,7 +118,7 @@
 
 :root{
 
-  --bg:#181818;--p:#212121;--p2:#262626;--g:#c4a35a;--g2:#6e5c36;--g-glow:rgba(196,163,90,.35);
+  --bg:#181818;--p:#212121;--p2:#262626;--g:#c4a35a;--g2:#6e5c36;--gold:#c4a35a;--gold2:#d8be7d;--g-glow:rgba(196,163,90,.35);
 
   --ink:#f3ead8;--mut:#b4a88f;--dim:#756c5a;--border:#3a3222;
 
@@ -208,21 +208,51 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 
 .hs-pin{position:relative;width:22px;height:22px;border:0;background:none;cursor:pointer;padding:0;display:grid;place-items:center}
 
-.hs-pin i{width:11px;height:11px;background:var(--g);border:2px solid #181818;transform:rotate(45deg);box-shadow:0 0 0 1.5px var(--g),0 2px 6px rgba(0,0,0,.55);transition:transform .2s ease,background .2s ease}
+.hs-pin i{width:10px;height:10px;background:var(--g);border:2px solid #181818;transform:rotate(45deg);box-shadow:0 0 0 1.5px var(--g),0 2px 6px rgba(0,0,0,.55);transition:transform .2s ease,background .2s ease}
 
-.hs-pin b{position:absolute;left:50%;bottom:calc(100% + 5px);transform:translateX(-50%);white-space:nowrap;font:700 11.5px/1.2 Bitter,serif;background:rgba(20,18,15,.92);color:var(--ink);padding:2px 8px;border:1px solid var(--g2);opacity:0;pointer-events:none;transition:opacity .18s ease}
+.hs-pin.pin-site i{width:8px;height:8px;background:#faf6ee;border-color:#5a4622;box-shadow:0 0 0 1px #c4a35a,0 2px 5px rgba(0,0,0,.5)}
 
-.map-zoom-high .hs-pin:not([data-id="syam"]):not([data-id="palestina"]):not([data-id="iraq"]):not([data-id="hira"]) b{opacity:.92}
+.hs-pin b{position:absolute;left:50%;bottom:calc(100% + 7px);transform:translateX(-50%);white-space:nowrap;font:700 11px/1.2 Bitter,serif;background:rgba(18,15,10,.92);color:var(--ink);padding:2px 7px;border:1px solid var(--g2);opacity:0;pointer-events:none;transition:opacity .18s ease;box-shadow:0 2px 8px rgba(0,0,0,.45)}
 
-.hs-pin:hover i,.hs-pin:focus-visible i,.hs-pin.on i{background:#fff;transform:rotate(45deg) scale(1.25)}
+.hs-pin b::after{content:"";position:absolute;background:rgba(196,163,90,.75);pointer-events:none}
 
-.hs-pin:hover b,.hs-pin:focus-visible b,.hs-pin.on b{opacity:1;border-color:var(--g)}
+/* Smart Offset Opsi B: Zig-Zag Left / Right / Top / Bottom with Gold Leader Line */
+.hs-pin[data-side="l"] b{left:auto;right:calc(100% + 10px);bottom:50%;top:auto;transform:translateY(50%)}
+.hs-pin[data-side="l"] b::after{left:100%;top:50%;width:10px;height:1px}
 
-.hs-pin[data-id="badar"] b,.hs-pin[data-id="damaskus"] b,.hs-pin[data-id*="laut" i] b{left:auto;right:calc(100% + 6px);bottom:50%;transform:translateY(50%)}
+.hs-pin[data-side="r"] b{left:calc(100% + 10px);right:auto;bottom:50%;top:auto;transform:translateY(50%)}
+.hs-pin[data-side="r"] b::after{right:100%;top:50%;width:10px;height:1px}
 
-.hs-pin[data-id="thaif"] b,.hs-pin[data-id="yarmuk"] b,.hs-pin[data-id="basrah"] b{left:calc(100% + 6px);bottom:50%;transform:translateY(50%)}
+.hs-pin[data-side="t"] b{left:50%;bottom:calc(100% + 9px);top:auto;transform:translateX(-50%)}
+.hs-pin[data-side="t"] b::after{left:50%;top:100%;width:1px;height:9px}
 
-.hs-pin[data-id="kufah"] b,.hs-pin[data-id="baitulmaqdis"] b{top:calc(100% + 6px);bottom:auto;left:50%;transform:translateX(-50%)}
+.hs-pin[data-side="b"] b{left:50%;top:calc(100% + 9px);bottom:auto;transform:translateX(-50%)}
+.hs-pin[data-side="b"] b::after{left:50%;bottom:100%;width:1px;height:9px}
+
+.map-zoom-mid .hs-pin.pin-major b{opacity:.92}
+.map-zoom-high .hs-pin:not([data-id="syam"]):not([data-id="palestina"]):not([data-id="iraq"]):not([data-id="hira"]) b{opacity:.94}
+.map-zoom-micro .hs-pin b{opacity:.96}
+
+.hs-pin:hover i,.hs-pin:focus-visible i,.hs-pin.on i{background:#fff;transform:rotate(45deg) scale(1.28)}
+
+.hs-pin:hover b,.hs-pin:focus-visible b,.hs-pin.on b{opacity:1 !important;border-color:var(--g);z-index:50}
+
+/* 5-Level Hierarchical Cartographic Map Labels (Continent > Country > Province > City > Site) */
+.geo-wrap{pointer-events:none !important;background:none !important;border:0 !important}
+.geo-lbl{position:relative;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none;transition:opacity .25s ease}
+.geo-continent{font:800 clamp(11px,1.05vw,15px)/1 Cinzel,Georgia,serif;letter-spacing:.32em;text-transform:uppercase;color:rgba(36,26,12,.72);text-shadow:0 1px 0 rgba(255,244,218,.48)}
+.geo-sea{font:italic 600 10.5px/1 Bitter,Georgia,serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(218,232,234,.72);text-shadow:0 1px 3px rgba(15,24,26,.45)}
+.geo-country{font:700 10.5px/1.15 Cinzel,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#271c0d;background:rgba(248,238,214,.62);padding:1px 6px;border:1px solid rgba(90,68,34,.25);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.geo-province{font:italic 700 10px/1.15 Bitter,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#3c280e;text-shadow:0 0 4px rgba(248,236,204,.85),0 0 8px rgba(248,236,204,.75);border-bottom:1px dashed rgba(68,46,16,.48);padding-bottom:1px}
+.geo-city-box,.geo-site-box{position:relative;display:inline-flex;align-items:center}
+.geo-dot{width:6px;height:6px;background:#c4a35a;border:1.5px solid #18140d;transform:rotate(45deg);display:inline-block;flex-shrink:0}
+.geo-site-box .geo-dot{width:5px;height:5px;background:#faf6ee;border-color:#6e5c36}
+.geo-tag{position:absolute;white-space:nowrap;font:600 10px/1.15 Bitter,Georgia,serif;background:rgba(20,17,11,.84);color:#ebe0c8;border:1px solid rgba(196,163,90,.42);padding:1px 6px}
+.geo-site-box .geo-tag{font-size:9.5px;background:rgba(24,20,13,.86);border-color:rgba(196,163,90,.3);color:#dcd0b4}
+.geo-tag.side-l{right:calc(100% + 7px);top:50%;transform:translateY(-50%)}
+.geo-tag.side-r{left:calc(100% + 7px);top:50%;transform:translateY(-50%)}
+.hud-scale{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:3px 9px;background:rgba(196,163,90,.1);border:1px solid rgba(196,163,90,.32);font:700 .7rem/1.2 Cinzel,serif;color:var(--g);letter-spacing:.05em}
+.hud-scale b{color:var(--ink);font-family:Bitter,serif;font-weight:600;letter-spacing:0}
 
 .ctl{position:absolute;left:16px;top:16px;display:grid;gap:6px;z-index:810}
 
@@ -808,16 +838,21 @@ dialog{margin:auto;border:1px solid var(--g);background:var(--p);color:var(--ink
 
 dialog::backdrop{background:rgba(0,0,0,.82)}
 
-.dg{display:grid;grid-template-columns:minmax(0,300px) 1fr}
+.dg{display:grid;grid-template-columns:minmax(0,300px) 1fr;position:relative}
+
+.dg.doc-hero{grid-template-columns:1fr}
 
 .dg img{width:100%;height:100%;object-fit:cover;display:block;max-height:80svh}
+
+.dg.doc-hero > img{width:100%;height:auto;aspect-ratio:16/9;max-height:46svh;object-fit:cover;object-position:50% 35% !important;border-bottom:1px solid rgba(196,163,90,.28)}
 
 .dg > .dg-inner{padding:26px 28px}
 
 .dg .x, #pl .x, dialog .x {
   position:absolute;right:14px;top:10px;background:transparent !important;border:none !important;
   outline:none !important;box-shadow:none !important;font-size:1.8rem;line-height:1;cursor:pointer;
-  color:rgba(243,234,216,.65) !important;transition:color .2s ease;padding:0 !important;margin:0 !important;
+  color:rgba(243,234,216,.85) !important;transition:color .2s ease;padding:0 !important;margin:0 !important;z-index:5;
+  text-shadow:0 2px 8px rgba(0,0,0,.85);
 }
 .dg .x:hover, .dg .x:focus, .dg .x:focus-visible,
 #pl .x:hover, #pl .x:focus, #pl .x:focus-visible,
@@ -825,24 +860,33 @@ dialog .x:hover, dialog .x:focus, dialog .x:focus-visible {
   color:var(--g) !important;background:transparent !important;border:none !important;outline:none !important;box-shadow:none !important;
 }
 
-.dg .dg-act{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.dg .dg-act{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap}
+.dg a.watch-room-btn{
+  display:inline-flex !important;align-items:center !important;justify-content:center !important;gap:8px !important;
+  background:var(--g) !important;border:1px solid var(--g) !important;color:#14110b !important;
+  padding:9px 18px !important;text-decoration:none !important;font:800 .8rem Cinzel,serif !important;
+  border-radius:0 !important;cursor:pointer;transition:all .2s ease;letter-spacing:.05em;text-transform:uppercase;
+}
+.dg a.watch-room-btn:hover{
+  background:#d8be7d !important;border-color:#d8be7d !important;color:#100d08 !important;
+}
 .dg button.watch-btn, .dg .pb {
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   background:rgba(196,163,90,.12) !important;border:1px solid var(--g) !important;color:var(--g) !important;
-  padding:8px 18px !important;text-decoration:none !important;font:700 .82rem Cinzel,serif !important;
-  border-radius:0 !important;cursor:pointer;transition:all .2s ease;letter-spacing:.04em;
+  padding:9px 16px !important;text-decoration:none !important;font:700 .8rem Cinzel,serif !important;
+  border-radius:0 !important;cursor:pointer;transition:all .2s ease;letter-spacing:.04em;text-transform:uppercase;
 }
 .dg button.watch-btn:hover, .dg .pb:hover {
   background:var(--g) !important;color:#181818 !important;
 }
-.dg a.watch-btn, .dg .dg-act a {
+.dg a.watch-btn {
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  background:#c00 !important;border:1px solid #c00 !important;color:#fff !important;
-  padding:8px 18px !important;text-decoration:none !important;font:700 .82rem Cinzel,serif !important;
-  border-radius:0 !important;cursor:pointer;transition:all .2s ease;letter-spacing:.04em;
+  background:#b81d1d !important;border:1px solid #b81d1d !important;color:#fff !important;
+  padding:9px 16px !important;text-decoration:none !important;font:700 .8rem Cinzel,serif !important;
+  border-radius:0 !important;cursor:pointer;transition:all .2s ease;letter-spacing:.04em;text-transform:uppercase;
 }
-.dg a.watch-btn:hover, .dg .dg-act a:hover {
-  background:#e00 !important;border-color:#e00 !important;
+.dg a.watch-btn:hover {
+  background:#d62424 !important;border-color:#d62424 !important;
 }
 .dg-inner{padding:26px 28px;max-height:82svh;overflow-y:auto;box-sizing:border-box}
 .dg-rel-section{margin-top:20px;padding-top:16px;border-top:1px solid rgba(196,163,90,.25)}
@@ -1157,33 +1201,25 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 
 
 
-.search-chips-bar{
-
-  display:flex;align-items:center;gap:10px;padding:10px 20px;
-
-  background:#17130c;border-bottom:1px solid rgba(110,92,54,.25);overflow-x:auto;scrollbar-width:none;
-
+.search-sugg-bar{
+  display:flex;align-items:center;flex-wrap:wrap;gap:7px;padding:10px 20px;
+  background:#17130c;border-bottom:1px solid rgba(110,92,54,.25);
 }
-
-.search-chips-bar::-webkit-scrollbar{display:none}
-
-.search-chips-lbl{font:700 .72rem Cinzel,serif;color:var(--mut);white-space:nowrap;letter-spacing:.05em}
-
-.search-chips-list{display:flex;gap:6px;overflow-x:auto}
-
-.search-chip-btn{
-  flex-shrink:0;padding:5px 12px;background:#1c170f;border:1px solid rgba(196,163,90,.28);
-  border-radius:0 !important;color:var(--gold2);font:600 .76rem Bitter,serif;cursor:pointer;transition:all .2s;
+.search-sugg-bar[hidden]{display:none}
+.search-sugg-lbl{font:700 .7rem Cinzel,serif;color:var(--mut);white-space:nowrap;letter-spacing:.06em;text-transform:uppercase;margin-right:2px}
+.search-sugg-list{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+.search-sugg-btn{
+  padding:4px 10px;background:#1c170f;border:1px solid rgba(196,163,90,.28);
+  border-radius:0 !important;color:#e4d6b8;font:500 .76rem Bitter,serif;cursor:pointer;transition:all .16s;
 }
-
-.search-chip-btn:hover{background:var(--gold);color:#181818;border-color:var(--gold)}
+.search-sugg-btn:hover{background:var(--g);color:#14110b;border-color:var(--g)}
 
 .search-results-area{padding:18px 20px;overflow-y:auto;display:grid;gap:14px;flex:1}
 
-.search-hint-box{text-align:center;padding:26px 14px;color:#d9cdb2;font-size:.92rem;line-height:1.6}
+.search-hint-box{text-align:center;padding:24px 14px;color:#d9cdb2;font-size:.9rem;line-height:1.6}
 
 .search-intent-box{
-  background:rgba(196,163,90,.09);border:1px dashed var(--gold);border-radius:0 !important;
+  background:rgba(196,163,90,.09);border:1px dashed var(--g);border-radius:0 !important;
   padding:12px 16px;display:grid;gap:4px;
 }
 
@@ -1191,39 +1227,44 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 
 .search-intent-desc{font-size:.88rem;color:#f3ead8;margin:0;line-height:1.55}
 
-.search-res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.search-res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:10px}
 
+/* Opsi C Search Card: 3px Category Strip + Full Readable Title + Inline Sub-Badge */
 .search-card{
-  display:flex;align-items:center;gap:12px;padding:8px 10px;background:#19140d;
-  border:1px solid rgba(196,163,90,.25);border-radius:0 !important;text-decoration:none;
-  transition:all .18s;cursor:pointer;
+  --cat-c:#c4a35a;
+  display:flex;align-items:center;gap:12px;padding:10px 12px;background:#19140d;
+  border:1px solid rgba(196,163,90,.22);border-left:3px solid var(--cat-c) !important;
+  border-radius:0 !important;text-decoration:none !important;color:#f3ead8 !important;
+  transition:border-color .16s,background .16s,transform .16s;cursor:pointer;
 }
-
-.search-card:hover{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 6px 18px rgba(196,163,90,.15)}
+.search-card[data-cat="characters"]{--cat-c:#c4a35a}
+.search-card[data-cat="events"]{--cat-c:#d48a5c}
+.search-card[data-cat="places"]{--cat-c:#7ca982}
+.search-card:visited{color:#f3ead8 !important}
+.search-card:hover{transform:translateY(-2px);background:#221c13;border-color:rgba(196,163,90,.55);border-left-color:var(--cat-c) !important;box-shadow:0 6px 18px rgba(0,0,0,.35)}
 
 .search-card-thumb{
-  width:46px;height:46px;border-radius:0 !important;overflow:hidden;background:#261f14;flex-shrink:0;
+  width:46px;height:46px;border-radius:0 !important;overflow:hidden;background:#241d12;border:1px solid rgba(196,163,90,.22);flex-shrink:0;
 }
 
 .search-card-thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 13% !important;border-radius:0 !important}
 
-.search-card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 1rem Cinzel,serif;color:var(--gold);background:linear-gradient(135deg,#2e2417,#1b150d)}
+.search-card-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font:700 .95rem Cinzel,serif;color:var(--cat-c) !important;background:linear-gradient(135deg,#2a2215,#18130b)}
 
-.search-card-info{flex:1;min-width:0;display:grid;gap:2px}
+.search-card-info{flex:1;min-width:0;display:grid;gap:4px}
 
-.search-card-top{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.search-card-title{font:700 .9rem/1.3 Arvo,Bitter,serif;color:#faf6ee !important;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 
-.search-card-title{font:700 .9rem Arvo,serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-card-meta{display:flex;align-items:center;gap:6px;min-width:0;font-size:.75rem;line-height:1.25}
 
-.search-badge{
-
-  font:700 .66rem Cinzel,serif;padding:2px 6px;border-radius:3px;
-
-  background:rgba(196,163,90,.18);color:var(--gold);border:1px solid rgba(196,163,90,.3);letter-spacing:.04em;
-
+.search-sub-badge{
+  font:800 .66rem/1 Cinzel,serif;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--cat-c) !important;flex-shrink:0 !important;white-space:nowrap;
 }
 
-.search-card-role{font-size:.76rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.search-sub-dot{color:#6a5d46;flex-shrink:0}
+
+.search-card-role{font-size:.76rem;color:var(--mut) !important;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
 
 .search-empty-box{text-align:center;padding:32px 14px;color:var(--mut);font-size:.95rem}
 
@@ -1300,11 +1341,9 @@ dialog.search-modal::backdrop{background:rgba(0,0,0,.75);backdrop-filter:blur(8p
 .ai-config-status{font-size:.76rem;color:var(--gold2)}
 
 .search-ai-insight{
-
-  background:linear-gradient(135deg,rgba(196,163,90,.15),rgba(23,19,12,.95));
-
-  border-left:3px solid var(--gold);border-radius:6px;padding:12px 16px;display:grid;gap:4px;margin-bottom:12px;
-
+  background:linear-gradient(135deg,rgba(196,163,90,.14),rgba(23,19,12,.96));
+  border:1px solid rgba(196,163,90,.28);border-left:3px solid var(--g);border-radius:0 !important;
+  padding:13px 16px;display:grid;gap:5px;margin-bottom:12px;
 }
 
 .ai-insight-head{display:flex;align-items:center;gap:6px;font:700 .74rem Cinzel,serif;color:var(--gold2);letter-spacing:.05em}
@@ -1907,6 +1946,8 @@ button.x:hover, button.x:focus {
 
         <div class="hud-polities" id="hudPolities"></div>
 
+        <div class="hud-scale" id="hudScale"></div>
+
       </div>
 
       <div class="hint" id="mapHint"></div>
@@ -2459,26 +2500,9 @@ button.x:hover, button.x:focus {
 
     </div>
 
-    <div class="search-chips-bar">
-
-      <span class="search-chips-lbl" data-i18n="searchPopular">Pencarian Populer:</span>
-
-      <div class="search-chips-list" id="searchChipsList">
-
-        <button class="search-chip-btn" data-query="sahabat perang badar">Sahabat Perang Badar</button>
-
-        <button class="search-chip-btn" data-query="perang yg menghancurkan masa keemasan Islam">Kejatuhan Baghdad</button>
-
-        <button class="search-chip-btn" data-query="wanita pertama masuk islam">Wanita Pertama Masuk Islam</button>
-
-        <button class="search-chip-btn" data-query="penakluk spanyol dan andalusia">Penakluk Andalusia</button>
-
-        <button class="search-chip-btn" data-query="pembebasan baitul maqdis al-quds">Baitul Maqdis (Al-Quds)</button>
-
-        <button class="search-chip-btn" data-query="pedang allah yang tak terkalahkan">Saifullah (Khalid bin Walid)</button>
-
-      </div>
-
+    <div class="search-sugg-bar" id="searchSuggBar">
+      <span class="search-sugg-lbl" id="searchSuggLbl" data-i18n="searchSuggest">Saran Pencarian:</span>
+      <div class="search-sugg-list" id="searchSuggList"></div>
     </div>
 
     <div class="search-results-area" id="searchResultsArea">
@@ -2545,7 +2569,7 @@ const pctToLL=(x,y)=>[-(+y/100)*(MAP_H/S4),(+x/100)*(MAP_W/S4)];
 
 // ---- UNIFIED LEAFLET WORLD MAP + PLACE PINS
 
-let LMAP=null,SVG_OV=null,WSVG=null,PIN_LAYER=null,PIN_MAP=new Map();
+let LMAP=null,SVG_OV=null,WSVG=null,PIN_LAYER=null,GEO_LAYER=null,GEO_DATA=null,PIN_MAP=new Map();
 
 let CM="world",WPOP_MODE=null,WSEL_PIN=null;
 
@@ -2617,8 +2641,19 @@ function initLeaflet(){
 
   }).addTo(LMAP);
 
+  // Ultra-crisp Regional Zoom 5 HD overlay for Egypt–Syam–Hijaz–Iraq–Persia (Z5 tiles x=16..21, y=4..9)
+  L.tileLayer("assets/tiles/{z}/{x}/{y}.webp",{
+    tileSize:512,
+    minZoom:4.1,
+    maxNativeZoom:5,
+    maxZoom:5.5,
+    noWrap:true,
+    bounds:L.latLngBounds([-159.8,256.2],[-64.2,351.8]),
+    keepBuffer:2,
+    zIndex:205
+  }).addTo(LMAP);
 
-
+  GEO_LAYER=L.layerGroup().addTo(LMAP);
   PIN_LAYER=L.layerGroup().addTo(LMAP);
 
   LMAP.fitBounds(PRESETS[0].bounds,{animate:false});
@@ -2627,12 +2662,17 @@ function initLeaflet(){
 
   LMAP.setMinZoom(Math.max(0.3,fitZ-0.15));
 
+  const syncZoomClass=()=>{
+    const z=LMAP.getZoom();
+    host.classList.toggle("map-zoom-mid",z>=2.15);
+    host.classList.toggle("map-zoom-high",z>=2.95);
+    host.classList.toggle("map-zoom-micro",z>=3.85);
+    updateGeoHierarchy();
+  };
 
+  LMAP.on("zoomend moveend",syncZoomClass);
 
-  const syncZoomClass=()=>host.classList.toggle("map-zoom-high",LMAP.getZoom()>=2.7);
-
-  LMAP.on("zoomend",syncZoomClass);
-
+  loadGeoHierarchy();
   syncZoomClass();
 
 
@@ -2789,6 +2829,130 @@ function openPlace(id,scroll){
 
 
 
+async function loadGeoHierarchy(){
+  if(GEO_DATA)return;
+  try{
+    const r=await fetch("geo_labels.json");
+    if(r.ok){GEO_DATA=await r.json();updateGeoHierarchy();}
+  }catch(e){}
+}
+
+function geoPickName(item){
+  const l=(I&&I.getLang)?I.getLang():"id";
+  if(item.code)return (I&&typeof I.countryName==="function")?I.countryName(item.code):(item.name||item.code);
+  return (l==="ar"?item.ar_n:(l==="en"?item.en_n:item.id_n))||item.id_n||item.en_n||"";
+}
+
+function updateGeoHierarchy(){
+  if(!LMAP||!GEO_LAYER)return;
+  const z=LMAP.getZoom();
+  const hudScale=$("#hudScale");
+  if(hudScale){
+    const lbl=z>=3.9?I.t("geoLvl5"):z>=3.05?I.t("geoLvl4"):z>=2.25?I.t("geoLvl3"):z>=1.4?I.t("geoLvl2"):I.t("geoLvl1");
+    hudScale.innerHTML=`<span>${I.t("geoScale")}:</span> <b>${lbl}</b>`;
+  }
+  if(!GEO_DATA)return;
+  GEO_LAYER.clearLayers();
+  const vb=LMAP.getBounds().pad(0.12);
+  const addLbl=(x,y,cls,html,zOff)=>{
+    const ll=pctToLL(x,y);
+    if(!vb.contains(ll))return;
+    L.marker(ll,{
+      interactive:false,
+      keyboard:false,
+      zIndexOffset:zOff||50,
+      icon:L.divIcon({className:"geo-wrap",iconSize:[0,0],iconAnchor:[0,0],html:`<div class="geo-lbl ${cls}">${html}</div>`})
+    }).addTo(GEO_LAYER);
+  };
+  const esc=s=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+  // Lapis 1: Continents & Oceans/Seas
+  if(z<1.65){
+    (GEO_DATA.continents||[]).forEach(c=>addLbl(c.x,c.y,"geo-continent",esc(geoPickName(c)),20));
+  }
+  (GEO_DATA.seas||[]).forEach(s=>{
+    if(z>=(s.minZoom||0.4)&&z<=(s.maxZoom||3.8)){
+      addLbl(s.x,s.y,"geo-sea",esc(geoPickName(s)),15);
+    }
+  });
+
+  // Lapis 2: Countries Worldwide (auto-computed from 250 polygons in world.svg, trilingual via I.countryName)
+  if(z>=1.35&&z<3.15){
+    const placed=[];
+    (GEO_DATA.countries||[]).forEach(c=>{
+      if(z<(c.minZoom||1.75))return;
+      const ll=pctToLL(c.x,c.y);
+      if(!vb.contains(ll))return;
+      const pt=LMAP.latLngToContainerPoint(ll);
+      const minDx=z<2.0?74:58,minDy=z<2.0?22:18;
+      if(placed.some(q=>Math.abs(q.x-pt.x)<minDx&&Math.abs(q.y-pt.y)<minDy))return;
+      placed.push(pt);
+      const op=z>=2.65?0.48:0.94;
+      addLbl(c.x,c.y,"geo-country",`<span style="opacity:${op}">${esc(geoPickName(c))}</span>`,30);
+    });
+  }
+
+  // Lapis 3: Provinces & Historical Regions
+  if(z>=2.25&&z<4.45){
+    const placedP=[];
+    (GEO_DATA.provinces||[]).forEach(p=>{
+      const ll=pctToLL(p.x,p.y);
+      if(!vb.contains(ll))return;
+      const pt=LMAP.latLngToContainerPoint(ll);
+      if(placedP.some(q=>Math.abs(q.x-pt.x)<78&&Math.abs(q.y-pt.y)<22))return;
+      placedP.push(pt);
+      const op=z>=3.85?0.42:0.94;
+      addLbl(p.x,p.y,"geo-province",`<span style="opacity:${op}">${esc(geoPickName(p))}</span>`,40);
+    });
+  }
+
+  // Collect screen coords of visible interactive PL pins so reference labels NEVER collide with clickable pins
+  const pinPts=[];
+  const skipP=new Set(["makkah-k","madinah-k"]);
+  PL.forEach(p=>{
+    if(skipP.has(p.id)||!Number.isFinite(p.x)||!Number.isFinite(p.y))return;
+    const ll=pctToLL(p.x,p.y);
+    if(vb.contains(ll)) pinPts.push(LMAP.latLngToContainerPoint(ll));
+  });
+
+  // Lapis 4: Global Reference Cities (Smart Offset Opsi B, collision-free against clickable PL pins)
+  const microPts=[...pinPts];
+  if(z>=3.05){
+    (GEO_DATA.cities||[]).forEach(ct=>{
+      const ll=pctToLL(ct.x,ct.y);
+      if(!vb.contains(ll))return;
+      const pt=LMAP.latLngToContainerPoint(ll);
+      if(microPts.some(q=>Math.abs(q.x-pt.x)<74&&Math.abs(q.y-pt.y)<22))return;
+      microPts.push(pt);
+      const side=ct.side==="left"?"side-l":"side-r";
+      addLbl(ct.x,ct.y,"geo-city-box",`<i class="geo-dot"></i><span class="geo-tag ${side}">${esc(geoPickName(ct))}</span>`,65);
+    });
+  }
+
+  // Lapis 5: Districts, Valleys, Forts & Specific Historic Sites (Smart Offset Opsi B, collision-free)
+  if(z>=3.85){
+    (GEO_DATA.sites||[]).forEach(st=>{
+      const ll=pctToLL(st.x,st.y);
+      if(!vb.contains(ll))return;
+      const pt=LMAP.latLngToContainerPoint(ll);
+      const padX=z>=4.9?46:82, padY=z>=4.9?18:26;
+      if(microPts.some(q=>Math.abs(q.x-pt.x)<padX&&Math.abs(q.y-pt.y)<padY))return;
+      microPts.push(pt);
+      const side=st.side==="left"?"side-l":"side-r";
+      addLbl(st.x,st.y,"geo-site-box",`<i class="geo-dot"></i><span class="geo-tag ${side}">${esc(geoPickName(st))}</span>`,75);
+    });
+  }
+}
+
+const PIN_SIDES={
+  "konstantinopel":"t","hims":"r","damaskus":"l","yarmuk":"r","baitulmaqdis":"l","palestina":"l","syam":"r",
+  "iskandariyah":"l","fustat":"l","mesir":"l","barqah":"t",
+  "tabuk":"l","khaibar":"r","yatsrib":"r","badar":"l","makkah":"l","thaif":"r","hira":"r",
+  "laut-merah":"l","gajah":"r","yaman":"r","habasyah":"l","yamamah":"r",
+  "madain":"t","iraq":"t","kufah":"b","basrah":"r","nahawand":"t","persia":"r","merv":"t"
+};
+const PIN_MAJOR=new Set(["konstantinopel","damaskus","baitulmaqdis","fustat","yatsrib","makkah","madain","yaman","habasyah","merv","barqah","persia"]);
+
 function buildHS(){
 
   initLeaflet();
@@ -2807,6 +2971,9 @@ function buildHS(){
 
     if(skip.has(p.id)||!Number.isFinite(p.x)||!Number.isFinite(p.y))return;
 
+    const side=PIN_SIDES[p.id]||"t";
+    const tierCls=PIN_MAJOR.has(p.id)?" pin-major":" pin-site";
+
     const icon=L.divIcon({
 
       className:"hs-wrap",
@@ -2815,11 +2982,11 @@ function buildHS(){
 
       iconAnchor:[11,11],
 
-      html:`<button type="button" class="hs-pin${WSEL_PIN==p.id?" on":""}" data-id="${p.id}" aria-label="${(p.n||"").replace(/"/g,"&quot;")}"><i></i><b></b></button>`
+      html:`<button type="button" class="hs-pin${tierCls}${WSEL_PIN==p.id?" on":""}" data-id="${p.id}" data-side="${side}" aria-label="${(p.n||"").replace(/"/g,"&quot;")}"><i></i><b></b></button>`
 
     });
 
-    const mk=L.marker(pctToLL(p.x,p.y),{icon,zIndexOffset:200});
+    const mk=L.marker(pctToLL(p.x,p.y),{icon,zIndexOffset:PIN_MAJOR.has(p.id)?240:200});
 
     mk.on("add",()=>{
 
@@ -3169,7 +3336,7 @@ function renderKRSub(){
 
       const c=el("article","kev");
 
-      const evUrl="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
+      const evUrl="/detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
 
 
 
@@ -3505,7 +3672,7 @@ function openPlacePopup(rawP){
 
   link.textContent=I.t("readFullProfile");
 
-  link.href="detail.html?t=places&id="+encodeURIComponent(p.uid||p.id);
+  link.href="/detail.html?t=places&id="+encodeURIComponent(p.uid||p.id);
 
   more.hidden=false;
 
@@ -3535,7 +3702,7 @@ function openPlacePopup(rawP){
 
       const a=el("a","go",I.t("readDetail"));
 
-      a.href="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
+      a.href="/detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
 
       li.append(a);
 
@@ -3649,7 +3816,7 @@ function openWPopup(c){
 
         const a=el("a","go",I.t("readDetail"));
 
-        a.href="detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
+        a.href="/detail.html?t=events&id="+encodeURIComponent(e.uid||e.slug||e.id);
 
         li.append(a);
 
@@ -3671,7 +3838,7 @@ function openWPopup(c){
 
         const a=el("a","w-chip",f.name);
 
-        a.href="detail.html?t=characters&id="+encodeURIComponent(f.id);
+        a.href="/detail.html?t=characters&id="+encodeURIComponent(f.id);
 
         figList.append(a);
 
@@ -4343,7 +4510,7 @@ function drawCH(l){
 
     b.append(lb);
 
-    b.onclick=()=>{location.href="detail.html?t=characters&id="+encodeURIComponent(d.id)};
+    b.onclick=()=>{location.href="/detail.html?t=characters&id="+encodeURIComponent(d.id)};
 
     c.append(b);
 
@@ -4369,17 +4536,24 @@ $("#chSort").onchange=e=>{CF.sort=e.target.value;applyCH()};
 
 // ---- SHORTS & VIDEOS
 
+function slugifyVid(s){
+  return String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+}
+
 function rSH(l){
 
+  window.__ALFA_SHORTS = l || [];
+  try{ sessionStorage.setItem("alfa_shorts_cache", JSON.stringify(l||[])); }catch(e){}
   const c=$("#sr");c.replaceChildren();
 
-  l.forEach(d=>{
+  l.forEach((d,idx)=>{
 
     const b=el("button","sh"),im=new Image(),e=el("span","e","EPS."+String(d.ep).padStart(2,"0")),k=el("span","t",d.title);
 
     im.src=GIMG(d.img);im.alt="";b.append(im,e,k);
 
-    b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1);
+    const sid = d.id || ("ep-" + d.ep) || ("short-" + idx);
+    b.onclick=()=>show(GIMG(d.img),d.title,e.textContent,d.summary,GOOD.test(d.url||"")?d.url:1,{type:"shorts",id:sid,rec:d});
 
     c.append(b);
 
@@ -4391,21 +4565,22 @@ function rSH(l){
 
 function rVD(l){
 
+  window.__ALFA_VIDEOS = l || [];
+  try{ sessionStorage.setItem("alfa_videos_cache", JSON.stringify(l||[])); }catch(e){}
   $("#videos").hidden=!l.length;
 
   const c=$("#vr");c.replaceChildren();
 
-  l.forEach(d=>{
+  l.forEach((d,idx)=>{
 
     const a=el("a","vd"),th=el("div","th");a.target="_blank";a.rel="noopener";
 
-    if(GOOD.test(d.url||""))a.href=d.url;
-
-    const v=YID(d.url);
+    const vidSlug = d.slug || d.id || slugifyVid(d.title) || ("video-" + idx);
+    if(GOOD.test(d.url||""))a.href="/watch.html?t=videos&id="+encodeURIComponent(vidSlug);
 
     a.onclick=e=>{
       e.preventDefault();
-      show(GIMG(d.img), d.title, "VIDEO DOKUMENTER", d.description||"", d.url||1);
+      show(GIMG(d.img), d.title, "VIDEO DOKUMENTER", d.description||"", d.url||1, {type:"videos",id:vidSlug,rec:d});
     };
 
     if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}
@@ -4420,24 +4595,46 @@ function rVD(l){
 
 
 
-// Dialog & Play
+// Dialog & Play (Modal Opsi B + Qabas Watch Room + Auto 16:9 / 9:16)
 
 const dlg=$("#dlg");
 
-function show(img,h,sm,t,link){
+function show(img,h,sm,t,link,meta){
+  const isDoc = (meta && meta.type === "videos") || /DOKUMENTER|VIDEO/i.test(sm||"");
+  const isShort = !isDoc && ((meta && meta.type === "shorts") || (typeof link==="string" && link.includes("/shorts/")) || /^EPS\./i.test(sm||""));
+  const dgWrap = dlg.querySelector(".dg");
+  if(dgWrap) dgWrap.classList.toggle("doc-hero", isDoc);
+
   const imNode = dlg.querySelector("img");
-  if(imNode){ imNode.src=img; imNode.style.objectPosition="50% 15%"; }
+  if(imNode){
+    imNode.src=img||"";
+    imNode.hidden=!img;
+    imNode.style.objectPosition = isDoc ? "50% 35%" : "50% 15%";
+  }
   dlg.querySelector("h3").textContent=h;
   dlg.querySelector("small").textContent=sm;
   dlg.querySelector("p").textContent=t;
 
   const actBox = dlg.querySelector(".dg-act") || dlg.querySelector(".dg-inner") || dlg.querySelector("div div");
-  dlg.querySelectorAll("a.watch-btn, button.watch-btn, .dg-act a, .dg-act button").forEach(n=>n.remove());
+  dlg.querySelectorAll("a.watch-room-btn, a.watch-btn, button.watch-btn, .dg-act a, .dg-act button").forEach(n=>n.remove());
+
+  // Primary CTA: Open dedicated Qabas-style Watch Room with Summary, Sources, Chapters & Glossary
+  if(meta && meta.id){
+    const roomA = document.createElement("a");
+    roomA.className = "watch-room-btn";
+    roomA.href = "/watch.html?t=" + encodeURIComponent(meta.type || "videos") + "&id=" + encodeURIComponent(meta.id);
+    roomA.textContent = I.t("openWatchRoom");
+    actBox.append(roomA);
+  }
 
   if(link){
     if(YID(link)){
-      const pb=el("button","watch-btn",I.t("playHere"));
-      pb.onclick=()=>{dlg.close();play(YID(link),1,link)};
+      const pb=el("button","watch-btn",I.t("playQuick"));
+      pb.onclick=()=>{
+        dlg.close();
+        const verticalMode = isShort || (typeof link==="string" && link.includes("/shorts/"));
+        play(YID(link), verticalMode, link);
+      };
       actBox.append(pb);
     }
     const a=document.createElement("a");
@@ -4521,7 +4718,7 @@ function show(img,h,sm,t,link){
         const lbl=document.createElement("div");lbl.className="dg-rel-label";lbl.textContent="✦ TOKOH TERKAIT";
         const gr=document.createElement("div");gr.className="dg-rel-grid";
         matchedChars.slice(0, 4).forEach(c => {
-          const card=document.createElement("a");card.className="dg-card";card.href="detail.html?t=characters&id="+encodeURIComponent(c.name);
+          const card=document.createElement("a");card.className="dg-card";card.href="/detail.html?t=characters&id="+encodeURIComponent(c.name);
           const th=document.createElement("div");th.className="dg-card-thumb";
           const ph=document.createElement("div");ph.className="ph";ph.textContent=c.name.slice(0,2);
           if(c.img){
@@ -4544,7 +4741,7 @@ function show(img,h,sm,t,link){
         const lbl=document.createElement("div");lbl.className="dg-rel-label";lbl.textContent="✦ TEMPAT TERKAIT";
         const gr=document.createElement("div");gr.className="dg-rel-grid";
         matchedPlaces.slice(0, 4).forEach(p => {
-          const card=document.createElement("a");card.className="dg-card";card.href="detail.html?t=places&id="+encodeURIComponent(p.slug||p.name);
+          const card=document.createElement("a");card.className="dg-card";card.href="/detail.html?t=places&id="+encodeURIComponent(p.slug||p.name);
           const th=document.createElement("div");th.className="dg-card-thumb";
           const pImg=(Array.isArray(p.slides)&&p.slides[0])||"";
           const ph=document.createElement("div");ph.className="ph";ph.textContent=(p.name||"PL").slice(0,2);
@@ -4918,6 +5115,8 @@ window.addEventListener("alfa:langchange",async()=>{
   paintWM();
 
   buildHS();
+
+  updateGeoHierarchy();
 
   initKR();
 
@@ -5305,8 +5504,6 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
   const semanticInput = document.getElementById("semanticInput");
 
-  const searchChipsList = document.getElementById("searchChipsList");
-
   const searchResultsGrid = document.getElementById("searchResultsGrid");
 
   const searchIntentCallout = document.getElementById("searchIntentCallout");
@@ -5409,27 +5606,91 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
 
 
-  // Chip buttons
+  // Dynamic Contextual Suggestions (Replaces Popular Scrollbar)
+  const searchSuggBar = document.getElementById("searchSuggBar");
+  const searchSuggList = document.getElementById("searchSuggList");
+  const BASE_SUGGESTIONS = {
+    id: [
+      { label: "Perang Badar", q: "perang badar" },
+      { label: "Khalid bin Walid", q: "khalid bin walid" },
+      { label: "Khadijah binti Khuwailid", q: "khadijah" },
+      { label: "Fathu Makkah", q: "fathu makkah" },
+      { label: "Kejatuhan Baghdad", q: "kejatuhan baghdad" },
+      { label: "Baitul Maqdis", q: "baitul maqdis" },
+      { label: "Penaklukan Andalusia", q: "andalusia" },
+      { label: "Perang Yarmuk", q: "yarmuk" },
+      { label: "Kesultanan Demak", q: "demak" },
+      { label: "Konstantinopel", q: "konstantinopel" }
+    ],
+    en: [
+      { label: "Battle of Badr", q: "badr" },
+      { label: "Khalid ibn al-Walid", q: "khalid" },
+      { label: "Khadijah", q: "khadijah" },
+      { label: "Conquest of Mecca", q: "makkah" },
+      { label: "Fall of Baghdad", q: "baghdad" },
+      { label: "Jerusalem (Al-Quds)", q: "baitul maqdis" },
+      { label: "Al-Andalus", q: "andalusia" },
+      { label: "Battle of Yarmouk", q: "yarmuk" }
+    ],
+    ar: [
+      { label: "غزوة بدر", q: "badar" },
+      { label: "خالد بن الوليد", q: "khalid" },
+      { label: "خديجة بنت خويلد", q: "khadijah" },
+      { label: "فتح مكة", q: "makkah" },
+      { label: "سقوط بغداد", q: "baghdad" },
+      { label: "بيت المقدس", q: "baitul maqdis" },
+      { label: "فتح الأندلس", q: "andalusia" }
+    ]
+  };
 
-  if(searchChipsList){
+  function renderSearchSuggestions(q){
+    if(!searchSuggList || !searchSuggBar) return;
+    const lang = (I && I.getLang) ? I.getLang() : "id";
+    const clean = String(q || "").trim().toLowerCase();
+    const pool = [];
+    const seen = new Set();
+    const pushItem = (label, queryStr) => {
+      const k = label.toLowerCase();
+      if(seen.has(k) || !label) return;
+      seen.add(k);
+      pool.push({ label, q: queryStr || label });
+    };
 
-    searchChipsList.addEventListener("click", e => {
+    if(clean){
+      // Pull live title prefix/substring matches from characters, events, places first
+      const D = window.DEFS || {};
+      (D.characters || []).forEach(c => {
+        if((c.name || "").toLowerCase().includes(clean)) pushItem(c.name, c.name);
+      });
+      (D.events || []).forEach(ev => {
+        if((ev.title || "").toLowerCase().includes(clean)) pushItem(ev.title, ev.title);
+      });
+      (D.places || []).forEach(pl => {
+        if((pl.name || "").toLowerCase().includes(clean)) pushItem(pl.name, pl.name);
+      });
+      (BASE_SUGGESTIONS[lang] || BASE_SUGGESTIONS.id).forEach(s => {
+        if(s.label.toLowerCase().includes(clean) || s.q.toLowerCase().includes(clean)) pushItem(s.label, s.q);
+      });
+    } else {
+      (BASE_SUGGESTIONS[lang] || BASE_SUGGESTIONS.id).slice(0, 6).forEach(s => pushItem(s.label, s.q));
+    }
 
-      const btn = e.target.closest(".search-chip-btn");
-
-      if(btn && btn.dataset.query){
-
-        if(semanticInput) semanticInput.value = btn.dataset.query;
-
-        triggerSearch(btn.dataset.query);
-
-      }
-
+    searchSuggList.replaceChildren();
+    const top = pool.slice(0, 6);
+    searchSuggBar.hidden = !top.length;
+    top.forEach(s => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "search-sugg-btn";
+      btn.textContent = s.label;
+      btn.onclick = () => {
+        if(semanticInput) semanticInput.value = s.q;
+        triggerSearch(s.q);
+      };
+      searchSuggList.append(btn);
     });
-
   }
-
-
+  renderSearchSuggestions("");
 
   // Live input handler
 
@@ -5459,7 +5720,7 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
 
 
-  // --- AI Gemini Helper ---
+  // --- AI Historical Summary Helper ---
   const searchAiInsightBox = document.getElementById("searchAiInsightBox");
 
   function getStoredGeminiKey(){
@@ -5477,12 +5738,9 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
     const query = String(q || "").trim();
 
     if(searchClearBtn) searchClearBtn.hidden = !query;
-
-
+    renderSearchSuggestions(query);
 
     if(aiDebounceTimer) clearTimeout(aiDebounceTimer);
-
-
 
     if(!query){
 
@@ -5500,11 +5758,7 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
     }
 
-
-
     if(searchHintBox) searchHintBox.hidden = true;
-
-
 
     if(!window.__ALFA_DEFS && window.DEFS && I && typeof I.setDefaultsData === "function"){
       I.setDefaultsData(window.DEFS);
@@ -5513,10 +5767,7 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
     const res = I.semanticSearch(query, I.getLang());
 
-
-
     // Intent Callout
-
     if(res.matchedIntent){
 
       searchIntentCallout.hidden = false;
@@ -5537,11 +5788,10 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
     }
 
-
-
-    // Optional Gemini AI Hook (Debounced 450ms)
-
+    // Ringkasan Sejarah ALFA (Clean Brand Heading — No Technical Model Leak)
     const gemKey = getStoredGeminiKey();
+    const aiTitle = I.t("aiSummaryTitle");
+    const aiLoading = I.t("aiSummaryLoading");
 
     if(gemKey && query.length >= 3 && I && typeof I.queryGeminiAI === "function"){
 
@@ -5551,9 +5801,9 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
         searchAiInsightBox.innerHTML = `
 
-          <div class="ai-insight-head"><span>✦</span><span>INTISARI GEMINI AI</span></div>
+          <div class="ai-insight-head"><span>✦</span><span>${aiTitle}</span></div>
 
-          <p class="ai-insight-text ai-loading-pulsing">Menghubungkan ke Gemini AI untuk analisis sejarah...</p>
+          <p class="ai-insight-text ai-loading-pulsing">${aiLoading}</p>
 
         `;
 
@@ -5571,7 +5821,7 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
           searchAiInsightBox.innerHTML = `
 
-            <div class="ai-insight-head"><span>✦</span><span>INTISARI GEMINI AI (${aiRes.model})</span></div>
+            <div class="ai-insight-head"><span>✦</span><span>${I.t("aiSummaryTitle")}</span></div>
 
             <p class="ai-insight-text">${aiRes.text}</p>
 
@@ -5591,10 +5841,7 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
     }
 
-
-
-    // Results Cards
-
+    // Results Cards (Opsi C: 3px Category Left Strip + Full Readable Title + Inline Sub-Badge)
     searchResultsGrid.replaceChildren();
 
     if(!res.results || !res.results.length){
@@ -5607,17 +5854,13 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
     if(searchEmptyMsg) searchEmptyMsg.hidden = true;
 
-
-
     res.results.forEach(item => {
 
       const card = document.createElement("a");
 
       card.className = "search-card";
-
-      card.href = item.url;
-
-      
+      card.dataset.cat = item.type || "characters";
+      card.href = item.url && item.url.startsWith("/") ? item.url : ("/" + String(item.url || "").replace(/^\/+/, ""));
 
       const thumb = document.createElement("div");
 
@@ -5649,19 +5892,9 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
       }
 
-
-
       const info = document.createElement("div");
 
       info.className = "search-card-info";
-
-
-
-      const topRow = document.createElement("div");
-
-      topRow.className = "search-card-top";
-
-
 
       const tTitle = document.createElement("b");
 
@@ -5669,29 +5902,25 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
       tTitle.textContent = item.title;
 
-
+      const metaRow = document.createElement("div");
+      metaRow.className = "search-card-meta";
 
       const badge = document.createElement("span");
-
-      badge.className = "search-badge";
-
+      badge.className = "search-sub-badge";
       badge.textContent = item.badge || item.type;
+      metaRow.append(badge);
 
+      if(item.role){
+        const dot = document.createElement("span");
+        dot.className = "search-sub-dot";
+        dot.textContent = "·";
+        const rRole = document.createElement("span");
+        rRole.className = "search-card-role";
+        rRole.textContent = item.role;
+        metaRow.append(dot, rRole);
+      }
 
-
-      topRow.append(tTitle, badge);
-
-
-
-      const rRole = document.createElement("span");
-
-      rRole.className = "search-card-role";
-
-      rRole.textContent = item.role || "";
-
-
-
-      info.append(topRow, rRole);
+      info.append(tTitle, metaRow);
 
       card.append(thumb, info);
 

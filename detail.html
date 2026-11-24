@@ -22,9 +22,22 @@ header{position:sticky;top:0;z-index:25;background:var(--bg);display:flex;justif
 .h-mid{display:flex;align-items:center;justify-content:center}
 .h-num{font:700 1.2rem/1 Cinzel,serif;color:var(--gold);letter-spacing:.26em;text-shadow:0 0 10px rgba(196,163,90,.35);direction:ltr !important;unicode-bidi:isolate;display:inline-block}
 .h-acts{display:flex;align-items:center;gap:10px}
-.lang-btn{background:none;border:1px solid var(--g2);color:var(--gold);font:700 .78rem/1 Cinzel,serif;padding:7px 11px;cursor:pointer;letter-spacing:.06em;transition:all .2s;text-transform:uppercase}
-.lang-btn:hover{border-color:var(--gold);background:rgba(196,163,90,.12)}
-.back{font:700 .9rem Arvo,serif;color:var(--gold);text-decoration:none;border:1px solid var(--gold);padding:7px 18px;transition:all .2s}
+.lang-dropdown-wrap{position:relative;display:inline-block}
+.lang-drop-trigger{display:inline-flex;align-items:center;gap:6px;background:rgba(196,163,90,.1);border:1px solid var(--g2);color:var(--gold);font:700 .78rem/1 Cinzel,serif;padding:7px 12px;cursor:pointer;letter-spacing:.06em;transition:all .2s;text-transform:uppercase;border-radius:0}
+.lang-drop-trigger:hover,.lang-drop-trigger[aria-expanded="true"]{background:rgba(196,163,90,.22);border-color:var(--gold);color:#fff}
+.lang-chevron{transition:transform .2s ease;display:inline-block}
+.lang-drop-trigger[aria-expanded="true"] .lang-chevron{transform:rotate(180deg)}
+.lang-drop-menu{display:none !important;position:absolute;top:calc(100% + 6px);right:0;min-width:170px;background:#18140e;border:1px solid var(--gold);box-shadow:0 12px 32px rgba(0,0,0,.78);z-index:60;padding:4px 0}
+.lang-drop-menu.open{display:grid !important}
+.lang-drop-menu[hidden]{display:none !important}
+[dir="rtl"] .lang-drop-menu{right:auto;left:0}
+.lang-drop-item{display:flex;align-items:center;gap:10px;padding:9px 14px;background:none;border:0;border-bottom:1px solid rgba(110,92,54,.2);color:var(--ink);font:600 .84rem Bitter,serif;cursor:pointer;text-align:left;transition:background .16s,color .16s}
+.lang-drop-item:last-child{border-bottom:0}
+[dir="rtl"] .lang-drop-item{text-align:right}
+.lang-drop-item:hover{background:rgba(196,163,90,.18);color:#fff}
+.lang-drop-item.on{background:rgba(196,163,90,.24);color:var(--gold);font-weight:700}
+.lang-drop-code{font:700 .75rem Cinzel,serif;color:var(--gold);min-width:24px}
+.back{font:700 .84rem Arvo,serif;color:var(--gold);text-decoration:none;border:1px solid var(--gold);padding:7px 16px;transition:all .2s}
 .back:hover{background:var(--gold);color:var(--bg)}
 #hero{background:var(--cream);padding:clamp(12px,3vw,40px) 0;transition:background .5s}
 .sl{position:relative;max-width:1500px;margin:auto;padding:0 clamp(40px,6vw,90px)}
@@ -94,7 +107,7 @@ figcaption{margin-top:10px;font-size:.95rem}
 /* v1.8.0 ENHANCEMENTS */
 #readProgress{position:fixed;top:0;left:0;height:2.5px;background:linear-gradient(90deg,var(--gold),#f3ead8);width:0%;z-index:9999;pointer-events:none;transition:width .05s linear}
 .h-acts{display:flex;align-items:center;gap:10px}
-.share-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(196,163,90,.1);border:1px solid rgba(196,163,90,.35);border-radius:4px;color:var(--gold2);padding:6px 12px;font:700 .8rem Cinzel,serif;cursor:pointer;transition:all .2s;text-decoration:none}
+.share-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(196,163,90,.1);border:1px solid rgba(196,163,90,.35);border-radius:0;color:var(--gold2);padding:7px 12px;font:700 .78rem/1 Cinzel,serif;cursor:pointer;transition:all .2s;text-decoration:none}
 .share-btn:hover{background:var(--gold);color:#181818;border-color:var(--gold)}
 .share-btn svg{width:14px;height:14px;fill:currentColor}
 .wiki-link{color:var(--gold2);text-decoration:none;border-bottom:1px dotted var(--gold);font-weight:600;padding:0 2px;border-radius:2px;transition:all .2s}
@@ -131,19 +144,38 @@ figcaption{margin-top:10px;font-size:.95rem}
       <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
       <span id="shareTxt">Bagi Kisah</span>
     </button>
-    <button class="lang-btn" id="langBtn" type="button" aria-label="Switch language">EN</button>
+    <div class="lang-dropdown-wrap" id="langDropdownWrap">
+      <button class="lang-drop-trigger" id="langDropTrigger" type="button" aria-label="Select Language" aria-expanded="false">
+        <span id="langBtnText">ID</span>
+        <svg class="lang-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="lang-drop-menu" id="langDropMenu" hidden>
+        <button type="button" class="lang-drop-item on" data-lang="id">
+          <span class="lang-drop-code">ID</span>
+          <span class="lang-drop-label">Bahasa Indonesia</span>
+        </button>
+        <button type="button" class="lang-drop-item" data-lang="en">
+          <span class="lang-drop-code">EN</span>
+          <span class="lang-drop-label">English</span>
+        </button>
+        <button type="button" class="lang-drop-item" data-lang="ar">
+          <span class="lang-drop-code">AR</span>
+          <span class="lang-drop-label">العربية</span>
+        </button>
+      </div>
+    </div>
     <a class="back" id="back" href="/">← Back</a>
   </div>
 </header>
 <div id="app"><p class="msg" id="loadMsg">Loading...</p></div>
-<script src="config.js"></script>
-<script src="i18n.js"></script>
-<script src="sources_data.js"></script>
-<script src="track.js"></script>
+<script src="/config.js"></script>
+<script src="/i18n.js"></script>
+<script src="/sources_data.js"></script>
+<script src="/track.js"></script>
 <script>
 const C=window.ALFA_CFG||{},I=window.ALFA_I18N,Q=new URLSearchParams(location.search),T=["places","events"].includes(Q.get("t"))?Q.get("t"):"characters",ID=Q.get("id")||"",app=document.getElementById("app");
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const OK=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
+const OK=u=>{if(!/^(assets\/|\/assets\/|https:\/\/)/.test(u||""))return"";return u.startsWith("assets/")?"/"+u:u};
 const bkBtn = document.getElementById("back");
 const bkSec = (T=="places"?"places":T=="events"?"chronology":"characters");
 bkBtn.href = "/#" + bkSec;
@@ -164,8 +196,12 @@ function showToast(msg){
 }
 
 function syncHeaderUI(){
-  const lb=document.getElementById("langBtn");
-  if(lb)lb.textContent=I.getLang().toUpperCase();
+  const cur=I.getLang();
+  const lb=document.getElementById("langBtnText");
+  if(lb)lb.textContent=cur.toUpperCase();
+  document.querySelectorAll(".lang-drop-item").forEach(it=>{
+    it.classList.toggle("on",it.getAttribute("data-lang")===cur);
+  });
   const bk=document.getElementById("back");
   if(bk)bk.textContent=I.t("back");
   const lm=document.getElementById("loadMsg");
@@ -218,13 +254,15 @@ async function get(){
     }catch(e){}
   }
 
-  if(T=="places") return D.places.find(p=>p.slug==ID||p.name==ID||p.id==ID);
-  if(T=="events") return D.events.find(p=>p.slug==ID||p.title==ID||p.id==ID);
+  const slugNorm=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/['’`]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+  const idNorm=slugNorm(ID);
+  if(T=="places") return D.places.find(p=>p.slug==ID||p.name==ID||p.id==ID||slugNorm(p.slug)==idNorm||slugNorm(p.name)==idNorm)||null;
+  if(T=="events") return D.events.find(p=>p.slug==ID||p.title==ID||p.id==ID||slugNorm(p.slug)==idNorm||slugNorm(p.title)==idNorm)||null;
   if(/^[0-9]+$/.test(ID)||/^d\d+$/.test(ID)){
     const idx=+ID.replace(/\D/g,"");
     if(D.characters[idx]) return D.characters[idx];
   }
-  return D.characters.find(c=>c.name==canonID||c.name==ID||c.slug==ID||c.id==ID)||D.characters[0];
+  return D.characters.find(c=>c.name==canonID||c.name==ID||c.slug==ID||c.id==ID||slugNorm(c.name)==idNorm||slugNorm(c.name)==slugNorm(canonID))||null;
 }
 
 function body(t){const b=el("div","bd");(t||"").split("\n").forEach(l=>{if(!l.trim())return;if(l.startsWith("# "))b.append(el("h4","",l.slice(2)));else if(l.startsWith("- "))b.append(el("h5","",l.slice(2)));else b.append(el("p","",l.trim()))});return b}
@@ -234,7 +272,7 @@ function san(h){const d=new DOMParser().parseFromString("<body>"+h,"text/html").
 if(/^(SCRIPT|STYLE|IFRAME|OBJECT|EMBED|LINK|META|FORM|INPUT|BUTTON|TEXTAREA|SELECT|SVG|MATH|NOSCRIPT|TEMPLATE)$/.test(t))return;
 if(t=="DIV")t="P";if(t=="STRIKE"||t=="DEL")t="S";if(!OKT[t]){walk(n,dst);return}
 const e=document.createElement(t.toLowerCase());
-if(t=="A"){const h=n.getAttribute("href")||"";if(/^(https:\/\/|detail\.html\?|index\.html|#)/.test(h)){e.setAttribute("href",h);if(/^https:\/\//.test(h)){e.target="_blank";e.rel="noopener"}}}
+if(t=="A"){const h=n.getAttribute("href")||"";if(/^(https:\/\/|\/?detail\.html\?|\/?watch\.html\?|\/?index\.html|\/(?:figures|events|places|videos|shorts)\/|#)/.test(h)){const fixedH=/^(detail\.html\?|watch\.html\?|index\.html)/.test(h)?"/"+h:h;e.setAttribute("href",fixedH);if(/^https:\/\//.test(fixedH)){e.target="_blank";e.rel="noopener"}}}
 if(t=="IMG"){const s=n.getAttribute("src")||"";if(!/^(https:\/\/|assets\/)/.test(s))return;e.setAttribute("src",s);e.alt=(n.getAttribute("alt")||"").slice(0,200)}
 if(t=="FIGURE"){const c=(n.getAttribute("class")||"").split(/\s+/).filter(x=>x=="fr"||x=="fl"||x=="fc");if(c.length)e.className=c[0]}
 if(t=="TD"||t=="TH"){const cs=+n.getAttribute("colspan");if(cs>1&&cs<10)e.setAttribute("colspan",cs)}
@@ -265,7 +303,7 @@ async function related(d,m){
   s.append(el("h2","",({places:I.t("relPlaces"),events:I.t("relEvents"),characters:I.t("relChars")})[T]),g);
   list.forEach(rawX=>{
     const x=T=="places"?I.place(rawX):T=="events"?I.event(rawX):I.char(rawX);
-    const a=el("a","rc"+(T=="places"?" pl":T=="events"?" ev":""));const uuid=/^[0-9a-f]{8}-/i.test(String(x.id));a.href="detail.html?t="+T+"&id="+encodeURIComponent((T!="characters"&&x.slug&&!uuid)?x.slug:x.id);
+    const a=el("a","rc"+(T=="places"?" pl":T=="events"?" ev":""));const uuid=/^[0-9a-f]{8}-/i.test(String(x.id));a.href="/detail.html?t="+T+"&id="+encodeURIComponent((T!="characters"&&x.slug&&!uuid)?x.slug:x.id);
     if(T=="events"){a.append(el("small","",yl(x)),el("b","",x.title),el("span","",(x.summary||"").slice(0,90)+((x.summary||"").length>90?"…":"")));g.append(a);return}
     const u=OK(T=="places"?ar(x.slides)[0]:x.img);if(u){const im=new Image();im.src=u;im.alt=x.name;im.loading="lazy";a.append(im)}else a.classList.add("ph");
     const lb=el("span","lb"),sm=T=="places"?x.subtitle:x.role;if(sm)lb.append(el("small","",sm));lb.append(el("b","",x.name));a.append(lb);g.append(a);
@@ -432,7 +470,29 @@ function render(raw){
   m.append(cols);app.append(m);if(!/[?&]preview=1/.test(location.search))related(d,m);
 }
 
-document.getElementById("langBtn").onclick=()=>{I.toggleLang()};
+(function initLangDropdown(){
+  const wrap=document.getElementById("langDropdownWrap");
+  const trig=document.getElementById("langDropTrigger");
+  const menu=document.getElementById("langDropMenu");
+  if(!trig||!menu)return;
+  const close=()=>{menu.classList.remove("open");menu.setAttribute("hidden","");trig.setAttribute("aria-expanded","false")};
+  trig.onclick=e=>{
+    e.preventDefault();e.stopPropagation();
+    const isOpen=menu.classList.contains("open");
+    if(isOpen)close();
+    else{menu.removeAttribute("hidden");menu.classList.add("open");trig.setAttribute("aria-expanded","true")}
+  };
+  document.addEventListener("click",e=>{if(wrap&&!wrap.contains(e.target))close()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+  document.querySelectorAll(".lang-drop-item").forEach(item=>{
+    item.onclick=e=>{
+      e.preventDefault();e.stopPropagation();
+      const l=item.getAttribute("data-lang");
+      if(l&&I&&typeof I.setLang==="function")I.setLang(l);
+      close();
+    };
+  });
+})();
 window.addEventListener("alfa:langchange",async()=>{
   await I.ensurePack();
   syncHeaderUI();

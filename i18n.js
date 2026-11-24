@@ -251,6 +251,17 @@
       searchHint: "Cari dengan bahasa alami (contoh: \"sahabat perang badar\", \"penakluk andalusia\", \"kejatuhan baghdad\")",
 
       searchPopular: "Pencarian Populer",
+      searchSuggest: "Saran Pencarian:",
+      aiSummaryTitle: "RINGKASAN SEJARAH ALFA",
+      aiSummaryLoading: "Menyusun ringkasan sejarah dari arsip ALFA...",
+      openWatchRoom: "▸ Buka Ruang Putar & Rujukan",
+      playQuick: "▸ Putar Cepat",
+      geoScale: "Skala",
+      geoLvl1: "Dunia › Benua & Samudra",
+      geoLvl2: "Dunia › Negara",
+      geoLvl3: "Kawasan › Provinsi & Wilayah",
+      geoLvl4: "Wilayah › Kota Utama",
+      geoLvl5: "Kota › Daerah & Situs Bersejarah",
 
       searchNoResults: "Tidak ditemukan hasil yang cocok.",
 
@@ -517,6 +528,17 @@
       searchHint: "Search with natural language (e.g. \"companions in badr\", \"conquest of andalusia\", \"fall of baghdad\")",
 
       searchPopular: "Popular Searches",
+      searchSuggest: "Suggestions:",
+      aiSummaryTitle: "ALFA HISTORICAL SUMMARY",
+      aiSummaryLoading: "Synthesizing historical overview from ALFA archives...",
+      openWatchRoom: "▸ Open Watch Room & Sources",
+      playQuick: "▸ Quick Play",
+      geoScale: "Scale",
+      geoLvl1: "World › Continents & Oceans",
+      geoLvl2: "World › Countries",
+      geoLvl3: "Regions › Provinces",
+      geoLvl4: "Regions › Major Cities",
+      geoLvl5: "Cities › Historic Sites",
 
       searchNoResults: "No matching results found.",
 
@@ -783,6 +805,17 @@
       searchHint: "ابحث بلغة طبيعية (مثال: \"صحابة غزوة بدر\"، \"فتح الأندلس\"، \"سقوط بغداد\")",
 
       searchPopular: "عمليات البحث الشائعة",
+      searchSuggest: "اقتراحات البحث:",
+      aiSummaryTitle: "ملخص ألفا التاريخي",
+      aiSummaryLoading: "جارٍ إعداد الملخص التاريخي من أرشيف ألفا...",
+      openWatchRoom: "▸ افتح غرفة العرض والمصادر",
+      playQuick: "▸ تشغيل سريع",
+      geoScale: "المقياس",
+      geoLvl1: "العالم › القارات والمحيطات",
+      geoLvl2: "العالم › الدول",
+      geoLvl3: "الأقاليم › المحافظات والمناطق",
+      geoLvl4: "المناطق › المدن الرئيسية",
+      geoLvl5: "المدن › المواقع التاريخية",
 
       searchNoResults: "لم يتم العثور على نتائج مطابقة.",
 
@@ -2374,7 +2407,7 @@
 
           if(!seenNames.has(c.name)){
 
-            catalog.push({ type: "characters", id: idVal, name: c.name, url: "detail.html?t=characters&id=" + encodeURIComponent(idVal) });
+            catalog.push({ type: "characters", id: idVal, name: c.name, url: "/detail.html?t=characters&id=" + encodeURIComponent(idVal) });
 
             seenNames.add(c.name);
 
@@ -2386,7 +2419,7 @@
 
             if(!seenNames.has(alt)){
 
-              catalog.push({ type: "characters", id: idVal, name: alt, url: "detail.html?t=characters&id=" + encodeURIComponent(idVal) });
+              catalog.push({ type: "characters", id: idVal, name: alt, url: "/detail.html?t=characters&id=" + encodeURIComponent(idVal) });
 
               seenNames.add(alt);
 
@@ -2408,7 +2441,7 @@
 
         if(e.title && e.title.length >= 4 && !seenNames.has(e.title)){
 
-          catalog.push({ type: "events", id: slug, name: e.title, url: "detail.html?t=events&id=" + encodeURIComponent(slug) });
+          catalog.push({ type: "events", id: slug, name: e.title, url: "/detail.html?t=events&id=" + encodeURIComponent(slug) });
 
           seenNames.add(e.title);
 
@@ -2420,7 +2453,7 @@
 
           if(!seenNames.has(alt)){
 
-            catalog.push({ type: "events", id: slug, name: alt, url: "detail.html?t=events&id=" + encodeURIComponent(slug) });
+            catalog.push({ type: "events", id: slug, name: alt, url: "/detail.html?t=events&id=" + encodeURIComponent(slug) });
 
             seenNames.add(alt);
 
@@ -2444,7 +2477,7 @@
 
         if(cleanName.length >= 3 && !/^(Jalur|Peta|Wilayah)/i.test(cleanName) && !seenNames.has(cleanName)){
 
-          catalog.push({ type: "places", id: slug, name: cleanName, url: "detail.html?t=places&id=" + encodeURIComponent(slug) });
+          catalog.push({ type: "places", id: slug, name: cleanName, url: "/detail.html?t=places&id=" + encodeURIComponent(slug) });
 
           seenNames.add(cleanName);
 
@@ -2456,7 +2489,7 @@
 
           if(sub.length >= 3 && !/^(kuno)/i.test(sub) && !seenNames.has(sub)){
 
-            catalog.push({ type: "places", id: slug, name: sub, url: "detail.html?t=places&id=" + encodeURIComponent(slug) });
+            catalog.push({ type: "places", id: slug, name: sub, url: "/detail.html?t=places&id=" + encodeURIComponent(slug) });
 
             seenNames.add(sub);
 
@@ -2470,7 +2503,7 @@
 
           if(!seenNames.has(alt)){
 
-            catalog.push({ type: "places", id: slug, name: alt, url: "detail.html?t=places&id=" + encodeURIComponent(slug) });
+            catalog.push({ type: "places", id: slug, name: alt, url: "/detail.html?t=places&id=" + encodeURIComponent(slug) });
 
             seenNames.add(alt);
 
@@ -3266,7 +3299,7 @@
 
 
 
-        const url = "detail.html?t=" + ent.type + "&id=" + encodeURIComponent(ent.id);
+        const url = "/detail.html?t=" + ent.type + "&id=" + encodeURIComponent(ent.id);
 
         const key = ent.type + ":" + ent.id.toLowerCase();
 
@@ -3428,7 +3461,7 @@
 
               img: img,
 
-              url: "detail.html?t=" + ent.type + "&id=" + encodeURIComponent(ent.id),
+              url: "/detail.html?t=" + ent.type + "&id=" + encodeURIComponent(ent.id),
 
               isConceptMatch: true,
 
@@ -3533,7 +3566,7 @@
             role: role,
             badge: t("badgeChar"),
             img: c.img || "",
-            url: "detail.html?t=characters&id=" + encodeURIComponent(idVal),
+            url: "/detail.html?t=characters&id=" + encodeURIComponent(idVal),
             score: s
           });
         }
@@ -3582,7 +3615,7 @@
             role: (e.year ? e.year + " " + t("eraSuffix") : "") + (summ ? " — " + summ.slice(0, 85) + "..." : ""),
             badge: t("badgeEvent"),
             img: img,
-            url: "detail.html?t=events&id=" + encodeURIComponent(slug),
+            url: "/detail.html?t=events&id=" + encodeURIComponent(slug),
             score: s
           });
         }
@@ -3629,7 +3662,7 @@
             role: sub,
             badge: t("badgePlace"),
             img: img,
-            url: "detail.html?t=places&id=" + encodeURIComponent(slug),
+            url: "/detail.html?t=places&id=" + encodeURIComponent(slug),
             score: s
           });
         }
@@ -3818,7 +3851,7 @@ Kaidah Ketat:
 
         img: img,
 
-        url: "detail.html?t=characters&id=" + encodeURIComponent(item.name)
+        url: "/detail.html?t=characters&id=" + encodeURIComponent(item.name)
 
       };
 
@@ -3886,7 +3919,7 @@ Kaidah Ketat:
 
           img: (Array.isArray(ev.slides) && ev.slides[0]) || "",
 
-          url: "detail.html?t=events&id=" + encodeURIComponent(ev.slug || slug)
+          url: "/detail.html?t=events&id=" + encodeURIComponent(ev.slug || slug)
 
         });
 

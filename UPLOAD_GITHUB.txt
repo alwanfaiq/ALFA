@@ -1,30 +1,32 @@
 ================================================================================
-PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.8.3)
+PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.8.4)
 ================================================================================
 
-Folder ini adalah rilis resmi versi 1.8.3 yang siap diunggah ke root repositori GitHub (alfahistory.web.id).
+Folder ini adalah rilis resmi versi 1.8.4 yang siap diunggah ke root repositori
+GitHub (alfahistory.web.id). Folder versi sebelumnya (v1.8.3) tetap dipertahankan
+sebagai arsip cadangan.
 
-DAFTAR BERKAS & FOLDER UTAMA:
-- assets/             -> Berisi leaflet, tiles peta, world overview, dan thumbnail (s2-s6.webp)
-- 404.html            -> Router SPA & penanganan rute bersih (tanpa .html, anti-404)
-- admin.html          -> Panel admin konten dengan dukungan Google Gemini AI generasi terbaru
-- CHANGELOG.txt       -> Dokumentasi perubahan versi 1.8.3
-- CNAME               -> alfahistory.web.id
-- config.js           -> Konfigurasi web & API
-- defaults.json       -> Database offline (Abu Thalib terverifikasi, tanpa emoji)
-- detail.html         -> Halaman artikel tokoh & peristiwa (tombol kembali dinamis, potret presisi)
-- favicon.ico         -> Ikon tab peramban format ICO (latar transparan)
-- favicon.svg         -> Ikon vektor wajik emas adaptif
-- i18n.js             -> Mesin multibahasa, sinonim semantik "companions", dan integrasi AI
-- i18n_ar.json        -> Data lokalisasi bahasa Arab
-- i18n_en.json        -> Data lokalisasi bahasa Inggris
-- index.html          -> Beranda web (modal shorts rapi, potret wajah pas, hover close tanpa kotak)
-- sources_data.js     -> Direktori sumber primer sejarah Islam & etika visual
-- track.js            -> Skrip pelacakan performa & analitik
+DAFTAR BERKAS BARU & YANG DIPERBARUI DI v1.8.4:
+- watch.html          -> [BARU] Ruang Putar Dokumenter & Shorts ala Qabas
+- geo_labels.json     -> [BARU] Hirarki peta 5 lapis sedunia (Benua > Negara > Provinsi > Kota > Situs)
+- assets/tiles/5/     -> [BARU] 36 tile Regional Zoom 5 HD (koridor Mesir-Syam-Hijaz-Irak-Persia)
+- assets/tiles/3 & 4/ -> [DIPERBARUI] Tile Timur Tengah berketajaman tinggi
+- index.html          -> [DIPERBARUI] Kartu Opsi C, Ringkasan Sejarah ALFA, Suggestions, Modal Opsi B, Peta 5 Lapis
+- detail.html         -> [DIPERBARUI] Dropdown bahasa ID/EN/AR seragam & anti-fallback Aisyah
+- admin.html          -> [DIPERBARUI] Side toggle Pratinjau (Ctrl+Shift+P), Editor Word 100% ikon & shortcut
+- i18n.js             -> [DIPERBARUI] Tautan wiki root-absolut (/detail.html) & string multibahasa v1.8.4
+- 404.html            -> [DIPERBARUI] Rute bersih /videos/<slug> & /shorts/<slug> (100% bersih tanpa API key)
+- CHANGELOG.txt       -> Dokumentasi lengkap rilis v1.8.4
+
+BERKAS PENDUKUNG LAIN YANG TETAP WAJIB ADA DI ROOT REPO:
+- assets/ (leaflet, tiles 0-5, world.svg, world_overview.webp, cover & qris)
+- CNAME, config.js, defaults.json, favicon.ico, favicon.svg, i18n_ar.json,
+  i18n_en.json, sources_data.js, track.js
 
 CARA UNGGAH KE GITHUB:
-1. Buka repositori GitHub alfahistory.web.id di browser.
-2. Unggah seluruh berkas di atas beserta folder 'assets' ke root repository (atau via git push).
-3. Beri pesan commit: "Release v1.8.3: Bio sync Abu Thalib, Gemini AI upgrade, normalized portraits & refined modals"
-4. Klik Commit Changes.
+1. Unggah berkas yang diperbarui di atas beserta folder assets/tiles/ (khususnya
+   folder 3, 4, dan folder baru 5) ke root repositori alfahistory.web.id.
+2. Pesan commit yang disarankan:
+   "Release v1.8.4: Qabas watch room, 5-level HD world map, Opsi C search & Word-style admin"
+3. Klik Commit Changes.
 ================================================================================

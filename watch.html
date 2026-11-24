@@ -1,0 +1,660 @@
+<!doctype html>
+<!-- ALFA | History of Islam: watch.html v1.8.4 (Qabas-Inspired Cinema Watch Room) -->
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ruang Putar | ALFA History of Islam</title>
+<meta name="description" content="Ruang putar dokumenter dan kisah sejarah Islam ALFA History lengkap dengan ringkasan, rujukan sumber primer, bab kronologi, dan glosarium.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#14110b">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0}
+:root{
+  --bg:#14110b;--bg2:#1b1710;--bg3:#0c0a07;--gold:#c4a35a;--gold2:#e2c47d;--g2:#6e5c36;
+  --copper:#d48a5c;--sage:#7ca982;--ink:#f3ead8;--mut:#b4a88f;--border:#352c1d;color-scheme:dark;
+}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.65 Bitter,Georgia,serif;min-height:100svh;display:flex;flex-direction:column}
+[dir="rtl"] body{font-family:'Noto Naskh Arabic',Amiri,Bitter,Georgia,serif}
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] .logo,[dir="rtl"] .h-num{font-family:Amiri,Cinzel,serif}
+[dir="rtl"] .logo small{border-left:0;border-right:1px solid var(--mut);padding-left:0;padding-right:10px}
+:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:30;background:#16130d;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px clamp(16px,3vw,48px);border-bottom:1px solid rgba(110,92,54,.35)}
+.logo{display:flex;align-items:center;gap:12px;font:800 clamp(1.25rem,2.2vw,1.7rem)/1 Cinzel,serif;color:#fff;text-decoration:none;letter-spacing:.04em}
+.logo small{font:400 .74rem/1.15 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0}
+.h-mid{display:flex;align-items:center;gap:10px;font:700 .76rem/1 Cinzel,serif;color:var(--gold);letter-spacing:.14em;text-transform:uppercase}
+.h-acts{display:flex;align-items:center;gap:8px}
+.share-btn,.back{display:inline-flex;align-items:center;gap:6px;background:rgba(196,163,90,.09);border:1px solid rgba(196,163,90,.38);color:var(--gold2);padding:7px 12px;font:700 .76rem/1 Cinzel,serif;cursor:pointer;text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:all .18s}
+.share-btn:hover,.back:hover{background:var(--gold);color:#14110b;border-color:var(--gold)}
+.share-btn svg{width:13px;height:13px;fill:currentColor}
+.lang-dropdown-wrap{position:relative;display:inline-block}
+.lang-drop-trigger{display:inline-flex;align-items:center;gap:6px;background:rgba(196,163,90,.09);border:1px solid var(--g2);color:var(--gold);font:700 .76rem/1 Cinzel,serif;padding:7px 12px;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;transition:all .18s}
+.lang-drop-trigger:hover,.lang-drop-trigger[aria-expanded="true"]{background:rgba(196,163,90,.2);border-color:var(--gold);color:#fff}
+.lang-chevron{transition:transform .2s ease}
+.lang-drop-trigger[aria-expanded="true"] .lang-chevron{transform:rotate(180deg)}
+.lang-drop-menu{display:none !important;position:absolute;top:calc(100% + 6px);right:0;min-width:168px;background:#18140e;border:1px solid var(--gold);box-shadow:0 12px 32px rgba(0,0,0,.8);z-index:60;padding:4px 0}
+.lang-drop-menu.open{display:grid !important}
+.lang-drop-menu[hidden]{display:none !important}
+[dir="rtl"] .lang-drop-menu{right:auto;left:0}
+.lang-drop-item{display:flex;align-items:center;gap:10px;padding:9px 14px;background:none;border:0;border-bottom:1px solid rgba(110,92,54,.2);color:var(--ink);font:600 .84rem Bitter,serif;cursor:pointer;text-align:left;transition:background .15s}
+.lang-drop-item:last-child{border-bottom:0}
+[dir="rtl"] .lang-drop-item{text-align:right}
+.lang-drop-item:hover{background:rgba(196,163,90,.18);color:#fff}
+.lang-drop-item.on{background:rgba(196,163,90,.24);color:var(--gold);font-weight:700}
+.lang-drop-code{font:700 .74rem Cinzel,serif;color:var(--gold);min-width:22px}
+
+/* MAIN WORKSPACE */
+.watch-shell{flex:1;max-width:1440px;width:100%;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) 340px;align-items:start}
+.watch-main{border-right:1px solid var(--border);min-width:0}
+[dir="rtl"] .watch-main{border-right:0;border-left:1px solid var(--border)}
+
+/* CINEMA STAGE */
+.stage-wrap{background:var(--bg3);padding:clamp(14px,2.2vw,26px) clamp(16px,2.6vw,32px);border-bottom:1px solid var(--border)}
+.player-box{position:relative;width:100%;aspect-ratio:16/9;background:#050403;border:1px solid rgba(196,163,90,.35);overflow:hidden}
+.player-box.vertical{max-width:265px;aspect-ratio:9/16;margin:0 auto}
+.player-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block}
+.player-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.72)}
+.player-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:radial-gradient(circle,rgba(0,0,0,.25),rgba(0,0,0,.72));padding:20px;text-align:center}
+.play-trigger{width:76px;height:52px;background:#b81d1d;border:1px solid rgba(255,255,255,.25);color:#fff;display:grid;place-items:center;cursor:pointer;transition:transform .16s,background .16s;box-shadow:0 10px 30px rgba(0,0,0,.65)}
+.play-trigger:hover{background:#d92424;transform:scale(1.06)}
+.play-note{font:600 .84rem Bitter,serif;color:#f3ead8;background:rgba(16,13,9,.85);border:1px solid rgba(196,163,90,.35);padding:6px 14px;max-width:460px}
+
+.vid-head{padding:20px clamp(16px,2.6vw,32px) 18px;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:16px}
+.vid-kicker{font:700 .72rem/1.2 Cinzel,serif;color:var(--gold);letter-spacing:.14em;text-transform:uppercase;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.vid-head h1{font:700 clamp(1.35rem,2.4vw,1.95rem)/1.25 Arvo,Bitter,serif;color:#fff;margin-top:6px}
+.yt-ext{display:inline-flex;align-items:center;gap:8px;background:#b81d1d;border:1px solid #b81d1d;color:#fff;padding:9px 16px;font:700 .76rem/1 Cinzel,serif;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;flex-shrink:0;transition:background .16s}
+.yt-ext:hover{background:#d92424}
+
+/* QABAS KNOWLEDGE TABS */
+.q-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;background:#19150e;border-bottom:1px solid var(--border);padding:0 clamp(16px,2.6vw,32px)}
+.q-tabs::-webkit-scrollbar{display:none}
+.q-tab{background:none;border:0;border-bottom:2px solid transparent;color:var(--mut);padding:13px 16px;font:700 .78rem/1 Cinzel,serif;letter-spacing:.07em;text-transform:uppercase;cursor:pointer;white-space:nowrap;transition:color .16s,border-color .16s}
+.q-tab:hover{color:#fff}
+.q-tab.on{color:var(--gold);border-bottom-color:var(--gold)}
+
+.q-body{padding:24px clamp(16px,2.6vw,32px) 48px}
+.q-panel[hidden]{display:none}
+.sum-text{font:400 1.02rem/1.78 Bitter,Georgia,serif;color:#ece3cf;max-width:74ch;white-space:pre-line}
+.sum-text p{margin-bottom:1em}
+.wiki-link{color:var(--gold2);text-decoration:none;border-bottom:1px dotted var(--gold);font-weight:600;padding:0 2px}
+.wiki-link:hover{color:#fff;background:rgba(196,163,90,.2);border-bottom-style:solid}
+
+/* RELATED CHARACTERS & PLACES (Opsi C Strip Cards) */
+.rel-block{margin-top:28px;padding-top:22px;border-top:1px solid var(--border)}
+.rel-heading{font:700 .78rem Cinzel,serif;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.rel-card{display:flex;align-items:center;gap:11px;padding:9px 11px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--cat-c,var(--gold));text-decoration:none;color:var(--ink);transition:border-color .16s,background .16s,transform .16s}
+.rel-card:hover{background:#231e14;border-color:rgba(196,163,90,.55);border-left-color:var(--cat-c,var(--gold));transform:translateY(-2px)}
+.rel-card.cat-char{--cat-c:var(--gold)}
+.rel-card.cat-place{--cat-c:var(--sage)}
+.rel-card.cat-event{--cat-c:var(--copper)}
+.rel-thumb{width:44px;height:44px;flex-shrink:0;background:#241d12;border:1px solid rgba(196,163,90,.25);overflow:hidden;display:grid;place-items:center;font:700 .85rem Cinzel,serif;color:var(--cat-c,var(--gold))}
+.rel-thumb img{width:100%;height:100%;object-fit:cover;object-position:50% 13%;display:block}
+.rel-info{min-width:0;flex:1}
+.rel-info b{display:block;font:700 .86rem/1.3 Arvo,Bitter,serif;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rel-info span{display:block;font-size:.74rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* SOURCES TAB (Qabas About This Telling + Primary Citations) */
+.telling-card{background:#18140d;border:1px solid rgba(196,163,90,.3);border-left:3px solid var(--gold);padding:16px 18px;margin-bottom:20px}
+.telling-kicker{font:700 .72rem Cinzel,serif;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.telling-text{font-size:.92rem;line-height:1.7;color:#dfd4be;white-space:pre-line}
+.src-list{display:grid;gap:10px}
+.src-item{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--gold)}
+.src-item.hadith{border-left-color:var(--sage)}
+.src-item.tarikh{border-left-color:var(--copper)}
+.src-cat{font:700 .66rem Cinzel,serif;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px}
+.src-item.hadith .src-cat{color:var(--sage)}
+.src-item.tarikh .src-cat{color:var(--copper)}
+.src-title{font:700 .94rem/1.35 Arvo,Bitter,serif;color:#fff}
+.src-sub{font-size:.82rem;color:var(--mut);margin-top:2px}
+.src-open{border:1px solid var(--gold);color:var(--gold);padding:6px 12px;font:700 .72rem Cinzel,serif;text-decoration:none;text-transform:uppercase;letter-spacing:.05em;transition:all .15s;white-space:nowrap}
+.src-open:hover{background:var(--gold);color:#14110b}
+.verse-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.verse-chip{padding:4px 10px;background:#211b11;border:1px solid rgba(196,163,90,.35);color:var(--gold2);font:700 .78rem Bitter,serif;text-decoration:none;transition:all .15s}
+.verse-chip:hover{background:var(--gold);color:#14110b}
+
+/* CHAPTERS & GLOSSARY */
+.chap-list{display:grid;gap:8px}
+.chap-btn{display:flex;align-items:center;gap:14px;width:100%;text-align:left;padding:11px 14px;background:var(--bg2);border:1px solid var(--border);color:var(--ink);cursor:pointer;font:inherit;transition:all .15s}
+.chap-btn:hover,.chap-btn.on{border-color:var(--gold);background:#241e13}
+.chap-time{font:700 .8rem monospace;color:var(--gold);min-width:52px}
+.chap-title{font:600 .9rem/1.35 Bitter,serif;color:#faf6ee}
+.glos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.glos-card{background:var(--bg2);border:1px solid var(--border);border-top:2px solid var(--gold);padding:14px 16px}
+.glos-card b{display:block;font:700 .92rem Arvo,Bitter,serif;color:var(--gold2);margin-bottom:5px}
+.glos-card p{font-size:.85rem;color:#ddd2bc;line-height:1.55}
+
+/* SIDEBAR: UP NEXT PLAYLIST */
+.watch-side{padding:18px 16px 40px;background:#110e09}
+.side-head{font:700 .76rem Cinzel,serif;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;padding-bottom:10px;margin-bottom:12px;border-bottom:1px solid var(--border)}
+.side-list{display:grid;gap:10px}
+.side-item{display:flex;gap:10px;padding:8px;background:var(--bg2);border:1px solid var(--border);text-decoration:none;color:var(--ink);transition:border-color .16s,background .16s}
+.side-item:hover{border-color:rgba(196,163,90,.6);background:#231d13}
+.side-item.active{border-color:var(--gold);background:#261f12}
+.side-thumb{width:96px;height:56px;flex-shrink:0;background:#1f1911;border:1px solid rgba(196,163,90,.25);position:relative;overflow:hidden;display:grid;place-items:center}
+.side-thumb.short{width:54px;height:82px}
+.side-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.side-badge{position:absolute;left:4px;bottom:4px;background:rgba(16,13,9,.88);border:1px solid var(--g2);color:var(--gold);font:700 .6rem Cinzel,serif;padding:1px 5px}
+.side-info{min-width:0;flex:1;display:grid;align-content:center;gap:3px}
+.side-info b{font:700 .84rem/1.3 Arvo,Bitter,serif;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.side-info span{font-size:.73rem;color:var(--mut)}
+
+.msg-empty{padding:80px 24px;text-align:center;color:var(--mut);grid-column:1 / -1}
+.alfa-toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#1f1911;border:1px solid var(--gold);color:var(--gold2);padding:10px 20px;font:700 .84rem Bitter,serif;z-index:10000;box-shadow:0 10px 30px rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.alfa-toast.show{opacity:1;transform:translateX(-50%) translateY(-6px)}
+
+@media(max-width:980px){
+  .watch-shell{grid-template-columns:1fr}
+  .watch-main{border-right:0;border-left:0;border-bottom:1px solid var(--border)}
+  .h-mid{display:none}
+}
+@media(max-width:600px){
+  .logo small{display:none}
+  .share-btn span{display:none}
+}
+</style>
+</head>
+<body>
+<div id="toastBox" class="alfa-toast"></div>
+<header>
+  <a class="logo" href="/">ALFA<small>History<br>of Islam</small></a>
+  <div class="h-mid" id="roomLabel">RUANG PUTAR SEJARAH</div>
+  <div class="h-acts">
+    <button class="share-btn" id="shareBtn" type="button" aria-label="Share video">
+      <svg viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+      <span id="shareTxt">Bagikan</span>
+    </button>
+    <div class="lang-dropdown-wrap" id="langDropdownWrap">
+      <button class="lang-drop-trigger" id="langDropTrigger" type="button" aria-label="Select Language" aria-expanded="false">
+        <span id="langBtnText">ID</span>
+        <svg class="lang-chevron" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </button>
+      <div class="lang-drop-menu" id="langDropMenu" hidden>
+        <button type="button" class="lang-drop-item on" data-lang="id"><span class="lang-drop-code">ID</span><span>Bahasa Indonesia</span></button>
+        <button type="button" class="lang-drop-item" data-lang="en"><span class="lang-drop-code">EN</span><span>English</span></button>
+        <button type="button" class="lang-drop-item" data-lang="ar"><span class="lang-drop-code">AR</span><span>العربية</span></button>
+      </div>
+    </div>
+    <a class="back" id="backBtn" href="/#videos">← Kembali</a>
+  </div>
+</header>
+
+<div id="watchRoot" class="watch-shell">
+  <div class="msg-empty" id="loadMsg">Memuat ruang putar...</div>
+</div>
+
+<script src="/config.js"></script>
+<script src="/i18n.js"></script>
+<script src="/sources_data.js"></script>
+<script src="/track.js"></script>
+<script>
+const C=window.ALFA_CFG||{},I=window.ALFA_I18N,Q=new URLSearchParams(location.search);
+const T=Q.get("t")==="shorts"?"shorts":"videos";
+const ID=Q.get("id")||"";
+const YT_CH="https://www.youtube.com/@alfa-history";
+const root=document.getElementById("watchRoot");
+const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
+const OK=u=>{if(!/^(assets\/|\/assets\/|https:\/\/)/.test(u||""))return"";return u.startsWith("assets/")?"/"+u:u};
+const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
+const slugify=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+
+const LABELS={
+  id:{
+    room:"RUANG PUTAR SEJARAH",back:"← Kembali",share:"Bagikan",copied:"Tautan video disalin",
+    docTag:"VIDEO DOKUMENTER",shortTag:"SHORTS SEJARAH",watchYt:"Tonton di YouTube",
+    tabSum:"Ringkasan",tabSrc:"Sumber Referensi",tabChap:"Bab & Kronologi",tabGlos:"Glosarium",
+    aboutTell:"CATATAN TRANSPARANSI RISET (ABOUT THIS TELLING)",
+    relTitle:"✦ TOKOH & TEMPAT DALAM VIDEO INI",sideDocs:"DOKUMENTER & EPISODE LAINNYA",
+    playing:"SEDANG DIPUTAR",notFound:"Video tidak ditemukan di arsip.",
+    noEmbed:"Tautan YouTube belum disematkan untuk episode ini. Klik tombol di bawah untuk membuka kanal resmi ALFA History."
+  },
+  en:{
+    room:"HISTORICAL WATCH ROOM",back:"← Back",share:"Share",copied:"Video link copied",
+    docTag:"DOCUMENTARY FILM",shortTag:"HISTORICAL SHORT",watchYt:"Watch on YouTube",
+    tabSum:"Summary",tabSrc:"Primary Sources",tabChap:"Chapters",tabGlos:"Glossary",
+    aboutTell:"RESEARCH TRANSPARENCY (ABOUT THIS TELLING)",
+    relTitle:"✦ FIGURES & PLACES IN THIS VIDEO",sideDocs:"MORE DOCUMENTARIES & EPISODES",
+    playing:"NOW PLAYING",notFound:"Video not found in archive.",
+    noEmbed:"YouTube stream link is not attached for this episode yet. Open the official ALFA History channel below."
+  },
+  ar:{
+    room:"غرفة العرض التاريخي",back:"عودة →",share:"مشاركة",copied:"تم نسخ رابط الفيديو",
+    docTag:"فيلم وثائقي",shortTag:"مقطع تاريخي قصير",watchYt:"مشاهدة على يوتيوب",
+    tabSum:"الملخص",tabSrc:"المصادر الأولية",tabChap:"فصول الفيديو",tabGlos:"مسرد المصطلحات",
+    aboutTell:"شفافية البحث والتوثيق",
+    relTitle:"✦ الشخصيات والأماكن في هذا الفيديو",sideDocs:"وثائقيات وحلقات أخرى",
+    playing:"قيد التشغيل",notFound:"لم يتم العثور على الفيديو في الأرشيف.",
+    noEmbed:"رابط يوتيوب غير مضمّن لهذه الحلقة حالياً."
+  }
+};
+const L=()=>LABELS[(I&&I.getLang)?I.getLang():"id"]||LABELS.id;
+
+// Built-in contextual historical glossary dictionary
+const BUILTIN_GLOSSARY=[
+  {keys:["fathu makkah","pembebasan mekah","pembebasan makkah"],term:"Fathu Makkah",def:"Pembebasan Kota Makkah pada Ramadhan 8 H (630 M) oleh 10.000 pasukan muslim yang berlangsung damai dan diakhiri pengampunan umum bagi penduduk Quraisy."},
+  {keys:["hudaibiyah","perjanjian hudaibiyah"],term:"Sulh al-Hudaibiyah",def:"Perjanjian gencatan senjata 10 tahun antara Madinah dan Quraisy pada 6 H (628 M) yang menjamin keamanan suku-suku sekutu kedua belah pihak."},
+  {keys:["hajar aswad","al-amin","ka'bah","kabah"],term:"Hajar Aswad",def:"Batu hitam mulia yang tertanam di sudut tenggara Ka'bah dan menjadi titik awal serta akhir putaran thawaf."},
+  {keys:["bahira","syam","kafilah"],term:"Bushra (Syam)",def:"Kota niaga penting di selatan Syam pada jalur kafilah Quraisy menuju wilayah kekuasaan Bizantium."},
+  {keys:["gajah","abrahah","yaman"],term:"Ashabul Fil (Pasukan Gajah)",def:"Ekspedisi militer Abrahah dari Yaman dengan gajah perang menuju Makkah pada 570 M yang digagalkan sebelum memasuki kota (QS. Al-Fil)."},
+  {keys:["badar","badr"],term:"Lembah Badar",def:"Lembah di antara Makkah dan Madinah tempat berlangsungnya pertempuran besar pertama dalam sejarah Islam pada 17 Ramadhan 2 H (624 M)."},
+  {keys:["yarmuk","bizantium","romawi"],term:"Lembah Yarmuk",def:"Medan pertempuran strategis di perbatasan Syam pada 636 M yang membuka jalan pembebasan Damaskus dan mengakhiri dominasi Bizantium di Syam."}
+];
+
+let ALL_VIDEOS=[],ALL_SHORTS=[],DEFS={},ACTIVE_REC=null,ACTIVE_TYPE=T;
+
+function showToast(msg){
+  const tb=document.getElementById("toastBox");if(!tb)return;
+  tb.textContent=msg;tb.classList.add("show");
+  clearTimeout(showToast.tm);showToast.tm=setTimeout(()=>tb.classList.remove("show"),2600);
+}
+
+function syncHeader(){
+  const l=L(),cur=(I&&I.getLang)?I.getLang():"id";
+  document.getElementById("roomLabel").textContent=l.room;
+  document.getElementById("shareTxt").textContent=l.share;
+  const bk=document.getElementById("backBtn");
+  bk.textContent=l.back;
+  bk.href=ACTIVE_TYPE==="shorts"?"/#shorts":"/#videos";
+  document.getElementById("langBtnText").textContent=cur.toUpperCase();
+  document.querySelectorAll(".lang-drop-item").forEach(it=>it.classList.toggle("on",it.getAttribute("data-lang")===cur));
+}
+
+function parseTimeSec(ts){
+  const parts=String(ts||"").trim().split(":").map(Number);
+  if(parts.some(isNaN))return 0;
+  if(parts.length===3)return parts[0]*3600+parts[1]*60+parts[2];
+  if(parts.length===2)return parts[0]*60+parts[1];
+  return parts[0]||0;
+}
+
+function parseChapters(raw){
+  if(Array.isArray(raw))return raw;
+  return String(raw||"").split("\n").map(l=>l.trim()).filter(Boolean).map(l=>{
+    const m=l.match(/^(\d{1,2}:\d{2}(?::\d{2})?)\s*(?:\||—|-|:)\s*(.+)$/);
+    return m?{time:m[1],sec:parseTimeSec(m[1]),title:m[2].trim()}:null;
+  }).filter(Boolean);
+}
+
+function parseCustomSources(raw){
+  if(Array.isArray(raw))return raw;
+  return String(raw||"").split("\n").map(l=>l.trim()).filter(Boolean).map(l=>{
+    const p=l.split("|").map(x=>x.trim());
+    return {title:p[0]||l,url:p[1]||"",cat:p[2]||"RUJUKAN PRIMER",sub:p[3]||""};
+  });
+}
+
+function parseGlossary(raw, scanText){
+  const list=[];
+  if(Array.isArray(raw)) raw.forEach(g=>list.push(g));
+  else if(typeof raw==="string"&&raw.trim()){
+    raw.split("\n").map(l=>l.trim()).filter(Boolean).forEach(l=>{
+      const idx=l.indexOf(":");
+      if(idx>0) list.push({term:l.slice(0,idx).trim(),def:l.slice(idx+1).trim()});
+    });
+  }
+  const low=(scanText||"").toLowerCase();
+  BUILTIN_GLOSSARY.forEach(g=>{
+    if(g.keys.some(k=>low.includes(k))&&!list.some(x=>x.term.toLowerCase()===g.term.toLowerCase())){
+      list.push({term:g.term,def:g.def});
+    }
+  });
+  return list;
+}
+
+function matchRelatedEntities(textToScan){
+  const low=(textToScan||"").toLowerCase();
+  const chars=[],places=[];
+  const CHAR_ALIASES={
+    "Halimah Assa'diyah":["halimah","bani sa'ad","bani sa'd"],
+    "Bahira":["bahira","buhaira","rahib bahira","pendeta bahira"],
+    "Abu Thalib bin Abdul Muthallib":["abu thalib","paman nabi"],
+    "Abdul Muthallib":["abdul muthalib","abdul muthallib"],
+    "Abrahah":["abrahah","pasukan gajah"],
+    "Abu Bakar Asshiddiq":["abu bakar","ash-shiddiq"],
+    "Umar bin Khattab":["umar bin khattab","al-faruq"],
+    "Utsman bin Affan":["utsman bin affan"],
+    "Ali bin Abi Thalib":["ali bin abi thalib"],
+    "Khalid bin Walid":["khalid bin walid","saifullah"],
+    "Khadijah":["khadijah"],
+    "Bilal bin Rabah":["bilal bin rabah","bilal"],
+    "Abu Sufyan bin Harb":["abu sufyan"]
+  };
+  for(const [nm,als] of Object.entries(CHAR_ALIASES)){
+    if(als.some(a=>low.includes(a))){
+      const f=(DEFS.characters||[]).find(c=>c.name===nm);
+      if(f&&!chars.some(x=>x.name===f.name))chars.push(f);
+    }
+  }
+  (DEFS.characters||[]).forEach(c=>{
+    const fn=(c.name||"").toLowerCase();
+    if(fn.length>=6&&low.includes(fn)&&!chars.some(x=>x.name===c.name))chars.push(c);
+  });
+  const PLACE_ALIASES={
+    "makkah":["makkah","mekah","ka'bah","kabah","hajar aswad","quraisy"],
+    "madinah":["madinah","yatsrib","nabawi","uhud"],
+    "baitul maqdis":["baitul maqdis","al-quds","yerusalem","aqsha"],
+    "syam":["syam","levant","damaskus","bahira"],
+    "yaman":["yaman","shan'a","abrahah"],
+    "mesir":["mesir","fustat","iskandariyah"],
+    "habasyah":["habasyah","aksum","najasyi"]
+  };
+  for(const [pk,als] of Object.entries(PLACE_ALIASES)){
+    if(als.some(a=>low.includes(a))){
+      const f=(DEFS.places||[]).find(p=>(p.slug||"").includes(pk)||(p.name||"").toLowerCase().includes(pk));
+      if(f&&!places.some(x=>x.name===f.name))places.push(f);
+    }
+  }
+  (DEFS.places||[]).forEach(p=>{
+    const pn=(p.name||"").toLowerCase().replace(/\s*\([^)]*\)/g,"").trim();
+    if(pn.length>=4&&low.includes(pn)&&!places.some(x=>x.name===p.name))places.push(p);
+  });
+  return {chars:chars.slice(0,4),places:places.slice(0,4)};
+}
+
+function resolveSourcesForVideo(rec){
+  const title=rec.title||"";
+  const desc=rec.description||rec.summary||"";
+  const low=(title+" "+desc).toLowerCase();
+  const matchedEv=(DEFS.events||[]).find(e=>{
+    const et=(e.title||"").toLowerCase();
+    return (et.length>=6&&low.includes(et)) || (low.includes("fathu makkah")&&et.includes("fathu")) || (low.includes("bahira")&&et.includes("bahira")) || (low.includes("hajar aswad")&&et.includes("hajar")) || (low.includes("gajah")&&et.includes("gajah")) || (low.includes("badar")&&et.includes("badar")) || (low.includes("yarmuk")&&et.includes("yarmuk"));
+  });
+  if(window.ALFA_SOURCES_ENGINE){
+    const target=matchedEv||{slug:slugify(title),title:title,year:rec.year||630};
+    return window.ALFA_SOURCES_ENGINE.resolve(target,"events",(I&&I.getLang)?I.getLang():"id");
+  }
+  return null;
+}
+
+function renderWatch(rec, type){
+  ACTIVE_REC=rec; ACTIVE_TYPE=type;
+  syncHeader();
+  const l=L();
+  if(!rec){
+    root.replaceChildren(el("div","msg-empty",l.notFound));
+    return;
+  }
+  const title=rec.title||"ALFA Documentary";
+  const desc=rec.description||rec.summary||"";
+  const vidId=YID(rec.url||"");
+  const isVert=(type==="shorts")||(rec.url&&rec.url.includes("/shorts/"));
+  const poster=OK(rec.img);
+  document.title=title+" | ALFA";
+  if(typeof alfaTrack==="function") alfaTrack({page:"watch_"+type,pid:rec.id||slugify(title),title:title});
+
+  try{
+    if(window.history&&window.history.replaceState){
+      const seg=type==="shorts"?"shorts":"videos";
+      const sl=encodeURIComponent(rec.slug||rec.id||slugify(title));
+      window.history.replaceState({t:type,id:sl},title+" | ALFA","/"+seg+"/"+sl);
+    }
+  }catch(e){}
+
+  root.replaceChildren();
+  const main=el("div","watch-main");
+
+  // 1. Cinema Theater Stage
+  const stage=el("div","stage-wrap");
+  const pBox=el("div","player-box"+(isVert?" vertical":""));
+  const mountIframe=(startSec)=>{
+    const f=document.createElement("iframe");
+    f.src=`https://www.youtube.com/embed/${vidId}?autoplay=1&rel=0&playsinline=1${startSec?("&start="+startSec):""}`;
+    f.title=title;f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;f.referrerPolicy="strict-origin-when-cross-origin";
+    pBox.replaceChildren(f);
+  };
+  if(vidId){
+    if(poster){const im=new Image();im.className="player-poster";im.src=poster;im.alt=title;pBox.append(im)}
+    const ov=el("div","player-overlay");
+    const btn=el("button","play-trigger");btn.type="button";btn.setAttribute("aria-label","Play video");
+    btn.innerHTML='<svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><polygon points="6,4 20,12 6,20"/></svg>';
+    btn.onclick=()=>mountIframe(0);
+    ov.append(btn);
+    pBox.append(ov);
+  }else{
+    if(poster){const im=new Image();im.className="player-poster";im.src=poster;im.alt=title;pBox.append(im)}
+    const ov=el("div","player-overlay");
+    ov.append(el("div","play-note",l.noEmbed));
+    pBox.append(ov);
+  }
+  stage.append(pBox);
+  main.append(stage);
+
+  // 2. Title & Metadata Bar
+  const vh=el("div","vid-head");
+  const vhL=el("div");
+  const kick=el("div","vid-kicker");
+  kick.append(el("span","",isVert?l.shortTag:l.docTag));
+  if(rec.ep!=null) kick.append(el("span","","·"),el("span","","EPS."+String(rec.ep).padStart(2,"0")));
+  vhL.append(kick,el("h1","",title));
+  const ytBtn=el("a","yt-ext",l.watchYt+" ↗");
+  ytBtn.href=(rec.url&&/^https:\/\//.test(rec.url))?rec.url:(isVert?YT_CH+"/shorts":YT_CH);
+  ytBtn.target="_blank";ytBtn.rel="noopener";
+  vh.append(vhL,ytBtn);
+  main.append(vh);
+
+  // 3. Qabas Knowledge Tabs
+  const customSrc=parseCustomSources(rec.sources);
+  const autoSrc=resolveSourcesForVideo(rec);
+  const chapters=parseChapters(rec.chapters);
+  const glossary=parseGlossary(rec.glossary, title+" "+desc);
+  const rel=matchRelatedEntities(title+" "+desc);
+
+  const tabBar=el("div","q-tabs");
+  const qBody=el("div","q-body");
+  const tabs=[
+    {id:"sum",lbl:l.tabSum},
+    {id:"src",lbl:l.tabSrc}
+  ];
+  if(chapters.length) tabs.push({id:"chap",lbl:l.tabChap+` (${chapters.length})`});
+  if(glossary.length) tabs.push({id:"glos",lbl:l.tabGlos+` (${glossary.length})`});
+
+  const panels={};
+  tabs.forEach((tb,i)=>{
+    const b=el("button","q-tab"+(i===0?" on":""),tb.lbl);
+    b.type="button";
+    b.onclick=()=>{
+      tabBar.querySelectorAll(".q-tab").forEach(x=>x.classList.remove("on"));
+      b.classList.add("on");
+      Object.entries(panels).forEach(([k,p])=>p.hidden=(k!==tb.id));
+    };
+    tabBar.append(b);
+    const p=el("div","q-panel");p.hidden=(i!==0);
+    panels[tb.id]=p;
+    qBody.append(p);
+  });
+  main.append(tabBar,qBody);
+
+  // Panel 1: Summary + Related Figures & Places
+  const sumDiv=el("div","sum-text");
+  (desc||"").split("\n").filter(Boolean).forEach(line=>sumDiv.append(el("p","",line)));
+  if(I&&typeof I.autoWikiLink==="function") I.autoWikiLink(sumDiv,"videos",rec.id||title);
+  panels.sum.append(sumDiv);
+
+  if(rel.chars.length||rel.places.length){
+    const rb=el("div","rel-block");
+    rb.append(el("div","rel-heading",l.relTitle));
+    const rg=el("div","rel-grid");
+    rel.chars.forEach(c=>{
+      const a=el("a","rel-card cat-char");a.href="/detail.html?t=characters&id="+encodeURIComponent(c.name);
+      const th=el("div","rel-thumb");
+      const imSrc=OK(c.img);
+      if(imSrc){const im=new Image();im.src=imSrc;im.alt=c.name;im.loading="lazy";th.append(im)}else th.textContent=c.name.slice(0,2);
+      const inf=el("div","rel-info");inf.append(el("b","",c.name),el("span","",c.role||""));
+      a.append(th,inf);rg.append(a);
+    });
+    rel.places.forEach(p=>{
+      const a=el("a","rel-card cat-place");a.href="/detail.html?t=places&id="+encodeURIComponent(p.slug||p.name);
+      const th=el("div","rel-thumb");
+      const imSrc=OK(Array.isArray(p.slides)?p.slides[0]:"");
+      if(imSrc){const im=new Image();im.src=imSrc;im.alt=p.name;im.loading="lazy";th.append(im)}else th.textContent=(p.name||"PL").slice(0,2);
+      const inf=el("div","rel-info");inf.append(el("b","",p.name),el("span","",p.subtitle||""));
+      a.append(th,inf);rg.append(a);
+    });
+    rb.append(rg);
+    panels.sum.append(rb);
+  }
+
+  // Panel 2: Primary Sources & About This Telling (Qabas Engine)
+  if(autoSrc&&autoSrc.telling){
+    const tc=el("div","telling-card");
+    tc.append(el("div","telling-kicker",l.aboutTell),el("p","telling-text",autoSrc.telling));
+    panels.src.append(tc);
+  }
+  const slist=el("div","src-list");
+  customSrc.forEach(cs=>{
+    const card=el("div","src-item");
+    const left=el("div");
+    left.append(el("span","src-cat",cs.cat),el("div","src-title",cs.title));
+    if(cs.sub) left.append(el("div","src-sub",cs.sub));
+    card.append(left);
+    if(cs.url&&/^https:\/\//.test(cs.url)){
+      const lnk=el("a","src-open","Buka ↗");lnk.href=cs.url;lnk.target="_blank";lnk.rel="noopener";card.append(lnk);
+    }
+    slist.append(card);
+  });
+  if(autoSrc){
+    const mainCard=el("div","src-item");
+    const ml=el("div");
+    ml.append(el("span","src-cat",autoSrc.collection||"RUJUKAN UTAMA"),el("div","src-title",autoSrc.narration_text||""),el("div","src-sub",autoSrc.grading||""));
+    if(Array.isArray(autoSrc.verses)&&autoSrc.verses.length){
+      const vc=el("div","verse-chips");
+      autoSrc.verses.forEach(v=>{const a=el("a","verse-chip",v.label);a.href=v.url;a.target="_blank";a.rel="noopener";vc.append(a)});
+      ml.append(vc);
+    }
+    mainCard.append(ml);
+    if(autoSrc.narration_url){
+      const lnk=el("a","src-open","Rujukan ↗");lnk.href=autoSrc.narration_url;lnk.target="_blank";lnk.rel="noopener";mainCard.append(lnk);
+    }
+    slist.append(mainCard);
+
+    (autoSrc.also_reported||[]).forEach(r=>{
+      const isHad=/bukhari|muslim|tirmidhi|ahmad|sunnah/i.test(r.title||r.url||"");
+      const rc=el("div","src-item "+(isHad?"hadith":"tarikh"));
+      const rl=el("div");
+      rl.append(el("span","src-cat",isHad?"HADITS & SANAD":"KITAB TARIKH KLASIK"),el("div","src-title",r.title));
+      rc.append(rl);
+      if(r.url){const lnk=el("a","src-open","Lihat ↗");lnk.href=r.url;lnk.target="_blank";lnk.rel="noopener";rc.append(lnk)}
+      slist.append(rc);
+    });
+  }
+  panels.src.append(slist);
+
+  // Panel 3: Chapters (Clickable Video Timestamp Seek)
+  if(panels.chap){
+    const cl=el("div","chap-list");
+    chapters.forEach(ch=>{
+      const b=el("button","chap-btn");b.type="button";
+      b.append(el("span","chap-time",ch.time),el("span","chap-title",ch.title));
+      b.onclick=()=>{
+        cl.querySelectorAll(".chap-btn").forEach(x=>x.classList.remove("on"));
+        b.classList.add("on");
+        if(vidId){mountIframe(ch.sec);window.scrollTo({top:0,behavior:"smooth"})}
+      };
+      cl.append(b);
+    });
+    panels.chap.append(cl);
+  }
+
+  // Panel 4: Glossary
+  if(panels.glos){
+    const gg=el("div","glos-grid");
+    glossary.forEach(g=>{
+      const c=el("div","glos-card");
+      c.append(el("b","",g.term),el("p","",g.def));
+      gg.append(c);
+    });
+    panels.glos.append(gg);
+  }
+
+  // 4. Right Sidebar Playlist (All Videos + Shorts)
+  const side=el("aside","watch-side");
+  side.append(el("div","side-head",l.sideDocs));
+  const slWrap=el("div","side-list");
+  const combined=[
+    ...ALL_VIDEOS.map((v,i)=>({rec:v,type:"videos",sid:v.slug||v.id||slugify(v.title)||("video-"+i)})),
+    ...ALL_SHORTS.map((s,i)=>({rec:s,type:"shorts",sid:s.id||("ep-"+s.ep)||("short-"+i)}))
+  ];
+  combined.forEach((item,idx)=>{
+    const isAct=(item.type===type&&(item.rec.title===rec.title||item.sid===ID));
+    const a=el("a","side-item"+(isAct?" active":""));
+    a.href="/watch.html?t="+item.type+"&id="+encodeURIComponent(item.sid);
+    a.onclick=e=>{e.preventDefault();renderWatch(item.rec,item.type);window.scrollTo({top:0,behavior:"smooth"})};
+    const th=el("div","side-thumb"+(item.type==="shorts"?" short":""));
+    const imSrc=OK(item.rec.img);
+    if(imSrc){const im=new Image();im.src=imSrc;im.alt="";if(idx>7)im.loading="lazy";th.append(im)}
+    th.append(el("span","side-badge",isAct?l.playing:(item.type==="shorts"?("EPS."+String(item.rec.ep||"").padStart(2,"0")):"16:9")));
+    const inf=el("div","side-info");
+    inf.append(el("b","",item.rec.title||""),el("span","",item.type==="shorts"?l.shortTag:l.docTag));
+    a.append(th,inf);
+    slWrap.append(a);
+  });
+  side.append(slWrap);
+  root.append(main,side);
+}
+
+// Language dropdown wiring
+(function initLangDrop(){
+  const wrap=document.getElementById("langDropdownWrap"),trig=document.getElementById("langDropTrigger"),menu=document.getElementById("langDropMenu");
+  if(!trig||!menu)return;
+  const close=()=>{menu.classList.remove("open");menu.setAttribute("hidden","");trig.setAttribute("aria-expanded","false")};
+  trig.onclick=e=>{e.preventDefault();e.stopPropagation();menu.classList.contains("open")?close():(menu.removeAttribute("hidden"),menu.classList.add("open"),trig.setAttribute("aria-expanded","true"))};
+  document.addEventListener("click",e=>{if(wrap&&!wrap.contains(e.target))close()});
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")close()});
+  document.querySelectorAll(".lang-drop-item").forEach(it=>{
+    it.onclick=e=>{e.preventDefault();e.stopPropagation();const lg=it.getAttribute("data-lang");if(lg&&I&&I.setLang)I.setLang(lg);close()};
+  });
+})();
+
+document.getElementById("shareBtn").onclick=()=>{
+  if(navigator.share) navigator.share({title:document.title,url:location.href}).catch(()=>{});
+  else navigator.clipboard.writeText(location.href).then(()=>showToast(L().copied)).catch(()=>showToast(L().copied));
+};
+
+window.addEventListener("alfa:langchange",async()=>{
+  await I.ensurePack();
+  if(ACTIVE_REC) renderWatch(ACTIVE_REC,ACTIVE_TYPE);
+  else syncHeader();
+});
+
+// Bootstrap: Load defaults + cached/live Supabase videos & shorts
+(async()=>{
+  await I.ensurePack();
+  syncHeader();
+  try{DEFS=await (await fetch("/defaults.json")).json()}catch(e){DEFS={}}
+  if(I&&typeof I.setDefaultsData==="function") I.setDefaultsData(DEFS);
+
+  try{ALL_VIDEOS=JSON.parse(sessionStorage.getItem("alfa_videos_cache")||"[]")}catch(e){ALL_VIDEOS=[]}
+  try{ALL_SHORTS=JSON.parse(sessionStorage.getItem("alfa_shorts_cache")||"[]")}catch(e){ALL_SHORTS=[]}
+  if(!ALL_SHORTS.length&&Array.isArray(DEFS.shorts)) ALL_SHORTS=DEFS.shorts;
+  if(!ALL_VIDEOS.length&&Array.isArray(DEFS.videos)) ALL_VIDEOS=DEFS.videos;
+
+  // Query live Supabase if configured so direct links (/videos/fathu-makkah) always work!
+  if(C.url&&!C.url.includes("YOUR-")){
+    try{
+      const [vr,sr]=await Promise.all([
+        fetch(C.url+"/rest/v1/videos?select=*&order=t.desc",{headers:{apikey:C.key}}),
+        fetch(C.url+"/rest/v1/shorts?select=*&order=ep.desc",{headers:{apikey:C.key}})
+      ]);
+      if(vr.ok){const vj=await vr.json();if(Array.isArray(vj)&&vj.length)ALL_VIDEOS=vj}
+      if(sr.ok){const sj=await sr.json();if(Array.isArray(sj)&&sj.length)ALL_SHORTS=sj}
+    }catch(e){}
+  }
+
+  const list=T==="shorts"?ALL_SHORTS:ALL_VIDEOS;
+  const idLow=slugify(ID);
+  const found=list.find((x,i)=>{
+    const sid=x.slug||x.id||(T==="shorts"?"ep-"+x.ep:slugify(x.title));
+    return String(x.id)===ID||String(sid)===ID||slugify(x.title)===idLow||slugify(sid)===idLow||("ep-"+x.ep)===ID||("video-"+i)===ID||("short-"+i)===ID;
+  }) || list[0] || (ALL_VIDEOS[0]||ALL_SHORTS[0]) || null;
+
+  const actualType=(T==="shorts"&&ALL_SHORTS.includes(found))?"shorts":(ALL_VIDEOS.includes(found)?"videos":T);
+  renderWatch(found, actualType);
+})();
+</script>
+</body>
+</html>
