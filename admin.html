@@ -110,25 +110,34 @@ textarea.big{min-height:180px}
 
 /* Interactive Zoomable Leaflet Map Picker & Full Map Editor */
 .adm-map-shell{display:grid;gap:0;border:1px solid var(--g2);background:#14120e;width:100%}
+.adm-map-shell.map-fs{position:fixed;inset:14px;z-index:1150;display:flex;flex-direction:column;border-color:var(--g);box-shadow:0 24px 80px rgba(0,0,0,.92)}
+.adm-map-shell.map-fs .adm-map-stage{flex:1;height:auto;min-height:0}
 .adm-map-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:8px 12px;background:#1b1710;border-bottom:1px solid #3a3122}
+.adm-map-subbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:7px 12px;background:#15120c;border-bottom:1px solid #332a1c;font-size:.78rem;color:var(--ink)}
+.adm-map-subbar[hidden]{display:none}
+.adm-map-subbar strong{color:var(--g)}
+.adm-map-subbar button{height:28px;padding:0 10px;font:700 .72rem/1 Cinzel,serif;letter-spacing:.04em;text-transform:uppercase}
 .adm-map-grp{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .adm-map-bar button{height:31px;padding:0 10px;font:700 .74rem/1 Cinzel,serif;letter-spacing:.04em;text-transform:uppercase;border-color:#4b3e24;background:#14110b;color:#dfd3bc}
 .adm-map-bar button:hover{border-color:var(--g);color:var(--g);background:#251f15}
+.adm-map-bar button.pri{background:var(--g);border-color:var(--g);color:#14110b}
+.adm-map-bar button.pri:hover{background:#d9bc76;color:#100d08}
 .adm-map-bar button.ico-z{width:31px;padding:0;font:700 1rem/1 Bitter,serif}
 .adm-map-coords{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 label.adm-coord-fld{display:inline-flex;flex-direction:row;align-items:center;gap:6px;background:#14110b;border:1px solid #443824;padding:0 8px;height:31px;font-size:.74rem;color:var(--g);font-weight:700;white-space:nowrap}
 label.adm-coord-fld input{width:68px;height:27px;padding:0 4px;border:0;background:transparent;color:#fff;font:600 .8rem/1 monospace;text-align:right}
 label.adm-coord-fld input:focus{background:#1f1a12;outline:none}
-.adm-map-stage{position:relative;isolation:isolate;z-index:1;width:100%;height:460px;background:#5e7472;overflow:hidden}
+.adm-map-stage{position:relative;isolation:isolate;z-index:1;width:100%;height:clamp(620px,74vh,840px);background:#5e7472;overflow:hidden}
 .adm-map-canvas{width:100%;height:100%;background:#5e7472;cursor:crosshair}
 .adm-map-canvas.leaflet-container{font-family:Bitter,Georgia,serif;background:#5e7472}
 .adm-map-hud-z{position:absolute;top:10px;right:10px;z-index:420;pointer-events:none;background:rgba(16,13,9,.88);border:1px solid var(--g2);color:var(--g);padding:4px 10px;font:700 .72rem/1.2 Cinzel,serif;letter-spacing:.05em}
 .adm-map-hud-xy{position:absolute;bottom:10px;left:10px;z-index:420;pointer-events:none;background:rgba(16,13,9,.86);border:1px solid #463a24;color:#e6dcc8;padding:4px 10px;font:600 .74rem/1.2 monospace}
 .adm-pin-icon{background:transparent;border:0}
-.adm-pin-active{width:18px;height:18px;background:var(--g);border:2px solid #14110b;transform:rotate(45deg);box-shadow:0 0 0 3px rgba(196,163,90,.42),0 3px 10px rgba(0,0,0,.7);transition:transform .12s}
+.adm-pin-active{width:18px;height:18px;background:var(--g);border:2px solid #14110b;transform:rotate(45deg);box-shadow:0 0 0 3px rgba(196,163,90,.42),0 3px 10px rgba(0,0,0,.7);cursor:grab;transition:transform .12s}
 .adm-pin-active.sel-crimson{background:#fff;border-color:#14110b;box-shadow:0 0 0 3px #e04040,0 3px 12px rgba(0,0,0,.85)}
-.adm-pin-ref{width:10px;height:10px;background:rgba(196,163,90,.78);border:1.5px solid #18140e;transform:rotate(45deg);box-shadow:0 1px 4px rgba(0,0,0,.6)}
-.adm-pin-ref:hover{background:#fff;border-color:var(--g)}
+.adm-pin-dirty{width:14px;height:14px;background:#fff;border:2px solid #14110b;transform:rotate(45deg);box-shadow:0 0 0 2.5px #d48a5c,0 2px 8px rgba(0,0,0,.75);cursor:grab}
+.adm-pin-ref{width:13px;height:13px;background:rgba(196,163,90,.88);border:1.5px solid #18140e;transform:rotate(45deg);box-shadow:0 1px 5px rgba(0,0,0,.68);cursor:grab;transition:transform .12s,background .12s}
+.adm-pin-ref:hover{background:#fff;border-color:var(--g);transform:rotate(45deg) scale(1.18)}
 .leaflet-tooltip.adm-pin-tip{background:#16130d;color:#faf6ee;border:1px solid var(--g);border-radius:0;padding:3px 8px;font:700 .74rem/1.2 Bitter,serif;box-shadow:0 4px 14px rgba(0,0,0,.75)}
 .leaflet-tooltip.adm-pin-tip::before{border-top-color:var(--g)}
 
@@ -262,7 +271,7 @@ places:{l:"Place",f:[
   ["countries","Kode Negara","cc",null,{c:6,ph:"contoh: SA, EG, SY",h:"Kode negara 2 huruf, pisahkan koma"}],
   ["map","Peta Acuan","p",null,{c:6,h:"Koordinat mengikuti proyeksi Peta Dunia Master 8K"}],
   ["description","Deskripsi Singkat","t",null,{c:12,rows:2,cls:"compact",ph:"Ringkasan singkat yang muncul pada kartu peta..."}],
-  ["pos","Posisi di Peta","m",null,{c:12,h:"Scroll mouse atau tekan tombol +/- untuk zoom hingga detail regional HD. Klik peta atau seret pin emas untuk mengatur posisi."}],
+  ["pos","Posisi di Peta","m",null,{c:12,h:"Scroll mouse atau +/- untuk zoom hingga HD regional. Seret pin mana pun langsung di peta untuk memindahkannya, klik pin untuk memilih, klik ganda untuk edit form, atau klik Perluas untuk layar penuh."}],
   ["slides","Foto Kartu Peta & Halaman Detail","s",null,{c:6,h:"Gambar utama untuk kartu peta dan tajuk halaman detail"}],
   ["meta","Keterangan di Bawah Judul","t",null,{c:6,rows:2,cls:"compact",ph:"Subjudul historis di bawah judul halaman detail..."}],
   ["body","Isi Artikel Detail","r",null,{c:12,h:"Kosongkan jika ingin menggunakan deskripsi singkat"}],
@@ -411,7 +420,8 @@ let ACTIVE_INLINE_MAP=null;
 function makePinIcon(kind){
   if(kind==="active") return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-active"></div>',iconSize:[18,18],iconAnchor:[9,9]});
   if(kind==="selected") return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-active sel-crimson"></div>',iconSize:[18,18],iconAnchor:[9,9]});
-  return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-ref"></div>',iconSize:[10,10],iconAnchor:[5,5]});
+  if(kind==="dirty") return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-dirty"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+  return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-ref"></div>',iconSize:[14,14],iconAnchor:[7,7]});
 }
 
 function createAdminLeafletMap(stageEl,initialFocus){
@@ -987,12 +997,13 @@ S.f.forEach(([k,lb,ty,hp,opt={}])=>{
     fld.append(sel);addHint(fld,opt.h);fmGrid.append(fld);return;
   }
   if(ty=="m"){
-    const shellMap=el("div","adm-map-shell"),bar=el("div","adm-map-bar"),grpL=el("div","adm-map-grp"),grpR=el("div","adm-map-coords"),stage=el("div","adm-map-stage");
-    const zIn=el("button","ico-z","+"),zOut=el("button","ico-z","−"),focusBtn=el("button","","Fokus Pin");
-    zIn.type=zOut.type=focusBtn.type="button";zIn.title="Zoom In (+)";zOut.title="Zoom Out (-)";
+    const shellMap=el("div","adm-map-shell"),bar=el("div","adm-map-bar"),subBar=el("div","adm-map-subbar"),grpL=el("div","adm-map-grp"),grpR=el("div","adm-map-coords"),stage=el("div","adm-map-stage");
+    subBar.hidden=true;
+    const zIn=el("button","ico-z","+"),zOut=el("button","ico-z","−"),focusBtn=el("button","","Fokus Pin"),fsBtn=el("button","","Perluas");
+    zIn.type=zOut.type=focusBtn.type=fsBtn.type="button";zIn.title="Zoom In (+)";zOut.title="Zoom Out (-)";fsBtn.title="Perluas peta ke layar penuh (Esc untuk keluar)";
     grpL.append(zIn,zOut);
     const prBtns=MAP_PRESETS.map(pr=>{const b=el("button","",pr.label);b.type="button";grpL.append(b);return[b,pr]});
-    grpL.append(focusBtn);
+    grpL.append(focusBtn,fsBtn);
     const mkXY=(axis)=>{
       const bx=el("label","adm-coord-fld"),inp=document.createElement("input");
       inp.type="number";inp.step="0.01";inp.min="0";inp.max="100";inp.placeholder="—";
@@ -1001,24 +1012,113 @@ S.f.forEach(([k,lb,ty,hp,opt={}])=>{
       return [bx,inp];
     };
     const [bxX,inpX]=mkXY("x"),[bxY,inpY]=mkXY("y");
-    grpR.append(bxX,bxY);
+    const saveMovedBtn=el("button","pri","Simpan Pin");saveMovedBtn.type="button";saveMovedBtn.hidden=true;
+    grpR.append(bxX,bxY,saveMovedBtn);
     bar.append(grpL,grpR);
-    shellMap.append(bar,stage);
+    shellMap.append(bar,subBar,stage);
     fld.append(shellMap);addHint(fld,opt.h);fmGrid.append(fld);
 
     const hasInit=val.x!=null&&val.y!=null&&val.x!==""&&val.y!=="";
     const inst=createAdminLeafletMap(stage,hasInit?{x:+val.x,y:+val.y,zoom:3.6}:null);
     ACTIVE_INLINE_MAP=inst;
     const lmap=inst.map;
+    fsBtn.onclick=()=>{
+      const on=shellMap.classList.toggle("map-fs");
+      fsBtn.textContent=on?"Kecilkan":"Perluas";
+      if(lmap)setTimeout(()=>lmap.invalidateSize({animate:false}),40);
+    };
     if(lmap){
-      let activeMarker=null;
+      let activeMarker=null,selectedOther=null;
+      const dirtyPins=new Map(),refMarkers=new Map();
+
+      const updateRefVisual=(r)=>{
+        const mk=refMarkers.get(r.id);if(!mk)return;
+        const isSel=selectedOther&&selectedOther.id===r.id;
+        const isDirty=dirtyPins.has(r.id);
+        mk.setIcon(makePinIcon(isSel?"selected":(isDirty?"dirty":"ref")));
+        mk.setZIndexOffset(isSel?550:(isDirty?300:120));
+        mk.unbindTooltip();
+        const tipTxt=(r.name||r.slug||"")+(isDirty?" (belum disimpan)":"");
+        mk.bindTooltip(tipTxt,{direction:"top",offset:[0,-8],className:"adm-pin-tip",permanent:isSel});
+      };
+
+      const renderSubBar=()=>{
+        const dirtyN=dirtyPins.size;
+        saveMovedBtn.hidden=dirtyN===0;
+        if(dirtyN>0)saveMovedBtn.textContent=`Simpan ${dirtyN} Pin`;
+        if(!selectedOther&&dirtyN===0){subBar.hidden=true;subBar.replaceChildren();return}
+        subBar.hidden=false;subBar.replaceChildren();
+        const leftInfo=el("div","adm-map-grp"),rightActs=el("div","adm-map-grp");
+        if(selectedOther){
+          const nm=el("strong","",selectedOther.name||selectedOther.slug||"Lokasi");
+          const msg=el("span","","Pin terpilih: ");msg.append(nm,document.createTextNode(" — seret pin atau klik peta untuk memindahkan."));
+          leftInfo.append(msg);
+          const editFormBtn=el("button","sec","Edit Data Form");editFormBtn.type="button";
+          editFormBtn.onclick=async()=>{
+            if(dirtyPins.size&&!await ask(`Ada ${dirtyPins.size} pin yang sudah dipindah tapi belum disimpan. Buka form edit tanpa menyimpan geseran?`,"Ya, lanjut"))return;
+            ed=selectedOther.id;panel();scrollTo(0,0);
+          };
+          const clearSelBtn=el("button","sec","Kembali ke Form");clearSelBtn.type="button";
+          clearSelBtn.onclick=()=>{
+            const prev=selectedOther;selectedOther=null;
+            if(prev)updateRefVisual(prev);
+            inpX.value=val.x!=null?val.x:"";inpY.value=val.y!=null?val.y:"";
+            renderSubBar();
+          };
+          rightActs.append(editFormBtn,clearSelBtn);
+        }else{
+          leftInfo.append(el("span","",`${dirtyN} pin telah dipindahkan di peta dan siap disimpan.`));
+        }
+        if(dirtyN>0){
+          const revertBtn=el("button","danger-sm","Batal Geser");revertBtn.type="button";
+          revertBtn.onclick=()=>{
+            dirtyPins.forEach((rec,id)=>{
+              rec.row.x=rec.origX;rec.row.y=rec.origY;
+              const mk=refMarkers.get(id);if(mk)mk.setLatLng(pctToLL(rec.origX,rec.origY));
+            });
+            dirtyPins.clear();
+            rows.forEach(r=>{if(refMarkers.has(r.id))updateRefVisual(r)});
+            if(selectedOther){inpX.value=selectedOther.x;inpY.value=selectedOther.y}
+            renderSubBar();toast("Perubahan geser pin dibatalkan");
+          };
+          rightActs.append(revertBtn);
+        }
+        subBar.append(leftInfo,rightActs);
+      };
+
+      const markDirty=(r,nx,ny)=>{
+        if(!dirtyPins.has(r.id))dirtyPins.set(r.id,{row:r,origX:+r.x,origY:+r.y,x:nx,y:ny});
+        else{const rec=dirtyPins.get(r.id);rec.x=nx;rec.y=ny}
+        r.x=nx;r.y=ny;
+        updateRefVisual(r);renderSubBar();
+      };
+
+      saveMovedBtn.onclick=async()=>{
+        if(!dirtyPins.size)return;
+        saveMovedBtn.disabled=true;saveMovedBtn.textContent="Menyimpan...";
+        try{
+          const entries=[...dirtyPins.entries()];
+          for(const[id,rec]of entries){
+            const{error}=await sb.from("places").update({x:rec.x,y:rec.y,map:"world"}).eq("id",id);
+            if(error)throw error;
+            rec.row.map="world";delete rec.row._origMap;
+          }
+          dirtyPins.clear();
+          rows.forEach(r=>{if(refMarkers.has(r.id))updateRefVisual(r)});
+          renderSubBar();chg();
+          toast(`${entries.length} posisi pin berhasil disimpan`);
+        }catch(e){er(e)}
+        saveMovedBtn.disabled=false;renderSubBar();
+      };
+
       const syncMarker=(pan)=>{
         if(val.x==null||val.y==null||val.x===""||val.y==="")return;
         const ll=pctToLL(val.x,val.y);
-        inpX.value=val.x;inpY.value=val.y;
+        if(!selectedOther){inpX.value=val.x;inpY.value=val.y}
         if(!activeMarker){
           activeMarker=L.marker(ll,{icon:makePinIcon("active"),draggable:true,zIndexOffset:600}).addTo(lmap);
           activeMarker.bindTooltip(val.name||"Lokasi Dipilih",{direction:"top",offset:[0,-10],className:"adm-pin-tip",permanent:true});
+          activeMarker.on("dragstart",()=>{if(selectedOther){const prev=selectedOther;selectedOther=null;updateRefVisual(prev);renderSubBar()}});
           activeMarker.on("drag",ev=>{const p=llToPct(ev.target.getLatLng());inpX.value=p.x;inpY.value=p.y});
           activeMarker.on("dragend",ev=>{const p=llToPct(ev.target.getLatLng());val.x=p.x;val.y=p.y;inpX.value=p.x;inpY.value=p.y});
         }else{
@@ -1026,31 +1126,63 @@ S.f.forEach(([k,lb,ty,hp,opt={}])=>{
         }
         if(pan)lmap.panTo(ll);
       };
-      // Render neighboring places as subtle reference markers
+
+      // Render ALL existing places as directly draggable & editable pins
       rows.forEach(r=>{
         if(r.id===ed||r.x==null||r.y==null)return;
-        const rm=L.marker(pctToLL(r.x,r.y),{icon:makePinIcon("ref"),interactive:true,zIndexOffset:100}).addTo(lmap);
-        rm.bindTooltip(r.name||r.slug||"",{direction:"top",offset:[0,-6],className:"adm-pin-tip"});
+        const rm=L.marker(pctToLL(r.x,r.y),{icon:makePinIcon("ref"),draggable:true,interactive:true,zIndexOffset:120}).addTo(lmap);
+        refMarkers.set(r.id,rm);
+        rm.bindTooltip(r.name||r.slug||"",{direction:"top",offset:[0,-8],className:"adm-pin-tip"});
+        const selectThis=()=>{
+          const prev=selectedOther;selectedOther=r;
+          if(prev&&prev.id!==r.id)updateRefVisual(prev);
+          updateRefVisual(r);
+          inpX.value=r.x;inpY.value=r.y;
+          renderSubBar();
+        };
+        rm.on("click",ev=>{L.DomEvent.stopPropagation(ev);selectThis()});
+        rm.on("dblclick",async ev=>{
+          L.DomEvent.stopPropagation(ev);
+          if(dirtyPins.size&&!await ask(`Ada ${dirtyPins.size} pin yang belum disimpan. Buka form edit "${r.name}" tanpa menyimpan geseran?`,"Ya, buka"))return;
+          ed=r.id;panel();scrollTo(0,0);
+        });
+        rm.on("dragstart",()=>{selectThis()});
+        rm.on("drag",ev=>{const p=llToPct(ev.target.getLatLng());inpX.value=p.x;inpY.value=p.y});
+        rm.on("dragend",ev=>{const p=llToPct(ev.target.getLatLng());inpX.value=p.x;inpY.value=p.y;markDirty(r,p.x,p.y)});
       });
+
       if(hasInit)syncMarker(false);
       lmap.on("click",e=>{
         const p=llToPct(e.latlng);
-        val.x=p.x;val.y=p.y;
-        syncMarker(false);
+        if(selectedOther){
+          const mk=refMarkers.get(selectedOther.id);
+          if(mk)mk.setLatLng(pctToLL(p.x,p.y));
+          inpX.value=p.x;inpY.value=p.y;
+          markDirty(selectedOther,p.x,p.y);
+        }else{
+          val.x=p.x;val.y=p.y;
+          syncMarker(false);
+        }
       });
       zIn.onclick=()=>lmap.zoomIn(0.7);
       zOut.onclick=()=>lmap.zoomOut(0.7);
       prBtns.forEach(([b,pr])=>{b.onclick=()=>lmap.fitBounds(pr.bounds,{animate:true,duration:0.45})});
       focusBtn.onclick=()=>{
-        if(val.x==null||val.y==null){warn("Belum ada titik pin. Klik peta untuk menempatkan pin.");return}
-        lmap.flyTo(pctToLL(val.x,val.y),Math.max(lmap.getZoom(),3.8),{duration:0.45});
+        const tx=selectedOther?selectedOther.x:val.x,tyy=selectedOther?selectedOther.y:val.y;
+        if(tx==null||tyy==null){warn("Belum ada titik pin. Klik peta atau pilih pin yang ada.");return}
+        lmap.flyTo(pctToLL(tx,tyy),Math.max(lmap.getZoom(),3.8),{duration:0.45});
       };
       const onCoordEdit=()=>{
         const vx=parseFloat(inpX.value),vy=parseFloat(inpY.value);
-        if(Number.isFinite(vx)&&Number.isFinite(vy)){
-          val.x=+Math.min(100,Math.max(0,vx)).toFixed(2);
-          val.y=+Math.min(100,Math.max(0,vy)).toFixed(2);
-          syncMarker(true);
+        if(!Number.isFinite(vx)||!Number.isFinite(vy))return;
+        const cx=+Math.min(100,Math.max(0,vx)).toFixed(2),cy=+Math.min(100,Math.max(0,vy)).toFixed(2);
+        if(selectedOther){
+          const mk=refMarkers.get(selectedOther.id);
+          if(mk)mk.setLatLng(pctToLL(cx,cy));
+          markDirty(selectedOther,cx,cy);
+          lmap.panTo(pctToLL(cx,cy));
+        }else{
+          val.x=cx;val.y=cy;syncMarker(true);
         }
       };
       inpX.onchange=onCoordEdit;inpY.onchange=onCoordEdit;
@@ -1150,6 +1282,11 @@ LP.append(fm,lsSec)}
 window.addEventListener("keydown",e=>{
   if(e.key==="Escape"){
     document.querySelectorAll(".rte.word-focus").forEach(el=>{el.classList.remove("word-focus")});
+    document.querySelectorAll(".adm-map-shell.map-fs").forEach(sh=>{
+      sh.classList.remove("map-fs");
+      const b=sh.querySelector(".adm-map-bar button[title*='Perluas']");if(b)b.textContent="Perluas";
+      if(ACTIVE_INLINE_MAP&&ACTIVE_INLINE_MAP.map)setTimeout(()=>ACTIVE_INLINE_MAP.map.invalidateSize({animate:false}),40);
+    });
     return;
   }
   const mod=e.ctrlKey||e.metaKey;
