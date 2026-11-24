@@ -5,23 +5,38 @@
 <style>
 *{box-sizing:border-box;margin:0}
 :root{--bg:#181818;--p:#212121;--g:#c4a35a;--g2:#6e5c36;--ink:#f3ead8;--mut:#b4a88f;color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Bitter,Georgia,serif;padding:24px clamp(16px,3vw,56px) 60px;max-width:900px;margin:auto}
-h1,h3{font-family:Cinzel,serif;font-weight:800}h1{font-size:2rem}h3{color:var(--g);font-size:1.15rem}
-button,.go{font:inherit;background:none;border:1px solid var(--g);color:var(--g);padding:6px 14px;cursor:pointer;font-weight:700;text-decoration:none}
-button:hover,.go:hover{background:var(--g);color:var(--bg)}button:disabled{opacity:.5}
-:focus-visible{outline:2px solid var(--g);outline-offset:3px}
-.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap}.top div{display:flex;gap:8px}
-.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}.tabs .on{background:var(--g);color:var(--bg)}
-.fm{display:grid;gap:14px;max-width:700px;background:var(--p);border:1px solid var(--g2);padding:20px;margin:16px 0}
-label{display:grid;gap:4px;font-size:.88rem;color:var(--mut)}label.ck{display:flex;gap:8px;align-items:center}
-input,textarea{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 10px;font:inherit;width:100%}input[type=checkbox]{width:auto}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Bitter,Georgia,serif;width:100%;max-width:none !important;margin:0;padding:0}
+h1,h3{font-family:Cinzel,serif;font-weight:800}h1{font-size:1.45rem;letter-spacing:.05em}h3{color:var(--g);font-size:1.1rem}
+button,.go{font:600 .84rem/1 Bitter,Georgia,serif;background:none;border:1px solid var(--g2);color:var(--ink);height:36px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:all .15s}
+button:hover,.go:hover{border-color:var(--g);background:rgba(196,163,90,.16);color:#fff}button:disabled{opacity:.5;cursor:not-allowed}
+button.pri{background:var(--g);border-color:var(--g);color:#14110b;font-family:Cinzel,serif;font-weight:800;letter-spacing:.04em}
+button.pri:hover{background:#d9bc76;border-color:#d9bc76;color:#100d08}
+button.sec{background:#1d1912;border-color:#4b3e24;color:#dfd3bc;font-size:.8rem;height:35px;padding:0 12px}
+button.sec:hover{border-color:var(--g);color:var(--g);background:#251f15}
+button.danger-sm{border-color:#5a3232;color:#e09b9b}
+button.danger-sm:hover{background:#7a2828;border-color:#a33a3a;color:#fff}
+:focus-visible{outline:2px solid var(--g);outline-offset:2px}
+.adm-hdr{position:sticky;top:0;z-index:30;width:100%;background:#14120e;border-bottom:1px solid #352c1d;padding:12px clamp(16px,2.2vw,32px);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.adm-brand{display:flex;align-items:center;gap:12px}
+.adm-brand span{font-size:.78rem;color:var(--mut);border-left:1px solid #3a3122;padding-left:12px}
+.adm-hdr-acts{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.adm-subbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid #2e271b}
+.adm-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tabs button{height:35px;padding:0 14px;font:700 .78rem/1 Cinzel,serif;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);border-color:#3a3122;background:#1c1914}
+.tabs button:hover{color:#fff;border-color:var(--g)}
+.tabs .on{background:var(--g) !important;border-color:var(--g) !important;color:#14110b !important}
+.fm{display:grid;gap:14px;width:100%;max-width:none;background:var(--p);border:1px solid var(--g2);padding:22px;margin:0 0 18px}
+.fm-acts{display:flex;align-items:center;gap:10px;padding-top:6px;flex-wrap:wrap}
+label{display:grid;gap:5px;font-size:.88rem;color:var(--mut)}label.ck{display:flex;gap:8px;align-items:center}
+input,textarea{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:9px 11px;font:inherit;width:100%}input[type=checkbox]{width:auto}
 textarea.big{min-height:260px}
 .hlp{font-size:.8rem;color:var(--mut);white-space:pre-line}
 .pv{width:56px;height:72px;object-fit:cover;border:1px solid var(--g2)}.pv[hidden]{display:none}
 .pvc{width:80px;height:220px}
-.ls{display:grid;gap:8px;max-width:700px}.row,.it{display:flex;align-items:center;gap:10px;background:var(--p);padding:8px 12px;border:1px solid #2c2c2c}.row span{flex:1}.it{background:var(--bg)}.it input{flex:1}.it .pv{width:72px;height:48px}
-.sm{padding:2px 9px}
-.mp{position:relative;max-width:520px;cursor:crosshair;border:1px solid var(--g2)}.mp img{display:block;width:100%}.mp i{position:absolute;width:18px;height:18px;background:var(--g);border:2px solid #181818;transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 0 2px var(--g)}
+.ls{display:grid;gap:8px;width:100%;max-width:none}.row,.it{display:flex;align-items:center;gap:10px;background:var(--p);padding:8px 12px;border:1px solid #2c2c2c}.row span{flex:1;min-width:0}.it{background:var(--bg)}.it input{flex:1}.it .pv{width:72px;height:48px}
+.row button,.sm{height:30px;padding:0 11px;font-size:.78rem}
+.mp{position:relative;max-width:720px;cursor:crosshair;border:1px solid var(--g2)}.mp img{display:block;width:100%}.mp i{position:absolute;width:18px;height:18px;background:var(--g);border:2px solid #181818;transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 0 2px var(--g)}
 .m{color:var(--mut);max-width:56ch;margin:12px 0}
 .ov{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:50;display:grid;place-items:center;padding:16px;overflow:auto}
 .cb{background:var(--p);border:1px solid var(--g);padding:20px;display:grid;gap:12px;justify-items:center;max-width:100%}
@@ -31,15 +46,16 @@ textarea.big{min-height:260px}
 #tw{position:fixed;right:16px;bottom:16px;z-index:60;display:grid;gap:8px;width:min(380px,calc(100vw - 32px))}
 .toast{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 14px;background:#232323;border:1px solid var(--g2);border-left:5px solid var(--g);box-shadow:0 8px 24px rgba(0,0,0,.5);font-size:.93rem;line-height:1.45}
 .toast.err{border-left-color:#d9534f}.toast.warn{border-left-color:#e0a030}.toast button{border:0;padding:0 4px;font-size:1.2rem;line-height:1;color:var(--mut)}.toast button:hover{background:none;color:var(--ink)}
-body{max-width:1760px;padding:20px 24px 48px}
-.wrap{display:grid;grid-template-columns:minmax(480px,680px) minmax(0,1fr);gap:24px;align-items:start;transition:grid-template-columns .2s ease}
-body.pv-hidden .wrap{grid-template-columns:minmax(0,980px);justify-content:center}
+.wrap{width:100%;max-width:none;padding:18px clamp(16px,2.2vw,32px) 56px;display:grid;grid-template-columns:minmax(520px,1.08fr) minmax(420px,.92fr);gap:24px;align-items:start}
+body.pv-hidden .wrap{grid-template-columns:minmax(0,1fr) !important}
 body.pv-hidden .pane{display:none}
-.pane{position:sticky;top:16px}
-.pvh{display:flex;gap:8px;align-items:center;margin-bottom:8px}.pvh b{flex:1;font-family:Cinzel,serif;color:var(--g)}.pvh .on{background:var(--g);color:var(--bg)}
-.pvbox{position:relative;overflow:hidden;border:1px solid var(--g2);background:#000;height:calc(100vh - 80px)}
+.pane{position:sticky;top:74px}
+.pvh{display:flex;gap:8px;align-items:center;min-height:35px;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid #2e271b}.pvh b{flex:1;font:800 .88rem/1 Cinzel,serif;letter-spacing:.06em;text-transform:uppercase;color:var(--g)}
+.pvh button{height:35px;padding:0 13px;font:700 .76rem/1 Cinzel,serif;text-transform:uppercase;letter-spacing:.04em}
+.pvh .on{background:var(--g) !important;border-color:var(--g) !important;color:#14110b !important}
+.pvbox{position:relative;overflow:hidden;border:1px solid var(--g2);background:#000;height:calc(100vh - 145px)}
 .pvbox iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#181818}
-.fm,.ls{max-width:none}.mp{max-width:100%}
+.fm,.ls{max-width:none}.mp{max-width:min(760px,100%)}
 @media(max-width:1180px){.wrap{grid-template-columns:1fr}.pane{display:none}}
 select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 10px;font:inherit;width:100%}
 .me{align-content:start;gap:10px}.mb{width:min(1280px,96vw);grid-template-columns:minmax(0,1fr) 280px;align-items:start;justify-items:stretch;max-height:calc(100vh - 110px);overflow:auto}
@@ -66,7 +82,7 @@ select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:
 .word-desk{background:#231e16;padding:clamp(14px,2.5vw,28px);max-height:68vh;overflow:auto;transition:background .2s}
 .rte.word-focus .word-desk{flex:1;max-height:none;padding:32px 24px}
 .word-desk.dark-paper{background:#110f0b}
-.rtc{max-width:720px;margin:0 auto;min-height:380px;padding:clamp(22px,3.2vw,44px) clamp(20px,3.5vw,52px);line-height:1.72;outline:none;font:400 16px/1.72 Bitter,Georgia,serif;background:#faf6ee;color:#1e1912;border:1px solid #d5c7ac;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:background .2s,color .2s}
+.rtc{width:100%;max-width:960px;margin:0 auto;min-height:380px;padding:clamp(22px,3.2vw,44px) clamp(20px,3.5vw,52px);line-height:1.72;outline:none;font:400 16px/1.72 Bitter,Georgia,serif;background:#faf6ee;color:#1e1912;border:1px solid #d5c7ac;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:background .2s,color .2s}
 .word-desk.dark-paper .rtc{background:#1b1812;color:#f3ead8;border-color:#3d3321}
 .rtc:empty::before{content:attr(data-ph);color:#8a7f6b}
 .word-desk.dark-paper .rtc:empty::before{color:var(--mut)}
@@ -177,6 +193,7 @@ function togglePV(){
 }
 function makePvToggleBtn(){
   const b=el("button","ico-btn boxed");b.type="button";b.setAttribute("data-pv-toggle","1");
+  b.style.width="36px";b.style.height="36px";
   b.onclick=togglePV;b.innerHTML=PV_OPEN?SVG_PV_HIDE:SVG_PV_SHOW;
   b.title=(PV_OPEN?"Sembunyikan Pratinjau Langsung":"Tampilkan Pratinjau Langsung")+" (Ctrl+Shift+P)";
   b.classList.toggle("on",PV_OPEN);
@@ -190,11 +207,23 @@ if(PVM=="detail"){cw.postMessage({type:"alfa-draft",data:d},location.origin);ret
 const has=d[CUR.S.f[0][0]],old=CUR.ed&&rows.find(r=>r.id==CUR.ed),list=CUR.ed?rows.map(r=>r.id==CUR.ed?{...r,...d}:r):(has?[...rows,{...d,id:"draft",t:Date.now()+1e10}]:rows);
 cw.postMessage({type:"alfa-list",tab:CUR.tab,rows:list,focus:CUR.ed?(old&&(old.slug||old.id)):(has?"draft":null)},location.origin)}
 function setPV(m){if(m=="detail"&&CUR&&!DT(CUR.tab)){toast("Pratinjau halaman detail hanya untuk Karakter, Place, dan Peristiwa","warn");return}PVM=m;document.querySelectorAll(".pvh button[data-m]").forEach(b=>b.classList.toggle("on",b.dataset.m==m));chg()}
-function shell(){let l=document.getElementById("left");if(l)return l;app.replaceChildren();
-const w=el("div","wrap"),p=el("div","pane"),h=el("div","pvh"),bx=el("div","pvbox"),f=document.createElement("iframe");l=el("div");l.id="left";bx.id="pvbox";h.append(el("b","","Pratinjau langsung"));
-[["home","Beranda"],["detail","Halaman detail"]].forEach(([m,t])=>{const b=el("button",m==PVM?"on":"",t);b.dataset.m=m;b.onclick=()=>setPV(m);h.append(b)});
-h.append(makePvToggleBtn());
-f.title="Pratinjau situs";f.onload=pvSend;bx.append(f);p.append(h,bx);w.append(l,p);app.append(w);PVF=f;new ResizeObserver(fitPV).observe(bx);return l}
+function shell(){
+  let l=document.getElementById("left");if(l)return l;
+  app.replaceChildren();
+  const hdr=el("header","adm-hdr"),brand=el("div","adm-brand"),acts=el("div","adm-hdr-acts");
+  brand.append(el("h1","","ADMIN"),el("span","","Panel Redaksi Sejarah ALFA"));
+  const dl=el("a","go","Dashboard Trafik");dl.href="dashboard.html";
+  const vs=el("a","go","Lihat Situs");vs.href="index.html";
+  const lo=el("button","danger-sm","Keluar");lo.onclick=()=>sb&&sb.auth.signOut();
+  acts.append(makePvToggleBtn(),dl,vs,lo);
+  hdr.append(brand,acts);
+  const w=el("div","wrap"),p=el("div","pane"),h=el("div","pvh"),bx=el("div","pvbox"),f=document.createElement("iframe");
+  l=el("div");l.id="left";bx.id="pvbox";
+  h.append(el("b","","Pratinjau Langsung"));
+  [["home","Beranda"],["detail","Halaman Detail"]].forEach(([m,t])=>{const b=el("button",m==PVM?"on":"",t);b.dataset.m=m;b.onclick=()=>setPV(m);h.append(b)});
+  f.title="Pratinjau situs";f.onload=pvSend;bx.append(f);p.append(h,bx);w.append(l,p);
+  app.append(hdr,w);PVF=f;new ResizeObserver(fitPV).observe(bx);return l;
+}
 // ---- editor peta
 const LL={makkah:[39.8,21.4],yatsrib:[39.6,24.5],syam:[36.3,33.5],palestina:[35.2,31.8],iraq:[44.4,33.3],yaman:[44.2,15.4],gajah:[41.5,18.5],hira:[39.86,21.46],"makkah-k":[39.8,21.4],"madinah-k":[39.6,24.5],badar:[38.8,23.8],khaibar:[39.3,25.7],tabuk:[36.6,28.4],yamamah:[47.3,24.1],damaskus:[36.3,33.5],yarmuk:[35.9,32.8],baitulmaqdis:[35.2,31.8],hims:[36.7,34.7],konstantinopel:[28.98,41.0],iskandariyah:[29.9,31.2],fustat:[31.2,30.0],barqah:[20.9,32.5],kufah:[44.4,32.0],madain:[44.6,33.1],basrah:[47.8,30.5],nahawand:[48.4,34.2],merv:[62.2,37.7],habasyah:[38.7,14.1]};
 async function mapEditor(){
@@ -415,13 +444,7 @@ w.append(tb,cheat,desk,stBar,fi);return w}
 
 function renderAiPanel(L){
   L.replaceChildren();
-  const top=el("div","top");
-  top.append(el("h1","","Admin — AI & Engine Config"));
-  const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");
-  v.href="index.html";o.onclick=()=>sb.auth.signOut();
-  r.append(v,o);top.append(r);L.append(top);
-
-  const tb=el("div","tabs");
+  const sub=el("div","adm-subbar"),tb=el("div","tabs");
   Object.keys(SC).forEach(k=>{
     const b=el("button",k==tab?"on":"",SC[k].l);
     b.onclick=async()=>{tab=k;ed=null;await panel()};
@@ -430,7 +453,8 @@ function renderAiPanel(L){
   const aiBtn=el("button","on","✦ AI & Engine");
   aiBtn.onclick=()=>{tab="ai";ed=null;renderAiPanel(shell())};
   tb.append(aiBtn);
-  L.append(tb);
+  sub.append(tb);
+  L.append(sub);
 
   const box=el("div","ai-panel-box");
   
@@ -542,22 +566,25 @@ function renderAiPanel(L){
   L.append(box);
 }
 
-async function panel(){inP=true;await load();const L=shell();L.replaceChildren();const top=el("div","top");top.append(el("h1","","Admin"));const r=el("div"),v=el("a","go","Lihat situs"),o=el("button","","Keluar");v.href="index.html";o.onclick=()=>sb.auth.signOut();const dl=el("a","go","Dashboard trafik");dl.href="dashboard.html";r.append(makePvToggleBtn(),dl,v,o);top.append(r);L.append(top);
-const tb=el("div","tabs");Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});
+async function panel(){inP=true;await load();const L=shell();L.replaceChildren();
+const sub=el("div","adm-subbar"),tb=el("div","tabs"),tools=el("div","adm-tools");
+Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});
 const aiTabBtn=el("button",tab=="ai"?"on":"","✦ AI & Engine");
 aiTabBtn.onclick=()=>{tab="ai";ed=null;renderAiPanel(shell())};
 tb.append(aiTabBtn);
-L.append(tb);
+sub.append(tb,tools);
+L.append(sub);
 if(tab=="ai"){renderAiPanel(L);return;}
-const S=SC[tab];if(PVM=="detail"&&!DT(tab)){PVM="home";document.querySelectorAll(".pvh button").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
-if(tab=="places"){const eb=el("button","","Editor peta: atur posisi semua tempat");eb.style.marginBottom="10px";eb.onclick=mapEditor;L.append(eb)}
-{const sy=el("div");L.append(sy);if(tab!="videos")fetch("defaults.json").then(r=>r.json()).then(D=>{const add=[],upd=[],used=new Set();
+const S=SC[tab];if(PVM=="detail"&&!DT(tab)){PVM="home";document.querySelectorAll(".pvh button[data-m]").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
+if(tab=="places"){const eb=el("button","sec","Editor Peta");eb.title="Atur posisi titik semua tempat di peta dunia";eb.onclick=mapEditor;tools.append(eb)}
+{if(tab!="videos")fetch("defaults.json").then(r=>r.json()).then(D=>{const add=[],upd=[],used=new Set();
 (D[tab]||[]).forEach((d,i)=>{const r=rows.find(r=>!used.has(r.id)&&(tab=="shorts"?r.ep==d.ep:(r.slug?r.slug==d.slug:norm(r.name||r.title)==norm(d.name||d.title))));if(r)used.add(r.id);(r?upd:add).push([d,i,r])});
 if(!add.length&&!upd.length)return;
-const b=el("button","","Sinkronkan konten bawaan (+"+add.length+" baru, "+upd.length+" diperbarui)");
+const b=el("button","sec","Sinkronkan Bawaan (+"+add.length+" / "+upd.length+")");
+b.title="Sinkronkan konten bawaan defaults.json ("+add.length+" baru, "+upd.length+" diperbarui)";
 b.onclick=async()=>{if(upd.length&&!await ask("Ini menambah "+add.length+" item baru dan menimpa teks "+upd.length+" item bawaan yang sudah ada dengan versi terbaru (gambar yang sudah kamu upload tidak diganti, item buatanmu sendiri tidak disentuh). Lanjut?","Ya, sinkronkan"))return;
-b.disabled=true;b.textContent="Memproses, tunggu sebentar...";
-try{for(const[d,i,r]of[...add,...upd]){const o=await mig(d,r);o.t=i;const{error}=r?await sb.from(tab).update(o).eq("id",r.id):await sb.from(tab).insert(o);if(error)throw error}toast("Konten bawaan tersinkron")}catch(e){er(e)}panel()};sy.append(b)}).catch(()=>{})}
+b.disabled=true;b.textContent="Memproses...";
+try{for(const[d,i,r]of[...add,...upd]){const o=await mig(d,r);o.t=i;const{error}=r?await sb.from(tab).update(o).eq("id",r.id):await sb.from(tab).insert(o);if(error)throw error}toast("Konten bawaan tersinkron")}catch(e){er(e)}panel()};tools.append(b)}).catch(()=>{})}
 const fm=el("div","fm"),val=new Proxy({...(ed&&rows.find(d=>d.id==ed)||{show_label:true})},{set(o,k,v){o[k]=v;chg();return true}});fm.append(el("h3","",ed?"Edit":"Tambah baru"));
 S.f.forEach(([k,lb,ty,hp])=>{const dv=["s","g","k"].includes(ty),l=el(dv?"div":"label",dv?"rf":"",lb);let i;
 if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fm.append(l);return}
@@ -581,16 +608,17 @@ if(ty=="t"){i=document.createElement("textarea");i.rows=4;if(hp){i.className="bi
 i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fm.append(l)});
 const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g"||ty=="k"||ty=="cc")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
 CUR={tab,ed,build,S};chg();
-const sv=el("button","",ed?"Simpan perubahan":"Tambah");
+const sv=el("button","pri",ed?"Simpan Perubahan":"Tambah Data"),fmActs=el("div","fm-acts");
 const doSave=async()=>{const o=build();
 if(!o[S.f[0][0]])return warn("Isi "+S.f[0][1]);if(tab=="videos"&&!o.url)return warn("Isi link YouTube");if(tab=="events"&&!o.year)return warn("Isi tahun peristiwa");if(o.url&&!GOOD.test(o.url))return warn("Link harus https dari youtube.com atau youtu.be");
 if(tab=="places"&&val.x==null)return warn("Klik peta untuk menentukan posisi tempat");
 sv.disabled=true;const{error}=ed?await sb.from(tab).update(o).eq("id",ed):await sb.from(tab).insert(o);if(error){er(error);sv.disabled=false;return}ed=null;toast("Berhasil disimpan");panel()};
 sv.onclick=doSave;SAVE_FN=doSave;
-fm.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;panel()};fm.append(c)}
+fmActs.append(sv);if(ed){const c=el("button","","Batal");c.onclick=()=>{ed=null;panel()};fmActs.append(c)}
+fm.append(fmActs);
 const ls=el("div","ls");rows.forEach(d=>{const w=el("div","row"),im=el("img","pv");im.alt="";const th=d.img||(Array.isArray(d.slides)&&d.slides[0]);if(th)im.src=th;else im.hidden=true;w.append(im,el("span","",S.ti(d)));
 const e=el("button","","Edit");e.onclick=()=>{ed=d.id;panel();scrollTo(0,0)};
-const x=el("button","","Hapus");x.onclick=async()=>{if(!await ask("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);else toast("Berhasil dihapus");panel()};w.append(e,x);ls.append(w)});
+const x=el("button","danger-sm","Hapus");x.onclick=async()=>{if(!await ask("Hapus “"+S.ti(d)+"”?"))return;const{error}=await sb.from(tab).delete().eq("id",d.id);if(error)er(error);else toast("Berhasil dihapus");panel()};w.append(e,x);ls.append(w)});
 L.append(fm,ls)}
 
 // Global Admin Keyboard Shortcuts (Ctrl+Shift+P Preview Toggle, Ctrl+S Save, Esc Exit Focus)

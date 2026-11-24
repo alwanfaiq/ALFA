@@ -198,13 +198,17 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 
 .leaflet-overlay-pane svg{overflow:visible}
 
-#worldSvg path{fill:transparent;fill-opacity:0;stroke:rgba(36,28,18,.26);stroke-width:.65px;vector-effect:non-scaling-stroke;pointer-events:all;cursor:default;transition:fill .65s cubic-bezier(.22,1,.36,1),fill-opacity .65s cubic-bezier(.22,1,.36,1),stroke .35s ease,stroke-width .25s ease}
+#worldSvg{mix-blend-mode:multiply}
+
+#worldSvg path{fill:transparent;fill-opacity:0;stroke:rgba(52,38,18,.09);stroke-width:.45px;vector-effect:non-scaling-stroke;pointer-events:all;cursor:default;transition:fill .5s cubic-bezier(.22,1,.36,1),fill-opacity .5s cubic-bezier(.22,1,.36,1),stroke .25s ease,stroke-width .2s ease}
+
+.map-zoom-high #worldSvg path:not(:hover):not(.sel){stroke-opacity:.05}
 
 #worldSvg path.on{cursor:pointer}
 
-#worldSvg path:hover{stroke:rgba(255,246,220,.92);stroke-width:1.4px}
+#worldSvg path:hover{fill:rgba(196,163,90,.18) !important;fill-opacity:.22 !important;stroke:rgba(40,28,12,.65);stroke-width:1.2px}
 
-#worldSvg path.sel{stroke:var(--g);stroke-width:2px;filter:drop-shadow(0 0 6px rgba(196,163,90,.85))}
+#worldSvg path.sel{stroke:var(--g);stroke-width:1.8px;filter:drop-shadow(0 0 5px rgba(196,163,90,.75))}
 
 .hs-pin{position:relative;width:22px;height:22px;border:0;background:none;cursor:pointer;padding:0;display:grid;place-items:center}
 
@@ -238,12 +242,12 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 .hs-pin:hover b,.hs-pin:focus-visible b,.hs-pin.on b{opacity:1 !important;border-color:var(--g);z-index:50}
 
 /* 5-Level Hierarchical Cartographic Map Labels (Continent > Country > Province > City > Site) */
-.geo-wrap{pointer-events:none !important;background:none !important;border:0 !important}
-.geo-lbl{position:relative;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none;transition:opacity .25s ease}
+.geo-wrap{pointer-events:none !important;background:none !important;border:0 !important;overflow:visible !important}
+.geo-lbl{position:absolute;left:0;top:0;width:max-content !important;transform:translate(-50%,-50%);white-space:nowrap;pointer-events:none;user-select:none;transition:opacity .25s ease}
 .geo-continent{font:800 clamp(11px,1.05vw,15px)/1 Cinzel,Georgia,serif;letter-spacing:.32em;text-transform:uppercase;color:rgba(36,26,12,.72);text-shadow:0 1px 0 rgba(255,244,218,.48)}
 .geo-sea{font:italic 600 10.5px/1 Bitter,Georgia,serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(218,232,234,.72);text-shadow:0 1px 3px rgba(15,24,26,.45)}
-.geo-country{font:700 10.5px/1.15 Cinzel,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#271c0d;background:rgba(248,238,214,.62);padding:1px 6px;border:1px solid rgba(90,68,34,.25);box-shadow:0 1px 3px rgba(0,0,0,.15)}
-.geo-province{font:italic 700 10px/1.15 Bitter,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#3c280e;text-shadow:0 0 4px rgba(248,236,204,.85),0 0 8px rgba(248,236,204,.75);border-bottom:1px dashed rgba(68,46,16,.48);padding-bottom:1px}
+.geo-country{font:700 10.5px/1.15 Cinzel,Georgia,serif;letter-spacing:.14em;text-transform:uppercase;color:#2b1d0c;background:none !important;border:0 !important;padding:0 !important;box-shadow:none !important;text-shadow:0 0 4px rgba(250,240,214,.92),0 0 8px rgba(250,240,214,.78),0 1px 1px rgba(255,248,230,.9)}
+.geo-province{font:italic 700 10px/1.15 Bitter,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#3c280e;text-shadow:0 0 4px rgba(248,236,204,.88),0 0 8px rgba(248,236,204,.75);border-bottom:1px dashed rgba(68,46,16,.42);padding-bottom:1px}
 .geo-city-box,.geo-site-box{position:relative;display:inline-flex;align-items:center}
 .geo-dot{width:6px;height:6px;background:#c4a35a;border:1.5px solid #18140d;transform:rotate(45deg);display:inline-block;flex-shrink:0}
 .geo-site-box .geo-dot{width:5px;height:5px;background:#faf6ee;border-color:#6e5c36}
@@ -2866,8 +2870,19 @@ function updateGeoHierarchy(){
   };
   const esc=s=>String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
+  // Collect screen coords of visible interactive PL pins first so text labels never collide with pins
+  const occupied=[];
+  const skipP=new Set(["makkah-k","madinah-k"]);
+  PL.forEach(p=>{
+    if(skipP.has(p.id)||!Number.isFinite(p.x)||!Number.isFinite(p.y))return;
+    if(z<2.15)return;
+    if(z<2.95&&!PIN_MAJOR.has(p.id))return;
+    const ll=pctToLL(p.x,p.y);
+    if(vb.contains(ll)) occupied.push(LMAP.latLngToContainerPoint(ll));
+  });
+
   // Lapis 1: Continents & Oceans/Seas
-  if(z<1.65){
+  if(z<1.6){
     (GEO_DATA.continents||[]).forEach(c=>addLbl(c.x,c.y,"geo-continent",esc(geoPickName(c)),20));
   }
   (GEO_DATA.seas||[]).forEach(s=>{
@@ -2876,68 +2891,56 @@ function updateGeoHierarchy(){
     }
   });
 
-  // Lapis 2: Countries Worldwide (auto-computed from 250 polygons in world.svg, trilingual via I.countryName)
-  if(z>=1.35&&z<3.15){
-    const placed=[];
+  // Lapis 2: Countries Worldwide (clean engraved text, collision-checked)
+  if(z>=1.35&&z<2.75){
     (GEO_DATA.countries||[]).forEach(c=>{
       if(z<(c.minZoom||1.75))return;
       const ll=pctToLL(c.x,c.y);
       if(!vb.contains(ll))return;
       const pt=LMAP.latLngToContainerPoint(ll);
-      const minDx=z<2.0?74:58,minDy=z<2.0?22:18;
-      if(placed.some(q=>Math.abs(q.x-pt.x)<minDx&&Math.abs(q.y-pt.y)<minDy))return;
-      placed.push(pt);
-      const op=z>=2.65?0.48:0.94;
+      const minDx=z<2.0?76:64,minDy=z<2.0?24:20;
+      if(occupied.some(q=>Math.abs(q.x-pt.x)<minDx&&Math.abs(q.y-pt.y)<minDy))return;
+      occupied.push(pt);
+      const op=z>=2.4?0.55:0.92;
       addLbl(c.x,c.y,"geo-country",`<span style="opacity:${op}">${esc(geoPickName(c))}</span>`,30);
     });
   }
 
-  // Lapis 3: Provinces & Historical Regions
-  if(z>=2.25&&z<4.45){
-    const placedP=[];
+  // Lapis 3: Provinces & Historical Regions (blooms cleanly as countries fade out)
+  if(z>=2.45&&z<4.45){
     (GEO_DATA.provinces||[]).forEach(p=>{
       const ll=pctToLL(p.x,p.y);
       if(!vb.contains(ll))return;
       const pt=LMAP.latLngToContainerPoint(ll);
-      if(placedP.some(q=>Math.abs(q.x-pt.x)<78&&Math.abs(q.y-pt.y)<22))return;
-      placedP.push(pt);
-      const op=z>=3.85?0.42:0.94;
+      if(occupied.some(q=>Math.abs(q.x-pt.x)<80&&Math.abs(q.y-pt.y)<24))return;
+      occupied.push(pt);
+      const op=z>=3.85?0.45:0.92;
       addLbl(p.x,p.y,"geo-province",`<span style="opacity:${op}">${esc(geoPickName(p))}</span>`,40);
     });
   }
 
-  // Collect screen coords of visible interactive PL pins so reference labels NEVER collide with clickable pins
-  const pinPts=[];
-  const skipP=new Set(["makkah-k","madinah-k"]);
-  PL.forEach(p=>{
-    if(skipP.has(p.id)||!Number.isFinite(p.x)||!Number.isFinite(p.y))return;
-    const ll=pctToLL(p.x,p.y);
-    if(vb.contains(ll)) pinPts.push(LMAP.latLngToContainerPoint(ll));
-  });
-
-  // Lapis 4: Global Reference Cities (Smart Offset Opsi B, collision-free against clickable PL pins)
-  const microPts=[...pinPts];
-  if(z>=3.05){
+  // Lapis 4: Global Reference Cities (Smart Offset Opsi B, collision-free)
+  if(z>=3.1){
     (GEO_DATA.cities||[]).forEach(ct=>{
       const ll=pctToLL(ct.x,ct.y);
       if(!vb.contains(ll))return;
       const pt=LMAP.latLngToContainerPoint(ll);
-      if(microPts.some(q=>Math.abs(q.x-pt.x)<74&&Math.abs(q.y-pt.y)<22))return;
-      microPts.push(pt);
+      if(occupied.some(q=>Math.abs(q.x-pt.x)<76&&Math.abs(q.y-pt.y)<22))return;
+      occupied.push(pt);
       const side=ct.side==="left"?"side-l":"side-r";
       addLbl(ct.x,ct.y,"geo-city-box",`<i class="geo-dot"></i><span class="geo-tag ${side}">${esc(geoPickName(ct))}</span>`,65);
     });
   }
 
   // Lapis 5: Districts, Valleys, Forts & Specific Historic Sites (Smart Offset Opsi B, collision-free)
-  if(z>=3.85){
+  if(z>=3.9){
     (GEO_DATA.sites||[]).forEach(st=>{
       const ll=pctToLL(st.x,st.y);
       if(!vb.contains(ll))return;
       const pt=LMAP.latLngToContainerPoint(ll);
       const padX=z>=4.9?46:82, padY=z>=4.9?18:26;
-      if(microPts.some(q=>Math.abs(q.x-pt.x)<padX&&Math.abs(q.y-pt.y)<padY))return;
-      microPts.push(pt);
+      if(occupied.some(q=>Math.abs(q.x-pt.x)<padX&&Math.abs(q.y-pt.y)<padY))return;
+      occupied.push(pt);
       const side=st.side==="left"?"side-l":"side-r";
       addLbl(st.x,st.y,"geo-site-box",`<i class="geo-dot"></i><span class="geo-tag ${side}">${esc(geoPickName(st))}</span>`,75);
     });
@@ -4060,9 +4063,9 @@ function paintWM(){
 
         if(has){
 
-          fill="#c4a35a";
+          fill="transparent";
 
-          op=(v.ev.length?0.26+0.52*Math.sqrt(v.ev.length/mx):0.24).toFixed(2);
+          op="0";
 
           isOn=true;
 
@@ -4080,11 +4083,11 @@ function paintWM(){
 
           const dom=pols[pols.length-1];
 
-          fill=dom.color||activeColor;op="0.58";isOn=true;
+          fill=dom.color||activeColor;op="0.32";isOn=true;
 
         }else if(evHit){
 
-          fill=activeColor;op="0.34";isOn=true;
+          fill=activeColor;op="0.16";isOn=true;
 
         }else if(anyHit){
 

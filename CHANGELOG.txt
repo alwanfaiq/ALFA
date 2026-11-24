@@ -37,6 +37,9 @@ VERSI 1.8.4 (24 November 2026) - QABAS WATCH ROOM, 5-LEVEL WORLD MAP & WORD ADMI
      untuk merapikan klaster padat Syam-Hijaz-Mesir-Irak.
    - Meningkatkan ketajaman grafis peta koridor Timur Tengah (Mesir-Syam-Hijaz-Irak-Persia)
      menggunakan tile master tajam pada Zoom 3, Zoom 4, dan lapisan baru Regional Zoom 5 HD.
+   - Menerapkan mix-blend-mode: multiply pada #worldSvg dan meniadakan fill blok negara
+     pada mode Semua Era agar kontur sungai, pegunungan, dan garis pantai tidak pernah
+     tertutup oleh poligon vektor. Label negara dirender sebagai teks terukir murni tanpa kotak.
 
 4. Penyeragaman Dropdown Bahasa di Halaman Detail & Perbaikan Total Tautan Wiki:
    - Menyamakan komponen dropdown bahasa (ID / EN / AR) pada detail.html dan watch.html
