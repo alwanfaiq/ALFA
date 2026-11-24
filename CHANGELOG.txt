@@ -51,9 +51,17 @@ VERSI 1.8.4 (24 November 2026) - QABAS WATCH ROOM, 5-LEVEL WORLD MAP & WORD ADMI
    - Memperbarui router 404.html agar mendukung rute bersih /videos/<slug>, /watch/<slug>,
      dan /shorts/<slug> (100% bersih tanpa rahasia/kunci API).
 
-5. Pembaruan Panel Admin: Side Toggle Pratinjau & Editor Dokumen Ikon Rasa MS Word:
-   - Menambahkan tombol ikon sembunyikan/tampilkan Pratinjau Langsung (Ctrl+Shift+P)
-     agar area penyuntingan melebar lapang.
+5. Pembaruan Panel Admin: Layar Penuh, Grid Form 12-Kolom, Peta Zoom Leaflet HD & Editor Word:
+   - Memperluas layout admin menjadi penuh 100% lebar layar dengan tombol ikon sembunyikan/
+     tampilkan Pratinjau Langsung (Ctrl+Shift+P), bilah atas seragam, pencarian cepat di
+     sub-bar atas, serta daftar konten berbentuk grid kartu multi-kolom dengan filter.
+   - Menata ulang seluruh formulir (Karakter, Place, Peristiwa, Shorts, Video Panjang) ke
+     sistem grid 12-kolom presisi dengan label 1 baris sejajar, tinggi kontrol seragam
+     (40px), dan keterangan bantu rapi di bawah kolom tanpa menyisakan ruang kosong janggal.
+   - Mengganti peta statis di halaman Place dan modal Editor Peta dengan peta Leaflet
+     interaktif (Zoom 0–5.5 dengan tile HD Regional Zoom 5, tombol +/-, preset Dunia /
+     Timur Tengah / Jazirah Arab / Fokus Pin, pin emas yang bisa diseret, pin referensi
+     lokasi sekitar, serta input koordinat X%/Y% sinkron 2 arah).
    - Merombak editor artikel menjadi kanvas lembar kertas A4 (bawaan Kertas Perkamen
      #FAF6EE dengan sakelar Mode Gelap), toolbar 100% ikon SVG tajam, tombol layar penuh,
      Cari & Ganti (Ctrl+H), serta pintasan keyboard lengkap (Ctrl+B/I/U/Z/Y/K/Shift+K/

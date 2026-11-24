@@ -1,13 +1,14 @@
 <!doctype html>
-<!-- ALFA | History of Islam: admin.html v1.3.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
+<!-- ALFA | History of Islam: admin.html v1.4.0 --><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Admin | ALFA</title>
 <link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="icon" href="favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="manifest" href="site.webmanifest"><meta name="theme-color" content="#181818">
-<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;700&family=Cinzel:wght@800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Cinzel:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/leaflet/leaflet.css">
 <style>
 *{box-sizing:border-box;margin:0}
-:root{--bg:#181818;--p:#212121;--g:#c4a35a;--g2:#6e5c36;--ink:#f3ead8;--mut:#b4a88f;color-scheme:dark}
-body{background:var(--bg);color:var(--ink);font:400 16px/1.6 Bitter,Georgia,serif;width:100%;max-width:none !important;margin:0;padding:0}
-h1,h3{font-family:Cinzel,serif;font-weight:800}h1{font-size:1.45rem;letter-spacing:.05em}h3{color:var(--g);font-size:1.1rem}
-button,.go{font:600 .84rem/1 Bitter,Georgia,serif;background:none;border:1px solid var(--g2);color:var(--ink);height:36px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:all .15s}
+:root{--bg:#181818;--p:#212121;--g:#c4a35a;--g2:#6e5c36;--ink:#f3ead8;--mut:#b4a88f;--dim:#8c826e;--line:#352d1f;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:400 15.5px/1.6 Bitter,Georgia,serif;width:100%;max-width:none !important;margin:0;padding:0}
+h1,h3{font-family:Cinzel,serif;font-weight:800}h1{font-size:1.45rem;letter-spacing:.05em}h3{color:var(--g);font-size:1.05rem;letter-spacing:.04em}
+button,.go{font:600 .83rem/1 Bitter,Georgia,serif;background:none;border:1px solid var(--g2);color:var(--ink);height:36px;padding:0 14px;display:inline-flex;align-items:center;justify-content:center;gap:7px;cursor:pointer;text-decoration:none;white-space:nowrap;transition:all .15s}
 button:hover,.go:hover{border-color:var(--g);background:rgba(196,163,90,.16);color:#fff}button:disabled{opacity:.5;cursor:not-allowed}
 button.pri{background:var(--g);border-color:var(--g);color:#14110b;font-family:Cinzel,serif;font-weight:800;letter-spacing:.04em}
 button.pri:hover{background:#d9bc76;border-color:#d9bc76;color:#100d08}
@@ -16,7 +17,7 @@ button.sec:hover{border-color:var(--g);color:var(--g);background:#251f15}
 button.danger-sm{border-color:#5a3232;color:#e09b9b}
 button.danger-sm:hover{background:#7a2828;border-color:#a33a3a;color:#fff}
 :focus-visible{outline:2px solid var(--g);outline-offset:2px}
-.adm-hdr{position:sticky;top:0;z-index:30;width:100%;background:#14120e;border-bottom:1px solid #352c1d;padding:12px clamp(16px,2.2vw,32px);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.adm-hdr{position:sticky;top:0;z-index:900;width:100%;background:#14120e;border-bottom:1px solid #352c1d;padding:12px clamp(16px,2.2vw,32px);display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
 .adm-brand{display:flex;align-items:center;gap:12px}
 .adm-brand span{font-size:.78rem;color:var(--mut);border-left:1px solid #3a3122;padding-left:12px}
 .adm-hdr-acts{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
@@ -26,22 +27,53 @@ button.danger-sm:hover{background:#7a2828;border-color:#a33a3a;color:#fff}
 .tabs button{height:35px;padding:0 14px;font:700 .78rem/1 Cinzel,serif;letter-spacing:.04em;text-transform:uppercase;color:var(--mut);border-color:#3a3122;background:#1c1914}
 .tabs button:hover{color:#fff;border-color:var(--g)}
 .tabs .on{background:var(--g) !important;border-color:var(--g) !important;color:#14110b !important}
-.fm{display:grid;gap:16px;width:100%;max-width:none;background:var(--p);border:1px solid var(--g2);padding:22px;margin:0 0 22px}
-.fm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid #2e271b}
-.fm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px 18px;align-items:start}
-.span-2{grid-column:span 2}
-.span-all{grid-column:1 / -1}
-@media(max-width:860px){.span-2{grid-column:1 / -1}}
-.fm-acts{display:flex;align-items:center;gap:10px;padding-top:8px;border-top:1px solid #2e271b;flex-wrap:wrap}
-label{display:grid;gap:5px;font-size:.86rem;color:var(--mut)}label.ck{display:flex;gap:8px;align-items:center}
-input,textarea,select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 11px;font:inherit;width:100%}input[type=checkbox]{width:auto}
-textarea{min-height:84px;resize:vertical}
+
+/* Strict 12-Column Aligned Form Layout */
+.fm{display:grid;gap:18px;width:100%;max-width:none;background:var(--p);border:1px solid var(--g2);padding:22px 24px;margin:0 0 24px}
+.fm-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-bottom:12px;border-bottom:1px solid #322a1d}
+.fm-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px 20px;align-items:start}
+.c-2{grid-column:span 2}.c-3{grid-column:span 3}.c-4{grid-column:span 4}.c-6{grid-column:span 6}.c-8{grid-column:span 8}.c-12,.span-all{grid-column:1 / -1}
+body:not(.pv-hidden) .fm-grid .c-3{grid-column:span 3}
+body:not(.pv-hidden) .fm-grid .c-4{grid-column:span 4}
+@media(max-width:1380px){
+  body:not(.pv-hidden) .fm-grid .c-4{grid-column:span 6}
+  body:not(.pv-hidden) .fm-grid .c-8{grid-column:1 / -1}
+}
+@media(max-width:980px){
+  .fm-grid .c-2,.fm-grid .c-3,.fm-grid .c-4{grid-column:span 6}
+  .fm-grid .c-6,.fm-grid .c-8{grid-column:1 / -1}
+}
+@media(max-width:640px){
+  .fm{padding:16px}
+  .fm-grid{gap:14px 12px}
+  .fm-grid .c-2,.fm-grid .c-3,.fm-grid .c-4,.fm-grid .c-6,.fm-grid .c-8{grid-column:1 / -1}
+}
+.fm-acts{display:flex;align-items:center;gap:10px;padding-top:12px;border-top:1px solid #322a1d;flex-wrap:wrap}
+
+/* Unified Field Controls & Laser-Aligned Baselines */
+.fld{display:flex;flex-direction:column;gap:6px;min-width:0}
+.fld-lbl{font:700 .8rem/1.25 Bitter,Georgia,serif;color:#d8ccb4;letter-spacing:.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fld-hint{font-size:.73rem;line-height:1.38;color:var(--dim)}
+label{display:flex;flex-direction:column;gap:6px;font-size:.84rem;color:var(--mut);min-width:0}
+label.ck{display:inline-flex;flex-direction:row;gap:8px;align-items:center;cursor:pointer}
+input,textarea,select{background:#14120e;color:var(--ink);border:1px solid #4d4027;font:400 .9rem/1.45 Bitter,Georgia,serif;width:100%;transition:border-color .15s,background .15s}
+:where(input:not([type=checkbox]):not([type=range]):not([type=file]),select){height:40px;padding:0 12px}
+input[type=file]{height:40px;padding:5px 10px;font-size:.82rem;border-style:dashed;border-color:#5b4b2e;cursor:pointer;line-height:28px}
+input[type=file]::file-selector-button{background:#231d13;color:var(--g);border:1px solid var(--g2);padding:4px 11px;margin-right:10px;font:700 .74rem/1 Bitter,Georgia,serif;cursor:pointer;transition:all .15s}
+input[type=file]::file-selector-button:hover{background:var(--g);color:#14110b;border-color:var(--g)}
+input:focus,textarea:focus,select:focus{border-color:var(--g);background:#181510;outline:none}
+input[type=checkbox]{width:auto;accent-color:var(--g)}
+textarea{padding:9px 12px;min-height:84px;resize:vertical}
+textarea.compact{min-height:64px}
+textarea.facts-area{min-height:112px;font-family:Bitter,Georgia,serif;line-height:1.55}
 textarea.big{min-height:180px}
-.hlp{font-size:.78rem;color:var(--mut);white-space:pre-line}
+.hlp{font-size:.76rem;color:var(--dim);white-space:pre-line}
 .pv{width:52px;height:68px;object-fit:cover;object-position:50% 13%;border:1px solid var(--g2);flex-shrink:0}.pv[hidden]{display:none}
-.pvc{width:64px;height:140px}
-.file-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.file-row input[type=file]{flex:1;min-width:180px}
+.pvc{width:46px;height:108px}
+.file-row{display:flex;align-items:flex-start;gap:10px}
+.file-row input[type=file]{flex:1;min-width:0}
+.media-box{display:grid;gap:8px}
+.media-box .ls-stack:empty{display:none}
 
 /* Searchable Multi-Column Content Browser (.ls-sec + .ls) */
 .ls-sec{display:grid;gap:12px;width:100%;margin-top:6px}
@@ -65,24 +97,48 @@ textarea.big{min-height:180px}
 .row .r-title{font:700 .9rem/1.3 Bitter,serif;color:#faf6ee;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .row .r-sub{font-size:.76rem;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .row .r-acts{display:flex;gap:6px;flex-shrink:0}
-.it{background:var(--bg)}.it input{flex:1}.it .pv{width:72px;height:48px}
+.it{background:#14120e;padding:7px 9px}.it input{flex:1;height:34px;font-size:.84rem}.it .pv{width:58px;height:40px}
 .row button,.sm{height:30px;padding:0 10px;font-size:.76rem}
 .adm-quick-search{position:relative;min-width:220px;max-width:300px}
-.adm-quick-search input{height:35px;padding:0 10px 0 30px;font-size:.82rem;background:#16130d;border:1px solid #4b3e24}
-.adm-quick-search svg{position:absolute;left:9px;top:50%;transform:translateY(-50%);color:var(--g);pointer-events:none}
-.adm-quick-drop{position:absolute;top:calc(100% + 4px);right:0;left:0;background:#18140e;border:1px solid var(--g);box-shadow:0 12px 32px rgba(0,0,0,.85);z-index:45;max-height:300px;overflow-y:auto;display:grid}
+.adm-quick-search input{height:35px;padding:0 10px 0 32px;font-size:.82rem;background:#16130d;border:1px solid #4b3e24}
+.adm-quick-search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--g);pointer-events:none}
+.adm-quick-drop{position:absolute;top:calc(100% + 4px);right:0;left:0;background:#18140e;border:1px solid var(--g);box-shadow:0 12px 32px rgba(0,0,0,.85);z-index:950;max-height:300px;overflow-y:auto;display:grid}
 .adm-quick-drop[hidden]{display:none}
 .adm-quick-item{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 11px;border:0;border-bottom:1px solid #2b2418;background:none;color:var(--ink);text-align:left;height:auto;font-size:.8rem}
 .adm-quick-item:hover{background:#282115;color:#fff}
 .adm-quick-item small{color:var(--g);font:700 .66rem Cinzel,serif;text-transform:uppercase;flex-shrink:0}
-.mp{position:relative;max-width:720px;cursor:crosshair;border:1px solid var(--g2)}.mp img{display:block;width:100%}.mp i{position:absolute;width:18px;height:18px;background:var(--g);border:2px solid #181818;transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 0 2px var(--g)}
+
+/* Interactive Zoomable Leaflet Map Picker & Full Map Editor */
+.adm-map-shell{display:grid;gap:0;border:1px solid var(--g2);background:#14120e;width:100%}
+.adm-map-bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:8px 12px;background:#1b1710;border-bottom:1px solid #3a3122}
+.adm-map-grp{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.adm-map-bar button{height:31px;padding:0 10px;font:700 .74rem/1 Cinzel,serif;letter-spacing:.04em;text-transform:uppercase;border-color:#4b3e24;background:#14110b;color:#dfd3bc}
+.adm-map-bar button:hover{border-color:var(--g);color:var(--g);background:#251f15}
+.adm-map-bar button.ico-z{width:31px;padding:0;font:700 1rem/1 Bitter,serif}
+.adm-map-coords{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+label.adm-coord-fld{display:inline-flex;flex-direction:row;align-items:center;gap:6px;background:#14110b;border:1px solid #443824;padding:0 8px;height:31px;font-size:.74rem;color:var(--g);font-weight:700;white-space:nowrap}
+label.adm-coord-fld input{width:68px;height:27px;padding:0 4px;border:0;background:transparent;color:#fff;font:600 .8rem/1 monospace;text-align:right}
+label.adm-coord-fld input:focus{background:#1f1a12;outline:none}
+.adm-map-stage{position:relative;isolation:isolate;z-index:1;width:100%;height:460px;background:#5e7472;overflow:hidden}
+.adm-map-canvas{width:100%;height:100%;background:#5e7472;cursor:crosshair}
+.adm-map-canvas.leaflet-container{font-family:Bitter,Georgia,serif;background:#5e7472}
+.adm-map-hud-z{position:absolute;top:10px;right:10px;z-index:420;pointer-events:none;background:rgba(16,13,9,.88);border:1px solid var(--g2);color:var(--g);padding:4px 10px;font:700 .72rem/1.2 Cinzel,serif;letter-spacing:.05em}
+.adm-map-hud-xy{position:absolute;bottom:10px;left:10px;z-index:420;pointer-events:none;background:rgba(16,13,9,.86);border:1px solid #463a24;color:#e6dcc8;padding:4px 10px;font:600 .74rem/1.2 monospace}
+.adm-pin-icon{background:transparent;border:0}
+.adm-pin-active{width:18px;height:18px;background:var(--g);border:2px solid #14110b;transform:rotate(45deg);box-shadow:0 0 0 3px rgba(196,163,90,.42),0 3px 10px rgba(0,0,0,.7);transition:transform .12s}
+.adm-pin-active.sel-crimson{background:#fff;border-color:#14110b;box-shadow:0 0 0 3px #e04040,0 3px 12px rgba(0,0,0,.85)}
+.adm-pin-ref{width:10px;height:10px;background:rgba(196,163,90,.78);border:1.5px solid #18140e;transform:rotate(45deg);box-shadow:0 1px 4px rgba(0,0,0,.6)}
+.adm-pin-ref:hover{background:#fff;border-color:var(--g)}
+.leaflet-tooltip.adm-pin-tip{background:#16130d;color:#faf6ee;border:1px solid var(--g);border-radius:0;padding:3px 8px;font:700 .74rem/1.2 Bitter,serif;box-shadow:0 4px 14px rgba(0,0,0,.75)}
+.leaflet-tooltip.adm-pin-tip::before{border-top-color:var(--g)}
+
 .m{color:var(--mut);max-width:56ch;margin:12px 0}
-.ov{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:50;display:grid;place-items:center;padding:16px;overflow:auto}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.86);z-index:1200;display:grid;place-items:center;padding:16px;overflow:auto}
 .cb{background:var(--p);border:1px solid var(--g);padding:20px;display:grid;gap:12px;justify-items:center;max-width:100%}
 .fr{position:relative;overflow:hidden;border:2px solid var(--g);background:#000;touch-action:none;cursor:grab}.fr img{position:absolute;max-width:none;user-select:none;-webkit-user-drag:none;pointer-events:none}
-.bt{display:flex;gap:8px}
+.bt{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 .fr.lbl::after{content:"";position:absolute;inset:auto 0 0;height:30%;background:linear-gradient(to bottom,rgba(24,24,24,0),rgba(24,24,24,.9));pointer-events:none}
-#tw{position:fixed;right:16px;bottom:16px;z-index:60;display:grid;gap:8px;width:min(380px,calc(100vw - 32px))}
+#tw{position:fixed;right:16px;bottom:16px;z-index:1400;display:grid;gap:8px;width:min(380px,calc(100vw - 32px))}
 .toast{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:12px 14px;background:#232323;border:1px solid var(--g2);border-left:5px solid var(--g);box-shadow:0 8px 24px rgba(0,0,0,.5);font-size:.93rem;line-height:1.45}
 .toast.err{border-left-color:#d9534f}.toast.warn{border-left-color:#e0a030}.toast button{border:0;padding:0 4px;font-size:1.2rem;line-height:1;color:var(--mut)}.toast button:hover{background:none;color:var(--ink)}
 .wrap{width:100%;max-width:none;padding:18px clamp(16px,2.2vw,32px) 56px;display:grid;grid-template-columns:minmax(520px,1.08fr) minmax(420px,.92fr);gap:24px;align-items:start}
@@ -94,18 +150,24 @@ body.pv-hidden .pane{display:none}
 .pvh .on{background:var(--g) !important;border-color:var(--g) !important;color:#14110b !important}
 .pvbox{position:relative;overflow:hidden;border:1px solid var(--g2);background:#000;height:calc(100vh - 145px)}
 .pvbox iframe{position:absolute;left:0;top:0;border:0;transform-origin:0 0;background:#181818}
-.fm,.ls{max-width:none}.mp{max-width:min(760px,100%)}
+.fm,.ls{max-width:none}
 @media(max-width:1180px){.wrap{grid-template-columns:1fr}.pane{display:none}}
-select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:8px 10px;font:inherit;width:100%}
-.me{align-content:start;gap:10px}.mb{width:min(1280px,96vw);grid-template-columns:minmax(0,1fr) 280px;align-items:start;justify-items:stretch;max-height:calc(100vh - 110px);overflow:auto}
-.mw{position:relative;min-height:200px;cursor:crosshair;border:1px solid var(--g2);touch-action:none;user-select:none}.mw img{display:block;width:100%;pointer-events:none}
-.mr{display:grid;gap:8px;align-content:start}.mr .ls{max-height:60vh;overflow:auto;gap:4px}.mr .row{padding:5px 10px;text-align:left;cursor:pointer}.mr .row.on{background:var(--g);color:var(--bg)}
-.pin{position:absolute;width:18px;height:18px;transform:translate(-50%,-50%) rotate(45deg);background:var(--g);border:2px solid #181818;box-shadow:0 0 0 2px var(--g);padding:0;cursor:grab;z-index:3}.pin.on{background:#fff;box-shadow:0 0 0 3px #e04040;z-index:4}
-.tg{position:absolute;transform:translate(14px,-50%);background:#181818;border:1px solid var(--g);padding:2px 8px;font-size:.8rem;white-space:nowrap;pointer-events:none;z-index:5}
-.gl{position:absolute;background:rgba(255,255,255,.4);pointer-events:none;z-index:1}.gl.v{top:0;bottom:0;width:1px}.gl.h{left:0;right:0;height:1px}
-.gt{position:absolute;font-size:.7rem;color:#fff;background:rgba(0,0,0,.55);padding:0 4px;pointer-events:none;z-index:2}
-@media(max-width:900px){.mb{grid-template-columns:1fr}}
-.rf{display:grid;gap:6px;font-size:.88rem;color:var(--mut)}
+
+/* Full-Screen Map Editor Modal */
+.mb{width:min(1440px,96vw);grid-template-columns:minmax(0,1fr) 310px;align-items:stretch;justify-items:stretch;gap:14px;padding:18px}
+.mb-top{grid-column:1 / -1;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-bottom:10px;border-bottom:1px solid #352d1f}
+.mb-stage{height:min(72vh,650px)}
+.mr{display:flex;flex-direction:column;gap:10px;min-height:0;max-height:min(72vh,650px)}
+.mr-info{background:#15120d;border:1px solid #3a3122;padding:10px 12px;font-size:.8rem;line-height:1.45;color:var(--ink);display:grid;gap:8px}
+.mr-info .mr-sub{font-size:.74rem;color:var(--mut)}
+.mr-search{height:34px;font-size:.82rem;padding:0 10px}
+.mr-list{flex:1;overflow-y:auto;display:grid;gap:4px;align-content:start;padding-right:2px}
+.mr-list .mr-item{display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;height:auto;min-height:34px;padding:6px 10px;background:#191610;border:1px solid #2f281c;color:var(--ink);text-align:left;font:600 .8rem/1.3 Bitter,serif}
+.mr-list .mr-item:hover{border-color:var(--g2);background:#241f16}
+.mr-list .mr-item.on{background:var(--g);border-color:var(--g);color:#14110b}
+.mr-list .mr-item .mr-dot{font:700 .7rem monospace;opacity:.85}
+@media(max-width:960px){.mb{grid-template-columns:1fr}.mb-stage{height:52vh}.mr{max-height:36vh}}
+.rf{display:flex;flex-direction:column;gap:6px;min-width:0}
 
 /* Icon-only Controls & Word-Style Document Editor */
 .ico-btn{width:32px;height:32px;padding:0;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid transparent;color:#dfd3bc;cursor:pointer;transition:all .14s;flex-shrink:0}
@@ -114,7 +176,7 @@ select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:
 .ico-btn.boxed{border-color:var(--g2);background:#1b1710}
 .ico-sep{width:1px;height:20px;background:#3a3122;margin:0 3px;flex-shrink:0}
 .rte{border:1px solid var(--g2);background:#14110b;display:flex;flex-direction:column}
-.rte.word-focus{position:fixed;inset:16px;z-index:80;box-shadow:0 24px 80px rgba(0,0,0,.92);border-color:var(--g)}
+.rte.word-focus{position:fixed;inset:16px;z-index:1100;box-shadow:0 24px 80px rgba(0,0,0,.92);border-color:var(--g)}
 .rtb{display:flex;flex-wrap:wrap;align-items:center;gap:2px;padding:6px 8px;border-bottom:1px solid var(--g2);position:sticky;top:0;background:#1e1911;z-index:5}
 .rtb-cheat{display:none;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:4px 10px;padding:8px 12px;background:#15120c;border-bottom:1px solid #352c1d;font:600 11px/1.4 monospace;color:var(--g)}
 .rtb-cheat.open{display:grid}
@@ -141,17 +203,22 @@ select{background:var(--bg);color:var(--ink);border:1px solid var(--g2);padding:
 .rtc table{border-collapse:collapse;width:100%;margin:.9em 0}.rtc th,.rtc td{border:1px solid #bfb195;padding:6px 9px}.rtc th{background:rgba(154,123,62,.14)}.rtc hr{border:0;border-top:1px solid #c9ba9e;margin:1.2em 0}
 .word-desk.dark-paper .rtc th,.word-desk.dark-paper .rtc td{border-color:var(--g2)}.word-desk.dark-paper .rtc hr{border-top-color:var(--g2)}
 .rte-status{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 12px;background:#17130d;border-top:1px solid #332b1d;font-size:.76rem;color:var(--mut)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}.chip{padding:3px 10px;font-size:.82rem;font-weight:400}.chip.on{background:var(--g);color:var(--bg)}.chips input{width:auto;min-width:200px;padding:3px 8px;font-size:.82rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:10px;background:#14120e;border:1px solid #3c3322;align-items:center}
+.chip{height:30px;padding:0 11px;font-size:.8rem;font-weight:400;border-color:#443925;background:#1c1811;color:#ded2ba}
+.chip:hover{border-color:var(--g);color:#fff}
+.chip.on{background:var(--g);border-color:var(--g);color:#14110b;font-weight:700}
+.chips input{width:auto;min-width:190px;flex:0 1 220px;height:30px !important;padding:0 9px !important;font-size:.8rem !important;border-style:dashed}
 
-.ai-panel-box{background:var(--p);border:1px solid var(--g2);padding:24px;border-radius:4px;display:grid;gap:18px;margin-top:14px}
-.ai-head-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;background:rgba(196,163,90,.15);border:1px solid var(--g);border-radius:20px;font-size:.84rem;color:var(--g);width:fit-content}
+.ai-panel-box{background:var(--p);border:1px solid var(--g2);padding:24px;border-radius:0;display:grid;gap:18px;margin-top:14px}
+.ai-head-badge{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;background:rgba(196,163,90,.15);border:1px solid var(--g);font-size:.84rem;color:var(--g);width:fit-content}
 .ai-dot{width:8px;height:8px;border-radius:50%;background:#888}
 .ai-dot.live{background:#4cd964;box-shadow:0 0 8px #4cd964}
 .ai-row{display:grid;gap:6px}
 .ai-acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
-.ai-test-res{padding:12px;background:var(--bg);border:1px solid var(--g2);border-radius:4px;font-size:.9rem;white-space:pre-wrap;display:none}
+.ai-test-res{padding:12px;background:var(--bg);border:1px solid var(--g2);font-size:.9rem;white-space:pre-wrap;display:none}
 
 </style></head><body>
+<script src="assets/leaflet/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
 <script src="config.js"></script>
 <div id="app"></div>
@@ -174,11 +241,60 @@ const ERAS=["Pra-Kenabian","Periode Makkah","Periode Madinah","Khulafaur Rasyidi
 const DT=t=>t=="characters"||t=="places"||t=="events",ERAIDS=[["pra","Pra-Kenabian"],["makkah","Periode Makkah"],["madinah","Periode Madinah"],["khulafaur","Khulafaur Rasyidin"],["umayyah","Daulah Umayyah"],["abbasiyah","Abbasiyah dan Zaman Keemasan"],["seljuk","Seljuk, Perang Salib, dan Mongol"],["mamluk","Mamluk dan Pasca-Mongol"],["imperium","Tiga Imperium Besar"],["kolonial","Kolonialisme dan Reformasi"],["modern","Era Modern"]];
 const HELP="Format isi halaman:\n# Judul bagian (judul tebal, tanpa emoji)\n- Sub judul (diberi tanda ■)\nBaris biasa = paragraf. Tiap baris jadi satu paragraf.";
 const SC={
-characters:{l:"Karakter",f:[["name","Nama"],["role","Gelar singkat (baris kecil di atas nama, contoh: Sayyidina)"],["eras","Era (boleh lebih dari satu)","k",ERAS],["groups","Kelompok / kedudukan (untuk filter di bagian Tokoh)","k",GROUPS],["faith","Agama / keyakinan","s2",FAITHS],["gender","Jenis kelamin","s2",["Pria","Wanita"]],["countries","Negara terkait (kode 2 huruf, pisahkan koma)","cc"],["img","Cover karakter (di slider halaman utama)","c"],["slides","Slide atas halaman karakter (gambar character sheet)","s"],["meta","Gelar / era (di bawah judul halaman)","t"],["body","Isi halaman (editor artikel)","r"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (satu baris per item: Label : isi, baris tanpa isi disembunyikan)","t"]],ti:d=>d.name},
-places:{l:"Place",f:[["name","Nama tempat"],["subtitle","Subjudul"],["description","Deskripsi singkat (di kartu peta)","t"],["countries","Negara (kode 2 huruf, pisahkan koma)","cc"],["map","Peta tempat ini","p"],["pos","Posisi di peta (klik gambar peta)","m"],["slides","Foto kartu peta & halaman detail","s"],["meta","Keterangan di bawah judul halaman detail","t"],["body","Isi halaman detail (kosong = pakai deskripsi singkat)","r"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (Label : isi)","t"]],ti:d=>d.name},
-events:{l:"Peristiwa",f:[["title","Judul peristiwa"],["year","Tahun (Masehi)","n"],["year_end","Tahun akhir (opsional)","n"],["era","Era (kosongkan agar otomatis dari tahun)","s2",ERAIDS],["summary","Ringkasan (tampil di kronologi)","t"],["countries","Negara terkait (kode 2 huruf, pisahkan koma)","cc"],["place","Slug tempat di peta (opsional)"],["body","Isi artikel","r"],["slides","Foto atas halaman","s"],["gallery","Gambar samping + keterangan","g"],["facts","Kotak Detail (kosong = otomatis)","t"]],ti:d=>d.year+" "+d.title},
-shorts:{l:"Shorts",f:[["ep","Nomor episode","n"],["title","Judul"],["summary","Ringkasan","t"],["url","Link YouTube (opsional)"],["img","Gambar cover","i"]],ti:d=>"EPS."+d.ep+" "+d.title},
-videos:{l:"Video panjang",f:[["title","Judul"],["description","Deskripsi","t"],["url","Link YouTube"],["img","Thumbnail 16:9 (di-crop otomatis)","w"]],ti:d=>d.title}};
+characters:{l:"Karakter",f:[
+  ["name","Nama Tokoh","",null,{c:6,ph:"contoh: Khalid bin Walid"}],
+  ["role","Gelar Singkat","",null,{c:6,ph:"contoh: Sayyidina, Panglima Perang",h:"Baris kecil di atas nama tokoh"}],
+  ["eras","Era Sejarah","k",ERAS,{c:12,h:"Pilih satu atau lebih era yang relevan"}],
+  ["groups","Kelompok / Kedudukan","k",GROUPS,{c:12,h:"Digunakan untuk filter pada bagian Tokoh"}],
+  ["faith","Agama / Keyakinan","s2",FAITHS,{c:4}],
+  ["gender","Jenis Kelamin","s2",["Pria","Wanita"],{c:4}],
+  ["countries","Negara Terkait","cc",null,{c:4,ph:"contoh: SA, EG, SY",h:"Kode negara 2 huruf, pisahkan koma"}],
+  ["img","Cover Karakter","c",null,{c:6,h:"Tampil di slider halaman utama (crop rasio 287:787)"}],
+  ["slides","Slide Atas Halaman Karakter","s",null,{c:6,h:"Character turnaround sheet atau ilustrasi utama"}],
+  ["meta","Gelar & Keterangan Era","t",null,{c:12,rows:2,cls:"compact",ph:"Keterangan singkat di bawah judul halaman detail karakter..."}],
+  ["body","Isi Artikel","r",null,{c:12}],
+  ["gallery","Galeri Samping & Atribut","g",null,{c:6,h:"Gambar peristiwa, benda bersejarah, atau lanskap beserta keterangannya"}],
+  ["facts","Kotak Detail / Fakta","t",null,{c:6,rows:5,cls:"facts-area",ph:"Lahir : 592 M, Makkah\nWafat : 642 M, Hims\nNasab : Bani Makhzum",h:"Satu baris per item dengan format Label : Isi"}]
+],ti:d=>d.name},
+places:{l:"Place",f:[
+  ["name","Nama Tempat","",null,{c:6,ph:"contoh: Makkah al-Mukarramah"}],
+  ["subtitle","Subjudul","",null,{c:6,ph:"contoh: Kota Suci & Pusat Peradaban Hijaz"}],
+  ["countries","Kode Negara","cc",null,{c:6,ph:"contoh: SA, EG, SY",h:"Kode negara 2 huruf, pisahkan koma"}],
+  ["map","Peta Acuan","p",null,{c:6,h:"Koordinat mengikuti proyeksi Peta Dunia Master 8K"}],
+  ["description","Deskripsi Singkat","t",null,{c:12,rows:2,cls:"compact",ph:"Ringkasan singkat yang muncul pada kartu peta..."}],
+  ["pos","Posisi di Peta","m",null,{c:12,h:"Scroll mouse atau tekan tombol +/- untuk zoom hingga detail regional HD. Klik peta atau seret pin emas untuk mengatur posisi."}],
+  ["slides","Foto Kartu Peta & Halaman Detail","s",null,{c:6,h:"Gambar utama untuk kartu peta dan tajuk halaman detail"}],
+  ["meta","Keterangan di Bawah Judul","t",null,{c:6,rows:2,cls:"compact",ph:"Subjudul historis di bawah judul halaman detail..."}],
+  ["body","Isi Artikel Detail","r",null,{c:12,h:"Kosongkan jika ingin menggunakan deskripsi singkat"}],
+  ["gallery","Galeri Samping & Atribut","g",null,{c:6,h:"Arsitektur, lanskap, atau artefak terkait lokasi"}],
+  ["facts","Kotak Detail / Fakta","t",null,{c:6,rows:5,cls:"facts-area",ph:"Wilayah : Hijaz\nEra Kunci : Periode Makkah – Modern",h:"Satu baris per item dengan format Label : Isi"}]
+],ti:d=>d.name},
+events:{l:"Peristiwa",f:[
+  ["title","Judul Peristiwa","",null,{c:6,ph:"contoh: Fathu Makkah"}],
+  ["year","Tahun (Masehi)","n",null,{c:3,ph:"630"}],
+  ["year_end","Tahun Akhir","n",null,{c:3,ph:"Opsional"}],
+  ["era","Era Sejarah","s2",ERAIDS,{c:4,h:"Kosongkan agar otomatis dari tahun"}],
+  ["countries","Negara Terkait","cc",null,{c:4,ph:"contoh: SA, SY",h:"Kode negara 2 huruf, pisahkan koma"}],
+  ["place","Slug Tempat di Peta","",null,{c:4,ph:"contoh: makkah (opsional)",h:"Tautkan ke pin lokasi di peta"}],
+  ["summary","Ringkasan Peristiwa","t",null,{c:12,rows:2,cls:"compact",ph:"Ringkasan padat yang tampil pada linimasa kronologi..."}],
+  ["body","Isi Artikel","r",null,{c:12}],
+  ["slides","Foto Atas Halaman","s",null,{c:6,h:"Ilustrasi atau peta pergerakan pada tajuk halaman detail"}],
+  ["gallery","Galeri Samping & Atribut","g",null,{c:6,h:"Gambar pendukung peristiwa beserta keterangannya"}],
+  ["facts","Kotak Detail / Fakta","t",null,{c:12,rows:4,cls:"facts-area",ph:"Tanggal : 20 Ramadhan 8 H / Januari 630 M\nLokasi : Makkah al-Mukarramah",h:"Satu baris per item dengan format Label : Isi (kosong = otomatis)"}]
+],ti:d=>d.year+" "+d.title},
+shorts:{l:"Shorts",f:[
+  ["ep","Episode","n",null,{c:2,ph:"1"}],
+  ["title","Judul Shorts","",null,{c:6,ph:"Judul singkat cerita episode..."}],
+  ["url","Link YouTube","",null,{c:4,ph:"https://youtube.com/shorts/...",h:"Opsional"}],
+  ["summary","Ringkasan Episode","t",null,{c:8,rows:3,ph:"Deskripsi singkat video vertikal..."}],
+  ["img","Gambar Cover","i",null,{c:4,h:"Poster vertikal untuk daftar Shorts"}]
+],ti:d=>"EPS."+d.ep+" "+d.title},
+videos:{l:"Video panjang",f:[
+  ["title","Judul Video","",null,{c:6,ph:"contoh: Fathu Makkah"}],
+  ["url","Link YouTube","",null,{c:6,ph:"https://youtu.be/..."}],
+  ["description","Deskripsi Video","t",null,{c:8,rows:3,ph:"Ringkasan video dokumenter..."}],
+  ["img","Thumbnail 16:9","w",null,{c:4,h:"Di-crop otomatis ke rasio 16:9"}]
+],ti:d=>d.title}};
 let inP=false,sb,tab="characters",ed=null,rows=[];
 if(!C.url||C.url.includes("YOUR-")||!window.supabase){app.append(el("h1","","Admin"),el("p","m","Isi dulu config.js dengan URL dan publishable key Supabase kamu."))}
 else{sb=supabase.createClient(C.url,C.key);sb.auth.onAuthStateChange((ev,s)=>{if(ev=="SIGNED_OUT")login();else if(s&&!inP)panel()});sb.auth.getSession().then(({data})=>{if(!data.session&&!inP)login()})}
@@ -263,39 +379,205 @@ function shell(){
   f.title="Pratinjau situs";f.onload=pvSend;bx.append(f);p.append(h,bx);w.append(l,p);
   app.append(hdr,w);PVF=f;new ResizeObserver(fitPV).observe(bx);return l;
 }
-// ---- editor peta
+// ---- peta interaktif Leaflet HD (Zoom 0–5.5, koordinat 100% sinkron dengan index.html)
+const MAP_W=8192,MAP_H=4864,S4=16;
+const MAP_BOUNDS=()=>L.latLngBounds([-MAP_H/S4,0],[0,MAP_W/S4]);
+const TILE_BOUNDS=()=>L.latLngBounds([-(MAP_H/S4)+0.01,0.01],[-0.01,(MAP_W/S4)-0.01]);
+const Z5_BOUNDS=()=>L.latLngBounds([-159.8,256.2],[-64.2,351.8]);
+const pctToLL=(x,y)=>[-(+y/100)*(MAP_H/S4),(+x/100)*(MAP_W/S4)];
+const llToPct=ll=>({
+  x:+Math.min(100,Math.max(0,(ll.lng/(MAP_W/S4))*100)).toFixed(2),
+  y:+Math.min(100,Math.max(0,(-ll.lat/(MAP_H/S4))*100)).toFixed(2)
+});
+const MAP_PRESETS=[
+  {id:"world",label:"Dunia",bounds:[[-298,10],[-6,502]]},
+  {id:"islam",label:"Timur Tengah",bounds:[[-176,222],[-72,422]]},
+  {id:"arabia",label:"Jazirah Arab",bounds:[[-148,266],[-90,326]]}
+];
+let ACTIVE_INLINE_MAP=null;
+
+function makePinIcon(kind){
+  if(kind==="active") return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-active"></div>',iconSize:[18,18],iconAnchor:[9,9]});
+  if(kind==="selected") return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-active sel-crimson"></div>',iconSize:[18,18],iconAnchor:[9,9]});
+  return L.divIcon({className:"adm-pin-icon",html:'<div class="adm-pin-ref"></div>',iconSize:[10,10],iconAnchor:[5,5]});
+}
+
+function createAdminLeafletMap(stageEl,initialFocus){
+  const canvas=el("div","adm-map-canvas"),hudZ=el("div","adm-map-hud-z","ZOOM —"),hudXY=el("div","adm-map-hud-xy","Kursor: —");
+  stageEl.append(canvas,hudZ,hudXY);
+  if(typeof L==="undefined"){
+    hudZ.textContent="Leaflet gagal dimuat";
+    return {map:null,destroy:()=>{}};
+  }
+  const map=L.map(canvas,{
+    crs:L.CRS.Simple,
+    minZoom:0.35,
+    maxZoom:5.5,
+    zoomSnap:0.15,
+    zoomDelta:0.6,
+    wheelPxPerZoomLevel:85,
+    zoomControl:false,
+    attributionControl:false,
+    scrollWheelZoom:true,
+    doubleClickZoom:false,
+    maxBounds:MAP_BOUNDS().pad(0.1),
+    maxBoundsViscosity:0.85
+  });
+  L.tileLayer("assets/tiles/{z}/{x}/{y}.webp",{
+    tileSize:512,minZoom:0,maxNativeZoom:4,maxZoom:5.5,noWrap:true,bounds:TILE_BOUNDS(),keepBuffer:4
+  }).addTo(map);
+  L.tileLayer("assets/tiles/{z}/{x}/{y}.webp",{
+    tileSize:512,minZoom:4.1,maxNativeZoom:5,maxZoom:5.5,noWrap:true,bounds:Z5_BOUNDS(),keepBuffer:2,zIndex:205
+  }).addTo(map);
+  const syncHud=()=>{
+    const z=map.getZoom();
+    hudZ.textContent=`ZOOM ${z.toFixed(1)}x`+(z>=4.1?" · HD REGIONAL":"");
+  };
+  map.on("zoom zoomend",syncHud);
+  map.on("mousemove",e=>{
+    const p=llToPct(e.latlng);
+    hudXY.textContent=`Kursor: X ${p.x.toFixed(2)}% · Y ${p.y.toFixed(2)}%`;
+  });
+  map.on("mouseout",()=>{hudXY.textContent="Scroll / +/- untuk zoom · Klik atau seret pin"});
+  const ro=new ResizeObserver(()=>{if(map&&canvas.isConnected)map.invalidateSize({animate:false})});
+  ro.observe(stageEl);
+  requestAnimationFrame(()=>{
+    if(!canvas.isConnected)return;
+    map.invalidateSize({animate:false});
+    if(initialFocus&&initialFocus.x!=null&&initialFocus.y!=null){
+      map.setView(pctToLL(initialFocus.x,initialFocus.y),initialFocus.zoom||3.6,{animate:false});
+    }else{
+      map.fitBounds(MAP_PRESETS[1].bounds,{animate:false});
+    }
+    syncHud();
+  });
+  return {
+    map,
+    destroy:()=>{ro.disconnect();try{map.remove()}catch(e){}}
+  };
+}
+
+// ---- editor peta layar penuh
 const LL={makkah:[39.8,21.4],yatsrib:[39.6,24.5],syam:[36.3,33.5],palestina:[35.2,31.8],iraq:[44.4,33.3],yaman:[44.2,15.4],gajah:[41.5,18.5],hira:[39.86,21.46],"makkah-k":[39.8,21.4],"madinah-k":[39.6,24.5],badar:[38.8,23.8],khaibar:[39.3,25.7],tabuk:[36.6,28.4],yamamah:[47.3,24.1],damaskus:[36.3,33.5],yarmuk:[35.9,32.8],baitulmaqdis:[35.2,31.8],hims:[36.7,34.7],konstantinopel:[28.98,41.0],iskandariyah:[29.9,31.2],fustat:[31.2,30.0],barqah:[20.9,32.5],kufah:[44.4,32.0],madain:[44.6,33.1],basrah:[47.8,30.5],nahawand:[48.4,34.2],merv:[62.2,37.7],habasyah:[38.7,14.1]};
 async function mapEditor(){
-const{data,error}=await sb.from("places").select("*").order("t",{ascending:true});if(error)return er(error);
-const all=data||[],pos={},orig={};all.forEach(p=>{pos[p.id]={x:+p.x,y:+p.y};orig[p.id]={x:+p.x,y:+p.y}});
-let cm="world",sel=null,drag=null,grid=true;
-const ov=el("div","ov"),bx=el("div","cb mb"),lf=el("div"),rt=el("div","mr"),bar=el("div","bt"),wrap=el("div","mw"),img=new Image(),list=el("div","ls"),info=el("p","m");
-img.alt="Peta";wrap.append(img);bar.style.flexWrap="wrap";
-const moved=()=>all.filter(p=>pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y||p.map!="world");
-const mb=[["world","Peta Dunia Historis"]].map(([id,nm])=>{const b=el("button","",nm);b.dataset.id=id;b.onclick=()=>{cm=id;sel=null;draw()};return b});
-const gl=el("label","ck"),gc=document.createElement("input");gc.type="checkbox";gc.checked=true;gc.onchange=()=>{grid=gc.checked;draw()};gl.append(gc,document.createTextNode(" Grid referensi"));
-const rs=el("button","","Reset ke posisi bawaan"),sv=el("button","","Simpan semua posisi"),cl=el("button","","Tutup");
-rs.onclick=async()=>{try{const D=await (await fetch("defaults.json")).json();let n=0;D.places.forEach(d=>{const p=all.find(q=>q.slug==d.slug);if(p){pos[p.id]={x:d.x,y:d.y};n++}});toast(n+" titik dikembalikan ke posisi bawaan (belum disimpan)");draw()}catch(e){er(e)}};
-sv.onclick=async()=>{const ch=moved();if(!ch.length){warn("Belum ada posisi yang diubah");return}sv.disabled=true;try{for(const p of ch){const{error}=await sb.from("places").update({x:pos[p.id].x,y:pos[p.id].y,map:"world"}).eq("id",p.id);if(error)throw error}toast(ch.length+" posisi tersimpan");ov.remove();panel()}catch(e){er(e);sv.disabled=false}};
-cl.onclick=async()=>{if(moved().length&&!await ask("Ada "+moved().length+" posisi yang belum disimpan. Tutup tanpa menyimpan?","Ya, tutup"))return;ov.remove()};
-bar.append(...mb,gl,rs,sv,cl);
-function mv(e){if(!sel)return;const r=wrap.getBoundingClientRect();pos[sel]={x:Math.min(100,Math.max(0,+((e.clientX-r.left)/r.width*100).toFixed(2))),y:Math.min(100,Math.max(0,+((e.clientY-r.top)/r.height*100).toFixed(2)))};draw()}
-wrap.onpointerdown=e=>{const pn=e.target.closest(".pin");if(pn){sel=pn.dataset.id;drag=sel;wrap.setPointerCapture(e.pointerId);draw()}else mv(e)};
-wrap.onpointermove=e=>{if(drag)mv(e)};wrap.onpointerup=wrap.onpointercancel=()=>{drag=null};
-function draw(){mb.forEach(b=>b.classList.toggle("on",b.dataset.id==cm));gl.hidden=false;
-const src=MAPIMG[cm]||MAPIMG.world;if(img.getAttribute("src")!=src){img.onerror=()=>{info.textContent="File peta belum ada: "+src+". Upload dulu ke folder assets di GitHub."};img.src=src}
-wrap.querySelectorAll(".pin,.gl,.gt,.tg").forEach(n=>n.remove());
-if(grid){for(let px=20;px<=80;px+=15){const x=px+"%",l=el("div","gl v"),t=el("span","gt",px+"%");l.style.left=x;t.style.left=x;t.style.top="0";wrap.append(l,t)}
-for(let py=20;py<=80;py+=20){const y=py+"%",l=el("div","gl h"),t=el("span","gt",py+"%");l.style.top=y;t.style.top=y;t.style.left="0";wrap.append(l,t)}}
-const mine=all;list.replaceChildren();
-mine.forEach(p=>{const b=el("button","pin"+(p.id==sel?" on":""));b.dataset.id=p.id;b.title=p.name;b.style.left=pos[p.id].x+"%";b.style.top=pos[p.id].y+"%";wrap.append(b);
-if(p.id==sel){const t=el("div","tg",p.name);t.style.left=pos[p.id].x+"%";t.style.top=pos[p.id].y+"%";wrap.append(t)}
-const ch=pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y,r=el("button","row"+(p.id==sel?" on":""),(ch?"* ":"")+p.name);r.onclick=()=>{sel=p.id;draw()};list.append(r)});
-const p=all.find(q=>q.id==sel);
-if(!mine.length)info.textContent="Belum ada tempat di database. Klik tombol Sinkronkan konten bawaan di tab Place.";
-else if(!p)info.textContent="Pilih tempat di daftar atau klik titik di peta, lalu klik peta untuk memindahkannya (atau seret titiknya).";
-else{const c=LL[p.slug];info.textContent=p.name+": x "+pos[p.id].x+"%, y "+pos[p.id].y+"%."+(c?" Koordinat asli: "+c[1]+"°LU, "+c[0]+"°BT.":"")}}
-bar.style.gridColumn="1/-1";lf.append(wrap);rt.append(info,list);bx.append(bar,lf,rt);ov.append(bx);document.body.append(ov);draw()}
+  const{data,error}=await sb.from("places").select("*").order("t",{ascending:true});if(error)return er(error);
+  const all=data||[],pos={},orig={},markers=new Map();
+  all.forEach(p=>{pos[p.id]={x:+p.x,y:+p.y};orig[p.id]={x:+p.x,y:+p.y}});
+  let sel=all[0]?all[0].id:null,filterQ="";
+  const ov=el("div","ov"),bx=el("div","cb mb"),topBar=el("div","mb-top"),leftGrp=el("div","adm-map-grp"),rightGrp=el("div","adm-map-grp");
+  const stage=el("div","adm-map-stage mb-stage"),rt=el("div","mr"),infoBox=el("div","mr-info"),searchInp=document.createElement("input"),list=el("div","mr-list");
+  searchInp.type="search";searchInp.className="mr-search";searchInp.placeholder="Cari tempat di daftar...";
+
+  const moved=()=>all.filter(p=>pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y||p.map!="world");
+  const zIn=el("button","ico-z","+"),zOut=el("button","ico-z","−");
+  zIn.type=zOut.type="button";zIn.title="Zoom In (+)";zOut.title="Zoom Out (-)";
+  leftGrp.append(zIn,zOut);
+  const presetBtns=MAP_PRESETS.map(pr=>{const b=el("button","sec",pr.label);b.type="button";leftGrp.append(b);return[b,pr]});
+  const rs=el("button","sec","Reset Bawaan"),sv=el("button","pri","Simpan Perubahan"),cl=el("button","sec","Tutup");
+  rs.type=sv.type=cl.type="button";
+  rightGrp.append(rs,sv,cl);
+  topBar.append(leftGrp,rightGrp);
+  rt.append(infoBox,searchInp,list);
+  bx.append(topBar,stage,rt);
+  ov.append(bx);
+  document.body.append(ov);
+
+  const inst=createAdminLeafletMap(stage,sel?{x:pos[sel].x,y:pos[sel].y,zoom:3.2}:null);
+  const lmap=inst.map;
+  const closeModal=()=>{inst.destroy();ov.remove()};
+  if(lmap){
+    zIn.onclick=()=>lmap.zoomIn(0.7);
+    zOut.onclick=()=>lmap.zoomOut(0.7);
+    presetBtns.forEach(([b,pr])=>{b.onclick=()=>lmap.fitBounds(pr.bounds,{animate:true,duration:0.45})});
+    lmap.on("click",e=>{
+      if(!sel)return;
+      const np=llToPct(e.latlng);
+      pos[sel]=np;
+      const mk=markers.get(sel);
+      if(mk)mk.setLatLng(pctToLL(np.x,np.y));
+      renderUI();
+    });
+  }
+
+  function syncMarkers(){
+    if(!lmap)return;
+    all.forEach(p=>{
+      const isSel=p.id===sel;
+      let mk=markers.get(p.id);
+      const ll=pctToLL(pos[p.id].x,pos[p.id].y);
+      if(!mk){
+        mk=L.marker(ll,{icon:makePinIcon(isSel?"selected":"ref"),draggable:true,zIndexOffset:isSel?500:100}).addTo(lmap);
+        mk.bindTooltip(p.name,{direction:"top",offset:[0,-10],className:"adm-pin-tip",permanent:isSel});
+        mk.on("click",ev=>{L.DomEvent.stopPropagation(ev);sel=p.id;syncMarkers();renderUI()});
+        mk.on("dragstart",()=>{sel=p.id;syncMarkers();renderUI()});
+        mk.on("drag",ev=>{pos[p.id]=llToPct(ev.target.getLatLng());renderInfo()});
+        mk.on("dragend",ev=>{pos[p.id]=llToPct(ev.target.getLatLng());renderUI()});
+        markers.set(p.id,mk);
+      }else{
+        mk.setLatLng(ll);
+        mk.setIcon(makePinIcon(isSel?"selected":"ref"));
+        mk.setZIndexOffset(isSel?500:100);
+        mk.unbindTooltip();
+        mk.bindTooltip(p.name,{direction:"top",offset:[0,-10],className:"adm-pin-tip",permanent:isSel});
+      }
+    });
+  }
+
+  function renderInfo(){
+    infoBox.replaceChildren();
+    const chCount=moved().length;
+    sv.textContent=chCount?`Simpan ${chCount} Perubahan`:"Simpan Perubahan";
+    const p=all.find(q=>q.id===sel);
+    if(!all.length){infoBox.append(el("span","","Belum ada tempat di database. Klik Sinkronkan Bawaan di tab Place."));return}
+    if(!p){infoBox.append(el("span","","Pilih tempat di daftar atau klik pin di peta, lalu seret pin atau klik peta untuk memindahkannya."));return}
+    const title=el("strong","",p.name);title.style.color="var(--g)";
+    const c=LL[p.slug],sub=el("div","mr-sub",c?`Referensi geografis: ${c[1]}°LU, ${c[0]}°BT`:"Seret pin di peta atau klik posisi baru.");
+    const coordsRow=el("div","adm-map-coords");
+    const mkCoord=(axis)=>{
+      const box=el("label","adm-coord-fld"),inp=document.createElement("input");
+      inp.type="number";inp.step="0.01";inp.min="0";inp.max="100";inp.value=pos[p.id][axis];
+      inp.onchange=()=>{
+        const v=Math.min(100,Math.max(0,+(inp.value||0)));
+        pos[p.id][axis]=+v.toFixed(2);
+        const mk=markers.get(p.id);
+        if(mk)mk.setLatLng(pctToLL(pos[p.id].x,pos[p.id].y));
+        if(lmap)lmap.panTo(pctToLL(pos[p.id].x,pos[p.id].y));
+        renderList();
+        const ch=moved().length;sv.textContent=ch?`Simpan ${ch} Perubahan`:"Simpan Perubahan";
+      };
+      box.append(document.createTextNode(axis.toUpperCase()+"%"),inp);
+      return box;
+    };
+    const focusBtn=el("button","sec","Fokus");focusBtn.type="button";focusBtn.style.height="31px";
+    focusBtn.onclick=()=>{if(lmap)lmap.flyTo(pctToLL(pos[p.id].x,pos[p.id].y),Math.max(lmap.getZoom(),3.8),{duration:0.45})};
+    coordsRow.append(mkCoord("x"),mkCoord("y"),focusBtn);
+    infoBox.append(title,coordsRow,sub);
+  }
+
+  function renderList(){
+    list.replaceChildren();
+    const q=filterQ.trim().toLowerCase();
+    all.filter(p=>!q||(p.name+" "+(p.subtitle||"")+" "+(p.slug||"")).toLowerCase().includes(q)).forEach(p=>{
+      const ch=pos[p.id].x!=orig[p.id].x||pos[p.id].y!=orig[p.id].y;
+      const b=el("button","mr-item"+(p.id===sel?" on":""));b.type="button";
+      const nm=el("span","",(ch?"* ":"")+p.name);nm.style.cssText="overflow:hidden;text-overflow:ellipsis;white-space:nowrap";
+      const cd=el("span","mr-dot",`${pos[p.id].x.toFixed(1)}, ${pos[p.id].y.toFixed(1)}`);
+      b.append(nm,cd);
+      b.onclick=()=>{
+        sel=p.id;syncMarkers();renderUI();
+        if(lmap)lmap.flyTo(pctToLL(pos[p.id].x,pos[p.id].y),Math.max(lmap.getZoom(),3.6),{duration:0.45});
+      };
+      list.append(b);
+    });
+  }
+
+  function renderUI(){renderInfo();renderList()}
+  searchInp.oninput=()=>{filterQ=searchInp.value||"";renderList()};
+  rs.onclick=async()=>{try{const D=await (await fetch("defaults.json")).json();let n=0;D.places.forEach(d=>{const p=all.find(q=>q.slug==d.slug);if(p){pos[p.id]={x:d.x,y:d.y};n++}});toast(n+" titik dikembalikan ke posisi bawaan (belum disimpan)");syncMarkers();renderUI()}catch(e){er(e)}};
+  sv.onclick=async()=>{const ch=moved();if(!ch.length){warn("Belum ada posisi yang diubah");return}sv.disabled=true;try{for(const p of ch){const{error}=await sb.from("places").update({x:pos[p.id].x,y:pos[p.id].y,map:"world"}).eq("id",p.id);if(error)throw error}toast(ch.length+" posisi tersimpan");closeModal();panel()}catch(e){er(e);sv.disabled=false}};
+  cl.onclick=async()=>{if(moved().length&&!await ask("Ada "+moved().length+" posisi yang belum disimpan. Tutup tanpa menyimpan?","Ya, tutup"))return;closeModal()};
+  syncMarkers();renderUI();
+}
 // ---- editor artikel (mirip Word)
 const OKT={P:1,BR:1,H2:1,H3:1,H4:1,STRONG:1,B:1,EM:1,I:1,U:1,S:1,UL:1,OL:1,LI:1,BLOCKQUOTE:1,A:1,IMG:1,FIGURE:1,FIGCAPTION:1,HR:1,TABLE:1,THEAD:1,TBODY:1,TR:1,TH:1,TD:1};
 function san(h){const d=new DOMParser().parseFromString("<body>"+h,"text/html").body,out=document.createElement("div");
@@ -605,15 +887,17 @@ function renderAiPanel(L){
   L.append(box);
 }
 
-async function panel(){inP=true;await load();const L=shell();L.replaceChildren();
+async function panel(){
+if(ACTIVE_INLINE_MAP){try{ACTIVE_INLINE_MAP.destroy()}catch(e){}ACTIVE_INLINE_MAP=null}
+inP=true;await load();const LP=shell();LP.replaceChildren();
 const sub=el("div","adm-subbar"),tb=el("div","tabs"),tools=el("div","adm-tools");
 Object.keys(SC).forEach(k=>{const b=el("button",k==tab?"on":"",SC[k].l);b.onclick=async()=>{tab=k;ed=null;await panel()};tb.append(b)});
 const aiTabBtn=el("button",tab=="ai"?"on":"","✦ AI & Engine");
-aiTabBtn.onclick=()=>{tab="ai";ed=null;renderAiPanel(shell())};
+aiTabBtn.onclick=()=>{if(ACTIVE_INLINE_MAP){try{ACTIVE_INLINE_MAP.destroy()}catch(e){}ACTIVE_INLINE_MAP=null}tab="ai";ed=null;renderAiPanel(shell())};
 tb.append(aiTabBtn);
 sub.append(tb,tools);
-L.append(sub);
-if(tab=="ai"){renderAiPanel(L);return;}
+LP.append(sub);
+if(tab=="ai"){renderAiPanel(LP);return;}
 const S=SC[tab];if(PVM=="detail"&&!DT(tab)){PVM="home";document.querySelectorAll(".pvh button[data-m]").forEach(b=>b.classList.toggle("on",b.dataset.m=="home"))}
 if(tab=="places"){const eb=el("button","sec","Editor Peta");eb.title="Atur posisi titik semua tempat di peta dunia";eb.onclick=mapEditor;tools.append(eb)}
 // Quick Global Search in Top Sub-bar (jump to edit any character, place, event, short, or video)
@@ -656,28 +940,143 @@ const fm=el("div","fm"),fmHead=el("div","fm-head"),fmGrid=el("div","fm-grid"),va
 fmHead.append(el("h3","",ed?("Edit "+S.l+": "+(S.ti(val)||"")):("Tambah "+S.l+" Baru")));
 if(ed){const topCancel=el("button","sec","Batal Edit");topCancel.onclick=()=>{ed=null;panel()};fmHead.append(topCancel)}
 fm.append(fmHead,fmGrid);
-S.f.forEach(([k,lb,ty,hp])=>{const dv=["s","g","k"].includes(ty),l=el(dv?"div":"label",dv?"rf":"",lb);let i;
-if(["k","g","r","m"].includes(ty)) l.classList.add("span-all");
-if(ty=="t"&&k=="facts") l.classList.add("span-2");
-if(ty=="b"){l.className="ck";i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;l.prepend(i);fmGrid.append(l);return}
-if(ty=="i"||ty=="c"||ty=="w"){const fr=el("div","file-row");i=document.createElement("input");i.type="file";i.accept="image/*";const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
-i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"||ty=="w"){f=await(ty=="c"?crop(f,287,787,574):crop(f,16,9,1600));if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
-fr.append(i,pv);l.append(fr);fmGrid.append(l);return}
-if(ty=="s"||ty=="g"){const arr=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","ls-stack"),g=ty=="g",pick=document.createElement("input");pick.type="file";pick.accept="image/*";pick.multiple=true;
-const draw=()=>{chg();box.replaceChildren();arr.forEach((x,n)=>{const it=el("div","it"),im=el("img","pv");im.alt="";im.src=g?x.url:x;it.append(im);
-if(g){const c=document.createElement("input");c.placeholder="Keterangan gambar";c.value=x.caption||"";c.oninput=()=>{x.caption=c.value;chg()};it.append(c)}else it.append(el("span","",""));
-it.append(tn(()=>{if(n){[arr[n-1],arr[n]]=[arr[n],arr[n-1]];draw()}},"↑"),tn(()=>{if(n<arr.length-1){[arr[n+1],arr[n]]=[arr[n],arr[n+1]];draw()}},"↓"),tn(()=>{arr.splice(n,1);draw()},"Hapus"));box.append(it)})};
-pick.onchange=async()=>{try{for(const f of pick.files)arr.push(g?{url:await up(f),caption:""}:await up(f))}catch(e){er(e)}pick.value="";draw()};
-draw();l.append(box,pick);fmGrid.append(l);return}
-if(ty=="p"){const sel=document.createElement("select");[["world","Peta Dunia Historis (Master 8K)"]].forEach(([v,tx])=>{const o=el("option","",tx);o.value=v;sel.append(o)});sel.value="world";val[k]="world";sel.onchange=()=>{val[k]=sel.value;const im=document.querySelector(".mp img");if(im)im.src=MAPIMG[val[k]]||MAPIMG.world};l.append(sel);fmGrid.append(l);return}
-if(ty=="m"){const w=el("div","mp"),im=new Image(),dot=el("i");im.src=MAPIMG[val.map||"world"]||MAPIMG.world;im.alt="Peta";w.append(im,dot);const sh=()=>{dot.hidden=val.x==null;dot.style.left=val.x+"%";dot.style.top=val.y+"%"};
-w.onclick=e=>{const r=w.getBoundingClientRect();val.x=+((e.clientX-r.left)/r.width*100).toFixed(1);val.y=+((e.clientY-r.top)/r.height*100).toFixed(1);sh()};sh();l.append(w);fmGrid.append(l);return}
-if(ty=="k"){const ar=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","chips");const draw=()=>{box.replaceChildren();[...new Set([...hp,...ar])].forEach(o=>{const b=el("button","chip"+(ar.includes(o)?" on":""),o);b.type="button";b.onclick=()=>{const i=ar.indexOf(o);i<0?ar.push(o):ar.splice(i,1);val[k]=[...ar];draw()};box.append(b)});const ad=document.createElement("input");ad.placeholder="+ tambah baru, tekan Enter";ad.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();const v=ad.value.trim();if(v&&!ar.includes(v)){ar.push(v);val[k]=[...ar];draw()}}};box.append(ad)};draw();l.append(box);fmGrid.append(l);return}
-if(ty=="cc"){const i=document.createElement("input");i.value=(Array.isArray(val[k])?val[k]:[]).join(", ");i.placeholder="contoh: SA, EG, ID";i.oninput=()=>{val[k]=i.value.split(/[\s,]+/).map(s=>s.toUpperCase()).filter(s=>/^[A-Z]{2}$/.test(s))};l.append(i);fmGrid.append(l);return}
-if(ty=="s2"){const sel=document.createElement("select"),o0=el("option","","(belum dipilih)");o0.value="";sel.append(o0);hp.forEach(v=>{const q=Array.isArray(v)?v:[v,v],o=el("option","",q[1]);o.value=q[0];sel.append(o)});sel.value=val[k]||"";sel.onchange=()=>{val[k]=sel.value};l.append(sel);fmGrid.append(l);return}
-if(ty=="r"){const rf=el("div","rf span-all");rf.append(el("span","",lb),rich(val,k));fmGrid.append(rf);return}
-if(ty=="t"){i=document.createElement("textarea");i.rows=3;if(hp){i.className="big";l.append(el("span","hlp",HELP))}}else{i=document.createElement("input");if(ty=="n")i.type="number"}
-i.value=val[k]??"";i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;l.append(i);fmGrid.append(l)});
+const addHint=(p,h)=>{if(h)p.append(el("span","fld-hint",h))};
+S.f.forEach(([k,lb,ty,hp,opt={}])=>{
+  const colCls="c-"+(opt.c||12);
+  const isDiv=["s","g","k","r","m"].includes(ty);
+  const fld=el(isDiv?"div":"label","fld "+colCls);
+  if(ty!="b")fld.append(el("span","fld-lbl",lb));
+  let i;
+  if(ty=="b"){
+    fld.className="ck "+colCls;
+    i=document.createElement("input");i.type="checkbox";i.checked=!!val[k];i.onchange=()=>val[k]=i.checked;
+    fld.append(i,el("span","fld-lbl",lb));fmGrid.append(fld);return;
+  }
+  if(ty=="i"||ty=="c"||ty=="w"){
+    const fr=el("div","file-row");i=document.createElement("input");i.type="file";i.accept="image/*";
+    const pv=el("img",ty=="c"?"pv pvc":"pv");pv.alt="";pv.src=val[k]||"";pv.hidden=!val[k];
+    i.onchange=async()=>{let f=i.files[0];if(!f)return;try{if(ty=="c"||ty=="w"){f=await(ty=="c"?crop(f,287,787,574):crop(f,16,9,1600));if(!f){i.value="";return}f=new File([f],"cover.webp",{type:"image/webp"})}val[k]=await up(f);pv.src=val[k];pv.hidden=false}catch(e){er(e)}i.value=""};
+    fr.append(i,pv);fld.append(fr);addHint(fld,opt.h);fmGrid.append(fld);return;
+  }
+  if(ty=="s"||ty=="g"){
+    const arr=val[k]=[...(Array.isArray(val[k])?val[k]:[])],mb=el("div","media-box"),box=el("div","ls-stack"),g=ty=="g",pick=document.createElement("input");
+    pick.type="file";pick.accept="image/*";pick.multiple=true;
+    const draw=()=>{chg();box.replaceChildren();arr.forEach((x,n)=>{const it=el("div","it"),im=el("img","pv");im.alt="";im.src=g?x.url:x;it.append(im);
+      if(g){const c=document.createElement("input");c.placeholder="Keterangan gambar";c.value=x.caption||"";c.oninput=()=>{x.caption=c.value;chg()};it.append(c)}else it.append(el("span","",""));
+      it.append(tn(()=>{if(n){[arr[n-1],arr[n]]=[arr[n],arr[n-1]];draw()}},"↑"),tn(()=>{if(n<arr.length-1){[arr[n+1],arr[n]]=[arr[n],arr[n+1]];draw()}},"↓"),tn(()=>{arr.splice(n,1);draw()},"Hapus"));box.append(it)})};
+    pick.onchange=async()=>{try{for(const f of pick.files)arr.push(g?{url:await up(f),caption:""}:await up(f))}catch(e){er(e)}pick.value="";draw()};
+    draw();mb.append(pick,box);fld.append(mb);addHint(fld,opt.h);fmGrid.append(fld);return;
+  }
+  if(ty=="p"){
+    const sel=document.createElement("select");
+    [["world","Peta Dunia Historis (Master 8K)"]].forEach(([v,tx])=>{const o=el("option","",tx);o.value=v;sel.append(o)});
+    sel.value="world";val[k]="world";sel.onchange=()=>{val[k]=sel.value};
+    fld.append(sel);addHint(fld,opt.h);fmGrid.append(fld);return;
+  }
+  if(ty=="m"){
+    const shellMap=el("div","adm-map-shell"),bar=el("div","adm-map-bar"),grpL=el("div","adm-map-grp"),grpR=el("div","adm-map-coords"),stage=el("div","adm-map-stage");
+    const zIn=el("button","ico-z","+"),zOut=el("button","ico-z","−"),focusBtn=el("button","","Fokus Pin");
+    zIn.type=zOut.type=focusBtn.type="button";zIn.title="Zoom In (+)";zOut.title="Zoom Out (-)";
+    grpL.append(zIn,zOut);
+    const prBtns=MAP_PRESETS.map(pr=>{const b=el("button","",pr.label);b.type="button";grpL.append(b);return[b,pr]});
+    grpL.append(focusBtn);
+    const mkXY=(axis)=>{
+      const bx=el("label","adm-coord-fld"),inp=document.createElement("input");
+      inp.type="number";inp.step="0.01";inp.min="0";inp.max="100";inp.placeholder="—";
+      inp.value=val[axis]!=null?val[axis]:"";
+      bx.append(document.createTextNode(axis.toUpperCase()+"%"),inp);
+      return [bx,inp];
+    };
+    const [bxX,inpX]=mkXY("x"),[bxY,inpY]=mkXY("y");
+    grpR.append(bxX,bxY);
+    bar.append(grpL,grpR);
+    shellMap.append(bar,stage);
+    fld.append(shellMap);addHint(fld,opt.h);fmGrid.append(fld);
+
+    const hasInit=val.x!=null&&val.y!=null&&val.x!==""&&val.y!=="";
+    const inst=createAdminLeafletMap(stage,hasInit?{x:+val.x,y:+val.y,zoom:3.6}:null);
+    ACTIVE_INLINE_MAP=inst;
+    const lmap=inst.map;
+    if(lmap){
+      let activeMarker=null;
+      const syncMarker=(pan)=>{
+        if(val.x==null||val.y==null||val.x===""||val.y==="")return;
+        const ll=pctToLL(val.x,val.y);
+        inpX.value=val.x;inpY.value=val.y;
+        if(!activeMarker){
+          activeMarker=L.marker(ll,{icon:makePinIcon("active"),draggable:true,zIndexOffset:600}).addTo(lmap);
+          activeMarker.bindTooltip(val.name||"Lokasi Dipilih",{direction:"top",offset:[0,-10],className:"adm-pin-tip",permanent:true});
+          activeMarker.on("drag",ev=>{const p=llToPct(ev.target.getLatLng());inpX.value=p.x;inpY.value=p.y});
+          activeMarker.on("dragend",ev=>{const p=llToPct(ev.target.getLatLng());val.x=p.x;val.y=p.y;inpX.value=p.x;inpY.value=p.y});
+        }else{
+          activeMarker.setLatLng(ll);
+        }
+        if(pan)lmap.panTo(ll);
+      };
+      // Render neighboring places as subtle reference markers
+      rows.forEach(r=>{
+        if(r.id===ed||r.x==null||r.y==null)return;
+        const rm=L.marker(pctToLL(r.x,r.y),{icon:makePinIcon("ref"),interactive:true,zIndexOffset:100}).addTo(lmap);
+        rm.bindTooltip(r.name||r.slug||"",{direction:"top",offset:[0,-6],className:"adm-pin-tip"});
+      });
+      if(hasInit)syncMarker(false);
+      lmap.on("click",e=>{
+        const p=llToPct(e.latlng);
+        val.x=p.x;val.y=p.y;
+        syncMarker(false);
+      });
+      zIn.onclick=()=>lmap.zoomIn(0.7);
+      zOut.onclick=()=>lmap.zoomOut(0.7);
+      prBtns.forEach(([b,pr])=>{b.onclick=()=>lmap.fitBounds(pr.bounds,{animate:true,duration:0.45})});
+      focusBtn.onclick=()=>{
+        if(val.x==null||val.y==null){warn("Belum ada titik pin. Klik peta untuk menempatkan pin.");return}
+        lmap.flyTo(pctToLL(val.x,val.y),Math.max(lmap.getZoom(),3.8),{duration:0.45});
+      };
+      const onCoordEdit=()=>{
+        const vx=parseFloat(inpX.value),vy=parseFloat(inpY.value);
+        if(Number.isFinite(vx)&&Number.isFinite(vy)){
+          val.x=+Math.min(100,Math.max(0,vx)).toFixed(2);
+          val.y=+Math.min(100,Math.max(0,vy)).toFixed(2);
+          syncMarker(true);
+        }
+      };
+      inpX.onchange=onCoordEdit;inpY.onchange=onCoordEdit;
+    }
+    return;
+  }
+  if(ty=="k"){
+    const ar=val[k]=[...(Array.isArray(val[k])?val[k]:[])],box=el("div","chips");
+    const draw=()=>{box.replaceChildren();[...new Set([...hp,...ar])].forEach(o=>{const b=el("button","chip"+(ar.includes(o)?" on":""),o);b.type="button";b.onclick=()=>{const idx=ar.indexOf(o);idx<0?ar.push(o):ar.splice(idx,1);val[k]=[...ar];draw()};box.append(b)});const ad=document.createElement("input");ad.placeholder="+ tambah baru, tekan Enter";ad.onkeydown=e=>{if(e.key=="Enter"){e.preventDefault();const v=ad.value.trim();if(v&&!ar.includes(v)){ar.push(v);val[k]=[...ar];draw()}}};box.append(ad)};
+    draw();fld.append(box);addHint(fld,opt.h);fmGrid.append(fld);return;
+  }
+  if(ty=="cc"){
+    i=document.createElement("input");i.value=(Array.isArray(val[k])?val[k]:[]).join(", ");i.placeholder=opt.ph||"contoh: SA, EG, ID";
+    i.oninput=()=>{val[k]=i.value.split(/[\s,]+/).map(s=>s.toUpperCase()).filter(s=>/^[A-Z]{2}$/.test(s))};
+    fld.append(i);addHint(fld,opt.h);fmGrid.append(fld);return;
+  }
+  if(ty=="s2"){
+    const sel=document.createElement("select"),o0=el("option","","(belum dipilih)");o0.value="";sel.append(o0);
+    hp.forEach(v=>{const q=Array.isArray(v)?v:[v,v],o=el("option","",q[1]);o.value=q[0];sel.append(o)});
+    sel.value=val[k]||"";sel.onchange=()=>{val[k]=sel.value};
+    fld.append(sel);addHint(fld,opt.h);fmGrid.append(fld);return;
+  }
+  if(ty=="r"){
+    fld.append(rich(val,k));addHint(fld,opt.h);fmGrid.append(fld);return;
+  }
+  if(ty=="t"){
+    i=document.createElement("textarea");i.rows=opt.rows||3;
+    if(opt.cls)i.className=opt.cls;
+    if(opt.ph)i.placeholder=opt.ph;
+    if(hp){i.className="big";fld.append(el("span","hlp",HELP))}
+  }else{
+    i=document.createElement("input");
+    if(ty=="n")i.type="number";
+    if(opt.ph)i.placeholder=opt.ph;
+  }
+  i.value=val[k]??"";
+  i.oninput=()=>val[k]=ty=="n"?+i.value:i.value;
+  fld.append(i);addHint(fld,opt.h);fmGrid.append(fld);
+});
 const build=()=>{const o={};S.f.forEach(([k,,ty])=>{if(ty=="m"){o.x=val.x??50;o.y=val.y??50}else if(ty=="s"||ty=="g"||ty=="k"||ty=="cc")o[k]=val[k]||[];else if(ty=="b")o[k]=!!val[k];else o[k]=val[k]??(ty=="n"?0:"")});return o};
 CUR={tab,ed,build,S};chg();
 const sv=el("button","pri",ed?"Simpan Perubahan":"Tambah Data"),fmActs=el("div","fm-acts");
@@ -732,7 +1131,7 @@ function renderList(){
 lsInp.oninput=()=>{listFilterQ="";renderList()};
 lsClr.onclick=()=>{lsInp.value="";listFilterQ="";renderList();lsInp.focus()};
 renderList();
-L.append(fm,lsSec)}
+LP.append(fm,lsSec)}
 
 // Global Admin Keyboard Shortcuts (Ctrl+Shift+P Preview Toggle, Ctrl+S Save, Esc Exit Focus)
 window.addEventListener("keydown",e=>{
