@@ -4,6 +4,46 @@ Repository: alfahistory.web.id
 ================================================================================
 
 --------------------------------------------------------------------------------
+VERSI 1.9.0 (24 November 2026) - PETA HYBRID VEKTOR TAJAM & TOPONIMI LINTAS ERA
+--------------------------------------------------------------------------------
+1. Lapisan Kartografi Vektor Hybrid (assets/cartography_vectors.svg) & Zoom hingga 6.0:
+   - Mengekstrak garis pantai dunia murni tanpa batas negara modern dari 256 poligon
+     world.svg (548 cincin garis pantai bersih + efek riak tepi air halus) menggunakan
+     vector-effect non-scaling-stroke agar pantai tetap tajam di seluruh dunia hingga
+     zoom 6.0.
+   - Menambahkan 16 sungai utama peradaban (Nil, Tigris, Efrat, Amu Darya, Syr Darya,
+     Indus, Gangga, Danube, Rhine, Volga, Niger, Yangtze, Huang He, Mekong) dan 5 jalur
+     perdagangan/kafilah klasik (Jalur Sutra, Kafilah Hijaz-Syam, Trans-Sahara, Jalur
+     Rempah Samudra Hindia-Nusantara, dan Jalur Laut Mediterania) yang muncul halus
+     saat pengguna memperbesar peta.
+   - Menggunakan masker lembut di area inti Timur Tengah HD agar garis pantai vektor
+     tidak bertumpuk ganda dengan garis tinta gambar tangan pada tile HD z=5.
+
+2. Sinkronisasi & Optimasi Piramida Tile HD Timur Tengah (z=5 -> z=4 -> z=3 -> z=2):
+   - Mengoptimalkan seluruh 36 tile HD koridor Mesir-Syam-Hijaz-Irak-Persia dari
+     8,77 MB menjadi 0,86 MB dalam format WebP sejati (mempertahankan resolusi HiDPI
+     683x683 pada 18 tile inti untuk ketajaman ekstra di z=5 hingga z=6).
+   - Melakukan downsampling dan feather blending turun ke tile z=4, z=3, dan z=2 agar
+     preset Arabian Peninsula langsung tampil tajam tanpa kotak blur (termasuk kuadran
+     Basra-Shiraz) dan tanpa lompatan gaya visual antar level zoom.
+
+3. Peta Toponimi Historis Lintas Era (Anti-Anakronisme di Slider 570-2025 M):
+   - Menambahkan 88 wilayah & kekaisaran historis dunia (historical_regions) serta
+     37 peta penamaan wilayah per era (country_era_names) dalam 3 bahasa (ID/EN/AR)
+     di geo_labels.json.
+   - Saat slider digeser ke era historis (570-1944 M), nama negara modern seperti
+     Indonesia, Arab Saudi, Turki, atau Amerika Serikat tidak lagi muncul; peta
+     menampilkan kondisi kewilayahan sesuai zamannya (misalnya abad ke-7: Dwipantara /
+     Sriwijaya, Jazirah Arab / Khulafaur Rasyidin, Romawi Timur / Bizantium, Persia
+     Sasaniyah, Kerajaan Franka, Dinasti Tang, dan Peradaban Pribumi Amerika).
+   - Batas negara modern pada #worldSvg disembunyikan otomatis pada mode era historis,
+     sementara provinsi/kota/situs disaring berdasarkan tahun berdirinya (misalnya
+     Baghdad muncul mulai 762 M, Demak 1475 M, Banten 1526 M).
+   - Tooltip hover dan popup wilayah otomatis menampilkan nama historis zaman itu
+     beserta rujukan wilayah modernnya (misal: "Dwipantara / Kepulauan Nusantara
+     (kini Indonesia)").
+
+--------------------------------------------------------------------------------
 VERSI 1.8.4 (24 November 2026) - QABAS WATCH ROOM, 5-LEVEL WORLD MAP & WORD ADMIN
 --------------------------------------------------------------------------------
 1. Kartu Hasil Pencarian Opsi C, Saran Kontekstual & Ringkasan Sejarah ALFA:

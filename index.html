@@ -1,6 +1,6 @@
 <!doctype html>
 
-<!-- ALFA | History of Islam: index.html v1.7.0 -->
+<!-- ALFA | History of Islam: index.html v1.9.0 -->
 
 <html lang="en">
 
@@ -247,7 +247,13 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 .geo-continent{font:800 clamp(11px,1.05vw,15px)/1 Cinzel,Georgia,serif;letter-spacing:.32em;text-transform:uppercase;color:rgba(36,26,12,.72);text-shadow:0 1px 0 rgba(255,244,218,.48)}
 .geo-sea{font:italic 600 10.5px/1 Bitter,Georgia,serif;letter-spacing:.22em;text-transform:uppercase;color:rgba(218,232,234,.72);text-shadow:0 1px 3px rgba(15,24,26,.45)}
 .geo-country{font:700 10.5px/1.15 Cinzel,Georgia,serif;letter-spacing:.14em;text-transform:uppercase;color:#2b1d0c;background:none !important;border:0 !important;padding:0 !important;box-shadow:none !important;text-shadow:0 0 4px rgba(250,240,214,.92),0 0 8px rgba(250,240,214,.78),0 1px 1px rgba(255,248,230,.9)}
+.geo-empire{font:800 11px/1.15 Cinzel,Georgia,serif;letter-spacing:.14em;text-transform:uppercase;color:#3d1d06;text-shadow:0 0 5px rgba(252,243,218,.95),0 0 10px rgba(252,243,218,.82),0 1px 1px rgba(255,250,235,.95)}
+.geo-hist-region{font:italic 700 10.2px/1.15 Cinzel,Georgia,serif;letter-spacing:.1em;text-transform:uppercase;color:#2e2010;text-shadow:0 0 4px rgba(250,240,214,.92),0 0 8px rgba(250,240,214,.76)}
 .geo-province{font:italic 700 10px/1.15 Bitter,Georgia,serif;letter-spacing:.12em;text-transform:uppercase;color:#3c280e;text-shadow:0 0 4px rgba(248,236,204,.88),0 0 8px rgba(248,236,204,.75);border-bottom:1px dashed rgba(68,46,16,.42);padding-bottom:1px}
+#cartoSvg{pointer-events:none;mix-blend-mode:multiply}
+#cartoSvg #vec-routes{opacity:0;transition:opacity .35s ease}
+.map-zoom-mid #cartoSvg #vec-routes,.map-zoom-high #cartoSvg #vec-routes,.map-zoom-micro #cartoSvg #vec-routes{opacity:.75}
+#leafletMap.era-hist #worldSvg path:not(:hover):not(.sel){stroke-opacity:0}
 .geo-city-box,.geo-site-box{position:relative;display:inline-flex;align-items:center}
 .geo-dot{width:6px;height:6px;background:#c4a35a;border:1.5px solid #18140d;transform:rotate(45deg);display:inline-block;flex-shrink:0}
 .geo-site-box .geo-dot{width:5px;height:5px;background:#faf6ee;border-color:#6e5c36}
@@ -2573,7 +2579,7 @@ const pctToLL=(x,y)=>[-(+y/100)*(MAP_H/S4),(+x/100)*(MAP_W/S4)];
 
 // ---- UNIFIED LEAFLET WORLD MAP + PLACE PINS
 
-let LMAP=null,SVG_OV=null,WSVG=null,PIN_LAYER=null,GEO_LAYER=null,GEO_DATA=null,PIN_MAP=new Map();
+let LMAP=null,SVG_OV=null,CARTO_OV=null,WSVG=null,PIN_LAYER=null,GEO_LAYER=null,GEO_DATA=null,PIN_MAP=new Map();
 
 let CM="world",WPOP_MODE=null,WSEL_PIN=null;
 
@@ -2605,7 +2611,7 @@ function initLeaflet(){
 
     minZoom:0.4,
 
-    maxZoom:5.5,
+    maxZoom:6.0,
 
     zoomSnap:0.1,
 
@@ -2635,7 +2641,7 @@ function initLeaflet(){
 
     maxNativeZoom:4,
 
-    maxZoom:5.5,
+    maxZoom:6.0,
 
     noWrap:true,
 
@@ -2650,7 +2656,7 @@ function initLeaflet(){
     tileSize:512,
     minZoom:4.1,
     maxNativeZoom:5,
-    maxZoom:5.5,
+    maxZoom:6.0,
     noWrap:true,
     bounds:L.latLngBounds([-159.8,256.2],[-64.2,351.8]),
     keepBuffer:2,
@@ -2847,12 +2853,38 @@ function geoPickName(item){
   return (l==="ar"?item.ar_n:(l==="en"?item.en_n:item.id_n))||item.id_n||item.en_n||"";
 }
 
+function isHistEra(){
+  try{return typeof WMODE!=="undefined"&&WMODE==="year"&&typeof WY!=="undefined"&&WY<1945}catch(e){return false}
+}
+
+function inHistSpan(item){
+  try{
+    if(typeof WMODE==="undefined"||WMODE!=="year")return true;
+    if(item.from!=null&&WY<item.from)return false;
+    if(item.to!=null&&WY>item.to)return false;
+    return true;
+  }catch(e){return true}
+}
+
+function histNameForISO(code){
+  if(!isHistEra()||!GEO_DATA||!GEO_DATA.country_era_names)return null;
+  const list=GEO_DATA.country_era_names[code];
+  if(!Array.isArray(list))return null;
+  const hit=list.find(e=>(e.from==null||WY>=e.from)&&(e.to==null||WY<=e.to));
+  return hit?geoPickName(hit):null;
+}
+
 function updateGeoHierarchy(){
   if(!LMAP||!GEO_LAYER)return;
   const z=LMAP.getZoom();
+  const hist=isHistEra();
+  const l=(I&&I.getLang)?I.getLang():"id";
   const hudScale=$("#hudScale");
   if(hudScale){
-    const lbl=z>=3.9?I.t("geoLvl5"):z>=3.05?I.t("geoLvl4"):z>=2.25?I.t("geoLvl3"):z>=1.4?I.t("geoLvl2"):I.t("geoLvl1");
+    let lbl=z>=3.9?I.t("geoLvl5"):z>=3.05?I.t("geoLvl4"):z>=2.25?I.t("geoLvl3"):z>=1.4?I.t("geoLvl2"):I.t("geoLvl1");
+    if(hist&&z>=1.25&&z<2.25){
+      lbl=l==="ar"?`الأقاليم والممالك (${WY})`:(l==="en"?`Historical Realms (${WY} CE)`:`Wilayah & Peradaban (${WY} M)`);
+    }
     hudScale.innerHTML=`<span>${I.t("geoScale")}:</span> <b>${lbl}</b>`;
   }
   if(!GEO_DATA)return;
@@ -2891,8 +2923,25 @@ function updateGeoHierarchy(){
     }
   });
 
-  // Lapis 2: Countries Worldwide (clean engraved text, collision-checked)
-  if(z>=1.35&&z<2.75){
+  // Lapis 2: Era-Accurate Historical Realms & Civilizations (570–1944 CE) OR Modern Countries (All Eras / 1945+)
+  if(hist&&Array.isArray(GEO_DATA.historical_regions)){
+    if(z>=1.15&&z<2.85){
+      const activeRegs=GEO_DATA.historical_regions
+        .filter(r=>inHistSpan(r)&&z>=(r.minZoom||1.25))
+        .sort((a,b)=>(b.kind==="empire"?1:0)-(a.kind==="empire"?1:0));
+      activeRegs.forEach(r=>{
+        const ll=pctToLL(r.x,r.y);
+        if(!vb.contains(ll))return;
+        const pt=LMAP.latLngToContainerPoint(ll);
+        const minDx=z<1.85?114:84,minDy=z<1.85?28:22;
+        if(occupied.some(q=>Math.abs(q.x-pt.x)<minDx&&Math.abs(q.y-pt.y)<minDy))return;
+        occupied.push(pt);
+        const op=z>=2.45?0.52:0.94;
+        const cls=r.kind==="empire"?"geo-empire":"geo-hist-region";
+        addLbl(r.x,r.y,cls,`<span style="opacity:${op}">${esc(geoPickName(r))}</span>`,r.kind==="empire"?34:30);
+      });
+    }
+  } else if(z>=1.35&&z<2.75){
     (GEO_DATA.countries||[]).forEach(c=>{
       if(z<(c.minZoom||1.75))return;
       const ll=pctToLL(c.x,c.y);
@@ -2906,35 +2955,24 @@ function updateGeoHierarchy(){
     });
   }
 
-  // Lapis 3: Provinces & Historical Regions (blooms cleanly as countries fade out)
-  if(z>=2.45&&z<4.45){
-    (GEO_DATA.provinces||[]).forEach(p=>{
-      const ll=pctToLL(p.x,p.y);
-      if(!vb.contains(ll))return;
-      const pt=LMAP.latLngToContainerPoint(ll);
-      if(occupied.some(q=>Math.abs(q.x-pt.x)<80&&Math.abs(q.y-pt.y)<24))return;
-      occupied.push(pt);
-      const op=z>=3.85?0.45:0.92;
-      addLbl(p.x,p.y,"geo-province",`<span style="opacity:${op}">${esc(geoPickName(p))}</span>`,40);
-    });
-  }
-
-  // Lapis 4: Global Reference Cities (Smart Offset Opsi B, collision-free)
+  // Lapis 4: Global Reference Cities (prioritized over background province text; filtered by founding year)
   if(z>=3.1){
     (GEO_DATA.cities||[]).forEach(ct=>{
+      if(!inHistSpan(ct))return;
       const ll=pctToLL(ct.x,ct.y);
       if(!vb.contains(ll))return;
       const pt=LMAP.latLngToContainerPoint(ll);
-      if(occupied.some(q=>Math.abs(q.x-pt.x)<76&&Math.abs(q.y-pt.y)<22))return;
+      if(occupied.some(q=>Math.abs(q.x-pt.x)<72&&Math.abs(q.y-pt.y)<20))return;
       occupied.push(pt);
       const side=ct.side==="left"?"side-l":"side-r";
       addLbl(ct.x,ct.y,"geo-city-box",`<i class="geo-dot"></i><span class="geo-tag ${side}">${esc(geoPickName(ct))}</span>`,65);
     });
   }
 
-  // Lapis 5: Districts, Valleys, Forts & Specific Historic Sites (Smart Offset Opsi B, collision-free)
+  // Lapis 5: Districts, Valleys, Forts & Specific Historic Sites (filtered by era lifespan)
   if(z>=3.9){
     (GEO_DATA.sites||[]).forEach(st=>{
+      if(!inHistSpan(st))return;
       const ll=pctToLL(st.x,st.y);
       if(!vb.contains(ll))return;
       const pt=LMAP.latLngToContainerPoint(ll);
@@ -2943,6 +2981,20 @@ function updateGeoHierarchy(){
       occupied.push(pt);
       const side=st.side==="left"?"side-l":"side-r";
       addLbl(st.x,st.y,"geo-site-box",`<i class="geo-dot"></i><span class="geo-tag ${side}">${esc(geoPickName(st))}</span>`,75);
+    });
+  }
+
+  // Lapis 3: Provinces & Historical Regions (step aside cleanly when cities occupy the spot)
+  if(z>=2.45&&z<4.45){
+    (GEO_DATA.provinces||[]).forEach(p=>{
+      if(!inHistSpan(p))return;
+      const ll=pctToLL(p.x,p.y);
+      if(!vb.contains(ll))return;
+      const pt=LMAP.latLngToContainerPoint(ll);
+      if(occupied.some(q=>Math.abs(q.x-pt.x)<80&&Math.abs(q.y-pt.y)<24))return;
+      occupied.push(pt);
+      const op=z>=3.85?0.45:0.92;
+      addLbl(p.x,p.y,"geo-province",`<span style="opacity:${op}">${esc(geoPickName(p))}</span>`,40);
     });
   }
 }
@@ -3747,9 +3799,15 @@ function openWPopup(c){
 
 
 
-  const name=kcn(c);
-
-  $("#wPopTitle").textContent=name;
+  const modName=kcn(c);
+  const hName=histNameForISO(c);
+  $("#wPopTitle").textContent=hName||modName;
+  if(hName&&hName.toLowerCase()!==modName.toLowerCase()){
+    const l=(I&&I.getLang)?I.getLang():"id";
+    const pref=l==="ar"?"المنطقة الحديثة: ":(l==="en"?"Modern region: ":"Wilayah modern: ");
+    $("#wPopSub").textContent=pref+modName;
+    $("#wPopSub").hidden=false;
+  }
 
   const rawEra=WMODE=="year"?eraAtYear(WY):(WE?ERA_DEF.find(e=>e.id==WE):null);
 
@@ -4155,6 +4213,11 @@ function paintWM(){
 
 
 
+  if(LMAP){
+    LMAP.getContainer().classList.toggle("era-hist",isHistEra());
+    updateGeoHierarchy();
+  }
+
   if(WSEL&&WPOP_MODE=="country")openWPopup(WSEL);
 
 }
@@ -4233,21 +4296,38 @@ async function initWM(){
 
   if(!LMAP||SVG_OV)return;
 
-  let svg=null;
+  let svg=null,csvg=null;
 
   try{
 
-    const txt=await(await fetch("assets/world.svg")).text();
+    const [wRes,cRes]=await Promise.all([
+      fetch("assets/world.svg"),
+      fetch("assets/cartography_vectors.svg").catch(()=>null)
+    ]);
+
+    const txt=await wRes.text();
 
     const temp=document.createElement("div");temp.innerHTML=txt;
 
     svg=temp.querySelector("svg");
 
+    if(cRes&&cRes.ok){
+      const ctxt=await cRes.text();
+      const ctmp=document.createElement("div");ctmp.innerHTML=ctxt;
+      csvg=ctmp.querySelector("svg");
+    }
+
   }catch(e){return}
 
   if(!svg)return;
 
-
+  if(csvg&&!CARTO_OV){
+    csvg.id="cartoSvg";
+    csvg.setAttribute("xmlns","http://www.w3.org/2000/svg");
+    csvg.setAttribute("viewBox",`0 0 ${MAP_W} ${MAP_H}`);
+    csvg.setAttribute("preserveAspectRatio","none");
+    CARTO_OV=L.svgOverlay(csvg,MAP_BOUNDS(),{interactive:false,zIndex:250}).addTo(LMAP);
+  }
 
   svg.id="worldSvg";
 
@@ -4281,7 +4361,11 @@ async function initWM(){
 
     if(!p){WTIP.style.display="none";return}
 
-    const name=p.dataset.n||kcn(p.id);
+    const modName=p.dataset.n||kcn(p.id);
+    const hName=histNameForISO(p.id);
+    const l=(I&&I.getLang)?I.getLang():"id";
+    const nowTag=l==="ar"?"حالياً":(l==="en"?"now":"kini");
+    const name=hName?(hName+` (${nowTag} ${modName})`):modName;
 
     let extra="";
 
@@ -4289,7 +4373,10 @@ async function initWM(){
 
       const pols=politiesAtYear(WY).byCountry[p.id];
 
-      if(pols&&pols.length)extra=" — "+I.polity(pols[pols.length-1]).name;
+      if(pols&&pols.length){
+        const pn=I.polity(pols[pols.length-1]).name;
+        if(!hName||!hName.toLowerCase().includes(pn.toLowerCase()))extra=" — "+pn;
+      }
 
       else{
 
