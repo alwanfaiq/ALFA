@@ -4,6 +4,32 @@ Repository: alfahistory.web.id
 ================================================================================
 
 --------------------------------------------------------------------------------
+VERSI 1.9.1 (25 November 2026) - PERAMPINGAN FOOTER & INTEGRASI KATALOG 69 RUJUKAN
+--------------------------------------------------------------------------------
+1. Perampingan Kolom Rujukan Ilmiah di Footer Web (index.html):
+   - Merampingkan daftar tautan di kolom "Scholarly Sources / Rujukan Ilmiah" footer
+     dari 6 tautan bertumpuk menjadi 3 rujukan pilar utama:
+     * Quran.com (Mushaf Utsmani & Komparasi Tafsir)
+     * Sunnah.com (9 Kitab Induk Hadits & Takhrij)
+     * Shamela.ws (Kitab Induk Tarikh & Perpustakaan Turats)
+   - Menambahkan tautan/tombol interaktif "Semua Sumber Primer › / All Primary Sources ›"
+     (id: #ftSrcLink) dengan styling aksen emas Cinzel di desktop dan gold-pill di mobile.
+   - Saat diklik, tombol tersebut langsung membuka modal direktori rujukan lengkap (#sourcesDlg).
+
+2. Integrasi Master Referensi Google NotebookLM (69 Sumber) & Kitab Syama'il:
+   - Memasukkan kitab agung Siyar A'lam an-Nubala' (سير أعلام النبلاء) karya Al-Imam
+     Syamsuddin adz-Dzahabi (w. 748 H) ke dalam database rujukan primer i18n.js
+     (id: siyar-alam-nubala) dengan tautan Shamela digital (https://shamela.ws/book/21712),
+     sebagai rujukan utama bab Syama'il (karakter & kemuliaan Nabi Muhammad ﷺ) dan
+     biografi para sahabat.
+   - Menambahkan kitab Ar-Rahiq al-Makhtum (Syaikh Shafiyyu ar-Rahman al-Mubarakfuri),
+     Suwar min Hayatis Sahabah (Dr. Abdurrahman Ra'fat al-Basya), dan Khulashah Nurul
+     Yaqin (Syaikh Umar Abdul Jabbar) ke dalam katalog modal rujukan.
+   - Sinkronisasi dokumentasi 69 rujukan ke Obsidian Second Brain
+     (04_Projects_and_Pipelines/ALFA_History_Memory/ALFA_References_Master_Catalog.md)
+     dan AGENTS.md repositori.
+
+--------------------------------------------------------------------------------
 VERSI 1.9.0 (24 November 2026) - PETA HYBRID VEKTOR TAJAM & TOPONIMI LINTAS ERA
 --------------------------------------------------------------------------------
 1. Lapisan Kartografi Vektor Hybrid (assets/cartography_vectors.svg) & Zoom hingga 6.0:

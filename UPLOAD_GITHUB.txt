@@ -1,32 +1,24 @@
 ================================================================================
-PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.8.4)
+PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.9.1)
 ================================================================================
 
-Folder ini adalah rilis resmi versi 1.8.4 yang siap diunggah ke root repositori
-GitHub (alfahistory.web.id). Folder versi sebelumnya (v1.8.3) tetap dipertahankan
+Folder ini adalah rilis resmi versi 1.9.1 yang siap diunggah ke root repositori
+GitHub (alfahistory.web.id). Folder versi sebelumnya (v1.9.0) tetap dipertahankan
 sebagai arsip cadangan.
 
-DAFTAR BERKAS BARU & YANG DIPERBARUI DI v1.8.4:
-- watch.html          -> [BARU] Ruang Putar Dokumenter & Shorts ala Qabas
-- geo_labels.json     -> [BARU] Hirarki peta 5 lapis sedunia (Benua > Negara > Provinsi > Kota > Situs)
-- assets/tiles/5/     -> [BARU] 36 tile Regional Zoom 5 HD (koridor Mesir-Syam-Hijaz-Irak-Persia)
-- assets/tiles/3 & 4/ -> [DIPERBARUI] Tile Timur Tengah berketajaman tinggi
-- index.html          -> [DIPERBARUI] Kartu Opsi C, Ringkasan Sejarah ALFA, Suggestions, Modal Opsi B, Peta 5 Lapis
-- detail.html         -> [DIPERBARUI] Dropdown bahasa ID/EN/AR seragam & anti-fallback Aisyah
-- admin.html          -> [DIPERBARUI] Side toggle Pratinjau (Ctrl+Shift+P), Editor Word 100% ikon & shortcut
-- i18n.js             -> [DIPERBARUI] Tautan wiki root-absolut (/detail.html) & string multibahasa v1.8.4
-- 404.html            -> [DIPERBARUI] Rute bersih /videos/<slug> & /shorts/<slug> (100% bersih tanpa API key)
-- CHANGELOG.txt       -> Dokumentasi lengkap rilis v1.8.4
+DAFTAR BERKAS YANG DIPERBARUI DI v1.9.1:
+- index.html    -> [DIPERBARUI] Kolom rujukan footer ramping (3 sumber inti + tombol "All Sources ›" interaktif)
+- i18n.js       -> [DIPERBARUI] 4 sumber primer baru (Siyar A'lam an-Nubala', Ar-Rahiq al-Makhtum, Suwar min Hayatis Sahabah, Khulashah Nurul Yaqin) + string multibahasa ftSourcesAll
+- CHANGELOG.txt -> Dokumentasi lengkap rilis v1.9.1
 
 BERKAS PENDUKUNG LAIN YANG TETAP WAJIB ADA DI ROOT REPO:
-- assets/ (leaflet, tiles 0-5, world.svg, world_overview.webp, cover & qris)
-- CNAME, config.js, defaults.json, favicon.ico, favicon.svg, i18n_ar.json,
-  i18n_en.json, sources_data.js, track.js
+- assets/ (cartography_vectors.svg, leaflet, tiles 0-5, world.svg, world_overview.webp, cover & qris)
+- 404.html, admin.html, CNAME, config.js, defaults.json, detail.html, favicon.ico, favicon.svg,
+  geo_labels.json, i18n_ar.json, i18n_en.json, sources_data.js, track.js, watch.html
 
 CARA UNGGAH KE GITHUB:
-1. Unggah berkas yang diperbarui di atas beserta folder assets/tiles/ (khususnya
-   folder 3, 4, dan folder baru 5) ke root repositori alfahistory.web.id.
+1. Unggah berkas yang diperbarui di atas ke root repositori alfahistory.web.id.
 2. Pesan commit yang disarankan:
-   "Release v1.8.4: Qabas watch room, 5-level HD world map, Opsi C search & Word-style admin"
+   "Release v1.9.1: Streamlined footer sources & Siyar A'lam an-Nubala' catalog integration"
 3. Klik Commit Changes.
 ================================================================================

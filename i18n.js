@@ -176,6 +176,8 @@
 
       ftSourcesBtn: "Metodologi & Sumber Rujukan ›",
 
+      ftSourcesAll: "Semua Sumber Primer ›",
+
       sourcesTitle: "Rujukan Ilmiah & Transparansi Riset",
 
       sourcesSub: "Standar Otoritatif & Perpustakaan Digital Sejarah Islam (Nasional & Internasional)",
@@ -453,6 +455,8 @@
 
       ftSourcesBtn: "Methodology & Primary Sources ›",
 
+      ftSourcesAll: "All Primary Sources ›",
+
       sourcesTitle: "Primary Sources & Research Methodology",
 
       sourcesSub: "Authoritative Standards & Digital Libraries of Islamic History (National & International)",
@@ -729,6 +733,8 @@
       ftSources: "المصادر والمراجع العلمية",
 
       ftSourcesBtn: "المنهجية والمصادر الأولية ›",
+
+      ftSourcesAll: "جميع المصادر الأولية ›",
 
       sourcesTitle: "المصادر والمراجع العلمية ومنهجية التوثيق",
 
@@ -1598,6 +1604,86 @@
       desc_en: "Premier digital library of classical Arabic chronicles: Tarikh al-Tabari, Al-Bidayah wa al-Nihayah by Ibn Kathir, Sirah Ibn Hisham, and Al-Kamil fi al-Tarikh.",
 
       desc_ar: "المكتبة الرقمية الشاملة لأمهات المصادر الإسلامية: تاريخ الطبري، البداية والنهاية، السيرة النبوية لابن هشام، الكامل في التاريخ، وفتوح البلدان."
+
+    },
+
+    {
+
+      id: "siyar-alam-nubala",
+
+      cat: "catTarikh",
+
+      name: "Siyar A'lam an-Nubala' (Adz-Dzahabi)",
+
+      url: "https://shamela.ws/book/21712",
+
+      scope: "scopeGlobal",
+
+      desc_id: "Mahakarya biografi thabaqat ulama, sahabat, dan tabiin karya Imam adz-Dzahabi; memuat rekaman rinci sirah nabawiyyah, syama'il (karakter & kemuliaan Nabi ﷺ), serta kiprah tokoh-tokoh besar peradaban Islam.",
+
+      desc_en: "Premier biographical compendium of Companions and scholars by Imam al-Dhahabi, encompassing detailed prophetic biography, sublime traits (shama'il), and civilization figures.",
+
+      desc_ar: "الموسوعة التراجمية الكبرى للإمام شمس الدين الذهبي، تشتمل على السيرة النبوية والشمائل الشريفة وسير الصحابة والتابعين وأعلام الأمة عبر العصور."
+
+    },
+
+    {
+
+      id: "rahiq-makhtum",
+
+      cat: "catTarikh",
+
+      name: "Ar-Rahiq al-Makhtum (Al-Mubarakfuri)",
+
+      url: "https://shamela.ws/book/11830",
+
+      scope: "scopeGlobal",
+
+      desc_id: "Kitab sirah nabawiyyah pemenang penghargaan dunia Rabithah Alam Islami karya Syaikh Shafiyyu ar-Rahman al-Mubarakfuri; rujukan kronologi peristiwa dakwah dan ekspedisi Rasulullah ﷺ.",
+
+      desc_en: "Celebrated award-winning prophetic biography by Sheikh Safiur Rahman al-Mubarakpuri; premier chronological reference for prophetic milestones.",
+
+      desc_ar: "الرحيق المختوم لفضيلة الشيخ صفي الرحمن المباركفوري، الكتاب الحائز على الجائزة الأولى لرابطة العالم الإسلامي في السيرة النبوية المطهرة."
+
+    },
+
+    {
+
+      id: "suwar-hayat-sahabah",
+
+      cat: "catTarikh",
+
+      name: "Suwar min Hayatis Sahabah (Dr. Al-Basya)",
+
+      url: "https://shamela.ws/book/12288",
+
+      scope: "scopeGlobal",
+
+      desc_id: "Koleksi biografi sastrawi 65 sahabat Rasulullah ﷺ karya Dr. Abdurrahman Ra'fat al-Basya; menyajikan keteladanan akhlak, keteguhan akidah, dan pengorbanan para sahabat.",
+
+      desc_en: "Distinguished literary biographies of 65 Companions of the Prophet by Dr. Abdurrahman Ra'fat al-Basha, highlighting their faith, honor, and sacrifice.",
+
+      desc_ar: "صور من حياة الصحابة للدكتور عبد الرحمن رأفت الباشا، يوثق مواقف البطولة والإيمان والقدوة لـ 65 صحابياً من خيرة رجال الأمة."
+
+    },
+
+    {
+
+      id: "nurul-yaqin",
+
+      cat: "catTarikh",
+
+      name: "Khulashah Nurul Yaqin (Umar Abdul Jabbar)",
+
+      url: "https://shamela.ws/book/37571",
+
+      scope: "scopeGlobal",
+
+      desc_id: "Ringkasan sirah nabawiyyah tiga jilid legendaris pesantren karya Syaikh Umar Abdul Jabbar; menyajikan kronologi padat dan pemetaan peristiwa dakwah secara runtut.",
+
+      desc_en: "Renowned three-volume prophetic biography curriculum by Sheikh Umar Abdul Jabbar, providing concise chronology and milestone mapping.",
+
+      desc_ar: "خلاصة نور اليقين في سيرة سيد المرسلين للشيخ عمر عبد الجبار، منهج دراسي جامع وموجز في ترتيب أحداث السيرة وغزواتها."
 
     },
 
