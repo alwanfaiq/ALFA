@@ -2671,6 +2671,18 @@ function initLeaflet(){
 
   }).addTo(LMAP);
 
+  // Ultra-crisp Regional Zoom 5 HD overlay for Egypt–Syam–Hijaz–Iraq–Persia (Z5 tiles x=16..21, y=4..9)
+  L.tileLayer("assets/tiles/{z}/{x}/{y}.webp",{
+    tileSize:512,
+    minZoom:4.1,
+    maxNativeZoom:5,
+    maxZoom:6.0,
+    noWrap:true,
+    bounds:L.latLngBounds([-159.8,256.2],[-64.2,351.8]),
+    keepBuffer:2,
+    zIndex:205
+  }).addTo(LMAP);
+
   GEO_LAYER=L.layerGroup().addTo(LMAP);
   PIN_LAYER=L.layerGroup().addTo(LMAP);
 
