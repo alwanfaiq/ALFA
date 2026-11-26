@@ -190,11 +190,11 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 
 #places{position:relative;width:100%;background:#151412;border-bottom:1px solid var(--border)}
 
-#map{position:relative;overflow:hidden;width:100%;height:clamp(460px,calc(100svh - 215px),740px);min-height:430px;background:#6d837a;border-top:1px solid var(--g2);z-index:1}
+#map{position:relative;overflow:hidden;width:100%;height:clamp(460px,calc(100svh - 215px),740px);min-height:430px;background:#526e6c;border-top:1px solid var(--g2);z-index:1}
 
-#leafletMap{position:absolute;inset:0;width:100%;height:100%;background:#6d837a}
+#leafletMap{position:absolute;inset:0;width:100%;height:100%;background:#526e6c}
 
-.leaflet-container{background:#6d837a;font:inherit;color:var(--ink)}
+.leaflet-container{background:#526e6c;font:inherit;color:var(--ink)}
 
 .leaflet-overlay-pane svg{overflow:visible}
 
@@ -2669,18 +2669,6 @@ function initLeaflet(){
 
     keepBuffer:4
 
-  }).addTo(LMAP);
-
-  // Ultra-crisp Regional Zoom 5 HD overlay for Egypt–Syam–Hijaz–Iraq–Persia (Z5 tiles x=16..21, y=4..9)
-  L.tileLayer("assets/tiles/{z}/{x}/{y}.webp",{
-    tileSize:512,
-    minZoom:4.1,
-    maxNativeZoom:5,
-    maxZoom:6.0,
-    noWrap:true,
-    bounds:L.latLngBounds([-159.8,256.2],[-64.2,351.8]),
-    keepBuffer:2,
-    zIndex:205
   }).addTo(LMAP);
 
   GEO_LAYER=L.layerGroup().addTo(LMAP);
