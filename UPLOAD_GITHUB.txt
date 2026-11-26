@@ -7,14 +7,15 @@ GitHub (alfahistory.web.id). Folder versi sebelumnya (v1.9.0) tetap dipertahanka
 sebagai arsip cadangan.
 
 DAFTAR BERKAS YANG DIPERBARUI DI v1.9.1:
+- assets/logo/       -> [BARU] 6 file logo SVG resmi ALFA (horizontal/vertikal & versi Arab)
 - assets/tiles/0..5/ -> [DIPERBARUI] Piramida tile penuh hingga Zoom 5 (z=5 penuh 608 tile / 32x19)
 - assets/world.svg   -> [DIPERBARUI] Poligon vektor 256 negara hasil penyelarasan 6-pass ink-edge lock skala pulau langsung ke tile raster (corr@0: 0.5027)
-- index.html         -> [DIPERBARUI] L.tileLayer tunggal maxNativeZoom: 5, footer bebas duplikasi, dan modal #sourcesDlg 6 tab (Muqaddimah, Sumber Primer, Adab Visual, Dukung ALFA, Syarat & Ketentuan, Kebijakan Privasi)
-- i18n.js            -> [DIPERBARUI] Terjemahan lengkap ID/EN/AR untuk 4 tab baru, tombol footer, dan 69 katalog sumber
+- index.html         -> [DIPERBARUI] Logo SVG di header/drawer/footer (auto-swap AR), gradien tepi peta 4 sisi, L.tileLayer tunggal maxNativeZoom: 5, footer bebas duplikasi, modal #sourcesDlg 6 tab, dan UI baru kartu sumber (ikon Globe / ID / SA)
+- i18n.js            -> [DIPERBARUI] Properti origin pada 13 sumber primer serta terjemahan lengkap ID/EN/AR untuk 4 tab baru, tombol footer, dan 69 katalog sumber
 - CHANGELOG.txt      -> Dokumentasi lengkap rilis v1.9.1
 
 BERKAS PENDUKUNG LAIN YANG TETAP WAJIB ADA DI ROOT REPO:
-- assets/ (cartography_vectors.svg, leaflet, tiles 0-5, world.svg, world_overview.webp, cover & qris)
+- assets/ (cartography_vectors.svg, leaflet, logo, tiles 0-5, world.svg, world_overview.webp, cover & qris)
 - 404.html, admin.html, CNAME, config.js, defaults.json, detail.html, favicon.ico, favicon.svg,
   geo_labels.json, i18n_ar.json, i18n_en.json, sources_data.js, track.js, watch.html
 

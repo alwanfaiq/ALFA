@@ -160,6 +160,12 @@ header{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:rg
 
 .logo small{font:400 .74rem/1.2 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0}
 
+.brand-logo-img{display:block;width:auto;height:30px;max-width:100%;object-fit:contain;transition:opacity .2s ease}
+
+.logo:hover .brand-logo-img{opacity:.9}
+
+@media(max-width:640px){.brand-logo-img{height:24px}}
+
 .h-mid{display:flex;align-items:center;justify-content:center}
 
 .h-num{font:700 1.2rem/1 Cinzel,serif;color:var(--g);letter-spacing:.26em;text-shadow:0 0 10px rgba(196,163,90,.35);direction:ltr !important;unicode-bidi:isolate;display:inline-block}
@@ -706,6 +712,8 @@ footer{border-top:1px solid rgba(110,92,54,.3);margin-top:80px;padding:56px clam
 
 .ft .logo{display:inline-flex;align-items:center;gap:12px;font:800 1.65rem/1 Cinzel,serif;color:#fff;text-decoration:none;margin:0 0 14px;letter-spacing:.04em;opacity:1;transition:color .2s}
 
+.ft .brand-logo-img{height:36px}
+
 .ft .logo:hover{color:var(--g)}
 
 .ft .logo small{display:block;font:400 .76rem/1.25 Bitter,serif;border-left:1px solid var(--mut);padding-left:10px;color:var(--mut);letter-spacing:0;text-align:left}
@@ -828,17 +836,19 @@ footer{border-top:1px solid rgba(110,92,54,.3);margin-top:80px;padding:56px clam
 
 .src-card:hover{border-color:var(--g);transform:translateY(-2px)}
 
-.src-meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:8px}
+.src-meta{display:flex;align-items:center;margin-bottom:8px;gap:8px}
 
-.src-cat{font:700 .68rem Cinzel,serif;color:var(--g);letter-spacing:.05em}
+.src-cat{font:700 .68rem/1.35 Cinzel,serif;color:var(--g);letter-spacing:.05em;text-transform:uppercase}
 
-.src-scope{font-size:.66rem;font-weight:700;padding:2px 6px;border-radius:2px;background:rgba(196,163,90,.15);color:var(--ink);letter-spacing:.04em}
+.src-card h5{font:700 .96rem Cinzel,serif;color:#fff;margin-bottom:8px;text-transform:uppercase;letter-spacing:.03em}
 
-.src-card h5{font:700 .96rem Cinzel,serif;color:#fff;margin-bottom:6px}
+.src-card p{font-size:.82rem;color:var(--mut);line-height:1.45;margin-bottom:14px;flex:1}
 
-.src-card p{font-size:.82rem;color:var(--mut);line-height:1.45;margin-bottom:12px;flex:1}
+.src-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:11px;margin-top:auto;border-top:1px solid rgba(110,92,54,.3)}
 
-.src-card a{display:inline-flex;align-items:center;gap:6px;font:700 .76rem Cinzel,serif;color:var(--g);text-decoration:none;padding-top:6px;border-top:1px solid rgba(110,92,54,.3);text-transform:uppercase;letter-spacing:.05em}
+.src-origin-ico{display:inline-flex;align-items:center;justify-content:center;flex:none;line-height:0}
+
+.src-card a{display:inline-flex;align-items:center;gap:6px;font:700 .76rem Cinzel,serif;color:var(--g);text-decoration:none;text-transform:uppercase;letter-spacing:.05em}
 
 .src-card a:hover{color:#fff}
 
@@ -1173,6 +1183,8 @@ dialog .x:hover, dialog .x:focus, dialog .x:focus-visible {
 .drawer-panel.open{transform:translateX(0)}
 
 .drw-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(110,92,54,.3)}
+
+.drw-head .brand-logo-img{height:30px}
 
 
 
@@ -1886,7 +1898,7 @@ button.x:hover, button.x:focus {
 
   <div id="scroll-progress" style="position:absolute;left:0;bottom:0;height:2.5px;background:linear-gradient(90deg,var(--g),#f3ead8);width:0%;transition:width .05s linear;z-index:30;pointer-events:none"></div>
 
-  <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
+  <a class="logo" href="#places" aria-label="ALFA — History of Islam"><img class="brand-logo-img" data-logo-role="header" src="assets/logo/alfa-horizontal-primary.svg" alt="ALFA — History of Islam"></a>
 
   <div class="h-mid"><span class="h-num">1✦✦✦</span></div>
 
@@ -1954,7 +1966,7 @@ button.x:hover, button.x:focus {
 
   <div class="drw-head">
 
-    <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
+    <a class="logo" href="#places" aria-label="ALFA — History of Islam"><img class="brand-logo-img" data-logo-role="drawer" src="assets/logo/alfa-horizontal-03.svg" alt="ALFA — History of Islam"></a>
 
     <button id="drawerClose" class="drw-close-btn" type="button" aria-label="Close menu">✕</button>
 
@@ -2372,7 +2384,7 @@ button.x:hover, button.x:focus {
 
     <div class="ft-brand">
 
-      <a class="logo" href="#places">ALFA<small>History<br>of Islam</small></a>
+      <a class="logo" href="#places" aria-label="ALFA — History of Islam"><img class="brand-logo-img" data-logo-role="footer" src="assets/logo/alfa-horizontal-primary.svg" alt="ALFA — History of Islam"></a>
 
       <p id="ftDesc">Tracing the history of Islam through interactive maps, notable figures, and short stories.</p>
 
@@ -5156,6 +5168,34 @@ function initSources(){
 
   }
 
+  function makeOriginIcon(origin,label){
+
+    const wrap=document.createElement("span");
+
+    wrap.className="src-origin-ico";
+
+    wrap.title=label||"";
+
+    wrap.setAttribute("aria-label",label||"");
+
+    if(origin==="id"){
+
+      wrap.innerHTML=`<svg width="24" height="16" viewBox="0 0 24 16" style="border-radius:2px;display:block;border:1px solid rgba(255,255,255,.22)" aria-hidden="true"><rect width="24" height="8" fill="#CE1126"/><rect y="8" width="24" height="8" fill="#FFFFFF"/></svg>`;
+
+    }else if(origin==="sa"){
+
+      wrap.innerHTML=`<svg width="24" height="16" viewBox="0 0 24 16" style="border-radius:2px;display:block;border:1px solid rgba(255,255,255,.22)" aria-hidden="true"><rect width="24" height="16" fill="#006C35"/><path d="M5.2 4.8h1.1v3.1H5.2zm2 .5h2.2v1H7.2zm0 1.7h2.8v.9H7.2zm3.7-2.2h.9v3.1h-.9zm1.7.6h2.7v.9h-2.7zm.6 1.5h2.2v1h-2.2zm3.2-2.1h1v2.6h-1z" fill="#FFFFFF"/><path d="M6.2 11.4h10.8l1-.8-.3 1.4H6.2v.4l-.8-.5.8-.5z" fill="#FFFFFF"/></svg>`;
+
+    }else{
+
+      wrap.innerHTML=`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f3ead8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4.2" ry="9.5"/><line x1="2.8" y1="9" x2="21.2" y2="9"/><line x1="2.8" y1="15" x2="21.2" y2="15"/><line x1="12" y1="2.5" x2="12" y2="21.5"/></svg>`;
+
+    }
+
+    return wrap;
+
+  }
+
   function renderSourcesModal(){
 
     const list=I.getSources();
@@ -5174,19 +5214,25 @@ function initSources(){
 
         const cat=document.createElement("span");cat.className="src-cat";cat.textContent=s.category;
 
-        const scope=document.createElement("span");scope.className="src-scope";scope.textContent=s.scopeLabel;
-
-        meta.append(cat,scope);
+        meta.append(cat);
 
         const h5=document.createElement("h5");h5.textContent=s.name;
 
         const p=document.createElement("p");p.textContent=s.desc;
 
+        const foot=document.createElement("div");foot.className="src-foot";
+
+        const orig=s.origin||(s.scope==="scopeID"?"id":"global");
+
+        const ico=makeOriginIcon(orig,s.scopeLabel);
+
         const a=document.createElement("a");a.href=s.url;a.target="_blank";a.rel="noopener";
 
         a.textContent=I.t("srcVisit")+" ↗";
 
-        card.append(meta,h5,p,a);
+        foot.append(ico,a);
+
+        card.append(meta,h5,p,foot);
 
         cont.append(card);
 
@@ -5497,6 +5543,12 @@ function applyStaticI18n(){
   $("#qrisTitle").textContent=I.t("supportTitle");
 
   $("#yr").textContent=I.t("cpText",new Date().getFullYear());
+
+  const isAr=I.getLang()==="ar";
+  document.querySelectorAll("img.brand-logo-img").forEach(img=>{
+    const role=img.dataset.logoRole;
+    img.src=isAr?"assets/logo/alfa-horizontal-ar.svg":(role==="drawer"?"assets/logo/alfa-horizontal-03.svg":"assets/logo/alfa-horizontal-primary.svg");
+  });
 
   const sd=$("#sourcesDlg");if(sd&&sd.open&&window.alfaRenderSources)window.alfaRenderSources();
 

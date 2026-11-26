@@ -1837,6 +1837,8 @@
 
       scope: "scopeGlobal",
 
+      origin: "global",
+
       desc_id: "Teks Mushaf Utsmani, terjemahan puluhan bahasa, murattal qari internasional, dan komparasi tafsir (Ibnu Katsir, As-Sa'di, Al-Baghawi).",
 
       desc_en: "Authentic Uthmani Quran text, international translations, multi-reciter audio, and classical tafsir comparisons (Ibn Kathir, Sa'di, Baghawi).",
@@ -1856,6 +1858,8 @@
       url: "https://quran.kemenag.go.id",
 
       scope: "scopeID",
+
+      origin: "id",
 
       desc_id: "Mushaf Standar Indonesia resmi Kementerian Agama RI, dilengkapi Terjemahan Resmi Kemenag, Tafsir Ringkas, dan Tafsir Tahlili.",
 
@@ -1877,6 +1881,8 @@
 
       scope: "scopeGlobal",
 
+      origin: "sa",
+
       desc_id: "Koleksi digital 9 Kitab Induk Hadits (Kutubus Sittah, Muwatta Malik, Musnad Ahmad, Sunan ad-Darimi) dengan penomoran standar internasional.",
 
       desc_en: "Comprehensive digital archive of the 9 major hadith collections (Kutub al-Sittah, Muwatta, Musnad Ahmad) with international numbering.",
@@ -1896,6 +1902,8 @@
       url: "https://dorar.net/hadith",
 
       scope: "scopeGlobal",
+
+      origin: "sa",
 
       desc_id: "Ensiklopedia verifikasi keshahihan hadits (takhrij & tahqiq) paling otoritatif di dunia Islam di bawah bimbingan para muhadditsin.",
 
@@ -1917,6 +1925,8 @@
 
       scope: "scopeGlobal",
 
+      origin: "sa",
+
       desc_id: "Perpustakaan digital kitab klasik Arab terlengkap: Tarikh ath-Thabari, Al-Bidayah wan-Nihayah Ibnu Katsir, Sirah Ibnu Hisyam, Al-Kamil Ibnul Atsir, dan Futuh al-Buldan.",
 
       desc_en: "Premier digital library of classical Arabic chronicles: Tarikh al-Tabari, Al-Bidayah wa al-Nihayah by Ibn Kathir, Sirah Ibn Hisham, and Al-Kamil fi al-Tarikh.",
@@ -1936,6 +1946,8 @@
       url: "https://shamela.ws/book/21712",
 
       scope: "scopeGlobal",
+
+      origin: "sa",
 
       desc_id: "Mahakarya biografi thabaqat ulama, sahabat, dan tabiin karya Imam adz-Dzahabi; memuat rekaman rinci sirah nabawiyyah, syama'il (karakter & kemuliaan Nabi ﷺ), serta kiprah tokoh-tokoh besar peradaban Islam.",
 
@@ -1957,6 +1969,8 @@
 
       scope: "scopeGlobal",
 
+      origin: "sa",
+
       desc_id: "Kitab sirah nabawiyyah pemenang penghargaan dunia Rabithah Alam Islami karya Syaikh Shafiyyu ar-Rahman al-Mubarakfuri; rujukan kronologi peristiwa dakwah dan ekspedisi Rasulullah ﷺ.",
 
       desc_en: "Celebrated award-winning prophetic biography by Sheikh Safiur Rahman al-Mubarakpuri; premier chronological reference for prophetic milestones.",
@@ -1976,6 +1990,8 @@
       url: "https://shamela.ws/book/12288",
 
       scope: "scopeGlobal",
+
+      origin: "sa",
 
       desc_id: "Koleksi biografi sastrawi 65 sahabat Rasulullah ﷺ karya Dr. Abdurrahman Ra'fat al-Basya; menyajikan keteladanan akhlak, keteguhan akidah, dan pengorbanan para sahabat.",
 
@@ -1997,6 +2013,8 @@
 
       scope: "scopeGlobal",
 
+      origin: "sa",
+
       desc_id: "Ringkasan sirah nabawiyyah tiga jilid legendaris pesantren karya Syaikh Umar Abdul Jabbar; menyajikan kronologi padat dan pemetaan peristiwa dakwah secara runtut.",
 
       desc_en: "Renowned three-volume prophetic biography curriculum by Sheikh Umar Abdul Jabbar, providing concise chronology and milestone mapping.",
@@ -2016,6 +2034,8 @@
       url: "https://khastara.perpusnas.go.id",
 
       scope: "scopeID",
+
+      origin: "id",
 
       desc_id: "Koleksi digital naskah kuno Kesultanan Islam di Nusantara (Samudera Pasai, Aceh, Demak, Banten, Mataram Islam, Gowa-Tallo, Ternate-Tidore).",
 
@@ -2037,6 +2057,8 @@
 
       scope: "scopeID",
 
+      origin: "id",
+
       desc_id: "Inventarisasi dan riset naskah klasik keagamaan Nusantara, mushaf kuno, dan manuskrip ulama kepulauan Indonesia.",
 
       desc_en: "Research repository of classical Indonesian Islamic literature, ancient Quran manuscripts, and archipelago ulama treatises.",
@@ -2057,6 +2079,8 @@
 
       scope: "scopeGlobal",
 
+      origin: "global",
+
       desc_id: "Dokumentasi arsitektur, situs perkotaan bersejarah, monumen, dan lanskap geografi dunia Islam inisiasi MIT dan Aga Khan Trust for Culture.",
 
       desc_en: "Authoritative open-access digital archive on Islamic architecture, urbanism, historic cities, and monuments by MIT and AKTC.",
@@ -2076,6 +2100,8 @@
       url: "https://referenceworks.brillonline.com/browse/encyclopaedia-of-islam-3",
 
       scope: "scopeGlobal",
+
+      origin: "global",
 
       desc_id: "Karya referensi akademis internasional paling komprehensif mengenai sejarah, geografi, dan peradaban dunia Islam.",
 

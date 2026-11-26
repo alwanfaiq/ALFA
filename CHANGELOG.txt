@@ -38,6 +38,19 @@ VERSI 1.9.1 (26 November 2026) - PENYELARASAN PETA FULL Z5 & PEMBARUAN POP-OUT A
      Primer, Transparansi & Adab Visual, Dukung ALFA (HR. Muslim no. 1893 & QRIS),
      Syarat & Ketentuan, dan Kebijakan Privasi.
 
+4. Integrasi Logo SVG Resmi ALFA & Pembaruan UI Kartu Sumber Primer:
+   - Menambahkan folder assets/logo/ berisi 6 varian logo SVG vektor (alfa-horizontal-primary.svg,
+     alfa-horizontal-01.svg, alfa-horizontal-03.svg, alfa-horizontal-ar.svg,
+     alfa-vertical-primary.svg, dan alfa-vertical-ar.svg).
+   - Menerapkan logo SVG pada Header, Drawer Mobile, dan Footer, disertai pertukaran
+     otomatis ke versi kaligrafi Arab (alfa-horizontal-ar.svg) saat pengguna memilih
+     bahasa Arab (AR / RTL).
+   - Memperbarui desain kartu Katalog Sumber Primer (.src-card): mengganti badge teks
+     wilayah di pojok kanan atas dengan ikon vektor asal sumber (Globe putih untuk
+     Internasional, bendera Indonesia untuk Kemenag/Perpusnas RI, dan bendera Arab Saudi
+     untuk Sunnah.com, Dorar.net, serta pustaka Turats di Shamela.ws) sejajar di kiri
+     bawah berhadapan dengan tautan "KUNJUNGI SUMBER ↗".
+
 --------------------------------------------------------------------------------
 VERSI 1.9.1 (25 November 2026) - PERAMPINGAN FOOTER & INTEGRASI KATALOG 69 RUJUKAN
 --------------------------------------------------------------------------------
