@@ -285,7 +285,113 @@
 
       menuTitle: "Navigasi",
 
-      menuClose: "Tutup"
+      menuClose: "Tutup",
+
+      ftMuqaddimahBtn: "Muqaddimah & Tentang ALFA ›",
+
+      ftLinkMuq: "Muqaddimah",
+
+      ftLinkSupport: "Dukung ALFA",
+
+      ftLinkTerms: "Syarat & Ketentuan",
+
+      ftLinkPrivacy: "Kebijakan Privasi",
+
+      tabMuqaddimah: "Muqaddimah",
+
+      tabSupport: "Dukung ALFA",
+
+      tabTerms: "Syarat & Ketentuan",
+
+      tabPrivacy: "Kebijakan Privasi",
+
+      muqTitle: "Tentang Proyek ALFA History",
+
+      muqLead: "ALFA History hadir untuk memetakan jejak peradaban Islam dari abad ke abad secara visual, terstruktur, dan berakar pada literatur klasik.",
+
+      muqBody1: "Setiap garis lintasan peta, kronologi peristiwa, serta profil tokoh di situs ini dirangkai agar pelajar, peneliti pemula, dan pembaca umum bisa membaca konteks geografis sejarah tanpa terpisah dari naskah primernya.",
+
+      muqBody2: "Penelusuran materi kami bersandar pada kitab-kitab tarikh mu'tabar seperti Tarikh ath-Thabari, Al-Bidayah wan-Nihayah, Sirah Ibnu Hisyam, Al-Kamil fit-Tarikh, hingga Siyar A'lam an-Nubala', disertai verifikasi hadits melalui Kutubus Sittah dan karya takhrij para ulama. Untuk sejarah Islam Nusantara, kami memadukannya dengan koleksi naskah klasik Perpustakaan Nasional dan Kementerian Agama RI.",
+
+      muqBody3: "Kami sadar karya manusia tetap memiliki ruang khilaf. Bila Anda menemukan kekeliruan tahun, penulisan nama, lokasi geografis, atau rujukan kitab, silakan kirimkan masukan agar dapat segera ditelaah dan diperbaiki.",
+
+      muqVerse1Tr: "\"Aku hanya bermaksud mendatangkan perbaikan selama aku masih sanggup. Dan tidak ada taufik bagiku melainkan dengan pertolongan Allah. Hanya kepada Allah aku bertawakal dan hanya kepada-Nya aku kembali.\"",
+
+      muqVerse1Ref: "QS. Hud (11): 88",
+
+      muqVerse2Tr: "\"Ya Tuhan kami, terimalah amal dari kami. Sungguh, Engkaulah Yang Maha Mendengar, Maha Mengetahui.\"",
+
+      muqVerse2Ref: "QS. Al-Baqarah (2): 127",
+
+      supHeading: "Menjaga Edukasi Sejarah Gratis Tetap Berjalan",
+
+      supBody: "Seluruh peta interaktif, linimasa, artikel tokoh, dan dokumenter ALFA History dapat diakses terbuka tanpa paywall maupun iklan komersial. Meski gratis bagi pengunjung, pengerjaan riset naskah, verifikasi data, ilustrasi historis, serta pemeliharaan server berjalan dari biaya operasional nyata.",
+
+      supHadithTr: "\"Barangsiapa yang menunjukkan kepada suatu kebaikan, maka baginya pahala seperti pahala orang yang mengerjakannya.\"",
+
+      supHadithRef: "HR. Muslim no. 1893",
+
+      supFund1Title: "Riset & Verifikasi Naskah Primer",
+
+      supFund1Desc: "Pengadaan literatur sejarah, telaah kitab klasik, serta pemutakhiran data lokasi dan kronologi.",
+
+      supFund2Title: "Ilustrasi Historis & Produksi Konten",
+
+      supFund2Desc: "Pembuatan peta kartografi beresolusi tinggi, tata artistik abad ke-7 yang menjaga adab syariat, dan produksi video edukasi.",
+
+      supFund3Title: "Infrastruktur Web & Arsip Terbuka",
+
+      supFund3Desc: "Hosting, domain alfahistory.web.id, penyimpanan tile peta beresolusi tinggi, dan pengembangan fitur interaktif.",
+
+      supQrNote: "Pindai QRIS dengan aplikasi perbankan atau dompet digital di Indonesia. Dukungan bersifat sukarela dan sepenuhnya disalurkan untuk keberlangsungan riset serta produksi konten ALFA History.",
+
+      termsIntro: "Syarat dan Ketentuan ini mengatur penggunaan situs alfahistory.web.id beserta seluruh fitur peta, linimasa, dan arsip riset di dalamnya.",
+
+      termsSec1Title: "1. Layanan & Akses Terbuka",
+
+      termsSec1Body: "ALFA History menyediakan platform edukasi sejarah Islam interaktif secara gratis. Kami dapat memperbarui tampilan, menambah data peta, atau menyesuaikan fitur sewaktu-waktu demi menjaga ketepatan informasi dan kenyamanan akses.",
+
+      termsSec2Title: "2. Sifat Konten Sejarah & Bukan Fatwa",
+
+      termsSec2Body: "Seluruh artikel, kronologi, dan ringkasan naskah disusun untuk tujuan pendidikan sejarah dan literasi peradaban. Materi di situs ini bukan fatwa hukum syariat. Untuk persoalan fiqih, akidah, atau ibadah khusus, rujuklah langsung kepada ulama dan lembaga keilmuan tepercaya.",
+
+      termsSec3Title: "3. Penggunaan Konten & Hak Cipta",
+
+      termsSec3Body: "Pengunjung diperbolehkan membaca, mengutip untuk kajian ilmiah maupun pembelajaran non-komersial dengan mencantumkan sumber alfahistory.web.id. Dilarang memperjualbelikan ulang aset peta, ilustrasi karakter, atau salinan utuh basis data situs ini tanpa izin tertulis pengelola.",
+
+      termsSec4Title: "4. Koreksi Data & Pelaporan",
+
+      termsSec4Body: "Kami menyambut koreksi berbasis bukti apabila terdapat perbedaan tanggal Hijriah-Masehi, koordinat situs bersejarah, atau kutipan kitab agar kualitas rujukan terus terjaga.",
+
+      termsSec5Title: "5. Batasan Tanggung Jawab",
+
+      termsSec5Body: "ALFA History disediakan apa adanya dengan ketelitian riset setinggi mungkin. Kami tidak bertanggung jawab atas gangguan jaringan, perubahan kebijakan layanan pihak ketiga yang tertaut di direktori sumber, maupun penafsiran di luar konteks edukasi.",
+
+      termsSec6Title: "6. Kontak Pengelola",
+
+      termsSec6Body: "Pertanyaan resmi, masukan koreksi naskah, atau usulan kolaborasi edukasi dapat disampaikan melalui kanal resmi ALFA History di YouTube (@alfa-history) maupun Instagram (@alfaahistory).",
+
+      privIntro: "Kebijakan Privasi ini menjelaskan bagaimana alfahistory.web.id memperlakukan data teknis pengunjung secara minimal dan transparan.",
+
+      privSec1Title: "1. Tanpa Akun, Tanpa Iklan, Tanpa Pelacakan",
+
+      privSec1Body: "ALFA History dapat diakses langsung tanpa pendaftaran akun, tanpa kata sandi, tanpa jaringan iklan pihak ketiga, dan tanpa pelacakan lintas situs.",
+
+      privSec2Title: "2. Statistik Kunjungan Anonim",
+
+      privSec2Body: "Kami mencatat agregat kunjungan halaman dan pembacaan konten secara anonim untuk mengetahui era atau tokoh mana yang paling dibutuhkan pembaca, tanpa mengaitkannya dengan identitas pribadi siapa pun.",
+
+      privSec3Title: "3. Preferensi Lokal Browser (localStorage)",
+
+      privSec3Body: "Pilihan bahasa (Indonesia, Inggris, atau Arab) dan status penutupan overlay dukungan disimpan secara lokal di browser perangkat Anda melalui localStorage semata agar pengalaman membaca tetap nyaman saat halaman dimuat ulang.",
+
+      privSec4Title: "4. Log Teknis Hosting & Infrastruktur",
+
+      privSec4Body: "Seperti layanan web statis dan API publik pada umumnya, infrastruktur hosting dan CDN dapat mencatat log permintaan teknis singkat (misalnya jenis peramban atau waktu akses) semata untuk keamanan jaringan dan pencegahan penyalahgunaan.",
+
+      privSec5Title: "5. Kontak & Pembaruan Kebijakan",
+
+      privSec5Body: "Apabila ada pembaruan teknis yang memengaruhi penyimpanan data lokal atau statistik kunjungan, rinciannya akan diperbarui langsung pada panel ini."
 
     },
 
@@ -564,7 +670,113 @@
 
       menuTitle: "Navigation",
 
-      menuClose: "Close"
+      menuClose: "Close",
+
+      ftMuqaddimahBtn: "Muqaddimah & About ALFA ›",
+
+      ftLinkMuq: "Muqaddimah",
+
+      ftLinkSupport: "Support ALFA",
+
+      ftLinkTerms: "Terms & Conditions",
+
+      ftLinkPrivacy: "Privacy Policy",
+
+      tabMuqaddimah: "Muqaddimah",
+
+      tabSupport: "Support",
+
+      tabTerms: "Terms & Conditions",
+
+      tabPrivacy: "Privacy Policy",
+
+      muqTitle: "About the ALFA History Project",
+
+      muqLead: "ALFA History maps the trajectory of Islamic civilization across centuries in a visual, structured format rooted in classical scholarship.",
+
+      muqBody1: "Every map trajectory, historical chronology, and biographical profile on this platform is arranged so students, researchers, and general readers can follow geographic context without losing sight of primary texts.",
+
+      muqBody2: "Our research draws on authoritative chronicles including Tarikh al-Tabari, Al-Bidayah wa al-Nihayah, Sirah Ibn Hisham, Al-Kamil fi al-Tarikh, and Siyar A'lam al-Nubala', paired with hadith verification through the six canonical collections. For the history of Islam in the Indonesian archipelago, we cross-reference digitized manuscripts from the National Library of Indonesia and the Ministry of Religious Affairs.",
+
+      muqBody3: "Every human work carries room for oversight. If you spot a discrepancy in dates, spelling, geographic placement, or source citations, please send a correction so we can review and refine it promptly.",
+
+      muqVerse1Tr: "\"I only intend reform as much as I am able. And my success is not but through Allah. Upon Him I have relied, and to Him I return.\"",
+
+      muqVerse1Ref: "Quran, Hud (11): 88",
+
+      muqVerse2Tr: "\"Our Lord, accept this from us. Indeed You are the Hearing, the Knowing.\"",
+
+      muqVerse2Ref: "Quran, Al-Baqarah (2): 127",
+
+      supHeading: "Keeping Free Islamic History Education Accessible",
+
+      supBody: "Every interactive map, timeline, figure profile, and documentary from ALFA History remains open without paywalls or third-party ads. While free for visitors, primary-source research, data verification, historical artwork, and high-resolution map hosting carry real ongoing costs.",
+
+      supHadithTr: "\"Whoever guides someone to goodness will have a reward like one who did it.\"",
+
+      supHadithRef: "Sahih Muslim 1893",
+
+      supFund1Title: "Primary Source Research & Verification",
+
+      supFund1Desc: "Acquiring classical texts, verifying historical chronologies, and refining geographic coordinates.",
+
+      supFund2Title: "Historical Artwork & Video Production",
+
+      supFund2Desc: "Crafting high-resolution cartography, Sharia-compliant 7th-century historical illustrations, and documentary videos.",
+
+      supFund3Title: "Web Infrastructure & Open Archives",
+
+      supFund3Desc: "Maintaining hosting, the alfahistory.web.id domain, high-resolution tile storage, and interactive features.",
+
+      supQrNote: "Scan the QRIS code using any Indonesian banking or e-wallet app. All contributions are voluntary and go directly toward sustaining research and production for ALFA History.",
+
+      termsIntro: "These Terms and Conditions govern your access to and use of alfahistory.web.id, including its interactive map, timeline, and research archives.",
+
+      termsSec1Title: "1. Open Educational Service",
+
+      termsSec1Body: "ALFA History provides an interactive Islamic history atlas and educational archive free of charge. We may update map layers, refine entries, or adjust platform features over time to improve accuracy and usability.",
+
+      termsSec2Title: "2. Historical Content — Not Religious Rulings",
+
+      termsSec2Body: "All articles, chronologies, and source summaries are compiled for historical education and literacy. Content here does not constitute formal religious rulings (fatwa). For matters of jurisprudence, creed, or worship, consult qualified scholars and trusted institutions.",
+
+      termsSec3Title: "3. Content Use & Intellectual Property",
+
+      termsSec3Body: "Visitors may read and cite materials for academic study or non-commercial teaching with clear attribution to alfahistory.web.id. Reselling map tiles, custom illustrations, or redistributing the full database without written permission is prohibited.",
+
+      termsSec4Title: "4. Corrections & Source Feedback",
+
+      termsSec4Body: "We welcome evidence-based corrections regarding Hijri-Gregorian dates, historic site locations, or classical citations so our archive stays accurate.",
+
+      termsSec5Title: "5. Limitation of Liability",
+
+      termsSec5Body: "ALFA History is provided as-is with careful scholarly verification. We are not liable for network interruptions, external changes on linked third-party repositories, or uses outside educational contexts.",
+
+      termsSec6Title: "6. Contact",
+
+      termsSec6Body: "For official inquiries, manuscript corrections, or educational collaboration, reach ALFA History through our official channels on YouTube (@alfa-history) or Instagram (@alfaahistory).",
+
+      privIntro: "This Privacy Policy explains how alfahistory.web.id handles visitor data with minimal collection and full transparency.",
+
+      privSec1Title: "1. No Accounts, No Ads, No Cross-Site Tracking",
+
+      privSec1Body: "You can explore ALFA History immediately with no registration, no passwords, no advertising networks, and no behavioral tracking cookies.",
+
+      privSec2Title: "2. Anonymous Visit Metrics",
+
+      privSec2Body: "We record aggregate page views and content reads anonymously to understand which historical eras and figures readers explore most, never linked to any personal identity.",
+
+      privSec3Title: "3. Browser Local Preferences (localStorage)",
+
+      privSec3Body: "Your chosen language (Indonesian, English, or Arabic) and support-dock dismissal state are saved locally in your browser's localStorage solely to preserve reading preferences across reloads.",
+
+      privSec4Title: "4. Standard Hosting & Infrastructure Logs",
+
+      privSec4Body: "As with standard static hosting and CDN networks, brief technical request logs may be processed by infrastructure providers strictly for reliability, security, and abuse prevention.",
+
+      privSec5Title: "5. Updates & Contact",
+
+      privSec5Body: "Whenever technical updates change how local preferences or visit statistics work, this policy panel will be updated directly."
 
     },
 
@@ -843,7 +1055,113 @@
 
       menuTitle: "قائمة التنقل",
 
-      menuClose: "إغلاق"
+      menuClose: "إغلاق",
+
+      ftMuqaddimahBtn: "المقدمة وعن مشروع ألفا ›",
+
+      ftLinkMuq: "المقدمة",
+
+      ftLinkSupport: "ادعم ألفا",
+
+      ftLinkTerms: "الشروط والأحكام",
+
+      ftLinkPrivacy: "سياسة الخصوصية",
+
+      tabMuqaddimah: "المقدمة",
+
+      tabSupport: "ادعم ألفا",
+
+      tabTerms: "الشروط والأحكام",
+
+      tabPrivacy: "سياسة الخصوصية",
+
+      muqTitle: "عن مشروع ألفا للتاريخ الإسلامي",
+
+      muqLead: "يهدف مشروع ألفا إلى رسم معالم الحضارة الإسلامية عبر القرون بأسلوب بصري منظم يستند إلى أمهات المصادر الكلاسيكية.",
+
+      muqBody1: "تُصاغ الخرائط التفاعلية والتسلسل الزمني وتراجم الأعلام في هذا الموقع لتمكين الدارسين والقراء من استيعاب السياق الجغرافي والتاريخي دون انقطاع عن النصوص الأصلية.",
+
+      muqBody2: "يعتمد التوثيق على كتب التاريخ الكبرى مثل تاريخ الطبري، والبداية والنهاية، وسيرة ابن هشام، والكامل في التاريخ، وسير أعلام النبلاء، مع ضبط الروايات عبر الكتب الستة ودواوين التخريج، وتوثيق تاريخ الإسلام في الأرخبيل الإندونيسي عبر مخطوطات المكتبة الوطنية الإندونيسية ووزارة الشؤون الدينية.",
+
+      muqBody3: "وكل عمل بشري عرضة للنقص والخطأ؛ فمن وجد تصحيحاً في تاريخ أو اسم علم أو موضع جغرافي أو توثيق مرجع، نرحب بمراسلته لتداركه ومراجعته.",
+
+      muqVerse1Tr: "سورة هود: الآية ٨٨",
+
+      muqVerse1Ref: "القرآن الكريم - هود (١١): ٨٨",
+
+      muqVerse2Tr: "سورة البقرة: الآية ١٢٧",
+
+      muqVerse2Ref: "القرآن الكريم - البقرة (٢): ١٢٧",
+
+      supHeading: "استدامة المحتوى التاريخي المجاني والموثق",
+
+      supBody: "تُتاح جميع الخرائط التفاعلية والخطوط الزمنية وتراجم الشخصيات والأفلام الوثائقية في ألفا مجاناً دون اشتراكات مدفوعة أو إعلانات تجارية. ومع مجانية التصفح، يتطلب البحث والتوثيق والرسم التاريخي وتشغيل الخوادم نفقات تشغيلية حقيقية.",
+
+      supHadithTr: "من دلّ على خير فله مثل أجر فاعله — حديث شريف.",
+
+      supHadithRef: "صحيح مسلم رقم ١٨٩٣",
+
+      supFund1Title: "البحث وتحقيق المصادر الأولية",
+
+      supFund1Desc: "توفير المراجع التراثية، ومراجعة التسلسل التاريخي، وضبط الإحداثيات الجغرافية للمواقع.",
+
+      supFund2Title: "الرسوم التاريخية وإنتاج المحتوى",
+
+      supFund2Desc: "تصميم الخرائط عالية الدقة، والرسوم الملتزمة بالضوابط الشرعية، وإنتاج المقاطع التعليمية.",
+
+      supFund3Title: "البنية التقنية والأرشيف المفتوح",
+
+      supFund3Desc: "تشغيل الاستضافة ونطاق alfahistory.web.id وتخزين طبقات الخرائط التفاعلية.",
+
+      supQrNote: "امسح رمز QRIS عبر التطبيقات البنكية والمحافظ الرقمية في إندونيسيا. المساهمات طوعية بالكامل وتُوجّه لاستدامة البحث والإنتاج في ألفا.",
+
+      termsIntro: "تنظم هذه الشروط والأحكام استخدام موقع alfahistory.web.id وكافة الخرائط والأرشيفات البحثية المتاحة فيه.",
+
+      termsSec1Title: "١. الخدمة والوصول المفتوح",
+
+      termsSec1Body: "يقدّم موقع ألفا منصة تعليمية تفاعلية للتاريخ الإسلامي مجاناً، مع إمكانية تحديث طبقات الخريطة والمواد العلمية دورياً لتحسين الدقة وجودة العرض.",
+
+      termsSec2Title: "٢. طبيعة المحتوى التاريخي",
+
+      termsSec2Body: "جميع المقالات والتواريخ والموجزات معدة لأغراض التثقيف والبحث التاريخي وليست فتاوى شرعية. يُرجى في المسائل الفقهية والعقدية الرجوع إلى العلماء والمؤسسات العلمية المعتبرة.",
+
+      termsSec3Title: "٣. استخدام المحتوى والملكية الفكرية",
+
+      termsSec3Body: "يُسمح بالقراءة والاقتباس العلمي والتعليمي غير التجاري مع ذكر المصدر (alfahistory.web.id). ولا يُسمح بإعادة بيع الخرائط أو الرسوم أو نسخ قاعدة البيانات كاملة دون إذن خطي مسبق.",
+
+      termsSec4Title: "٤. التصحيحات والملاحظات",
+
+      termsSec4Body: "نرحب بالملاحظات الموثقة حول التواريخ الهجرية والميلادية أو الإحداثيات الجغرافية أو الإحالات المرجعية للارتقاء بدقة الأرشيف.",
+
+      termsSec5Title: "٥. حدود المسؤولية",
+
+      termsSec5Body: "يُقدّم المحتوى كما هو بأقصى درجات التحري العلمي، ولا يتحمل الموقع مسؤولية أي انقطاعات تقنية أو تغييرات في المواقع المرجعية الخارجية المرتبطة به.",
+
+      termsSec6Title: "٦. التواصل الرسمي",
+
+      termsSec6Body: "للاستفسارات أو الملاحظات العلمية، يمكن التواصل عبر القنوات الرسمية لمشروع ألفا على YouTube (@alfa-history) أو Instagram (@alfaahistory).",
+
+      privIntro: "توضح سياسة الخصوصية هذه كيفية تعامل alfahistory.web.id مع بيانات الزوار بأدنى حد من الجمع وبشفافية كاملة.",
+
+      privSec1Title: "١. بلا حسابات وبلا إعلانات وبلا تتبع",
+
+      privSec1Body: "يمكن تصفح ألفا مباشرة دون تسجيل حساب أو كلمات مرور، ودون شبكات إعلانية أو ملفات تتبع عابرة للمواقع.",
+
+      privSec2Title: "٢. إحصاءات الزيارات المجهولة",
+
+      privSec2Body: "تُجمع إحصاءات تصفح عامة ومجهولة المصدر لفهم أكثر الحقب والشخصيات اهتماماً لدى القراء، دون ربطها بهوية شخصية.",
+
+      privSec3Title: "٣. التفضيلات المحلية في المتصفح (localStorage)",
+
+      privSec3Body: "يُحفظ اختيار اللغة (الإندونيسية أو الإنجليزية أو العربية) وحالة إخفاء شريط الدعم محلياً في متصفحك فقط لتسهيل التصفح عند إعادة التحميل.",
+
+      privSec4Title: "٤. سجلات الاستضافة التقنية",
+
+      privSec4Body: "قد تعالج خوادم الاستضافة وشبكات التوزيع سجلات تقنية مؤقتة بالقدر اللازم لأمن الشبكة واستقرار الخدمة ومنع إساءة الاستخدام.",
+
+      privSec5Title: "٥. التحديثات والتواصل",
+
+      privSec5Body: "عند حدوث أي تغيير تقني يخص التفضيلات المحلية أو إحصاءات الاستخدام، تُحدّث هذه الصفحة مباشرة."
 
     }
 

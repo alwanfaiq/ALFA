@@ -4,6 +4,37 @@ Repository: alfahistory.web.id
 ================================================================================
 
 --------------------------------------------------------------------------------
+VERSI 1.9.1 (26 November 2026) - PENYELARASAN PETA FULL Z5 & PEMBARUAN POP-OUT ALFA
+--------------------------------------------------------------------------------
+1. Penyempurnaan Presisi Garis Pantai assets/world.svg (4-Pass Ink-Edge Lock hingga 4K):
+   - Menambahkan Pass 3 (4096x2432 vs World-warped.png, IoU 4K 0.9898) serta Pass 4
+     berupa pencocokan garis tinta tepi (ink-edge template lock) langsung ke tile
+     raster v1.9.1 di resolusi 4096x2432.
+   - Korelasi zero-lag garis pantai meningkat dari 0.2888 menjadi 0.4463 (+0.1575)
+     dengan residu 0px di Laut Merah, Somalia/Sokotra, serta Nusantara, sambil menjaga
+     ketajaman lekukan Teluk Suez, Teluk Aqaba, dan kepulauan Jepang (256 poligon utuh).
+
+2. Piramida Tile Zoom 5 Penuh Sedunia (608 Tile) & Layer Tunggal Leaflet:
+   - Membangun seluruh cakupan grid Zoom 5 (32x19 = 608 tile WebP, total 9.09 MB)
+     yang mempertahankan 36 tile HD Timur Tengah (x=16..21, y=4..9) sambil memperhalus
+     572 tile wilayah dunia lainnya dari z=4 menggunakan Lanczos + UnsharpMask.
+   - Menyatukan L.tileLayer di index.html dengan maxNativeZoom: 5 dan menghapus layer
+     sekunder terbatas bounds (zIndex: 205) sehingga tidak lagi muncul garis kotak
+     pemisah antara tile Zoom 5 dan Zoom 4 di Afrika Tengah maupun wilayah lainnya.
+
+3. Perampingan Tombol Footer & Ekspansi Modal Pop-out ALFA Research & Archives:
+   - Menghapus duplikasi tombol footer: tombol kiri (#ftSourcesBtn) kini membuka
+     tab Muqaddimah ("Muqaddimah & Tentang ALFA ›"), sedangkan #ftSrcLink tetap
+     membuka Direktori Sumber Primer.
+   - Menambahkan tautan footer Muqaddimah, Dukung ALFA, Syarat & Ketentuan, serta
+     Kebijakan Privasi pada baris hak cipta (.cp) yang langsung membuka tab terkait
+     di dalam pop-out modal #sourcesDlg tanpa berpindah halaman.
+   - Memperluas #sourcesDlg menjadi 6 tab multibahasa (Indonesia, Inggris, Arab):
+     Muqaddimah (beserta kutipan QS. Hud: 88 & QS. Al-Baqarah: 127), Direktori Sumber
+     Primer, Transparansi & Adab Visual, Dukung ALFA (HR. Muslim no. 1893 & QRIS),
+     Syarat & Ketentuan, dan Kebijakan Privasi.
+
+--------------------------------------------------------------------------------
 VERSI 1.9.1 (25 November 2026) - PERAMPINGAN FOOTER & INTEGRASI KATALOG 69 RUJUKAN
 --------------------------------------------------------------------------------
 1. Perampingan Kolom Rujukan Ilmiah di Footer Web (index.html):

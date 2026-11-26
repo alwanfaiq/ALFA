@@ -732,7 +732,15 @@ footer{border-top:1px solid rgba(110,92,54,.3);margin-top:80px;padding:56px clam
 
 .ft-qris-inner img{width:100%;height:100%;object-fit:contain;display:block}
 
-.cp{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;max-width:1440px;margin-left:auto;margin-right:auto}
+.cp{margin-top:44px;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);color:var(--dim);font-size:.78rem;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;max-width:1440px;margin-left:auto;margin-right:auto}
+
+.ft-legal-links{display:flex;align-items:center;flex-wrap:wrap;gap:8px;color:var(--dim)}
+
+.ft-legal-btn{background:none;border:0;padding:2px 0;color:var(--mut);font:400 .78rem/1.4 Bitter,Georgia,serif;cursor:pointer;transition:color .2s;text-decoration:none}
+
+.ft-legal-btn:hover{color:var(--g);text-decoration:underline;text-underline-offset:3px}
+
+.ft-legal-sep{color:rgba(196,163,90,.35);user-select:none}
 
 @media(max-width:1050px){.ft{grid-template-columns:1fr 1fr;gap:32px}.ft-sup-block{grid-column:span 2}}
 
@@ -804,15 +812,15 @@ footer{border-top:1px solid rgba(110,92,54,.3);margin-top:80px;padding:56px clam
 
 .src-head p{color:var(--mut);font-size:.86rem;margin-top:6px;line-height:1.4}
 
-.src-tabs{display:flex;gap:10px;padding:12px 30px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(110,92,54,.2)}
+.src-tabs{display:flex;flex-wrap:wrap;gap:6px 8px;padding:12px 30px;background:rgba(0,0,0,.3);border-bottom:1px solid rgba(110,92,54,.2)}
 
-.src-tab{background:none;border:1px solid transparent;color:var(--mut);font:700 .8rem Cinzel,serif;padding:7px 14px;cursor:pointer;border-radius:2px;letter-spacing:.04em;transition:all .2s}
+.src-tab{background:none;border:1px solid transparent;color:var(--mut);font:700 .74rem Cinzel,serif;padding:7px 12px;cursor:pointer;border-radius:2px;letter-spacing:.04em;transition:all .2s;white-space:nowrap}
 
 .src-tab:hover{color:#fff}
 
 .src-tab.on{color:var(--g);border-color:var(--g);background:rgba(196,163,90,.12)}
 
-.src-panel{padding:22px 30px 28px;max-height:min(64vh,520px);overflow-y:auto}
+.src-panel{padding:22px 30px 28px;max-height:min(64vh,520px);overflow-y:auto;scroll-behavior:smooth}
 
 .src-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
 
@@ -838,11 +846,63 @@ footer{border-top:1px solid rgba(110,92,54,.3);margin-top:80px;padding:56px clam
 
 .src-tell-card.eth{border-left:4px solid var(--g)}
 
+html[dir="rtl"] .src-tell-card.eth{border-left:1px solid var(--border);border-right:4px solid var(--g)}
+
 .src-tell-card h4{font:700 1.05rem Arvo,serif;color:var(--g);margin-bottom:10px}
 
 .src-tell-card p{font-size:.88rem;line-height:1.65;color:var(--ink);white-space:pre-line}
 
-@media(max-width:640px){.src-head{padding:20px 18px 14px}.src-tabs{padding:10px 18px}.src-panel{padding:16px 18px 22px}.src-grid{grid-template-columns:1fr}}
+.src-muq-bismillah{font-family:Amiri,'Scheherazade New',serif;font-size:1.6rem;color:var(--g);text-align:center;margin:2px 0 14px;letter-spacing:0;line-height:1.6}
+
+.src-muq-lead{font-size:.94rem;line-height:1.72;color:#f3ead8;margin-bottom:16px}
+
+.src-muq-body p{font-size:.88rem;line-height:1.7;color:var(--ink);margin-bottom:12px}
+
+.src-muq-quote{background:#221b14;border:1px solid rgba(196,163,90,.28);border-left:3px solid var(--g);padding:14px 18px;margin:14px 0;border-radius:2px}
+
+html[dir="rtl"] .src-muq-quote{border-left:1px solid rgba(196,163,90,.28);border-right:3px solid var(--g)}
+
+.src-muq-ar{font-family:Amiri,'Scheherazade New',serif;font-size:1.22rem;line-height:1.85;color:#f5ecd8;direction:rtl;text-align:right;margin-bottom:8px}
+
+.src-muq-tr{font-size:.85rem;line-height:1.6;color:var(--ink);font-style:italic;margin-bottom:6px}
+
+.src-muq-ref{font:700 .72rem Cinzel,serif;color:var(--g);letter-spacing:.05em}
+
+.src-sup-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.85fr);gap:22px;align-items:start}
+
+.src-sup-list{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:8px}
+
+.src-sup-list li{background:#221b14;border:1px solid var(--border);padding:9px 13px;font-size:.84rem;line-height:1.5;color:var(--ink);border-radius:2px}
+
+.src-sup-list li strong{color:var(--g);display:block;font:700 .76rem Cinzel,serif;margin-bottom:2px;letter-spacing:.04em}
+
+.src-sup-qr-card{background:#221b14;border:1px solid var(--g2);padding:18px;border-radius:2px;text-align:center}
+
+.src-sup-qr-card h5{font:700 .86rem Cinzel,serif;color:var(--g);margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em}
+
+.src-sup-qr-card .src-sup-merc{font-size:.78rem;color:var(--mut);margin-bottom:12px}
+
+.src-sup-qr-frame{background:#FAF6EE;padding:12px;border:2px solid var(--g);border-radius:2px;max-width:210px;margin:0 auto 12px}
+
+.src-sup-qr-frame img{width:100%;height:auto;display:block}
+
+.src-sup-qr-note{font-size:.78rem;line-height:1.5;color:var(--mut)}
+
+.src-legal-intro{font-size:.86rem;line-height:1.65;color:var(--mut);margin-bottom:14px}
+
+.src-legal-toc{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(110,92,54,.25)}
+
+.src-legal-pill{background:rgba(196,163,90,.09);border:1px solid rgba(196,163,90,.3);color:var(--ink);font:600 .74rem Bitter,serif;padding:4px 10px;border-radius:2px;cursor:pointer;transition:all .2s}
+
+.src-legal-pill:hover{border-color:var(--g);color:var(--g);background:rgba(196,163,90,.18)}
+
+.src-legal-sec{background:#221b14;border:1px solid var(--border);padding:15px 18px;margin-bottom:12px;border-radius:2px}
+
+.src-legal-sec h4{font:700 .96rem Arvo,serif;color:var(--g);margin-bottom:7px}
+
+.src-legal-sec p{font-size:.86rem;line-height:1.65;color:var(--ink);white-space:pre-line}
+
+@media(max-width:720px){.src-head{padding:20px 18px 14px}.src-tabs{padding:10px 18px;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}.src-tabs::-webkit-scrollbar{display:none}.src-panel{padding:16px 18px 22px}.src-grid{grid-template-columns:1fr}.src-sup-grid{grid-template-columns:1fr}}
 
 
 
@@ -2316,7 +2376,7 @@ button.x:hover, button.x:focus {
 
       <p id="ftDesc">Tracing the history of Islam through interactive maps, notable figures, and short stories.</p>
 
-      <button class="ft-src-btn" id="ftSourcesBtn" type="button" data-i18n="ftSourcesBtn">Methodology &amp; Primary Sources ›</button>
+      <button class="ft-src-btn" id="ftSourcesBtn" type="button" data-i18n="ftMuqaddimahBtn" data-src-tab="muqaddimah">Muqaddimah &amp; Tentang ALFA ›</button>
 
     </div>
 
@@ -2392,7 +2452,29 @@ button.x:hover, button.x:focus {
 
   </div>
 
-  <div class="cp"><span id="yr"></span></div>
+  <div class="cp">
+
+    <span id="yr"></span>
+
+    <nav class="ft-legal-links" aria-label="ALFA Information">
+
+      <button class="ft-legal-btn" id="ftLinkMuq" type="button" data-src-tab="muqaddimah" data-i18n="ftLinkMuq">Muqaddimah</button>
+
+      <span class="ft-legal-sep" aria-hidden="true">·</span>
+
+      <button class="ft-legal-btn" id="ftLinkSupport" type="button" data-src-tab="support" data-i18n="ftLinkSupport">Dukung ALFA</button>
+
+      <span class="ft-legal-sep" aria-hidden="true">·</span>
+
+      <button class="ft-legal-btn" id="ftLinkTerms" type="button" data-src-tab="terms" data-i18n="ftLinkTerms">Syarat &amp; Ketentuan</button>
+
+      <span class="ft-legal-sep" aria-hidden="true">·</span>
+
+      <button class="ft-legal-btn" id="ftLinkPrivacy" type="button" data-src-tab="privacy" data-i18n="ftLinkPrivacy">Kebijakan Privasi</button>
+
+    </nav>
+
+  </div>
 
 </footer>
 
@@ -2442,7 +2524,7 @@ button.x:hover, button.x:focus {
 
 
 
-<!-- Primary Islamic Sources & Research Methodology Modal -->
+<!-- Primary Islamic Sources & Research Archives Modal -->
 
 <dialog id="sourcesDlg">
 
@@ -2460,13 +2542,23 @@ button.x:hover, button.x:focus {
 
     </div>
 
-    <div class="src-tabs">
+    <div class="src-tabs" role="tablist">
 
-      <button class="src-tab on" id="tabSrcDirBtn" type="button" data-i18n="tabSources">Primary Sources Directory</button>
+      <button class="src-tab" id="tabSrcMuqBtn" type="button" role="tab" data-src-tab="muqaddimah" data-i18n="tabMuqaddimah">Muqaddimah</button>
 
-      <button class="src-tab" id="tabSrcTellBtn" type="button" data-i18n="tabTelling">About This Telling &amp; Visual Ethics</button>
+      <button class="src-tab on" id="tabSrcDirBtn" type="button" role="tab" data-src-tab="sources" data-i18n="tabSources">Primary Sources Directory</button>
+
+      <button class="src-tab" id="tabSrcTellBtn" type="button" role="tab" data-src-tab="telling" data-i18n="tabTelling">About This Telling &amp; Visual Ethics</button>
+
+      <button class="src-tab" id="tabSrcSupBtn" type="button" role="tab" data-src-tab="support" data-i18n="tabSupport">Support</button>
+
+      <button class="src-tab" id="tabSrcTermsBtn" type="button" role="tab" data-src-tab="terms" data-i18n="tabTerms">Terms &amp; Conditions</button>
+
+      <button class="src-tab" id="tabSrcPrivacyBtn" type="button" role="tab" data-src-tab="privacy" data-i18n="tabPrivacy">Privacy Policy</button>
 
     </div>
+
+    <div class="src-panel" id="panelSrcMuq" hidden></div>
 
     <div class="src-panel" id="panelSrcDir">
 
@@ -2493,6 +2585,12 @@ button.x:hover, button.x:focus {
       </div>
 
     </div>
+
+    <div class="src-panel" id="panelSrcSup" hidden></div>
+
+    <div class="src-panel" id="panelSrcTerms" hidden></div>
+
+    <div class="src-panel" id="panelSrcPrivacy" hidden></div>
 
   </div>
 
@@ -2659,7 +2757,7 @@ function initLeaflet(){
 
     minZoom:0,
 
-    maxNativeZoom:4,
+    maxNativeZoom:5,
 
     maxZoom:6.0,
 
@@ -2669,18 +2767,6 @@ function initLeaflet(){
 
     keepBuffer:4
 
-  }).addTo(LMAP);
-
-  // Ultra-crisp Regional Zoom 5 HD overlay for Egypt–Syam–Hijaz–Iraq–Persia (Z5 tiles x=16..21, y=4..9)
-  L.tileLayer("assets/tiles/{z}/{x}/{y}.webp",{
-    tileSize:512,
-    minZoom:4.1,
-    maxNativeZoom:5,
-    maxZoom:6.0,
-    noWrap:true,
-    bounds:L.latLngBounds([-159.8,256.2],[-64.2,351.8]),
-    keepBuffer:2,
-    zIndex:205
   }).addTo(LMAP);
 
   GEO_LAYER=L.layerGroup().addTo(LMAP);
@@ -4967,11 +5053,63 @@ function initSupport(){
 
 
 
-// ---- PRIMARY ISLAMIC SOURCES & METHODOLOGY MODAL
+// ---- PRIMARY ISLAMIC SOURCES, MUQADDIMAH, SUPPORT & LEGAL MODAL
 
 function initSources(){
 
   const sd=$("#sourcesDlg");
+
+  const TAB_CFG={
+
+    muqaddimah:{btn:"#tabSrcMuqBtn",panel:"#panelSrcMuq"},
+
+    sources:{btn:"#tabSrcDirBtn",panel:"#panelSrcDir"},
+
+    telling:{btn:"#tabSrcTellBtn",panel:"#panelSrcTell"},
+
+    support:{btn:"#tabSrcSupBtn",panel:"#panelSrcSup"},
+
+    terms:{btn:"#tabSrcTermsBtn",panel:"#panelSrcTerms"},
+
+    privacy:{btn:"#tabSrcPrivacyBtn",panel:"#panelSrcPrivacy"}
+
+  };
+
+  let activeTab="sources";
+
+  function buildLegalPanel(panel,introKey,items){
+
+    if(!panel)return;
+
+    panel.replaceChildren();
+
+    const intro=document.createElement("p");intro.className="src-legal-intro";intro.textContent=I.t(introKey);
+
+    const toc=document.createElement("div");toc.className="src-legal-toc";
+
+    const sections=[];
+
+    items.forEach(it=>{
+
+      const sec=document.createElement("section");sec.className="src-legal-sec";
+
+      const h4=document.createElement("h4");h4.textContent=I.t(it.t);
+
+      const p=document.createElement("p");p.textContent=I.t(it.b);
+
+      sec.append(h4,p);sections.push(sec);
+
+      const pill=document.createElement("button");pill.type="button";pill.className="src-legal-pill";pill.textContent=I.t(it.t);
+
+      pill.onclick=()=>{sec.scrollIntoView({behavior:"smooth",block:"start"})};
+
+      toc.append(pill);
+
+    });
+
+    panel.append(intro,toc,...sections);
+
+  }
 
   function renderSourcesModal(){
 
@@ -5015,9 +5153,17 @@ function initSources(){
 
     $("#srcModalSubtitle").textContent=I.t("sourcesSub");
 
+    $("#tabSrcMuqBtn").textContent=I.t("tabMuqaddimah");
+
     $("#tabSrcDirBtn").textContent=I.t("tabSources");
 
     $("#tabSrcTellBtn").textContent=I.t("tabTelling");
+
+    $("#tabSrcSupBtn").textContent=I.t("tabSupport");
+
+    $("#tabSrcTermsBtn").textContent=I.t("tabTerms");
+
+    $("#tabSrcPrivacyBtn").textContent=I.t("tabPrivacy");
 
     $("#tellMethHead").textContent=I.t("tellingMethodHead");
 
@@ -5027,13 +5173,173 @@ function initSources(){
 
     $("#tellEthBody").textContent=I.t("tellingEthicsBody");
 
+    const pMuq=$("#panelSrcMuq");
+
+    if(pMuq){
+
+      pMuq.replaceChildren();
+
+      const bis=document.createElement("div");bis.className="src-muq-bismillah";bis.textContent="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
+
+      const card=document.createElement("div");card.className="src-tell-card";
+
+      const h4=document.createElement("h4");h4.textContent=I.t("muqTitle");
+
+      const lead=document.createElement("p");lead.className="src-muq-lead";lead.textContent=I.t("muqLead");
+
+      const bodyWrap=document.createElement("div");bodyWrap.className="src-muq-body";
+
+      ["muqBody1","muqBody2","muqBody3"].forEach(k=>{const p=document.createElement("p");p.textContent=I.t(k);bodyWrap.append(p)});
+
+      card.append(h4,lead,bodyWrap);
+
+      const q1=document.createElement("blockquote");q1.className="src-muq-quote";
+
+      const q1a=document.createElement("p");q1a.className="src-muq-ar";q1a.textContent="إِنْ أُرِيدُ إِلَّا الْإِصْلَاحَ مَا اسْتَطَعْتُ ۚ وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ";
+
+      const q1t=document.createElement("p");q1t.className="src-muq-tr";q1t.textContent=I.t("muqVerse1Tr");
+
+      const q1r=document.createElement("div");q1r.className="src-muq-ref";q1r.textContent=I.t("muqVerse1Ref");
+
+      q1.append(q1a,q1t,q1r);
+
+      const q2=document.createElement("blockquote");q2.className="src-muq-quote";
+
+      const q2a=document.createElement("p");q2a.className="src-muq-ar";q2a.textContent="رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ";
+
+      const q2t=document.createElement("p");q2t.className="src-muq-tr";q2t.textContent=I.t("muqVerse2Tr");
+
+      const q2r=document.createElement("div");q2r.className="src-muq-ref";q2r.textContent=I.t("muqVerse2Ref");
+
+      q2.append(q2a,q2t,q2r);
+
+      pMuq.append(bis,card,q1,q2);
+
+    }
+
+    const pSup=$("#panelSrcSup");
+
+    if(pSup){
+
+      pSup.replaceChildren();
+
+      const grid=document.createElement("div");grid.className="src-sup-grid";
+
+      const left=document.createElement("div");
+
+      const sCard=document.createElement("div");sCard.className="src-tell-card";
+
+      const sH4=document.createElement("h4");sH4.textContent=I.t("supHeading");
+
+      const sP=document.createElement("p");sP.textContent=I.t("supBody");
+
+      sCard.append(sH4,sP);
+
+      const hQuote=document.createElement("blockquote");hQuote.className="src-muq-quote";
+
+      const hAr=document.createElement("p");hAr.className="src-muq-ar";hAr.textContent="«مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ»";
+
+      const hTr=document.createElement("p");hTr.className="src-muq-tr";hTr.textContent=I.t("supHadithTr");
+
+      const hRf=document.createElement("div");hRf.className="src-muq-ref";hRf.textContent=I.t("supHadithRef");
+
+      hQuote.append(hAr,hTr,hRf);
+
+      const ul=document.createElement("ul");ul.className="src-sup-list";
+
+      [["supFund1Title","supFund1Desc"],["supFund2Title","supFund2Desc"],["supFund3Title","supFund3Desc"]].forEach(([tk,dk])=>{
+
+        const li=document.createElement("li");
+
+        const st=document.createElement("strong");st.textContent=I.t(tk);
+
+        const tx=document.createTextNode(I.t(dk));
+
+        li.append(st,tx);ul.append(li);
+
+      });
+
+      left.append(sCard,hQuote,ul);
+
+      const right=document.createElement("div");right.className="src-sup-qr-card";
+
+      const rH5=document.createElement("h5");rH5.textContent=I.t("supportTitle");
+
+      const rMerc=document.createElement("p");rMerc.className="src-sup-merc";rMerc.textContent="ALFA | History of Islam";
+
+      const rFrame=document.createElement("div");rFrame.className="src-sup-qr-frame";
+
+      const rImg=document.createElement("img");rImg.src="assets/qris-support.svg";rImg.alt="QRIS Support ALFA";
+
+      rFrame.append(rImg);
+
+      const rNote=document.createElement("p");rNote.className="src-sup-qr-note";rNote.textContent=I.t("supQrNote");
+
+      right.append(rH5,rMerc,rFrame,rNote);
+
+      grid.append(left,right);
+
+      pSup.append(grid);
+
+    }
+
+    buildLegalPanel($("#panelSrcTerms"),"termsIntro",[
+
+      {t:"termsSec1Title",b:"termsSec1Body"},
+
+      {t:"termsSec2Title",b:"termsSec2Body"},
+
+      {t:"termsSec3Title",b:"termsSec3Body"},
+
+      {t:"termsSec4Title",b:"termsSec4Body"},
+
+      {t:"termsSec5Title",b:"termsSec5Body"},
+
+      {t:"termsSec6Title",b:"termsSec6Body"}
+
+    ]);
+
+    buildLegalPanel($("#panelSrcPrivacy"),"privIntro",[
+
+      {t:"privSec1Title",b:"privSec1Body"},
+
+      {t:"privSec2Title",b:"privSec2Body"},
+
+      {t:"privSec3Title",b:"privSec3Body"},
+
+      {t:"privSec4Title",b:"privSec4Body"},
+
+      {t:"privSec5Title",b:"privSec5Body"}
+
+    ]);
+
   }
 
+  function switchTab(tabKey){
 
+    const key=TAB_CFG[tabKey]?tabKey:"sources";
 
-  const openSources=()=>{
+    activeTab=key;
+
+    Object.entries(TAB_CFG).forEach(([k,cfg])=>{
+
+      const b=$(cfg.btn),p=$(cfg.panel),on=k===key;
+
+      if(b){b.classList.toggle("on",on);b.setAttribute("aria-selected",on?"true":"false")}
+
+      if(p){p.hidden=!on;if(on)p.scrollTop=0}
+
+    });
+
+  }
+
+  const openSources=tabArg=>{
+
+    const target=(typeof tabArg==="string"&&TAB_CFG[tabArg])?tabArg:"sources";
 
     renderSourcesModal();
+
+    switchTab(target);
 
     if(sd&&!sd.open)sd.showModal();
 
@@ -5045,35 +5351,27 @@ function initSources(){
 
   if(sd)sd.addEventListener("click",e=>{if(e.target==sd)closeSources()});
 
-  const navSrc=$("#navSources");if(navSrc)navSrc.onclick=openSources;
+  const navSrc=$("#navSources");if(navSrc)navSrc.onclick=()=>openSources("sources");
 
-  const ftSrcBtn=$("#ftSourcesBtn");if(ftSrcBtn)ftSrcBtn.onclick=openSources;
+  const ftSrcLink=$("#ftSrcLink");if(ftSrcLink)ftSrcLink.onclick=e=>{e.preventDefault();openSources("sources")};
 
-  const ftSrcLink=$("#ftSrcLink");if(ftSrcLink)ftSrcLink.onclick=e=>{e.preventDefault();openSources()};
+  document.querySelectorAll("[data-src-tab]").forEach(el=>{
 
+    if(el.classList.contains("src-tab")){
 
+      el.onclick=()=>switchTab(el.dataset.srcTab);
 
-  const btnDir=$("#tabSrcDirBtn"),btnTell=$("#tabSrcTellBtn");
+    }else{
 
-  if(btnDir)btnDir.onclick=()=>{
+      el.onclick=e=>{if(e)e.preventDefault();openSources(el.dataset.srcTab)};
 
-    btnDir.classList.add("on");if(btnTell)btnTell.classList.remove("on");
+    }
 
-    $("#panelSrcDir").hidden=false;$("#panelSrcTell").hidden=true;
-
-  };
-
-  if(btnTell)btnTell.onclick=()=>{
-
-    btnTell.classList.add("on");if(btnDir)btnDir.classList.remove("on");
-
-    $("#panelSrcDir").hidden=true;$("#panelSrcTell").hidden=false;
-
-  };
+  });
 
   window.alfaOpenSources=openSources;
 
-  window.alfaRenderSources=renderSourcesModal;
+  window.alfaRenderSources=()=>{renderSourcesModal();switchTab(activeTab)};
 
 }
 
@@ -5139,7 +5437,7 @@ function applyStaticI18n(){
 
   const ftSrcHead=$("#ftSrcHead");if(ftSrcHead)ftSrcHead.textContent=I.t("ftSources");
 
-  const ftSourcesBtn=$("#ftSourcesBtn");if(ftSourcesBtn)ftSourcesBtn.textContent=I.t("ftSourcesBtn");
+  const ftSourcesBtn=$("#ftSourcesBtn");if(ftSourcesBtn)ftSourcesBtn.textContent=I.t("ftMuqaddimahBtn");
 
   const ftSrcLink=$("#ftSrcLink");if(ftSrcLink)ftSrcLink.textContent=I.t("ftSourcesAll");
 
@@ -5560,9 +5858,15 @@ if(!/[?&]preview=1/.test(location.search)&&typeof alfaTrack==="function")alfaTra
 
       closeDrawer();
 
-      const dlg = document.getElementById("sourcesDlg");
+      if(window.alfaOpenSources) window.alfaOpenSources("sources");
 
-      if(dlg && typeof dlg.showModal === "function") dlg.showModal();
+      else {
+
+        const dlg = document.getElementById("sourcesDlg");
+
+        if(dlg && typeof dlg.showModal === "function") dlg.showModal();
+
+      }
 
     };
 

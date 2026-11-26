@@ -7,9 +7,11 @@ GitHub (alfahistory.web.id). Folder versi sebelumnya (v1.9.0) tetap dipertahanka
 sebagai arsip cadangan.
 
 DAFTAR BERKAS YANG DIPERBARUI DI v1.9.1:
-- index.html    -> [DIPERBARUI] Kolom rujukan footer ramping (3 sumber inti + tombol "All Sources ›" interaktif)
-- i18n.js       -> [DIPERBARUI] 4 sumber primer baru (Siyar A'lam an-Nubala', Ar-Rahiq al-Makhtum, Suwar min Hayatis Sahabah, Khulashah Nurul Yaqin) + string multibahasa ftSourcesAll
-- CHANGELOG.txt -> Dokumentasi lengkap rilis v1.9.1
+- assets/tiles/0..5/ -> [DIPERBARUI] Piramida tile penuh hingga Zoom 5 (z=5 penuh 608 tile / 32x19)
+- assets/world.svg   -> [DIPERBARUI] Poligon vektor 256 negara hasil penyelarasan 4-pass ink-edge lock langsung ke tile raster (corr@0: 0.4463)
+- index.html         -> [DIPERBARUI] L.tileLayer tunggal maxNativeZoom: 5, footer bebas duplikasi, dan modal #sourcesDlg 6 tab (Muqaddimah, Sumber Primer, Adab Visual, Dukung ALFA, Syarat & Ketentuan, Kebijakan Privasi)
+- i18n.js            -> [DIPERBARUI] Terjemahan lengkap ID/EN/AR untuk 4 tab baru, tombol footer, dan 69 katalog sumber
+- CHANGELOG.txt      -> Dokumentasi lengkap rilis v1.9.1
 
 BERKAS PENDUKUNG LAIN YANG TETAP WAJIB ADA DI ROOT REPO:
 - assets/ (cartography_vectors.svg, leaflet, tiles 0-5, world.svg, world_overview.webp, cover & qris)
