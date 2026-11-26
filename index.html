@@ -190,13 +190,13 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 
 #places{position:relative;width:100%;background:#151412;border-bottom:1px solid var(--border)}
 
-#map{position:relative;overflow:hidden;width:100%;height:clamp(460px,calc(100svh - 215px),740px);min-height:430px;background:#526e6c;border-top:1px solid var(--g2);z-index:1}
+#map{position:relative;overflow:hidden;width:100%;height:clamp(460px,calc(100svh - 215px),740px);min-height:430px;background:#526f70;border-top:1px solid var(--g2);z-index:1}
 
-#leafletMap{position:absolute;inset:0;width:100%;height:100%;background:#526e6c}
+#leafletMap{position:absolute;inset:0;width:100%;height:100%;background:#526f70}
 
-.leaflet-container{background:#526e6c;font:inherit;color:var(--ink)}
+.leaflet-container{background:#526f70;font:inherit;color:var(--ink)}
 
-.leaflet-overlay-pane svg{overflow:visible}
+.leaflet-overlay-pane svg,.leaflet-mapEdgeFeather-pane svg{overflow:visible}
 
 #worldSvg{mix-blend-mode:multiply}
 
@@ -2768,6 +2768,51 @@ function initLeaflet(){
     keepBuffer:4
 
   }).addTo(LMAP);
+
+  const edgePane=LMAP.createPane("mapEdgeFeather");
+  edgePane.style.zIndex=240;
+  edgePane.style.pointerEvents="none";
+  const ns="http://www.w3.org/2000/svg";
+  const edgeSvg=document.createElementNS(ns,"svg");
+  edgeSvg.setAttribute("xmlns",ns);
+  edgeSvg.setAttribute("viewBox","0 0 512 304");
+  edgeSvg.setAttribute("preserveAspectRatio","none");
+  edgeSvg.style.overflow="visible";
+  edgeSvg.innerHTML=`<defs>
+    <linearGradient id="mefT" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="18">
+      <stop offset="0%" stop-color="#526f70" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#526f70" stop-opacity=".85"/>
+      <stop offset="55%" stop-color="#526f70" stop-opacity=".42"/>
+      <stop offset="80%" stop-color="#526f70" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#526f70" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mefB" gradientUnits="userSpaceOnUse" x1="0" y1="303" x2="0" y2="278">
+      <stop offset="0%" stop-color="#526f70" stop-opacity="1"/>
+      <stop offset="24%" stop-color="#526f70" stop-opacity=".84"/>
+      <stop offset="52%" stop-color="#526f70" stop-opacity=".44"/>
+      <stop offset="78%" stop-color="#526f70" stop-opacity=".14"/>
+      <stop offset="100%" stop-color="#526f70" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mefL" gradientUnits="userSpaceOnUse" x1="1" y1="0" x2="23" y2="0">
+      <stop offset="0%" stop-color="#526f70" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#526f70" stop-opacity=".85"/>
+      <stop offset="55%" stop-color="#526f70" stop-opacity=".42"/>
+      <stop offset="80%" stop-color="#526f70" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#526f70" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mefR" gradientUnits="userSpaceOnUse" x1="511" y1="0" x2="489" y2="0">
+      <stop offset="0%" stop-color="#526f70" stop-opacity="1"/>
+      <stop offset="25%" stop-color="#526f70" stop-opacity=".85"/>
+      <stop offset="55%" stop-color="#526f70" stop-opacity=".42"/>
+      <stop offset="80%" stop-color="#526f70" stop-opacity=".12"/>
+      <stop offset="100%" stop-color="#526f70" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="-600" y="-600" width="1712" height="618" fill="url(#mefT)"/>
+  <rect x="-600" y="278" width="1712" height="630" fill="url(#mefB)"/>
+  <rect x="-600" y="-600" width="623" height="1504" fill="url(#mefL)"/>
+  <rect x="489" y="-600" width="623" height="1504" fill="url(#mefR)"/>`;
+  L.svgOverlay(edgeSvg,MAP_BOUNDS(),{pane:"mapEdgeFeather",interactive:false}).addTo(LMAP);
 
   GEO_LAYER=L.layerGroup().addTo(LMAP);
   PIN_LAYER=L.layerGroup().addTo(LMAP);

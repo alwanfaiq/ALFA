@@ -22,6 +22,9 @@ VERSI 1.9.1 (26 November 2026) - PENYELARASAN PETA FULL Z5 & PEMBARUAN POP-OUT A
    - Menyatukan L.tileLayer di index.html dengan maxNativeZoom: 5 dan menghapus layer
      sekunder terbatas bounds (zIndex: 205) sehingga tidak lagi muncul garis kotak
      pemisah antara tile Zoom 5 dan Zoom 4 di Afrika Tengah maupun wilayah lainnya.
+   - Menyelaraskan warna latar lautan kanvas (#526f70) dan menambahkan pane
+     mapEdgeFeather (SVG gradien halus 4 sisi dengan bleed luar 600 unit) agar
+     tepian atas, bawah Antartika, kiri, dan kanan peta melebur mulus tanpa patahan.
 
 3. Perampingan Tombol Footer & Ekspansi Modal Pop-out ALFA Research & Archives:
    - Menghapus duplikasi tombol footer: tombol kiri (#ftSourcesBtn) kini membuka
