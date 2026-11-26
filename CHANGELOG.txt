@@ -6,13 +6,14 @@ Repository: alfahistory.web.id
 --------------------------------------------------------------------------------
 VERSI 1.9.1 (26 November 2026) - PENYELARASAN PETA FULL Z5 & PEMBARUAN POP-OUT ALFA
 --------------------------------------------------------------------------------
-1. Penyempurnaan Presisi Garis Pantai assets/world.svg (4-Pass Ink-Edge Lock hingga 4K):
-   - Menambahkan Pass 3 (4096x2432 vs World-warped.png, IoU 4K 0.9898) serta Pass 4
-     berupa pencocokan garis tinta tepi (ink-edge template lock) langsung ke tile
-     raster v1.9.1 di resolusi 4096x2432.
-   - Korelasi zero-lag garis pantai meningkat dari 0.2888 menjadi 0.4463 (+0.1575)
-     dengan residu 0px di Laut Merah, Somalia/Sokotra, serta Nusantara, sambil menjaga
-     ketajaman lekukan Teluk Suez, Teluk Aqaba, dan kepulauan Jepang (256 poligon utuh).
+1. Penyempurnaan Presisi Garis Pantai assets/world.svg (6-Pass Ink-Edge Lock hingga 4K):
+   - Menambahkan Pass 3 (4096x2432 vs World-warped.png, IoU 4K 0.9898) serta Pass 4–6
+     berupa pencocokan garis tinta tepi multi-skala (step 128 -> 64 -> 32 px di 4K)
+     langsung ke tile raster v1.9.1.
+   - Korelasi zero-lag garis pantai meningkat dari 0.2589 (Pass 3) menjadi 0.5027
+     (Pass 6), dengan residu (+0, +0) px di seluruh 7 wilayah uji (Laut Merah,
+     Somalia/Sokotra, Jepang, Sinai, Mediterania Timur/Kreta/Siprus, Eropa Selatan,
+     dan Nusantara; seluruh 256 poligon negara tetap utuh).
 
 2. Piramida Tile Zoom 5 Penuh Sedunia (608 Tile) & Layer Tunggal Leaflet:
    - Membangun seluruh cakupan grid Zoom 5 (32x19 = 608 tile WebP, total 9.09 MB)

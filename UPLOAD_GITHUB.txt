@@ -8,7 +8,7 @@ sebagai arsip cadangan.
 
 DAFTAR BERKAS YANG DIPERBARUI DI v1.9.1:
 - assets/tiles/0..5/ -> [DIPERBARUI] Piramida tile penuh hingga Zoom 5 (z=5 penuh 608 tile / 32x19)
-- assets/world.svg   -> [DIPERBARUI] Poligon vektor 256 negara hasil penyelarasan 4-pass ink-edge lock langsung ke tile raster (corr@0: 0.4463)
+- assets/world.svg   -> [DIPERBARUI] Poligon vektor 256 negara hasil penyelarasan 6-pass ink-edge lock skala pulau langsung ke tile raster (corr@0: 0.5027)
 - index.html         -> [DIPERBARUI] L.tileLayer tunggal maxNativeZoom: 5, footer bebas duplikasi, dan modal #sourcesDlg 6 tab (Muqaddimah, Sumber Primer, Adab Visual, Dukung ALFA, Syarat & Ketentuan, Kebijakan Privasi)
 - i18n.js            -> [DIPERBARUI] Terjemahan lengkap ID/EN/AR untuk 4 tab baru, tombol footer, dan 69 katalog sumber
 - CHANGELOG.txt      -> Dokumentasi lengkap rilis v1.9.1
