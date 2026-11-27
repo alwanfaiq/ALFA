@@ -1,27 +1,35 @@
 ================================================================================
-PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.9.1)
+PANDUAN UPLOAD GITHUB - ALFA HISTORY WEB (VERSI 1.10.0)
 ================================================================================
 
-Folder ini adalah rilis resmi versi 1.9.1 yang siap diunggah ke root repositori
-GitHub (alfahistory.web.id). Folder versi sebelumnya (v1.9.0) tetap dipertahankan
-sebagai arsip cadangan.
+Folder ini (Alfa-Deploy/alfa-siap-upload-v1.10.0) adalah kandidat rilis versi 1.10.0
+yang hanya memuat berkas web statis untuk repositori GitHub (alfahistory.web.id).
+Seluruh aset gambar baru telah diunggah langsung ke Supabase Storage (bucket `media`,
+awalan jalur `v1.10.0/`), dan pembaruan artikel/karakter akan diunggah ke database
+Supabase setelah tinjauan dan persetujuan pengguna.
 
-DAFTAR BERKAS YANG DIPERBARUI DI v1.9.1:
-- assets/logo/       -> [BARU] 6 file logo SVG resmi ALFA (horizontal/vertikal & versi Arab)
-- assets/tiles/0..5/ -> [DIPERBARUI] Piramida tile penuh hingga Zoom 5 (z=5 penuh 608 tile / 32x19)
-- assets/world.svg   -> [DIPERBARUI] Poligon vektor 256 negara hasil penyelarasan 6-pass ink-edge lock skala pulau langsung ke tile raster (corr@0: 0.5027)
-- index.html         -> [DIPERBARUI] Logo SVG di header/drawer/footer (auto-swap AR), gradien tepi peta 4 sisi, L.tileLayer tunggal maxNativeZoom: 5, footer bebas duplikasi, modal #sourcesDlg 6 tab, dan UI baru kartu sumber (ikon Globe / ID / SA)
-- i18n.js            -> [DIPERBARUI] Properti origin pada 13 sumber primer serta terjemahan lengkap ID/EN/AR untuk 4 tab baru, tombol footer, dan 69 katalog sumber
-- CHANGELOG.txt      -> Dokumentasi lengkap rilis v1.9.1
+DAFTAR BERKAS WEB YANG DIPERBARUI / DITAMBAHKAN DI v1.10.0:
+- assets/bismillah-kufi.svg -> [BARU] Kaligrafi Kufi Murabba' Bismillahirrahmanirrahim
+- index.html                -> [DIPERBARUI] Perbaikan glitch scroll linimasa, integrasi SVG Bismillah Kufi di tab Muqaddimah, normalisasi Changa Arab, perbaikan fallback teks i18n
+- detail.html               -> [DIPERBARUI] Penyelarasan i18n header/tombol serta judul bagian tokoh/peristiwa tanpa simbol hias
+- watch.html                -> [DIPERBARUI] Lokalisasi teks loading multi-bahasa
+- i18n.js                   -> [DIPERBARUI] Perbaikan navTimeline ("Timeline"), ALFA_AR_NORM/normalizeDomArabic, alias karakter, peran trilingual di HISTORICAL_GRAPH, penghapusan relasi 605 Abu Bakar & kartu Ummahatul Mukminin, serta perbaikan URL Shamela.ws (Siyar 10906) & Archive.org
+- i18n_en.json              -> [DIPERBARUI] Penambahan terjemahan Inggris untuk 137 peristiwa, 32 tempat, dan 60 entri karakter
+- i18n_ar.json              -> [DIPERBARUI] Penambahan terjemahan Arab (bebas konflik tasydid+harakat) untuk 137 peristiwa, 32 tempat, dan 60 entri karakter
+- defaults.json             -> [DIPERBARUI] Sinkronisasi cadangan offline 138 peristiwa, 32 tempat, dan 50 tokoh
+- CHANGELOG.txt             -> Dokumentasi lengkap rilis v1.10.0 beserta atribusi Wikimedia Commons
+- UPLOAD_GITHUB.txt         -> Panduan rilis v1.10.0 (berkas web saja)
 
-BERKAS PENDUKUNG LAIN YANG TETAP WAJIB ADA DI ROOT REPO:
-- assets/ (cartography_vectors.svg, leaflet, logo, tiles 0-5, world.svg, world_overview.webp, cover & qris)
-- 404.html, admin.html, CNAME, config.js, defaults.json, detail.html, favicon.ico, favicon.svg,
-  geo_labels.json, i18n_ar.json, i18n_en.json, sources_data.js, track.js, watch.html
+BERKAS WEB PENDUKUNG LAIN YANG TETAP WAJIB ADA DI ROOT REPO:
+- assets/ (cartography_vectors.svg, leaflet, logo, tiles 0-5, world.svg, world_overview.webp, cover & qris, bismillah-kufi.svg)
+- 404.html, admin.html, CNAME, config.js, favicon-1.svg, favicon.ico, favicon.svg,
+  geo_labels.json, sources_data.js, track.js
 
-CARA UNGGAH KE GITHUB:
-1. Unggah berkas yang diperbarui di atas ke root repositori alfahistory.web.id.
-2. Pesan commit yang disarankan:
-   "Release v1.9.1: Streamlined footer sources & Siyar A'lam an-Nubala' catalog integration"
-3. Klik Commit Changes.
+CARA UNGGAH KE GITHUB (SETELAH PERSETUJUAN PENGGUNA):
+1. Pastikan patch data Supabase (`scratch/apply_v1.10.0_patch.py --apply`) sudah dijalankan
+   setelah peninjauan.
+2. Unggah seluruh berkas web dalam folder ini (tanpa folder gambar mentah/scratch) ke
+   repositori GitHub alfahistory.web.id.
+3. Pesan commit yang disarankan:
+   "Release v1.10.0: Timeline scroll fix, Square Kufic Bismillah, Changa Arabic norm & full trilingual content"
 ================================================================================

@@ -648,7 +648,7 @@
               ? `Biografi dan peran historis ${title} dirangkum dari kitab induk thabaqat dan tarikh klasik (Siyar A'lam an-Nubala' & Al-Ishabah). Ilustrasi karakter mengedepankan realisme busana abad ke-7 tanpa representasi berlebihan demi menjaga adab dan akurasi sejarah edukatif.`
               : `The biography and historical significance of ${title} are synthesized from classical biographical tomes (Siyar A'lam al-Nubala & Al-Isabah). Visual representations maintain period-accurate attire strictly for educational clarity and historical authenticity.`))
       : (isAr
-          ? `سرد أحداث ${title} (${yr} م) مدوَّن بدقة من أمهات كتب السير والتواريخ الكبرى، مع الحفاظ على الأماكن والأسماء وسياق الرواة.`
+          ? `سرد أحداث ${title} (${yr} م) مدوّن بدقة من أمهات كتب السير والتواريخ الكبرى، مع الحفاظ على الأماكن والأسماء وسياق الرواة.`
           : (isId
               ? `Catatan peristiwa ${title} (${yr} M) disarikan dari naskah primer tarikh klasik dengan mempertahankan akurasi waktu, toponimi lokasi, dan catatan rawi terpercaya tanpa bumbu narasi fiktif.`
               : `The historical account of ${title} (${yr} CE) is drawn directly from classical primary chronicles, preserving exact chronology, geographic toponyms, and verified narrator chains without artificial dramatization.`));

@@ -205,7 +205,7 @@ const slugify=s=>String(s||"").toLowerCase().normalize("NFD").replace(/[\u0300-\
 
 const LABELS={
   id:{
-    room:"RUANG PUTAR SEJARAH",back:"← Kembali",share:"Bagikan",copied:"Tautan video disalin",
+    room:"RUANG PUTAR SEJARAH",back:"← Kembali",loading:"Memuat ruang putar...",share:"Bagikan",copied:"Tautan video disalin",
     docTag:"VIDEO DOKUMENTER",shortTag:"SHORTS SEJARAH",watchYt:"Tonton di YouTube",
     tabSum:"Ringkasan",tabSrc:"Sumber Referensi",tabChap:"Bab & Kronologi",tabGlos:"Glosarium",
     aboutTell:"CATATAN TRANSPARANSI RISET (ABOUT THIS TELLING)",
@@ -214,7 +214,7 @@ const LABELS={
     noEmbed:"Tautan YouTube belum disematkan untuk episode ini. Klik tombol di bawah untuk membuka kanal resmi ALFA History."
   },
   en:{
-    room:"HISTORICAL WATCH ROOM",back:"← Back",share:"Share",copied:"Video link copied",
+    room:"HISTORICAL WATCH ROOM",back:"← Back",loading:"Loading watch room...",share:"Share",copied:"Video link copied",
     docTag:"DOCUMENTARY FILM",shortTag:"HISTORICAL SHORT",watchYt:"Watch on YouTube",
     tabSum:"Summary",tabSrc:"Primary Sources",tabChap:"Chapters",tabGlos:"Glossary",
     aboutTell:"RESEARCH TRANSPARENCY (ABOUT THIS TELLING)",
@@ -223,7 +223,7 @@ const LABELS={
     noEmbed:"YouTube stream link is not attached for this episode yet. Open the official ALFA History channel below."
   },
   ar:{
-    room:"غرفة العرض التاريخي",back:"عودة →",share:"مشاركة",copied:"تم نسخ رابط الفيديو",
+    room:"غرفة العرض التاريخي",back:"عودة →",loading:"جارٍ تحميل غرفة العرض...",share:"مشاركة",copied:"تم نسخ رابط الفيديو",
     docTag:"فيلم وثائقي",shortTag:"مقطع تاريخي قصير",watchYt:"مشاهدة على يوتيوب",
     tabSum:"الملخص",tabSrc:"المصادر الأولية",tabChap:"فصول الفيديو",tabGlos:"مسرد المصطلحات",
     aboutTell:"شفافية البحث والتوثيق",
@@ -260,6 +260,8 @@ function syncHeader(){
   const bk=document.getElementById("backBtn");
   bk.textContent=l.back;
   bk.href=ACTIVE_TYPE==="shorts"?"/#shorts":"/#videos";
+  const lm=document.getElementById("loadMsg");
+  if(lm)lm.textContent=l.loading;
   document.getElementById("langBtnText").textContent=cur.toUpperCase();
   document.querySelectorAll(".lang-drop-item").forEach(it=>it.classList.toggle("on",it.getAttribute("data-lang")===cur));
 }

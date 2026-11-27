@@ -391,7 +391,10 @@
 
       privSec5Title: "5. Kontak & Pembaruan Kebijakan",
 
-      privSec5Body: "Apabila ada pembaruan teknis yang memengaruhi penyimpanan data lokal atau statistik kunjungan, rinciannya akan diperbarui langsung pada panel ini."
+      privSec5Body: "Apabila ada pembaruan teknis yang memengaruhi penyimpanan data lokal atau statistik kunjungan, rinciannya akan diperbarui langsung pada panel ini.",
+      bismillahAlt: "Bismillahirrahmanirrahim",
+      historicPlaceLabel: "Situs Bersejarah",
+      docVideoBadge: "VIDEO DOKUMENTER"
 
     },
 
@@ -399,7 +402,7 @@
 
       navMap: "Map",
 
-      navTimeline: "Linimasa",
+      navTimeline: "Timeline",
 
       navCharacters: "Figures",
 
@@ -776,7 +779,10 @@
 
       privSec5Title: "5. Updates & Contact",
 
-      privSec5Body: "Whenever technical updates change how local preferences or visit statistics work, this policy panel will be updated directly."
+      privSec5Body: "Whenever technical updates change how local preferences or visit statistics work, this policy panel will be updated directly.",
+      bismillahAlt: "In the Name of Allah, the Most Gracious, the Most Merciful",
+      historicPlaceLabel: "Historic Site",
+      docVideoBadge: "DOCUMENTARY FILM"
 
     },
 
@@ -1113,7 +1119,7 @@
 
       supFund3Desc: "تشغيل الاستضافة ونطاق alfahistory.web.id وتخزين طبقات الخرائط التفاعلية.",
 
-      supQrNote: "امسح رمز QRIS عبر التطبيقات البنكية والمحافظ الرقمية في إندونيسيا. المساهمات طوعية بالكامل وتُوجّه لاستدامة البحث والإنتاج في ألفا.",
+      supQrNote: "امسح رمز QRIS عبر التطبيقات البنكية والمحافظ الرقمية في إندونيسيا. المساهمات طوعية بالكامل وتوجّه لاستدامة البحث والإنتاج في ألفا.",
 
       termsIntro: "تنظم هذه الشروط والأحكام استخدام موقع alfahistory.web.id وكافة الخرائط والأرشيفات البحثية المتاحة فيه.",
 
@@ -1135,7 +1141,7 @@
 
       termsSec5Title: "٥. حدود المسؤولية",
 
-      termsSec5Body: "يُقدّم المحتوى كما هو بأقصى درجات التحري العلمي، ولا يتحمل الموقع مسؤولية أي انقطاعات تقنية أو تغييرات في المواقع المرجعية الخارجية المرتبطة به.",
+      termsSec5Body: "يقدّم المحتوى كما هو بأقصى درجات التحري العلمي، ولا يتحمل الموقع مسؤولية أي انقطاعات تقنية أو تغييرات في المواقع المرجعية الخارجية المرتبطة به.",
 
       termsSec6Title: "٦. التواصل الرسمي",
 
@@ -1161,7 +1167,10 @@
 
       privSec5Title: "٥. التحديثات والتواصل",
 
-      privSec5Body: "عند حدوث أي تغيير تقني يخص التفضيلات المحلية أو إحصاءات الاستخدام، تُحدّث هذه الصفحة مباشرة."
+      privSec5Body: "عند حدوث أي تغيير تقني يخص التفضيلات المحلية أو إحصاءات الاستخدام، تحدّث هذه الصفحة مباشرة.",
+      bismillahAlt: "بسم الله الرحمن الرحيم",
+      historicPlaceLabel: "معلم تاريخي",
+      docVideoBadge: "فيلم وثائقي"
 
     }
 
@@ -1461,13 +1470,35 @@
 
 
 
+  function normalizeArabic(str){
+    if(!str || typeof str !== "string") return str;
+    return str.replace(/(\S+)/g, w => w.indexOf("\u0651") !== -1 ? w.replace(/[\u064B-\u0650\u0652]/g, "") : w);
+  }
+
+  function normalizeDomArabic(){
+    if(typeof document === "undefined") return;
+    const sels = '[lang="ar"], [dir="rtl"], .src-muq-ar, [style*="Changa"]';
+    document.querySelectorAll(sels).forEach(root => {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      let n;
+      while((n = walker.nextNode())){
+        if(n.nodeValue && n.nodeValue.indexOf("\u0651") !== -1){
+          const clean = normalizeArabic(n.nodeValue);
+          if(clean !== n.nodeValue) n.nodeValue = clean;
+        }
+      }
+    });
+  }
+
   function t(key, ...args){
 
     const dict = UI[LANG] || UI.en;
 
     const v = dict[key] !== undefined ? dict[key] : (UI.en[key] !== undefined ? UI.en[key] : key);
 
-    return typeof v === "function" ? v(...args) : v;
+    const raw = typeof v === "function" ? v(...args) : v;
+
+    return LANG === "ar" ? normalizeArabic(raw) : raw;
 
   }
 
@@ -1577,13 +1608,17 @@
 
     const ov = pack && pack.eras && pack.eras[e.id];
 
+    const nm = (ov && ov.name) || (LANG === "en" ? e.name_en : e.name_ar) || e.name;
+
+    const ds = (ov && ov.desc) || (LANG === "en" ? e.desc_en : e.desc_ar) || e.desc;
+
     return {
 
       ...e,
 
-      name: (ov && ov.name) || (LANG === "en" ? e.name_en : e.name_ar) || e.name,
+      name: LANG === "ar" ? normalizeArabic(nm) : nm,
 
-      desc: (ov && ov.desc) || (LANG === "en" ? e.desc_en : e.desc_ar) || e.desc
+      desc: LANG === "ar" ? normalizeArabic(ds) : ds
 
     };
 
@@ -1629,7 +1664,7 @@
 
     if(b && !(ov && ov.body)) b = translateBodyHeadings(b, LANG);
 
-    return {
+    const outPlace = {
 
       ...p,
 
@@ -1650,6 +1685,14 @@
       body: b
 
     };
+
+    if(LANG === "ar"){
+      ["n","name","s","subtitle","t","description","facts","body"].forEach(k => {
+        if(typeof outPlace[k] === "string") outPlace[k] = normalizeArabic(outPlace[k]);
+      });
+    }
+
+    return outPlace;
 
   }
 
@@ -1687,7 +1730,7 @@
 
     if(b && !(ov && ov.body)) b = translateBodyHeadings(b, LANG);
 
-    return {
+    const outEv = {
 
       ...ev,
 
@@ -1701,9 +1744,31 @@
 
     };
 
+    if(LANG === "ar"){
+      ["title","summary","facts","body"].forEach(k => {
+        if(typeof outEv[k] === "string") outEv[k] = normalizeArabic(outEv[k]);
+      });
+    }
+
+    return outEv;
+
   }
 
 
+
+  function findCharOverride(pack, c){
+    if(!pack || !pack.characters || !c) return null;
+    const chMap = pack.characters;
+    const canon = resolveCharacterName(c.name || "");
+    if(chMap[c.name]) return chMap[c.name];
+    if(canon && chMap[canon]) return chMap[canon];
+    if(c.name_id && chMap[c.name_id]) return chMap[c.name_id];
+    if(c.name_en && chMap[c.name_en]) return chMap[c.name_en];
+    for(const [k, val] of Object.entries(chMap)){
+      if(resolveCharacterName(k) === canon) return val;
+    }
+    return null;
+  }
 
   function char(c){
 
@@ -1713,11 +1778,13 @@
 
     const pack = PACKS[LANG] || PACKS.en;
 
-    const ov = pack && pack.characters && (pack.characters[c.name] || pack.characters[c.name_id] || pack.characters[c.name_en]);
+    const ov = findCharOverride(pack, c);
 
     
 
-    const role = (ov && ov.role) || (LANG === "en" ? c.role_en : c.role_ar) || c.role;
+    const locRole = (ov && ov.role) || (LANG === "en" ? c.role_en : c.role_ar);
+
+    const role = locRole || "";
 
     const meta = (ov && ov.meta) || (LANG === "en" ? c.meta_en : c.meta_ar) || translateMeta(c.meta || "");
 
@@ -1737,7 +1804,7 @@
 
 
 
-    return {
+    const outChar = {
 
       ...c,
 
@@ -1752,6 +1819,14 @@
       body: bodyHtml
 
     };
+
+    if(LANG === "ar"){
+      ["name","role","meta","facts","body"].forEach(k => {
+        if(typeof outChar[k] === "string") outChar[k] = normalizeArabic(outChar[k]);
+      });
+    }
+
+    return outChar;
 
   }
 
@@ -1943,7 +2018,7 @@
 
       name: "Siyar A'lam an-Nubala' (Adz-Dzahabi)",
 
-      url: "https://shamela.ws/book/21712",
+      url: "https://shamela.ws/book/10906",
 
       scope: "scopeGlobal",
 
@@ -1965,7 +2040,7 @@
 
       name: "Ar-Rahiq al-Makhtum (Al-Mubarakfuri)",
 
-      url: "https://shamela.ws/book/11830",
+      url: "https://archive.org/search?query=Ar-Rahiq+al-Makhtum",
 
       scope: "scopeGlobal",
 
@@ -1987,7 +2062,7 @@
 
       name: "Suwar min Hayatis Sahabah (Dr. Al-Basya)",
 
-      url: "https://shamela.ws/book/12288",
+      url: "https://archive.org/search?query=Suwar+min+Hayat+al-Sahabah",
 
       scope: "scopeGlobal",
 
@@ -2009,7 +2084,7 @@
 
       name: "Khulashah Nurul Yaqin (Umar Abdul Jabbar)",
 
-      url: "https://shamela.ws/book/37571",
+      url: "https://archive.org/search?query=Khulasah+Nur+al-Yaqin",
 
       scope: "scopeGlobal",
 
@@ -2129,315 +2204,301 @@
 
       "570-tahun-gajah": [
 
-        { name: "Abdul Muthalib", role: "Sayyid Quraisy dan Penjaga Ka'bah" },
+        { name: "Abdul Muthalib", role: "Sayyid Quraisy dan Penjaga Ka'bah", role_en: "Chief of Quraysh & Custodian of the Ka'bah", role_ar: "سيد قريش وسادن الكعبة المشرفة" },
 
-        { name: "Abrahah", role: "Panglima Pasukan Gajah dari Yaman" }
+        { name: "Abrahah", role: "Panglima Pasukan Gajah dari Yaman", role_en: "Commander of the Elephant Expedition from Yemen", role_ar: "قائد جيش الفيل القادم من اليمن" }
 
       ],
 
       "570-kelahiran-nabi": [
 
-        { name: "Abdul Muthalib", role: "Kakek dan Pengasuh Pertama" }
+        { name: "Abdul Muthalib", role: "Kakek dan Pengasuh Pertama", role_en: "Grandfather & First Guardian", role_ar: "الجد والكافل الأول" }
 
       ],
 
       "572-disusui-siti-halimah": [
 
-        { name: "Halimah as-Sa’diyah", role: "Ibu Susuan di Perkampungan Bani Sa'ad" }
+        { name: "Halimah as-Sa’diyah", role: "Ibu Susuan di Perkampungan Bani Sa'ad", role_en: "Wet Nurse in the Valley of Banu Sa'd", role_ar: "المرضعة في ديار بني سعد" }
 
       ],
 
       "576-yatim-piatu": [
 
-        { name: "Abdul Muthalib", role: "Kakek Pengasuh Pasca Wafatnya Ibunda Aminah" }
+        { name: "Abdul Muthalib", role: "Kakek Pengasuh Pasca Wafatnya Ibunda Aminah", role_en: "Guardian After the Passing of Mother Aminah", role_ar: "كافل النبي ﷺ بعد وفاة والدته آمنة" }
 
       ],
 
       "582-bertemu-bahira": [
 
-        { name: "Bahira", role: "Rahib Penemu Tanda Kenabian di Busra" },
+        { name: "Bahira", role: "Rahib Penemu Tanda Kenabian di Busra", role_en: "Monk Who Recognized the Prophetic Signs at Busra", role_ar: "الراهب الذي عاين علامات النبوة في بصرى" },
 
-        { name: "Abi Thalib", role: "Paman Pemimpin Kafilah Dagang ke Syam" }
+        { name: "Abi Thalib", role: "Paman Pemimpin Kafilah Dagang ke Syam", role_en: "Uncle Leading the Trade Caravan to Syria", role_ar: "العم قائد قافلة التجارة إلى الشام" }
 
       ],
 
       "595-menikah-dengan-khadijah": [
 
-        { name: "Khadijah", role: "Ummul Mukminin dan Pendukung Utama Dakwah" },
-
-        { name: "Abi Thalib", role: "Paman yang Menyampaikan Khutbah Lamaran" }
+        { name: "Abi Thalib", role: "Paman yang Menyampaikan Khutbah Lamaran", role_en: "Uncle Who Delivered the Marriage Oration", role_ar: "العم الذي ألقى خطبة النكاح" }
 
       ],
 
-      "605-peletakan-hajar-aswad": [
-
-        { name: "Abu Bakar Asshiddiq", role: "Sahabat Terdekat Pembela Kebijaksanaan Nabi" }
-
-      ],
+      "605-peletakan-hajar-aswad": [],
 
       "610-wahyu-pertama": [
 
-        { name: "Khadijah", role: "Penenteram Jiwa Rasulullah Pasca Turun Wahyu" },
-
-        { name: "Waraqah bin Naufal", role: "Ulama Ahli Kitab Saksi Namus al-Akbar" }
+        { name: "Waraqah bin Naufal", role: "Ulama Ahli Kitab Saksi Namus al-Akbar", role_en: "Scholar of Scripture Who Testified to the First Revelation", role_ar: "العالم بالكتاب الشاهد لنزول الوحي الأول" }
 
       ],
 
       "613-dakwah-terang-terangan": [
 
-        { name: "Ali bin Abi Thalib", role: "Pemuda Pertama yang Mengikrarkan Dukungan" },
+        { name: "Ali bin Abi Thalib", role: "Pemuda Pertama yang Mengikrarkan Dukungan", role_en: "First Youth to Pledge Open Support", role_ar: "أول فتى أعلن نصرته للدعوة" },
 
-        { name: "Abu Lahab", role: "Penentang Keras Dakwah Terbuka di Bukit Shafa" }
+        { name: "Abu Lahab", role: "Penentang Keras Dakwah Terbuka di Bukit Shafa", role_en: "Fierce Opponent of Open Da'wah at Mount Safa", role_ar: "أشد المعارضين للدعوة الجهرية عند جبل الصفا" }
 
       ],
 
       "615-hijrah-ke-habasyah": [
 
-        { name: "Utsman bin Affan", role: "Pemimpin Rombongan Muhajirin Pertama ke Habasyah" }
+        { name: "Utsman bin Affan", role: "Pemimpin Rombongan Muhajirin Pertama ke Habasyah", role_en: "Leader of the First Emigrant Group to Abyssinia", role_ar: "قائد طليعة المهاجرين إلى الحبشة" }
 
       ],
 
       "616-hamzah-dan-umar-masuk-islam": [
 
-        { name: "Hamzah bin Abdul Muthalib", role: "Singa Allah dan Pelindung Dakwah Terbuka" },
+        { name: "Hamzah bin Abdul Muthalib", role: "Singa Allah dan Pelindung Dakwah Terbuka", role_en: "Lion of Allah & Protector of Public Preaching", role_ar: "أسد الله وحامي الدعوة الجهرية" },
 
-        { name: "Umar bin Khattab", role: "Al-Faruq Penegas Barisan Shalat Terang-terangan" }
+        { name: "Umar bin Khattab", role: "Al-Faruq Penegas Barisan Shalat Terang-terangan", role_en: "Al-Faruq Who Strengthened Public Prayer at the Ka'bah", role_ar: "الفاروق الذي أعز صفوف الصلاة علانية" }
 
       ],
 
       "619-pemboikotan-dan-tahun-duka-cita": [
 
-        { name: "Abi Thalib", role: "Pemimpin Perlindungan Bani Hasyim di Syi'ib" },
-
-        { name: "Khadijah", role: "Ummul Mukminin Pendonor Seluruh Harta Dakwah" }
+        { name: "Abi Thalib", role: "Pemimpin Perlindungan Bani Hasyim di Syi'ib", role_en: "Protector of Banu Hashim During the Boycott in the Ravine", role_ar: "حامي بني هاشم أثناء حصار الشعب" }
 
       ],
 
       "621-isra-dan-miraj": [
 
-        { name: "Abu Bakar Asshiddiq", role: "Peraih Gelar Ash-Shiddiq atas Pembenaran Mukjizat" }
+        { name: "Abu Bakar Asshiddiq", role: "Peraih Gelar Ash-Shiddiq atas Pembenaran Mukjizat", role_en: "Earned the Title al-Siddiq for Immediate Affirmation", role_ar: "صاحب لقب الصديق لتصديقه الفوري بالمعجزة" }
 
       ],
 
       "622-hijrah-ke-madinah": [
 
-        { name: "Abu Bakar Asshiddiq", role: "Teman Seperjalanan di Gua Tsur" },
+        { name: "Abu Bakar Asshiddiq", role: "Teman Seperjalanan di Gua Tsur", role_en: "Companion in the Cave of Thawr During the Hijrah", role_ar: "الرفيق في غار ثور أثناء الهجرة" },
 
-        { name: "Ali bin Abi Thalib", role: "Penebus Ranjang Tidur Nabi di Makkah" }
+        { name: "Ali bin Abi Thalib", role: "Penebus Ranjang Tidur Nabi di Makkah", role_en: "Took the Prophet's Bed in Mecca to Shield the Escape", role_ar: "فادي فراش النبي ﷺ ليلة الهجرة في مكة" }
 
       ],
 
       "624-perang-badar": [
 
-        { name: "Ali bin Abi Thalib", role: "Panglima dan Pahlawan Duel Mubarazah" },
+        { name: "Ali bin Abi Thalib", role: "Panglima dan Pahlawan Duel Mubarazah", role_en: "Champion of the Opening Duel at Badr", role_ar: "فارس المبارزة الأول يوم بدر" },
 
-        { name: "Hamzah bin Abdul Muthalib", role: "Singa Allah Penakluk Pembesar Quraisy" },
+        { name: "Hamzah bin Abdul Muthalib", role: "Singa Allah Penakluk Pembesar Quraisy", role_en: "Lion of Allah & Victorious Duellist at Badr", role_ar: "أسد الله وقاهر صناديد قريش يوم بدر" },
 
-        { name: "Abu Bakar Asshiddiq", role: "Penjaga Tenda Komando Rasulullah (Arisy)" },
+        { name: "Abu Bakar Asshiddiq", role: "Penjaga Tenda Komando Rasulullah (Arisy)", role_en: "Guardian of the Command Shelter at Badr (al-Arish)", role_ar: "حارس العريش ومقر القيادة يوم بدر" },
 
-        { name: "Sa’ad bin Abi Waqqash", role: "Pemanah Ulung Pertahanan Muslimin" },
+        { name: "Sa’ad bin Abi Waqqash", role: "Pemanah Ulung Pertahanan Muslimin", role_en: "Master Archer in the Defense of the Believers", role_ar: "أحد أمهر رماة المسلمين يوم بدر" },
 
-        { name: "Bilal bin Rabah", role: "Penuntut Keadilan atas Majikan Zalim Umayyah" },
+        { name: "Bilal bin Rabah", role: "Penuntut Keadilan atas Majikan Zalim Umayyah", role_en: "Confronted Former Oppressor Umayyah ibn Khalaf", role_ar: "المنتصر بالحق على سيده السابق أمية بن خلف" },
 
-        { name: "Abu Jahal", role: "Panglima Tertinggi Pasukan Musyrik yang Tewas" }
+        { name: "Abu Jahal", role: "Panglima Tertinggi Pasukan Musyrik yang Tewas", role_en: "Quraysh Commander Slain on the Field of Badr", role_ar: "قائد جيش المشركين الصريع يوم بدر" }
 
       ],
 
       "625-perang-uhud": [
 
-        { name: "Hamzah bin Abdul Muthalib", role: "Sayyidus Syuhada yang Syahid di Medan Uhud" },
+        { name: "Hamzah bin Abdul Muthalib", role: "Sayyidus Syuhada yang Syahid di Medan Uhud", role_en: "Master of Martyrs Who Fell at Uhud", role_ar: "سيد الشهداء الذي استشهد في ميدان أحد" },
 
-        { name: "Ali bin Abi Thalib", role: "Pembawa Panji Perang dan Perisai Rasulullah" },
+        { name: "Ali bin Abi Thalib", role: "Pembawa Panji Perang dan Perisai Rasulullah", role_en: "Standard-Bearer & Shield in the Battle of Uhud", role_ar: "حامل اللواء والمدافع عن النبي ﷺ يوم أحد" },
 
-        { name: "Abu Bakar Asshiddiq", role: "Pembela Garis Depan Penyelamat Komando" },
+        { name: "Abu Bakar Asshiddiq", role: "Pembela Garis Depan Penyelamat Komando", role_en: "Frontline Defender Protecting the Center at Uhud", role_ar: "المدافع في الصفوف الأمامية يوم أحد" },
 
-        { name: "Abu Ubaidah bin al-Jarrah", role: "Pencabut Rantai Zirah Besi dari Pipi Nabi" },
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Pencabut Rantai Zirah Besi dari Pipi Nabi", role_en: "Extracted the Helmet Rings Embedded at Uhud", role_ar: "الذي نزع حلقات المغفر يوم أحد" },
 
-        { name: "Khalid bin Walid", role: "Panglima Kavaleri Musyrik Sebelum Masuk Islam" }
+        { name: "Khalid bin Walid", role: "Panglima Kavaleri Musyrik Sebelum Masuk Islam", role_en: "Quraysh Cavalry Commander Prior to Embracing Islam", role_ar: "قائد فرسان المشركين قبل إسلامه" }
 
       ],
 
       "627-perang-khandaq": [
 
-        { name: "Ali bin Abi Thalib", role: "Penakluk Pendekar Ahzab Amr bin Abdi Wudd" },
+        { name: "Ali bin Abi Thalib", role: "Penakluk Pendekar Ahzab Amr bin Abdi Wudd", role_en: "Defeated the Confederate Champion Amr ibn Abd Wudd", role_ar: "قاهر فارس الأحزاب عمرو بن عبد ود" },
 
-        { name: "Abu Bakar Asshiddiq", role: "Penjaga Pos Pertahanan Sektor Parit Madinah" },
+        { name: "Abu Bakar Asshiddiq", role: "Penjaga Pos Pertahanan Sektor Parit Madinah", role_en: "Defender of a Garrison Sector Along the Trench", role_ar: "المرابط على أحد قطاعات الخندق بالمدينة" },
 
-        { name: "Umar bin Khattab", role: "Pengawas Jalur Sempit Garis Parit Pertahanan" }
+        { name: "Umar bin Khattab", role: "Pengawas Jalur Sempit Garis Parit Pertahanan", role_en: "Commander Guarding the Narrow Breach of the Trench", role_ar: "المراقب لثغرة الخندق الضيقة" }
 
       ],
 
       "628-perjanjian-hudaibiyah": [
 
-        { name: "Utsman bin Affan", role: "Utusan Negosiasi Masuk Kota Makkah dan Pemicu Baiat Ridhwan" },
+        { name: "Utsman bin Affan", role: "Utusan Negosiasi Masuk Kota Makkah dan Pemicu Baiat Ridhwan", role_en: "Envoy to Mecca Whose Detention Sparked Bay'at al-Ridwan", role_ar: "سفير التفاوض إلى مكة ومفجر بيعة الرضوان" },
 
-        { name: "Ali bin Abi Thalib", role: "Juru Tulis Naskah Perjanjian Damai Hudaibiyah" },
+        { name: "Ali bin Abi Thalib", role: "Juru Tulis Naskah Perjanjian Damai Hudaibiyah", role_en: "Scribe of the Treaty of Hudaybiyyah", role_ar: "كاتب نص صلح الحديبية" },
 
-        { name: "Abu Bakar Asshiddiq", role: "Penasihat Setia Penenang Jiwa Para Sahabat" },
+        { name: "Abu Bakar Asshiddiq", role: "Penasihat Setia Penenang Jiwa Para Sahabat", role_en: "Steadfast Counselor Who Reassured the Companions", role_ar: "المستشار الصادق ومثبت قلوب الصحابة" },
 
-        { name: "Umar bin Khattab", role: "Sahabat Kritis yang Meminta Kepastian Kemenangan Nyata" }
+        { name: "Umar bin Khattab", role: "Sahabat Kritis yang Meminta Kepastian Kemenangan Nyata", role_en: "Questioned the Terms Before Embracing Their Wisdom", role_ar: "المحاور السائل عن حكمة بنود الصلح" }
 
       ],
 
       "630-fathu-makkah": [
 
-        { name: "Khalid bin Walid", role: "Panglima Sayap Kanan Penembus Masuk Kota Makkah" },
+        { name: "Khalid bin Walid", role: "Panglima Sayap Kanan Penembus Masuk Kota Makkah", role_en: "Commander of the Right Wing Entering Mecca", role_ar: "قائد الميمنة الداخلة إلى مكة" },
 
-        { name: "Abu Bakar Asshiddiq", role: "Sahabat Pendamping Masuk Masjidil Haram" },
+        { name: "Abu Bakar Asshiddiq", role: "Sahabat Pendamping Masuk Masjidil Haram", role_en: "Companion Accompanying the Entry Into Mecca", role_ar: "الرفيق الملازم عند دخول المسجد الحرام" },
 
-        { name: "Bilal bin Rabah", role: "Muadzin Pertama Penyeru Adzan dari Atas Ka'bah" },
+        { name: "Bilal bin Rabah", role: "Muadzin Pertama Penyeru Adzan dari Atas Ka'bah", role_en: "First Muezzin Calling the Adhan Atop the Ka'bah", role_ar: "أول مؤذن يرفع الأذان من فوق الكعبة" },
 
-        { name: "Ali bin Abi Thalib", role: "Pembantu Penurunan dan Penghancuran Berhala Ka'bah" }
+        { name: "Ali bin Abi Thalib", role: "Pembantu Penurunan dan Penghancuran Berhala Ka'bah", role_en: "Assisted in Clearing the Idols Around the Ka'bah", role_ar: "المشارك في إزالة الأصنام وتحطيمها حول الكعبة" }
 
       ],
 
       "632-haji-wada-dan-wafatnya-nabi": [
 
-        { name: "Abu Bakar Asshiddiq", role: "Imam Shalat Sahabat dan Pembaca Khutbah Peneguh Umat" },
+        { name: "Abu Bakar Asshiddiq", role: "Imam Shalat Sahabat dan Pembaca Khutbah Peneguh Umat", role_en: "Led Final Prayers & Delivered the Steadfast Address", role_ar: "إمام الصلاة وخطيب تثبيت الأمة عند الوفاة" },
 
-        { name: "Ali bin Abi Thalib", role: "Pengurus Pemakaman Suci Rasulullah di Kamar Aisyah" },
-
-        { name: "Aisyah binti Abu Bakar", role: "Ummul Mukminin Pemilik Tempat Peristirahatan Terakhir Nabi" }
+        { name: "Ali bin Abi Thalib", role: "Pengurus Pemakaman Rasulullah di Kamar Aisyah", role_en: "Overseer of the Funeral Rites in Medina", role_ar: "المتولي لتجهيز الدفن الشريف بالمدينة المنورة" }
 
       ],
 
       "632-abu-bakar-menjadi-khalifah": [
 
-        { name: "Abu Bakar Asshiddiq", role: "Khalifah Pertama Pengukuh Fondasi Daulah" },
+        { name: "Abu Bakar Asshiddiq", role: "Khalifah Pertama Pengukuh Fondasi Daulah", role_en: "First Caliph Who Consolidated the Early Caliphate", role_ar: "أول الخلفاء الراشدين ومثبت أركان الدولة" },
 
-        { name: "Umar bin Khattab", role: "Pembaiat Pertama di Saqifah Bani Sa'idah" },
+        { name: "Umar bin Khattab", role: "Pembaiat Pertama di Saqifah Bani Sa'idah", role_en: "First to Pledge Allegiance at Saqifah Bani Sa'idah", role_ar: "أول المبايعين في سقيفة بني ساعدة" },
 
-        { name: "Abu Ubaidah bin al-Jarrah", role: "Amien al-Ummah yang Menyepakati Baiat Saqifah" }
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Amien al-Ummah yang Menyepakati Baiat Saqifah", role_en: "Amin al-Ummah Who Helped Unify the Saqifah Pledge", role_ar: "أمين الأمة المشارك في اجتماع السقيفة" }
 
       ],
 
       "636-penaklukan-syam-dan-yarmuk": [
 
-        { name: "Khalid bin Walid", role: "Panglima Manuver Kavaleri Penentu Kehancuran Bizantium" },
+        { name: "Khalid bin Walid", role: "Panglima Manuver Kavaleri Penentu Kehancuran Bizantium", role_en: "Mastermind of the Decisive Cavalry Encirclement at Yarmouk", role_ar: "مهندس المناورة الفروسية الحاسمة في اليرموك" },
 
-        { name: "Abu Ubaidah bin al-Jarrah", role: "Amirul Jaisy (Panglima Tertinggi) Muslimin di Syam" }
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Amirul Jaisy (Panglima Tertinggi) Muslimin di Syam", role_en: "Commander-in-Chief (Amir al-Jaysh) of Forces in Syria", role_ar: "أمير الجيوش الإسلامية في بلاد الشام" }
 
       ],
 
       "636-qadisiyyah-dan-madain": [
 
-        { name: "Sa’ad bin Abi Waqqash", role: "Panglima Tertinggi Penakluk Imperium Persia Sasania" }
+        { name: "Sa’ad bin Abi Waqqash", role: "Panglima Tertinggi Penakluk Imperium Persia Sasania", role_en: "Supreme Commander Who Victory Over Sassanian Forces", role_ar: "القائد العام الفاتح في معركة القادسية" }
 
       ],
 
       "637-penyerahan-baitul-maqdis": [
 
-        { name: "Umar bin Khattab", role: "Amirul Mukminin Penerima Kunci Al-Quds dan Pembuat Piagam Aelia" },
+        { name: "Umar bin Khattab", role: "Amirul Mukminin Penerima Kunci Al-Quds dan Pembuat Piagam Aelia", role_en: "Caliph Who Received the Keys of Jerusalem & Issued the Covenant", role_ar: "أمير المؤمنين مستلم مفاتيح القدس ومسطر العهدة العمرية" },
 
-        { name: "Abu Ubaidah bin al-Jarrah", role: "Pengepung Kota Baitul Maqdis Hingga Menyerah Damai" }
+        { name: "Abu Ubaidah bin al-Jarrah", role: "Pengepung Kota Baitul Maqdis Hingga Menyerah Damai", role_en: "Led the Siege Resulting in Peaceful Capitulation", role_ar: "قائد حصار بيت المقدس حتى التسليم السلمي" }
 
       ],
 
       "639-penaklukan-mesir": [
 
-        { name: "Amr bin Ash", role: "Panglima Penakluk Benteng Babilon dan Pembebas Mesir" }
+        { name: "Amr bin Ash", role: "Panglima Penakluk Benteng Babilon dan Pembebas Mesir", role_en: "Commander Who Captured Babylon Fortress & Liberated Egypt", role_ar: "فاتح حصن بابليون ومؤسس الفسطاط في مصر" }
 
       ],
 
       "644-wafatnya-umar-utsman-menjadi-khalifah": [
 
-        { name: "Umar bin Khattab", role: "Amirul Mukminin Syahid Pembentuk Dewan Syura Enam Tokoh" },
+        { name: "Umar bin Khattab", role: "Amirul Mukminin Syahid Pembentuk Dewan Syura Enam Tokoh", role_en: "Martyred Caliph Who Established the Six-Member Electoral Council", role_ar: "الخليفة الشهيد ومؤسس مجلس الشورى الستي" },
 
-        { name: "Utsman bin Affan", role: "Khalifah Ketiga Terpilih Hasil Musyawarah Syura" }
+        { name: "Utsman bin Affan", role: "Khalifah Ketiga Terpilih Hasil Musyawarah Syura", role_en: "Third Caliph Elected by the Shura Council", role_ar: "ثالث الخلفاء الراشدين المختار عبر الشورى" }
 
       ],
 
       "650-mushaf-utsmani": [
 
-        { name: "Utsman bin Affan", role: "Pemrakarsa Penyatuan Bacaan dan Penggandaan Mushaf Induk Al-Qur'an" }
+        { name: "Utsman bin Affan", role: "Pemrakarsa Penyatuan Bacaan dan Penggandaan Mushaf Induk Al-Qur'an", role_en: "Initiator of the Unified Standard Uthmani Codex", role_ar: "جامع الأمة على المصحف الإمام الموحّد" }
 
       ],
 
       "656-wafatnya-utsman-ali-menjadi-khalifah": [
 
-        { name: "Utsman bin Affan", role: "Dzun Nurain yang Wafat Syahid Mempertahankan Keutuhan Umat" },
+        { name: "Utsman bin Affan", role: "Dzun Nurain yang Wafat Syahid Mempertahankan Keutuhan Umat", role_en: "Martyred Third Caliph Who Refused Civil Bloodshed in Medina", role_ar: "ذو النورين الشهيد الصابر حقناً لدماء المسلمين" },
 
-        { name: "Ali bin Abi Thalib", role: "Khalifah Keempat yang Menerima Baiat di Masjid Nabawi" }
+        { name: "Ali bin Abi Thalib", role: "Khalifah Keempat yang Menerima Baiat di Masjid Nabawi", role_en: "Fourth Caliph Receiving Allegiance in Medina", role_ar: "رابع الخلفاء الراشدين المبايع في المسجد النبوي" }
 
       ],
 
       "656-perang-jamal-dan-shiffin": [
 
-        { name: "Ali bin Abi Thalib", role: "Amirul Mukminin Penjaga Garis Hukum dan Persatuan Negara" },
+        { name: "Ali bin Abi Thalib", role: "Amirul Mukminin Penjaga Garis Hukum dan Persatuan Negara", role_en: "Caliph Striving to Preserve Law & Unity of the Ummah", role_ar: "أمير المؤمنين الساعي لصون وحدة الدولة والنظام" },
 
-        { name: "Aisyah binti Abu Bakar", role: "Ummul Mukminin Penuntut Keadilan atas Wafatnya Utsman" },
+        { name: "Mu’awiyah bin Abi Sufyan", role: "Gubernur Syam Penuntut Qishash Darah Utsman", role_en: "Governor of Syria Demanding Retribution for Uthman's Assassination", role_ar: "والي الشام المطالب بالقصاص لدم عثمان" },
 
-        { name: "Mu’awiyah bin Abi Sufyan", role: "Gubernur Syam Penuntut Qishash Darah Utsman" },
-
-        { name: "Amr bin Ash", role: "Juru Runding Pihak Syam dalam Majelis Tahkim" }
+        { name: "Amr bin Ash", role: "Juru Runding Pihak Syam dalam Majelis Tahkim", role_en: "Chief Syrian Negotiator at the Arbitration Council", role_ar: "كبير مفاوضي أهل الشام في التحكيم" }
 
       ],
 
       "661-wafatnya-ali": [
 
-        { name: "Ali bin Abi Thalib", role: "Amirul Mukminin yang Gugur Syahid Ditikam Ibnu Muljam" },
+        { name: "Ali bin Abi Thalib", role: "Amirul Mukminin yang Gugur Syahid Ditikam Ibnu Muljam", role_en: "Martyred Caliph Struck Down in Kufa Mosque", role_ar: "أمير المؤمنين الذي استشهد طعناً في مسجد الكوفة" },
 
-        { name: "Hasan bin Ali", role: "Putra Tertua yang Menerima Wasiat Kepemimpinan Sementara" }
+        { name: "Hasan bin Ali", role: "Putra Tertua yang Menerima Wasiat Kepemimpinan Sementara", role_en: "Eldest Son Who Assumed Interim Leadership in Kufa", role_ar: "السبط الأكبر المبايع بعد استشهاد أبيه بالكوفة" }
 
       ],
 
       "661-daulah-umayyah-berdiri": [
 
-        { name: "Mu’awiyah bin Abi Sufyan", role: "Pendiri Daulah Umayyah Berpusat di Damaskus" },
+        { name: "Mu’awiyah bin Abi Sufyan", role: "Pendiri Daulah Umayyah Berpusat di Damaskus", role_en: "Founder of the Umayyad Caliphate in Damascus", role_ar: "مؤسس الدولة الأموية وعاصمتها دمشق" },
 
-        { name: "Hasan bin Ali", role: "Sayyidul Ummah Tokoh Perdamaian Amul Jama'ah (Tahun Persatuan)" }
+        { name: "Hasan bin Ali", role: "Sayyidul Ummah Tokoh Perdamaian Amul Jama'ah (Tahun Persatuan)", role_en: "Peacemaker Who Unified the Community in the Year of Unity (41 AH)", role_ar: "سيد شباب أهل الجنة وصانع صلح عام الجماعة" }
 
       ],
 
       "680-peristiwa-karbala": [
 
-        { name: "Husain bin Ali", role: "Sayyidus Syuhada yang Gugur Syahid di Padang Karbala" },
+        { name: "Husain bin Ali", role: "Sayyidus Syuhada yang Gugur Syahid di Padang Karbala", role_en: "Grandson of the Prophet Who Fell at Karbala", role_ar: "سبط النبي ﷺ وسيد الشهداء في كربلاء" },
 
-        { name: "Yazid bin Mu’awiyah", role: "Khalifah Kedua Umayyah Pemegang Takhta Damaskus" }
+        { name: "Yazid bin Mu’awiyah", role: "Khalifah Kedua Umayyah Pemegang Takhta Damaskus", role_en: "Second Umayyad Caliph Reigning from Damascus", role_ar: "ثاني خلفاء بني أمية في دمشق" }
 
       ],
 
       "685-masa-abdul-malik": [
 
-        { name: "Abdul Malik bin Marwan", role: "Khalifah Pemersatu Negeri dan Pembangun Kubah Shakhrah" },
+        { name: "Abdul Malik bin Marwan", role: "Khalifah Pemersatu Negeri dan Pembangun Kubah Shakhrah", role_en: "Caliph Who Reunified the Realm & Commissioned the Dome of the Rock", role_ar: "موحد الأمة الأموية وباني قبة الصخرة" },
 
-        { name: "Al-Hajjaj bin Yusuf ats-Tsaqafi", role: "Gubernur Penumpas Perlawanan Makkah dan Irak" },
+        { name: "Al-Hajjaj bin Yusuf ats-Tsaqafi", role: "Gubernur Penumpas Perlawanan Makkah dan Irak", role_en: "Governor Who Crushed Revolts Across the Hijaz and Iraq", role_ar: "والي العراق والحجاز ومخمد الثورات" },
 
-        { name: "Abdullah bin az-Zubair", role: "Khalifah Makkah Pembela Otonomi Hijaz Selama 9 Tahun" }
+        { name: "Abdullah bin az-Zubair", role: "Khalifah Makkah Pembela Otonomi Hijaz Selama 9 Tahun", role_en: "Caliph in Mecca Defending Hijaz Autonomy for Nine Years", role_ar: "خليفة مكة والمدافع عن الحجاز تسع سنوات" }
 
       ],
 
       "711-penaklukan-andalusia": [
 
-        { name: "Thariq bin Ziyad", role: "Panglima Penyeberang Selat Jabal Thariq (Gibraltar)" },
+        { name: "Thariq bin Ziyad", role: "Panglima Penyeberang Selat Jabal Thariq (Gibraltar)", role_en: "Commander Who Crossed the Strait of Gibraltar into Iberia", role_ar: "القائد الذي عبر مضيق جبل طارق فاتحاً للأندلس" },
 
-        { name: "Musa bin Nushair", role: "Gubernur Ifriqiyah Pemimpin Pasukan Bala Bantuan ke Toledo" }
+        { name: "Musa bin Nushair", role: "Gubernur Ifriqiyah Pemimpin Pasukan Bala Bantuan ke Toledo", role_en: "Governor of Ifriqiya Who Reinforced the Iberian Campaign", role_ar: "والي إفريقية وقائد المدد المتجه إلى طليطلة" }
 
       ],
 
       "712-islam-masuk-ke-sindh": [
 
-        { name: "Muhammad bin Qasim ats-Tsaqafi", role: "Panglima Muda 17 Tahun Pembawa Islam ke Lembah Indus" }
+        { name: "Muhammad bin Qasim ats-Tsaqafi", role: "Panglima Muda 17 Tahun Pembawa Islam ke Lembah Indus", role_en: "Young Commander Who Opened Sindh in the Indus Valley", role_ar: "القائد الشاب فاتح بلاد السند ووادي السند" }
 
       ],
 
       "717-pengepungan-konstantinopel-kedua": [
 
-        { name: "Maslamah bin Abdul Malik", role: "Panglima Pengepung Darat dan Laut Selat Bosphorus" },
+        { name: "Maslamah bin Abdul Malik", role: "Panglima Pengepung Darat dan Laut Selat Bosphorus", role_en: "Commander Leading the Land and Naval Siege of Constantinople", role_ar: "قائد حصار القسطنطينية براً وبحراً" },
 
-        { name: "Umar bin Abdul Aziz", role: "Khalifah Adil yang Menarik Mundur Pasukan Demi Menjaga Jiwa Prajurit" }
+        { name: "Umar bin Abdul Aziz", role: "Khalifah Adil yang Menarik Mundur Pasukan Demi Menjaga Jiwa Prajurit", role_en: "Just Caliph Who Ordered Tactical Withdrawal to Spare His Troops", role_ar: "الخليفة العادل الذي سحب الجيش حفاظاً على أرواح الجند" }
 
       ],
 
       "732-pertempuran-tours-poitiers": [
 
-        { name: "Abdurrahman al-Ghafiqi", role: "Gubernur Mujahid Andalusia yang Gugur di Balath asy-Syuhada" }
+        { name: "Abdurrahman al-Ghafiqi", role: "Gubernur Mujahid Andalusia yang Gugur di Balath asy-Syuhada", role_en: "Andalusian Governor Who Fell at the Battle of Tours", role_ar: "والي الأندلس الشهيد في بلاط الشهداء" }
 
       ],
 
       "756-emirat-cordoba-berdiri": [
 
-        { name: "Abdurrahman ad-Dakhil", role: "Shaqr Quraisy (Rajawali Quraisy) Pendiri Keamiran Cordoba" }
+        { name: "Abdurrahman ad-Dakhil", role: "Shaqr Quraisy (Rajawali Quraisy) Pendiri Keamiran Cordoba", role_en: "Falcon of Quraysh Who Founded the Emirate of Cordoba", role_ar: "صقر قريش ومؤسس إمارة قرطبة الأموية" }
 
       ]
 
@@ -2540,8 +2601,6 @@
         desc_ar: "أم المؤمنين الطاهرة التي صدّقت بالرسالة وثبّتت فؤاد النبي ﷺ وبذلت كل مالها لنصرة الدين الحق.",
 
         entities: [
-
-          { type: "characters", id: "Khadijah", role: "Ummul Mukminin & Tokoh Pertama yang Beriman" },
 
           { type: "events", id: "610-wahyu-pertama", role: "Turunnya Wahyu Pertama di Gua Hira" },
 
@@ -4269,19 +4328,36 @@ Kaidah Ketat:
 
 
 
+    const D = window.__ALFA_DEFS || window.DEFS || (typeof DEFS !== "undefined" ? DEFS : null);
+    const charsArr = (D && Array.isArray(D.characters)) ? D.characters : [];
+    const findDefChar = nm => {
+      const cn = resolveCharacterName(nm);
+      return charsArr.find(x => x.name === nm || x.name === cn || resolveCharacterName(x.name) === cn) || { name: cn };
+    };
+
     return list.map(item => {
 
-      const img = getEntityImg("characters", item.name);
+      const canonName = resolveCharacterName(item.name);
+
+      const img = getEntityImg("characters", canonName) || getEntityImg("characters", item.name);
+
+      const locDef = char(findDefChar(canonName));
+
+      let roleStr = item.role || "";
+      if(LANG !== "id"){
+        roleStr = (LANG === "en" ? item.role_en : item.role_ar) || (locDef && locDef.role) || "";
+      }
+      if(LANG === "ar") roleStr = normalizeArabic(roleStr);
 
       return {
 
-        name: item.name,
+        name: (LANG === "ar" ? normalizeArabic(locDef && locDef.name ? locDef.name : item.name) : (locDef && locDef.name ? locDef.name : item.name)),
 
-        role: item.role,
+        role: roleStr,
 
         img: img,
 
-        url: "/detail.html?t=characters&id=" + encodeURIComponent(item.name)
+        url: "/detail.html?t=characters&id=" + encodeURIComponent(canonName)
 
       };
 
@@ -4315,9 +4391,14 @@ Kaidah Ketat:
 
     }
 
-
+    const findDefChar = nm => {
+      const cn = resolveCharacterName(nm);
+      return (D && Array.isArray(D.characters) ? D.characters : []).find(x => x.name === nm || x.name === cn || resolveCharacterName(x.name) === cn) || { name: cn };
+    };
+    const locDef = char(findDefChar(charName));
 
     const cTarget = String(charName).trim().toLowerCase();
+    const cCanon = resolveCharacterName(charName).toLowerCase();
 
 
 
@@ -4326,8 +4407,9 @@ Kaidah Ketat:
       const found = chars.find(c => {
 
         const cName = (c.name || "").toLowerCase();
+        const cNameCan = resolveCharacterName(c.name || "").toLowerCase();
 
-        return cName === cTarget || cName.includes(cTarget) || cTarget.includes(cName);
+        return cName === cTarget || cNameCan === cCanon || cName.includes(cTarget) || cTarget.includes(cName);
 
       });
 
@@ -4335,21 +4417,28 @@ Kaidah Ketat:
 
         const stripped = slug.replace(/^\d+-/, "");
 
-        const ev = evMap[slug] || evMap[stripped] || {};
+        const rawEv = evMap[slug] || evMap[stripped] || {};
+        const locEv = rawEv.slug ? event(rawEv) : rawEv;
+
+        let roleStr = found.role || "";
+        if(LANG !== "id"){
+          roleStr = (LANG === "en" ? found.role_en : found.role_ar) || (locDef && locDef.role) || "";
+        }
+        if(LANG === "ar") roleStr = normalizeArabic(roleStr);
 
         res.push({
 
-          slug: ev.slug || slug,
+          slug: rawEv.slug || slug,
 
-          title: ev.title || slug.replace(/^\d+-/, "").replace(/-/g, " "),
+          title: locEv.title || slug.replace(/^\d+-/, "").replace(/-/g, " "),
 
-          year: ev.year || slug.match(/^\d+/)?.[0] || "",
+          year: rawEv.year || slug.match(/^\d+/)?.[0] || "",
 
-          role: found.role,
+          role: roleStr,
 
-          img: (Array.isArray(ev.slides) && ev.slides[0]) || "",
+          img: (Array.isArray(rawEv.slides) && rawEv.slides[0]) || "",
 
-          url: "/detail.html?t=events&id=" + encodeURIComponent(ev.slug || slug)
+          url: "/detail.html?t=events&id=" + encodeURIComponent(rawEv.slug || slug)
 
         });
 
@@ -4381,6 +4470,9 @@ Kaidah Ketat:
     resolveCharacterName,
 
     getCharacterEvents,
+
+    normalizeArabic,
+    normalizeDomArabic,
 
     setDefaultsData: defs => { window.__ALFA_DEFS = defs; },
 

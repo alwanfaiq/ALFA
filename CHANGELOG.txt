@@ -4,6 +4,64 @@ Repository: alfahistory.web.id
 ================================================================================
 
 --------------------------------------------------------------------------------
+VERSI 1.10.0 (27 November 2026) - PERBAIKAN GLITCH LINIMASA, BISMILLAH KUFI, CHANGA ARAB & EKSPANSI KONTEN
+--------------------------------------------------------------------------------
+1. Perbaikan Glitch Loncat Linimasa (Scroll Preservation):
+   - Memperbaiki renderKRSub() di index.html agar menyimpan posisi scroll horizontal (.k1)
+     sebelum DOM dibangun ulang dan memulihkannya tanpa scrollIntoView (yang sebelumnya
+     menyebabkan rel linimasa melompat kembali ke posisi kiri dan menggeser layar vertikal).
+   - Menghormati prefers-reduced-motion saat menyelaraskan tahun aktif yang di luar viewport.
+
+2. Lokalisasi Penuh (ID / EN / AR) & Perbaikan Bug Font Changa Arab:
+   - Memperbaiki kunci navTimeline yang masih berbahasa Indonesia ("Linimasa") pada paket
+     bahasa Inggris di i18n.js -> kini "Timeline", serta memblokir kebocoran teks peran
+     berbahasa Indonesia di halaman detail tokoh/peristiwa (detail.html) dan Watch Room (watch.html).
+   - Menambahkan mesin resolusi alias karakter pada I.char(), I.getEventCharacters(), dan
+     I.getCharacterEvents() plus terjemahan peran trilingual pada seluruh 75 relasi
+     HISTORICAL_GRAPH.events_to_chars dan 16 karakter yang belum tercakup di i18n_en/ar.json.
+   - Menambahkan fungsi ALFA_AR_NORM / normalizeArabic() dan normalizeDomArabic() sesuai aturan
+     font Changa: jika suatu kata Arab memiliki tasydid (U+0651), harakat pendek lain
+     (U+064B–U+0650, U+0652) dihapus agar huruf bersambung rapi tanpa spasi merenggang.
+
+3. Kaligrafi Bismillah Kufi Murabba' di Muqaddimah:
+   - Membuat aset vektor SVG khusus assets/bismillah-kufi.svg bergaya Kufi Murabba' (Square Kufic)
+     berbasis grid ortogonal murni yang telah difinalisasi pengguna serta diterapkan pada tab
+     Muqaddimah (#sourcesDlg) lengkap dengan alt/aria-label multibahasa.
+
+4. Integritas Rujukan Primer & Adab Representasi (About This Telling):
+   - Menghapus tautan Abu Bakar Asshiddiq dari peristiwa Peletakan Hajar Aswad (605 M) pada
+     HISTORICAL_GRAPH agar relasi tokoh-peristiwa sesuai kesaksian sumber primer.
+   - Menghapus kartu figur Ummahatul Mukminin dari grid kartu peristiwa (HISTORICAL_GRAPH),
+     sementara cover karakter Sayyidah Khadijah dan Sayyidah Aisyah yang ada tetap dipertahankan.
+   - Memperbaiki tautan Shamela.ws pada ISLAMIC_SOURCES yang keliru/404: Siyar A'lam an-Nubala'
+     diverifikasi ke shamela.ws/book/10906, dan Ar-Rahiq al-Makhtum / Suwar min Hayatis Sahabah /
+     Khulashah Nurul Yaqin diarahkan ke tautan arsip terverifikasi HTTP 200.
+
+5. Sinkronisasi Peta, Aset Media (Supabase Storage) & Atribusi Wikimedia Commons:
+   - Seluruh 51 berkas media WebP baru (23 ilustrasi lanskap tempat & peristiwa dari cache Flow,
+     13 foto situs bersejarah Wikimedia Commons, dan 2 kartu kaligrafi nama) diunggah eksklusif
+     ke bucket Storage Supabase `media/v1.10.0/`. Berkas media tidak dimasukkan ke bundle GitHub.
+   - Atribusi Foto Situs Bersejarah Wikimedia Commons (tanpa watermark, >=1200px):
+     * Gua Hira / Jabal Nur: File:Jabal Nur.JPG (Public domain)
+     * Bukit Uhud: File:Mount Uhud, Medina, 20241002 091210 028.jpg (CC BY 4.0)
+     * Masjid Quba: File:The Historic Quba Mosque in Madinah (2025).jpg (CC BY-SA 4.0)
+     * Masjid Agung Umawi Damaskus: File:Damascus, Syria, The Umayyad Mosque, The Courtyard, Islamic Art.jpg (CC BY 4.0)
+     * Kubah Shakhrah (Baitul Maqdis): File:Dome of the Rock (Jerusalem 2013) (8683269422).jpg (CC BY 2.0)
+     * Masjid Amr bin Ash (Fustat): File:Amr Ibn al-Aas Mosque Cairo (8).jpg (CC BY-SA 3.0)
+     * Taq Kasra (Al-Mada'in / Ctesiphon): File:001125-TaqKasra-Iraq-IMG 7914-2.jpg (CC BY-SA 4.0)
+     * Greater Kyz Kala (Merv): File:Greater Kyz Kala, Merv, Turkmenistan 2019 01.jpg (CC BY-SA 2.0)
+     * Masjid Khalid bin Walid (Hims): File:Homs Khalid Ibn al-Walid Mosque 3057.jpg (CC BY-SA 4.0)
+     * Reruntuhan Kirene (Barqah): File:Ancient Glory of Cyrene-libya.jpg (CC BY-SA 4.0)
+     * Benteng Tabuk: File:Festung von Tabuk.jpg (CC BY-SA 4.0)
+     * Oasis & Benteng Qamus (Khaibar): File:Khaybar - deserted houses.jpg (CC BY-SA 4.0)
+     * Pesisir Laut Merah (Hijaz): File:ISS015-E-8102 - View of Saudi Arabia.jpg (Public domain)
+   - Penambahan konten artikel ke database Supabase dan fallback lokal (defaults.json,
+     i18n_en.json, i18n_ar.json): 124 pembaruan peristiwa yang sebelumnya kosong, 13
+     peristiwa baru untuk menutup seluruh tempat yang sebelumnya belum memiliki artikel,
+     serta 2 tokoh baru (Amr bin Luhay al-Khuza'i dan Zaid bin Amr bin Nufail).
+
+
+--------------------------------------------------------------------------------
 VERSI 1.9.1 (26 November 2026) - PENYELARASAN PETA FULL Z5 & PEMBARUAN POP-OUT ALFA
 --------------------------------------------------------------------------------
 1. Penyempurnaan Presisi Garis Pantai assets/world.svg (6-Pass Ink-Edge Lock hingga 4K):

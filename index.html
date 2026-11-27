@@ -863,6 +863,7 @@ html[dir="rtl"] .src-tell-card.eth{border-left:1px solid var(--border);border-ri
 .src-tell-card p{font-size:.88rem;line-height:1.65;color:var(--ink);white-space:pre-line}
 
 .src-muq-bismillah{font-family:Amiri,'Scheherazade New',serif;font-size:1.6rem;color:var(--g);text-align:center;margin:2px 0 14px;letter-spacing:0;line-height:1.6}
+.src-muq-bismillah-img{display:block;width:min(540px,94%);max-height:46px;height:auto;margin:2px auto 16px;object-fit:contain}
 
 .src-muq-lead{font-size:.94rem;line-height:1.72;color:#f3ead8;margin-bottom:16px}
 
@@ -3474,6 +3475,10 @@ function renderKRSub(){
 
   const subBox=$("#krSubWrap");if(!subBox)return;
 
+  const prevK1=subBox.querySelector(".k1");
+
+  const prevLeft=prevK1?prevK1.scrollLeft:0;
+
   subBox.replaceChildren();
 
   if(!KS.era)return;
@@ -3668,6 +3673,32 @@ function renderKRSub(){
 
   subBox.append(sub);
 
+  requestAnimationFrame(()=>{
+
+    sc.scrollLeft=prevLeft;
+
+    const actLi=sc.querySelector("li.on");
+
+    if(actLi){
+
+      const viewL=sc.scrollLeft,viewR=viewL+sc.clientWidth;
+
+      const elL=actLi.offsetLeft,elR=elL+actLi.offsetWidth;
+
+      if(elL<viewL||elR>viewR){
+
+        const targetLeft=Math.max(0,elL-(sc.clientWidth-actLi.offsetWidth)/2);
+
+        const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        sc.scrollTo({left:targetLeft,behavior:reduceMotion?"auto":"smooth"});
+
+      }
+
+    }
+
+  });
+
 }
 
 
@@ -3686,27 +3717,27 @@ const WTIP=(()=>{const d=document.createElement("div");d.className="wtip";docume
 
 const MILESTONES=[
 
-  {pos:0,y:570,l:"570"},
+  {pos:0,y:570,l:"570",l_en:"570",l_ar:"٥٧٠"},
 
-  {pos:86,y:622,l:"622 Hijrah"},
+  {pos:86,y:622,l:"622 Hijrah",l_en:"622 Hijrah",l_ar:"٦٢٢ الهجرة"},
 
-  {pos:178,y:632,l:"632 Rasyidin"},
+  {pos:178,y:632,l:"632 Rasyidin",l_en:"632 Rashidun",l_ar:"٦٣٢ الراشدون"},
 
-  {pos:276,y:661,l:"661 Umayyah"},
+  {pos:276,y:661,l:"661 Umayyah",l_en:"661 Umayyad",l_ar:"٦٦١ الأموية"},
 
-  {pos:382,y:750,l:"750 Abbasiyah"},
+  {pos:382,y:750,l:"750 Abbasiyah",l_en:"750 Abbasid",l_ar:"٧٥٠ العباسية"},
 
-  {pos:490,y:1055,l:"1055 Seljuk"},
+  {pos:490,y:1055,l:"1055 Seljuk",l_en:"1055 Seljuk",l_ar:"١٠٥٥ السلاجقة"},
 
-  {pos:598,y:1187,l:"1187 Ayyubiyah"},
+  {pos:598,y:1187,l:"1187 Ayyubiyah",l_en:"1187 Ayyubid",l_ar:"١١٨٧ الأيوبية"},
 
-  {pos:704,y:1453,l:"1453 Utsmani"},
+  {pos:704,y:1453,l:"1453 Utsmani",l_en:"1453 Ottoman",l_ar:"١٤٥٣ العثمانية"},
 
-  {pos:806,y:1600,l:"1600 Imperium"},
+  {pos:806,y:1600,l:"1600 Imperium",l_en:"1600 Gunpowder",l_ar:"١٦٠٠ الممالك"},
 
-  {pos:912,y:1850,l:"1850 Kolonial"},
+  {pos:912,y:1850,l:"1850 Kolonial",l_en:"1850 Colonial",l_ar:"١٨٥٠ الاستعمار"},
 
-  {pos:1000,y:2025,l:"2025"}
+  {pos:1000,y:2025,l:"2025",l_en:"2025",l_ar:"٢٠٢٥"}
 
 ];
 
@@ -3878,7 +3909,7 @@ function openPlacePopup(rawP){
 
   $("#wPopTitle").textContent=p.n||"";
 
-  $("#wPopEra").textContent=arr(p.countries).map(kcn).join(", ")||"Historic Place";
+  $("#wPopEra").textContent=arr(p.countries).map(kcn).join(", ")||I.t("historicPlaceLabel");
 
   const sub=$("#wPopSub");sub.textContent=p.s||"";sub.hidden=!p.s;
 
@@ -4429,7 +4460,9 @@ function buildWEraBar(){
 
       const cls="tl-mk"+(idx==0?" edge-l":(idx==MILESTONES.length-1?" edge-r":""));
 
-      const b=el("button",cls,m.l);
+      const mLbl=I.getLang()==="ar"?(m.l_ar||m.l):(I.getLang()==="en"?(m.l_en||m.l):m.l);
+
+      const b=el("button",cls,mLbl);
 
       b.type="button";b.dataset.y=String(m.y);
 
@@ -4833,7 +4866,7 @@ function rVD(l){
 
     a.onclick=e=>{
       e.preventDefault();
-      show(GIMG(d.img), d.title, "VIDEO DOKUMENTER", d.description||"", d.url||1, {type:"videos",id:vidSlug,rec:d});
+      show(GIMG(d.img), d.title, I.t("docVideoBadge"), d.description||"", d.url||1, {type:"videos",id:vidSlug,rec:d});
     };
 
     if(GIMG(d.img)){const im=new Image();im.src=d.img;im.alt="";th.append(im)}
@@ -5270,7 +5303,7 @@ function initSources(){
 
       pMuq.replaceChildren();
 
-      const bis=document.createElement("div");bis.className="src-muq-bismillah";bis.textContent="بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ";
+      const bis=document.createElement("img");bis.className="src-muq-bismillah-img";bis.src="assets/bismillah-kufi.svg";bis.alt=I.t("bismillahAlt");bis.setAttribute("aria-label",I.t("bismillahAlt"));
 
       const card=document.createElement("div");card.className="src-tell-card";
 
@@ -5284,9 +5317,11 @@ function initSources(){
 
       card.append(h4,lead,bodyWrap);
 
+      const normAr=s=>(I&&typeof I.normalizeArabic==="function")?I.normalizeArabic(s):s;
+
       const q1=document.createElement("blockquote");q1.className="src-muq-quote";
 
-      const q1a=document.createElement("p");q1a.className="src-muq-ar";q1a.textContent="إِنْ أُرِيدُ إِلَّا الْإِصْلَاحَ مَا اسْتَطَعْتُ ۚ وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ";
+      const q1a=document.createElement("p");q1a.className="src-muq-ar";q1a.textContent=normAr("إِنْ أُرِيدُ إلّا الْإِصْلَاحَ مَا اسْتَطَعْتُ ۚ وَمَا تَوْفِيقِي إلّا باللّه ۚ عَلَيْهِ توكّلت وَإِلَيْهِ أُنِيبُ");
 
       const q1t=document.createElement("p");q1t.className="src-muq-tr";q1t.textContent=I.t("muqVerse1Tr");
 
@@ -5296,7 +5331,7 @@ function initSources(){
 
       const q2=document.createElement("blockquote");q2.className="src-muq-quote";
 
-      const q2a=document.createElement("p");q2a.className="src-muq-ar";q2a.textContent="رَبَّنَا تَقَبَّلْ مِنَّا ۖ إِنَّكَ أَنْتَ السَّمِيعُ الْعَلِيمُ";
+      const q2a=document.createElement("p");q2a.className="src-muq-ar";q2a.textContent=normAr("ربّنا تقبّل منّا ۖ إنّك أَنْتَ السّميع الْعَلِيمُ");
 
       const q2t=document.createElement("p");q2t.className="src-muq-tr";q2t.textContent=I.t("muqVerse2Tr");
 
@@ -5328,7 +5363,7 @@ function initSources(){
 
       const hQuote=document.createElement("blockquote");hQuote.className="src-muq-quote";
 
-      const hAr=document.createElement("p");hAr.className="src-muq-ar";hAr.textContent="«مَنْ دَلَّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ»";
+      const hAr=document.createElement("p");hAr.className="src-muq-ar";hAr.textContent=(I&&typeof I.normalizeArabic==="function")?I.normalizeArabic("«مَنْ دلّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ»"):"«مَنْ دلّ عَلَى خَيْرٍ فَلَهُ مِثْلُ أَجْرِ فَاعِلِهِ»";
 
       const hTr=document.createElement("p");hTr.className="src-muq-tr";hTr.textContent=I.t("supHadithTr");
 
@@ -5551,6 +5586,8 @@ function applyStaticI18n(){
   });
 
   const sd=$("#sourcesDlg");if(sd&&sd.open&&window.alfaRenderSources)window.alfaRenderSources();
+
+  if(I&&typeof I.normalizeDomArabic==="function")I.normalizeDomArabic();
 
 }
 

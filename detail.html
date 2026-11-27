@@ -207,7 +207,7 @@ function syncHeaderUI(){
   const lm=document.getElementById("loadMsg");
   if(lm)lm.textContent=I.t("loading");
   const st=document.getElementById("shareTxt");
-  if(st)st.textContent=I.t("shareStory")||"Bagi Kisah";
+  if(st)st.textContent=I.t("shareStory");
 }
 
 // Reading progress listener
@@ -225,9 +225,9 @@ document.getElementById("shareBtn").onclick=()=>{
     navigator.share(shareData).catch(()=>{});
   }else{
     navigator.clipboard.writeText(location.href).then(()=>{
-      showToast(I.t("linkCopied")||"Tautan berhasil disalin!");
+      showToast(I.t("linkCopied"));
     }).catch(()=>{
-      showToast(I.t("linkCopied")||"Tautan berhasil disalin!");
+      showToast(I.t("linkCopied"));
     });
   }
 };
@@ -352,7 +352,7 @@ function render(raw){
     const evChars=I.getEventCharacters(d.slug||ID);
     if(evChars&&evChars.length){
       const sec=el("section","event-figures-sec");
-      sec.append(el("h3","sec-title","✦ "+(I.t("eventFiguresHeading")||"Tokoh dalam Peristiwa Ini")));
+      sec.append(el("h3","sec-title",I.t("eventFiguresHeading")));
       const grid=el("div","sq-char-grid");
       evChars.forEach(ch=>{
         const card=el("a","sq-char-card");card.href=ch.url;
@@ -378,7 +378,7 @@ function render(raw){
     const chEvents=I.getCharacterEvents(d.name);
     if(chEvents&&chEvents.length){
       const sec=el("section","char-events-sec");
-      sec.append(el("h3","sec-title","✦ "+(I.t("charEventsHeading")||"Peristiwa Kunci Terkait")));
+      sec.append(el("h3","sec-title",I.t("charEventsHeading")));
       const grid=el("div","ch-events-grid");
       chEvents.forEach(ev=>{
         const card=el("a","ch-event-card");card.href=ev.url;
@@ -397,7 +397,7 @@ function render(raw){
 
   // Rujukan Sumber Kontekstual & "About This Telling" (Gaya MyQabas)
   if(window.ALFA_SOURCES_ENGINE){
-    const sData=window.ALFA_SOURCES_ENGINE.resolve(raw,T,I.getLang());
+    const sData=window.ALFA_SOURCES_ENGINE.resolve(d,T,I.getLang());
     if(sData){
       const srcSec=el("section","qabas-sources");
       srcSec.append(el("div","qs-kicker",I.t("qsKicker")));
