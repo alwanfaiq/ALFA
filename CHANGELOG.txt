@@ -61,6 +61,26 @@ VERSI 1.10.0 (27 November 2026) - PERBAIKAN GLITCH LINIMASA, BISMILLAH KUFI, CHA
      serta 2 tokoh baru (Amr bin Luhay al-Khuza'i dan Zaid bin Amr bin Nufail).
 
 
+7. Kalibrasi Pin Peta, Tipografi Arab Changa, Slider RTL, Sortir Tokoh & Galeri Situs (v1.10.0 Rev 2):
+   - Kalibrasi koordinat situs & kota di geo_labels.json agar selaras dengan tile peta z=5:
+     memindahkan Al-Hudaibiyah (57.54, 39.88), Marr az-Zahran (57.64, 39.64), Lembah Hunain
+     (57.95, 40.32), Shan'a (59.08, 43.88), Mu'tah (56.34, 35.28), Hattin (56.28, 34.58),
+     Ain Jalut (56.22, 34.76), Banten (77.18, 56.82), Demak (78.55, 56.98), Makassar (81.55, 54.68),
+     dan Ternate (83.46, 51.38) tepat ke daratan (tidak lagi berada di perairan).
+   - Mengunci font Bahasa Arab di index.html, detail.html, dan watch.html ke Google Font resmi
+     ALFA ('Changa'), menghapus Amiri & Noto Naskh Arabic dari stack RTL, serta memperbesar
+     skala keterbacaan label peta, era bar, tick linimasa, dan kartu teks Arab.
+   - Memperbaiki slider linimasa Arab (RTL) dengan menormalkan arah .tl-track-wrap / .tl-marks
+     sehingga penggeser berlian, bilah emas (--p), dan penanda tahun bergerak sejajar 1:1.
+   - Mengimplementasikan pengurutan tokoh #chSort secara lengkap untuk Default, Nama (A-Z),
+     Era (kronologis ERA_DEF), dan Signifikansi (bobot graf peristiwa HISTORICAL_GRAPH + profil).
+   - Memperbaiki foto carousel #wPopup yang kolaps saat konten panjang (.pcs flex:none) dan
+     menghilangkan kotak alt rusak pada banner kartu peristiwa tanpa gambar.
+   - Memproduksi paket visual lengkap tokoh Amr bin Luhay al-Khuza'i dan Zaid bin Amr bin Nufail
+     (Cover 287:787, Turnaround Sheet Cinzel+Arvo tanpa label pose, serta Side Gallery artifak),
+     ditambah ilustrasi peristiwa baru dan 30 foto arsitektur/manuskrip Wikimedia Commons (CC/PD)
+     ke bucket Storage Supabase media/v1.10.0/.
+
 --------------------------------------------------------------------------------
 VERSI 1.9.1 (26 November 2026) - PENYELARASAN PETA FULL Z5 & PEMBARUAN POP-OUT ALFA
 --------------------------------------------------------------------------------

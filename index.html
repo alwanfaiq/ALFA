@@ -108,7 +108,7 @@
 
 <meta name="description" content="Tracing the history of Islam through a unified interactive world map with historical era timeline slider, chronology, notable figures, and short stories.">
 
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Changa:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="assets/leaflet/leaflet.css">
 
@@ -130,9 +130,33 @@ html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px)
 
 body{background:var(--bg);color:var(--ink);font:400 16px/1.65 Bitter,Georgia,serif;overflow-x:clip;max-width:100%}
 
-[dir="rtl"] body{font-family:'Noto Naskh Arabic',Amiri,Bitter,Georgia,serif}
+[dir="rtl"] body{font-family:'Changa',sans-serif;font-size:17px;line-height:1.75}
 
-[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,[dir="rtl"] .logo,[dir="rtl"] .h-num,[dir="rtl"] .sec-title,[dir="rtl"] .modal-title{font-family:Amiri,Cinzel,serif}
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,[dir="rtl"] .logo,[dir="rtl"] .sec-title,[dir="rtl"] .modal-title,[dir="rtl"] .w-eb,[dir="rtl"] .tl-mk,[dir="rtl"] .tl-yr,[dir="rtl"] .tl-hij,[dir="rtl"] .tl-play,[dir="rtl"] .tl-all,[dir="rtl"] .kec-title,[dir="rtl"] .kec-top,[dir="rtl"] .kec-desc,[dir="rtl"] .kec-foot,[dir="rtl"] .kev h3,[dir="rtl"] .kev small,[dir="rtl"] .kev p,[dir="rtl"] .go,[dir="rtl"] .hud-pol,[dir="rtl"] .hud-scale,[dir="rtl"] .hud-desc,[dir="rtl"] .map-hud,[dir="rtl"] .w-pop-head h3,[dir="rtl"] .w-pop-tag,[dir="rtl"] .w-pop-sub,[dir="rtl"] .w-pop-desc,[dir="rtl"] .w-ev-item b,[dir="rtl"] .w-ev-item small,[dir="rtl"] .lb b,[dir="rtl"] .lb small,[dir="rtl"] .ct-fg label,[dir="rtl"] .ct-fg select,[dir="rtl"] .ct-search input,[dir="rtl"] nav a.nav-link,[dir="rtl"] .search-nav-btn,[dir="rtl"] .lang-btn,[dir="rtl"] .geo-lbl,[dir="rtl"] .hs-pin b,[dir="rtl"] .kc{font-family:'Changa',sans-serif !important;letter-spacing:0 !important}
+
+[dir="rtl"] .tl-mk{font-size:.86rem !important;font-weight:700 !important}
+
+[dir="rtl"] .w-eb{font-size:.88rem !important;padding:11px 14px !important}
+
+[dir="rtl"] .hud-pol{font-size:.86rem !important;padding:4px 10px !important}
+
+[dir="rtl"] .hud-desc,[dir="rtl"] .kec-desc,[dir="rtl"] .kev p{font-size:.92rem !important;line-height:1.65 !important}
+
+[dir="rtl"] .kec-title{font-size:1.3rem !important}
+
+[dir="rtl"] .tl-yr{font-size:1.3rem !important}
+
+[dir="rtl"] .tl-hij{font-size:.86rem !important}
+
+[dir="rtl"] .lb small{font-size:.9rem !important}
+
+[dir="rtl"] .lb b{font-size:1.12rem !important}
+
+[dir="rtl"] nav a.nav-link{font-size:.96rem !important}
+
+[dir="rtl"] .geo-country,[dir="rtl"] .geo-empire,[dir="rtl"] .geo-hist-region,[dir="rtl"] .geo-province,[dir="rtl"] .geo-sea{font-size:12px !important}
+
+[dir="rtl"] .geo-tag,[dir="rtl"] .hs-pin b{font-size:11.5px !important}
 
 [dir="rtl"] .logo small{border-left:0;border-right:1px solid var(--mut);padding-left:0;padding-right:10px}
 
@@ -322,17 +346,17 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 
 .tl-all.on{background:#2a2418;border-color:var(--g);color:var(--g)}
 
-.tl-track-wrap{display:grid;gap:6px;min-width:0}
+.tl-track-wrap{display:grid;gap:6px;min-width:0;direction:ltr}
 
-.tl-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;background:linear-gradient(90deg,var(--g) 0%,var(--g) var(--p,18%),rgba(196,163,90,.24) var(--p,18%));border:1px solid var(--g2);outline:none;cursor:pointer}
+.tl-range{-webkit-appearance:none;appearance:none;width:100%;height:6px;background:linear-gradient(90deg,var(--g) 0%,var(--g) var(--p,18%),rgba(196,163,90,.24) var(--p,18%));border:1px solid var(--g2);outline:none;cursor:pointer;direction:ltr}
 
 .tl-range::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:18px;height:18px;background:var(--g);border:2px solid #181818;transform:rotate(45deg);box-shadow:0 0 0 2px var(--g),0 2px 8px rgba(0,0,0,.6);cursor:grab}
 
 .tl-range::-moz-range-thumb{width:16px;height:16px;background:var(--g);border:2px solid #181818;transform:rotate(45deg);box-shadow:0 0 0 2px var(--g);border-radius:0;cursor:grab}
 
-.tl-marks{position:relative;height:20px;margin-top:2px}
+.tl-marks{position:relative;height:22px;margin-top:2px;direction:ltr}
 
-.tl-mk{position:absolute;top:0;transform:translateX(-50%);background:none;border:0;color:var(--mut);font:700 .66rem Arvo,serif;letter-spacing:-.01em;padding:2px 2px;cursor:pointer;white-space:nowrap;transition:color .2s}
+.tl-mk{position:absolute;top:0;transform:translateX(-50%);background:none;border:0;color:var(--mut);font:700 .66rem Arvo,serif;letter-spacing:-.01em;padding:2px 2px;cursor:pointer;white-space:nowrap;transition:color .2s;unicode-bidi:plaintext}
 
 .tl-mk.edge-l{transform:none}
 
@@ -378,7 +402,7 @@ nav a.yt:hover{background:#e00;border-color:#e00}
 
 /* UNIFIED FLOATING DETAIL POPUP (PLACE + COUNTRY) */
 
-.pcs{position:relative;aspect-ratio:16/9;background:#111;border:1px solid var(--g2);margin-bottom:4px;overflow:hidden}
+.pcs{position:relative;aspect-ratio:16/9;background:#111;border:1px solid var(--g2);margin-bottom:4px;overflow:hidden;flex:none;width:100%}
 
 .pcs[hidden]{display:none}
 
@@ -862,7 +886,7 @@ html[dir="rtl"] .src-tell-card.eth{border-left:1px solid var(--border);border-ri
 
 .src-tell-card p{font-size:.88rem;line-height:1.65;color:var(--ink);white-space:pre-line}
 
-.src-muq-bismillah{font-family:Amiri,'Scheherazade New',serif;font-size:1.6rem;color:var(--g);text-align:center;margin:2px 0 14px;letter-spacing:0;line-height:1.6}
+.src-muq-bismillah{font-family:'Changa',sans-serif;font-size:1.75rem;color:var(--g);text-align:center;margin:2px 0 14px;letter-spacing:0;line-height:1.6}
 .src-muq-bismillah-img{display:block;width:min(540px,94%);max-height:46px;height:auto;margin:2px auto 16px;object-fit:contain}
 
 .src-muq-lead{font-size:.94rem;line-height:1.72;color:#f3ead8;margin-bottom:16px}
@@ -873,7 +897,7 @@ html[dir="rtl"] .src-tell-card.eth{border-left:1px solid var(--border);border-ri
 
 html[dir="rtl"] .src-muq-quote{border-left:1px solid rgba(196,163,90,.28);border-right:3px solid var(--g)}
 
-.src-muq-ar{font-family:Amiri,'Scheherazade New',serif;font-size:1.22rem;line-height:1.85;color:#f5ecd8;direction:rtl;text-align:right;margin-bottom:8px}
+.src-muq-ar{font-family:'Changa',sans-serif;font-size:1.3rem;line-height:1.85;color:#f5ecd8;direction:rtl;text-align:right;margin-bottom:8px}
 
 .src-muq-tr{font-size:.85rem;line-height:1.6;color:var(--ink);font-style:italic;margin-bottom:6px}
 
@@ -3237,7 +3261,7 @@ function buildHS(){
 
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
 
-const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>/^(assets\/|https:\/\/)/.test(u||"")?u:"";
+const GOOD=/^https:\/\/(www\.|m\.)?(youtube\.com|youtu\.be)\//,GIMG=u=>{if(u&&typeof u==="object")u=u.url||u.img||"";return /^(assets\/|https:\/\/)/.test(u||"")?u:""};
 
 const YID=u=>{const m=(u||"").match(/(?:youtu\.be\/|youtube\.com\/(?:shorts\/|embed\/|live\/)|[?&]v=)([\w-]{11})/);return m?m[1]:""};
 
@@ -3263,29 +3287,31 @@ function krYears(era){const m=new Map();EV.filter(e=>eraOfEv(e)==era).sort((a,b)
 
 // Fallbacks for event banner image & character/place counts
 
+const SB_MEDIA_V110="https://klcbeyqlvmmtgumzphkp.supabase.co/storage/v1/object/public/media/v1.10.0";
+
 const ERA_BANNER_FALLBACK={
 
-  pra:"assets/world_overview.webp",
+  pra:SB_MEDIA_V110+"/fallbacks/era_pra_makkah.webp",
 
-  makkah:"assets/world_overview.webp",
+  makkah:SB_MEDIA_V110+"/fallbacks/era_hijaz_valley.webp",
 
-  madinah:"assets/world_overview.webp",
+  madinah:SB_MEDIA_V110+"/places/yatsrib_mosque_flow.webp",
 
-  khulafaur:"assets/world_overview.webp",
+  khulafaur:SB_MEDIA_V110+"/events/umayyad_conquest_march.webp",
 
-  umayyah:"assets/world_overview.webp",
+  umayyah:SB_MEDIA_V110+"/events/756_cordoba_emirate.webp",
 
-  abbasiyah:"assets/world_overview.webp",
+  abbasiyah:SB_MEDIA_V110+"/events/859_qarawiyyin_fez.webp",
 
-  seljuk:"assets/world_overview.webp",
+  seljuk:SB_MEDIA_V110+"/events/1187_hattin_saladin.webp",
 
-  mamluk:"assets/world_overview.webp",
+  mamluk:SB_MEDIA_V110+"/events/1260_ain_jalut_mamluk.webp",
 
-  imperium:"assets/world_overview.webp",
+  imperium:SB_MEDIA_V110+"/events/1632_mughal_taj_mahal.webp",
 
-  kolonial:"assets/world_overview.webp",
+  kolonial:SB_MEDIA_V110+"/fallbacks/world_overview.webp",
 
-  modern:"assets/world_overview.webp"
+  modern:SB_MEDIA_V110+"/fallbacks/world_overview.webp"
 
 };
 
@@ -3301,7 +3327,7 @@ function eventBannerImg(ev){
 
     const pl=PL.find(p=>p.id==ev.place);
 
-    const psl=pl&&Array.isArray(pl.sl)?pl.sl.map(GIMG).filter(Boolean):[];
+    const psl=pl&&Array.isArray(pl.sl||pl.slides)?(pl.sl||pl.slides).map(GIMG).filter(Boolean):[];
 
     if(psl.length)return psl[0];
 
@@ -3309,7 +3335,7 @@ function eventBannerImg(ev){
 
   const era=eraOfEv(ev);
 
-  return (era&&ERA_BANNER_FALLBACK[era.id])||"assets/world_overview.webp";
+  return (era&&ERA_BANNER_FALLBACK[era.id])||(SB_MEDIA_V110+"/fallbacks/world_overview.webp");
 
 }
 
@@ -3597,15 +3623,27 @@ function renderKRSub(){
 
       const bWrap=el("div","kev-banner");
 
-      const bImg=new Image();
+      const bSrc=eventBannerImg(rawEv);
 
-      bImg.src=eventBannerImg(rawEv);
+      if(bSrc){
 
-      bImg.alt=e.title||"";
+        const bImg=new Image();
 
-      bImg.loading="lazy";
+        bImg.src=bSrc;
 
-      bWrap.append(bImg);
+        bImg.alt=e.title||"";
+
+        bImg.loading="lazy";
+
+        bImg.onerror=()=>{bWrap.hidden=true};
+
+        bWrap.append(bImg);
+
+      }else{
+
+        bWrap.hidden=true;
+
+      }
 
       c.append(bWrap);
 
@@ -3883,7 +3921,7 @@ function openPlacePopup(rawP){
 
   const media=$("#wPopMedia"),img=media.querySelector("img");
 
-  const sl=(p.sl||[]).filter(u=>/^(assets\/|https:\/\/)/.test(u||""));
+  const sl=(p.sl||p.slides||[]).map(GIMG).filter(u=>/^(assets\/|https:\/\/)/.test(u||""));
 
   popSlideIdx=0;
 
@@ -4750,7 +4788,73 @@ function applyCH(){
 
   } else if(CF.sort == "nama"){
 
-    l.sort((a, b) => (a[0].name || "").localeCompare(b[0].name || "", "id"));
+    const loc = I && I.getLang ? I.getLang() : "id";
+
+    l.sort((a, b) => (I.char(a[0]).name || a[0].name || "").localeCompare(I.char(b[0]).name || b[0].name || "", loc, {sensitivity:"base"}) || (a[1] - b[1]));
+
+  } else if(CF.sort == "era"){
+
+    const eraIdx = c => {
+
+      const es = arr(c.eras).map(x => String(x || "").toLowerCase());
+
+      if(!es.length) return 999;
+
+      for(let i = 0; i < ERA_DEF.length; i++){
+
+        const id = String(ERA_DEF[i].id || "").toLowerCase();
+
+        const nm = String(ERA_DEF[i].name || "").toLowerCase();
+
+        if(es.some(e => e === id || e === nm || nm.includes(e) || e.includes(id))) return i;
+
+      }
+
+      return 999;
+
+    };
+
+    l.sort((a, b) => (eraIdx(a[0]) - eraIdx(b[0])) || (a[1] - b[1]));
+
+  } else if(CF.sort == "rank"){
+
+    const etc = (I && I.HISTORICAL_GRAPH && I.HISTORICAL_GRAPH.events_to_chars) || {};
+
+    const evCounts = {};
+
+    Object.values(etc).forEach(list => {
+
+      if(Array.isArray(list)) list.forEach(item => {
+
+        const rawNm = (item && item.name) || "";
+
+        const k = (I && typeof I.resolveCharacterName === "function" ? I.resolveCharacterName(rawNm) : rawNm).toLowerCase();
+
+        if(k) evCounts[k] = (evCounts[k] || 0) + 1;
+
+      });
+
+    });
+
+    const sigScore = c => {
+
+      const nm = (I && typeof I.resolveCharacterName === "function" ? I.resolveCharacterName(c.name || "") : (c.name || "")).toLowerCase();
+
+      const evScore = (evCounts[nm] || 0) * 10;
+
+      const bioScore = (c.body || "").length > 400 ? 5 : 0;
+
+      const imgScore = GIMG(c.img) ? 2 : 0;
+
+      return evScore + bioScore + imgScore;
+
+    };
+
+    l.sort((a, b) => (sigScore(b[0]) - sigScore(a[0])) || (a[1] - b[1]));
+
+  } else {
+
+    l.sort((a, b) => a[1] - b[1]);
 
   }
 

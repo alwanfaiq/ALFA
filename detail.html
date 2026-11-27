@@ -1,13 +1,15 @@
 <!doctype html>
 <!-- ALFA | History of Islam: detail.html v1.7.0 --><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ALFA | History of Islam</title>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="icon" href="/favicon.ico" sizes="48x48"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#181818">
-<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Cinzel:wght@600;700;800&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=Bitter:wght@400;700&family=Changa:wght@400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0}
 :root{--bg:#181818;--brown:#201602;--gold:#c4a35a;--gold2:#e8bf75;--g2:#6e5c36;--cream:#fff8ec;--ink:#f3ead8;--mut:#b4a88f;color-scheme:dark}
 body{background:var(--brown);color:var(--ink);font:400 17px/1.65 Bitter,Georgia,serif}
-[dir="rtl"] body{font-family:'Noto Naskh Arabic',Amiri,Bitter,Georgia,serif}
-[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,[dir="rtl"] .logo,[dir="rtl"] .h-num,[dir="rtl"] .qs-auth-title{font-family:Amiri,Cinzel,serif}
+[dir="rtl"] body{font-family:'Changa',sans-serif;font-size:18px;line-height:1.8}
+[dir="rtl"] h1,[dir="rtl"] h2,[dir="rtl"] h3,[dir="rtl"] h4,[dir="rtl"] .logo,[dir="rtl"] .qs-auth-title,[dir="rtl"] .qs-kicker,[dir="rtl"] .qs-label,[dir="rtl"] .qs-col-val,[dir="rtl"] .qs-btn,[dir="rtl"] .sec-title,[dir="rtl"] .sq-char-name,[dir="rtl"] .ch-event-title,[dir="rtl"] .back,[dir="rtl"] .share-btn,[dir="rtl"] .toc b{font-family:'Changa',sans-serif !important;letter-spacing:0 !important}
+[dir="rtl"] .rc .lb b{font-family:'Changa',sans-serif !important;font-size:1.1rem}
+[dir="rtl"] .rc .lb small{font-size:.88rem}
 [dir="rtl"] .logo small{border-left:0;border-right:1px solid var(--mut);padding-left:0;padding-right:10px}
 [dir="rtl"] .toc a.s{padding-left:0;padding-right:1rem}
 [dir="rtl"] .rich blockquote{border-left:0;border-right:4px solid var(--gold)}
@@ -175,7 +177,7 @@ figcaption{margin-top:10px;font-size:.95rem}
 <script>
 const C=window.ALFA_CFG||{},I=window.ALFA_I18N,Q=new URLSearchParams(location.search),T=["places","events"].includes(Q.get("t"))?Q.get("t"):"characters",ID=Q.get("id")||"",app=document.getElementById("app");
 const el=(a,c,x)=>{const e=document.createElement(a);if(c)e.className=c;if(x!=null)e.textContent=x;return e};
-const OK=u=>{if(!/^(assets\/|\/assets\/|https:\/\/)/.test(u||""))return"";return u.startsWith("assets/")?"/"+u:u};
+const OK=u=>{if(u&&typeof u==="object")u=u.url||u.img||"";if(!/^(assets\/|\/assets\/|https:\/\/)/.test(u||""))return"";return u.startsWith("assets/")?"/"+u:u};
 const bkBtn = document.getElementById("back");
 const bkSec = (T=="places"?"places":T=="events"?"chronology":"characters");
 bkBtn.href = "/#" + bkSec;
